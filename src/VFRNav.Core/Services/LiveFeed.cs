@@ -1,4 +1,4 @@
-using VFRNav.Core.Models;
+﻿using VFRNav.Core.Models;
 
 namespace VFRNav.Core.Services;
 
@@ -13,7 +13,10 @@ public sealed record FeedAirspace(string Name, string IcaoClass, string Type, st
 public sealed record FeedAirport(string Ident, string Name, double Lat, double Lon);
 
 /// <summary>Ce que NavVFR partage : la route, l'avion, les réglages de vol.</summary>
-public sealed record LiveFeedState(int Version, IReadOnlyList<FeedWaypoint> Route, FeedAircraft? Aircraft, double CruiseAltFt, long AircraftAgeMs);
+/// <param name="BaseMap">Fond de carte de NavVFR : le panneau de StormATC dessine le même, tuile par tuile, par <c>/api/tile</c>.</param>
+public sealed record LiveFeedState(int Version, IReadOnlyList<FeedWaypoint> Route, FeedAircraft? Aircraft, double CruiseAltFt, long AircraftAgeMs, FeedBaseMap? BaseMap = null);
+
+public sealed record FeedBaseMap(string Key, int Layers, int MaxZoom);
 
 /// <summary>Zones et terrains d'un rectangle de la carte.</summary>
 public sealed record LiveFeedMap(IReadOnlyList<FeedAirspace> Airspaces, IReadOnlyList<FeedAirport> Airports, bool AirspacesLoaded, bool Truncated);

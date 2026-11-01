@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using System.Net;
 using System.Text;
 using System.Text.Json;
@@ -18,11 +18,14 @@ public sealed class LiveFeedServer : IDisposable
     private static readonly JsonSerializerOptions Json = new(JsonSerializerDefaults.Web);
     private readonly Func<LiveFeedState> _state;
     private readonly Func<double, double, double, double, LiveFeedMap> _map;
+    private readonly Func<int, int, int, int, CancellationToken, Task<(byte[] Bytes, string ContentType)?>>? _tile;
     private HttpListener? _listener;
     private CancellationTokenSource? _stop;
 
-    public LiveFeedServer(Func<LiveFeedState> state, Func<double, double, double, double, LiveFeedMap> map)
+    public LiveFeedServer(Func<LiveFeedState> state, Func<double, double, double, double, LiveFeedMap> map,
+        Func<int, int, int, int, CancellationToken, Task<(byte[] Bytes, string ContentType)?>>? tile = null)
     {
+        _tile = tile;
         _state = state;
         _map = map;
     }
@@ -52,13 +55,33 @@ public sealed class LiveFeedServer : IDisposable
         }
     }
 
-    private void Handle(HttpListenerContext context)
+    private async Task Handle(HttpListenerContext context)
     {
         try
         {
             var request = context.Request;
             if (!request.IsLocal || request.HttpMethod != "GET") { Reply(context, 403, new { error = "refused" }); return; }
-            switch (request.Url?.AbsolutePath)
+            string path = request.Url?.AbsolutePath ?? "";
+            if (path.StartsWith("/api/tile/", StringComparison.Ordinal))
+            {
+                // /api/tile/{layer}/{z}/{x}/{y}
+                var p = path["/api/tile/".Length..].Split('/');
+                if (_tile is null || p.Length != 4 || !int.TryParse(p[0], out int layer) || !int.TryParse(p[1], out int z)
+                    || !int.TryParse(p[2], out int x) || !int.TryParse(p[3], out int y))
+                {
+                    Reply(context, 404, new { error = "not found" });
+                    return;
+                }
+                var tile = await _tile(layer, z, x, y, CancellationToken.None);
+                if (tile is null) { Reply(context, 404, new { error = "no tile" }); return; }
+                context.Response.StatusCode = 200;
+                context.Response.ContentType = tile.Value.ContentType;
+                context.Response.ContentLength64 = tile.Value.Bytes.Length;
+                await context.Response.OutputStream.WriteAsync(tile.Value.Bytes);
+                context.Response.Close();
+                return;
+            }
+            switch (path)
             {
                 case "/api/state":
                     Reply(context, 200, _state());
@@ -79,7 +102,7 @@ public sealed class LiveFeedServer : IDisposable
                     break;
             }
         }
-        catch (Exception ex) when (ex is HttpListenerException or ObjectDisposedException or InvalidOperationException)
+        catch (Exception ex) when (ex is HttpListenerException or ObjectDisposedException or InvalidOperationException or System.IO.IOException)
         {
             // le client est parti avant la réponse
         }

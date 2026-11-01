@@ -53,12 +53,42 @@ public partial class MainWindow
             () =>
             {
                 var a = _feedAircraft;
+                string key = _settings.BaseMap, carto = _settings.CartoKey;
                 return new LiveFeedState(LiveFeed.ProtocolVersion, _feedRoute, a?.Aircraft, _settings.CruiseAltFt,
-                    a is null ? -1 : (long)Math.Max(0, (DateTimeOffset.UtcNow - a.Value.At).TotalMilliseconds));
+                    a is null ? -1 : (long)Math.Max(0, (DateTimeOffset.UtcNow - a.Value.At).TotalMilliseconds),
+                    new FeedBaseMap(BaseMapSources.Effective(key, carto), BaseMapSources.LayerCount(key, carto), BaseMapSources.MaxZoom(key, carto)));
             },
             (minLat, minLon, maxLat, maxLon) =>
-                LiveFeed.Map(_shownAirspaces, _airspacesLoadedForFeed, _airports, minLat, minLon, maxLat, maxLon));
+                LiveFeed.Map(_shownAirspaces, _airspacesLoadedForFeed, _airports, minLat, minLon, maxLat, maxLon),
+            FetchTileAsync);
         _feed.Start();
+    }
+
+    private readonly Dictionary<string, (byte[] Bytes, string ContentType)> _tileCache = [];
+
+    /// <summary>Tuile du fond de carte courant, téléchargée une fois puis gardée (le fond est celui de la carte de NavVFR).</summary>
+    private async Task<(byte[] Bytes, string ContentType)?> FetchTileAsync(int layer, int z, int x, int y, CancellationToken ct)
+    {
+        string key = _settings.BaseMap, carto = _settings.CartoKey;
+        string? url = BaseMapSources.TileUrl(key, carto, layer, z, x, y);
+        if (url is null) return null;
+        string cacheKey = $"{BaseMapSources.Effective(key, carto)}/{layer}/{z}/{x}/{y}";
+        lock (_tileCache) if (_tileCache.TryGetValue(cacheKey, out var hit)) return hit;
+        try
+        {
+            using var request = new HttpRequestMessage(HttpMethod.Get, url);
+            request.Headers.UserAgent.ParseAdd("VFRNav (flight simulation)");
+            using var response = await _http.SendAsync(request, ct);
+            if (!response.IsSuccessStatusCode) return null;
+            var tile = (await response.Content.ReadAsByteArrayAsync(ct), response.Content.Headers.ContentType?.MediaType ?? "image/png");
+            lock (_tileCache)
+            {
+                if (_tileCache.Count > 1500) _tileCache.Clear();
+                _tileCache[cacheKey] = tile;
+            }
+            return tile;
+        }
+        catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException) { return null; }
     }
 
     private Waypoint? Followed() => RouteGrid.SelectedItem as Waypoint ?? _route.LastOrDefault();
