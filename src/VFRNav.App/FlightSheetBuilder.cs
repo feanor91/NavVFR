@@ -91,6 +91,18 @@ public static class FlightSheetBuilder
         doc.Blocks.Add(MakeTable(navHeaders, navRows, [0.4, 2.6, 0.8, 0.8, 0.8, 0.8, 0.8, 0.7, 1, 0.8, 1, 1], rightFrom: 2, boldLast: true));
         doc.Blocks.Add(Small("Rv : route vraie · Rm : route magnétique · Cm : cap magnétique à tenir (vent supposé constant)."));
 
+        // --- Points de navigation et notes
+        doc.Blocks.Add(Section("Points de navigation et notes"));
+        var pointRows = input.Route.Select((w, i) => new[]
+        {
+            (i + 1).ToString(Fr),
+            w.Icao ?? w.Name,
+            $"{w.Lat.ToString("0.0000", Fr)}, {w.Lon.ToString("0.0000", Fr)}",
+            w.IsAirport && w.ElevationFt > 0 ? w.ElevationFt.ToString("N0", Fr) + " ft" : "",
+            w.Notes?.Trim() ?? ""
+        }).ToList();
+        doc.Blocks.Add(MakeTable(["N°", "Point", "Position", "Élév.", "Notes"], pointRows, [0.4, 1.4, 2.2, 1.1, 5.2], rightFrom: 99));
+
         // --- Relief
         doc.Blocks.Add(Section("Relief sous la route"));
         AddTerrain(doc, input);

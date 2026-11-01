@@ -102,7 +102,7 @@ public partial class MainWindow : Window
 
         foreach (var wp in _settings.Route) _route.Add(wp);
         RouteGrid.ItemsSource = _route;
-        _route.CollectionChanged += (_, _) => RefreshRoute();
+        _route.CollectionChanged += OnRouteChanged;
 
         MapRenderer.RegisterStyleRenderer(typeof(AirspaceStyle), new AirspaceRenderer());
         var map = MapControl.Map;
@@ -125,6 +125,7 @@ public partial class MainWindow : Window
         _tipTimer.Tick += (_, _) => ShowTip();
         _viewTimer.Tick += (_, _) => ViewTick();
         _viewTimer.Start();
+        InitLive();
         _vacResizeTimer.Tick += (_, _) => { _vacResizeTimer.Stop(); if (_vacVisible) _ = RenderVacAsync(); };
         ApplyVacLayout(capture: false);
         if (_vacVisible) _ = RenderVacAsync();
@@ -287,6 +288,7 @@ public partial class MainWindow : Window
         _airspaceLayer.Features = shown.SelectMany(AirspaceFeatures).ToList();
         _airspaceLayer.DataHasChanged();
         AirspaceCount.Text = _airspaces.Count == 0 ? "" : $"{shown.Count} / {_airspaces.Count} espaces affichés";
+        ScheduleLive();
         MapControl.Refresh();
     }
 
@@ -363,6 +365,7 @@ public partial class MainWindow : Window
         ApplyAutoVariation();
         RefreshLog();
         MapControl.Refresh();
+        ScheduleLive();
     }
 
     private void RefreshLog()
@@ -540,6 +543,7 @@ public partial class MainWindow
     private void RouteGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (RouteGrid.SelectedItem is Waypoint { IsAirport: true } wp) ShowAerodrome(wp.Icao!);
+        OnRouteSelectionChanged();
     }
 
     private void IcaoBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -665,6 +669,7 @@ public partial class MainWindow
     {
         _tipTimer.Stop();
         if (ZoneHelpCheck.IsChecked == true) UpdateZoneHelp();
+        if (TryShowWaypointNote()) return;
         if (AirportAt(_mouse) is { } airport) { ShowAirportTip(airport); return; }
         var world = MapControl.Map.Navigator.Viewport.ScreenToWorld(_mouse.X, _mouse.Y);
         (double lon, double lat) = SphericalMercator.ToLonLat(world.X, world.Y);
@@ -921,6 +926,7 @@ public partial class MainWindow
         e.Handled = true; // la carte ne se déplace pas pendant qu'on tient un point
         var world = MapControl.Map.Navigator.Viewport.ScreenToWorld(pos.X, pos.Y);
         (double lon, double lat) = SphericalMercator.ToLonLat(world.X, world.Y);
+        if (RouteGrid.SelectedIndex != _dragIndex) RouteGrid.SelectedIndex = _dragIndex;
         var wp = _route[_dragIndex];
         wp.Lat = Math.Round(lat, 5);
         wp.Lon = Math.Round(lon, 5);

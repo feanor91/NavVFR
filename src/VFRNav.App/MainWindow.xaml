@@ -38,8 +38,9 @@
                           SelectionMode="Single" GridLinesVisibility="Horizontal">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Nom" Binding="{Binding Name}" Width="*"/>
-                        <DataGridTextColumn Header="Lat" Binding="{Binding Lat, StringFormat=F4}" Width="70"/>
-                        <DataGridTextColumn Header="Lon" Binding="{Binding Lon, StringFormat=F4}" Width="70"/>
+                        <DataGridTextColumn Header="Lat" Binding="{Binding Lat, StringFormat=F4}" Width="62"/>
+                        <DataGridTextColumn Header="Lon" Binding="{Binding Lon, StringFormat=F4}" Width="62"/>
+                        <DataGridTextColumn Header="Note" Binding="{Binding NoteMark}" Width="40" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <WrapPanel Margin="0,6,0,0">
@@ -53,6 +54,17 @@
                 </WrapPanel>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
                            Text="Clic sur la carte : point tournant. Clic sur un terrain : ajout du terrain. Lat/Lon modifiables dans la liste."/>
+
+                <TextBlock x:Name="WpNotesLabel" Style="{StaticResource Label}" Text="Notes du point (sélectionne un point de la route)"/>
+                <TextBox x:Name="WpNotesBox" AcceptsReturn="True" TextWrapping="Wrap" Height="62" VerticalScrollBarVisibility="Auto" IsEnabled="False"
+                         TextChanged="WpNotes_Changed" LostFocus="WpNotes_LostFocus"
+                         ToolTip="Consignes, repères visuels, fréquences... Elles apparaissent sur la feuille de route et au survol du point."/>
+
+                <TextBlock Style="{StaticResource Header}" Text="INFOS EN DIRECT"/>
+                <TextBlock x:Name="LiveInfo" Foreground="#E8EEFC" FontSize="11.5" TextWrapping="Wrap"
+                           Text="Pose un point sur la carte : ses informations s'affichent ici."/>
+                <TextBlock Style="{StaticResource Header}" Text="VÉRIFICATION DE LA ROUTE"/>
+                <TextBlock x:Name="LiveCheck" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap"/>
 
                 <TextBlock Style="{StaticResource Header}" Text="APPAREIL ET CONDITIONS"/>
                 <UniformGrid Columns="2">

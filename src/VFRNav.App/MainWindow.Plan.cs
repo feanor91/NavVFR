@@ -50,6 +50,9 @@ public partial class MainWindow
                 obstacleNote = "Obstacles indisponibles : " + ex.Message;
             }
 
+            _planObstacles = obstacles;
+            _planSignature = Signature(route, p.CruiseAltFt);
+
             var relevant = _airspaces.Where(z => z.Kind is not (AirspaceKind.Sector or AirspaceKind.Other));
             var crossings = RouteAnalysis.AirspacesAlong(samples, relevant, p.CruiseAltFt);
             var navaids = RouteAnalysis.NavaidsAlong(route, _navaids, 15);
