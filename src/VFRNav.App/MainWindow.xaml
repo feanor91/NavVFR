@@ -179,10 +179,10 @@
                     </DockPanel>
                 </Border>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
-                    <Button x:Name="GlossaryButton" Content="Glossaire" Margin="0,0,8,0"
+                    <Button x:Name="GlossaryButton" Content="Glossaire" Margin="0,0,8,0" Width="132" Height="34"
                             Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"
                             Click="Glossary_Click" ToolTip="Sigles des cartes : TMA, CTR, QNH, RMZ…"/>
-                    <Button x:Name="VacToggle" Content="Cartes VAC"
+                    <Button x:Name="VacToggle" Content="Cartes VAC" Margin="0" Width="132" Height="34"
                             Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"
                             Click="ToggleVac_Click" ToolTip="Afficher / masquer le lecteur de cartes VAC"/>
                 </StackPanel>
