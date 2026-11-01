@@ -149,7 +149,7 @@ public sealed class StormAtcRepository
                     }
         }
         return new StormAtcAerodrome(icao, name, commune, remark, vac, lat, lon, elev, variation, service,
-            freqs, runways, File.Exists(chart) ? chart : null);
+            freqs, runways, File.Exists(chart) ? chart : null, hasProfile ? VfrProcedureReader.Read(profile) : null);
     }
 
     private static string? Str(JsonElement e, string name) =>
@@ -180,6 +180,13 @@ public sealed class StormAtcRepository
         "afis" => "AFIS",
         _ => key
     };
+
+    /// <summary>Procédures VFR (points de report, circuit, arrivées et départs) d'un aérodrome, ou null si le profil n'en a pas.</summary>
+    public static string? DescribeProcedures(StormAtcAerodrome a)
+    {
+        if (a.Procedures is not { Any: true } p) return null;
+        return string.Join(Environment.NewLine, [.. p.ToLines(), VfrProcedures.Source]);
+    }
 
     /// <summary>Texte de présentation d'un aérodrome pour le panneau d'information.</summary>
     public static string Describe(StormAtcAerodrome a)

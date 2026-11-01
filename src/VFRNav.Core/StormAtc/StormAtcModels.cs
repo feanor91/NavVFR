@@ -46,7 +46,8 @@ public sealed record StormAtcAerodrome(
     string? ServiceKind,
     IReadOnlyList<AerodromeFrequency> Frequencies,
     IReadOnlyList<AerodromeRunway> Runways,
-    string? ChartPath)
+    string? ChartPath,
+    VfrProcedures? Procedures = null)
 {
     public bool HasChart => ChartPath is not null;
     public bool HasPosition => Lat is not null && Lon is not null;

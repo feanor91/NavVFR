@@ -250,11 +250,31 @@ public static class FlightSheetBuilder
                 doc.Blocks.Add(Plain($"Piste {r.Id}{qfu}{size}{(r.Surface is not null ? ", " + r.Surface : "")}"));
             }
         }
-        else if (wp.ElevationFt > 0) doc.Blocks.Add(Plain($"Élévation {wp.ElevationFt.ToString("N0", Fr)} ft (aucune fiche StormATC pour ce terrain)"));
+        if (info?.Procedures is { Any: true } procedures) AddProcedures(doc, procedures);
+
+        if (info is null && wp.ElevationFt > 0) doc.Blocks.Add(Plain($"Élévation {wp.ElevationFt.ToString("N0", Fr)} ft (aucune fiche StormATC pour ce terrain)"));
 
         AddReport(doc, b.Metar, "METAR (observation)");
         AddReport(doc, b.Taf, "TAF (prévision)");
         if (b.Metar is null && b.Taf is null) doc.Blocks.Add(Small("Aucun METAR ni TAF pour ce terrain."));
+    }
+
+    /// <summary>Points de report, circuit et consignes d'arrivée et de départ (texte du profil StormATC).</summary>
+    private static void AddProcedures(FlowDocument doc, VfrProcedures procedures)
+    {
+        doc.Blocks.Add(new Paragraph(new Run("Procédures VFR du terrain") { FontWeight = FontWeights.SemiBold }) { Margin = new Thickness(0, 4, 0, 1) });
+        foreach (string line in procedures.ToLines())
+        {
+            int indent = line.Length - line.TrimStart().Length;
+            bool title = indent == 0;
+            doc.Blocks.Add(new Paragraph(new Run(line.TrimStart()) { FontWeight = title ? FontWeights.SemiBold : FontWeights.Normal })
+            {
+                FontSize = 10,
+                Margin = new Thickness(10 + indent * 6, title ? 3 : 0, 0, 0),
+                Foreground = Ink
+            });
+        }
+        doc.Blocks.Add(Small(VfrProcedures.Source));
     }
 
     private static void AddReport(FlowDocument doc, DecodedReport? r, string title)

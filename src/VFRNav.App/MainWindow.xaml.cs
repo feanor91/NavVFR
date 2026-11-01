@@ -110,6 +110,7 @@ public partial class MainWindow : Window
         foreach (var layer in _baseLayers) map.Layers.Add(layer);
         map.Layers.Add(_airspaceLayer);
         map.Layers.Add(_navaidLayer);
+        map.Layers.Add(_reportLayer);
         map.Layers.Add(_routeLayer);
         map.Layers.Add(_airportLayer);
         map.Layers.Add(_waypointLayer);
@@ -182,6 +183,7 @@ public partial class MainWindow : Window
             StatusText.Text = "Chargement des terrains...";
             var baseAirports = await new OurAirportsService(_http).LoadAsync(country);
             _stormAtc = await LoadStormAtcAsync();
+            ApplyReportingPoints();
             _airports = AirportCatalog.Merge(baseAirports, _stormAtc);
             ApplyAirportFilter();
             await LoadNavaidsAsync(country);
@@ -321,7 +323,7 @@ public partial class MainWindow : Window
             e.Handled = true;
             return;
         }
-        if (TryAddNavaid(e)) { e.Handled = true; return; }
+        if (TryAddReportingPoint(e) || TryAddNavaid(e)) { e.Handled = true; return; }
         (double lon, double lat) = SphericalMercator.ToLonLat(e.WorldPosition.X, e.WorldPosition.Y);
         int n = _route.Count(w => !w.IsAirport) + 1;
         _route.Add(new Waypoint { Name = $"WP{n}", Lat = Math.Round(lat, 5), Lon = Math.Round(lon, 5) });
@@ -565,7 +567,8 @@ public partial class MainWindow
         _shown = apt;
         _page = 0;
         IcaoBox.Text = apt.Icao;
-        InfoText.Text = StormAtcRepository.Describe(apt);
+        InfoText.Text = StormAtcRepository.Describe(apt)
+            + (StormAtcRepository.DescribeProcedures(apt) is { } procedures ? Environment.NewLine + Environment.NewLine + procedures : "");
         if (_vacVisible) _ = RenderVacAsync();
     }
 
@@ -1156,6 +1159,7 @@ public partial class MainWindow
                      airport.Lat, airport.Lon, airport.ElevationFt, null, null, [], [], null)).Split(Environment.NewLine).Skip(1))
             Line(line);
 
+        if (details?.Procedures?.Summary is { } summary) Line(summary);
         if (metar is not null)
         {
             Line("");
