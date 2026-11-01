@@ -17,29 +17,18 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
-  <!-- SimConnect : les DLL du SDK MSFS ne sont pas redistribuées. Comme StormATC, le chemin vient de
-       -p:MsfsSimConnectPath, de MSFS_SIMCONNECT_PATH, de MSFS_SDK ou de C:\MSFS SDK. Sans SDK, l'application
-       compile quand même et le suivi de l'avion est simplement indisponible. -->
+  <!-- SimConnect : VFRNav appelle la DLL native SimConnect.dll, sans référence au SDK à la compilation. Si le SDK de MSFS
+       est sur la machine de compilation, la DLL est copiée à côté de l'exécutable (donc dans un installeur construit en
+       local) ; sinon elle est cherchée au lancement (voir SimConnectTracker). C'est un binaire Microsoft : elle n'est pas
+       versionnée et le workflow GitHub ne l'embarque pas. -->
   <PropertyGroup>
-    <MsfsSimConnectPath Condition="'$(MsfsSimConnectPath)' == ''">$(MSFS_SIMCONNECT_PATH)</MsfsSimConnectPath>
-    <MsfsSimConnectPath Condition="'$(MsfsSimConnectPath)' == '' AND '$(MSFS_SDK)' != '' AND Exists('$(MSFS_SDK)\SimConnect SDK\lib\managed\Microsoft.FlightSimulator.SimConnect.dll')">$(MSFS_SDK)\SimConnect SDK\lib\managed\Microsoft.FlightSimulator.SimConnect.dll</MsfsSimConnectPath>
-    <MsfsSimConnectPath Condition="'$(MsfsSimConnectPath)' == '' AND Exists('C:\MSFS SDK\SimConnect SDK\lib\managed\Microsoft.FlightSimulator.SimConnect.dll')">C:\MSFS SDK\SimConnect SDK\lib\managed\Microsoft.FlightSimulator.SimConnect.dll</MsfsSimConnectPath>
+    <SimConnectNative Condition="'$(SimConnectNative)' == '' AND '$(MSFS_SIMCONNECT_PATH)' != ''">$([System.IO.Path]::GetFullPath('$([System.IO.Path]::GetDirectoryName($(MSFS_SIMCONNECT_PATH)))\..\SimConnect.dll'))</SimConnectNative>
+    <SimConnectNative Condition="'$(SimConnectNative)' == '' AND Exists('C:\MSFS 2024 SDK\SimConnect SDK\lib\SimConnect.dll')">C:\MSFS 2024 SDK\SimConnect SDK\lib\SimConnect.dll</SimConnectNative>
+    <SimConnectNative Condition="'$(SimConnectNative)' == '' AND Exists('C:\MSFS SDK\SimConnect SDK\lib\SimConnect.dll')">C:\MSFS SDK\SimConnect SDK\lib\SimConnect.dll</SimConnectNative>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(MsfsSimConnectPath)' != '' AND Exists('$(MsfsSimConnectPath)')">
-    <DefineConstants>$(DefineConstants);HAS_SIMCONNECT</DefineConstants>
-    <MsfsSimConnectNativePath>$([System.IO.Path]::GetFullPath('$([System.IO.Path]::GetDirectoryName($(MsfsSimConnectPath)))\..\SimConnect.dll'))</MsfsSimConnectNativePath>
-  </PropertyGroup>
-
-  <ItemGroup Condition="'$(MsfsSimConnectPath)' != '' AND Exists('$(MsfsSimConnectPath)')">
-    <Reference Include="Microsoft.FlightSimulator.SimConnect">
-      <HintPath>$(MsfsSimConnectPath)</HintPath>
-      <Private>true</Private>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(MsfsSimConnectNativePath)' != '' AND Exists('$(MsfsSimConnectNativePath)')">
-    <Content Include="$(MsfsSimConnectNativePath)" Link="SimConnect.dll">
+  <ItemGroup Condition="'$(SimConnectNative)' != '' AND Exists('$(SimConnectNative)')">
+    <Content Include="$(SimConnectNative)" Link="SimConnect.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

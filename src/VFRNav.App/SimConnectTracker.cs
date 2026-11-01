@@ -1,8 +1,7 @@
+using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Threading;
-#if HAS_SIMCONNECT
-using Microsoft.FlightSimulator.SimConnect;
-#endif
 
 namespace VFRNav.App;
 
@@ -10,22 +9,20 @@ namespace VFRNav.App;
 public sealed record AircraftState(double Lat, double Lon, double AltitudeFt, double HeadingTrue, double GroundSpeedKt, bool OnGround);
 
 /// <summary>
-/// Suit l'avion du joueur par SimConnect. MSFS peut être lancé avant ou après VFRNav : la connexion est retentée
-/// toutes les 5 secondes. Sans le SDK à la compilation, <see cref="Available"/> est faux et rien ne se passe.
+/// Suit l'avion du joueur par SimConnect, en appelant directement la DLL native <c>SimConnect.dll</c> : aucune référence
+/// au SDK n'est nécessaire à la compilation. La DLL est cherchée à côté de l'application, puis dans le SDK de MSFS
+/// (variable MSFS_SIMCONNECT_PATH, MSFS_SDK, C:\MSFS 2024 SDK, C:\MSFS SDK). MSFS peut être lancé avant ou après
+/// VFRNav : la connexion est retentée toutes les 5 secondes.
 /// </summary>
 public sealed class SimConnectTracker : IDisposable
 {
-    /// <summary>Message Windows que SimConnect envoie à la fenêtre quand des données sont prêtes.</summary>
-    public const int WmUserSimConnect = 0x0402;
-
     public event Action<AircraftState>? Updated;
     public event Action<string>? StatusChanged;
 
-#if HAS_SIMCONNECT
-    public static bool Available => true;
-
-    private enum Def { Aircraft }
-    private enum Req { Aircraft }
+    private const uint DefAircraft = 0, ReqAircraft = 0;
+    private const uint DataTypeFloat64 = 4, PeriodSecond = 4, ObjectIdUser = 0;
+    private const uint RecvException = 1, RecvOpen = 2, RecvQuit = 3, RecvSimObjectData = 8;
+    private const int DataOffset = 40; // taille de l'en-tête SIMCONNECT_RECV_SIMOBJECT_DATA
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     private struct Data
@@ -34,70 +31,90 @@ public sealed class SimConnectTracker : IDisposable
     }
 
     private readonly DispatcherTimer _retry = new() { Interval = TimeSpan.FromSeconds(5) };
-    private SimConnect? _sim;
-    private IntPtr _hwnd;
+    private readonly DispatcherTimer _poll = new() { Interval = TimeSpan.FromMilliseconds(250) };
+    private IntPtr _handle;
+    private bool _libraryMissingReported;
+
+    static SimConnectTracker() => NativeLibrary.SetDllImportResolver(typeof(SimConnectTracker).Assembly, Resolve);
+
+    /// <summary>Vrai si la DLL native a été trouvée sur ce PC.</summary>
+    public static bool Available => FindLibrary() is not null;
 
     public bool Connected { get; private set; }
 
     public void Start(IntPtr windowHandle)
     {
-        _hwnd = windowHandle;
         _retry.Tick += (_, _) => TryConnect();
+        _poll.Tick += (_, _) => Drain();
         TryConnect();
         _retry.Start();
     }
 
-    /// <summary>À appeler depuis le WndProc de la fenêtre ; vrai si le message était pour SimConnect.</summary>
-    public bool HandleMessage(int message)
-    {
-        if (message != WmUserSimConnect || _sim is null) return false;
-        try { _sim.ReceiveMessage(); }
-        catch (COMException) { Disconnect("Connexion à MSFS perdue."); }
-        return true;
-    }
+    /// <summary>Conservé pour la fenêtre : la lecture se fait par sondage, aucun message Windows n'est utilisé.</summary>
+    public bool HandleMessage(int message) => false;
 
     private void TryConnect()
     {
-        if (_sim is not null) return;
-        try
+        if (_handle != IntPtr.Zero) return;
+        if (!Available)
         {
-            _sim = new SimConnect("VFRNav", _hwnd, WmUserSimConnect, null, 0);
+            if (!_libraryMissingReported)
+                StatusChanged?.Invoke("Suivi indisponible : SimConnect.dll introuvable. Copiez-la à côté de VFRNav.App.exe ou installez le SDK de MSFS.");
+            _libraryMissingReported = true;
+            return;
         }
-        catch (COMException)
+
+        if (SimConnect_Open(out var handle, "VFRNav", IntPtr.Zero, 0, IntPtr.Zero, 0) != 0 || handle == IntPtr.Zero)
         {
-            _sim = null;
             StatusChanged?.Invoke("MSFS n'est pas lancé : nouvelle tentative toutes les 5 s.");
             return;
         }
 
-        _sim.OnRecvOpen += (_, _) => { Connected = true; StatusChanged?.Invoke("Connecté à MSFS."); };
-        _sim.OnRecvQuit += (_, _) => Disconnect("MSFS s'est fermé.");
-        _sim.OnRecvException += (_, e) => StatusChanged?.Invoke($"Erreur SimConnect : {(SIMCONNECT_EXCEPTION)e.dwException}");
-        _sim.OnRecvSimobjectData += OnData;
-
-        _sim.AddToDataDefinition(Def.Aircraft, "PLANE LATITUDE", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
-        _sim.AddToDataDefinition(Def.Aircraft, "PLANE LONGITUDE", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
-        _sim.AddToDataDefinition(Def.Aircraft, "PLANE ALTITUDE", "feet", SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
-        _sim.AddToDataDefinition(Def.Aircraft, "PLANE HEADING DEGREES TRUE", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
-        _sim.AddToDataDefinition(Def.Aircraft, "GROUND VELOCITY", "knots", SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
-        _sim.AddToDataDefinition(Def.Aircraft, "SIM ON GROUND", "bool", SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
-        _sim.RegisterDataDefineStruct<Data>(Def.Aircraft);
-        _sim.RequestDataOnSimObject(Req.Aircraft, Def.Aircraft, SimConnect.SIMCONNECT_OBJECT_ID_USER,
-            SIMCONNECT_PERIOD.SECOND, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT, 0, 0, 0);
+        _handle = handle;
+        bool ok = Add("PLANE LATITUDE", "degrees", 0) && Add("PLANE LONGITUDE", "degrees", 1) && Add("PLANE ALTITUDE", "feet", 2)
+                  && Add("PLANE HEADING DEGREES TRUE", "degrees", 3) && Add("GROUND VELOCITY", "knots", 4) && Add("SIM ON GROUND", "bool", 5)
+                  && SimConnect_RequestDataOnSimObject(_handle, ReqAircraft, DefAircraft, ObjectIdUser, PeriodSecond, 0, 0, 0, 0) == 0;
+        if (!ok)
+        {
+            Disconnect("Connexion à MSFS impossible (définition des données refusée).");
+            return;
+        }
+        _poll.Start();
     }
 
-    private void OnData(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA data)
+    private bool Add(string name, string units, uint id) =>
+        SimConnect_AddToDataDefinition(_handle, DefAircraft, name, units, DataTypeFloat64, 0f, id) == 0;
+
+    private void Drain()
     {
-        if (data.dwRequestID != (uint)Req.Aircraft || data.dwData.Length == 0) return;
-        var d = (Data)data.dwData[0];
-        Updated?.Invoke(new AircraftState(d.Lat, d.Lon, d.AltFt, d.Heading, d.GroundSpeedKt, d.OnGround > 0.5));
+        while (_handle != IntPtr.Zero && SimConnect_GetNextDispatch(_handle, out var data, out var size) == 0 && data != IntPtr.Zero)
+        {
+            uint id = (uint)Marshal.ReadInt32(data, 8);
+            switch (id)
+            {
+                case RecvOpen:
+                    Connected = true;
+                    StatusChanged?.Invoke("Connecté à MSFS.");
+                    break;
+                case RecvQuit:
+                    Disconnect("MSFS s'est fermé.");
+                    return;
+                case RecvException:
+                    StatusChanged?.Invoke($"Erreur SimConnect : code {Marshal.ReadInt32(data, 12)}");
+                    break;
+                case RecvSimObjectData when size >= DataOffset + Marshal.SizeOf<Data>() && (uint)Marshal.ReadInt32(data, 12) == ReqAircraft:
+                    var d = Marshal.PtrToStructure<Data>(data + DataOffset);
+                    Updated?.Invoke(new AircraftState(d.Lat, d.Lon, d.AltFt, d.Heading, d.GroundSpeedKt, d.OnGround > 0.5));
+                    break;
+            }
+        }
     }
 
     private void Disconnect(string reason)
     {
-        try { _sim?.Dispose(); }
-        catch (COMException) { /* déjà fermé */ }
-        _sim = null;
+        _poll.Stop();
+        if (_handle != IntPtr.Zero) SimConnect_Close(_handle);
+        _handle = IntPtr.Zero;
         Connected = false;
         StatusChanged?.Invoke(reason);
     }
@@ -107,17 +124,39 @@ public sealed class SimConnectTracker : IDisposable
         _retry.Stop();
         Disconnect("Suivi arrêté.");
     }
-#else
-    public static bool Available => false;
-    public bool Connected => false;
 
-    public void Start(IntPtr windowHandle) =>
-        StatusChanged?.Invoke("Suivi indisponible : SDK SimConnect de MSFS introuvable à la compilation (variable MSFS_SIMCONNECT_PATH).");
+    // ---------- DLL native ----------
+    private static IntPtr Resolve(string name, Assembly assembly, DllImportSearchPath? path) =>
+        name == "SimConnect" && FindLibrary() is { } file && NativeLibrary.TryLoad(file, out var lib) ? lib : IntPtr.Zero;
 
-    public bool HandleMessage(int message) => false;
-
-    public void Dispose()
+    private static string? FindLibrary()
     {
+        var candidates = new List<string> { Path.Combine(AppContext.BaseDirectory, "SimConnect.dll") };
+        foreach (var variable in new[] { "MSFS_SIMCONNECT_PATH", "MSFS_SIMCONNECT_NATIVE_PATH" })
+            if (Environment.GetEnvironmentVariable(variable) is { Length: > 0 } p)
+            {
+                string dir = Path.GetDirectoryName(p) ?? "";
+                candidates.AddRange([Path.Combine(dir, "SimConnect.dll"), Path.Combine(dir, "..", "SimConnect.dll")]);
+            }
+        if (Environment.GetEnvironmentVariable("MSFS_SDK") is { Length: > 0 } sdk)
+            candidates.Add(Path.Combine(sdk, "SimConnect SDK", "lib", "SimConnect.dll"));
+        candidates.Add(@"C:\MSFS 2024 SDK\SimConnect SDK\lib\SimConnect.dll");
+        candidates.Add(@"C:\MSFS SDK\SimConnect SDK\lib\SimConnect.dll");
+        return candidates.Select(Path.GetFullPath).FirstOrDefault(File.Exists);
     }
-#endif
+
+    [DllImport("SimConnect", CharSet = CharSet.Ansi)]
+    private static extern int SimConnect_Open(out IntPtr handle, string name, IntPtr hwnd, uint userEvent, IntPtr eventHandle, uint configIndex);
+
+    [DllImport("SimConnect")]
+    private static extern int SimConnect_Close(IntPtr handle);
+
+    [DllImport("SimConnect", CharSet = CharSet.Ansi)]
+    private static extern int SimConnect_AddToDataDefinition(IntPtr handle, uint defineId, string datum, string units, uint datumType, float epsilon, uint datumId);
+
+    [DllImport("SimConnect")]
+    private static extern int SimConnect_RequestDataOnSimObject(IntPtr handle, uint requestId, uint defineId, uint objectId, uint period, uint flags, uint origin, uint interval, uint limit);
+
+    [DllImport("SimConnect")]
+    private static extern int SimConnect_GetNextDispatch(IntPtr handle, out IntPtr data, out uint size);
 }

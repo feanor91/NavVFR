@@ -32,14 +32,9 @@ dotnet run --project src/VFRNav.App
 
 ### SimConnect (optionnel)
 
-Les DLL du SDK MSFS ne sont pas redistribuées. Pour activer le suivi de l'avion, indique le chemin de
-`Microsoft.FlightSimulator.SimConnect.dll` avant de compiler :
-
-```bash
-set MSFS_SIMCONNECT_PATH=C:\MSFS 2024 SDK\SimConnect SDK\lib\managed\Microsoft.FlightSimulator.SimConnect.dll
-```
-
-Sans le SDK, l'application compile et fonctionne ; seul le suivi de l'avion est indisponible.
+Le suivi de l'avion appelle la DLL native `SimConnect.dll` : aucune référence au SDK n'est nécessaire pour compiler.
+Si le SDK de MSFS est installé (`C:\MSFS 2024 SDK` ou `MSFS_SIMCONNECT_PATH`), la DLL est copiée à côté de l'exécutable
+à la compilation. Sinon, VFRNav la cherche au lancement, et le suivi est simplement indisponible tant qu'elle manque.
 
 ### Clés et données (optionnel)
 
@@ -73,7 +68,7 @@ Aucune licence n'est définie pour l'instant : tous droits réservés par défau
 
 Téléchargez `VFRNav-Setup-x.y.z.exe` depuis les [releases](https://github.com/feanor91/NavVFR/releases) (aucun .NET à installer), ou l'archive `.zip` portable.
 
-Le suivi de l'avion en direct (SimConnect) n'est pas dans l'installeur : le SDK de MSFS n'est pas redistribuable. Pour l'avoir, compilez VFRNav vous-même avec le SDK installé (`MSFS_SIMCONNECT_PATH`).
+Le suivi de l'avion en direct appelle directement la DLL native `SimConnect.dll`. Elle appartient à Microsoft : l'installeur GitHub ne l'embarque pas. VFRNav la cherche au lancement, dans cet ordre : à côté de `VFRNav.App.exe`, puis dans le SDK de MSFS (`MSFS_SIMCONNECT_PATH`, `MSFS_SDK`, `C:\MSFS 2024 SDK`, `C:\MSFS SDK`). Copiez-la à côté de l'exécutable si vous n'avez pas le SDK. Un installeur construit sur une machine où le SDK est installé l'inclut automatiquement.
 
 ## Publier une version
 
