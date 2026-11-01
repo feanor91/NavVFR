@@ -1,4 +1,4 @@
-using System.Text.Json;
+﻿using System.Text.Json;
 using VFRNav.Core.StormAtc;
 
 namespace VFRNav.Tests;
@@ -110,6 +110,53 @@ public class VfrProcedureTests
     {
         Assert.Equal("Hauteur du circuit (ft AMSL)", VfrProcedureReader.Label("heightFeetAmsl"));
         Assert.Equal("Some new key", VfrProcedureReader.Label("someNewKey"));
+    }
+
+    [Fact]
+    public void The_french_overlay_replaces_the_english_text_and_keeps_the_english_where_there_is_no_french()
+    {
+        var p = Read("""
+            { "icao": "LFML",
+              "circuit": { "heightFeetAmsl": 1500, "handNote": "left-hand", "restrictions": "no touch and go" },
+              "withAts": { "arrivals": [ { "entry": "LP", "route": "LP (1700 ft), then NA" }, { "note": "call the tower" } ] },
+              "notes": ["First note.", "Second note.", "Third note."],
+              "fr": { "circuit": { "handNote": "main gauche" },
+                      "withAts": { "arrivals": [ { "route": "LP (1700 ft), puis NA" }, { "note": "appeler la tour" } ] },
+                      "notes": ["Première note.", "", "Troisième note."] } }
+            """);
+        var lines = p.ToLines();
+        Assert.Contains(lines, l => l.Contains("main gauche"));
+        Assert.Contains(lines, l => l.Contains("no touch and go"));          // pas de français : l'anglais reste
+        Assert.Contains(lines, l => l.Contains("LP (1700 ft), puis NA"));
+        Assert.Contains(lines, l => l.Contains("appeler la tour"));
+        Assert.DoesNotContain(lines, l => l.Contains("left-hand") || l.Contains("call the tower"));
+        Assert.Contains("  • Première note.", lines);
+        Assert.Contains("  • Second note.", lines);
+        Assert.Contains("  • Troisième note.", lines);
+        Assert.DoesNotContain(lines, l => l.Contains("Fr :"));
+    }
+
+    [Fact]
+    public void Nested_objects_in_lists_are_flattened_never_printed_as_json()
+    {
+        var lines = Read("""
+            { "icao": "LFML", "withAts": { "transit": [ { "kind": "coastal", "routes": [ { "entry": "SW", "exit": "SC" }, { "entry": "SC", "exit": "SW" } ] } ],
+                                          "nightVfr": { "departure": "climb overhead" } } }
+            """).Sections.Single().Lines;
+        Assert.Contains(lines, l => l.Contains("Itinéraires VFR : (Entrée : SW · Sortie : SC) ; (Entrée : SC · Sortie : SW)"));
+        Assert.Contains("VFR de nuit :", lines);
+        Assert.DoesNotContain(lines, l => l.Contains('{') || l.Contains('"'));
+    }
+
+    [Fact]
+    public void Real_stormatc_profiles_never_show_raw_json()
+    {
+        var paths = StormAtcPaths.Locate();
+        if (paths is null) return;
+        var repo = StormAtcRepository.Load(paths);
+        foreach (var a in repo.All.Where(a => a.Procedures is not null))
+            foreach (var line in a.Procedures!.ToLines())
+                Assert.False(line.Contains('{') || line.Contains("\"\""), $"{a.Icao}: {line}");
     }
 
     [Fact]

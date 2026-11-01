@@ -1,5 +1,6 @@
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 
 namespace VFRNav.Core.StormAtc;
@@ -17,7 +18,7 @@ public sealed record VfrProcedures(IReadOnlyList<ReportingPoint> ReportingPoints
 {
     public bool Any => ReportingPoints.Count > 0 || Sections.Count > 0;
 
-    public const string Source = "Texte du profil StormATC, relevé sur la carte VAC (descriptions en anglais). À vérifier sur la carte.";
+    public const string Source = "Texte du profil StormATC, relevé sur la carte VAC (colonne française quand elle a été relevée, sinon anglais). À vérifier sur la carte.";
 
     /// <summary>Lignes d'affichage : points de report puis sections.</summary>
     public IReadOnlyList<string> ToLines()
@@ -105,6 +106,27 @@ public static partial class VfrProcedureReader
         ["maxAircraftInCircuit"] = "Avions maximum dans le circuit",
         ["rmzActive"] = "RMZ active",
         ["afterHalfDownwind"] = "Après la mi-vent arrière",
+        // grands aérodromes (StormATC 0.26 et suivantes)
+        ["routes"] = "Itinéraires VFR",
+        ["nightVfr"] = "VFR de nuit",
+        ["specialVfr"] = "VFR spécial",
+        ["transit"] = "Transit",
+        ["waiting"] = "Attente",
+        ["southCircuit"] = "Circuit sud",
+        ["axisCrossing"] = "Traversée des axes de piste",
+        ["radioFailureOnArrival"] = "Panne radio à l'arrivée",
+        ["weekendsAndHolidays"] = "Week-ends et jours fériés",
+        ["lowHeightPattern"] = "Circuit à basse hauteur",
+        ["lowHeightTraining"] = "Basse hauteur, entraînement",
+        ["specialExercises"] = "Exercices particuliers",
+        ["entry"] = "Entrée",
+        ["exit"] = "Sortie",
+        ["contact"] = "Contact",
+        ["route"] = "Itinéraire",
+        ["tracks"] = "Tracés",
+        ["legend"] = "Légende",
+        ["usage"] = "Usage",
+        ["altitudeNote"] = "Note d'altitude",
     };
 
     private static readonly Dictionary<string, string> Values = new(StringComparer.OrdinalIgnoreCase)
@@ -117,6 +139,7 @@ public static partial class VfrProcedureReader
     public static VfrProcedures? Read(JsonElement profile)
     {
         if (profile.ValueKind != JsonValueKind.Object) return null;
+        profile = WithFrench(profile);
 
         var points = new List<ReportingPoint>();
         if (profile.TryGetProperty("reportingPoints", out var list) && list.ValueKind == JsonValueKind.Array)
@@ -145,6 +168,61 @@ public static partial class VfrProcedureReader
 
         var result = new VfrProcedures(points, sections);
         return result.Any ? result : null;
+    }
+
+    /// <summary>
+    /// Le profil avec son français par-dessus l'anglais : l'objet <c>fr</c> reprend l'arborescence de <c>circuit</c>, <c>withAts</c> et
+    /// <c>withoutAts</c> (textes seulement) et la liste <c>notes</c> (une chaîne vide = pas de français pour cette note). Ce qui n'a pas de
+    /// français reste en anglais.
+    /// </summary>
+    public static JsonElement WithFrench(JsonElement profile)
+    {
+        if (!profile.TryGetProperty("fr", out var fr) || fr.ValueKind != JsonValueKind.Object) return profile;
+        if (JsonNode.Parse(profile.GetRawText()) is not JsonObject root) return profile;
+        foreach (var key in new[] { "circuit", "withAts", "withoutAts" })
+            if (fr.TryGetProperty(key, out var part) && root[key] is JsonNode english && JsonNode.Parse(part.GetRawText()) is JsonNode french)
+                (Overlay(english, french) is { } replacement ? () => root[key] = replacement : (Action)(() => { }))();
+        if (fr.TryGetProperty("notes", out var notes) && notes.ValueKind == JsonValueKind.Array && root["notes"] is JsonArray englishNotes)
+        {
+            int i = 0;
+            foreach (var note in notes.EnumerateArray())
+            {
+                if (i < englishNotes.Count && note.ValueKind == JsonValueKind.String && !string.IsNullOrWhiteSpace(note.GetString()))
+                    englishNotes[i] = note.GetString();
+                i++;
+            }
+        }
+        root.Remove("fr");
+        using var doc = JsonDocument.Parse(root.ToJsonString());
+        return doc.RootElement.Clone();
+    }
+
+    /// <summary>Superpose le français : les objets et les listes sont modifiés sur place (retourne null), un texte est remplacé (retourne le nouveau).</summary>
+    private static JsonNode? Overlay(JsonNode english, JsonNode french)
+    {
+        switch (english, french)
+        {
+            case (JsonObject e, JsonObject f):
+                foreach (var (key, value) in f.ToList())
+                {
+                    if (value is null) continue;
+                    if (e[key] is JsonNode existing)
+                    {
+                        if (Overlay(existing, value) is { } replacement) e[key] = replacement;
+                    }
+                    else e[key] = value.DeepClone();
+                }
+                return null;
+            case (JsonArray e, JsonArray f):
+                for (int i = 0; i < f.Count && i < e.Count; i++)
+                    if (f[i] is JsonNode value && e[i] is JsonNode existing && Overlay(existing, value) is { } replacement)
+                        e[i] = replacement;
+                return null;
+            case (JsonValue e, JsonValue f) when e.GetValueKind() == JsonValueKind.String && f.GetValueKind() == JsonValueKind.String:
+                return f.DeepClone();
+            default:
+                return null;
+        }
     }
 
     private static void AddObjectSection(List<ProcedureSection> sections, JsonElement profile, string key, string title)
@@ -198,7 +276,8 @@ public static partial class VfrProcedureReader
             $"{Label(p.Name)} : " + p.Value.ValueKind switch
             {
                 JsonValueKind.Object => "(" + Inline(p.Value) + ")",
-                JsonValueKind.Array => string.Join(", ", p.Value.EnumerateArray().Select(Scalar)),
+                JsonValueKind.Array => string.Join(p.Value.EnumerateArray().Any(i => i.ValueKind == JsonValueKind.Object) ? " ; " : ", ",
+                    p.Value.EnumerateArray().Select(i => i.ValueKind == JsonValueKind.Object ? "(" + Inline(i) + ")" : Scalar(i))),
                 _ => Scalar(p.Value)
             }));
 
@@ -208,6 +287,8 @@ public static partial class VfrProcedureReader
         JsonValueKind.False => "non",
         JsonValueKind.Number => e.GetDouble().ToString("0.##", CultureInfo.InvariantCulture),
         JsonValueKind.String => Values.TryGetValue(e.GetString() ?? "", out var v) ? v : e.GetString() ?? "",
+        JsonValueKind.Object => "(" + Inline(e) + ")",
+        JsonValueKind.Array => string.Join(", ", e.EnumerateArray().Select(Scalar)),
         _ => e.ToString()
     };
 
