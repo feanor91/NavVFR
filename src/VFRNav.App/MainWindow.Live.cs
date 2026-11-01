@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System.Collections.Specialized;
 using System.Net.Http;
 using System.Windows;
@@ -27,6 +27,7 @@ public partial class MainWindow
     /// <summary>Tout changement de la route : mise à jour de la carte, puis du point choisi.</summary>
     private void OnRouteChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
+        RefreshFeedRoute();
         RefreshRoute();
         // Un point qu'on vient d'ajouter devient le point suivi : ses infos s'affichent aussitôt.
         if (e.Action == NotifyCollectionChangedAction.Add && e.NewStartingIndex >= 0) RouteGrid.SelectedIndex = e.NewStartingIndex;
@@ -37,6 +38,27 @@ public partial class MainWindow
     {
         _liveTimer.Stop();
         _liveTimer.Start();
+    }
+
+    // ---------- partage avec StormATC ----------
+
+    /// <summary>Copie la route pour le serveur local, qui la lit hors du thread de l'interface.</summary>
+    private void RefreshFeedRoute() =>
+        _feedRoute = [.. LiveFeed.State(_route, null, null, 0, DateTimeOffset.UtcNow).Route];
+
+    private void StartFeed()
+    {
+        RefreshFeedRoute();
+        _feed = new LiveFeedServer(
+            () =>
+            {
+                var a = _feedAircraft;
+                return new LiveFeedState(LiveFeed.ProtocolVersion, _feedRoute, a?.Aircraft, _settings.CruiseAltFt,
+                    a is null ? -1 : (long)Math.Max(0, (DateTimeOffset.UtcNow - a.Value.At).TotalMilliseconds));
+            },
+            (minLat, minLon, maxLat, maxLon) =>
+                LiveFeed.Map(_shownAirspaces, _airspacesLoadedForFeed, _airports, minLat, minLon, maxLat, maxLon));
+        _feed.Start();
     }
 
     private Waypoint? Followed() => RouteGrid.SelectedItem as Waypoint ?? _route.LastOrDefault();
@@ -119,6 +141,7 @@ public partial class MainWindow
 
         var route = _route.ToList();
         var p = ReadParams();
+        RefreshFeedRoute();
         try
         {
             if (Followed() is { } wp) await ShowPointInfoAsync(wp, p, ct);
