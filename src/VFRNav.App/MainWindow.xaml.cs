@@ -1065,13 +1065,11 @@ public partial class MainWindow
     {
         var (x, y) = SphericalMercator.FromLonLat(a.Lon, a.Lat);
         var plane = new PointFeature(new MPoint(x, y));
-        plane.Styles.Add(new SymbolStyle
+        plane.Styles.Add(new ImageStyle
         {
-            SymbolType = SymbolType.Triangle,
-            SymbolScale = 0.9,
-            SymbolRotation = a.HeadingTrue,
-            Fill = new Brush(Color.FromArgb(255, 230, 0, 160)),
-            Outline = new Pen(Color.White, 2)
+            Image = new Mapsui.Styles.Image { Source = PlaneIcon.Source },
+            SymbolScale = 0.6,
+            SymbolRotation = a.HeadingTrue
         });
         _aircraftLayer.Features = [plane];
         _aircraftLayer.DataHasChanged();
