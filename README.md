@@ -68,3 +68,17 @@ OurAirports (domaine public) · OpenAIP · aviationweather.gov · Open-Meteo (mo
 ## Licence
 
 Aucune licence n'est définie pour l'instant : tous droits réservés par défaut.
+
+## Installation
+
+Téléchargez `VFRNav-Setup-x.y.z.exe` depuis les [releases](https://github.com/feanor91/NavVFR/releases) (aucun .NET à installer), ou l'archive `.zip` portable.
+
+Le suivi de l'avion en direct (SimConnect) n'est pas dans l'installeur : le SDK de MSFS n'est pas redistribuable. Pour l'avoir, compilez VFRNav vous-même avec le SDK installé (`MSFS_SIMCONNECT_PATH`).
+
+## Publier une version
+
+```bash
+git tag v0.2.0 && git push origin v0.2.0
+```
+
+Le workflow `release.yml` teste, publie l'application, compile l'installeur (Inno Setup) et crée la release GitHub. Le workflow `ci.yml` construit et teste chaque push.

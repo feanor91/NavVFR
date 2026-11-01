@@ -1,0 +1,72 @@
+name: Release
+
+# Un tag vX.Y.Z (ou un lancement manuel avec la version) construit, teste, publie l'application
+# et attache l'installeur Windows à une release GitHub.
+on:
+  push:
+    tags: ["v[0-9]+.[0-9]+.[0-9]+*"]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version à publier (ex. 0.1.0)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Version
+        id: v
+        shell: pwsh
+        run: |
+          $v = if ('${{ inputs.version }}' -ne '') { '${{ inputs.version }}' } else { $env:GITHUB_REF_NAME.TrimStart('v') }
+          if ($v -notmatch '^\d+\.\d+\.\d+(-[0-9A-Za-z.]+)?$') { throw "Version invalide : $v" }
+          "version=$v" >> $env:GITHUB_OUTPUT
+          "numeric=$($v -replace '-.*$','')" >> $env:GITHUB_OUTPUT
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Test
+        run: dotnet test VFRNav.slnx -c Release
+
+      # Autonome (runtime .NET inclus) : rien à installer sur le PC de l'utilisateur.
+      # Le SDK SimConnect de MSFS n'est pas redistribuable : le suivi de l'avion en direct n'est donc pas
+      # dans cet installeur (voir README).
+      - name: Publish
+        run: >
+          dotnet publish src/VFRNav.App/VFRNav.App.csproj -c Release -r win-x64 --self-contained true
+          -p:Version=${{ steps.v.outputs.numeric }} -p:InformationalVersion=${{ steps.v.outputs.version }}
+          -o artifacts/publish
+
+      - name: Installer (Inno Setup)
+        shell: pwsh
+        run: |
+          $iscc = @("${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe", "$env:ProgramFiles\Inno Setup 6\ISCC.exe") |
+                  Where-Object { Test-Path $_ } | Select-Object -First 1
+          if (-not $iscc) { choco install innosetup -y --no-progress; $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" }
+          & $iscc "/DAppVersion=${{ steps.v.outputs.numeric }}" "/DSourceDir=$PWD\artifacts\publish" installer\VFRNav.iss
+          if ($LASTEXITCODE -ne 0) { throw "ISCC a échoué" }
+
+      - name: Archive portable
+        shell: pwsh
+        run: Compress-Archive -Path artifacts\publish\* -DestinationPath "artifacts\VFRNav-${{ steps.v.outputs.version }}-win-x64.zip"
+
+      - name: Publish release
+        shell: pwsh
+        run: |
+          $tag = "v${{ steps.v.outputs.version }}"
+          $files = Get-ChildItem artifacts\VFRNav-Setup-*.exe, artifacts\VFRNav-*-win-x64.zip | ForEach-Object FullName
+          gh release view $tag 2>$null | Out-Null
+          if ($LASTEXITCODE -eq 0) { gh release upload $tag $files --clobber }
+          else { gh release create $tag $files --target $env:GITHUB_SHA --title "VFRNav $tag" --generate-notes }
+          if ($LASTEXITCODE -ne 0) { throw "Publication de la release impossible" }

@@ -15,3 +15,5 @@ TestResults/
 settings.json
 *.pln
 Cartes VAC/
+
+artifacts/
