@@ -1,0 +1,95 @@
+using System.Text.Json;
+using VFRNav.Core.Models;
+
+namespace VFRNav.Core.Services;
+
+/// <summary>Espaces aériens via l'API OpenAIP (clé gratuite requise).</summary>
+public sealed class OpenAipService(HttpClient http)
+{
+    private static readonly string[] Classes = ["A", "B", "C", "D", "E", "F", "G"];
+
+    public async Task<IReadOnlyList<Airspace>> LoadAsync(string country, string apiKey, CancellationToken ct = default)
+    {
+        var result = new List<Airspace>();
+        int page = 1, totalPages = 1;
+        while (page <= totalPages && page <= 30)
+        {
+            using var req = new HttpRequestMessage(HttpMethod.Get, $"https://api.core.openaip.net/api/airspaces?country={country}&limit=500&page={page}");
+            req.Headers.Add("x-openaip-api-key", apiKey);
+            using var resp = await http.SendAsync(req, ct);
+            resp.EnsureSuccessStatusCode();
+            using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync(ct));
+            var root = doc.RootElement;
+            if (root.TryGetProperty("totalPages", out var tp)) totalPages = tp.GetInt32();
+            if (root.TryGetProperty("items", out var items))
+                foreach (var item in items.EnumerateArray())
+                    if (TryParse(item) is { } a) result.Add(a);
+            page++;
+        }
+        return result;
+    }
+
+    private static Airspace? TryParse(JsonElement e)
+    {
+        if (!e.TryGetProperty("geometry", out var g) || g.ValueKind != JsonValueKind.Object) return null;
+        var rings = new List<IReadOnlyList<(double Lon, double Lat)>>();
+        string type = g.GetProperty("type").GetString() ?? "";
+        var coords = g.GetProperty("coordinates");
+        if (type == "Polygon") AddOuterRing(coords, rings);
+        else if (type == "MultiPolygon") foreach (var poly in coords.EnumerateArray()) AddOuterRing(poly, rings);
+        else return null;
+
+        int cls = e.TryGetProperty("icaoClass", out var c) && c.ValueKind == JsonValueKind.Number ? c.GetInt32() : -1;
+        int typeCode = e.TryGetProperty("type", out var t) && t.ValueKind == JsonValueKind.Number ? t.GetInt32() : 0;
+        var kind = Airspace.KindFromOpenAipType(typeCode);
+        var lower = Limit(e, "lowerLimit", 0);
+        var upper = Limit(e, "upperLimit", double.MaxValue);
+        return new Airspace(e.TryGetProperty("name", out var n) ? n.GetString() ?? "" : "",
+            cls >= 0 && cls < Classes.Length ? Classes[cls] : "", lower.Text, upper.Text, rings, kind, lower.Feet, upper.Feet, typeCode, Details(e));
+    }
+
+    private static readonly (string Property, string Text)[] FlagProperties =
+    [
+        ("byNotam", "Activée par NOTAM"),
+        ("onDemand", "Sur demande"),
+        ("onRequest", "Sur requête"),
+        ("specialAgreement", "Accord spécial requis"),
+        ("requestCompliance", "Se conformer aux instructions")
+    ];
+
+    /// <summary>Remarques, conditions d'accès et fréquences : tous ces champs sont facultatifs dans l'API.</summary>
+    private static AirspaceDetails Details(JsonElement e)
+    {
+        string? remarks = e.TryGetProperty("remarks", out var r) && r.ValueKind == JsonValueKind.String ? r.GetString() : null;
+        var flags = FlagProperties
+            .Where(f => e.TryGetProperty(f.Property, out var v) && v.ValueKind == JsonValueKind.True)
+            .Select(f => f.Text)
+            .ToList();
+        var freqs = new List<AirspaceFrequency>();
+        if (e.TryGetProperty("frequencies", out var list) && list.ValueKind == JsonValueKind.Array)
+            foreach (var f in list.EnumerateArray())
+            {
+                if (f.ValueKind != JsonValueKind.Object || !f.TryGetProperty("value", out var value)) continue;
+                string number = value.ValueKind == JsonValueKind.String ? value.GetString() ?? "" : value.ToString();
+                if (number.Length == 0) continue;
+                string name = f.TryGetProperty("name", out var n) && n.ValueKind == JsonValueKind.String ? n.GetString() ?? "" : "";
+                freqs.Add(new AirspaceFrequency(name, number));
+            }
+        return new AirspaceDetails(remarks, flags, freqs);
+    }
+
+    private static void AddOuterRing(JsonElement polygon, List<IReadOnlyList<(double Lon, double Lat)>> rings)
+    {
+        var outer = polygon.EnumerateArray().First();
+        rings.Add(outer.EnumerateArray().Select(p => (p[0].GetDouble(), p[1].GetDouble())).ToList());
+    }
+
+    private static (string Text, double Feet) Limit(JsonElement e, string name, double missingFeet)
+    {
+        if (!e.TryGetProperty(name, out var l) || l.ValueKind != JsonValueKind.Object) return ("", missingFeet);
+        int value = l.TryGetProperty("value", out var v) && v.ValueKind == JsonValueKind.Number ? (int)v.GetDouble() : 0;
+        int unit = l.TryGetProperty("unit", out var u) && u.ValueKind == JsonValueKind.Number ? u.GetInt32() : 1;
+        int datum = l.TryGetProperty("referenceDatum", out var d) && d.ValueKind == JsonValueKind.Number ? d.GetInt32() : 0;
+        return Airspace.FormatLimit(value, unit, datum);
+    }
+}

@@ -1,0 +1,17 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.log
+TestResults/
+
+## IDE
+.vs/
+.idea/
+.vscode/
+
+## Données et clés personnelles : ne jamais les versionner
+settings.json
+*.pln
+Cartes VAC/

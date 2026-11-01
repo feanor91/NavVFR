@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\VFRNav.Core\VFRNav.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapsui.Wpf" Version="5.1.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <!-- SimConnect : les DLL du SDK MSFS ne sont pas redistribuées. Comme StormATC, le chemin vient de
+       -p:MsfsSimConnectPath, de MSFS_SIMCONNECT_PATH, de MSFS_SDK ou de C:\MSFS SDK. Sans SDK, l'application
+       compile quand même et le suivi de l'avion est simplement indisponible. -->
+  <PropertyGroup>
+    <MsfsSimConnectPath Condition="'$(MsfsSimConnectPath)' == ''">$(MSFS_SIMCONNECT_PATH)</MsfsSimConnectPath>
+    <MsfsSimConnectPath Condition="'$(MsfsSimConnectPath)' == '' AND '$(MSFS_SDK)' != '' AND Exists('$(MSFS_SDK)\SimConnect SDK\lib\managed\Microsoft.FlightSimulator.SimConnect.dll')">$(MSFS_SDK)\SimConnect SDK\lib\managed\Microsoft.FlightSimulator.SimConnect.dll</MsfsSimConnectPath>
+    <MsfsSimConnectPath Condition="'$(MsfsSimConnectPath)' == '' AND Exists('C:\MSFS SDK\SimConnect SDK\lib\managed\Microsoft.FlightSimulator.SimConnect.dll')">C:\MSFS SDK\SimConnect SDK\lib\managed\Microsoft.FlightSimulator.SimConnect.dll</MsfsSimConnectPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MsfsSimConnectPath)' != '' AND Exists('$(MsfsSimConnectPath)')">
+    <DefineConstants>$(DefineConstants);HAS_SIMCONNECT</DefineConstants>
+    <MsfsSimConnectNativePath>$([System.IO.Path]::GetFullPath('$([System.IO.Path]::GetDirectoryName($(MsfsSimConnectPath)))\..\SimConnect.dll'))</MsfsSimConnectNativePath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(MsfsSimConnectPath)' != '' AND Exists('$(MsfsSimConnectPath)')">
+    <Reference Include="Microsoft.FlightSimulator.SimConnect">
+      <HintPath>$(MsfsSimConnectPath)</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(MsfsSimConnectNativePath)' != '' AND Exists('$(MsfsSimConnectNativePath)')">
+    <Content Include="$(MsfsSimConnectNativePath)" Link="SimConnect.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

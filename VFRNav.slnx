@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/VFRNav.App/VFRNav.App.csproj" />
+    <Project Path="src/VFRNav.Core/VFRNav.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/VFRNav.Tests/VFRNav.Tests.csproj" />
+  </Folder>
+</Solution>
