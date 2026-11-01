@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -19,13 +19,15 @@ public sealed class ProfileChart : FrameworkElement
     private IReadOnlyList<AirspaceCrossing> _crossings = [];
     private string? _message;
     private IReadOnlyList<RouteObstacle> _obstacles = [];
+    private AltitudeProfile? _altitudes;
 
     /// <summary>Un obstacle est tracé quand son sommet est à moins de 1 500 ft sous la croisière (ou au-dessus).</summary>
     public const double ObstacleRelevantMarginFt = 1500;
 
-    public void SetData(TerrainProfile? terrain, double cruiseFt, IReadOnlyList<Waypoint> route, IReadOnlyList<AirspaceCrossing> crossings, string? message = null, IReadOnlyList<RouteObstacle>? obstacles = null)
+    public void SetData(TerrainProfile? terrain, double cruiseFt, IReadOnlyList<Waypoint> route, IReadOnlyList<AirspaceCrossing> crossings, string? message = null, IReadOnlyList<RouteObstacle>? obstacles = null, AltitudeProfile? altitudes = null)
     {
         _obstacles = obstacles ?? [];
+        _altitudes = altitudes is { IsFlat: false } ? altitudes : null; // plat : le trait de croisière habituel suffit
         _terrain = terrain;
         _cruiseFt = cruiseFt;
         _route = route;
@@ -80,10 +82,12 @@ public sealed class ProfileChart : FrameworkElement
 
         double total = Math.Max(_terrain.TotalNm, 0.1);
         double plotW = w - Left - Right, plotH = h - Top - Bottom;
-        double zoneTop = _crossings.Select(c => Math.Min(c.Zone.UpperFt, _cruiseFt + 2500)).DefaultIfEmpty(0).Max();
-        var shownObstacles = _obstacles.Where(o => o.TopFt is not null && _cruiseFt - o.TopFt < ObstacleRelevantMarginFt).ToList();
+        double flightTop = _altitudes?.MaxFt ?? _cruiseFt;
+        double AltAt(double nm) => _altitudes?.AtDistance(nm) ?? _cruiseFt;
+        double zoneTop = _crossings.Select(c => Math.Min(c.Zone.UpperFt, flightTop + 2500)).DefaultIfEmpty(0).Max();
+        var shownObstacles = _obstacles.Where(o => o.TopFt is not null && AltAt(o.AlongNm) - o.TopFt < ObstacleRelevantMarginFt).ToList();
         double obstacleTop = shownObstacles.Select(o => o.TopFt!.Value + 300).DefaultIfEmpty(0).Max();
-        double yMax = Math.Ceiling(Math.Max(Math.Max(Math.Max(_terrain.MaxFt + 800, _cruiseFt + 1500), zoneTop), obstacleTop) / 1000) * 1000;
+        double yMax = Math.Ceiling(Math.Max(Math.Max(Math.Max(_terrain.MaxFt + 800, flightTop + 1500), zoneTop), obstacleTop) / 1000) * 1000;
         double gridStep = yMax <= 6000 ? 1000 : yMax <= 12000 ? 2000 : 5000;
 
         double X(double nm) => Left + nm / total * plotW;
@@ -155,14 +159,14 @@ public sealed class ProfileChart : FrameworkElement
         {
             var a = _terrain.Samples[i - 1];
             var b = _terrain.Samples[i];
-            if (Math.Max(a.ElevationFt, b.ElevationFt) > _cruiseFt - 1000)
+            if (Math.Max(a.ElevationFt, b.ElevationFt) > AltAt((a.DistanceNm + b.DistanceNm) / 2) - 1000)
                 dc.DrawLine(danger, new Point(X(a.DistanceNm), Y(a.ElevationFt)), new Point(X(b.DistanceNm), Y(b.ElevationFt)));
         }
 
         // Obstacles proches de la croisière : trait du sol au sommet, rouge si la marge est inférieure à 500 ft.
         foreach (var o in shownObstacles)
         {
-            double margin = _cruiseFt - o.TopFt!.Value;
+            double margin = AltAt(o.AlongNm) - o.TopFt!.Value;
             var color = margin < 500 ? Solid(200, 20, 20) : Solid(220, 120, 20);
             double x = X(o.AlongNm);
             dc.DrawLine(new Pen(color, 2.2), new Point(x, Y(o.GroundFt ?? 0)), new Point(x, Y(o.TopFt.Value)));
@@ -178,9 +182,25 @@ public sealed class ProfileChart : FrameworkElement
 
         // Altitude de croisière.
         var cruisePen = new Pen(Solid(210, 20, 120), 2) { DashStyle = DashStyles.Dash };
-        dc.DrawLine(cruisePen, new Point(Left, Y(_cruiseFt)), new Point(w - Right, Y(_cruiseFt)));
-        var cruiseLabel = Text($"Croisière {_cruiseFt.ToString("N0", Fr)} ft", 10.5, Solid(210, 20, 120), bold: true);
-        dc.DrawText(cruiseLabel, new Point(w - Right - cruiseLabel.Width - 4, Y(_cruiseFt) - cruiseLabel.Height - 1));
+        if (_altitudes is null)
+        {
+            dc.DrawLine(cruisePen, new Point(Left, Y(_cruiseFt)), new Point(w - Right, Y(_cruiseFt)));
+            var cruiseLabel = Text($"Croisière {_cruiseFt.ToString("N0", Fr)} ft", 10.5, Solid(210, 20, 120), bold: true);
+            dc.DrawText(cruiseLabel, new Point(w - Right - cruiseLabel.Width - 4, Y(_cruiseFt) - cruiseLabel.Height - 1));
+        }
+        else
+        {
+            // Altitudes saisies : trait brisé qui passe par l'altitude de chaque point, repérée par une valeur.
+            for (int i = 1; i < _altitudes.Count; i++)
+                dc.DrawLine(cruisePen, new Point(X(_altitudes.DistanceAt(i - 1)), Y(_altitudes.AtWaypoint(i - 1))), new Point(X(_altitudes.DistanceAt(i)), Y(_altitudes.AtWaypoint(i))));
+            for (int i = 0; i < _altitudes.Count; i++)
+            {
+                var at = new Point(X(_altitudes.DistanceAt(i)), Y(_altitudes.AtWaypoint(i)));
+                dc.DrawEllipse(Solid(210, 20, 120), new Pen(Brushes.White, 1.2), at, 3.5, 3.5);
+                var label = Text(_altitudes.AtWaypoint(i).ToString("N0", Fr), 10, Solid(210, 20, 120), bold: true);
+                dc.DrawText(label, new Point(Math.Clamp(at.X - label.Width / 2, Left, w - Right - label.Width), Math.Max(Top, at.Y - label.Height - 5)));
+            }
+        }
 
         // Points de passage.
         double done = 0;

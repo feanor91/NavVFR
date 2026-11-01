@@ -5,6 +5,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\VFRNav.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Mapsui.Wpf" Version="5.1.0" />
   </ItemGroup>
 
@@ -15,6 +19,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <PlatformTarget>x64</PlatformTarget>
+    <ApplicationIcon>Assets\VFRNav.ico</ApplicationIcon>
   </PropertyGroup>
 
   <!-- SimConnect : VFRNav appelle la DLL native SimConnect.dll, sans référence au SDK à la compilation. Si le SDK de MSFS

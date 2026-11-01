@@ -1,4 +1,4 @@
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace VFRNav.Core.Models;
 
@@ -14,6 +14,9 @@ public sealed class Waypoint
 
     /// <summary>Notes du pilote pour ce point (consignes, repères visuels, fréquences...).</summary>
     public string? Notes { get; set; }
+
+    /// <summary>Altitude prévue à ce point, en pieds (AMSL) ; null = altitude de croisière du vol.</summary>
+    public double? AltitudeFt { get; set; }
 
     public bool IsAirport => !string.IsNullOrEmpty(Icao);
 

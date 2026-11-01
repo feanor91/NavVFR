@@ -643,6 +643,20 @@ public partial class MainWindow
         MapControl.Refresh();
     }
 
+    private GlossaryWindow? _glossary;
+
+    /// <summary>Ouvre le glossaire des sigles à côté de la carte ; un second clic le ramène devant.</summary>
+    private void Glossary_Click(object sender, RoutedEventArgs e)
+    {
+        if (_glossary is null)
+        {
+            _glossary = new GlossaryWindow { Owner = this };
+            _glossary.Closed += (_, _) => _glossary = null;
+            _glossary.Show();
+        }
+        _glossary.ShowTerm();
+    }
+
     private void AirspaceFloor_Changed(object sender, RoutedEventArgs e)
     {
         if (IsLoaded) ApplyAirspaceFilter();
@@ -653,6 +667,8 @@ public partial class MainWindow
 public partial class MainWindow
 {
     private const int MaxZonesInTip = 6;
+    private const double EdgeHoverPx = 8;   // distance au trait en dessous de laquelle on le considère survolé
+    private const int MaxZonesOnEdge = 3;    // deux zones voisines peuvent partager un contour
 
     private void OnMapMouseMove(object sender, System.Windows.Input.MouseEventArgs e)
     {
@@ -681,7 +697,13 @@ public partial class MainWindow
         if (AirportAt(_mouse) is { } airport) { ShowAirportTip(airport); return; }
         var world = MapControl.Map.Navigator.Viewport.ScreenToWorld(_mouse.X, _mouse.Y);
         (double lon, double lat) = SphericalMercator.ToLonLat(world.X, world.Y);
-        var hits = _shownAirspaces.Where(a => a.Contains(lon, lat)).OrderBy(a => a.LowerFt).ThenBy(a => a.UpperFt).ToList();
+        // Sur un trait : seules les zones dont le contour passe sous le curseur. Sinon : les zones qui contiennent le point.
+        double reach = EdgeHoverPx * MapControl.Map.Navigator.Viewport.Resolution;
+        var onEdge = _shownAirspaces.Select(a => (Zone: a, Distance: a.EdgeDistanceMercator(lon, lat)))
+            .Where(z => z.Distance <= reach).OrderBy(z => z.Distance).Select(z => z.Zone).Take(MaxZonesOnEdge).ToList();
+        var hits = onEdge.Count > 0
+            ? onEdge
+            : _shownAirspaces.Where(a => a.Contains(lon, lat)).OrderBy(a => a.LowerFt).ThenBy(a => a.UpperFt).ToList();
         if (hits.Count == 0) return;
 
         TipText.Inlines.Clear();

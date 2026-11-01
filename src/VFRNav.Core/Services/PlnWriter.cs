@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using System.Xml.Linq;
 using VFRNav.Core.Models;
 
@@ -59,7 +59,7 @@ public static class PlnWriter
             string id = wp.Icao ?? (string.IsNullOrWhiteSpace(wp.Name) ? $"WP{i}" : wp.Name);
             var el = new XElement("ATCWaypoint", new XAttribute("id", id),
                 new XElement("ATCWaypointType", wp.IsAirport ? "Airport" : "User"),
-                new XElement("WorldPosition", Lla(wp, wp.IsAirport ? wp.ElevationFt : cruiseAltFt)));
+                new XElement("WorldPosition", Lla(wp, wp.AltitudeFt ?? (wp.IsAirport ? wp.ElevationFt : cruiseAltFt))));
             if (wp.IsAirport) el.Add(new XElement("ICAO", new XElement("ICAOIdent", wp.Icao)));
             plan.Add(el);
         }

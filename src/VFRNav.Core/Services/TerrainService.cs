@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text.Json;
 using VFRNav.Core.Models;
 
@@ -23,6 +23,19 @@ public sealed record TerrainProfile(IReadOnlyList<TerrainSample> Samples)
     {
         var inLeg = Samples.Where(s => s.LegIndex == leg).ToList();
         return inLeg.Count == 0 ? null : inLeg.Max(s => s.ElevationFt);
+    }
+
+    /// <summary>Comme ci-dessous, avec une altitude qui varie le long de la route : on retient l'endroit où la marge est la plus faible.</summary>
+    public IReadOnlyList<TerrainWarning> Warnings(AltitudeProfile altitudes, double marginFt = 1000)
+    {
+        var result = new List<TerrainWarning>();
+        foreach (var group in Samples.GroupBy(s => s.LegIndex).OrderBy(g => g.Key))
+        {
+            var worst = group.MinBy(s => altitudes.AtDistance(s.DistanceNm) - s.ElevationFt)!;
+            double clearance = altitudes.AtDistance(worst.DistanceNm) - worst.ElevationFt;
+            if (clearance < marginFt) result.Add(new TerrainWarning(group.Key, worst.ElevationFt, worst.DistanceNm, clearance));
+        }
+        return result;
     }
 
     /// <summary>Tronçons où la marge au-dessus du relief est inférieure à <paramref name="marginFt"/>.</summary>

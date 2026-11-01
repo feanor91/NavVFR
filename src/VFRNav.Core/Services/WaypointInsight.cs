@@ -1,4 +1,4 @@
-using VFRNav.Core.Models;
+﻿using VFRNav.Core.Models;
 
 namespace VFRNav.Core.Services;
 
@@ -63,7 +63,7 @@ public static class WaypointInsight
     /// et tronçons où le relief laisse moins de <paramref name="marginFt"/> sous la croisière.
     /// </summary>
     public static IReadOnlyList<string> RouteCheck(
-        IReadOnlyList<Waypoint> route, double cruiseFt, IReadOnlyList<AirspaceCrossing> crossings, TerrainProfile? terrain, double marginFt = 1000, bool zonesLoaded = true)
+        IReadOnlyList<Waypoint> route, double cruiseFt, IReadOnlyList<AirspaceCrossing> crossings, TerrainProfile? terrain, double marginFt = 1000, bool zonesLoaded = true, AltitudeProfile? altitudes = null)
     {
         var lines = new List<string>();
         if (route.Count < 2) return lines;
@@ -81,7 +81,7 @@ public static class WaypointInsight
 
         if (terrain is not null)
         {
-            var warnings = terrain.Warnings(cruiseFt, marginFt);
+            var warnings = altitudes is null ? terrain.Warnings(cruiseFt, marginFt) : terrain.Warnings(altitudes, marginFt);
             foreach (var w in warnings)
             {
                 string leg = w.LegIndex + 1 < route.Count ? $"{route[w.LegIndex].Name} → {route[w.LegIndex + 1].Name}" : $"tronçon {w.LegIndex + 1}";

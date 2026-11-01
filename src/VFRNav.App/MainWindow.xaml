@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mapsui="clr-namespace:Mapsui.UI.Wpf;assembly=Mapsui.UI.Wpf"
         xmlns:local="clr-namespace:VFRNav.App"
-        Title="VFRNav" Width="1500" Height="950" Background="#0B2A55">
+        Title="VFRNav" Icon="Assets/VFRNav.ico" Width="1500" Height="950" Background="#0B2A55">
     <Window.Resources>
         <Style TargetType="TextBlock" x:Key="Label">
             <Setter Property="Foreground" Value="#A9C4EE"/>
@@ -38,8 +38,9 @@
                           SelectionMode="Single" GridLinesVisibility="Horizontal">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Nom" Binding="{Binding Name}" Width="*"/>
-                        <DataGridTextColumn Header="Lat" Binding="{Binding Lat, StringFormat=F4}" Width="62"/>
-                        <DataGridTextColumn Header="Lon" Binding="{Binding Lon, StringFormat=F4}" Width="62"/>
+                        <DataGridTextColumn Header="Alt (ft)" Binding="{Binding AltitudeFt, StringFormat=0, TargetNullValue=''}" Width="58"/>
+                        <DataGridTextColumn Header="Lat" Binding="{Binding Lat, StringFormat=F4}" Width="56"/>
+                        <DataGridTextColumn Header="Lon" Binding="{Binding Lon, StringFormat=F4}" Width="56"/>
                         <DataGridTextColumn Header="Note" Binding="{Binding NoteMark}" Width="40" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
@@ -177,9 +178,14 @@
                         </ScrollViewer>
                     </DockPanel>
                 </Border>
-                <Button x:Name="VacToggle" Content="Cartes VAC" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"
-                        Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"
-                        Click="ToggleVac_Click" ToolTip="Afficher / masquer le lecteur de cartes VAC"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
+                    <Button x:Name="GlossaryButton" Content="Glossaire" Margin="0,0,8,0"
+                            Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"
+                            Click="Glossary_Click" ToolTip="Sigles des cartes : TMA, CTR, QNH, RMZ…"/>
+                    <Button x:Name="VacToggle" Content="Cartes VAC"
+                            Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"
+                            Click="ToggleVac_Click" ToolTip="Afficher / masquer le lecteur de cartes VAC"/>
+                </StackPanel>
             </Grid>
             <GridSplitter x:Name="SplitA" Height="6" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#1D4A8A"/>
             <GridSplitter x:Name="SplitB" Height="6" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#1D4A8A" Visibility="Collapsed"/>

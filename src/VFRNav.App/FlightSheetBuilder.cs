@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
@@ -25,7 +25,9 @@ public sealed record FlightSheetInput(
     IReadOnlyList<AirportBrief> Airports,
     ImageSource? ProfileImage,
     string? WeatherNote,
-    DateTimeOffset Now);
+    DateTimeOffset Now,
+    IReadOnlyList<PointBriefing>? Briefings = null,
+    AltitudeProfile? Altitudes = null);
 
 /// <summary>Construit la feuille de route (A4) : tableau de navigation, relief, terrains, météo, zones et balises.</summary>
 public static class FlightSheetBuilder
@@ -99,9 +101,17 @@ public static class FlightSheetBuilder
             w.Icao ?? w.Name,
             $"{w.Lat.ToString("0.0000", Fr)}, {w.Lon.ToString("0.0000", Fr)}",
             w.IsAirport && w.ElevationFt > 0 ? w.ElevationFt.ToString("N0", Fr) + " ft" : "",
+            input.Briefings is { } bs && i < bs.Count ? bs[i].AltitudeFt.ToString("N0", Fr) + " ft" : (w.AltitudeFt ?? p.CruiseAltFt).ToString("N0", Fr) + " ft",
             w.Notes?.Trim() ?? ""
         }).ToList();
-        doc.Blocks.Add(MakeTable(["N°", "Point", "Position", "Élév.", "Notes"], pointRows, [0.4, 1.4, 2.2, 1.1, 5.2], rightFrom: 99));
+        doc.Blocks.Add(MakeTable(["N°", "Point", "Position", "Élév.", "Altitude\nprévue", "Notes"], pointRows, [0.4, 1.3, 2.1, 0.9, 1.1, 4.6], rightFrom: 99));
+
+        // --- Survol, autorisations et fréquences, point par point
+        if (input.Briefings is { Count: > 0 } briefings)
+        {
+            doc.Blocks.Add(Section("Survol, autorisations et fréquences par point"));
+            AddBriefings(doc, briefings);
+        }
 
         // --- Relief
         doc.Blocks.Add(Section("Relief sous la route"));
@@ -294,13 +304,44 @@ public static class FlightSheetBuilder
         if (r.Lines.Count > 16 && r.Kind == "TAF") doc.Blocks.Add(Small($"… {r.Lines.Count - 16} lignes de plus dans l'onglet METAR / TAF."));
     }
 
+    // ---------- survol et autorisations par point ----------
+
+    private static void AddBriefings(FlowDocument doc, IReadOnlyList<PointBriefing> briefings)
+    {
+        foreach (var b in briefings)
+        {
+            doc.Blocks.Add(Heading($"{b.Index + 1}. {b.Name} — {b.AltitudeFt.ToString("N0", Fr)} ft ({b.AltitudeSource})", 11.5, Accent, top: 6));
+            var rows = b.Zones.Select(z => new[]
+            {
+                $"{PointBriefings.Mark(z.Severity)} {z.Zone.Name}",
+                Airspace.TypeName(z.Zone.TypeCode) + (z.Zone.IcaoClass.Length > 0 ? $" · cl. {z.Zone.IcaoClass}" : "") + $"\n{z.Zone.Lower} → {z.Zone.Upper}",
+                z.Verdict,
+                z.Action
+            }).ToList();
+            if (rows.Count == 0) doc.Blocks.Add(Plain("Aucune zone connue à cette altitude : pas de clairance ni de radio demandées par les zones chargées."));
+            else
+            {
+                var strict = b.Zones.Select((z, i) => (z, i)).Where(t => t.z.Status == VerticalStatus.Inside && t.z.Severity >= Severity.Clearance).Select(t => t.i).ToHashSet();
+                doc.Blocks.Add(MakeTable(["Zone", "Type et limites", "Ce que ça implique", "À faire"], rows, [2.2, 2.2, 2.4, 4.4], rightFrom: 99, highlight: strict.Contains));
+            }
+            if (b.Frequencies.Count > 0)
+            {
+                var line = Plain("Fréquences à contacter : " + string.Join("   ", b.Frequencies));
+                line.FontWeight = FontWeights.SemiBold;
+                doc.Blocks.Add(line);
+            }
+        }
+        doc.Blocks.Add(Small("Fond rose : clairance obligatoire ou vol à vue interdit à cette altitude. Texte général pour la simulation : pour un vol réel, "
+            + "vérifie l'activation des zones (NOTAM, SIA) et les conditions d'accès publiées. Comparaison faite sans tenir compte du relief."));
+    }
+
     // ---------- zones ----------
 
     private static void AddCrossings(FlowDocument doc, FlightSheetInput input)
     {
         if (input.Crossings.Count == 0)
         {
-            doc.Blocks.Add(Plain("Aucune zone connue sur la route à cette altitude (ou zones non chargées : saisis une clé OpenAIP)."));
+            doc.Blocks.Add(Plain("Aucune zone connue sur la route à ton altitude (ou zones non chargées : saisis une clé OpenAIP)."));
             return;
         }
         var rows = input.Crossings.Select(c => new[]
@@ -319,9 +360,9 @@ public static class FlightSheetBuilder
             c.Zone.Details?.Frequencies is { Count: > 0 } f ? string.Join(" ", f.Select(x => x.Value)) : ""
         }).ToList();
         var inside = input.Crossings.Select((c, i) => (c, i)).Where(t => t.c.Status == VerticalStatus.Inside).Select(t => t.i).ToHashSet();
-        doc.Blocks.Add(MakeTable(["NM", "Zone", "Type", "Limites", "À la croisière", "Fréquence"], rows, [1, 2.4, 2.1, 2.1, 1.9, 1.2], rightFrom: 99,
+        doc.Blocks.Add(MakeTable(["NM", "Zone", "Type", "Limites", "À ton altitude", "Fréquence"], rows, [1, 2.4, 2.1, 2.1, 1.9, 1.2], rightFrom: 99,
             highlight: inside.Contains));
-        doc.Blocks.Add(Small("« DANS LA ZONE » : tu y voles à ton altitude de croisière — vérifie classe, radio et clairance avant le départ. "
+        doc.Blocks.Add(Small("« DANS LA ZONE » : tu y voles à ton altitude prévue — vérifie classe, radio et clairance avant le départ. "
             + "En classe A, le vol à vue est interdit : change d'altitude ou de route. "
             + "Comparaison faite sans tenir compte du relief."));
     }

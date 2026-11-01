@@ -1,4 +1,4 @@
-using VFRNav.Core.Models;
+﻿using VFRNav.Core.Models;
 
 namespace VFRNav.Tests;
 
@@ -99,5 +99,15 @@ public class AirspaceTests
         var (text, feet) = Airspace.FormatLimit(1000, 0, 1);
         Assert.Equal("1000m AMSL", text);
         Assert.Equal(3280.84, feet, 1);
+    }
+
+    [Fact]
+    public void Edge_distance_tells_which_zone_draws_the_line_under_the_cursor()
+    {
+        var square = new Airspace("CARRE", "D", "SFC", "2000ft AMSL", [new List<(double, double)> { (2, 48), (3, 48), (3, 49), (2, 49) }], AirspaceKind.Tma, 0, 2000);
+        Assert.True(square.EdgeDistanceMercator(2.5, 48.0) < 1);                 // sur le bord sud
+        Assert.True(square.EdgeDistanceMercator(3.0, 48.5) < 1);                 // sur le bord est
+        Assert.True(square.EdgeDistanceMercator(2.5, 48.5) > 30_000);            // au centre : loin de tout contour
+        Assert.InRange(square.EdgeDistanceMercator(2.5, 47.999), 50, 400);       // à ~110 m du bord, en mètres Mercator (~170 m à cette latitude)
     }
 }

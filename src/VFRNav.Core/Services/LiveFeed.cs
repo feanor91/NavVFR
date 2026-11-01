@@ -5,7 +5,7 @@ namespace VFRNav.Core.Services;
 /// <summary>Position de l'avion du joueur telle que NavVFR la partage.</summary>
 public sealed record FeedAircraft(double Lat, double Lon, double AltitudeFt, double HeadingTrue, double GroundSpeedKt, bool OnGround);
 
-public sealed record FeedWaypoint(string Name, string? Icao, double Lat, double Lon, string? Notes);
+public sealed record FeedWaypoint(string Name, string? Icao, double Lat, double Lon, string? Notes, double? AltitudeFt = null);
 
 public sealed record FeedAirspace(string Name, string IcaoClass, string Type, string Kind, string Lower, string Upper,
     double LowerFt, double UpperFt, double[][][] Rings);
@@ -32,7 +32,7 @@ public static class LiveFeed
 
     public static LiveFeedState State(IEnumerable<Waypoint> route, FeedAircraft? aircraft, DateTimeOffset? aircraftAt, double cruiseAltFt, DateTimeOffset now) =>
         new(ProtocolVersion,
-            [.. route.Select(w => new FeedWaypoint(w.Name, w.Icao, w.Lat, w.Lon, string.IsNullOrWhiteSpace(w.Notes) ? null : w.Notes.Trim()))],
+            [.. route.Select(w => new FeedWaypoint(w.Name, w.Icao, w.Lat, w.Lon, string.IsNullOrWhiteSpace(w.Notes) ? null : w.Notes.Trim(), w.AltitudeFt))],
             aircraft, cruiseAltFt,
             aircraft is null || aircraftAt is null ? -1 : (long)Math.Max(0, (now - aircraftAt.Value).TotalMilliseconds));
 

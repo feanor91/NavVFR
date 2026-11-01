@@ -1,4 +1,4 @@
-; Installeur de VFRNav (Inno Setup 6). Compilé par le workflow release.yml :
+﻿; Installeur de VFRNav (Inno Setup 6). Compilé par le workflow release.yml :
 ;   ISCC.exe /DAppVersion=0.1.0 /DSourceDir=<dossier publié> installer\VFRNav.iss
 #ifndef AppVersion
   #define AppVersion "0.0.0"
@@ -27,6 +27,7 @@ OutputBaseFilename=VFRNav-Setup-{#AppVersion}
 Compression=lzma2/max
 SolidCompression=yes
 WizardStyle=modern
+SetupIconFile=..\src\VFRNav.App\Assets\VFRNav.ico
 UninstallDisplayIcon={app}\VFRNav.App.exe
 VersionInfoVersion={#AppVersion}
 

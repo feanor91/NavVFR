@@ -1,4 +1,4 @@
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Windows;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
@@ -54,7 +54,9 @@ public partial class MainWindow
             _planSignature = Signature(route, p.CruiseAltFt);
 
             var relevant = _airspaces.Where(z => z.Kind is not (AirspaceKind.Sector or AirspaceKind.Other));
-            var crossings = RouteAnalysis.AirspacesAlong(samples, relevant, p.CruiseAltFt);
+            var altitudes = new AltitudeProfile(route, p.CruiseAltFt);
+            var crossings = RouteAnalysis.AirspacesAlong(samples, relevant, altitudes);
+            var briefings = PointBriefings.ForRoute(route, p.CruiseAltFt, _airspaces.Where(z => z.Kind != AirspaceKind.Other).ToList(), AerodromeFrequencies);
             var navaids = RouteAnalysis.NavaidsAlong(route, _navaids, 15);
 
             PlanStatus.Text = "Récupération de la météo...";
@@ -62,13 +64,13 @@ public partial class MainWindow
 
             // Graphique de l'onglet « Profil » et image pour la feuille.
             string? message = terrainNote ?? (_airspaces.Count == 0 ? "Zones non chargées (clé OpenAIP) : seul le relief est tracé." : null);
-            ProfileView.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles);
+            ProfileView.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles, altitudes);
             ProfileStatus.Text = message ?? $"{crossings.Count} passage(s) de zone · point le plus haut {(terrain?.MaxFt ?? 0):N0} ft · {obstacles.Count} obstacle(s) répertorié(s)";
             var snapshot = new ProfileChart();
-            snapshot.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles);
+            snapshot.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles, altitudes);
             var image = terrain is null ? null : ProfileChart.Snapshot(snapshot, 700, 270);
 
-            var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now);
+            var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes);
             var document = FlightSheetBuilder.Build(input);
             string title = $"Feuille de route {route[0].Icao ?? route[0].Name} - {route[^1].Icao ?? route[^1].Name}";
             new FlightSheetWindow(document, title) { Owner = this }.Show();

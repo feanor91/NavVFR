@@ -1,4 +1,4 @@
-using VFRNav.Core.Models;
+﻿using VFRNav.Core.Models;
 
 namespace VFRNav.Core.Services;
 
@@ -21,7 +21,14 @@ public static class RouteAnalysis
     /// Zones que la route traverse latéralement. Une zone dont le plancher est plus haut que
     /// <paramref name="cruiseFt"/> + <paramref name="ceilingMarginFt"/> est ignorée.
     /// </summary>
-    public static IReadOnlyList<AirspaceCrossing> AirspacesAlong(IReadOnlyList<RoutePoint> samples, IEnumerable<Airspace> zones, double cruiseFt, double ceilingMarginFt = 1000)
+    public static IReadOnlyList<AirspaceCrossing> AirspacesAlong(IReadOnlyList<RoutePoint> samples, IEnumerable<Airspace> zones, double cruiseFt, double ceilingMarginFt = 1000) =>
+        Along(samples, zones, _ => cruiseFt, cruiseFt, ceilingMarginFt);
+
+    /// <summary>Comme ci-dessus, mais l'altitude varie le long de la route (celle saisie à chaque point, interpolée entre eux).</summary>
+    public static IReadOnlyList<AirspaceCrossing> AirspacesAlong(IReadOnlyList<RoutePoint> samples, IEnumerable<Airspace> zones, AltitudeProfile altitudes, double ceilingMarginFt = 1000) =>
+        Along(samples, zones, altitudes.AtDistance, altitudes.MaxFt, ceilingMarginFt);
+
+    private static IReadOnlyList<AirspaceCrossing> Along(IReadOnlyList<RoutePoint> samples, IEnumerable<Airspace> zones, Func<double, double> altitudeAt, double maxFt, double ceilingMarginFt)
     {
         var result = new List<AirspaceCrossing>();
         if (samples.Count == 0) return result;
@@ -30,29 +37,34 @@ public static class RouteAnalysis
 
         foreach (var zone in zones)
         {
-            if (zone.LowerFt > cruiseFt + ceilingMarginFt) continue;
+            if (zone.LowerFt > maxFt + ceilingMarginFt) continue;
             if (!OverlapsBox(zone, minLat, minLon, maxLat, maxLon)) continue;
 
             double? entry = null;
             double last = 0;
+            var altitudes = new List<double>();
             foreach (var s in samples)
             {
                 bool inside = zone.Contains(s.Lon, s.Lat);
-                if (inside && entry is null) entry = s.DistanceNm;
+                if (inside && entry is null) { entry = s.DistanceNm; altitudes.Clear(); }
+                if (inside) altitudes.Add(altitudeAt(s.DistanceNm));
                 if (!inside && entry is not null)
                 {
-                    result.Add(Crossing(zone, entry.Value, last, cruiseFt));
+                    result.Add(Crossing(zone, entry.Value, last, altitudes));
                     entry = null;
                 }
                 last = s.DistanceNm;
             }
-            if (entry is not null) result.Add(Crossing(zone, entry.Value, last, cruiseFt));
+            if (entry is not null) result.Add(Crossing(zone, entry.Value, last, altitudes));
         }
         return result.OrderBy(c => c.EntryNm).ThenBy(c => c.Zone.LowerFt).ToList();
     }
 
-    private static AirspaceCrossing Crossing(Airspace zone, double entry, double exit, double cruiseFt) =>
-        new(zone, entry, exit, cruiseFt < zone.LowerFt ? VerticalStatus.Below : cruiseFt > zone.UpperFt ? VerticalStatus.Above : VerticalStatus.Inside);
+    /// <summary>Dans la zone si l'altitude y est à un moment du passage ; sinon au-dessus ou en dessous pendant tout le passage.</summary>
+    private static AirspaceCrossing Crossing(Airspace zone, double entry, double exit, IReadOnlyList<double> altitudes) =>
+        new(zone, entry, exit,
+            altitudes.Any(a => a >= zone.LowerFt && a <= zone.UpperFt) ? VerticalStatus.Inside
+            : altitudes.All(a => a < zone.LowerFt) ? VerticalStatus.Below : VerticalStatus.Above);
 
     private static bool OverlapsBox(Airspace zone, double minLat, double minLon, double maxLat, double maxLon)
     {

@@ -1,4 +1,4 @@
-namespace VFRNav.Core.Models;
+﻿namespace VFRNav.Core.Models;
 
 /// <summary>Famille d'espace aérien, qui décide du style de tracé et du filtre.</summary>
 public enum AirspaceKind { Other, Restricted, Ctr, Tma, Radio, Leisure, Sector }
@@ -100,6 +100,42 @@ public sealed record Airspace(string Name, string IcaoClass, string Lower, strin
             if (inside) return true;
         }
         return false;
+    }
+
+    /// <summary>
+    /// Distance, en mètres Web Mercator (l'unité de la carte), entre le point et le contour de la zone le plus proche.
+    /// Sert à savoir quelle zone dessine le trait que l'on survole.
+    /// </summary>
+    public double EdgeDistanceMercator(double lon, double lat)
+    {
+        var (px, py) = Mercator(lon, lat);
+        double best = double.MaxValue;
+        foreach (var ring in Rings)
+        {
+            if (ring.Count < 2) continue;
+            var (ax, ay) = Mercator(ring[^1].Lon, ring[^1].Lat);
+            foreach (var (blon, blat) in ring)
+            {
+                var (bx, by) = Mercator(blon, blat);
+                best = Math.Min(best, SegmentDistance(px, py, ax, ay, bx, by));
+                (ax, ay) = (bx, by);
+            }
+        }
+        return best;
+    }
+
+    private static (double X, double Y) Mercator(double lon, double lat)
+    {
+        const double R = 6378137.0;
+        double clamped = Math.Clamp(lat, -85.05, 85.05) * Math.PI / 180;
+        return (R * lon * Math.PI / 180, R * Math.Log(Math.Tan(Math.PI / 4 + clamped / 2)));
+    }
+
+    private static double SegmentDistance(double px, double py, double ax, double ay, double bx, double by)
+    {
+        double dx = bx - ax, dy = by - ay, len2 = dx * dx + dy * dy;
+        double t = len2 == 0 ? 0 : Math.Clamp(((px - ax) * dx + (py - ay) * dy) / len2, 0, 1);
+        return Math.Sqrt(Math.Pow(px - (ax + t * dx), 2) + Math.Pow(py - (ay + t * dy), 2));
     }
 
     /// <summary>Lignes de l'infobulle, sans le titre (le nom).</summary>

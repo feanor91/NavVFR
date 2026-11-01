@@ -121,6 +121,25 @@ public partial class MainWindow
 
     private IEnumerable<Airspace> RelevantZones() => _airspaces.Where(z => z.Kind is not (AirspaceKind.Sector or AirspaceKind.Other));
 
+    /// <summary>Fréquences publiées par StormATC pour un terrain de la route.</summary>
+    private IReadOnlyList<string> AerodromeFrequencies(Waypoint wp) =>
+        wp.IsAirport && _stormAtc?.Find(wp.Icao!) is { } a
+            ? [.. a.Frequencies.Select(f => PointBriefings.Format($"{wp.Icao} {f.Service}", f.Mhz))]
+            : [];
+
+    /// <summary>Lignes « survol et autorisations » puis « fréquences à contacter » d'un point.</summary>
+    private static IEnumerable<string> BriefingLines(PointBriefing briefing)
+    {
+        var inside = briefing.Zones.Where(z => z.Status == VerticalStatus.Inside).ToList();
+        var outside = briefing.Zones.Where(z => z.Status != VerticalStatus.Inside).ToList();
+        if (inside.Count == 0 && outside.Count == 0) yield return "Survol : aucune zone connue à cette altitude";
+        foreach (var z in inside.Take(6))
+            yield return $"{PointBriefings.Mark(z.Severity)} {z.Zone.Name} ({z.Zone.Lower} → {z.Zone.Upper}) : {z.Verdict}. {z.Action}";
+        if (inside.Count > 6) yield return $"… et {inside.Count - 6} autre(s) zone(s)";
+        foreach (var z in outside.Take(2)) yield return $"ℹ {z.Zone.Name} : {z.Verdict}. {z.Action}";
+        if (briefing.Frequencies.Count > 0) yield return "Fréquences à contacter : " + string.Join(" · ", briefing.Frequencies);
+    }
+
     /// <summary>Partie immédiate (sans réseau) : tronçon, zones, balises et terrains proches.</summary>
     private List<string> BasicLines(Waypoint wp, FlightParameters p)
     {
@@ -134,20 +153,12 @@ public partial class MainWindow
             lines.Add($"Depuis {_route[index - 1].Name} : {leg.DistanceNm:0.0} NM · Rv {leg.TrueCourse:000}° · cap {leg.MagneticHeading:000}° · {leg.GroundSpeedKt:0} kt · {leg.Time} · {leg.FuelL:0.0} L");
         }
 
-        var zones = WaypointInsight.ZonesAt(wp.Lat, wp.Lon, RelevantZones(), p.CruiseAltFt);
-        foreach (var z in zones.Take(5))
-        {
-            string status = z.Status switch
-            {
-                VerticalStatus.Inside => z.Zone.IcaoClass == "A" ? "⚠ DANS (classe A : VFR interdit)" : "⚠ Dans",
-                VerticalStatus.Above => "au-dessus de",
-                _ => "sous le plancher de"
-            };
-            lines.Add($"{status} {z.Zone.Name} — {Airspace.TypeName(z.Zone.TypeCode)}{(z.Zone.IcaoClass.Length > 0 ? " cl. " + z.Zone.IcaoClass : "")}, {z.Zone.Lower} → {z.Zone.Upper}");
-        }
-        if (zones.Count > 5) lines.Add($"… et {zones.Count - 5} autre(s) zone(s)");
+        // Altitude du point, zones qui s'y trouvent à cette altitude, ce que chacune demande et les fréquences à contacter.
+        var route = _route.ToList();
+        var briefing = PointBriefings.For(route, index, p.CruiseAltFt, _airspaces.Where(z => z.Kind != AirspaceKind.Other).ToList(), AerodromeFrequencies(wp));
+        lines.Add($"Altitude à ce point : {briefing.AltitudeFt:N0} ft ({briefing.AltitudeSource})");
+        lines.AddRange(BriefingLines(briefing));
         if (_airspaces.Count == 0) lines.Add("Zones non chargées (clé OpenAIP) : espaces aériens non vérifiés");
-        else if (zones.Count == 0) lines.Add("Aucune zone connue ici à ton altitude");
 
         foreach (var n in WaypointInsight.NearestNavaids(wp.Lat, wp.Lon, _navaids))
             lines.Add($"{n.Navaid.Label} {n.Navaid.Ident} {n.Navaid.FrequencyText} — {WaypointInsight.Relative(n.DistanceNm, n.BearingTrue)}");
@@ -190,7 +201,8 @@ public partial class MainWindow
             _terrainService ??= new TerrainService(_http);
             double ground = (await _terrainService.ElevationsFeetAsync([(wp.Lat, wp.Lon)], ct))[0];
             ct.ThrowIfCancellationRequested();
-            lines.Insert(1, $"Sol : {ground:N0} ft — marge sous ta croisière : {p.CruiseAltFt - ground:N0} ft");
+            double here = PointBriefings.AltitudeFor(_route.ToList(), Math.Max(0, _route.IndexOf(wp)), p.CruiseAltFt).Ft;
+            lines.Insert(1, $"Sol : {ground:N0} ft — marge sous ton altitude ici : {here - ground:N0} ft");
 
             if (wp.IsAirport)
             {
@@ -223,9 +235,10 @@ public partial class MainWindow
             return;
         }
 
+        var altitudes = new AltitudeProfile(route, p.CruiseAltFt);
         var samples = RouteGeometry.Sample(route, 1);
-        var crossings = RouteAnalysis.AirspacesAlong(samples, RelevantZones(), p.CruiseAltFt);
-        LiveCheck.Text = string.Join("\n", WaypointInsight.RouteCheck(route, p.CruiseAltFt, crossings, null, zonesLoaded: _airspaces.Count > 0)) + "\nRelief : calcul…";
+        var crossings = RouteAnalysis.AirspacesAlong(samples, RelevantZones(), altitudes);
+        LiveCheck.Text = string.Join("\n", WaypointInsight.RouteCheck(route, p.CruiseAltFt, crossings, null, zonesLoaded: _airspaces.Count > 0, altitudes: altitudes)) + "\nRelief : calcul…";
 
         TerrainProfile? terrain = null;
         string? note = null;
@@ -236,13 +249,13 @@ public partial class MainWindow
         }
         ct.ThrowIfCancellationRequested();
 
-        var lines = WaypointInsight.RouteCheck(route, p.CruiseAltFt, crossings, terrain, zonesLoaded: _airspaces.Count > 0);
+        var lines = WaypointInsight.RouteCheck(route, p.CruiseAltFt, crossings, terrain, zonesLoaded: _airspaces.Count > 0, altitudes: altitudes);
         if (note is not null) lines = [.. lines, note];
         LiveCheck.Text = string.Join("\n", lines);
 
         // Les obstacles du dernier calcul de plan ne valent que pour la même route à la même altitude.
         var obstacles = _planSignature == Signature(route, p.CruiseAltFt) ? _planObstacles : [];
-        ProfileView.SetData(terrain, p.CruiseAltFt, route, crossings, note, obstacles);
+        ProfileView.SetData(terrain, p.CruiseAltFt, route, crossings, note, obstacles, altitudes);
         ProfileStatus.Text = terrain is null ? note ?? "" : $"Profil en direct · point le plus haut {terrain.MaxFt:N0} ft · {crossings.Count} passage(s) de zone";
     }
 
