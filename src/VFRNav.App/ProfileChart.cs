@@ -19,7 +19,19 @@ public sealed class ProfileChart : FrameworkElement
     private IReadOnlyList<AirspaceCrossing> _crossings = [];
     private string? _message;
     private IReadOnlyList<RouteObstacle> _obstacles = [];
-    private AltitudeProfile? _altitudes;
+    private AltitudeProfile? _profile;
+
+    // Glisser-déposer de l'altitude : un point de la route, ou le trait de croisière entier.
+    private enum DragKind { None, Waypoint, Cruise }
+    private DragKind _drag;
+    private int _dragIndex;
+    private AltitudeProfile? _dragProfile;
+    private double? _dragCruise, _frozenYMax;
+    private double _gTotal = 1, _gPlotW = 1, _gPlotH = 1, _gYMax = 1;
+    private const double MarkerHitPx = 11, LineHitPx = 6, SnapFt = 100;
+
+    /// <summary>Altitude modifiée à la souris : l'indice du point (null : la croisière de toute la route) et la valeur en pieds (null : retour à la croisière).</summary>
+    public event Action<int?, double?>? AltitudeEdited;
 
     /// <summary>Un obstacle est tracé quand son sommet est à moins de 1 500 ft sous la croisière (ou au-dessus).</summary>
     public const double ObstacleRelevantMarginFt = 1500;
@@ -27,7 +39,8 @@ public sealed class ProfileChart : FrameworkElement
     public void SetData(TerrainProfile? terrain, double cruiseFt, IReadOnlyList<Waypoint> route, IReadOnlyList<AirspaceCrossing> crossings, string? message = null, IReadOnlyList<RouteObstacle>? obstacles = null, AltitudeProfile? altitudes = null)
     {
         _obstacles = obstacles ?? [];
-        _altitudes = altitudes is { IsFlat: false } ? altitudes : null; // plat : le trait de croisière habituel suffit
+        _profile = altitudes ?? new AltitudeProfile(route, cruiseFt);
+        if (_drag == DragKind.None) { _dragProfile = null; _dragCruise = null; _frozenYMax = null; }
         _terrain = terrain;
         _cruiseFt = cruiseFt;
         _route = route;
@@ -82,12 +95,16 @@ public sealed class ProfileChart : FrameworkElement
 
         double total = Math.Max(_terrain.TotalNm, 0.1);
         double plotW = w - Left - Right, plotH = h - Top - Bottom;
-        double flightTop = _altitudes?.MaxFt ?? _cruiseFt;
-        double AltAt(double nm) => _altitudes?.AtDistance(nm) ?? _cruiseFt;
+        var prof = _dragProfile ?? _profile;
+        double cruise = _dragCruise ?? _cruiseFt;
+        bool sloped = prof is { IsFlat: false };
+        double flightTop = prof?.MaxFt ?? cruise;
+        double AltAt(double nm) => prof?.AtDistance(nm) ?? cruise;
         double zoneTop = _crossings.Select(c => Math.Min(c.Zone.UpperFt, flightTop + 2500)).DefaultIfEmpty(0).Max();
         var shownObstacles = _obstacles.Where(o => o.TopFt is not null && AltAt(o.AlongNm) - o.TopFt < ObstacleRelevantMarginFt).ToList();
         double obstacleTop = shownObstacles.Select(o => o.TopFt!.Value + 300).DefaultIfEmpty(0).Max();
-        double yMax = Math.Ceiling(Math.Max(Math.Max(Math.Max(_terrain.MaxFt + 800, flightTop + 1500), zoneTop), obstacleTop) / 1000) * 1000;
+        double yMax = _frozenYMax ?? Math.Ceiling(Math.Max(Math.Max(Math.Max(_terrain.MaxFt + 800, flightTop + 1500), zoneTop), obstacleTop) / 1000) * 1000;
+        (_gTotal, _gPlotW, _gPlotH, _gYMax) = (total, plotW, plotH, yMax); // pour retrouver l'altitude sous la souris
         double gridStep = yMax <= 6000 ? 1000 : yMax <= 12000 ? 2000 : 5000;
 
         double X(double nm) => Left + nm / total * plotW;
@@ -181,25 +198,39 @@ public sealed class ProfileChart : FrameworkElement
         }
 
         // Altitude de croisière.
-        var cruisePen = new Pen(Solid(210, 20, 120), 2) { DashStyle = DashStyles.Dash };
-        if (_altitudes is null)
+        var cruisePen = new Pen(Solid(210, 20, 120), _drag == DragKind.Cruise ? 3.5 : 2) { DashStyle = DashStyles.Dash };
+        var pink = Solid(210, 20, 120);
+        if (!sloped)
         {
-            dc.DrawLine(cruisePen, new Point(Left, Y(_cruiseFt)), new Point(w - Right, Y(_cruiseFt)));
-            var cruiseLabel = Text($"Croisière {_cruiseFt.ToString("N0", Fr)} ft", 10.5, Solid(210, 20, 120), bold: true);
-            dc.DrawText(cruiseLabel, new Point(w - Right - cruiseLabel.Width - 4, Y(_cruiseFt) - cruiseLabel.Height - 1));
+            dc.DrawLine(cruisePen, new Point(Left, Y(cruise)), new Point(w - Right, Y(cruise)));
+            var cruiseLabel = Text($"Croisière {cruise.ToString("N0", Fr)} ft", 10.5, pink, bold: true);
+            dc.DrawText(cruiseLabel, new Point(w - Right - cruiseLabel.Width - 4, Y(cruise) - cruiseLabel.Height - 1));
         }
-        else
+        else if (prof is not null)
         {
-            // Altitudes saisies : trait brisé qui passe par l'altitude de chaque point, repérée par une valeur.
-            for (int i = 1; i < _altitudes.Count; i++)
-                dc.DrawLine(cruisePen, new Point(X(_altitudes.DistanceAt(i - 1)), Y(_altitudes.AtWaypoint(i - 1))), new Point(X(_altitudes.DistanceAt(i)), Y(_altitudes.AtWaypoint(i))));
-            for (int i = 0; i < _altitudes.Count; i++)
+            // Altitudes différentes selon les points : trait brisé qui passe par l'altitude de chaque point, repérée par une valeur.
+            for (int i = 1; i < prof.Count; i++)
+                dc.DrawLine(cruisePen, new Point(X(prof.DistanceAt(i - 1)), Y(prof.AtWaypoint(i - 1))), new Point(X(prof.DistanceAt(i)), Y(prof.AtWaypoint(i))));
+            for (int i = 0; i < prof.Count; i++)
             {
-                var at = new Point(X(_altitudes.DistanceAt(i)), Y(_altitudes.AtWaypoint(i)));
-                dc.DrawEllipse(Solid(210, 20, 120), new Pen(Brushes.White, 1.2), at, 3.5, 3.5);
-                var label = Text(_altitudes.AtWaypoint(i).ToString("N0", Fr), 10, Solid(210, 20, 120), bold: true);
-                dc.DrawText(label, new Point(Math.Clamp(at.X - label.Width / 2, Left, w - Right - label.Width), Math.Max(Top, at.Y - label.Height - 5)));
+                var label = Text(prof.AtWaypoint(i).ToString("N0", Fr), 10, pink, bold: true);
+                var at = new Point(X(prof.DistanceAt(i)), Y(prof.AtWaypoint(i)));
+                dc.DrawText(label, new Point(Math.Clamp(at.X - label.Width / 2, Left, w - Right - label.Width), Math.Max(Top, at.Y - label.Height - 8)));
             }
+        }
+        // Poignées : chaque point de la route peut être attrapé et monté ou descendu.
+        if (prof is not null)
+            for (int i = 0; i < prof.Count; i++)
+            {
+                bool held = _drag == DragKind.Waypoint && _dragIndex == i;
+                bool entered = _route[i].AltitudeFt is not null || held;
+                var at = new Point(X(prof.DistanceAt(i)), Y(prof.AtWaypoint(i)));
+                dc.DrawEllipse(entered ? pink : Brushes.White, new Pen(entered ? Brushes.White : pink, 1.6), at, held ? 6 : 4.5, held ? 6 : 4.5);
+            }
+        if (_drag != DragKind.None)
+        {
+            var hint = Text("Relâche pour fixer l'altitude (arrondie à 100 ft)", 10, Solid(110, 120, 140));
+            dc.DrawText(hint, new Point(Left + 6, h - Bottom - hint.Height - 4));
         }
 
         // Points de passage.
@@ -223,4 +254,99 @@ public sealed class ProfileChart : FrameworkElement
             dc.DrawText(label, new Point(lx, Math.Max(Top, Y(top.ElevationFt) - label.Height - 6)));
         }
     }
+
+    // ---------- glisser-déposer de l'altitude ----------
+
+    private double YOf(double ft) => Top + _gPlotH - Math.Clamp(ft, 0, _gYMax) / _gYMax * _gPlotH;
+    private double XOf(double nm) => Left + nm / _gTotal * _gPlotW;
+    private double FtAt(double y) => Math.Clamp((Top + _gPlotH - y) / _gPlotH * _gYMax, 0, _gYMax);
+
+    /// <summary>Point de la route dont la poignée est sous la souris (le plus proche), ou null.</summary>
+    private int? MarkerAt(Point p)
+    {
+        var prof = _dragProfile ?? _profile;
+        if (prof is null) return null;
+        int? best = null;
+        double bestDistance = MarkerHitPx;
+        for (int i = 0; i < prof.Count; i++)
+        {
+            double d = Math.Sqrt(Math.Pow(p.X - XOf(prof.DistanceAt(i)), 2) + Math.Pow(p.Y - YOf(prof.AtWaypoint(i)), 2));
+            if (d <= bestDistance) { bestDistance = d; best = i; }
+        }
+        return best;
+    }
+
+    /// <summary>Vrai si la souris est sur le trait de croisière (quand l'altitude est la même partout).</summary>
+    private bool OnCruiseLine(Point p)
+    {
+        var prof = _dragProfile ?? _profile;
+        return prof is { IsFlat: true } && p.X >= Left && p.X <= Left + _gPlotW && Math.Abs(p.Y - YOf(_dragCruise ?? _cruiseFt)) <= LineHitPx;
+    }
+
+    private bool Interactive => _terrain is { Samples.Count: >= 2 } && _profile is not null && _route.Count >= 2;
+
+    protected override void OnMouseMove(System.Windows.Input.MouseEventArgs e)
+    {
+        base.OnMouseMove(e);
+        if (!Interactive) return;
+        var p = e.GetPosition(this);
+        if (_drag == DragKind.None)
+        {
+            bool over = MarkerAt(p) is not null || OnCruiseLine(p);
+            Cursor = over ? System.Windows.Input.Cursors.SizeNS : null;
+            ToolTip = over ? "Glisse vers le haut ou le bas pour changer l'altitude. Un point : double-clic pour revenir à la croisière." : null;
+            return;
+        }
+
+        double ft = Math.Round(FtAt(p.Y) / SnapFt) * SnapFt;
+        if (_drag == DragKind.Cruise) _dragCruise = ft;
+        else _dragProfile = WithAltitude(_dragIndex, ft);
+        InvalidateVisual();
+    }
+
+    protected override void OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs e)
+    {
+        base.OnMouseLeftButtonDown(e);
+        if (!Interactive) return;
+        var p = e.GetPosition(this);
+        if (MarkerAt(p) is int index)
+        {
+            if (e.ClickCount >= 2) { AltitudeEdited?.Invoke(index, null); e.Handled = true; return; }
+            _drag = DragKind.Waypoint;
+            _dragIndex = index;
+        }
+        else if (OnCruiseLine(p)) _drag = DragKind.Cruise;
+        else return;
+
+        _frozenYMax = _gYMax; // l'échelle ne bouge pas pendant qu'on déplace
+        CaptureMouse();
+        e.Handled = true;
+    }
+
+    protected override void OnMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs e)
+    {
+        base.OnMouseLeftButtonUp(e);
+        if (_drag == DragKind.None) return;
+        var kind = _drag;
+        int index = _dragIndex;
+        double? ft = kind == DragKind.Cruise ? _dragCruise : _dragProfile?.AtWaypoint(index);
+        _drag = DragKind.None;
+        ReleaseMouseCapture();
+        InvalidateVisual();
+        if (ft is { } value) AltitudeEdited?.Invoke(kind == DragKind.Waypoint ? index : null, value);
+        e.Handled = true;
+    }
+
+    protected override void OnLostMouseCapture(System.Windows.Input.MouseEventArgs e)
+    {
+        base.OnLostMouseCapture(e);
+        if (_drag == DragKind.None) return;
+        _drag = DragKind.None; // capture perdue sans relâchement : on annule
+        _dragProfile = null; _dragCruise = null; _frozenYMax = null;
+        InvalidateVisual();
+    }
+
+    /// <summary>Profil d'altitude où un seul point a la valeur donnée, pour l'aperçu pendant le glissement.</summary>
+    private AltitudeProfile WithAltitude(int index, double ft) =>
+        new([.. _route.Select((w, i) => i == index ? new Waypoint { Name = w.Name, Lat = w.Lat, Lon = w.Lon, AltitudeFt = ft } : w)], _cruiseFt);
 }

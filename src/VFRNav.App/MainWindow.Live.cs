@@ -119,6 +119,19 @@ public partial class MainWindow
 
     // ---------- infos du point suivi ----------
 
+    /// <summary>Altitude changée à la souris dans le profil : un point précis, ou la croisière de toute la route.</summary>
+    private void OnProfileAltitude(int? index, double? ft)
+    {
+        if (index is int i && i >= 0 && i < _route.Count)
+        {
+            _route[i].AltitudeFt = ft;
+            RouteGrid.Items.Refresh();
+            RefreshFeedRoute();
+        }
+        else if (ft is double cruise) AltBox.Text = Fmt(cruise);
+        ScheduleLive();
+    }
+
     private IEnumerable<Airspace> RelevantZones() => _airspaces.Where(z => z.Kind is not (AirspaceKind.Sector or AirspaceKind.Other));
 
     /// <summary>Fréquences publiées par StormATC pour un terrain de la route.</summary>

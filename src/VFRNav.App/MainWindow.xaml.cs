@@ -114,8 +114,10 @@ public partial class MainWindow : Window
         foreach (var layer in _baseLayers) map.Layers.Add(layer);
         map.Layers.Add(_airspaceLayer);
         map.Layers.Add(_navaidLayer);
+        ProfileView.AltitudeEdited += OnProfileAltitude;
         map.Layers.Add(_reportLayer);
         map.Layers.Add(_routeLayer);
+        map.Layers.Add(_legLabelLayer);
         map.Layers.Add(_airportLayer);
         map.Layers.Add(_waypointLayer);
         map.Layers.Add(_aircraftLayer);
@@ -377,9 +379,11 @@ public partial class MainWindow : Window
 
     private void RefreshLog()
     {
-        if (_route.Count < 2) { LogGrid.ItemsSource = null; TotalText.Text = "Ajoutez au moins deux points à la route."; return; }
+        if (_route.Count < 2) { LogGrid.ItemsSource = null; TotalText.Text = "Ajoutez au moins deux points à la route."; UpdateLegLabels(null); MapControl.Refresh(); return; }
         var log = NavMath.ComputeLog(_route, ReadParams());
         LogGrid.ItemsSource = log.Legs;
+        UpdateLegLabels(log.Legs);
+        MapControl.Refresh();
         TotalText.Text = $"Total : {log.TotalDistanceNm:F1} NM   {NavMath.FormatTime(log.TotalMinutes)}   {log.TotalFuelL:F1} L";
     }
 
@@ -393,7 +397,7 @@ public partial class MainWindow : Window
 
     // ---------- Événements UI ----------
     private void RouteGrid_CellEditEnding(object? sender, DataGridCellEditEndingEventArgs e) =>
-        Dispatcher.BeginInvoke(RefreshRoute);
+        Dispatcher.BeginInvoke(() => { RefreshRoute(); RefreshFeedRoute(); ScheduleLive(); });
 
     private void Param_Changed(object sender, TextChangedEventArgs e)
     {
@@ -431,34 +435,43 @@ public partial class MainWindow : Window
         await LoadDataAsync();
     }
 
+    /// <summary>La route s'enregistre directement en plan de vol .PLN : le même fichier que lit Microsoft Flight Simulator.</summary>
     private void Save_Click(object sender, RoutedEventArgs e)
     {
-        var dlg = new SaveFileDialog { Filter = "Route VFRNav (*.json)|*.json", FileName = "route.json" };
-        if (dlg.ShowDialog(this) == true) File.WriteAllText(dlg.FileName, RouteFile.Serialize(_route));
+        if (_route.Count < 2) { StatusText.Text = "Il faut au moins deux points pour enregistrer un plan de vol."; return; }
+        string a = _route[0].Icao ?? _route[0].Name, b = _route[^1].Icao ?? _route[^1].Name;
+        var dlg = new SaveFileDialog { Filter = "Plan de vol MSFS (*.pln)|*.pln", FileName = $"{a}-{b}.pln", DefaultExt = ".pln" };
+        if (dlg.ShowDialog(this) != true) return;
+        File.WriteAllText(dlg.FileName, PlnWriter.Build(_route, ReadParams().CruiseAltFt));
+        StatusText.Text = "Plan enregistré : " + dlg.FileName;
     }
 
+    /// <summary>Ouvre un plan .PLN (de VFRNav, du simulateur ou d'un autre outil) ; les anciennes routes .json s'ouvrent encore.</summary>
     private void Open_Click(object sender, RoutedEventArgs e)
     {
-        var dlg = new OpenFileDialog { Filter = "Route VFRNav (*.json)|*.json" };
+        var dlg = new OpenFileDialog { Filter = "Plan de vol MSFS (*.pln)|*.pln|Ancienne route VFRNav (*.json)|*.json|Tous les fichiers|*.*" };
         if (dlg.ShowDialog(this) != true) return;
         try
         {
-            var loaded = RouteFile.Deserialize(File.ReadAllText(dlg.FileName));
+            string text = File.ReadAllText(dlg.FileName);
+            bool legacy = string.Equals(Path.GetExtension(dlg.FileName), ".json", StringComparison.OrdinalIgnoreCase);
+            IReadOnlyList<Waypoint> loaded;
+            if (legacy) loaded = RouteFile.Deserialize(text);
+            else
+            {
+                var plan = PlnReader.Parse(text);
+                loaded = plan.Route;
+                if (plan.CruiseAltFt is { } cruise) AltBox.Text = Fmt(cruise);
+            }
             _route.Clear();
             foreach (var w in loaded) _route.Add(w);
             FitRoute();
+            StatusText.Text = $"Plan ouvert : {loaded.Count} point(s).";
         }
-        catch (System.Text.Json.JsonException) { StatusText.Text = "Fichier de route invalide."; }
-    }
-
-    private void ExportPln_Click(object sender, RoutedEventArgs e)
-    {
-        if (_route.Count < 2) { StatusText.Text = "Il faut au moins deux points pour exporter."; return; }
-        string a = _route[0].Icao ?? _route[0].Name, b = _route[^1].Icao ?? _route[^1].Name;
-        var dlg = new SaveFileDialog { Filter = "Plan de vol MSFS (*.pln)|*.pln", FileName = $"{a}-{b}.pln" };
-        if (dlg.ShowDialog(this) != true) return;
-        File.WriteAllText(dlg.FileName, PlnWriter.Build(_route, ReadParams().CruiseAltFt));
-        StatusText.Text = "Exporté : " + dlg.FileName;
+        catch (Exception ex) when (ex is FormatException or System.Text.Json.JsonException or IOException)
+        {
+            StatusText.Text = "Impossible d'ouvrir ce fichier : " + ex.Message;
+        }
     }
 
     private (string Metar, string Taf)? _lastWeather;

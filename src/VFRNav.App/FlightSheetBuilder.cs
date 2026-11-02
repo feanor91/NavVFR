@@ -69,13 +69,16 @@ public static class FlightSheetBuilder
         doc.Blocks.Add(Facts(
             ("Distance", $"{input.Log.TotalDistanceNm.ToString("0.#", Fr)} NM"),
             ("Temps estimé", NavMath.FormatTime(input.Log.TotalMinutes)),
-            ("Carburant trajet", $"{input.Log.TotalFuelL.ToString("0.#", Fr)} L"),
+            ("Carburant en croisière", $"{input.Log.TotalFuelL.ToString("0.#", Fr)} L"),
             ("Avec réserve 30 min (indicatif)", $"{(input.Log.TotalFuelL + reserveL).ToString("0.#", Fr)} L"),
-            ("Vitesse propre", $"{p.TasKt:0} kt"),
-            ("Consommation", $"{p.BurnLph.ToString("0.#", Fr)} L/h"),
+            ("Vitesse propre (saisie)", $"{p.TasKt:0} kt"),
+            ("Consommation (saisie)", $"{p.BurnLph.ToString("0.#", Fr)} L/h"),
             ("Altitude de croisière", $"{p.CruiseAltFt.ToString("N0", Fr)} ft"),
             ("Vent supposé", $"{p.WindDir:000}° / {p.WindKt:0} kt"),
             ("Déclinaison magnétique", $"{p.VariationEast.ToString("0.#", Fr)}° E")));
+
+        doc.Blocks.Add(Small("Le carburant est calculé avec la vitesse propre et la consommation saisies dans VFRNav, pas avec celles de ton avion : "
+            + "vérifie-les dans son manuel de vol. Il ne comprend ni roulage, ni montée, ni tours de piste, ni approche : prévois une marge."));
 
         // --- Tableau de navigation
         doc.Blocks.Add(Section("Navigation"));

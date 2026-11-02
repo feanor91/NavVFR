@@ -4,7 +4,7 @@ using VFRNav.Core.Models;
 
 namespace VFRNav.Core.Services;
 
-/// <summary>Écrit un plan de vol .PLN (AceXML) lisible par Microsoft Flight Simulator.</summary>
+/// <summary>Écrit un plan de vol .PLN (AceXML) lisible par Microsoft Flight Simulator, et relu tel quel par <see cref="PlnReader"/>.</summary>
 public static class PlnWriter
 {
     private static string Dms(double value, char pos, char neg, int degWidth)
@@ -59,14 +59,17 @@ public static class PlnWriter
             string id = wp.Icao ?? (string.IsNullOrWhiteSpace(wp.Name) ? $"WP{i}" : wp.Name);
             var el = new XElement("ATCWaypoint", new XAttribute("id", id),
                 new XElement("ATCWaypointType", wp.IsAirport ? "Airport" : "User"),
-                new XElement("WorldPosition", Lla(wp, wp.AltitudeFt ?? (wp.IsAirport ? wp.ElevationFt : cruiseAltFt))));
+                new XElement("WorldPosition", Lla(wp, wp.IsAirport ? wp.ElevationFt : wp.AltitudeFt ?? cruiseAltFt)));
             if (wp.IsAirport) el.Add(new XElement("ICAO", new XElement("ICAOIdent", wp.Icao)));
             plan.Add(el);
         }
 
-        var doc = new XDocument(new XDeclaration("1.0", "UTF-8", null),
-            new XElement("SimBase.Document", new XAttribute("Type", "AceXML"), new XAttribute("version", "1,0"),
-                new XElement("Descr", "AceXML Document"), plan));
+        var root = new XElement("SimBase.Document", new XAttribute("Type", "AceXML"), new XAttribute("version", "1,0"),
+            new XElement("Descr", "AceXML Document"), plan);
+        // Notes, altitudes par point et noms complets : un .PLN n'a pas de champ pour eux, ils vont dans un commentaire que le simulateur ignore.
+        string extras = PlnReader.WriteExtras(route);
+        if (extras.Length > 0) root.Add(new XComment($" {PlnReader.ExtrasMarker}{extras} "));
+        var doc = new XDocument(new XDeclaration("1.0", "UTF-8", null), root);
         return doc.Declaration + Environment.NewLine + doc.Root;
     }
 }

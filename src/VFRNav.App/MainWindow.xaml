@@ -50,8 +50,8 @@
                     <Button Content="Supprimer" Click="Remove_Click"/>
                     <Button Content="Inverser" Click="Reverse_Click"/>
                     <Button Content="Effacer" Click="Clear_Click"/>
-                    <Button Content="Ouvrir" Click="Open_Click"/>
-                    <Button Content="Enregistrer" Click="Save_Click"/>
+                    <Button Content="Ouvrir .pln" Click="Open_Click" ToolTip="Ouvre un plan de vol MSFS (.pln), de VFRNav ou d'un autre outil"/>
+                    <Button Content="Enregistrer .pln" Click="Save_Click" ToolTip="Enregistre la route en plan de vol MSFS (.pln), avec les altitudes et les notes"/>
                 </WrapPanel>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
                            Text="Clic sur la carte : point tournant. Clic sur un terrain : ajout du terrain. Lat/Lon modifiables dans la liste."/>
@@ -71,7 +71,7 @@
                 <UniformGrid Columns="2">
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="TAS (kt)"/><TextBox x:Name="TasBox" TextChanged="Param_Changed"/></StackPanel>
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="Conso (L/h)"/><TextBox x:Name="BurnBox" TextChanged="Param_Changed"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Altitude (ft)"/><TextBox x:Name="AltBox" TextChanged="Param_Changed"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Croisière (ft)" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/><TextBox x:Name="AltBox" TextChanged="Param_Changed" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/></StackPanel>
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="Déclinaison (°E +)"/><TextBox x:Name="VarBox" TextChanged="Param_Changed"/>
                         <CheckBox x:Name="AutoVarCheck" Content="auto (départ)" Foreground="#A9C4EE" FontSize="10" Margin="0,2,0,0" IsChecked="True" Click="AutoVar_Click"/></StackPanel>
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Vent dir (°)"/><TextBox x:Name="WdirBox" TextChanged="Param_Changed"/></StackPanel>
@@ -82,7 +82,6 @@
                 <Button x:Name="PlanButton" Content="Calculer le plan de vol et la feuille de route" Click="CalculatePlan_Click"
                         Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
                 <TextBlock x:Name="PlanStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,8"/>
-                <Button Content="Exporter en .PLN" Click="ExportPln_Click" Background="#1A8A3C" Foreground="White" Padding="8" FontWeight="SemiBold"/>
 
                 <TextBlock Style="{StaticResource Header}" Text="SIMULATEUR"/>
                 <TextBlock x:Name="SimStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Text="Suivi de l'avion : démarrage..."/>
