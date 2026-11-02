@@ -44,6 +44,16 @@ public sealed class IfrPlanOptions
     /// <summary>Rayon de recherche des points d'entrée sur le réseau quand un terrain n'a ni SID ni STAR.</summary>
     public double DirectRadiusNm { get; set; } = 80;
 
+    /// <summary>
+    /// Niveau à partir duquel la route libre est supposée : on peut alors enchaîner des tronçons directs entre points proches
+    /// (au-dessus du FL195, l'espace supérieur français est en route libre FRA et n'a presque plus d'airways).
+    /// null = jamais.
+    /// </summary>
+    public int? FreeRouteFromFl { get; set; } = 195;
+
+    /// <summary>Portée maximale d'un tronçon direct en route libre.</summary>
+    public double FreeRouteLegNm { get; set; } = 150;
+
     /// <summary>Autorise un tronçon direct (DCT) quand aucun airway ne relie départ et arrivée.</summary>
     public bool AllowDirect { get; set; } = true;
 }
@@ -53,6 +63,12 @@ public sealed class IfrPlanOptions
 /// </summary>
 public static class IfrRouter
 {
+    /// <summary>Nombre de points du réseau essayés autour d'un terrain sans procédure (les plus proches utilisables au niveau demandé).</summary>
+    private const int DirectAnchorCount = 20;
+
+    /// <summary>Nombre de points voisins visés par un tronçon direct en route libre.</summary>
+    private const int FreeRouteNeighbours = 10;
+
     private sealed record Anchor(string Node, double Cost, string? Procedure, IReadOnlyList<IfrRoutePoint> Points, IfrLegSource Source);
 
     public static IfrPlanResult Plan(IfrNavData data, string departure, string arrival, IfrPlanOptions? options = null)
@@ -63,14 +79,14 @@ public static class IfrRouter
         if (dep is null) return Fail($"Terrain de départ inconnu : {departure}.");
         if (arr is null) return Fail($"Terrain d'arrivée inconnu : {arrival}.");
 
-        var starts = Anchors(data, dep, ProcedureKind.Sid, options.Sid, options.DepartureRunway, options.DirectRadiusNm, out var startError);
+        var starts = Anchors(data, dep, ProcedureKind.Sid, options.Sid, options.DepartureRunway, options.DirectRadiusNm, options.FlightLevel, FreeRoute(options), out var startError);
         if (startError is not null) return Fail(startError);
-        var ends = Anchors(data, arr, ProcedureKind.Star, options.Star, options.ArrivalRunway, options.DirectRadiusNm, out var endError);
+        var ends = Anchors(data, arr, ProcedureKind.Star, options.Star, options.ArrivalRunway, options.DirectRadiusNm, options.FlightLevel, FreeRoute(options), out var endError);
         if (endError is not null) return Fail(endError);
         if (starts.Count == 0) return Fail($"Aucun point du réseau IFR à moins de {options.DirectRadiusNm:0} NM de {departure}.");
         if (ends.Count == 0) return Fail($"Aucun point du réseau IFR à moins de {options.DirectRadiusNm:0} NM de {arrival}.");
 
-        var (dist, prev, root) = Dijkstra(data, starts, options.FlightLevel);
+        var (dist, prev, root) = Dijkstra(data, starts, options);
 
         Anchor? bestStart = null, bestEnd = null;
         List<(string Node, AirwaySegment? Segment)> path = [];
@@ -113,6 +129,9 @@ public static class IfrRouter
         return new IfrPlanResult(Assemble(data, dep, arr, bestStart!, bestEnd!, path), null);
     }
 
+    /// <summary>Vrai quand le niveau demandé est dans l'espace en route libre.</summary>
+    private static bool FreeRoute(IfrPlanOptions o) => o.FlightLevel is { } level && o.FreeRouteFromFl is { } from && level >= from;
+
     private static IfrPlanResult Fail(string error) => new(null, error);
 
     private static double Distance(IfrNavData data, string a, string b)
@@ -126,7 +145,7 @@ public static class IfrRouter
     /// Points d'accrochage au réseau pour un terrain : le point de sortie de chaque SID (ou d'entrée de chaque STAR)
     /// avec le coût de la procédure ; à défaut de procédure, les points du réseau les plus proches en direct.
     /// </summary>
-    private static List<Anchor> Anchors(IfrNavData data, IfrFix airport, ProcedureKind kind, string? ident, string? runway, double radiusNm, out string? error)
+    private static List<Anchor> Anchors(IfrNavData data, IfrFix airport, ProcedureKind kind, string? ident, string? runway, double radiusNm, int? flightLevel, bool freeRoute, out string? error)
     {
         error = null;
         var procedures = data.ProceduresFor(airport.Ident, kind).ToList();
@@ -179,11 +198,11 @@ public static class IfrRouter
 
         // Pas de procédure publiée : on se raccroche directement aux points du réseau les plus proches.
         var onNetwork = data.Fixes.Values
-            .Where(f => f.Kind != FixKind.Airport && data.EdgesFrom(f.Ident).Count > 0)
+            .Where(f => f.Kind != FixKind.Airport && (freeRoute || data.EdgesFrom(f.Ident).Any(e => e.Segment.AllowsFlightLevel(flightLevel))))
             .Select(f => (Fix: f, D: NavMath.DistanceNm(airport.Lat, airport.Lon, f.Lat, f.Lon)))
             .Where(x => x.D <= radiusNm)
             .OrderBy(x => x.D)
-            .Take(8);
+            .Take(DirectAnchorCount);
         foreach (var (fix, d) in onNetwork)
         {
             var points = sid
@@ -205,12 +224,15 @@ public static class IfrRouter
         return total;
     }
 
-    private static (Dictionary<string, double> Dist, Dictionary<string, (string From, AirwaySegment Segment)> Prev, Dictionary<string, Anchor> Root)
-        Dijkstra(IfrNavData data, List<Anchor> starts, int? flightLevel)
+    private static (Dictionary<string, double> Dist, Dictionary<string, (string From, AirwaySegment? Segment)> Prev, Dictionary<string, Anchor> Root)
+        Dijkstra(IfrNavData data, List<Anchor> starts, IfrPlanOptions options)
     {
+        int? flightLevel = options.FlightLevel;
+        bool freeRoute = FreeRoute(options);
+        var grid = freeRoute ? new FixGrid(data) : null;
         var cmp = StringComparer.OrdinalIgnoreCase;
         var dist = new Dictionary<string, double>(cmp);
-        var prev = new Dictionary<string, (string, AirwaySegment)>(cmp);
+        var prev = new Dictionary<string, (string, AirwaySegment?)>(cmp);
         var root = new Dictionary<string, Anchor>(cmp);
         var queue = new PriorityQueue<string, double>();
 
@@ -234,12 +256,23 @@ public static class IfrRouter
                 prev[edge.To] = (u, edge.Segment);
                 queue.Enqueue(edge.To, nd);
             }
+
+            if (grid is null) continue;
+            var here = data.Fixes[u];
+            foreach (var other in grid.Nearest(here, FreeRouteNeighbours, options.FreeRouteLegNm))
+            {
+                double nd = du + NavMath.DistanceNm(here.Lat, here.Lon, other.Lat, other.Lon);
+                if (dist.TryGetValue(other.Ident, out double dv) && dv <= nd) continue;
+                dist[other.Ident] = nd;
+                prev[other.Ident] = (u, null);
+                queue.Enqueue(other.Ident, nd);
+            }
         }
         return (dist, prev, root);
     }
 
     /// <summary>Chemin du point d'accrochage jusqu'à <paramref name="end"/> ; chaque point porte l'airway qui y arrive.</summary>
-    private static List<(string Node, AirwaySegment? Segment)> Trace(string end, Dictionary<string, (string From, AirwaySegment Segment)> prev)
+    private static List<(string Node, AirwaySegment? Segment)> Trace(string end, Dictionary<string, (string From, AirwaySegment? Segment)> prev)
     {
         var path = new List<(string, AirwaySegment?)>();
         string node = end;
@@ -294,7 +327,7 @@ public static class IfrRouter
         for (int i = 1; i < enroute.Count; i++)
         {
             // On n'écrit que la fin de chaque série de points sur la même route ATS.
-            bool endOfRun = i == enroute.Count - 1 || enroute[i + 1].Airway != enroute[i].Airway;
+            bool endOfRun = i == enroute.Count - 1 || enroute[i].Airway is null || enroute[i + 1].Airway != enroute[i].Airway;
             if (!endOfRun) continue;
             tokens.Add(enroute[i].Airway ?? "DCT");
             tokens.Add(enroute[i].Ident);
@@ -303,5 +336,41 @@ public static class IfrRouter
         if (star is not null) tokens.Add(star);
         tokens.Add(arr.Ident);
         return string.Join(' ', tokens);
+    }
+
+    /// <summary>Index par cases de 1° pour trouver vite les points voisins d'un point (route libre).</summary>
+    private sealed class FixGrid
+    {
+        private readonly Dictionary<(int, int), List<IfrFix>> _cells = [];
+
+        public FixGrid(IfrNavData data)
+        {
+            foreach (var f in data.Fixes.Values.Where(f => f.Kind != FixKind.Airport))
+            {
+                var key = Cell(f.Lat, f.Lon);
+                if (!_cells.TryGetValue(key, out var list)) _cells[key] = list = [];
+                list.Add(f);
+            }
+        }
+
+        private static (int, int) Cell(double lat, double lon) => ((int)Math.Floor(lat), (int)Math.Floor(lon));
+
+        public IEnumerable<IfrFix> Nearest(IfrFix from, int count, double maxNm)
+        {
+            var (cy, cx) = Cell(from.Lat, from.Lon);
+            // Une case fait environ 60 NM de haut : on regarde assez de cases pour couvrir la portée demandée.
+            int reach = (int)Math.Ceiling(maxNm / 45.0);
+            var found = new List<(IfrFix Fix, double D)>();
+            for (int y = cy - reach; y <= cy + reach; y++)
+                for (int x = cx - reach; x <= cx + reach; x++)
+                    if (_cells.TryGetValue((y, x), out var list))
+                        foreach (var f in list)
+                        {
+                            if (ReferenceEquals(f, from)) continue;
+                            double d = NavMath.DistanceNm(from.Lat, from.Lon, f.Lat, f.Lon);
+                            if (d <= maxNm) found.Add((f, d));
+                        }
+            return found.OrderBy(x => x.D).Take(count).Select(x => x.Fix);
+        }
     }
 }

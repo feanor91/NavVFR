@@ -20,6 +20,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 - **METAR / TAF traduits en français**, catégorie de vol (VFR, MVFR, IFR, LIFR) et pastilles météo sur la carte.
 - **Aide pour débutants** : explication des zones (type, classe, limites) au survol de leur contour.
 - **Lecteur de cartes VAC** (PDF) via le projet compagnon StormATC : base d'aérodromes et cartes lues sur place, jamais copiées.
+- **Route IFR** (bêta) : départ/arrivée, calcul du plus court chemin sur les routes ATS de l'export AIXM 4.5 gratuit du SIA (bouton « Charger les données AIRAC »), niveau de vol, route libre à partir du FL195. L'export du SIA ne contient pas les SID/STAR : sans eux, les terrains se raccordent directement au réseau. Données de test fictives tant qu'aucun fichier n'est chargé. Le fichier du SIA est sous licence : il n'est pas inclus dans le dépôt.
 - **Suivi de l'avion en direct** dans MSFS (SimConnect).
 
 ## Compiler et lancer

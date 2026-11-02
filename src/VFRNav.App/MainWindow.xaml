@@ -76,10 +76,12 @@
                         <ComboBox x:Name="IfrSidBox"/></StackPanel>
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="STAR"/>
                         <ComboBox x:Name="IfrStarBox"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Niveau (FL)" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Niveau (FL)" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau. À partir du FL195, la route libre (tronçons directs) est autorisée."/>
                         <TextBox x:Name="IfrFlBox" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/></StackPanel>
                 </UniformGrid>
-                <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,8,0,4"
+                <Button Content="Charger les données AIRAC (SIA)…" Click="IfrLoad_Click" Margin="0,8,0,0"
+                        ToolTip="Export AIXM 4.5 gratuit de la boutique du SIA : export_xml_bd_SIA_aaaa-mm-jj.zip. Il contient les routes ATS mais pas les SID/STAR."/>
+                <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,0,0,4"
                         ToolTip="Cherche le plus court chemin SID, routes ATS, STAR et remplace la route par le résultat."/>
                 <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>
 

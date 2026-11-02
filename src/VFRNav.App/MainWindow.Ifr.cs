@@ -1,4 +1,6 @@
+using System.IO;
 using System.Windows;
+using Microsoft.Win32;
 using System.Windows.Controls;
 using VFRNav.Core.Ifr;
 using VFRNav.Core.Models;
@@ -13,12 +15,62 @@ public partial class MainWindow
     // Pour l'instant : données de démonstration. Un lecteur AIRAC les remplacera.
     private IfrNavData _ifrData = IfrSampleData.Create();
 
-    private void Ifr_Loaded(object sender, RoutedEventArgs e)
+    private async void Ifr_Loaded(object sender, RoutedEventArgs e)
     {
-        IfrDataLabel.Text = _ifrData.AiracCycle == "TEST"
-            ? IfrSampleData.Label + " : ne pas utiliser pour naviguer."
-            : $"Cycle AIRAC {_ifrData.AiracCycle}" + (_ifrData.IsExpired(DateTime.UtcNow) ? " : PÉRIMÉ, à mettre à jour." : ".");
+        // Données AIRAC déjà choisies lors d'une session précédente : rechargées sans rien demander.
+        if (_settings.IfrDataPath.Length > 0 && File.Exists(_settings.IfrDataPath))
+            await LoadIfrDataAsync(_settings.IfrDataPath);
+        else
+            ShowIfrDataLabel();
         RefreshIfrChoices();
+    }
+
+    private void ShowIfrDataLabel()
+    {
+        if (_ifrData.AiracCycle == "TEST")
+        {
+            IfrDataLabel.Text = IfrSampleData.Label + " : ne pas utiliser pour naviguer. Chargez l'export AIXM du SIA.";
+            return;
+        }
+        bool expired = _ifrData.IsExpired(DateTime.UtcNow);
+        IfrDataLabel.Foreground = expired ? System.Windows.Media.Brushes.OrangeRed : System.Windows.Media.Brushes.LightGreen;
+        string procedures = _ifrData.Procedures.Count == 0
+            ? " Pas de SID/STAR dans ces données : les terrains se raccordent directement aux routes ATS."
+            : "";
+        IfrDataLabel.Text = $"AIRAC {_ifrData.AiracCycle}" + (expired ? " : PÉRIMÉ, à mettre à jour." : ".") +
+                            $" {_ifrData.Fixes.Count} points, {_ifrData.Segments.Select(s => s.Airway).Distinct().Count()} routes ATS." + procedures;
+    }
+
+    private async void IfrLoad_Click(object sender, RoutedEventArgs e)
+    {
+        var dlg = new OpenFileDialog { Filter = "Export AIXM du SIA (*.zip;*.xml)|*.zip;*.xml", Title = "export_xml_bd_SIA_….zip" };
+        if (dlg.ShowDialog(this) != true) return;
+        if (await LoadIfrDataAsync(dlg.FileName))
+        {
+            _settings.IfrDataPath = dlg.FileName;
+            SaveSettings();
+        }
+        RefreshIfrChoices();
+    }
+
+    private async Task<bool> LoadIfrDataAsync(string path)
+    {
+        IfrDataLabel.Foreground = System.Windows.Media.Brushes.Gold;
+        IfrDataLabel.Text = "Lecture des données AIRAC...";
+        try
+        {
+            var loaded = await Task.Run(() => AixmReader.LoadFile(path, GeoArea.MetropolitanFrance));
+            _ifrData = loaded.Data;
+            ShowIfrDataLabel();
+            return true;
+        }
+        catch (Exception ex) when (ex is IOException or InvalidDataException or System.Xml.XmlException or UnauthorizedAccessException)
+        {
+            ShowIfrDataLabel();
+            IfrStatus.Foreground = System.Windows.Media.Brushes.Gold;
+            IfrStatus.Text = "Fichier AIXM illisible : " + ex.Message;
+            return false;
+        }
     }
 
     private void IfrAirport_Changed(object sender, TextChangedEventArgs e)

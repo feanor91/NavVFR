@@ -100,7 +100,7 @@ public class IfrRouterTests
         var data = Network(s => s[1] = new AirwaySegment("UN1", "BRAVO", "CHARL", UpperFl: 200));
 
         var low = IfrRouter.Plan(data, "LFAA", "LFBB", new IfrPlanOptions { DepartureRunway = "01", FlightLevel = 150 }).Route!;
-        var high = IfrRouter.Plan(data, "LFAA", "LFBB", new IfrPlanOptions { DepartureRunway = "01", FlightLevel = 300 }).Route!;
+        var high = IfrRouter.Plan(data, "LFAA", "LFBB", new IfrPlanOptions { DepartureRunway = "01", FlightLevel = 300, FreeRouteFromFl = null }).Route!;
 
         Assert.Contains(low.Points, p => p.Ident == "BRAVO");
         Assert.DoesNotContain(high.Points, p => p.Ident == "BRAVO");
@@ -163,6 +163,54 @@ public class IfrRouterTests
         Assert.Equal(["LFCC", "GOLF", "HOTEL", "LFDD"], route.Points.Select(p => p.Ident));
         Assert.Equal("LFCC GOLF UN9 HOTEL LFDD", route.Description);
         Assert.Equal(IfrLegSource.Direct, route.Points[1].Source);
+    }
+
+    [Fact]
+    public void Direct_entry_points_must_be_usable_at_the_requested_level()
+    {
+        // GOLF est le point le plus proche de LFCC mais son airway est plafonné au FL100 : à FL300 il faut viser un autre point.
+        var fixes = new IfrFix[]
+        {
+            new("LFCC", 40.0, 8.0, FixKind.Airport), new("LFDD", 40.0, 10.0, FixKind.Airport),
+            new("GOLF", 40.05, 8.0), new("HOTEL", 40.05, 10.0), new("INDIA", 40.3, 8.3), new("JULIET", 40.3, 9.7),
+        };
+        var segments = new[]
+        {
+            new AirwaySegment("UL1", "GOLF", "HOTEL", UpperFl: 100),
+            new AirwaySegment("UN2", "INDIA", "JULIET"),
+        };
+        var data = new IfrNavData(fixes, segments, []);
+
+        var route = IfrRouter.Plan(data, "LFCC", "LFDD", new IfrPlanOptions { FlightLevel = 300, FreeRouteFromFl = null }).Route!;
+
+        Assert.Equal(["LFCC", "INDIA", "JULIET", "LFDD"], route.Points.Select(p => p.Ident));
+    }
+
+    [Fact]
+    public void Free_route_level_allows_direct_legs_between_nearby_points()
+    {
+        // Aucun airway : à FL300 (route libre) la route enchaîne des tronçons directs, en dessous elle échoue.
+        var fixes = new IfrFix[]
+        {
+            new("LFCC", 40.0, 8.0, FixKind.Airport), new("LFDD", 40.0, 10.5, FixKind.Airport),
+            new("P1", 40.1, 8.4), new("P2", 40.1, 9.0), new("P3", 40.1, 9.6), new("OTHER", 40.1, 9.0),
+            new("AWY1", 40.2, 8.4), new("AWY2", 40.2, 8.5),
+        };
+        var data = new IfrNavData(fixes, [new AirwaySegment("UN9", "AWY1", "AWY2")], []);
+        var opts = new IfrPlanOptions { AllowDirect = false };
+
+        opts.FlightLevel = 150;
+        Assert.False(IfrRouter.Plan(data, "LFCC", "LFDD", opts).Success);
+
+        opts.FlightLevel = 300;
+        var route = IfrRouter.Plan(data, "LFCC", "LFDD", opts).Route!;
+        Assert.All(route.Points.Skip(1).Take(route.Points.Count - 2), p => Assert.Equal(IfrLegSource.Direct, p.Source));
+        Assert.True(route.Points.Count >= 3);
+        Assert.Equal("LFCC", route.Points[0].Ident);
+        Assert.Equal("LFDD", route.Points[^1].Ident);
+
+        opts.FreeRouteFromFl = null; // désactivé : plus de route libre
+        Assert.False(IfrRouter.Plan(data, "LFCC", "LFDD", opts).Success);
     }
 
     [Fact]

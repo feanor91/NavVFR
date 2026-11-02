@@ -32,6 +32,8 @@ public sealed class AppSettings
     public bool VacVisible { get; set; }
     /// <summary>right ou bottom.</summary>
     public string VacDock { get; set; } = "right";
+    /// <summary>Fichier AIXM du SIA (zip ou xml) chargé pour le calcul de route IFR ; vide = données de test.</summary>
+    public string IfrDataPath { get; set; } = "";
     public List<Waypoint> Route { get; set; } = [];
 
     public static string DefaultPath => Path.Combine(
