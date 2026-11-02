@@ -11,7 +11,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 - **Carte** avec terrains (OurAirports), espaces aériens (OpenAIP), balises **VOR** et **NDB/ADF**, fonds de carte au choix.
 - **Route** : clic pour poser un point, glisser pour le déplacer, clic sur un point pour le retirer.
 - **Log de navigation** : routes vraie et magnétique, dérive, cap à tenir, vitesse sol, temps, carburant (vent supposé constant).
-- **Plan de vol `.PLN`** : la route s'enregistre et s'ouvre directement en `.pln` (le fichier de MSFS), avec les altitudes et les notes par point. Les anciennes routes `.json` s'ouvrent encore.
+- **Plan de vol `.PLN`** : la route s'enregistre et s'ouvre directement en `.pln` (le fichier de MSFS), avec les altitudes et les notes par point.
 - **Étiquette de chaque branche** sur la carte : route magnétique et longueur (masquée quand la branche est trop courte à l'écran).
 - **Altitude par point** : colonne « Alt (ft) » ou glisser-déposer dans le profil (un point ; double-clic pour revenir à la croisière), ou le trait de croisière pour toute la route.
 - **Feuille de route imprimable** (aperçu, impression, PDF) : navigation, relief, profil vertical, terrains, météo en clair,

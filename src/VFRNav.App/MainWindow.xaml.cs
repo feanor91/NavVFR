@@ -446,29 +446,21 @@ public partial class MainWindow : Window
         StatusText.Text = "Plan enregistré : " + dlg.FileName;
     }
 
-    /// <summary>Ouvre un plan .PLN (de VFRNav, du simulateur ou d'un autre outil) ; les anciennes routes .json s'ouvrent encore.</summary>
+    /// <summary>Ouvre un plan de vol .PLN (de VFRNav, du simulateur ou d'un autre outil).</summary>
     private void Open_Click(object sender, RoutedEventArgs e)
     {
-        var dlg = new OpenFileDialog { Filter = "Plan de vol MSFS (*.pln)|*.pln|Ancienne route VFRNav (*.json)|*.json|Tous les fichiers|*.*" };
+        var dlg = new OpenFileDialog { Filter = "Plan de vol MSFS (*.pln)|*.pln" };
         if (dlg.ShowDialog(this) != true) return;
         try
         {
-            string text = File.ReadAllText(dlg.FileName);
-            bool legacy = string.Equals(Path.GetExtension(dlg.FileName), ".json", StringComparison.OrdinalIgnoreCase);
-            IReadOnlyList<Waypoint> loaded;
-            if (legacy) loaded = RouteFile.Deserialize(text);
-            else
-            {
-                var plan = PlnReader.Parse(text);
-                loaded = plan.Route;
-                if (plan.CruiseAltFt is { } cruise) AltBox.Text = Fmt(cruise);
-            }
+            var plan = PlnReader.Parse(File.ReadAllText(dlg.FileName));
+            if (plan.CruiseAltFt is { } cruise) AltBox.Text = Fmt(cruise);
             _route.Clear();
-            foreach (var w in loaded) _route.Add(w);
+            foreach (var w in plan.Route) _route.Add(w);
             FitRoute();
-            StatusText.Text = $"Plan ouvert : {loaded.Count} point(s).";
+            StatusText.Text = $"Plan ouvert : {plan.Route.Count} point(s).";
         }
-        catch (Exception ex) when (ex is FormatException or System.Text.Json.JsonException or IOException)
+        catch (Exception ex) when (ex is FormatException or IOException)
         {
             StatusText.Text = "Impossible d'ouvrir ce fichier : " + ex.Message;
         }
