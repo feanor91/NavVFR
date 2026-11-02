@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mapsui="clr-namespace:Mapsui.UI.Wpf;assembly=Mapsui.UI.Wpf"
         xmlns:local="clr-namespace:VFRNav.App"
-        Title="VFRNav" Icon="Assets/VFRNav.ico" Width="1500" Height="950" Background="#0B2A55">
+        Title="VFRNav" Icon="Assets/VFRNav.ico" Width="1500" Height="950" Background="#0B2A55" Loaded="Ifr_Loaded">
     <Window.Resources>
         <Style TargetType="TextBlock" x:Key="Label">
             <Setter Property="Foreground" Value="#A9C4EE"/>
@@ -60,6 +60,28 @@
                 <TextBox x:Name="WpNotesBox" AcceptsReturn="True" TextWrapping="Wrap" Height="62" VerticalScrollBarVisibility="Auto" IsEnabled="False"
                          TextChanged="WpNotes_Changed" LostFocus="WpNotes_LostFocus"
                          ToolTip="Consignes, repères visuels, fréquences... Elles apparaissent sur la feuille de route et au survol du point."/>
+
+                <TextBlock Style="{StaticResource Header}" Text="ROUTE IFR"/>
+                <TextBlock x:Name="IfrDataLabel" Foreground="#FFD479" FontSize="10.5" TextWrapping="Wrap" Margin="0,0,0,2"/>
+                <UniformGrid Columns="2">
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Départ (OACI)"/>
+                        <TextBox x:Name="IfrDepBox" Text="LFPG" CharacterCasing="Upper" TextChanged="IfrAirport_Changed"/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Arrivée (OACI)"/>
+                        <TextBox x:Name="IfrArrBox" Text="LFMN" CharacterCasing="Upper" TextChanged="IfrAirport_Changed"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Piste de départ"/>
+                        <ComboBox x:Name="IfrDepRunwayBox"/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Piste d'arrivée"/>
+                        <ComboBox x:Name="IfrArrRunwayBox"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="SID"/>
+                        <ComboBox x:Name="IfrSidBox"/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="STAR"/>
+                        <ComboBox x:Name="IfrStarBox"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Niveau (FL)" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/>
+                        <TextBox x:Name="IfrFlBox" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/></StackPanel>
+                </UniformGrid>
+                <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,8,0,4"
+                        ToolTip="Cherche le plus court chemin SID, routes ATS, STAR et remplace la route par le résultat."/>
+                <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>
 
                 <TextBlock Style="{StaticResource Header}" Text="INFOS EN DIRECT"/>
                 <TextBlock x:Name="LiveInfo" Foreground="#E8EEFC" FontSize="11.5" TextWrapping="Wrap"

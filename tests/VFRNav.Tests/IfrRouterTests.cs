@@ -215,3 +215,34 @@ public class IfrRouterTests
         Assert.True(data.IsExpired(new DateTime(2026, 11, 26)));
     }
 }
+
+public class IfrSampleDataTests
+{
+    [Theory]
+    [InlineData("LFPG", "LFMN", "TST3N")]
+    [InlineData("LFPG", "LFLL", "TST1L")]
+    [InlineData("LFPG", "LFBO", "TST1T")]
+    public void Demo_routes_between_the_test_airports_are_found(string dep, string arr, string star)
+    {
+        var result = IfrRouter.Plan(IfrSampleData.Create(), dep, arr);
+
+        Assert.True(result.Success, result.Error);
+        Assert.Contains(result.Route!.Sid, new[] { "TST1A", "TST2B" }); // les deux SID mènent au réseau : la plus courte gagne
+        Assert.Equal(star, result.Route.Star);
+    }
+
+    [Fact]
+    public void Demo_airport_without_procedures_still_connects()
+    {
+        var route = IfrRouter.Plan(IfrSampleData.Create(), "LFBO", "LFPG").Route!;
+        Assert.Null(route.Star);
+        Assert.Equal("LFBO", route.Points[0].Ident);
+        Assert.Equal("LFPG", route.Points[^1].Ident);
+    }
+
+    [Fact]
+    public void Demo_data_is_labelled_as_test_data()
+    {
+        Assert.Equal("TEST", IfrSampleData.Create().AiracCycle);
+    }
+}
