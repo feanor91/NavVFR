@@ -10,10 +10,12 @@ public static class NavMath
     private static double Deg(double r) => r * 180 / Math.PI;
     public static double Norm360(double a) => ((a % 360) + 360) % 360;
 
-    public static double DistanceNm(Waypoint a, Waypoint b)
+    public static double DistanceNm(Waypoint a, Waypoint b) => DistanceNm(a.Lat, a.Lon, b.Lat, b.Lon);
+
+    public static double DistanceNm(double lat1, double lon1, double lat2, double lon2)
     {
-        double dLat = Rad(b.Lat - a.Lat), dLon = Rad(b.Lon - a.Lon);
-        double h = Math.Pow(Math.Sin(dLat / 2), 2) + Math.Cos(Rad(a.Lat)) * Math.Cos(Rad(b.Lat)) * Math.Pow(Math.Sin(dLon / 2), 2);
+        double dLat = Rad(lat2 - lat1), dLon = Rad(lon2 - lon1);
+        double h = Math.Pow(Math.Sin(dLat / 2), 2) + Math.Cos(Rad(lat1)) * Math.Cos(Rad(lat2)) * Math.Pow(Math.Sin(dLon / 2), 2);
         return 2 * EarthRadiusNm * Math.Asin(Math.Sqrt(h));
     }
 
