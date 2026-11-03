@@ -36,8 +36,12 @@ public class PointBriefingTests
         var route = new List<Waypoint> { Wp("LFPG", 49, 2, icao: "LFPG", elevation: 392), Wp("B", 49, 2.5), Wp("LFMN", 49, 3, icao: "LFMN", elevation: 12) };
         var p = new AltitudeProfile(route, 30000);
         Assert.Equal(392, p.AtWaypoint(0));
-        Assert.Equal(30000, p.AtWaypoint(1));
         Assert.Equal(12, p.AtWaypoint(2));
+        // Le point intermédiaire monte depuis le sol à pente réaliste au lieu de sauter à la croisière.
+        double expected = Math.Min(392 + AltitudeProfile.GradientFtPerNm * p.DistanceAt(1), 12 + AltitudeProfile.GradientFtPerNm * (p.DistanceAt(2) - p.DistanceAt(1)));
+        Assert.Equal(expected, p.AtWaypoint(1), 3);
+        Assert.InRange(p.AtWaypoint(1), 392, 29999);
+        Assert.Equal(30000, new AltitudeProfile([Wp("A", 49, 2, 0), Wp("B", 49, 2, 30000)], 30000).AtWaypoint(1));
 
         route[0].AltitudeFt = 0;
         Assert.Equal(0, new AltitudeProfile(route, 30000).AtWaypoint(0));

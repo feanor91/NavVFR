@@ -15,17 +15,34 @@ public sealed class AltitudeProfile
     {
         _distance = new double[route.Count];
         _altitude = new double[route.Count];
+        var fixedFt = new double?[route.Count];
         for (int i = 0; i < route.Count; i++)
         {
             _distance[i] = i == 0 ? 0 : _distance[i - 1] + NavMath.DistanceNm(route[i - 1], route[i]);
-            // Un terrain sans altitude saisie est au sol (altitude du terrain), pas à la croisière.
-            _altitude[i] = route[i].AltitudeFt ?? (route[i].IsAirport ? route[i].ElevationFt : defaultFt);
+            // Altitude saisie, ou au sol pour un terrain : ces points-là ne bougent pas.
+            fixedFt[i] = route[i].AltitudeFt ?? (route[i].IsAirport ? route[i].ElevationFt : null);
+        }
+        // Les autres points (ceux d'une SID ou d'une STAR sans contrainte, par exemple) montent ou descendent à pente
+        // réaliste depuis les points fixés, sans dépasser la croisière : on ne passe pas du sol au FL350 en un point.
+        for (int i = 0; i < route.Count; i++)
+        {
+            if (fixedFt[i] is { } ft) { _altitude[i] = ft; continue; }
+            double alt = defaultFt;
+            for (int j = 0; j < route.Count; j++)
+            {
+                if (fixedFt[j] is not { } fj) continue;
+                alt = Math.Min(alt, fj + GradientFtPerNm * Math.Abs(_distance[i] - _distance[j]));
+            }
+            _altitude[i] = alt;
         }
         DefaultFt = defaultFt;
         MaxFt = _altitude.Length == 0 ? defaultFt : _altitude.Max();
         MinFt = _altitude.Length == 0 ? defaultFt : _altitude.Min();
         HasCustom = route.Any(w => w.AltitudeFt is not null);
     }
+
+    /// <summary>Pente supposée, en montée comme en descente, entre un point fixé et ceux qui n'ont pas d'altitude (environ 3°).</summary>
+    public const double GradientFtPerNm = 300;
 
     public double DefaultFt { get; }
     public double MaxFt { get; }
