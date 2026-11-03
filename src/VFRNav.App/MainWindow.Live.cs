@@ -43,8 +43,13 @@ public partial class MainWindow
     // ---------- partage avec StormATC ----------
 
     /// <summary>Copie la route pour le serveur local, qui la lit hors du thread de l'interface.</summary>
-    private void RefreshFeedRoute() =>
+    private double _feedCruiseAltFt = 2500; // processus x64 : lecture/écriture d'un double atomiques
+
+    private void RefreshFeedRoute()
+    {
         _feedRoute = [.. LiveFeed.State(_route, null, null, 0, DateTimeOffset.UtcNow).Route];
+        _feedCruiseAltFt = CurrentCruiseAltFt(); // lu ici, sur le thread de l'interface : le serveur local n'y touche pas
+    }
 
     private void StartFeed()
     {
@@ -54,7 +59,7 @@ public partial class MainWindow
             {
                 var a = _feedAircraft;
                 string key = _settings.BaseMap, carto = _settings.CartoKey;
-                return new LiveFeedState(LiveFeed.ProtocolVersion, _feedRoute, a?.Aircraft, _settings.CruiseAltFt,
+                return new LiveFeedState(LiveFeed.ProtocolVersion, _feedRoute, a?.Aircraft, _feedCruiseAltFt,
                     a is null ? -1 : (long)Math.Max(0, (DateTimeOffset.UtcNow - a.Value.At).TotalMilliseconds),
                     new FeedBaseMap(BaseMapSources.Effective(key, carto), BaseMapSources.LayerCount(key, carto), BaseMapSources.MaxZoom(key, carto)));
             },
@@ -182,8 +187,8 @@ public partial class MainWindow
 
     private void ShowLiveBasics()
     {
-        if (Followed() is not { } wp) { LiveInfo.Text = "Pose un point sur la carte : ses informations s'affichent ici."; return; }
-        LiveInfo.Text = string.Join("\n", BasicLines(wp, ReadParams()));
+        if (Followed() is not { } wp) { SetLive(LiveDefaultText); return; }
+        SetLive(string.Join("\n", BasicLines(wp, ReadParams())));
     }
 
     private async Task RunLiveAsync()
@@ -208,7 +213,7 @@ public partial class MainWindow
     private async Task ShowPointInfoAsync(Waypoint wp, FlightParameters p, CancellationToken ct)
     {
         var lines = BasicLines(wp, p);
-        LiveInfo.Text = string.Join("\n", lines) + "\nSol : calcul…";
+        SetLive(string.Join("\n", lines) + "\nSol : calcul…");
         try
         {
             _terrainService ??= new TerrainService(_http);
@@ -230,11 +235,11 @@ public partial class MainWindow
                 }
                 else lines.Insert(2, "Météo : pas de METAR pour ce terrain");
             }
-            LiveInfo.Text = string.Join("\n", lines);
+            SetLive(string.Join("\n", lines));
         }
         catch (Exception ex) when (ex is HttpRequestException or System.Text.Json.JsonException or InvalidOperationException)
         {
-            LiveInfo.Text = string.Join("\n", lines) + "\n(sol et météo indisponibles : " + ex.Message + ")";
+            SetLive(string.Join("\n", lines) + "\n(sol et météo indisponibles : " + ex.Message + ")");
         }
     }
 
@@ -269,7 +274,7 @@ public partial class MainWindow
         // Les obstacles du dernier calcul de plan ne valent que pour la même route à la même altitude.
         var obstacles = _planSignature == Signature(route, p.CruiseAltFt) ? _planObstacles : [];
         ProfileView.SetData(terrain, p.CruiseAltFt, route, crossings, note, obstacles, altitudes);
-        ProfileStatus.Text = terrain is null ? note ?? "" : $"Profil en direct · point le plus haut {terrain.MaxFt:N0} ft · {crossings.Count} passage(s) de zone";
+        ProfileStatus.Text = terrain is null ? note ?? "" : $"Profil en direct · point le plus haut {terrain.MaxFt:N0} ft · {crossings.Count} passage(s) de zone" + CruiseSummary();
     }
 
     // ---------- note au survol d'un point de la route ----------

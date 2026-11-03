@@ -94,8 +94,27 @@ public partial class MainWindow
         AfterAircraftChange();
     }
 
+    /// <summary>Altitude de croisière ou niveau de vol modifié : log, profil et vérification de la route suivent.</summary>
+    private void CruiseAlt_Changed(object sender, TextChangedEventArgs e)
+    {
+        if (!_aircraftReady || _loadingParams || !IsLoaded) return;
+        RefreshLog();
+        RefreshFeedRoute();
+        ScheduleLive();
+    }
+
+    /// <summary>Croisière utilisée pour le profil, ex. « croisière FL350 · IFR · Airbus A320neo ».</summary>
+    private string CruiseSummary()
+    {
+        double ft = CurrentCruiseAltFt();
+        string level = ft >= 18000 ? $"FL{ft / 100:000}" : string.Create(CultureInfo.GetCultureInfo("fr-FR"), $"{ft:N0} ft");
+        return $" · croisière {level} · {(_mode == FlightMode.Ifr ? "IFR" : "VFR")}" + (ActiveAircraft is { } a ? " · " + a.Name : "");
+    }
+
     private void AfterAircraftChange()
     {
+        RefreshFeedRoute();
+        ScheduleLive();
         UpdateAircraftUi();
         if (IsLoaded) RefreshLog();
         RefreshRange();
