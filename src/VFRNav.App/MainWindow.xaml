@@ -201,9 +201,9 @@
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="Arrivée (OACI)"/>
                         <TextBox x:Name="IfrArrBox" Text="LFMN" CharacterCasing="Upper" TextChanged="IfrAirport_Changed"/></StackPanel>
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Piste de départ"/>
-                        <ComboBox x:Name="IfrDepRunwayBox"/></StackPanel>
+                        <ComboBox x:Name="IfrDepRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="Piste conseillée d'après le vent du METAR. Choisissez-en une autre pour la forcer ; « Auto » prend le trajet le plus court toutes pistes confondues."/></StackPanel>
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="Piste d'arrivée"/>
-                        <ComboBox x:Name="IfrArrRunwayBox"/></StackPanel>
+                        <ComboBox x:Name="IfrArrRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="Piste conseillée d'après le vent du METAR. Choisissez-en une autre pour la forcer ; « Auto » prend le trajet le plus court toutes pistes confondues."/></StackPanel>
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="SID"/>
                         <ComboBox x:Name="IfrSidBox"/></StackPanel>
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="STAR"/>

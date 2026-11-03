@@ -80,29 +80,53 @@ public partial class MainWindow
         }
     }
 
-    private void IfrAirport_Changed(object sender, TextChangedEventArgs e)
-    {
-        if (IsLoaded) RefreshIfrChoices();
-    }
-
-    /// <summary>Remplit les listes de SID, STAR et pistes avec ce que la base propose pour les deux terrains.</summary>
+    /// <summary>Remplit les listes de pistes, de SID et de STAR avec ce que la base propose pour les deux terrains.</summary>
     private void RefreshIfrChoices()
     {
         EnsureProceduresForRoute();
-        Fill(IfrSidBox, IfrDepRunwayBox, IfrDepBox.Text, ProcedureKind.Sid);
-        Fill(IfrStarBox, IfrArrRunwayBox, IfrArrBox.Text, ProcedureKind.Star);
-        IfrAirportInfo.Text = string.Join("\n", new[]
+        _programmatic = true;
+        try
         {
-            AirportProcedureInfo("Départ", IfrDepBox.Text, ProcedureKind.Sid),
-            AirportProcedureInfo("Arrivée", IfrArrBox.Text, ProcedureKind.Star)
-        }.Where(t => t.Length > 0));
-
-        void Fill(ComboBox procedures, ComboBox runways, string icao, ProcedureKind kind)
-        {
-            var list = _ifrData.ProceduresFor(icao.Trim(), kind).ToList();
-            SetItems(procedures, list.Select(p => p.Ident).Order());
-            SetItems(runways, list.SelectMany(p => p.Variants).SelectMany(v => v.Runways).Distinct().Order());
+            FillProcedures(IfrSidBox, IfrDepRunwayBox, IfrDepBox.Text, ProcedureKind.Sid, keepRunways: false);
+            FillProcedures(IfrStarBox, IfrArrRunwayBox, IfrArrBox.Text, ProcedureKind.Star, keepRunways: false);
         }
+        finally { _programmatic = false; }
+        IfrAirportInfo.Text = BuildAirportInfo();
+        ApplyAdvice();
+        ScheduleRunwayAdvice();
+    }
+
+    /// <summary>
+    /// Liste des pistes du terrain puis des procédures qui desservent la piste choisie (toutes si « Auto »).
+    /// <paramref name="keepRunways"/> garde la liste de pistes telle quelle, quand c'est elle qui vient de changer.
+    /// </summary>
+    private void FillProcedures(ComboBox procedures, ComboBox runways, string icao, ProcedureKind kind, bool keepRunways)
+    {
+        bool outer = _programmatic;
+        _programmatic = true;
+        try
+        {
+            var all = _ifrData.ProceduresFor(icao.Trim(), kind).ToList();
+            if (!keepRunways) SetItems(runways, RunwayAdvice.RunwaysOf(all));
+            SetItems(procedures, RunwayAdvice.ForRunway(all, Chosen(runways)).Select(p => p.Ident).Order());
+        }
+        finally { _programmatic = outer; }
+    }
+
+    /// <summary>Ce que VFRNav sait des deux terrains saisis, avec le vent et la piste conseillée quand on les connaît.</summary>
+    private string BuildAirportInfo()
+    {
+        var lines = new List<string>();
+        void Add(string role, string text, ProcedureKind kind, RunwayAdviceState? advice)
+        {
+            string info = AirportProcedureInfo(role, text, kind);
+            if (info.Length == 0) return;
+            lines.Add(info);
+            if (AdviceText(advice) is { Length: > 0 } wind) lines.Add(wind);
+        }
+        Add("Départ", IfrDepBox.Text, ProcedureKind.Sid, _depAdvice);
+        Add("Arrivée", IfrArrBox.Text, ProcedureKind.Star, _arrAdvice);
+        return string.Join("\n", lines);
     }
 
     /// <summary>Remet « Auto » en tête de liste et garde le choix précédent s'il existe encore.</summary>
@@ -165,6 +189,8 @@ public partial class MainWindow
         FitRoute();
 
         IfrStatus.Foreground = System.Windows.Media.Brushes.LightGreen;
-        IfrStatus.Text = $"{ifr.Description}\n{ifr.DistanceNm:0.#} NM, {ifr.Points.Count} points.";
+        string runways = new[] { Chosen(IfrDepRunwayBox) is { } d ? $"départ {d}" : null, Chosen(IfrArrRunwayBox) is { } a ? $"arrivée {a}" : null }
+            .Where(t => t is not null).Aggregate("", (acc, t) => acc.Length == 0 ? t! : acc + ", " + t);
+        IfrStatus.Text = $"{ifr.Description}\n{ifr.DistanceNm:0.#} NM, {ifr.Points.Count} points." + (runways.Length > 0 ? $"\nPistes : {runways}." : "");
     }
 }
