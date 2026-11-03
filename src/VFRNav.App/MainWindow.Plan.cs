@@ -1,4 +1,4 @@
-﻿using System.Net.Http;
+using System.Net.Http;
 using System.Windows;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
@@ -54,7 +54,7 @@ public partial class MainWindow
             _planSignature = Signature(route, p.CruiseAltFt);
 
             var relevant = _airspaces.Where(z => z.Kind is not (AirspaceKind.Sector or AirspaceKind.Other));
-            var altitudes = new AltitudeProfile(route, p.CruiseAltFt);
+            var altitudes = NewAltitudeProfile(route, p.CruiseAltFt);
             var crossings = RouteAnalysis.AirspacesAlong(samples, relevant, altitudes);
             var briefings = PointBriefings.ForRoute(route, p.CruiseAltFt, _airspaces.Where(z => z.Kind != AirspaceKind.Other).ToList(), AerodromeFrequencies);
             var navaids = RouteAnalysis.NavaidsAlong(route, _navaids, 15);

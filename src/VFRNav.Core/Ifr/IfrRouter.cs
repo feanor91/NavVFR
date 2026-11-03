@@ -1,4 +1,4 @@
-﻿using VFRNav.Core.Models;
+using VFRNav.Core.Models;
 using VFRNav.Core.Services;
 
 namespace VFRNav.Core.Ifr;
@@ -35,6 +35,10 @@ public sealed class IfrPlanOptions
     /// <summary>SID imposée (ex. « AMBO1A ») ; null = la meilleure disponible.</summary>
     public string? Sid { get; set; }
     public string? Star { get; set; }
+
+    /// <summary>Pas de SID (resp. de STAR) : le terrain se raccroche directement aux points du réseau les plus proches.</summary>
+    public bool NoSid { get; set; }
+    public bool NoStar { get; set; }
     public string? DepartureRunway { get; set; }
     public string? ArrivalRunway { get; set; }
 
@@ -50,6 +54,18 @@ public sealed class IfrPlanOptions
     /// null = jamais.
     /// </summary>
     public int? FreeRouteFromFl { get; set; } = 195;
+
+    /// <summary>
+    /// Régions OACI où la route libre existe (espace FRA européen). Un tronçon direct n'est permis que si ses deux extrémités y sont ;
+    /// null = partout. Liste indicative, à tenir à jour selon les pays.
+    /// </summary>
+    public IReadOnlySet<string>? FreeRouteRegions { get; set; } = DefaultFreeRouteRegions;
+
+    public static readonly IReadOnlySet<string> DefaultFreeRouteRegions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+    {
+        "LF", "EG", "EI", "EB", "EL", "EH", "ED", "ET", "EK", "EN", "ES", "EF", "EE", "EV", "EY", "EP", "LK", "LZ", "LO", "LS",
+        "LI", "LE", "LP", "LG", "LH", "LJ", "LD", "LB", "LR", "LM", "LC", "LY", "LQ", "LA", "LW", "BI",
+    };
 
     /// <summary>Portée maximale d'un tronçon direct en route libre.</summary>
     public double FreeRouteLegNm { get; set; } = 150;
@@ -79,9 +95,9 @@ public static class IfrRouter
         if (dep is null) return Fail($"Terrain de départ inconnu : {departure}.");
         if (arr is null) return Fail($"Terrain d'arrivée inconnu : {arrival}.");
 
-        var starts = Anchors(data, dep, ProcedureKind.Sid, options.Sid, options.DepartureRunway, options.DirectRadiusNm, options.FlightLevel, FreeRoute(options), out var startError);
+        var starts = Anchors(data, dep, ProcedureKind.Sid, options.Sid, options.NoSid, options.DepartureRunway, options.DirectRadiusNm, options.FlightLevel, FreeAt(options), out var startError);
         if (startError is not null) return Fail(startError);
-        var ends = Anchors(data, arr, ProcedureKind.Star, options.Star, options.ArrivalRunway, options.DirectRadiusNm, options.FlightLevel, FreeRoute(options), out var endError);
+        var ends = Anchors(data, arr, ProcedureKind.Star, options.Star, options.NoStar, options.ArrivalRunway, options.DirectRadiusNm, options.FlightLevel, FreeAt(options), out var endError);
         if (endError is not null) return Fail(endError);
         if (starts.Count == 0) return Fail($"Aucun point du réseau IFR à moins de {options.DirectRadiusNm:0} NM de {departure}.");
         if (ends.Count == 0) return Fail($"Aucun point du réseau IFR à moins de {options.DirectRadiusNm:0} NM de {arrival}.");
@@ -132,6 +148,10 @@ public static class IfrRouter
     /// <summary>Vrai quand le niveau demandé est dans l'espace en route libre.</summary>
     private static bool FreeRoute(IfrPlanOptions o) => o.FlightLevel is { } level && o.FreeRouteFromFl is { } from && level >= from;
 
+    /// <summary>Vrai si la route libre est permise au point donné (niveau assez haut et région où elle existe).</summary>
+    private static Func<string, bool> FreeAt(IfrPlanOptions o) =>
+        FreeRoute(o) ? ident => o.FreeRouteRegions is null || o.FreeRouteRegions.Contains(FixKey.Region(ident)) : _ => false;
+
     private static IfrPlanResult Fail(string error) => new(null, error);
 
     private static double Distance(IfrNavData data, string a, string b)
@@ -145,10 +165,10 @@ public static class IfrRouter
     /// Points d'accrochage au réseau pour un terrain : le point de sortie de chaque SID (ou d'entrée de chaque STAR)
     /// avec le coût de la procédure ; à défaut de procédure, les points du réseau les plus proches en direct.
     /// </summary>
-    private static List<Anchor> Anchors(IfrNavData data, IfrFix airport, ProcedureKind kind, string? ident, string? runway, double radiusNm, int? flightLevel, bool freeRoute, out string? error)
+    private static List<Anchor> Anchors(IfrNavData data, IfrFix airport, ProcedureKind kind, string? ident, bool none, string? runway, double radiusNm, int? flightLevel, Func<string, bool> freeAt, out string? error)
     {
         error = null;
-        var procedures = data.ProceduresFor(airport.Ident, kind).ToList();
+        var procedures = none ? [] : data.ProceduresFor(airport.Ident, kind).ToList();
         bool sid = kind == ProcedureKind.Sid;
         string label = sid ? "SID" : "STAR";
 
@@ -198,7 +218,7 @@ public static class IfrRouter
 
         // Pas de procédure publiée : on se raccroche directement aux points du réseau les plus proches.
         var onNetwork = data.Fixes.Values
-            .Where(f => f.Kind != FixKind.Airport && (freeRoute || data.EdgesFrom(f.Ident).Any(e => e.Segment.AllowsFlightLevel(flightLevel))))
+            .Where(f => f.Kind != FixKind.Airport && (freeAt(f.Ident) || data.EdgesFrom(f.Ident).Any(e => e.Segment.AllowsFlightLevel(flightLevel))))
             .Select(f => (Fix: f, D: NavMath.DistanceNm(airport.Lat, airport.Lon, f.Lat, f.Lon)))
             .Where(x => x.D <= radiusNm)
             .OrderBy(x => x.D)
@@ -234,6 +254,7 @@ public static class IfrRouter
     {
         int? flightLevel = options.FlightLevel;
         bool freeRoute = FreeRoute(options);
+        var freeAt = FreeAt(options);
         var grid = freeRoute ? new FixGrid(data) : null;
         var cmp = StringComparer.OrdinalIgnoreCase;
         var dist = new Dictionary<string, double>(cmp);
@@ -285,8 +306,10 @@ public static class IfrRouter
 
             if (grid is null) continue;
             var here = data.Fixes[u];
+            if (!freeAt(u)) continue;
             foreach (var other in grid.Nearest(here, FreeRouteNeighbours, options.FreeRouteLegNm))
             {
+                if (!freeAt(other.Ident)) continue;
                 double nd = du + NavMath.DistanceNm(here.Lat, here.Lon, other.Lat, other.Lon);
                 if (dist.TryGetValue(other.Ident, out double dv) && dv <= nd) continue;
                 dist[other.Ident] = nd;

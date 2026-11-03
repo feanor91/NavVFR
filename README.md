@@ -1,4 +1,4 @@
-﻿# MSFS Rhumb
+# MSFS Rhumb
 
 Outil de préparation de navigation **VFR et IFR** pour la simulation de vol (Microsoft Flight Simulator).
 Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
@@ -23,7 +23,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 - **Log de navigation** : routes vraie et magnétique, dérive, cap, vitesse sol, temps, carburant (vent supposé constant).
 - **Altitude par point** : colonne « Alt (ft) », ou glisser-déposer dans le profil (un point ; double-clic pour revenir à la croisière) ou du trait de croisière pour toute la route.
 - **Briefing de chaque point** : zones traversées à l'altitude du point, ce que chacune implique (survol, radio, clairance) et fréquences à contacter.
-- **Profil vertical** : relief (Open-Meteo), zones, obstacles (mâts, tours, cheminées, éoliennes d'OpenStreetMap), altitudes saisies. **Zoom** : molette sur la distance, Ctrl + molette sur l'altitude, glisser le fond pour se déplacer, double-clic sur le fond pour tout revoir.
+- **Profil vertical** (les terrains y sont au sol ; les points sans altitude montent et descendent à la pente de l'appareil, d'après ses taux de montée et de descente, facultatifs dans la fiche) : relief (Open-Meteo), zones, obstacles (mâts, tours, cheminées, éoliennes d'OpenStreetMap), altitudes saisies. **Zoom** : molette sur la distance, Ctrl + molette sur l'altitude, glisser le fond pour se déplacer, double-clic sur le fond pour tout revoir.
 - **Notes** par point de route, **infos en direct** dans une fenêtre séparée.
 - **Plan de vol `.pln`** : la route s'enregistre et s'ouvre directement dans le fichier de MSFS, avec les altitudes et les notes par point.
 - **Feuille de route imprimable** (aperçu, impression, PDF) : navigation, briefing par point, relief, profil, terrains, météo, zones, balises, obstacles.
@@ -36,7 +36,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 
 ### Route IFR
 
-- **Calcul de route** : départ, arrivée, niveau de vol, SID, STAR et pistes au choix ; plus court chemin (A*) sur les routes ATS ; route libre à partir du FL195 (quel que soit le pays pour l'instant).
+- **Calcul de route** : départ, arrivée, niveau de vol, SID, STAR et pistes au choix ; plus court chemin (A*) sur les routes ATS ; route libre à partir du FL195, seulement entre points de pays où elle existe (liste européenne indicative). Les listes de SID et de STAR indiquent le point de sortie (« AGOP6H → AGOPA ») ou d'entrée (« NISA7R ← NISAR ») ; « Aucune » raccorde directement le terrain au réseau, sans procédure.
 - **France** : routes ATS de l'export AIXM 4.5 gratuit du SIA (bouton « Charger les données AIRAC »). Cet export ne contient pas les SID/STAR.
 - **Monde, lu dans MSFS** (SimConnect), une fois, puis utilisable **sans simulateur** :
   - les **SID et STAR** de tous les terrains (environ 2 800 terrains, 59 000 procédures, 4 Mo, lecture d'environ 75 s) ;
@@ -106,7 +106,7 @@ OurAirports (domaine public) · OpenAIP · aviationweather.gov · Open-Meteo (mo
 - **Vent et déclinaison** : le vent du log de navigation est unique pour toute la route, la déclinaison est celle du terrain de départ.
 - **Carburant** : calculé avec la vitesse et la consommation de l'appareil choisi, sans roulage, montée, tours de piste ni approche. La réserve est indicative.
 - **Routes ATS hors de France** : sens uniques et niveaux sont ceux que donne MSFS (traitées dans les deux sens ; routes basses limitées au FL180), à vérifier. Non comparées à des cartes réelles. Les fréquences et noms des VOR/NDB hors de France ne sont pas lus.
-- **Route libre** : au-dessus du FL195, elle est supposée partout, alors qu'elle n'existe que dans certains pays.
+- **Route libre** : au-dessus du FL195, elle n'est permise qu'entre points de la liste de pays européens du programme (`IfrPlanOptions.DefaultFreeRouteRegions`), indicative : espaces et niveaux d'entrée réels à vérifier.
 - **SID/STAR de MSFS** : leur cycle AIRAC est celui du simulateur, qui peut différer du SIA ; beaucoup de STAR ne sont pas liées à une piste.
 - **Piste conseillée** : le METAR donne le vent en nord vrai ; la variation magnétique n'est connue que pour la France (StormATC). Ni longueur de piste, ni minima, ni restrictions de bruit.
 - **Relief et obstacles** : modèle d'environ 90 m ; les obstacles d'OpenStreetMap sont incomplets (lignes électriques absentes, hauteurs parfois manquantes).

@@ -11,7 +11,7 @@ public sealed class AltitudeProfile
     private readonly double[] _distance;
     private readonly double[] _altitude;
 
-    public AltitudeProfile(IReadOnlyList<Waypoint> route, double defaultFt)
+    public AltitudeProfile(IReadOnlyList<Waypoint> route, double defaultFt, double climbFtPerNm = GradientFtPerNm, double descentFtPerNm = GradientFtPerNm)
     {
         _distance = new double[route.Count];
         _altitude = new double[route.Count];
@@ -31,18 +31,24 @@ public sealed class AltitudeProfile
             for (int j = 0; j < route.Count; j++)
             {
                 if (fixedFt[j] is not { } fj) continue;
-                alt = Math.Min(alt, fj + GradientFtPerNm * Math.Abs(_distance[i] - _distance[j]));
+                // Un point fixé avant celui-ci : on en monte ; un point fixé après : on y descend.
+                alt = Math.Min(alt, fj + (_distance[j] <= _distance[i] ? climbFtPerNm : descentFtPerNm) * Math.Abs(_distance[i] - _distance[j]));
             }
             _altitude[i] = alt;
         }
         DefaultFt = defaultFt;
+        ClimbFtPerNm = climbFtPerNm;
+        DescentFtPerNm = descentFtPerNm;
         MaxFt = _altitude.Length == 0 ? defaultFt : _altitude.Max();
         MinFt = _altitude.Length == 0 ? defaultFt : _altitude.Min();
         HasCustom = route.Any(w => w.AltitudeFt is not null);
     }
 
-    /// <summary>Pente supposée, en montée comme en descente, entre un point fixé et ceux qui n'ont pas d'altitude (environ 3°).</summary>
+    /// <summary>Pente par défaut, en montée comme en descente, entre un point fixé et ceux qui n'ont pas d'altitude (environ 3°).</summary>
     public const double GradientFtPerNm = 300;
+
+    public double ClimbFtPerNm { get; }
+    public double DescentFtPerNm { get; }
 
     public double DefaultFt { get; }
     public double MaxFt { get; }

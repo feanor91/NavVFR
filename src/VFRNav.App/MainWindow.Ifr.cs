@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Windows;
 using Microsoft.Win32;
 using System.Windows.Controls;
@@ -11,6 +11,7 @@ namespace VFRNav.App;
 public partial class MainWindow
 {
     private const string AutoChoice = "Auto";
+    private const string NoneChoice = "Aucune";
 
     // Pour l'instant : données de démonstration. Un lecteur AIRAC les remplacera.
     private IfrNavData _ifrData = IfrSampleData.Create();
@@ -108,7 +109,8 @@ public partial class MainWindow
         {
             var all = _ifrData.ProceduresFor(icao.Trim(), kind).ToList();
             if (!keepRunways) SetItems(runways, RunwayAdvice.RunwaysOf(all));
-            SetItems(procedures, RunwayAdvice.ForRunway(all, Chosen(runways)).Select(p => p.Ident).Order());
+            string? runway = Chosen(runways);
+            SetItems(procedures, RunwayAdvice.ForRunway(all, runway).OrderBy(p => p.Ident, StringComparer.Ordinal).Select(p => ProcedureLabel.For(p, runway)), withNone: true);
         }
         finally { _programmatic = outer; }
     }
@@ -129,18 +131,24 @@ public partial class MainWindow
         return string.Join("\n", lines);
     }
 
-    /// <summary>Remet « Auto » en tête de liste et garde le choix précédent s'il existe encore.</summary>
-    private static void SetItems(ComboBox box, IEnumerable<string> items)
+    /// <summary>
+    /// Remet « Auto » en tête de liste (puis « Aucune » pour les procédures) et garde le choix précédent s'il existe encore,
+    /// reconnu à son identifiant : le texte d'une SID change avec la piste.
+    /// </summary>
+    private static void SetItems(ComboBox box, IEnumerable<string> items, bool withNone = false)
     {
-        string? previous = box.SelectedItem as string;
+        string? previous = box.SelectedItem is string p ? ProcedureLabel.Ident(p) : null;
         var all = new List<string> { AutoChoice };
+        if (withNone) all.Add(NoneChoice);
         all.AddRange(items);
         box.ItemsSource = all;
-        box.SelectedItem = previous is not null && all.Contains(previous) ? previous : AutoChoice;
+        box.SelectedItem = (previous is null ? null : all.FirstOrDefault(x => ProcedureLabel.Ident(x) == previous)) ?? AutoChoice;
     }
 
     private static string? Chosen(ComboBox box) =>
-        box.SelectedItem is string s && s != AutoChoice ? s : null;
+        box.SelectedItem is string s && s != AutoChoice && s != NoneChoice ? ProcedureLabel.Ident(s) : null;
+
+    private static bool IsNone(ComboBox box) => box.SelectedItem as string == NoneChoice;
 
     private void IfrCompute_Click(object sender, RoutedEventArgs e)
     {
@@ -162,6 +170,8 @@ public partial class MainWindow
         {
             Sid = Chosen(IfrSidBox),
             Star = Chosen(IfrStarBox),
+            NoSid = IsNone(IfrSidBox),
+            NoStar = IsNone(IfrStarBox),
             DepartureRunway = Chosen(IfrDepRunwayBox),
             ArrivalRunway = Chosen(IfrArrRunwayBox),
             FlightLevel = fl,

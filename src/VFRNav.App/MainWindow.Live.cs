@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Collections.Specialized;
 using System.Net.Http;
 using System.Windows;
@@ -137,6 +137,10 @@ public partial class MainWindow
         ScheduleLive();
     }
 
+    /// <summary>Profil d'altitude avec les pentes de l'appareil choisi (montée et descente), sinon les pentes par défaut.</summary>
+    private AltitudeProfile NewAltitudeProfile(IReadOnlyList<Waypoint> route, double cruiseFt) =>
+        ActiveAircraft is { } a ? new AltitudeProfile(route, cruiseFt, a.ClimbFtPerNm, a.DescentFtPerNm) : new AltitudeProfile(route, cruiseFt);
+
     private IEnumerable<Airspace> RelevantZones() => _airspaces.Where(z => z.Kind is not (AirspaceKind.Sector or AirspaceKind.Other));
 
     /// <summary>Fréquences publiées par StormATC pour un terrain de la route.</summary>
@@ -253,7 +257,7 @@ public partial class MainWindow
             return;
         }
 
-        var altitudes = new AltitudeProfile(route, p.CruiseAltFt);
+        var altitudes = NewAltitudeProfile(route, p.CruiseAltFt);
         var samples = RouteGeometry.Sample(route, 1);
         var crossings = RouteAnalysis.AirspacesAlong(samples, RelevantZones(), altitudes);
         LiveCheck.Text = string.Join("\n", WaypointInsight.RouteCheck(route, p.CruiseAltFt, crossings, null, zonesLoaded: _airspaces.Count > 0, altitudes: altitudes)) + "\nRelief : calcul…";

@@ -300,4 +300,17 @@ public class RangeCircleTests
         Assert.Empty(RouteGeometry.CircleLines(48, 2, double.NaN));
         Assert.Empty(RouteGeometry.CircleLines(48, 2, -10));
     }
+
+    [Fact]
+    public void Climb_and_descent_gradients_follow_the_rates_and_the_cruise_speed()
+    {
+        var jet = new Aircraft { Category = AircraftCategory.Jet, CruiseKt = 450 };
+        Assert.Equal(2200 / (450 * 0.8 / 60), jet.ClimbFtPerNm, 3);
+        Assert.Equal(2000 / (450 * 0.85 / 60), jet.DescentFtPerNm, 3);
+
+        var piston = new Aircraft { Category = AircraftCategory.Piston, CruiseKt = 100, ClimbFpm = 400 };
+        Assert.Equal(400 / (100 * 0.8 / 60), piston.ClimbFtPerNm, 3);   // taux saisi
+        Assert.Equal(500, piston.DescentRateFpm);                       // usuel de la catégorie
+        Assert.Contains(new Aircraft { Name = "X", ClimbFpm = 0 }.Validate(), e => e.Contains("montée"));
+    }
 }

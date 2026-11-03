@@ -48,6 +48,22 @@ public class PointBriefingTests
     }
 
     [Fact]
+    public void Climb_and_descent_use_their_own_gradients()
+    {
+        // Départ et arrivée au sol, trois points intermédiaires espacés d'environ 30 NM ; croisière haute.
+        var route = new List<Waypoint>
+        {
+            Wp("A", 49, 2, icao: "LFPG"), Wp("B", 49, 2.8), Wp("C", 49, 3.6), Wp("D", 49, 4.4), Wp("E", 49, 5.2, icao: "LFMN"),
+        };
+        var p = new AltitudeProfile(route, 35000, climbFtPerNm: 400, descentFtPerNm: 200);
+        Assert.Equal(400 * p.DistanceAt(1), p.AtWaypoint(1), 3);                                  // montée depuis A
+        Assert.Equal(200 * (p.DistanceAt(4) - p.DistanceAt(3)), p.AtWaypoint(3), 3);              // descente vers E, plus douce
+        Assert.True(p.AtWaypoint(1) < p.AtWaypoint(2));
+        Assert.Equal(400, p.ClimbFtPerNm);
+        Assert.Equal(200, p.DescentFtPerNm);
+    }
+
+    [Fact]
     public void Crossing_status_follows_the_altitude_at_each_part_of_the_route()
     {
         var zone = Zone("TMA X", "A", 7, 2000, 3000);

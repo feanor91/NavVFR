@@ -7,7 +7,7 @@ public class IfrRouterTests
 {
     // Réseau fictif : LFAA au nord, LFBB au sud. UN1 puis UN5 en ligne droite (cap 180) ; UN2 est un détour par l'est.
     //   LFAA - SIDWP - ALPHA - BRAVO - CHARL - DELTA - STARWP - LFBB
-    private static IfrNavData Network(Action<List<AirwaySegment>>? tweak = null)
+    internal static IfrNavData Network(Action<List<AirwaySegment>>? tweak = null)
     {
         List<IfrFix> fixes =
         [
@@ -292,5 +292,57 @@ public class IfrSampleDataTests
     public void Demo_data_is_labelled_as_test_data()
     {
         Assert.Equal("TEST", IfrSampleData.Create().AiracCycle);
+    }
+
+    [Fact]
+    public void No_sid_or_star_hooks_the_airport_straight_onto_the_network()
+    {
+        var data = IfrRouterTests.Network();
+        var auto = IfrRouter.Plan(data, "LFAA", "LFBB", new IfrPlanOptions { DepartureRunway = "01" }).Route!;
+        var none = IfrRouter.Plan(data, "LFAA", "LFBB", new IfrPlanOptions { NoSid = true, NoStar = true }).Route!;
+
+        Assert.Equal("ALPH1A", auto.Sid);
+        Assert.Null(none.Sid);
+        Assert.Null(none.Star);
+        Assert.Equal("LFAA", none.Points[0].Ident);
+        Assert.Equal("LFBB", none.Points[^1].Ident);
+        Assert.DoesNotContain(none.Points, p => p.Source is IfrLegSource.Sid or IfrLegSource.Star);
+    }
+
+    [Fact]
+    public void Free_route_only_links_points_of_regions_where_it_exists()
+    {
+        List<IfrFix> fixes =
+        [
+            new("LFCC", 40.0, 8.0, FixKind.Airport), new("LFDD", 40.0, 10.5, FixKind.Airport),
+            new("P1", 40.1, 8.4), new("P2", 40.1, 9.0), new("P3", 40.1, 9.6),
+            new("Q1/ZZ", 40.1, 8.4), new("Q2/ZZ", 40.1, 9.0), new("Q3/ZZ", 40.1, 9.6),
+            new("AWY1", 40.2, 8.4), new("AWY2", 40.2, 8.5),
+        ];
+        var data = new IfrNavData(fixes, [new AirwaySegment("UN9", "AWY1", "AWY2")], []);
+        var opts = new IfrPlanOptions { AllowDirect = false, FlightLevel = 300 };
+
+        var inFrance = IfrRouter.Plan(data, "LFCC", "LFDD", opts).Route!;
+        Assert.Contains(inFrance.Points, p => p.Ident is "P1" or "P2" or "P3");         // France (LF) : route libre permise
+
+        opts.FreeRouteRegions = new HashSet<string> { "EG" };
+        Assert.False(IfrRouter.Plan(data, "LFCC", "LFDD", opts).Success);          // hors de ces régions : pas de tronçon direct, rien ne relie les deux terrains
+
+        opts.FreeRouteRegions = null;
+        Assert.True(IfrRouter.Plan(data, "LFCC", "LFDD", opts).Success);
+    }
+
+    [Fact]
+    public void Procedure_labels_show_where_a_sid_exits_and_a_star_enters()
+    {
+        var data = IfrRouterTests.Network();
+        var sid = data.ProceduresFor("LFAA", ProcedureKind.Sid).Single();
+        var star = data.ProceduresFor("LFBB", ProcedureKind.Star).Single();
+
+        Assert.Equal("ALPH1A → ALPHA", ProcedureLabel.For(sid));
+        Assert.Equal("DELT1B ← DELTA", ProcedureLabel.For(star));
+        Assert.Equal("ALPH1A", ProcedureLabel.Ident("ALPH1A → ALPHA"));
+        Assert.Equal("DELT1B", ProcedureLabel.Ident("DELT1B ← DELTA"));
+        Assert.Equal("08L", ProcedureLabel.Ident("08L"));
     }
 }

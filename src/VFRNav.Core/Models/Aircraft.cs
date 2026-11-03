@@ -1,4 +1,4 @@
-﻿namespace VFRNav.Core.Models;
+namespace VFRNav.Core.Models;
 
 /// <summary>Type de navigation : à vue ou aux instruments.</summary>
 public enum FlightMode { Vfr, Ifr }
@@ -37,7 +37,22 @@ public sealed class Aircraft
     /// <summary>Altitude de croisière proposée par défaut, en pieds (35000 = FL350).</summary>
     public double CruiseAltFt { get; set; } = 3000;
 
+    /// <summary>Taux de montée et de descente moyens, en pieds par minute ; null = valeur usuelle de la catégorie.</summary>
+    public double? ClimbFpm { get; set; }
+    public double? DescentFpm { get; set; }
+
     public string? Notes { get; set; }
+
+    /// <summary>Taux de montée effectif (saisi, sinon usuel de la catégorie), en pieds par minute.</summary>
+    public double ClimbRateFpm => ClimbFpm ?? Category switch { AircraftCategory.Jet => 2200, AircraftCategory.Turboprop => 1500, _ => 700 };
+
+    public double DescentRateFpm => DescentFpm ?? Category switch { AircraftCategory.Jet => 2000, AircraftCategory.Turboprop => 1000, _ => 500 };
+
+    /// <summary>Pente moyenne de montée, en pieds par mille nautique (vitesse sol supposée à 80 % de la croisière en montée).</summary>
+    public double ClimbFtPerNm => ClimbRateFpm / (CruiseKt * 0.8 / 60);
+
+    /// <summary>Pente moyenne de descente, en pieds par mille nautique (vitesse supposée à 85 % de la croisière).</summary>
+    public double DescentFtPerNm => DescentRateFpm / (CruiseKt * 0.85 / 60);
 
     public bool Supports(FlightMode mode) => mode == FlightMode.Vfr ? Vfr : Ifr;
 
@@ -60,6 +75,8 @@ public sealed class Aircraft
         if (!(BurnLph > 0)) errors.Add("La consommation doit être positive.");
         if (!(FuelCapacityL > 0)) errors.Add("Le carburant utilisable doit être positif.");
         if (!(CruiseAltFt >= 0)) errors.Add("L'altitude de croisière ne peut pas être négative.");
+        if (ClimbFpm is { } c && !(c > 0)) errors.Add("Le taux de montée doit être positif.");
+        if (DescentFpm is { } d && !(d > 0)) errors.Add("Le taux de descente doit être positif.");
         if (ServiceCeilingFt is { } ceiling && !(ceiling >= CruiseAltFt))
             errors.Add("Le plafond ne peut pas être inférieur à l'altitude de croisière.");
         return errors;

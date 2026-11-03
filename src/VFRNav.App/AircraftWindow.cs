@@ -29,7 +29,7 @@ public sealed class AircraftWindow : Window
     private readonly ComboBox _category = new() { ItemsSource = new[] { "Piston", "Turbopropulseur", "Jet" } };
     private readonly CheckBox _vfr = new() { Content = "VFR" };
     private readonly CheckBox _ifr = new() { Content = "IFR" };
-    private readonly TextBox _cruise = new(), _max = new(), _burn = new(), _fuel = new(), _ceiling = new(), _cruiseAlt = new();
+    private readonly TextBox _cruise = new(), _max = new(), _burn = new(), _fuel = new(), _ceiling = new(), _cruiseAlt = new(), _climb = new(), _descent = new();
     private readonly TextBox _notes = new() { AcceptsReturn = true, TextWrapping = TextWrapping.Wrap, Height = 120, VerticalScrollBarVisibility = ScrollBarVisibility.Auto };
     private readonly TextBlock _derived = new() { Foreground = Grey, Margin = new Thickness(0, 6, 0, 0), TextWrapping = TextWrapping.Wrap };
     private readonly TextBlock _error = new() { Foreground = Red, TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 6, 0, 0) };
@@ -96,6 +96,8 @@ public sealed class AircraftWindow : Window
         grid.Children.Add(Field("Carburant utilisable (L)", _fuel, "Sert à calculer l'autonomie et la portée."));
         grid.Children.Add(Field("Croisière par défaut (ft)", _cruiseAlt, "35000 pour FL350."));
         grid.Children.Add(Field("Plafond (ft, facultatif)", _ceiling));
+        grid.Children.Add(Field("Montée (ft/min, facultatif)", _climb, "Sert au profil : les points sans altitude montent à cette pente. Vide = valeur usuelle de la catégorie."));
+        grid.Children.Add(Field("Descente (ft/min, facultatif)", _descent, "Idem pour la descente. Vide = valeur usuelle de la catégorie."));
         form.Children.Add(grid);
 
         form.Children.Add(Field("Notes et sources", _notes));
@@ -123,7 +125,7 @@ public sealed class AircraftWindow : Window
         _save.Click += Save_Click;
         _delete.Click += Delete_Click;
         _duplicate.Click += Duplicate_Click;
-        foreach (var box in new[] { _cruise, _max, _burn, _fuel, _cruiseAlt, _ceiling })
+        foreach (var box in new[] { _cruise, _max, _burn, _fuel, _cruiseAlt, _ceiling, _climb, _descent })
             box.TextChanged += (_, _) => UpdateDerived();
         _vfr.Click += (_, _) => UpdateDerived();
         _ifr.Click += (_, _) => UpdateDerived();
@@ -187,6 +189,8 @@ public sealed class AircraftWindow : Window
         _fuel.Text = Num(a.FuelCapacityL);
         _cruiseAlt.Text = Num(a.CruiseAltFt);
         _ceiling.Text = a.ServiceCeilingFt is { } c ? Num(c) : "";
+        _climb.Text = a.ClimbFpm is { } cl ? Num(cl) : "";
+        _descent.Text = a.DescentFpm is { } de ? Num(de) : "";
         _notes.Text = a.Notes ?? "";
         _error.Text = "";
         _delete.IsEnabled = !isNew;
@@ -216,6 +220,8 @@ public sealed class AircraftWindow : Window
         a.CruiseAltFt = Parse(_cruiseAlt, "altitude de croisière", problems);
         if (_ceiling.Text.Trim().Length == 0) a.ServiceCeilingFt = null;
         else a.ServiceCeilingFt = Parse(_ceiling, "plafond", problems);
+        a.ClimbFpm = _climb.Text.Trim().Length == 0 ? null : Parse(_climb, "taux de montée", problems);
+        a.DescentFpm = _descent.Text.Trim().Length == 0 ? null : Parse(_descent, "taux de descente", problems);
         a.Notes = string.IsNullOrWhiteSpace(_notes.Text) ? null : _notes.Text.Trim();
         return a;
     }

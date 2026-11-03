@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -468,7 +468,8 @@ public sealed class ProfileChart : FrameworkElement
 
     /// <summary>Profil d'altitude où un seul point a la valeur donnée, pour l'aperçu pendant le glissement.</summary>
     private AltitudeProfile WithAltitude(int index, double ft) =>
-        new([.. _route.Select((w, i) => i == index ? new Waypoint { Name = w.Name, Lat = w.Lat, Lon = w.Lon, AltitudeFt = ft } : w)], _cruiseFt);
+        new([.. _route.Select((w, i) => i == index ? new Waypoint { Name = w.Name, Lat = w.Lat, Lon = w.Lon, AltitudeFt = ft } : w)], _cruiseFt,
+            _profile?.ClimbFtPerNm ?? AltitudeProfile.GradientFtPerNm, _profile?.DescentFtPerNm ?? AltitudeProfile.GradientFtPerNm);
 
     // ---------- zoom et déplacement ----------
 
