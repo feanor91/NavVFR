@@ -12,7 +12,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 
 ### Carte, zones et aide
 
-- **Carte** avec terrains (OurAirports), espaces aériens (OpenAIP, contours avec nom et limites le long du trait), balises **VOR** et **NDB/ADF**, fonds de carte au choix, points de report VFR.
+- **Carte** avec terrains (OurAirports), espaces aériens (OpenAIP, contours avec nom et limites le long du trait), balises **VOR** et **NDB/ADF**, fonds de carte au choix, points de report VFR (triangles jaunes, case à cocher pour les masquer).
 - **Zones** : au survol d'un contour, la fiche de la zone concernée (type, classe, limites, fréquences) et une explication pour débutants.
 - **Glossaire** de 110 sigles des cartes, de la météo et de l'application, avec recherche.
 - **Terrains** : fiche au survol (météo en clair, procédures VFR), pastilles météo (VFR, MVFR, IFR, LIFR), METAR et TAF traduits en français.
@@ -23,7 +23,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 - **Log de navigation** : routes vraie et magnétique, dérive, cap, vitesse sol, temps, carburant (vent supposé constant).
 - **Altitude par point** : colonne « Alt (ft) », ou glisser-déposer dans le profil (un point ; double-clic pour revenir à la croisière) ou du trait de croisière pour toute la route.
 - **Briefing de chaque point** : zones traversées à l'altitude du point, ce que chacune implique (survol, radio, clairance) et fréquences à contacter.
-- **Profil vertical** : relief (Open-Meteo), zones, obstacles (mâts, tours, cheminées, éoliennes d'OpenStreetMap), altitudes saisies.
+- **Profil vertical** : relief (Open-Meteo), zones, obstacles (mâts, tours, cheminées, éoliennes d'OpenStreetMap), altitudes saisies. **Zoom** : molette sur la distance, Ctrl + molette sur l'altitude, glisser le fond pour se déplacer, double-clic sur le fond pour tout revoir.
 - **Notes** par point de route, **infos en direct** dans une fenêtre séparée.
 - **Plan de vol `.pln`** : la route s'enregistre et s'ouvre directement dans le fichier de MSFS, avec les altitudes et les notes par point.
 - **Feuille de route imprimable** (aperçu, impression, PDF) : navigation, briefing par point, relief, profil, terrains, météo, zones, balises, obstacles.

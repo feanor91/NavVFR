@@ -77,6 +77,7 @@ public partial class MainWindow : Window
         WxDotsCheck.IsChecked = _settings.WxDots;
         NavVorCheck.IsChecked = _settings.ShowVor;
         NavNdbCheck.IsChecked = _settings.ShowNdb;
+        ReportCheck.IsChecked = _settings.ShowReportingPoints;
         ZoneHelpCheck.IsChecked = _settings.ZoneHelp;
         ZoneHelp.Visibility = _settings.ZoneHelp ? Visibility.Visible : Visibility.Collapsed;
         ZoneHelpText.Text = ZoneHelpIntro;
@@ -171,6 +172,7 @@ public partial class MainWindow : Window
         _settings.WxDots = WxDotsCheck.IsChecked == true;
         _settings.ShowVor = NavVorCheck.IsChecked == true;
         _settings.ShowNdb = NavNdbCheck.IsChecked == true;
+        _settings.ShowReportingPoints = ReportCheck.IsChecked == true;
         _settings.ZoneHelp = ZoneHelpCheck.IsChecked == true;
         _settings.Filter = ReadFilter();
         _settings.AirspaceFilter = ReadAirspaceFilter();

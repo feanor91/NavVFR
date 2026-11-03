@@ -1,4 +1,4 @@
-using System.Windows;
+﻿using System.Windows;
 using Mapsui;
 using Mapsui.Layers;
 using Mapsui.Projections;
@@ -23,7 +23,15 @@ public partial class MainWindow
                 .ToList();
 
         _reportLayer.Features = _reportingPoints.Select((r, i) => ReportingFeature(r.Icao, r.Point, i)).ToList();
+        _reportLayer.Enabled = ReportCheck.IsChecked == true;
         _reportLayer.DataHasChanged();
+        MapControl.Refresh();
+    }
+
+    /// <summary>La case « Points de report » masque ou montre les triangles ; masqués, ils ne réagissent plus au clic.</summary>
+    private void ReportFilter_Click(object sender, RoutedEventArgs e)
+    {
+        _reportLayer.Enabled = ReportCheck.IsChecked == true;
         MapControl.Refresh();
     }
 
@@ -54,6 +62,7 @@ public partial class MainWindow
     /// <summary>Un clic sur un point de report l'ajoute à la route sous le nom « LFPN-S ».</summary>
     private bool TryAddReportingPoint(MapEventArgs e)
     {
+        if (ReportCheck.IsChecked != true) return false;
         var info = e.GetMapInfo([_reportLayer]);
         if (info?.Feature?["rp"] is not int index || index >= _reportingPoints.Count) return false;
         var (icao, p) = _reportingPoints[index];

@@ -100,6 +100,8 @@
                 <TextBlock Style="{StaticResource Header}" Text="BALISES"/>
                 <CheckBox x:Name="NavVorCheck" Content="VOR (losange violet)" Foreground="#E8EEFC" Click="NavFilter_Click"/>
                 <CheckBox x:Name="NavNdbCheck" Content="NDB / ADF (rond orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="NavFilter_Click"/>
+                <CheckBox x:Name="ReportCheck" Content="Points de report VFR (triangle jaune)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="ReportFilter_Click"
+                          ToolTip="Points de report des aérodromes, lus sur leurs cartes VAC (StormATC). Un clic sur un triangle l'ajoute à la route."/>
                 <TextBlock x:Name="NavCount" Style="{StaticResource Label}"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Un clic sur une balise l'ajoute à la route."/>
 

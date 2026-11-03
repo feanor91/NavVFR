@@ -1,4 +1,4 @@
-using System.Text.Json;
+﻿using System.Text.Json;
 using VFRNav.Core.Models;
 
 namespace VFRNav.Core.Services;
@@ -29,6 +29,8 @@ public sealed class AppSettings
     public bool WxDots { get; set; } = true;
     public bool ShowVor { get; set; } = true;
     public bool ShowNdb { get; set; } = true;
+    /// <summary>Points de report VFR (triangles jaunes) affichés sur la carte.</summary>
+    public bool ShowReportingPoints { get; set; } = true;
     public bool VacVisible { get; set; }
     /// <summary>right ou bottom.</summary>
     public string VacDock { get; set; } = "right";
