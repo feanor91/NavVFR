@@ -1,0 +1,88 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFXA (AIP France, chart dated 2026-04-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFXA",
+  "name": "Ambérieu",
+  "source": {
+    "publication": "AIP France AD 2 LFXA",
+    "chartDate": "2026-04-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.97972,
+    "longitude": 5.33778
+  },
+  "elevationFeet": 812,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "Activation TWR annoncée par NOTAM / TWR activation announced by NOTAM (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "approach": 120.23,
+    "tower": 122.1,
+    "airAir": 129.755
+  },
+  "runways": [
+    {
+      "id": "01L/19R",
+      "qfu": [
+        5,
+        185
+      ]
+    },
+    {
+      "id": "01R/19L",
+      "qfu": [
+        11,
+        191
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "PA",
+      "spoken": {
+        "fr": "Papa Alpha",
+        "en": "Papa Alpha"
+      },
+      "latitude": 46.06944,
+      "longitude": 5.32528,
+      "location": "Nom / Pont d'Ain, bifurcation autoroutes A40 et A42 / Travers Est Ambérieu en Bugey /"
+    },
+    {
+      "name": "AM",
+      "spoken": {
+        "fr": "Alpha Mike",
+        "en": "Alpha Mike"
+      },
+      "latitude": 45.96389,
+      "longitude": 5.37528
+    }
+  ],
+  "notes": [
+    "AD prohibited to ACFT without radio Unusable outside of RWY and TWY Paved RWY 01L/19R authorized to jet ACFT of ministry of the Armed Forces or others ministries on defense operator agreement with PN MNM 72 HR ULM class 1 to 6 activity reserved for home based ULM Paved movement area closed on THU 0400-1200 cause sweeping.",
+    "Possible exemption with advance notice for based ACFT on defense operator agreement RWY 01L/19R LDG is not recommended for aggressive ACFT A400M or C130 type under pain of quicky and permanently degrading the surface Presence of rough field QFU 011°/191°, east of the paved RWY.",
+    "Reserved for defense ACFT Activation reported by NOTAM.",
+    "TKOF climb surface RWY 01R impacted by fence: Height = 2.5 m; Far end RWY = 16 m.",
+    "R 258: Restricted area ground firing, SFC-3500 ft AMSL Paved RWY 01L/19R and TWY A et B: Non stabilized shoulders unusable Risk of snow: check availibility of AD by phone Non home based ACFT will be limited to 2 consecutive RWY patterns PJE (NR 422): SR-SS: Activity known by Lyon APP Other HOR and above FL 085, activity announced by NOTAM Radio controlled model flying as per protocol AEM (NR 9585): SFC - 700 ft ASFC - 1500 AMSL SR-SS"
+  ],
+  "fr": {
+    "notes": [
+      "AMBERIEU Consignes particulières Conditions d'utilisation de l'AD AD interdit aux ACFT sans radio Inutilisable hors RWY et TWY RWY 01L/19R revêtue autorisée aux ACFT à réacteur du ministère des Armées ou autres ministères sur accord exploitant défense et PN MNM 72 HR Activité ULM classe 1 à 6 réservée aux ULM basés Fermeture aire de mouvement revêtue JEU 0400-1200 pour balayage.",
+      "Dérogation possible avec préavis pour ACFT basés sur accord exploitant défense RWY 01L/19R atterrissage déconseillé aux ACFT agressifs de type A400M et C130 sous peine de dégrader rapidement et définitivement la couche de roulement Présence d'un terrain sommaire QFU 011°/191° à l'EST de la RWY revêtue.",
+      "",
+      "Trouée de TKOF RWY 01R impactée par une clôture : Hauteur = 2,5 m ; Extrémité de RWY = 16 m.",
+      "R 258 : Zone réglementée tir sol/sol, SFC-3500 ft AMSL RWY 01L/19R revêtue et voies de circulation A et B : Accotements non stabilisés inutilisables Risque d'enneigement : se renseigner par TEL sur la disponibilité terrain Les ACFT non basés se limiteront à 2 tours de piste consécutifs Accès PRKG MIL soumis à PPR de l'exploitant défense Accès PRKG CIV soumis à autorisation d'accès au club ACB du Bugey après demande PN MNM de 24 HR Aucun stationnement autorisé en dehors des PRKG Activité réelle connue de Lyon APP Autres HOR et au-dessus de FL 085, sont annoncés par NOTAM Vols radiocommandés selon protocole AEM (NR 9585) : SFC - 700 ft ASFC -1500 AMSL SR-SS"
+    ]
+  }
+}

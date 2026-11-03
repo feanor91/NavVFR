@@ -1,0 +1,162 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFSL (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFSL",
+  "name": "Brive-Vallée de Dordogne",
+  "source": {
+    "publication": "AIP France AD 2 LFSL",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.03972,
+    "longitude": 1.48556
+  },
+  "elevationFeet": 1016,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "TWR (modifiable par NOTAM / may be changed by NOTAM ) : - LUN-VEN / MON-FRI : 0530-1730, 1845-2030 - SAM / SAT : 0700-1100, 1230-1700 - DIM / SUN : 1300-1730, 1845-2030 AFIS : en dehors de ces HOR, sur PPR 24 HR le dernier jour ouvrable avant 1500 par (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 118.08,
+    "tower": 121.13,
+    "afis": 121.13,
+    "airAir": 121.13
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        113,
+        293
+      ]
+    }
+  ],
+  "preferredQfu": 293,
+  "preferredQfuReason": "preferred QFU 293, due to IFR procedure",
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 45.14722,
+      "longitude": 1.48528,
+      "location": "Carrefour A20 et N89"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 45.09861,
+      "longitude": 1.52,
+      "location": "Échangeur A20 Noailles"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 44.90167,
+      "longitude": 1.50111,
+      "location": "Échangeur A20 Souillac"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 44.99056,
+      "longitude": 1.52667,
+      "location": "Gare de péage A20"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 44.93694,
+      "longitude": 1.60889,
+      "location": "Martel, village médiéval (avec 7 tours)"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 44.975,
+      "longitude": 1.32694,
+      "location": "Château de Salignac"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio and transponder-equipped ACFT.",
+    "Risks of turbulence at thresholds 11/29.",
+    "Obstacles: Glide shelter non-breakable 120 m from runway centerline.",
+    "Presence of a hill piercing the southern side surface (close to THR RWY 11).",
+    "Presence of a mound penetrating the northern lateral surface, 110 m from the axis, 630 m from THR 11, and length 30 m.",
+    "Presence of trees on AD:.",
+    "PSN 450209N - 0013024E",
+    "R 091/802 m THR 29",
+    "ALT on top 1063 ft 3 obstacles penetrating lateral easement THR 29: wooded area: 450218N - 0012955E, R 061/320 m.",
+    "THR 29, HGT 45 ft, ALT on top 1057 ft wooded area: 450214N - 0013006E, R 072/422 m THR 29, HGT 20 ft, ALT on top 1035 ft wooded area: 450202N - 0012951E, R 168/250 m THR 29, HGT 15 ft, ALT on top 1020 ft.",
+    "Presence of a hill piercing the approach surface of the THR RWY 29.",
+    "Slopes: Negative slopes > 50% inside the runway strip: RESA upstream THR RWY 11 (possible turbulence due to the relief).; left side RWY 29 strip, within 300 meters of THR.",
+    "Activities: Aerobatics NR 6686 and 6716: see AIP ENR 5.5.",
+    "Heavy PUL activity at \"Le Roc\" hamlet, between 3000 and 4000 ft AMSL.",
+    "Preferred QFU: 293°, due to IFR procedure.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "TWY D is for daytime use only.",
+    "RWY 29: for takeoffs and runway circuits, perform left turn at the latest at 500 ft AAL.",
+    "Noise-sensitive environment, avoid overflight of surrounding inhabited areas.",
+    "MET Minima in presence of IFR in the CTR: VIS 2500 m.",
+    "PCL: limited HN,; with PPR AD operator on previous day before 1100 or on the last working day (SUM: -1 HR).",
+    "Traffic monitoring equipment AD equipped with a radar display during ATS SKED (See AD 1.0).",
+    "Aerobatics NR 6580: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio et de transpondeur.",
+      "",
+      "Obstacles : Shelter du glide non frangible à 120 m de l'axe de piste.",
+      "Présence d'une colline perçant la surface latérale sud (côté seuil 11).",
+      "Présence d'une butte perçant la surface latérale nord à 110m de l'axe, à 630 m du seuil 11 et de longueur 30 m.",
+      "",
+      "",
+      "R 091/802 m THR 29 HGT 50 ft",
+      "ALT au sommet 1063 ft 3 obstacles perçant servitude latérale seuil 29 : zone boisée : 450218N - 0012955E, R 061/320 m.",
+      "THR 29, HGT 45 ft, ALT au sommet 1057 ft. zone boisée : 450214N - 0013006E, R 072/422 m THR 29, HGT 20 ft, ALT au sommet 1035 ft. zone boisée : 450202N - 0012951E, R 168/250 m THR 29, HGT 15 ft, ALT au sommet 1020 ft.",
+      "Présence d'une colline perçant la surface d'approche du seuil 29.",
+      "Pentes : Pentes négatives > 50% à l'intérieur de la bande de piste : en amont RESA seuil 11 (possibilité de turbulences dues au relief). côté gauche bande de piste RWY 29, dans les 300 mètres du seuil.",
+      "Activités : Voltige N°6686 et 6716 : voir AIP ENR 5.5.",
+      "Activité PUL dense au lieu-dit \"Le Roc\", entre 3000 et 4000 ft AMSL.",
+      "QFU 293° préférentiel cause procédure IFR.",
+      "Roulage interdit hors RWY et TWY.",
+      "TWY D utilisable de jour uniquement.",
+      "RWY 29 : au décollage et en tour de piste virage à gauche au plus tard à 500 ft AAL.",
+      "Environnement très sensible au bruit, éviter le survol des zones habitées avoisinantes.",
+      "Notification avec préavis par E-mail OPS VFR Spécial Minima MTO en présence d'IFR dans la CTR : VIS 2500 m.",
+      "PCL : limité HN ; sur PPR auprès de l' exploitant avant 1100 la veille ou le dernier jour ouvré (ETE : -1 HR).",
+      "Équipement de surveillance du traffic AD équipé d'une visualisation radar pendant les HOR ATS (Voir AD 1.0).",
+      "Voltige N°6580 : voir AIP ENR 5.5"
+    ]
+  }
+}

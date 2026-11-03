@@ -1,0 +1,39 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHI (AIP France, chart dated 2025-09-04): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFHI",
+  "name": "Morestel",
+  "source": {
+    "publication": "AIP France AD 2 LFHI",
+    "chartDate": "2025-09-04",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 45.68694,
+    "longitude": 5.4525
+  },
+  "elevationFeet": 803,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.065"
+  },
+  "frequencies": {
+    "airAir": 120.065
+  },
+  "runways": [
+    {
+      "id": "13/31",
+      "qfu": [
+        129,
+        309
+      ]
+    }
+  ]
+}

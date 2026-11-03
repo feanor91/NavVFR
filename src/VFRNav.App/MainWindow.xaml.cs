@@ -16,7 +16,7 @@ using Microsoft.Win32;
 using NetTopologySuite.Geometries;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
-using VFRNav.Core.StormAtc;
+using VFRNav.Core.Aerodromes;
 using VFRNav.Core.Weather;
 
 namespace VFRNav.App;
@@ -44,9 +44,9 @@ public partial class MainWindow : Window
     private IReadOnlyList<Airspace> _shownAirspaces = [];
     private readonly System.Windows.Threading.DispatcherTimer _tipTimer = new() { Interval = TimeSpan.FromMilliseconds(350) };
     private System.Windows.Point _mouse;
-    private StormAtcRepository? _stormAtc;
+    private AerodromeRepository? _aerodromes;
     private readonly PdfPageRenderer _pdf = new();
-    private StormAtcAerodrome? _shown;
+    private AerodromeInfo? _shown;
     private uint _page;
     private double _zoom = 1.0;
     private bool _vacVisible;
@@ -68,7 +68,7 @@ public partial class MainWindow : Window
         WdirBox.Text = Fmt(_settings.WindDir);
         WspdBox.Text = Fmt(_settings.WindKt);
         CountryBox.Text = _settings.Country;
-        StormBox.Text = _settings.StormAtcPath;
+        VacBox.Text = _settings.VacFolder.Length > 0 ? _settings.VacFolder : _settings.StormAtcPath; // ancien réglage repris tant que le nouveau est vide
         AutoVarCheck.IsChecked = _settings.AutoVariation;
         WxDotsCheck.IsChecked = _settings.WxDots;
         NavVorCheck.IsChecked = _settings.ShowVor;
@@ -163,7 +163,8 @@ public partial class MainWindow : Window
         _settings.OpenAipKey = KeyBox.Password.Trim();
         _settings.CartoKey = CartoKeyBox.Password.Trim();
         _settings.NotamKey = NotamKeyBox.Password.Trim();
-        _settings.StormAtcPath = StormBox.Text.Trim();
+        _settings.VacFolder = VacBox.Text.Trim();
+        _settings.StormAtcPath = "";
         _settings.AutoVariation = AutoVarCheck.IsChecked == true;
         _settings.WxDots = WxDotsCheck.IsChecked == true;
         _settings.ShowVor = NavVorCheck.IsChecked == true;
@@ -198,12 +199,12 @@ public partial class MainWindow : Window
         {
             StatusText.Text = "Chargement des terrains...";
             var baseAirports = await new OurAirportsService(_http).LoadAsync(country);
-            _stormAtc = await LoadStormAtcAsync();
+            _aerodromes = await LoadAerodromesAsync();
             ApplyReportingPoints();
-            _airports = AirportCatalog.Merge(baseAirports, _stormAtc);
+            _airports = AirportCatalog.Merge(baseAirports, _aerodromes);
             ApplyAirportFilter();
             await LoadNavaidsAsync(country);
-            StatusText.Text = $"{_airports.Count} terrains ({country}). " + StormAtcSummary();
+            StatusText.Text = $"{_airports.Count} terrains ({country}). " + AerodromeSummary();
             RefreshRoute();
 
             string key = KeyBox.Password.Trim();
@@ -213,7 +214,7 @@ public partial class MainWindow : Window
                 var spaces = await new OpenAipService(_http).LoadAsync(country, key);
                 _airspaces = spaces;
                 ApplyAirspaceFilter();
-                StatusText.Text = $"{_airports.Count} terrains, {spaces.Count} espaces aériens ({country}). " + StormAtcSummary();
+                StatusText.Text = $"{_airports.Count} terrains, {spaces.Count} espaces aériens ({country}). " + AerodromeSummary();
             }
         }
         catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException)
@@ -222,20 +223,20 @@ public partial class MainWindow : Window
         }
     }
 
-    private Task<StormAtcRepository?> LoadStormAtcAsync()
+    private Task<AerodromeRepository?> LoadAerodromesAsync()
     {
-        string configured = StormBox.Text.Trim(); // lu ici : un TextBox ne se lit que depuis le thread UI
+        string configured = VacBox.Text.Trim(); // lu ici : un TextBox ne se lit que depuis le thread UI
         return Task.Run(() =>
         {
-            var paths = StormAtcPaths.Locate(configured);
-            try { return paths is null ? null : StormAtcRepository.Load(paths); }
+            var paths = AerodromePaths.Locate(configured);
+            try { return paths is null ? null : AerodromeRepository.Load(paths); }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { return null; }
         });
     }
 
-    private string StormAtcSummary() => _stormAtc is null
-        ? "StormATC introuvable."
-        : $"StormATC : {_stormAtc.All.Count} aérodromes, {_stormAtc.ProfileCount} profils, {_stormAtc.ChartCount} cartes VAC.";
+    private string AerodromeSummary() => _aerodromes is null
+        ? "Données d'aérodromes introuvables."
+        : $"{_aerodromes.All.Count} aérodromes, {_aerodromes.ProfileCount} profils, {_aerodromes.ChartCount} cartes VAC.";
 
     private IFeature AirportFeature(Airport a)
     {
@@ -549,13 +550,13 @@ public partial class MainWindow : Window
     }
 }
 
-// ---------- StormATC : aérodromes et cartes VAC ----------
+// ---------- Aérodromes et cartes VAC ----------
 public partial class MainWindow
 {
     private void ApplyAutoVariation()
     {
-        if (AutoVarCheck.IsChecked != true || _stormAtc is null || _route.Count == 0 || !_route[0].IsAirport) return;
-        if (_stormAtc.Find(_route[0].Icao!)?.MagneticVariation is { } v)
+        if (AutoVarCheck.IsChecked != true || _aerodromes is null || _route.Count == 0 || !_route[0].IsAirport) return;
+        if (_aerodromes.Find(_route[0].Icao!)?.MagneticVariation is { } v)
         {
             string text = v.ToString(CultureInfo.InvariantCulture);
             if (VarBox.Text != text) VarBox.Text = text;
@@ -580,10 +581,10 @@ public partial class MainWindow
 
     private void AutoVar_Click(object sender, RoutedEventArgs e) => RefreshRoute();
 
-    private void BrowseStorm_Click(object sender, RoutedEventArgs e)
+    private void BrowseVac_Click(object sender, RoutedEventArgs e)
     {
-        var dlg = new OpenFolderDialog { Title = "Dossier de StormATC (celui qui contient data et Cartes VAC)" };
-        if (dlg.ShowDialog(this) == true) StormBox.Text = dlg.FolderName;
+        var dlg = new OpenFolderDialog { Title = "Dossier des cartes VAC (fichiers AD-2.<OACI>.pdf du SIA)" };
+        if (dlg.ShowDialog(this) == true) VacBox.Text = dlg.FolderName;
     }
 
     private void RouteGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -601,18 +602,18 @@ public partial class MainWindow
 
     private void ShowAerodrome(string query)
     {
-        if (_stormAtc is null)
+        if (_aerodromes is null)
         {
-            InfoText.Text = "StormATC est introuvable : indiquez son dossier dans le panneau Données.";
+            InfoText.Text = "Données d'aérodromes introuvables : réinstalle MSFS Rhumb (dossier vfr-data).";
             return;
         }
-        var apt = _stormAtc.Search(query);
+        var apt = _aerodromes.Search(query);
         if (apt is null) { InfoText.Text = $"Aucun aérodrome pour « {query} »."; return; }
         _shown = apt;
         _page = 0;
         IcaoBox.Text = apt.Icao;
-        InfoText.Text = StormAtcRepository.Describe(apt)
-            + (StormAtcRepository.DescribeProcedures(apt) is { } procedures ? Environment.NewLine + Environment.NewLine + procedures : "");
+        InfoText.Text = AerodromeRepository.Describe(apt)
+            + (AerodromeRepository.DescribeProcedures(apt) is { } procedures ? Environment.NewLine + Environment.NewLine + procedures : "");
         if (_vacVisible) _ = RenderVacAsync();
     }
 
@@ -640,7 +641,7 @@ public partial class MainWindow
         {
             VacImage.Source = null;
             PageText.Text = "-";
-            VacMessage.Text = _shown.VacListed ? "Carte publiée mais absente du dossier Cartes VAC de StormATC." : "Pas de carte VAC pour cet aérodrome.";
+            VacMessage.Text = _shown.VacListed ? "Carte publiée mais absente de ton dossier de cartes VAC (réglage du panneau Données)." : "Pas de carte VAC pour cet aérodrome.";
             return;
         }
         string icao = _shown.Icao;
@@ -1174,7 +1175,7 @@ public partial class MainWindow
     }
 }
 
-// ---------- Fiche d'un terrain au survol : infos StormATC + météo en clair ----------
+// ---------- Fiche d'un terrain au survol : infos de l'aérodrome + météo en clair ----------
 public partial class MainWindow
 {
     private const double AirportHoverPx = 12;
@@ -1240,9 +1241,9 @@ public partial class MainWindow
             inl.Add(run);
         }
 
-        var details = _stormAtc?.Find(airport.Ident);
+        var details = _aerodromes?.Find(airport.Ident);
         Line($"{(details?.Name ?? airport.Name)} ({airport.Ident})", bold: true);
-        foreach (string line in StormAtcRepository.Describe(details ?? new StormAtcAerodrome(airport.Ident, airport.Name, null, null, false,
+        foreach (string line in AerodromeRepository.Describe(details ?? new AerodromeInfo(airport.Ident, airport.Name, null, null, false,
                      airport.Lat, airport.Lon, airport.ElevationFt, null, null, [], [], null)).Split(Environment.NewLine).Skip(1))
             Line(line);
 

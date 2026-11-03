@@ -1,14 +1,14 @@
-﻿using System.Windows;
+using System.Windows;
 using Mapsui;
 using Mapsui.Layers;
 using Mapsui.Projections;
 using Mapsui.Styles;
 using VFRNav.Core.Models;
-using VFRNav.Core.StormAtc;
+using VFRNav.Core.Aerodromes;
 
 namespace VFRNav.App;
 
-// ---------- Points de report VFR (quand StormATC les connaît) ----------
+// ---------- Points de report VFR (quand le profil de l'aérodrome les donne) ----------
 public partial class MainWindow
 {
     private readonly MemoryLayer _reportLayer = new("Points de report");
@@ -16,9 +16,9 @@ public partial class MainWindow
 
     private void ApplyReportingPoints()
     {
-        _reportingPoints = _stormAtc is null
+        _reportingPoints = _aerodromes is null
             ? []
-            : _stormAtc.All.Where(a => a.Procedures is not null)
+            : _aerodromes.All.Where(a => a.Procedures is not null)
                 .SelectMany(a => a.Procedures!.ReportingPoints.Where(p => p.Lat is not null && p.Lon is not null).Select(p => (a.Icao, p)))
                 .ToList();
 

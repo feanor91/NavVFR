@@ -1,0 +1,301 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFKJ (AIP France, chart dated 2026-01-22): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "Procedures (arrivals, departures, special VFR, radio failure) were then structured by hand from the English column of the text pages; what the chart only draws is not recorded.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFKJ",
+  "name": "Ajaccio Napoléon Bonaparte",
+  "source": {
+    "publication": "AIP France AD 2 LFKJ",
+    "chartDate": "2026-01-22",
+    "extraction": "chart text, table and English column read by script, procedures structured by hand",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 41.92361,
+    "longitude": 8.79528
+  },
+  "elevationFeet": 19,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "H 24 - AD AJACCIO NAPOLEON BONAPARTE BP 70979 - 20700 Ajaccio CEDEX 9 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 119.825,
+    "approach": 121.05,
+    "tower": 118.075,
+    "ground": 121.705
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        22,
+        202
+      ]
+    }
+  ],
+  "circuit": {
+    "lowHeight": "500 ft AMSL; training flights authorised only with an instructor pilot; downwind leg east of the runway; runway 20: use the touchdown marking as the aiming point, not the displaced threshold marking",
+    "restrictions": "landing lights compulsory in the CTR"
+  },
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 42.04722,
+      "longitude": 8.74722,
+      "location": "Plage du Stagnone"
+    },
+    {
+      "name": "NV",
+      "spoken": {
+        "fr": "Novembre Victor",
+        "en": "November Victor"
+      },
+      "latitude": 42.10972,
+      "longitude": 9.11389,
+      "location": "Travers Col de Vizzavona"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 42.12111,
+      "longitude": 8.51639,
+      "location": "En mer"
+    },
+    {
+      "name": "NWA",
+      "spoken": {
+        "fr": "Novembre Whisky Alpha",
+        "en": "November Whiskey Alpha"
+      },
+      "latitude": 41.96194,
+      "longitude": 8.72778,
+      "location": "Travers château de la Punta"
+    },
+    {
+      "name": "NZ",
+      "spoken": {
+        "fr": "Novembre Zoulou",
+        "en": "November Zulu"
+      },
+      "latitude": 42.01833,
+      "longitude": 8.89333,
+      "location": "Zone d'activité de Tavaco"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 41.66194,
+      "longitude": 8.72333,
+      "location": "En mer"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 41.73889,
+      "longitude": 8.65833,
+      "location": "Capu di Muru"
+    },
+    {
+      "name": "SB",
+      "spoken": {
+        "fr": "Sierra Bravo",
+        "en": "Sierra Bravo"
+      },
+      "latitude": 41.85361,
+      "longitude": 8.79167,
+      "location": "Sud de la plage d'Agosta"
+    },
+    {
+      "name": "SC",
+      "spoken": {
+        "fr": "Sierra Charlie",
+        "en": "Sierra Charlie"
+      },
+      "latitude": 41.90417,
+      "longitude": 8.79917,
+      "location": "Tour de Capitello"
+    },
+    {
+      "name": "SEA",
+      "spoken": {
+        "fr": "Sierra Écho Alpha",
+        "en": "Sierra Echo Alpha"
+      },
+      "latitude": 41.81028,
+      "longitude": 8.84833,
+      "location": "Bocca Darghellaju"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 41.87556,
+      "longitude": 8.58806,
+      "location": "Sémaphore des îles Sanguinaires"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 41.89722,
+      "longitude": 8.70472,
+      "location": "Sud cimetière d'Ajaccio"
+    }
+  ],
+  "withAts": {
+    "arrivals": [
+      {
+        "note": "maritime transit mainland / Ajaccio: aircraft coming from LONSU are recommended to reach or cross NW at 2000 ft AMSL; in a maritime crossing the compulsory arrival and departure route is NW <-> W"
+      },
+      {
+        "transit": "W <-> SA",
+        "note": "unless otherwise cleared, recommended altitude 2000 ft AMSL maximum; W to SA preferential altitude 2000 ft AMSL; SA to W preferential altitude 1500 ft AMSL"
+      },
+      {
+        "transit": "N <-> SC <-> SEA",
+        "note": "unless otherwise cleared, recommended flight levels above FL055; N to SEA preferential FL075; SEA to N preferential FL065"
+      },
+      {
+        "note": "routes of arrival and departure for other flights: northbound WA <-> W <-> NW; southbound SB <-> SA <-> S; minimum altitude 3000 ft AMSL; visibility of at least 5 km below FL100; on pilot request and after clearance, the pilot in charge of obstacle clearance may depart from these routes"
+      }
+    ],
+    "departures": [
+      {
+        "runway": "02",
+        "note": "take-off runway 02 and missed landing runway 02: climb on the runway heading, reach 1000 ft AMSL minimum at the latest 2 NM after the displaced threshold of runway 20, then turn left while continuing the climb"
+      }
+    ],
+    "waiting": "holding in flight is possible at SA and W between 3000 ft and 5000 ft to avoid interference with IFR flights",
+    "specialVfr": "in the presence of IFR aircraft in the CTR: visibility 3000 m, ceiling 1000 ft AAL",
+    "nightVfr": {
+      "restrictions": "landing on runway 20 prohibited; activity prohibited if the hazard light of Monte Sant'Angelo is not available; local flights limited to 1 aircraft at most",
+      "circuit": "west of runway 02/20, altitude 1500 ft AMSL",
+      "flightInTheCtr": "cloud base at least 3500 ft AAL, visibility at least 5 km, minimum altitude 3000 ft AMSL",
+      "helicopters": "FATO not usable at night: take off and land on the runway; night VFR minima: visibility 4000 m and ceiling 1000 ft AAL on route SB-SA and WA-W without IFR aircraft in the CTR or other helicopters in special VFR (holding possible); special VFR by night: a delay is to be expected if IFR traffic is in the CTR"
+    },
+    "radio": {
+      "failure": "if possible, use a mobile phone to call the tower on +33 4 95 23 59 60",
+      "failureOnArrival": "before the clearance to enter the class D airspace, do not enter it; after the clearance to enter the CTR, follow the last clearance, do not interfere with runway 02/20 and follow the optical signals; the tower chief may be called on 04 95 20 11 95 (emergency number only)",
+      "failureOnDeparture": "before take-off cancel the departure and return to the parking; after take-off turn back, join the downwind leg of the runway in use, do not interfere with runway 02/20 and follow the optical signals"
+    }
+  },
+  "notes": [
+    "(1) MAX thrust offset for B747, B757 and B763: reduction 92 m.",
+    "Non home-based ULM: Use of AD only with agreement from apron control (PCE) and ATS services.",
+    "Contact: pce1@cci.corsica (or 04 95 23 56 19) and temps-reel.ajaccio@aviation-civile.gouv.fr PPR 48 HR.",
+    "Important bird presence (AD and vicinity).",
+    "High voltage line R 020/1,3 NM DTHR 20, peak altitude 211 ft AMSL, height up to 130 ft AGL, only pylons are lighted at night.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "In the CTR, regular activity of air photography with a drone.",
+    "MAX height: 500 ft ASFC.",
+    "To safeguard property and people, some summer day, heavy seaplane activity in phase of bailing in the vicinity of the aerodrome in Porticcio bay and in Ajaccio harbour.",
+    "Paraglider activity in the vicinity of CTR on an axis crossing N, NZ and NV.",
+    "Towed paragliding activity from a boat, with a non-visible nylon cable approximately 450 m long, up to a MAX height of 1000 ft in \"Golfe de Sagone\", Liscia bay.",
+    "Special caution recommended.",
+    "TWY H: MAX wingspan 24 m day time use only.",
+    "TWY F: only for Civil safety ACFT and towed ACFT with a MAX wingspan of 36 m.",
+    "TWY A/C/D/D1/D2/E/G1/G2: MAX wingspan 36 m TWY B: MAX wingspan 65 m.",
+    "TWY T: MAX wingspan 36 m.",
+    "Traffic surveillance equipment: AD equipped with secondary surveillance radar (see AD 1.0) and ADS-B.",
+    "Aerobatics (NR 7000): axis RWY 02/20 centered on AD ARP; 3000 AMSL / 5000 AMSL; SR-SS with AJACCIO TWR authorization.",
+    "Activity prohibited on SAT, SUN and HOL from May 1st to September 30th.",
+    "Meteo conditions: Visi > 5 km - Ceiling > 5000 ft.",
+    "AEM (NR 9621): 300 AAL; activity authorized according to the draft agreement with the associations.",
+    "Users' information on ATIS or ATC FREQ."
+  ],
+  "fr": {
+    "notes": [
+      "(1) Décalage poussée MAX pour B747, B757 et B763 : réduire de 92m.",
+      "ULM non basés : Utilisation AD uniquement sur autorisation du Poste de Contrôle d'Exploitation (PCE) et des services ATS.",
+      "Contacter : pce1@cci.corsica (ou 04 95 23 56 19) et temps-réel.ajaccio@aviation-civile.gouv.fr PPR 48 HR.",
+      "Présence d'oiseaux importante (plate forme et abords immédiats).",
+      "Présence d'une ligne haute tension R 020/1,3 NM DTHR 20, altitude au sommet 211 ft AMSL, hauteur jusqu'à 130 ft AGL, seuls les pylônes sont balisés de nuit.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Dans la CTR, activité régulière de prises de vue aériennes au moyen d'un drone.",
+      "Hauteur MAX : 500 ft ASFC.",
+      "LUTTE INCENDIE Pour la sauvegarde des biens et des personnes, certains jours d'été, intense activité d'hydravions en phase d'écopage aux abords de l'aérodrome en baie de Porticcio et dans le port d'Ajaccio.",
+      "PARAPENTE Activité parapente aux abords de la CTR sur un axe passant par N, NZ et NV.",
+      "Activité de vol en parapente ascensionnel tracté depuis un bateau par un câble en nylon non visible de 450 m environ, jusqu'à une hauteur MAX de 1000 ft, dans le Golfe de Sagone, Baie de la Liscia.",
+      "Vigilance accrue recommandée.",
+      "TWY H : envergure MAX 24 m de jour uniquement.",
+      "TWY F : réservé ACFT Sécurité Civile et ACFT tracté d'envergure MAX 36 m.",
+      "TWY A/C/D/D1/D2/E/G1/G2 : envergure MAX 36 m TWY B : envergure MAX 65 m.",
+      "TWY T : envergure MAX 36 m.",
+      "Équipement de surveillance du trafic : AD équipé d'un radar secondaire (voir AD 1.0) et ADS-B.",
+      "Voltige (N° 7000) : axe RWY 02/20 centré sur ARP AD ; 3000 AMSL / 5000 AMSL ; SR-SS sur autorisation AJACCIO TWR.",
+      "Activité interdite les SAM, DIM et JF du 1er mai au 30 septembre.",
+      "Conditions météo : Visi > 5 km - Plafond > 5000 ft.",
+      "AEM (N° 9621) : 300 AAL ; activité autorisée selon le protocole applicable aux associations.",
+      "Information des usagers sur ATIS ou FREQ ATC."
+    ],
+    "circuit": {
+      "lowHeight": "500 ft AMSL ; vols d'entraînement avec un instructeur uniquement ; vent arrière à l'est de la piste ; piste 20 : utiliser comme point de visée les marques de point cible et non les marques de seuil décalé",
+      "restrictions": "phare d'atterrissage obligatoire dans la CTR"
+    },
+    "withAts": {
+      "arrivals": [
+        {
+          "note": "traversée maritime continent / Ajaccio : il est recommandé aux aéronefs en provenance de LONSU de conduire leur vol pour atteindre ou passer NW à 2000 ft AMSL ; en traversée maritime, la trajectoire obligatoire arrivée / départ est NW <---> W"
+        },
+        {
+          "transit": "W <-> SA",
+          "note": "sauf clairance contraire, altitude préconisée 2000 ft AMSL MAX ; sens W --> SA : altitude préférentielle 2000 AMSL ; sens SA --> W : altitude préférentielle 1500 AMSL"
+        },
+        {
+          "transit": "N <-> SC <-> SEA",
+          "note": "sauf clairance contraire, niveaux de vol préconisés au-dessus du FL 055 ; sens N --> SEA : FL 075 préférentiel ; sens SEA --> N : FL 065 préférentiel"
+        },
+        {
+          "note": "itinéraires de départ et d'arrivée des autres vols : vers le nord WA <---> W <---> NW ; vers le sud SB <---> SA <---> S ; altitude minimale 3000 ft AMSL ; VIS supérieure ou égale à 5 km sous FL100 ; sur demande du pilote et après clairance accordée, le pilote responsable du franchissement des obstacles peut déroger au suivi de ces itinéraires"
+        }
+      ],
+      "departures": [
+        {
+          "runway": "02",
+          "note": "TKOF 02 et LDG manqués RWY 02 : monter dans l'axe de piste, atteindre 1000 ft AMSL MNM au plus tard 2 NM après le DTHR RWY 20, puis virer à gauche en poursuivant la montée"
+        }
+      ],
+      "waiting": "attente possible en vol à SA et W entre 3000 ft et 5000 ft pour éviter interférence avec vol IFR",
+      "specialVfr": "en présence d'aéronefs IFR dans la CTR : VIS 3000 m - plafond 1000 ft AAL",
+      "nightVfr": {
+        "restrictions": "atterrissage RWY 20 interdit ; activité interdite si le feu de danger Mont Sant'Angelo est hors service ; les vols locaux sont limités à 1 seul aéronef maximum",
+        "circuit": "à l'ouest de la 02/20, altitude 1500 AMSL",
+        "flightInTheCtr": "hauteur de la base des nuages supérieure ou égale à 3500 ft AAL ; VIS supérieure ou égale à 5 km ; altitude minimale 3000 ft AMSL",
+        "helicopters": "FATO non utilisable de nuit : atterrissages/décollages sur piste obligatoires ; minima VFRs de nuit : VIS 4000 m et plafond 1000 ft AAL pour hélicoptères sur itinéraire SB-SA et WA-W sans présence d'IFR dans la CTR ni autre VFRs hélicoptère (attente possible) ; VFR spécial de nuit hélicoptères : attente possible en présence d'aéronefs IFR dans la CTR"
+      },
+      "radio": {
+        "failure": "si possible, utiliser un téléphone portable pour appeler la tour au (+33) 4 95 23 59 60",
+        "failureOnArrival": "avant d'avoir reçu la clairance de pénétrer dans l'espace D : ne pas pénétrer ; après avoir reçu la clairance de pénétrer dans la CTR : suivre la dernière clairance, ne pas interférer avec la piste 02/20, se conformer aux signaux optiques ; tenter d'appeler le chef de tour : 04 95 20 11 95 (numéro d'urgence uniquement)",
+        "failureOnDeparture": "avant TKOF : annuler le départ et retourner au PRKG ; après TKOF : faire demi-tour, rejoindre la vent-arrière de la piste en service, ne pas interférer avec la piste 02/20, se conformer aux signaux optiques"
+      }
+    }
+  }
+}

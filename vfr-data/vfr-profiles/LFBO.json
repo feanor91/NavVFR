@@ -1,0 +1,78 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBO (AIP France, chart dated 2026-10-01): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFBO",
+  "name": "Toulouse-Blagnac",
+  "source": {
+    "publication": "AIP France AD 2 LFBO",
+    "chartDate": "2026-10-01",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.635,
+    "longitude": 1.36778
+  },
+  "elevationFeet": 499,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "H24 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "atis": 123.13,
+    "fis": 121.25,
+    "approach": 129.305,
+    "tower": 118.105,
+    "ground": 121.905
+  },
+  "notes": [
+    "AD prohibited to gliders.",
+    "IFR, VFR and Night VFR training flights are under restriction (see AIP France: AD 2 LFBO.21).",
+    "Taxiing prohibited except on RWY and TWY.",
+    "In case of use of a service part of handling operations nomenclature, it is mandatory to request an approved Radio contact with TOULOUSE Information compulsory 5 min prior entering TOULOUSE BLAGNAC controlled airspaces.",
+    "Routes Lavaur <---> North Toulouse tollgate <---> Toulouse Blagnac AD: MNM 3000 ft AMSL.",
+    "Gimont <---> Isle Jourdain <---> Toulouse Blagnac AD: MNM 3500 ft AMSL Carcassonne AD <---> Castelnaudary AD: MNM 3500 ft AMSL.",
+    "Flight plan filing is not compulsory if the flight remains within the lateral limits of the BLAGNAC CTR and within Toulouse TMA 4.1 and 1.1.",
+    "Traffic surveillance equipment.",
+    "AD equipped with primary and secondary radar.",
+    "Radiocommunication failure: Arrival: Squawk A 7600.",
+    "Continue to fly in visual meteorological conditions, land at the nearest suitable aerodrome, and report your arrival by the quickest means to the appropriate air traffic services unit.",
+    "Departure: Before take off: do not take off.",
+    "After take off: squawk A 7600 and continue to fly in visual meteorological conditions, land at the nearest suitable aerodrome, and report your arrival by the quickest means to the appropriate air traffic services unit.",
+    "Transit: Squawk A 7600 and continue to fly in visual meteorological conditions, land at the nearest suitable aerodrome, and report your arrival by the quickest means to the appropriate air traffic services unit.",
+    "Informations diverses / Miscellaneous Horaires sauf indication contraire / Timetables unless otherwise specified UTC HIV; HOR ETE: -1HR / UTC WIN; SUM SKED: -1HR Divers / Miscellaneous: For safety reasons, ground handling is compulsory for all commercial flights, as well as for non-based business and general aviation flights.",
+    "It is imperative to contact an airport assistant before departure from the airport of origin.",
+    "Prestataires d'assistance / Assistance providers: (voir/ see AIP FRANCE AD 2 LFBO.23).",
+    "GRF (Service d'évaluation et de report de l'état de surface de piste / Global Reporting Format ): 0400-2100, astreinte en dehors de ces horaires: 7/7. / 0400-2100, oncall outside these hours: 7/7."
+  ],
+  "fr": {
+    "notes": [
+      "Aérodrome interdit aux planeurs.",
+      "Les vols d'entraînement IFR, VFR et VFR de nuit sont soumis à restriction (voir AIP France : AD 2 LFBO.21).",
+      "Roulage interdit hors RWY et TWY.",
+      "",
+      "Itinéraires Lavaur <---> péage autoroutier de Toulouse Nord <---> aérodrome de Toulouse Blagnac : MNM 3000 ft AMSL.",
+      "Gimont <---> Isle Jourdain <---> aérodrome de Toulouse Blagnac : MNM 3500 ft AMSL.",
+      "Le dépôt de plan de vol n'est pas obligatoire si le vol reste dans les limites latérales de la CTR BLAGNAC et dans les TMA 4.1 et 1.1 Toulouse.",
+      "Équipement de surveillance du trafic.",
+      "AD équipé de radars primaire et secondaire.",
+      "Panne de radiocommunication : A l'arrivée : Afficher A 7600.",
+      "Poursuivre dans les conditions météorologiques de vol à vue, atterrir sur l'aérodrome approprié le plus proche et signaler son arrivée à l'organisme des services de la circulation aérienne compétent par la voie la plus rapide possible.",
+      "Au départ : Avant le décollage : ne pas décoller.",
+      "Après décollage : afficher A 7600 et poursuivre dans les conditions météorologiques de vol à vue, atterrir sur l'aérodrome approprié le plus proche et signaler son arrivée à l'organisme des services de la circulation aérienne compétent par la voie la plus rapide possible.",
+      "Transit : Afficher A 7600 et poursuivre dans les conditions météorologiques de vol à vue, atterrir sur l'aérodrome approprié le plus proche et signaler son arrivée à l'organisme des services de la circulation aérienne compétent par la voie la plus rapide possible.",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+}

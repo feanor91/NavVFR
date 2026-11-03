@@ -31,8 +31,9 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 
 ### Cartes VAC et procédures VFR
 
-- **Lecteur de cartes VAC** (PDF) et base d'aérodromes via le projet compagnon StormATC : les cartes sont lues sur place, jamais copiées.
-- **Procédures VFR** (points de report, circuit, arrivées et départs, notes) lues dans les profils de StormATC, en français quand ils le fournissent.
+- **Base d'aérodromes** livrée avec l'application (`vfr-data` : liste nationale et environ 425 profils VFR avec position, altitude, fréquences, pistes), sans autre logiciel à installer.
+- **Lecteur de cartes VAC** (PDF) : les cartes du SIA sont celles du pilote (fichiers `AD-2.LFxx.pdf`, dossier réglé dans le panneau Données, sinon `%AppData%\VFRNav\Cartes VAC`). Elles sont lues sur place, jamais copiées ni livrées.
+- **Procédures VFR** (points de report, circuit, arrivées et départs, notes) lues dans les profils VFR de `vfr-data`, en français quand ils le fournissent. Un profil placé dans `%AppData%\VFRNavfr-profiles` remplace celui livré.
 
 ### Route IFR
 
@@ -98,7 +99,7 @@ Le workflow `release.yml` teste, publie l'application, compile l'installeur (Inn
 
 ## Sources de données
 
-OurAirports (domaine public) · OpenAIP · aviationweather.gov · Open-Meteo (modèle numérique de terrain, usage non commercial) · © contributeurs OpenStreetMap (ODbL) via Overpass · Esri / CARTO (fonds de carte) · SIA (routes ATS de France, AIXM 4.5, sous licence) · Microsoft Flight Simulator (SID/STAR et routes du monde, par SimConnect) · StormATC (aérodromes, profils VFR, cartes VAC).
+OurAirports (domaine public) · OpenAIP · aviationweather.gov · Open-Meteo (modèle numérique de terrain, usage non commercial) · © contributeurs OpenStreetMap (ODbL) via Overpass · Esri / CARTO (fonds de carte) · SIA (routes ATS de France, AIXM 4.5, sous licence) · Microsoft Flight Simulator (SID/STAR et routes du monde, par SimConnect) · profils VFR relevés sur les cartes VAC (© SIA).
 
 ## Limites connues
 
@@ -107,7 +108,7 @@ OurAirports (domaine public) · OpenAIP · aviationweather.gov · Open-Meteo (mo
 - **Routes ATS hors de France** : sens uniques et niveaux sont ceux que donne MSFS (traitées dans les deux sens ; routes basses limitées au FL180), à vérifier. Non comparées à des cartes réelles. Les fréquences et noms des VOR/NDB hors de France ne sont pas lus.
 - **Route libre** : au-dessus du FL195, elle n'est permise qu'entre points de la liste de pays européens du programme (`IfrPlanOptions.DefaultFreeRouteRegions`), indicative : espaces et niveaux d'entrée réels à vérifier.
 - **SID/STAR de MSFS** : leur cycle AIRAC est celui du simulateur, qui peut différer du SIA ; beaucoup de STAR ne sont pas liées à une piste.
-- **Piste conseillée** : le METAR donne le vent en nord vrai ; la variation magnétique n'est connue que pour la France (StormATC). Ni longueur de piste, ni minima, ni restrictions de bruit.
+- **Piste conseillée** : le METAR donne le vent en nord vrai ; la variation magnétique n'est connue que pour la France (profils VFR). Ni longueur de piste, ni minima, ni restrictions de bruit.
 - **Relief et obstacles** : modèle d'environ 90 m ; les obstacles d'OpenStreetMap sont incomplets (lignes électriques absentes, hauteurs parfois manquantes).
 - Les textes d'aide, le glossaire et les seuils (marges de 1 000 ft, catégories de vol) sont indicatifs.
 

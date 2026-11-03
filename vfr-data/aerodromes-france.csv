@@ -1,0 +1,441 @@
+﻿OACI;Nom;Commune;Remarque;VAC
+LF3126;Aérodrome de Sabonnères;Sabonnères;aérodrome privé;non
+LFAB;Aéroport de Dieppe - Saint-Aubin;Saint-Aubin-sur-Scie;;oui
+LFAC;Aéroport de Calais - Dunkerque;Marck;;oui
+LFAD;Aérodrome de Compiègne - Margny;Compiègne;terrain militaire désaffecté depuis l'été 2007, usage civil;oui
+LFAE;Aérodrome d'Eu - Mers - Le Tréport;Eu;usage restreint;oui
+LFAF;Aérodrome de Laon - Chambry;Laon;;oui
+LFAG;Aérodrome d'Estrées-Mons;Péronne;ancienne base aérienne de l’OTAN;oui
+LFAI;Aérodrome de Nangis Les Loges;Nangis;;oui
+LFAJ;Aérodrome d'Argentan;Argentan;;oui
+LFAK;Aérodrome de Dunkerque - Les Moëres;Les Moëres;Ouvert à la circulation aérienne publique le 04/11/2013, précédemment usage restreint (arrêté 04/11/2013 NOR: DEVA1326681A - JORF 14/11/2013). Code XDK inconnu dans la base IATA;oui
+LFAL;Aérodrome de La Flèche - Thorée-les-Pins;La Flèche, Thorée-les-Pins;usage restreint;oui
+LFAM;Aérodrome de Berck-sur-Mer;Berck;;oui
+LFAO;Aérodrome de Bagnoles-de-l'Orne - Couterne;Couterne;;oui
+LFAP;Aérodrome de Rethel - Perthes;Sault-lès-Rethel;usage restreint;oui
+LFAQ;Aéroport International Amiens Henry Potez;Albert;;oui
+LFAR;Aérodrome de Montdidier;Montdidier;usage restreint;oui
+LFAS;Aérodrome de Falaise-Mont d'Eraines;Falaise;usage restreint;oui
+LFAT;Aéroport Le Touquet-Elizabeth II;Le Touquet-Paris-Plage;Nom commercial Aéroport du Touquet-Côte-d'Opale;oui
+LFAU;Aérodrome de Vauville;Vauville;usage restreint;oui
+LFAV;Aéroport de Valenciennes - Denain;Prouvy, Rouvignies;Aéroport Charles Nungesser;oui
+LFAW;Aérodrome de Villerupt;Villerupt;;oui
+LFAX;Aérodrome de Mortagne-au-Perche;Saint-Langis-lès-Mortagne;;oui
+LFAY;Aérodrome d'Amiens - Glisy;Amiens;;oui
+LFBA;Aéroport Agen-La Garenne;Agen;;oui
+LFBC;Base aérienne 120 Cazaux;La Teste-de-Buch;militaire;non
+LFBD;Aéroport de Bordeaux - Mérignac;Mérignac;Base aérienne 106;oui
+LFBE;Aéroport Bergerac Dordogne Périgord;Bergerac;Aéroport Bergerac - Roumanière;oui
+LFBF;Aéroport de Toulouse-Francazal;Cugnaux, Portet-sur-Garonne;militaire jusqu'en août 2010, avec un gestionnaire civil depuis le 3 janvier 2011.;oui
+LFBG;Base aérienne 709 Cognac-Châteaubernard;Châteaubernard;militaire;oui
+LFBH;Aéroport de La Rochelle - île de Ré;La Rochelle;;oui
+LFBI;Aéroport de Poitiers-Biard;Biard;;oui
+LFBJ;Aérodrome de Saint-Junien;Saint-Junien;;oui
+LFBK;Aéroport de Montluçon Guéret;Lépaud;;oui
+LFBL;Aéroport de Limoges-Bellegarde;Limoges;;oui
+LFBM;Base aérienne 118 Mont-de-Marsan;Mont-de-Marsan;militaire;non
+LFBN;Aéroport de Niort - Marais Poitevin;Niort;ex Niort-Souché (changement de dénomination par arrêté ministériel du 30/05/2013);oui
+LFBO;Aéroport Toulouse-Blagnac;Blagnac;;oui
+LFBP;Aéroport de Pau-Pyrénées;Uzein;;oui
+LFBR;Aérodrome de Muret - Lherm;Muret;;oui
+LFBS;Aérodrome des Grands Lacs;Biscarrosse;;oui
+LFBT;Aéroport de Tarbes-Lourdes-Pyrénées;Ossun;;oui
+LFBU;Aéroport international Angoulême-Cognac;Champniers;;oui
+LFBX;Aéroport Périgueux-Bassillac;Bassillac;;oui
+LFBY;Aérodrome de Dax - Seyresse;Oeyreluy, Seyresse;Militaire et civil;oui
+LFBZ;Aéroport de Biarritz Pays Basque;Biarritz, Anglet;Anciennement dénommé aéroport de Biarritz-Anglet-Bayonne;oui
+LFCA;Aérodrome de Châtellerault - Targé;Châtellerault;;oui
+LFCB;Aérodrome de Bagnères-de-Luchon;Bagnères-de-Luchon;;oui
+LFCC;Aéroport de Cahors - Lalbenque;Cieurac;;oui
+LFCD;Aérodrome d'Andernos-les-Bains;Andernos-les-Bains;;oui
+LFCE;Aérodrome de Guéret - Saint-Laurent;Saint-Laurent;;oui
+LFCF;Aérodrome de Figeac-Livernon;Durbans;;oui
+LFCG;Aérodrome de Saint-Girons - Antichan;Lorp-Sentaraille;;oui
+LFCH;Aéroport d'Arcachon - La Teste-de-Buch;La Teste-de-Buch;;oui
+LFCI;Aéroport d'Albi-Le Séquestre;Le Séquestre;;oui
+LFCJ;Aérodrome de Jonzac - Neulles;Saint-Germain-de-Lusignan;;oui
+LFCK;Aéroport de Castres-Mazamet;Castres;;oui
+LFCL;Aérodrome de Toulouse - Lasbordes;Balma;;oui
+LFCM;Aéroport de Millau-Larzac;L'Hospitalet-du-Larzac;;oui
+LFCN;Aéroport de Nogaro;Nogaro;;oui
+LFCO;Aérodrome d'Oloron - Herrère;Herrère;;oui
+LFCP;Aérodrome de Pons - Avy;Avy;;oui
+LFCQ;Aérodrome de Graulhet - Montdragon;Graulhet;;oui
+LFCR;Aéroport de Rodez-Aveyron;Salles-la-Source;ex Rodez-Marcillac (changement de nom par arrêté ministériel du 04/07/2013, NOR: DEVA1317171A, JORF 16/07/2013);oui
+LFCS;Aérodrome de Bordeaux - Léognan - Saucats;Léognan;;oui
+LFCT;Aérodrome de Thouars;Thouars;;oui
+LFCU;Aérodrome d'Ussel - Thalamy;Saint-Exupéry-les-Roches;;oui
+LFCV;Aérodrome de Villefranche-de-Rouergue;Villefranche-de-Rouergue;;oui
+LFCW;Aérodrome de Villeneuve-sur-Lot;Villeneuve-sur-Lot;;oui
+LFCX;Aérodrome de Castelsarrasin - Moissac;Castelsarrasin;;oui
+LFCY;Aéroport de Royan - Médis;Médis;;oui
+LFCZ;Aérodrome de Mimizan;Mimizan;;oui
+LFDA;Aérodrome d'Aire-sur-l'Adour;Aire-sur-l'Adour;;oui
+LFDB;Aérodrome de Montauban;Montauban;Militaire et civile;oui
+LFDC;Aérodrome de Montendre - Marcillac;Marcillac;;oui
+LFDE;Aérodrome d'Égletons;Égletons;;oui
+LFDF;Aérodrome de Sainte-Foy-la-Grande;Fougueyrolles;;oui
+LFDG;Aérodrome de Gaillac - Lisle-sur-Tarn;Gaillac;;oui
+LFDH;Aéroport d'Auch - Gers;Auch;;oui
+LFDI;Aérodrome de Libourne - Artigues-de-Lussac;Les Artigues-de-Lussac;;oui
+LFDJ;Aéroport de Pamiers - Les Pujols;Les Pujols, Verniolle;;oui
+LFDK;Aérodrome de Soulac-sur-Mer;Soulac-sur-Mer;;oui
+LFDL;Aérodrome de Loudun;Loudun;;oui
+LFDM;Aérodrome de Marmande - Virazeil;Marmande;;oui
+LFDN;Aéroport de Rochefort - Charente-Maritime;Saint-Agnant;;oui
+LFDP;Aérodrome de Saint-Pierre-d'Oléron;Saint-Pierre-d'Oléron;;oui
+LFDQ;Aérodrome de Castelnau-Magnoac;Castelnau-Magnoac;usage restreint;oui
+LFDR;Aérodrome de La Réole - Floudès;Floudès;;oui
+LFDS;Aéroport de Sarlat - Domme;Domme;;oui
+LFDT;Aérodrome de Tarbes - Laloubère;Laloubère;;oui
+LFDU;Aérodrome de Lesparre - Saint-Laurent-Médoc;Saint-Laurent-Médoc;;oui
+LFDV;Aérodrome de Couhé - Vérac;Brux;;oui
+LFDW;Aérodrome de Chauvigny;Chauvigny;;oui
+LFDX;Aérodrome de Fumel - Montayral;Montayral;;oui
+LFDY;Aérodrome de Bordeaux - Yvrac;Yvrac;usage restreint;oui
+LFDZ;Aérodrome de Condat-sur-Vézère;Condat-sur-Vézère;;non
+LFEA;Aéroport de Belle-Île-en-Mer;Bangor;;oui
+LFEB;Aérodrome de Dinan - Trélivan;Trélivan;;oui
+LFEC;Aéroport d'Ouessant;Ouessant;;oui
+LFED;Aérodrome de Pontivy;Pontivy;;oui
+LFEF;Aérodrome d'Amboise - Dierre;Dierre;;oui
+LFEG;Aérodrome d'Argenton-sur-Creuse;Argenton-sur-Creuse;;oui
+LFEH;Aérodrome d'Aubigny-sur-Nère;Aubigny-sur-Nère;;oui
+LFEI;Aérodrome de Briare - Châtillon;Briare;;oui
+LFEJ;Aérodrome de Châteauroux - Villers;Saint-Maur;;oui
+LFEK;Aérodrome d'Issoudun - Le Fay;Saint-Aubin;;oui
+LFEL;Aérodrome du Blanc;Le Blanc;;oui
+LFEM;Aérodrome de Montargis - Vimory;Vimory;;oui
+LFEN;Aérodrome de Tours - Sorigny;Sorigny;;oui
+LFEP;Aérodrome de Pouilly - Maconge;Maconge, Meilly-sur-Rouvres;;oui
+LFEQ;Aérodrome de Quiberon;Quiberon;;oui
+LFER;Aéroport de Redon - Bains-sur-Oust;Bains-sur-Oust;;oui
+LFES;Aérodrome de Guiscriff - Scaër;Guiscriff;;oui
+LFET;Aérodrome de Til-Châtel;Til-Châtel;;oui
+LFEU;Aérodrome de Bar-le-Duc - Les Hauts-de-Chée;Les Hauts-de-Chée;;oui
+LFEV;Aéroport de Gray - Saint-Adrien;Gray;;oui
+LFEW;Aérodrome de Saulieu - Liernais;Liernais;;oui
+LFEX;Aérodrome de Nancy - Azelot;Azelot;usage restreint;oui
+LFEY;Aéroport de L'Île-d'Yeu;L'Île-d'Yeu;;oui
+LFEZ;Aérodrome de Nancy - Malzéville;Malzéville;usage restreint;oui
+LFFB;Aérodrome de Buno-Bonnevaux;Buno-Bonnevaux;usage restreint;oui
+LFFC;Aérodrome de Mantes - Chérence;Chérence;usage restreint;oui
+LFFD;Aérodrome de Saint-André-de-l'Eure;Les Authieux;;oui
+LFFE;Aérodrome d'Enghien - Moisselles;Moisselles;usage restreint;oui
+LFFG;Aérodrome de La Ferté-Gaucher;La Ferté-Gaucher;usage restreint;oui
+LFFH;Aérodrome de Château-Thierry - Belleau;Château-Thierry;;oui
+LFFI;Aérodrome d'Ancenis;Ancenis;;oui
+LFFJ;Aérodrome de Joinville - Mussey;Mussey-sur-Marne;usage restreint;oui
+LFFK;Aérodrome de Fontenay-le-Comte;Fontenay-le-Comte;;oui
+LFFL;Aérodrome de Bailleau-Armenonville;Bailleau-Armenonville;usage restreint;oui
+LFFN;Aérodrome de Brienne-le-Château;Saint-Christophe-Dodinicourt, Lassicourt;;oui
+LFFO;Aérodrome de Beauvoir - Fromentine;Beauvoir-sur-Mer;ouvert à la CAP (LFFO) du 6 juillet 1994 au 8 juin 2010usage restreint depuis le 8 juin 2010;oui
+LFFP;Aérodrome de Pithiviers;Pithiviers;usage restreint;oui
+LFFQ;Aérodrome de La Ferté-Alais;La Ferté-Alais;usage restreint;oui
+LFFR;Aérodrome de Bar-sur-Seine;Bar-sur-Seine;usage restreint;oui
+LFFT;Aérodrome de Neufchâteau;Neufchâteau;ex Neufchâteau-Rouceux;oui
+LFFU;Aérodrome de Châteauneuf-sur-Cher;Serruelles;;oui
+LFFV;Aérodrome de Vierzon - Méreau;Méreau;usage restreint;oui
+LFFW;Aérodrome de Montaigu - Saint-Georges;Saint-Georges-de-Montaigu;;oui
+LFFX;Aérodrome de Tournus - Cuisery;Cuisery;usage restreint;oui
+LFFY;Aérodrome d'Étrépagny;Étrépagny;usage restreint;oui
+LFFZ;Aérodrome de Sézanne - Saint-Remy;Saint-Remy-sous-Broyes;;oui
+LFGA;Aéroport de Colmar - Houssen;Colmar;;oui
+LFGB;Aérodrome de Mulhouse - Habsheim;Habsheim, Rixheim;;oui
+LFGC;Aérodrome de Strasbourg-Neuhof;Strasbourg;;oui
+LFGE;Aérodrome d'Avallon;Avallon;;oui
+LFGF;Aéroport de Beaune - Challanges;Beaune;;oui
+LFGG;Aérodrome de Belfort - Chaux;Chaux;;oui
+LFGH;Aérodrome de Cosne-sur-Loire;Cosne-Cours-sur-Loire;;oui
+LFGI;Aérodrome de Dijon - Darois;Darois;;oui
+LFGJ;Aéroport de Dole-Jura;Tavaux;;oui
+LFGK;Aérodrome de Joigny;Joigny;;oui
+LFGL;Aérodrome de Lons-le-Saunier - Courlaoux;Courlaoux;;oui
+LFGM;Aérodrome de Montceau-les-Mines - Pouilloux;Pouilloux;;oui
+LFGN;Aérodrome de Paray-le-Monial;Paray-le-Monial;;oui
+LFGO;Aérodrome de Pont-sur-Yonne;Pont-sur-Yonne;;oui
+LFGP;Aérodrome de Saint-Florentin - Chéu;Jaulges, Chéu;;oui
+LFGQ;Aérodrome de Semur-en-Auxois;Semur-en-Auxois;;oui
+LFGR;Aérodrome de Doncourt-lès-Conflans;Doncourt-lès-Conflans;;oui
+LFGS;Aérodrome de Longuyon - Villette;Villette;;oui
+LFGT;Aérodrome de Sarrebourg - Buhl;Buhl-Lorraine;;oui
+LFGU;Aérodrome de Sarreguemines - Neunkirch;Frauenberg;;oui
+LFGW;Aérodrome de Verdun - Sommedieue;Sommedieue;Code XVN inconnu dans la base IATA. LFGW inconnu dans la base OACI;oui
+LFGX;Aérodrome de Champagnole - Crotenay;Crotenay;usage restreint;oui
+LFGY;Aérodrome de Saint-Dié - Remomeix;Remomeix;;oui
+LFGZ;Aérodrome de Nuits-Saint-Georges;Nuits-Saint-Georges;;oui
+LFHA;Aérodrome d'Issoire - Le Broc;Le Broc;;oui
+LFHC;Aérodrome de Pérouges - Meximieux;Pérouges;;oui
+LFHD;Aérodrome de Pierrelatte;Pierrelatte;;oui
+LFHE;Aérodrome de Romans - Saint-Paul;Saint-Paul-lès-Romans;;oui
+LFHF;Aérodrome de Ruoms;Ruoms;usage restreint;oui
+LFHG;Aérodrome de Saint-Chamond - L'Horme;L'Horme;;oui
+LFHH;Aérodrome de Vienne - Reventin;Reventin-Vaugris;;oui
+LFHI;Aérodrome de Morestel;Morestel;;oui
+LFHJ;Aérodrome de Lyon - Corbas;Corbas;usage restreint;oui
+LFHL;Aérodrome de Langogne - Lespéron;Lespéron;;oui
+LFHM;Altiport de Megève;Megève;usage restreint;oui
+LFHN;Aérodrome de Bellegarde - Vouvray;Valserhône;;oui
+LFHO;Aéroport d'Aubenas Ardèche méridionale;Lanas;;oui
+LFHP;Aéroport du Puy - Loudes;Loudes;;oui
+LFHQ;Aérodrome de Saint-Flour - Coltines;Coltines;;oui
+LFHR;Aérodrome de Brioude - Beaumont;Beaumont;;oui
+LFHS;Aéroport de Bourg - Ceyzériat;Jasseron;;oui
+LFHT;Aérodrome d'Ambert - Le Poyet;Ambert;;oui
+LFHU;Altiport de l'Alpe d'Huez;Huez;usage restreint;oui
+LFHV;Aérodrome de Villefranche - Tarare;Frontenas;;oui
+LFHW;Aérodrome de Belleville - Villié-Morgon;Saint-Jean-d'Ardières;usage restreint;oui
+LFHX;Aérodrome de Lapalisse - Périgny;Périgny;;oui
+LFHY;Aéroport de Moulins - Montbeugny;Toulon-sur-Allier;Code XMU inconnu dans la base IATA;oui
+LFIB;Aérodrome de Belvès - Saint-Pardoux;Belvès;usage restreint;oui
+LFID;Aérodrome de Condom - Valence-sur-Baïse;Condom;;oui
+LFIF;Aérodrome de Saint-Affrique - Belmont;Belmont-sur-Rance;usage restreint;oui
+LFIG;Aérodrome de Cassagnes-Bégonhès;Cassagnes-Bégonhès;;oui
+LFIH;Aérodrome de Chalais;Chalais;;oui
+LFIK;Aérodrome de Ribérac - Saint-Aulaye;Ribérac;;oui
+LFIL;Aérodrome de Rion-des-Landes;Rion-des-Landes;usage restreint;oui
+LFIM;Aérodrome de Saint-Gaudens - Montréjeau;Clarac;;oui
+LFIP;Altiport de Peyresourde-Balestas;Peyresourde;usage restreint;oui
+LFIR;Aérodrome de Revel - Montgey;Revel;usage restreint;oui
+LFIS;Aérodrome de Saint-Inglevert - Les deux Caps;Saint-Inglevert;;oui
+LFIT;Aérodrome de Toulouse - Bourg-Saint-Bernard;Bourg-Saint-Bernard;usage restreint;oui
+LFIV;Aérodrome de Vendays-Montalivet;Vendays-Montalivet;usage restreint;oui
+LFIX;Aérodrome d'Itxassou;Itxassou;usage restreint;oui
+LFIY;Aérodrome de Saint-Jean-d'Angély - Saint-Denis-du-Pin;Saint-Jean-d'Angély;usage restreint;oui
+LFJA;Aérodrome de Chaumont - Semoutiers;Semoutiers-Montsaon;ancienne base aérienne de l’OTAN, usage restreint;oui
+LFJB;Aérodrome de Mauléon;Mauléon;;oui
+LFJC;Aérodrome de Clamecy;Clamecy;;oui
+LFJD;Altiport de Corlier;Corlier;usage restreint;oui
+LFJE;Altiport de La Motte-Chalancon;La Motte-Chalancon;;oui
+LFJF;Aérodrome d'Aubenasson;Aubenasson;usage restreint;oui
+LFJH;Aérodrome de Cazères - Palaminy;Palaminy;usage restreint;oui
+LFJI;Aérodrome de Marennes;Saint-Just-Luzac;usage restreint;oui
+LFJL;Aéroport de Metz-Nancy-Lorraine;Goin, Pagny-lès-Goin, Vigny, Liéhon et Silly-en-Saulnois;;oui
+LFJR;Aéroport d'Angers Loire;Marcé;;oui
+LFJS;Aérodrome de Soissons - Courmelles;Soissons;;oui
+LFJT;Aérodrome de Tours - Le Louroux;Le Louroux;usage restreint;oui
+LFJU;Aérodrome de Lurcy-Lévis;Lurcy-Lévis;usage restreint;oui
+LFJV;Aérodrome de Lasclaveries;Lasclaveries;usage restreint;oui
+LFJY;Aérodrome de Chambley;Chambley-Bussières;ancienne base aérienne de l’OTAN (LF5424);oui
+LFKA;Aérodrome d'Albertville;Albertville;usage restreint;oui
+LFKB;Aéroport de Bastia Poretta;Bastia;;oui
+LFKC;Aéroport de Calvi-Sainte-Catherine;Calvi;;oui
+LFKD;Aérodrome de Sollières-Sardières;Sollières-Sardières;usage restreint;oui
+LFKE;Aérodrome de Saint-Jean-en-Royans;Saint-Jean-en-Royans;usage restreint;oui
+LFKF;Aéroport de Figari Sud Corse;Figari;;oui
+LFKG;Aérodrome de Ghisonaccia Alzitone;Ghisonaccia;usage restreint;oui
+LFKH;Aérodrome de Saint-Jean-d'Avelanne;Saint-Jean-d'Avelanne;usage restreint;oui
+LFKJ;Aéroport d'Ajaccio Napoléon Bonaparte;Ajaccio;;oui
+LFKL;Aérodrome de Lyon - Brindas;Brindas;usage restreint;oui
+LFKM;Aérodrome de Saint-Galmier;Saint-Galmier;usage restreint;oui
+LFKO;Aérodrome de Propriano;Propriano;;oui
+LFKP;Aérodrome de La Tour-du-Pin - Cessieu;Cessieu;;oui
+LFKR;Aérodrome de Saint-Rémy-de-Maurienne;Saint-Rémy-de-Maurienne;usage restreint;oui
+LFKS;Base aérienne de Solenzara;Ventiseri;militaire;non
+LFKT;Aérodrome de Corte;Corte;;oui
+LFKX;Altiport de Méribel;Les Allues;usage restreint;oui
+LFKY;Aérodrome de Belley - Peyrieu;Belley;usage restreint;oui
+LFLA;Aéroport d'Auxerre - Branches;Branches, Charbuy, Appoigny;;oui
+LFLB;Aéroport de Chambéry - Savoie;Bourget-du-Lac, La Motte-Servolex, Voglans et Viviers-du-Lac;;oui
+LFLC;Aéroport de Clermont-Ferrand Auvergne;Aulnat;;oui
+LFLD;Aéroport de Bourges;Bourges;;oui
+LFLE;Aérodrome de Chambéry - Challes-les-Eaux;Challes-les-Eaux, Barby;;oui
+LFLG;Aérodrome de Grenoble - Le Versoud;Le Versoud;;oui
+LFLH;Aéroport de Chalon - Champforgeuil;Champforgeuil;;oui
+LFLI;Aéroport d'Annemasse;Annemasse, Ville-La-Grand, Vétraz-Monthoux, Cranves-Sales;;oui
+LFLJ;Altiport de Courchevel;Saint-Bon-Tarentaise;usage restreint;oui
+LFLL;Aéroport de Lyon-Saint-Exupéry;Colombier-Saugnieu;;oui
+LFLM;Aéroport de Mâcon - Charnay;Charnay-lès-Mâcon;;oui
+LFLN;Aéroport de Saint-Yan;Saint-Yan;;oui
+LFLO;Aéroport de Roanne-Renaison;Saint-Léger-sur-Roanne;;oui
+LFLP;Aéroport d'Annecy Haute-Savoie Mont-Blanc;Meythet;;oui
+LFLQ;Aérodrome de Montélimar - Ancône;Montélimar;;oui
+LFLR;Aérodrome de Saint-Rambert-d'Albon;Saint-Rambert-d'Albon;;oui
+LFLS;Aéroport International de Grenoble-Isère;Saint-Étienne-de-Saint-Geoirs;;oui
+LFLT;Aérodrome de Montluçon - Domérat;Domérat;usage restreint;oui
+LFLU;Aéroport de Valence-Chabeuil;Chabeuil;;oui
+LFLV;Aéroport de Vichy — Charmeil;Charmeil, Saint-Rémy-en-Rollat;;oui
+LFLW;Aéroport d'Aurillac;Aurillac;;oui
+LFLX;Aéroport de Châteauroux - Centre;Déols;ancienne base aérienne de l’OTAN;oui
+LFLY;Aéroport de Lyon-Bron;Chassieu et Saint-Priest;;oui
+LFLZ;Aérodrome de Feurs - Chambéon;Chambéon;;oui
+LFMA;Aéroport d'Aix - Les Milles;Aix-en-Provence;;oui
+LFMC;Aérodrome du Luc - Le Cannet;Le Cannet-des-Maures;;oui
+LFMD;Aéroport de Cannes - Mandelieu;Cannes;;oui
+LFME;Aérodrome de Nîmes-Courbessac;Nîmes;;oui
+LFMF;Aérodrome de Fayence - Tourrettes;Fayence;;oui
+LFMG;Aérodrome de la Montagne Noire;Labécède-Lauragais;usage restreint;oui
+LFMH;Aéroport de Saint-Étienne-Loire;Saint-Étienne;;oui
+LFMI;Base aérienne d'Istres - Le Tubé;Istres;Militaire;oui
+LFMK;Aéroport de Carcassonne Salvaza;Carcassonne;;oui
+LFML;Aéroport Marseille Provence;Marignane;;oui
+LFMN;Aéroport de Nice-Côte d'Azur;Nice;;oui
+LFMO;Base aérienne d'Orange Caritat;Orange;militaire;non
+LFMP;Aéroport de Perpignan-Rivesaltes;Perpignan;;oui
+LFMQ;Aéroport du Castellet;Le Castellet;;oui
+LFMR;Aéroport de Barcelonnette - Saint-Pons;Saint-Pons;;oui
+LFMS;Aérodrome d'Alès Cévennes;Deaux, Vézénobres;;oui
+LFMT;Aéroport de Montpellier-Méditerranée;Pérols, Mauguio;;oui
+LFMU;Aéroport de Béziers-Cap d'Agde;Portiragnes, Vias;;oui
+LFMV;Aéroport d'Avignon - Caumont;Avignon;;oui
+LFMW;Aérodrome de Castelnaudary - Villeneuve;Villeneuve-la-Comptal, Mas-Saintes-Puelles;;oui
+LFMX;Aérodrome de Château-Arnoux-Saint-Auban;Château-Arnoux-Saint-Auban;Ouvert à la CAP de jour. 5 minibandes bitumées;oui
+LFMY;Base aérienne de Salon-de-Provence;Salon-de-Provence;;oui
+LFMZ;Aérodrome de Lézignan-Corbières;Lézignan-Corbières;;oui
+LFNA;Aéroport de Gap - Tallard;Tallard;;oui
+LFNB;Aéroport de Mende - Brenoux;Brenoux;;oui
+LFNC;Aérodrome de Mont-Dauphin - Saint-Crépin;Saint-Crépin;;oui
+LFNE;Aérodrome de Salon - Eyguières;Salon-de-Provence;;oui
+LFNF;Aérodrome de Vinon;Vinon-sur-Verdon;;oui
+LFNG;Aérodrome de Montpellier - Candillargues;Candillargues;;oui
+LFNH;Aérodrome de Carpentras;Carpentras;;oui
+LFNJ;Aérodrome d'Aspres-sur-Buëch;Aspres-sur-Buëch;;oui
+LFNL;Aérodrome de Saint-Martin-de-Londres;Saint-Martin-de-Londres;usage restreint;oui
+LFNN;Aérodrome de Narbonne-Vinassan;Narbonne;usage restreint;oui
+LFNO;Aérodrome de Florac - Sainte-Enimie;Hures-la-Parade;usage restreint;oui
+LFNQ;Aérodrome de Mont-Louis La Quillane;La Llagonne;usage restreint;oui
+LFNR;Aérodrome de Berre - La Fare;La Fare-les-Oliviers;usage restreint;oui
+LFNS;Aérodrome de Sisteron-Thèze;Vaumeilh;;oui
+LFNT;Aérodrome d'Avignon - Pujaut;Pujaut;usage restreint;oui
+LFNU;Aérodrome d'Uzès;Uzès;usage restreint;oui
+LFNV;Aérodrome de Valréas - Visan;Visan;;oui
+LFNW;Aérodrome de Puivert;Puivert;usage restreint;oui
+LFNX;Aérodrome de Bédarieux - La Tour-sur-Orb;La Tour-sur-Orb;usage restreint;oui
+LFNY;Altiport de Saint-Étienne-en-Dévoluy;Saint-Étienne-en-Dévoluy;sur neige uniquement;non
+LFNZ;Aérodrome du Mazet de Romanin;Saint-Rémy-de-Provence;usage restreint;oui
+LFOA;Base aérienne d'Avord;Avord;militaire;non
+LFOB;Aéroport de Paris Beauvais;Tillé;;oui
+LFOC;Base aérienne 279 Châteaudun;Châteaudun;militaire;oui
+LFOD;Aérodrome de Saumur - Saint-Florent;Saumur;;oui
+LFOE;Base aérienne 105 Évreux-Fauville;Évreux;ancienne base aérienne de l’OTAN;non
+LFOF;Aérodrome d'Alençon - Valframbert;Cerisé, Valframbert;;oui
+LFOG;Aérodrome de Flers - Saint-Paul;La Lande-Patry;;oui
+LFOH;Aéroport du Havre-Octeville;Le Havre, Octeville-sur-Mer;;oui
+LFOI;Aérodrome d'Abbeville;Abbeville;;oui
+LFOJ;Base aérienne d'Orléans - Bricy;Bricy;militaire;oui
+LFOK;Aéroport de Paris Châlons Vatry;Bussy-Lettrée;;oui
+LFOL;Aérodrome de L'Aigle - Saint-Michel;Saint-Sulpice-sur-Risle;;oui
+LFOM;Aérodrome de Lessay;Lessay;;oui
+LFON;Aérodrome de Dreux - Vernouillet;Vernouillet;;oui
+LFOO;Aéroport des Sables-d'Olonne - Talmont;Les Sables-d'Olonne;;oui
+LFOP;Aéroport Rouen Vallée de Seine;Boos;;oui
+LFOQ;Aéroport de Blois - Le Breuil;Blois;;oui
+LFOR;Aéroport de Chartres;Champhol;"ancienne base 122 fermée en 1997; ouvert à la CAP";oui
+LFOS;Aérodrome de Saint-Valery - Vittefleur;Saint-Sylvain, Saint-Riquier-ès-Plains, Vittefleur;;oui
+LFOT;Aéroport de Tours Val de Loire;Tours;;oui
+LFOU;Aérodrome de Cholet - Le Pontreau;Cholet;;oui
+LFOV;Aéroport de Laval - Entrammes;Entrammes;;oui
+LFOW;Aérodrome de Saint-Quentin - Roupy;Saint-Quentin;;oui
+LFOX;Aérodrome d'Étampes - Mondésir;Guillerval;;oui
+LFOY;Aérodrome du Havre - Saint-Romain-de-Colbosc;Gommerville;;oui
+LFOZ;Aéroport d'Orléans Loire Valley;Saint-Denis-de-l'Hôtel;;oui
+LFPA;Aérodrome de Persan - Beaumont;Bernes-sur-Oise, Bruyères-sur-Oise;;oui
+LFPB;Aéroport Paris-Le Bourget;Le Bourget...;;oui
+LFPC;Base aérienne 110 Creil;Creil;militaire;non
+LFPD;Aérodrome de Bernay - Saint-Martin;Bernay;;oui
+LFPE;Aérodrome de Meaux - Esbly;Isles-lès-Villenoy;;oui
+LFPF;Aérodrome de Beynes - Thiverval;Thiverval-Grignon;usage restreint;oui
+LFPG;Aéroport Paris-Charles-de-Gaulle;Roissy, Tremblay, Mitry;héliport, zone Armée de l'Air;oui
+LFPH;Aérodrome de Chelles - Le Pin;Chelles;;oui
+LFPI;Héliport de Paris - Issy-les-Moulineaux;Paris;héliport;non
+LFPK;Aérodrome de Coulommiers - Voisins;Coulommiers;;oui
+LFPL;Aérodrome de Lognes-Émerainville;Lognes;Code XLG Inconnu dans la base IATA;oui
+LFPM;Aéroport de Melun-Villaroche;Montereau-sur-le-Jard, Réau;;oui
+LFPN;Aéroport de Paris-Saclay Versailles;Toussus-le-Noble;;oui
+LFPO;Aéroport Paris-Orly;Paray-Vieille-Poste, Orly...;;oui
+LFPP;Aérodrome du Plessis-Belleville;Le Plessis-Belleville;;oui
+LFPQ;Aérodrome de Fontenay-Trésigny;Fontenay-Trésigny;;oui
+LFPT;Aéroport de Paris- Pontoise;Cormeilles-en-Vexin;;oui
+LFPU;Aérodrome de Moret - Épisy;Épisy;;oui
+LFPV;Base aérienne de Vélizy-Villacoublay;Vélizy-Villacoublay;militaire;non
+LFPX;Aérodrome de Chavenay - Villepreux;Chavenay;;oui
+LFPZ;Aérodrome de Saint-Cyr-l'École;Saint-Cyr-l'École;;oui
+LFQA;Aéroport de Reims - Prunay;Prunay;;oui
+LFQB;Aéroport de Troyes - Barberey;Barberey-Saint-Sulpice;;oui
+LFQC;Aérodrome de Lunéville - Croismare;Chanteheux, Croismare;;oui
+LFQD;Aérodrome d'Arras - Roclincourt;Roclincourt;;oui
+LFQE;Base aérienne d'Étain-Rouvres;Étain;Militaire / Hélicoptères 3ème RHC;oui
+LFQF;Aérodrome d'Autun-Bellevue;Autun;;oui
+LFQG;Aéroport de Nevers-Fourchambault;Marzy;;oui
+LFQH;Aérodrome de Châtillon-sur-Seine;Châtillon-sur-Seine;;oui
+LFQI;Base aérienne de Cambrai-Épinoy;Épinoy (62), Haynecourt (59);militaire;non
+LFQJ;Aérodrome de Maubeuge - Élesmes;Vieux-Reng, Élesmes;Fermeture souhaitée par la CAMVS malgré une forte opposition. Aérodrome toujours ouvert en 2026 malgré des actions destructrices en cours.;oui
+LFQK;Aérodrome de Châlons - Écury-sur-Coole;Écury-sur-Coole;;oui
+LFQL;Aérodrome de Lens - Bénifontaine;Bénifontaine;;oui
+LFQM;Aéroport de Besançon-La Vèze;La Vèze;;oui
+LFQN;Aérodrome de Saint-Omer - Wizernes;Wizernes;;oui
+LFQO;Aérodrome de Lille - Marcq-en-Barœul;Bondues;;oui
+LFQQ;Aéroport de Lille - Lesquin;Lesquin;;oui
+LFQS;Aérodrome de Vitry-en-Artois;Vitry-en-Artois;;non
+LFQT;Aéroport de Merville - Calonne;Lestrem, Calonne-sur-la-Lys, Merville;;oui
+LFQU;Aérodrome de Sarre-Union;Sarre-Union;usage restreint;oui
+LFQV;Aérodrome de Charleville-Mézières - Belval;Tournes, Belval;;oui
+LFQW;Aérodrome de Vesoul - Frotey;Frotey-lès-Vesoul;;oui
+LFQX;Aérodrome de Juvancourt;Juvancourt;;oui
+LFQY;Aérodrome de Saverne-Steinbourg;Steinbourg;usage restreint;oui
+LFQZ;Aérodrome de Dieuze - Guéblange;Guéblange-lès-Dieuze;usage restreint;oui
+LFRB;Aéroport de Brest-Bretagne;Guipavas;;oui
+LFRC;Aéroport de Cherbourg - Manche;Maupertus-sur-Mer, Gonneville;;oui
+LFRD;Aéroport de Dinard Saint-Malo;Pleurtuit;;oui
+LFRE;Aéroport de La Baule-Escoublac;La Baule-Escoublac;;oui
+LFRF;Aéroport de Granville-Mont-Saint-Michel;Bréville-sur-Mer;;oui
+LFRG;Aéroport de Deauville - Normandie;Saint-Gatien-des-Bois;;oui
+LFRH;Aéroport de Lorient Bretagne Sud;Plœmeur;militaire et civil;oui
+LFRI;Aéroport de La Roche-sur-Yon - Les Ajoncs;La Roche-sur-Yon;;oui
+LFRJ;Base d'aéronautique navale de Landivisiau;Landivisiau;militaire;oui
+LFRK;Aéroport de Caen - Carpiquet;Carpiquet;;oui
+LFRL;Base d'aéronautique navale de Lanvéoc-Poulmic;Lanvéoc;;oui
+LFRM;Aéroport Le Mans-Arnage;Arnage;;oui
+LFRN;Aéroport de Rennes - Saint-Jacques;Saint-Jacques-de-la-Lande;;oui
+LFRO;Aéroport de Lannion;Lannion;;oui
+LFRP;Aérodrome de Ploërmel - Loyat;Loyat;;oui
+LFRQ;Aéroport de Quimper Cornouaille;Pluguffan;;oui
+LFRS;Aéroport Nantes Atlantique;Bouguenais;;oui
+LFRT;Aéroport de Saint-Brieuc Armor;Trémuson;;oui
+LFRU;Aéroport de Morlaix Ploujean;Morlaix;;oui
+LFRV;Aéroport de Vannes - Meucon;Monterblanc;;oui
+LFRW;Aérodrome d'Avranches - Le Val-Saint-Père;Le Val-Saint-Père;usage restreint;oui
+LFRZ;Aéroport de Saint-Nazaire - Montoir;Montoir-de-Bretagne;;oui
+LFSA;Aérodrome de Besançon - Thise;Thise;;oui
+LFSB;Aéroport Européen de Bâle-Mulhouse-Fribourg (EuroAirPort);Saint-Louis, Blotzheim;Seul aéroport binational au monde  (Suisse/France);oui
+LFSD;Aéroport de Dijon-Bourgogne;Longvic;ancienne Base Aérienne 102 et OTAN fermée en 2016, ouvert à  la CAP;oui
+LFSE;Aérodrome d'Épinal - Dogneville;Dogneville;;oui
+LFSG;Aéroport d'Épinal-Mirecourt;Juvaincourt;;oui
+LFSH;Aérodrome de Haguenau;Haguenau;;oui
+LFSI;Base aérienne 113 Saint-Dizier-Robinson;Saint-Dizier;militaire;non
+LFSJ;Aérodrome de Sedan - Douzy;Douzy;;oui
+LFSK;Aérodrome de Vitry-le-François - Vauclerc;Vauclerc;;oui
+LFSL;Aéroport de Brive-Vallée de Dordogne;Nespouls;;oui
+LFSM;Aérodrome de Montbéliard - Courcelles;Courcelles-lès-Montbéliard;;oui
+LFSN;Aéroport de Nancy-Essey;Tomblaine, Essey-lès-Nancy;;oui
+LFSO;Base aérienne 133 Nancy-Ochey;Ochey, Thuilley-aux-Groseilles;militaire;non
+LFSP;Aérodrome de Pontarlier;Pontarlier;;oui
+LFSS;Aérodrome de Grand-Fougeray - Saint-Sulpice-des-Landes;Saint-Sulpice-des-Landes;usage restreint réservé au vol à voile;oui
+LFST;Aéroport de Strasbourg-Entzheim;Entzheim;;oui
+LFSU;Aérodrome de Langres - Rolampont;Rolampont;;oui
+LFSV;Aérodrome de Pont-Saint-Vincent;Pont-Saint-Vincent;;oui
+LFSW;Aérodrome d'Épernay - Plivot;Plivot;Code XEP Inconnu dans la base IATA;oui
+LFSX;Base aérienne 116 Luxeuil-Saint Sauveur;Luxeuil-les-Bains;militaire;non
+LFSY;Aérodrome de Cessey;Baigneux-les-Juifs;aérodrome privé;non
+LFTA;Aérodrome de la Tranche-sur-Mer;La Tranche-sur-Mer;Usage restreint;oui
+LFTB;Hydroaérodrome de Marignane - Berre;Berre-l'Étang;;oui
+LFTF;Aérodrome de Cuers - Pierrefeu;Cuers, Pierrefeu-du-Var;bâtiments militaires et civils sur Cuers, piste militaire et civile sur Pierrefeu-du-Var.;oui
+LFTH;Aéroport de Toulon-Hyères;Hyères;militaire et civil;oui
+LFTL;Héliport de Cannes - Quai du large;Cannes;;non
+LFTM;Aérodrome de Serres - La Bâtie-Montsaléon;La Bâtie-Montsaléon;usage restreint;oui
+LFTN;Aérodrome de La Grand'Combe;La Grand-Combe;usage restreint;oui
+LFTP;Aérodrome de Puimoisson;Puimoisson;usage restreint;oui
+LFTQ;Aérodrome de Châteaubriant - Pouancé;Pouancé;;oui
+LFTW;Aéroport de Nîmes-Garons;Garons;;oui
+LFTZ;Aéroport de Saint-Tropez;La Môle;usage restreint;oui
+LFVM;Aérodrome de Miquelon;Miquelon;;non
+LFVP;Aéroport de Saint-Pierre - Pointe-Blanche;Saint-Pierre;;non
+LFXA;Aérodrome d'Ambérieu;Ambérieu-en-Bugey;Militaire ouvert à la CAP;oui
+LFXB;Aérodrome de Saintes - Thénac;Thénac;;oui
+LFXH;Base aérienne du Valdahon;Valdahon;militaire;non
+LFXM;Aérodrome de Mourmelon;Mourmelon-le-Grand;usage restreint;non
+LFXQ;Base aérienne de Coëtquidan;Guer;militaire;non
+LFXU;Aérodrome des Mureaux;Les Mureaux, Verneuil-sur-Seine;;oui
+LFYG;Aérodrome de Cambrai-Niergnies;Niergnies;ancienne piste de secours de l’OTAN;oui
+LFYR;Aérodrome de Romorantin-Pruniers;Pruniers-en-Sologne, Gièvres;Militaire et civil;oui
+LFYS;Aérodrome de Sainte-Léocadie;Sainte-Léocadie;usage restreint;oui

@@ -1,0 +1,101 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGC (AIP France, chart dated 2024-11-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGC",
+  "name": "Strasbourg-Neuhof",
+  "source": {
+    "publication": "AIP France AD 2 LFGC",
+    "chartDate": "2024-11-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.55361,
+    "longitude": 7.7775
+  },
+  "elevationFeet": 459,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 126.88",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 126.88
+  },
+  "runways": [
+    {
+      "id": "17L/35R",
+      "qfu": [
+        173,
+        353
+      ]
+    }
+  ],
+  "preferredQfu": 173,
+  "preferredQfuReason": "preferred QFU 173, due to noise pollution",
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "Simultaneous use of aircraft and gliders RWY prohibited.",
+    "Width of paved TWY: 5 m.",
+    "AD reserved for radio-equipped ACFT.",
+    "ACL: average altitude 454 ft.",
+    "Arrival from the North: transit within CTR STRASBOURG is compulsory by NE (Gambsheim) then follow Rhine river to N1 route (Kehl bridge) to enter AD circuit, radio contact with STRASBOURG TWR is required.",
+    "Departure to the North: transit within CTR STRASBOURG is compulsory by N1 route (Kehl bridge) then follow Rhine river to NE (Gambsheim), radio contact with STRASBOURG TWR is required.",
+    "Flight altitude: 1500 ft.",
+    "Preferred QFU 173° due to noise pollution.",
+    "Airplanes: low height patterns below 500 ft prohibited.",
+    "Helicopter: traffic patterns prohibited.",
+    "ULM: traffic patterns prohibited during PJE activity.",
+    "Comply with published circuits, as far as possible.",
+    "Radio contact with STRASBOURG is required within class D CTR except when the AD circuit of STRASBOURG-NEUHOF is strictly respected.",
+    "Northern airfield buildings overflight prohibited.",
+    "During parachute or glider activities, stay East of AD for ASI reconnaissance.",
+    "Request authorization for unmanned aircraft flights in the vicinity of the facilities.",
+    "Application form available on the following link: https://atap-polygone.fr/autorisationdrone/ PJE over AD (NR 222): FL 195.",
+    "MON-FRI: 0730-1100 and 1300-SS (SUM: -1HR).",
+    "SAT,SUN and HOL: 0730-SS (SUM: -1HR).",
+    "Activity as per protocol known on STRASBOURG APP.",
+    "Activity announced by dropping ACFT on A/A NEUHOF.",
+    "Activity according to protocol.",
+    "Glider lauching up to 1800 ft AAL.",
+    "Glider activity announced on FREQ A/A and by orange rotating light."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Utilisation simultanée des pistes avions et planeurs interdite.",
+      "Voie de circulation revêtue : largeur 5 m.",
+      "AD réservée aux ACFT munis de radio.",
+      "ACL : ALT moyenne du parking 454 ft.",
+      "Arrivée par le Nord : transit en CTR STRASBOURG obligatoire sur l'itinéraire NE (Gambsheim) puis le long du Rhin vers N1 (pont de Kehl) pour intégration dans le circuit, contact radio obligatoire avec STRASBOURG TWR.",
+      "Départ vers le Nord : transit en CTR STRASBOURG obligatoire sur l'itinéraire N1 (pont de Kehl) puis le long du Rhin vers NE (Gambsheim), contact radio obligatoire avec STRASBOURG TWR.",
+      "Altitude de vol : 1500 ft.",
+      "QFU 173° préférentiel cause nuisances.",
+      "Avions : tours de piste basse hauteur interdits en dessous de 500 ft.",
+      "Hélicoptères : tours de piste interdits.",
+      "ULM : tours de piste interdits pendant toute activité PJE.",
+      "Respecter dans la mesure du possible les circuits d'aérodrome publiés.",
+      "Le contact radio avec STRASBOURG est obligatoire dans la CTR de classe D, sauf dans le cadre du respect strict du circuit d'aérodrome de STRASBOURG NEUHOF.",
+      "Survol des immeubles au Nord du terrain interdit.",
+      "Pendant les activités parachutages ou planeur, rester à l'Est de l'AD pour la reconnaissance de l'ASI.",
+      "Demande d'autorisation vol drone à proximité des installations.",
+      "Formulaire disponible sur le lien suivant : https://atap-polygone.fr/autorisation-drone/ Activités diverses Parachutages sur AD (N° 222) : FL 195.",
+      "LUN-VEN : 0730-1100 et 1300-SS (ETE : -1HR)",
+      "SAM,DIM et JF : 0730-SS (ETE : -1HR)",
+      "Activité selon protocole connue de STRASBOURG APP.",
+      "Activité annoncée par ACFT largueurs sur A/A NEUHOF.",
+      "Activité selon protocole.",
+      "Treuillage planeurs jusqu'à 1800 ft AAL.",
+      "Activité annoncée sur FREQ A/A et par feu orange tournant."
+    ]
+  }
+}

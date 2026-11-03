@@ -1,0 +1,179 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFMU (AIP France, chart dated 2026-03-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFMU",
+  "name": "Béziers-Cap d'Agde",
+  "source": {
+    "publication": "AIP France AD 2 LFMU",
+    "chartDate": "2026-03-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.32333,
+    "longitude": 3.35333
+  },
+  "elevationFeet": 56,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "TWR : - ETE / SUM (sauf / except JUN, JUL , AUG) : LUN-VEN / MON-FRI : 0630-1830 SAM / SAT : 0730-1800 DIM / SUN : 0730-0945, 1115-1715 - JUN, JUL et AUG / JUN, JUL and AUG : LUN-VEN / MON-FRI : 0630-1830 SAM, DIM / SAT, SUN : 0730-1830 - HIV / WIN : LUN-VEN / MON-FRI : 0730-1830 SAM, DIM / SAT, SUN : 0830-1200, 1330-1800 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 130.855,
+    "tower": 120.175,
+    "airAir": 120.175
+  },
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        92,
+        272
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "PZ",
+      "spoken": {
+        "fr": "Papa Zoulou",
+        "en": "Papa Zulu"
+      },
+      "latitude": 43.47472,
+      "longitude": 3.44528,
+      "location": "Pezenas"
+    },
+    {
+      "name": "NB",
+      "spoken": {
+        "fr": "Novembre Bravo",
+        "en": "November Bravo"
+      },
+      "latitude": 43.42056,
+      "longitude": 3.23694,
+      "location": "Lieuran les Beziers"
+    },
+    {
+      "name": "CG",
+      "spoken": {
+        "fr": "Charlie Golf",
+        "en": "Charlie Golf"
+      },
+      "latitude": 43.33111,
+      "longitude": 3.04167,
+      "location": "Capestang"
+    },
+    {
+      "name": "AD",
+      "spoken": {
+        "fr": "Alpha Delta",
+        "en": "Alpha Delta"
+      },
+      "latitude": 43.21278,
+      "longitude": 3.24,
+      "location": "Embouchure de l'Aude"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 43.27056,
+      "longitude": 3.50583,
+      "location": "Cap d'Agde"
+    },
+    {
+      "name": "MZ",
+      "spoken": {
+        "fr": "Mike Zoulou",
+        "en": "Mike Zulu"
+      },
+      "latitude": 43.4425,
+      "longitude": 3.57611,
+      "location": "Zone industrielle au Nord-Ouest de Mèze, le long de l'autoroute A9 AMDT 08/24"
+    }
+  ],
+  "notes": [
+    "Access to the apron limited for general aviation: access to the apron from the runway (aircrafts), access from the apron to landside and from landside to the apron (pilots) under conditions: PPR compulsory from AD operator PN 4 HR MNM before estimated time of arrival or departure and latest 1 HR before OPS closure.",
+    "See NOTAM for opening hours.",
+    "AD prohibited for gliders.",
+    "AD reserved for radio-equipped ACFT.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Users attention is drawn to the RTBA (notably R46, R191 and R193) close to the CTR limits.",
+    "Real activity of these airspaces is available for consultation on aeronautical information medium.",
+    "Presence of birds all year long on the aerodrome, helicopters avoid overflight of grassy zones.",
+    "The first daytime RWY inspection is done at the beginning of RFFS shift.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "B TWY reserved for ACFT < 5,7 t.",
+    "B TWY and T3 TWY: max wingspan: 16.65 m.",
+    "ACFT MTOW > 20 t turn back only on turn around area.",
+    "Helicopters with rotor diameter: greater than 12 m: mandatory path via TWY A, T1 or T2,; smaller than 12 m: mandatory path via TWA A, B,.",
+    "T1, T2 or T3.",
+    "No Special VFR routes, separation with IFR flights as follows: Arrival: radio contact before reporting point, holding pattern possible.; Departure with ATC clearance.",
+    "STAP and PCL are combined: 3 or 5 switch actions.",
+    "STAP: available parameters: wind, VIS, RVR, cloud base, T, DP, QNH, QFE.",
+    "PPR from AD operator",
+    "3 clicks: low intensity",
+    "5 clicks: high intensity also activate PAPI 09 and 27 Radio Failure on arrival During ATS SKED squawk A7600.",
+    "Lights on at 1500 ft AMSL, report North in front of the TWR up to the vertical line of the track (to check the visual parameters) by making alternate movements roll.",
+    "Join the North circuit pattern of the airfield watching out for other traffic.",
+    "Threshold RWY identification lights (flashing lights) operating will give clearance to land.",
+    "Radio failure on departure Before TKOF, return to apron.",
+    "After TKOF, follow last clearance received.",
+    "Radio failure during transit If transit is already authorized, follow last clearance received.",
+    "If not, do not enter the CTR.",
+    "Radiocommunication failure Make overhead aerodrome 2000 ft AMSL with landing lights on and look round to other possible traffics.",
+    "Join the RWY circuit to land complying with optical signals from the TWR.",
+    "Routes: To Montpellier or Narbonne: Minimum altitude 3000 ft AMSL, maximum level.",
+    "FL 055 (FL 045 if R 108E active).",
+    "Restrictions AVGAS 100LL Station: prohibited when the 3B position is occupied by a B737 or A400M."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "",
+      "AD interdit aux planeurs.",
+      "AD réservé aux ACFT munis de radio.",
+      "",
+      "",
+      "",
+      "Présence d'oiseaux toute l'année sur l'aérodrome, hélicoptères évitez survol parties herbeuses.",
+      "Première inspection de piste de jour effectuée seulement à la prise de service du RFFS.",
+      "Roulage interdit hors RWY et TWY.",
+      "TWY B réservé aux ACFT < 5,7 t.",
+      "TWY B et T3 : envergure maximale : 16.65 m.",
+      "ACFT MTOW > 20 t demi-tour uniquement sur raquette.",
+      "",
+      "A, B, T1, T2 ou T3.",
+      "",
+      "STAP et PCL couplés : enclenchement par 3 ou 5 coups d'alternat.",
+      "STAP : paramètres disponibles : vent, VIS, RVR, base des nuages, T, DP, QNH, QFE.",
+      "PPR auprès exploitant d'AD",
+      "3 coups d'alternat : basse intensité",
+      "",
+      "Phares allumés à 1500 ft AMSL, se présenter par le Nord face à la TWR jusqu'à la verticale de la piste (afin d'observer les paramètres visuels) en effectuant des mouvements alternés en roulis.",
+      "Rejoindre le circuit de piste nord de l'aérodrome en surveillant les autres trafics.",
+      "Le fonctionnement des feux d'identification de seuil de piste (feux à éclats) aura pour valeur l'autorisation d'atterrir.",
+      "",
+      "Après TKOF, exécuter la clairance reçue.",
+      "Panne radio en transit Si le transit est déjà autorisé, exécuter la clairance reçue.",
+      "Dans les autres cas, ne pas pénétrer dans la CTR.",
+      "",
+      "AMSL avec les phares allumés et surveiller le circuit d'aérodrome pour repérage de trafic éventuel en cours. Joindre le circuit en vue de l'atterrissage en fonction des signaux optiques de la TWR.",
+      "Itinéraires : Vers Montpellier ou Narbonne : Altitude minimale 3000 ft AMSL, niveau maximal.",
+      "FL 055 (FL 045 si R 108E active).",
+      "Restrictions Station AVGAS 100LL : interdit lorsque le poste 3B est occupé par un B737 ou A400M."
+    ]
+  }
+}

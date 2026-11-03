@@ -1,0 +1,38 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFAJ (AIP France, chart dated 2024-04-18): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFAJ",
+  "name": "Argentan",
+  "source": {
+    "publication": "AIP France AD 2 LFAJ",
+    "chartDate": "2024-04-18",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 48.70944,
+    "longitude": 0.00278
+  },
+  "elevationFeet": 581,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5"
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        41,
+        221
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCD (AIP France, chart dated 2025-06-12): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFCD",
+  "name": "Andernos-les-Bains",
+  "source": {
+    "publication": "AIP France AD 2 LFCD",
+    "chartDate": "2025-06-12",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.755,
+    "longitude": -1.065
+  },
+  "elevationFeet": 65,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.405",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.405
+  },
+  "runways": [
+    {
+      "id": "13/31",
+      "qfu": [
+        128,
+        308
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 44.74639,
+      "longitude": -1.11806,
+      "location": "Bassin de baignade de Saint Brice"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 44.69167,
+      "longitude": -1.04556,
+      "location": "Réservoirs piscicoles du \"Domaine de Certes\""
+    }
+  ],
+  "notes": [
+    "AD reserved for radio equipped ACFT.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Pilots must be aware of the possible presence of animals on the RWY.",
+    "AEM over AD (NR 9144): 330 ft ASFC, HJ."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Site susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Vigilance des navigateurs aériens sur une éventuelle présence d'animaux sur la piste.",
+      "AEM sur AD (N° 9144) : 330 ft ASFC, HJ."
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFIK (AIP France, chart dated 2023-12-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFIK",
+  "name": "Ribérac - Saint-Aulaye",
+  "source": {
+    "publication": "AIP France AD 2 LFIK",
+    "chartDate": "2023-12-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.23944,
+    "longitude": 0.26583
+  },
+  "elevationFeet": 353,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        46,
+        226
+      ]
+    }
+  ],
+  "preferredQfu": 46,
+  "preferredQfuReason": "preferred QFU 46, due to RWY slope",
+  "notes": [
+    "AD reserved for radio equipped ACFT.",
+    "RWY prohibited to paramotors.",
+    "Preferred QFU: 046°, due to RWY slope.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Paramotors: Paramotor entry point: Crossroad of the D5 and the D43.",
+    "RWY 05 in use: proceed along road D43 avoiding flying over the AEM area.",
+    "RWY 23 in use: proceed along road D5 avoiding flying over the AEM area.",
+    "Paramotor TKOF and LDG prohibited if an aircraft is taxiing on TWY C.",
+    "Taxiing to RWY 05:.",
+    "TKOF: From apron: directly via TWY A.",
+    "From the ACB hangar: taxi viaTWY C then join holding point A via TWY B.",
+    "LDG: RWY backtrack prohibited.",
+    "Vacate RWY via holding point B and taxi via TWY B.",
+    "Taxiing to RWY 23:.",
+    "TKOF: Entry on RWY only via holding point B.",
+    "LDG: Vacate the RWY only via holding point A.",
+    "Taxiing on TWY C: TWY C reserved for aircraft parked in the Jean Mermoz ACB hangar.",
+    "Taxiing prohibited on TWY if a Paramotor is taking off or landing.",
+    "TKOF RWY 23: Due to the curved profile of the RWY, the THR 05 is not visible from the THR 23, extreme caution is advised before TKOF.",
+    "TKOF RWY 05: Caution in N-NE winds combined with the curved profile of the RWY.",
+    "AEM (NR 9138): 330 ft ASFC, HJ, as per protocol.",
+    "Paramotor activity: 500 ft ASFC, SR-SS."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Piste interdite aux paramoteurs.",
+      "QFU 046° préférentiel cause déclivité piste.",
+      "Roulage interdit hors RWY et TWY.",
+      "Paramoteurs : Point d'entrée paramoteur : Intersection des routes D5 et D43.",
+      "RWY 05 en service : cheminer le long de la D43 en évitant le survol de la zone AEM.",
+      "RWY 23 en service : cheminer le long de la D5 en évitant le survol de la zone AEM.",
+      "TKOF et LDG paramoteur interdit si un aéronef circule sur le TWY C.",
+      "",
+      "TKOF : Depuis PRKG : directement par TWY A.",
+      "Depuis le hangar ACB : emprunter TWY C puis rejoindre point d'attente A via TWY B.",
+      "LDG : Remontée de piste interdite.",
+      "Dégagement via point d'attente B et remontée par TWY B.",
+      "",
+      "TKOF : Entrée sur la piste uniquement par le point d'attente B.",
+      "LDG : Dégagement de la piste uniquement par le point d'attente A.",
+      "Circulation sur TWY C : TWY C réservé aux aéronefs stationnés dans le hangar ACB Jean Mermoz.",
+      "Circulation interdite sur TWY si un Para-moteur est au décollage ou à l'atterrissage.",
+      "TKOF RWY 23 : A cause du profil bombé de la piste, le seuil 05 n'est pas visible du seuil 23, une extrême prudence est recommandée avant de décoller.",
+      "TKOF RWY 05 : Précautions par vent de N-NE conjugué au profil bombé de la piste.",
+      "AEM (N° 9138) : 330 ft ASFC, HJ, selon protocole.",
+      "Activité paramoteur : 500 ft ASFC, SR-SS."
+    ]
+  }
+}

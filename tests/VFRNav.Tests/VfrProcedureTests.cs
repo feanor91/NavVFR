@@ -1,5 +1,5 @@
-﻿using System.Text.Json;
-using VFRNav.Core.StormAtc;
+using System.Text.Json;
+using VFRNav.Core.Aerodromes;
 
 namespace VFRNav.Tests;
 
@@ -149,27 +149,27 @@ public class VfrProcedureTests
     }
 
     [Fact]
-    public void Real_stormatc_profiles_never_show_raw_json()
+    public void Real_bundled_profiles_never_show_raw_json()
     {
-        var paths = StormAtcPaths.Locate();
+        var paths = AerodromePaths.Locate();
         if (paths is null) return;
-        var repo = StormAtcRepository.Load(paths);
+        var repo = AerodromeRepository.Load(paths);
         foreach (var a in repo.All.Where(a => a.Procedures is not null))
             foreach (var line in a.Procedures!.ToLines())
                 Assert.False(line.Contains('{') || line.Contains("\"\""), $"{a.Icao}: {line}");
     }
 
     [Fact]
-    public void Real_stormatc_profiles_expose_their_procedures_when_present()
+    public void Real_bundled_profiles_expose_their_procedures_when_present()
     {
-        var paths = StormAtcPaths.Locate();
+        var paths = AerodromePaths.Locate();
         if (paths is null) return;
-        var repo = StormAtcRepository.Load(paths);
+        var repo = AerodromeRepository.Load(paths);
         var lfpl = repo.Find("LFPL")!;
         Assert.NotNull(lfpl.Procedures);
         Assert.Contains(lfpl.Procedures!.ReportingPoints, r => r.Name == "E");
-        Assert.NotNull(StormAtcRepository.DescribeProcedures(lfpl));
-        // Profil relevé par script (StormATC 0.25) : des notes de la carte, sans circuit ni points de report forcément.
+        Assert.NotNull(AerodromeRepository.DescribeProcedures(lfpl));
+        // Profil relevé par script : des notes de la carte, sans circuit ni points de report forcément.
         var lfab = repo.Find("LFAB")!.Procedures;
         if (lfab is not null) Assert.Contains(lfab.Sections, s => s.Title == "Notes du profil");
     }

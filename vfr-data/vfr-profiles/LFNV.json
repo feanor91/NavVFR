@@ -1,0 +1,79 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFNV (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFNV",
+  "name": "Valréas - Visan",
+  "source": {
+    "publication": "AIP France AD 2 LFNV",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.33583,
+    "longitude": 4.90694
+  },
+  "elevationFeet": 472,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.06"
+  },
+  "frequencies": {
+    "airAir": 120.06
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        17,
+        197
+      ]
+    }
+  ],
+  "notes": [
+    "Grove in the immediate vicinity of the airfield, North of the RWY 20 threshold.",
+    "Tree East of the RWY 02 threshold, near the paramotor circuit.",
+    "Radio contact mandatory.",
+    "Due to environmental matters, training patterns below inférieurs à 1500 (1000) interdits aux ACFT non basés.",
+    "1500 (1000) prohibited for non home-based ACFT.",
+    "Due to environmental matters, after take off RWY02, turn West as soon as possible and avoid flying over the village of Richerenches 2 km North of the airfield.",
+    "TODA reduced due to obstacles within takeoff funnels and within the West lateral clearance surface.",
+    "TWY A: width 16 m.",
+    "Presence of an embankment of 1 m high at 10 m from the West side of TWY A, recommended caution.",
+    "Simultaneous use of RWY and TWY by ACFT is prohibited, except for ACFT holding at THR 02 and THR 20, perpendicular to RWY with the front of the ACFT positioned above concrete slabs of 6 m X 6 m at respective THR.",
+    "ACFT with a wingspan > 14 m, do not use the TWY, backtrack the RWY instead.",
+    "Possible presence of paramotor EAST side of the RWY.",
+    "Use of ULM grass trip is done with preferential circuits left hand QFU 198° and right hand QFU 018°.",
+    "Non home-based ACFT are not allowed to perform more than two traffic patterns.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Aerobatics (NR 6900): See AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Arbre à l'Est du seuil de piste 02 proche du circuit de piste paramoteur.",
+      "Contact radio obligatoire.",
+      "",
+      "",
+      "Cause environnement, entraînements tours de piste Cause environnement, après décollage piste 02, tourner vers l'Ouest dès que possible et éviter le survol du village de Richerenches à 2 km au Nord des installations.",
+      "TODA réduite cause obstacles dans les trouées de décollage et dans la surface de dégagement latérale Ouest.",
+      "TWY A : largeur 16 m.",
+      "Présence d'un talus de hauteur 1 m à 10 m du bord Ouest du TWY A, prudence recommandée.",
+      "L'utilisation simultanée de la piste et des TWY par des ACFT est interdite, à l'exception des ACFT en attente aux seuils 02 et 20 perpendiculairement à la RWY avec l'avant de l'appareil positionné au-dessus des dalles de béton de 6 m X 6 m aux seuils respectifs.",
+      "ACFT d'envergure > 14 m, ne pas utiliser le TWY mais remonter la piste.",
+      "Présence possible de paramoteur à l'EST de la piste.",
+      "L'utilisation de la bande ULM paramoteur se fait avec circuits préférentiels main gauche au QFU 198° et main droite au QFU 018°.",
+      "Les ACFT non basés ne pourront pas faire plus de deux tours de piste.",
+      "Roulage interdit hors RWY et TWY.",
+      "Voltige (N° 6900) : Voir AIP ENR 5.5"
+    ]
+  }
+}

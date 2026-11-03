@@ -1,0 +1,83 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFMR (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFMR",
+  "name": "Barcelonnette - Saint-Pons",
+  "source": {
+    "publication": "AIP France AD 2 LFMR",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.38722,
+    "longitude": 6.60917
+  },
+  "elevationFeet": 3714,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        89,
+        269
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Length cambered RWY, RWY end not visible from THR to 2 QFUs.",
+    "Increased risk of runway excursion during landing.",
+    "Temperature (above 8°C) and altitude are penalizing during take-off and landing.",
+    "During approach, visualisation of final approach slope distorted because of cambered RWY: visual of 7% that gives an impression of high slope.",
+    "When strong Mistral in « Vallée du Rhône » or between March and October, from midday to the evening, when valley breeze is established, strong turbulences and downdrafts in short final 27.",
+    "Route (D 609) at THR 27: Possible obstacles (trucks higher than 4.30 m) in the TKOF funnel: systematically check performances during TKOF RWY 09 to ensure clearance.",
+    "Procédures and special instructions Conventionally ACFT will fly over right side of the «vallée de l'Ubaye» in the flight direction.",
+    "Read « Consignes particulières LFMR » published on the website: www.aerodromebarcelonnette.fr/consignes-lfmr Approach / Landing: proceed omnidirectionnal arrival above mountains, and fly overhead wind-sock, 5000 ft QNH, MNM.",
+    "At landing, choose a touchdown point in the first rising quarter of the runway in order to compensate the descending part in its second half.",
+    "Taxiing: Taxiing prohibited except on RWY and TWY.",
+    "Towing way reserved for gliders, landing prohibited when this way is engaged by one or several gliders.",
+    "Takeoff / Initial climb: In case of engine failure during take-off, there is little clearance: RWY 27: on the left Ubaye riverbed,; RWY 09: golf on the right.",
+    "Comply strictly with the published AD circuit.",
+    "Avoid to overfly the neighbouring villages.",
+    "Final fix for all approach path,THR 09.",
+    "Ground stationary work, THR 09 imperatively."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "",
+      "Risque augmenté de sortie de piste à l'extrémité à l'atterrissage.",
+      "La température (supérieure à 8°C) et l'altitude sont pénalisantes au décollage et à l'atterrissage.",
+      "Durant l'approche, visualisation du plan en finale faussée en raison de la courbure de la piste : visuel de 7% qui donne une impression de plan fort.",
+      "Par fort Mistral en Vallée du Rhône ou de mars à octobre, à partir de midi jusqu'au soir, lorsque la brise de vallée est établie, fortes turbulences et rabattants en courte finale 27.",
+      "Route (D 609) au THR 27 : Obstacles possibles (camion de gabarit supérieur à 4.30m) dans la trouée d'envol : vérifier systématiquement les performances lors d'un décollage en piste 09 pour assurer le franchissement.",
+      "Par convention, les ACFT circuleront dans la moitié droite de la vallée de l'Ubaye dans le sens du vol.",
+      "Prendre connaissance des « consignes particulières LFMR » publiées sur le site : www.aerodromebarcelonnette.fr/consignes-lfmr Approche / Atterrissage : accès omnidirectionnel au dessus du relief, se présenter verticale manche à air, 5000 ft QNH, MNM.",
+      "A l'atterrissage, privilégier un point de toucher des roues dans le premier quart montant de la piste afin de compenser la partie descendante dans sa deuxième moitié.",
+      "Roulage : Roulage interdit hors piste et TWY.",
+      "Voie de tractage réservée aux planeurs, atterrissage interdit si cette voie est engagée par un ou plusieurs planeurs.",
+      "Décollage / Montée initiale : En cas de panne moteur au décollage, il y a peu de dégagement : piste 27 : à gauche le lit de l'Ubaye ; piste 09 : à droite le golf.",
+      "Respecter strictement le circuit d'aérodrome publié.",
+      "Éviter le survol des communes avoisinantes.",
+      "Point d'aboutissement trajectoire finale tous QFU, seuil 09.",
+      ""
+    ]
+  }
+}

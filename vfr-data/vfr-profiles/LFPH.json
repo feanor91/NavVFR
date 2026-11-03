@@ -1,0 +1,77 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFPH (AIP France, chart dated 2023-11-30): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFPH",
+  "name": "Chelles - Le Pin",
+  "source": {
+    "publication": "AIP France AD 2 LFPH",
+    "chartDate": "2023-11-30",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.89667,
+    "longitude": 2.60611
+  },
+  "elevationFeet": 208,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.93",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.93
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        37,
+        217
+      ]
+    },
+    {
+      "id": "11/29",
+      "qfu": [
+        107,
+        287
+      ]
+    }
+  ],
+  "preferredQfu": 37,
+  "preferredQfuReason": "preferred QFU 37, due to environmental reasons",
+  "notes": [
+    "Use of the aerodrome reserved for based pilots or pilots respecting the conditions defined by DSAC Nord retrievable on website: https://salledelecture-ext. aviation-civile.gouv.fr/externe/DSAC/ programme_formation_qualification_site_LFPH.pdf AD reserved for radio-equipped ACFT.",
+    "Usable declared distances: RWY 11, 22 and 29 TODA reduced due to obstacles in the TKOF funnel.",
+    "Air navigation hazard Helipad with restricted use (Fire and rescue centre) located in the 222°/0.8 NM.",
+    "Favor the use of RWY 04/22 due to the presence of obstacles in the clearances of RWY 11/29.",
+    "Preferred QFU 037°, due to environmental reasons.",
+    "RWY must be vacated towards installations after landing whatever the RWY in use.",
+    "Follow the circuits represented on the visual landing chart, due to urban surroundings.",
+    "Landing prohibited on RWY 11.",
+    "Solo traffic patterns prohibited for student pilots during initial training.",
+    "Touch and Go prohibited."
+  ],
+  "fr": {
+    "notes": [
+      "CHELLES LE PIN Conditions d'utilisation de l'AD L'usage de l'aérodrome est réservé aux pilotes basés et respectant les conditions définies par la DSAC Nord consultables via internet : https://salledelectureext.aviation-civile.gouv.fr/externe/DSAC/ programme_formation_qualification_site_LFPH.pdf AD réservé aux ACFT munis de radio.",
+      "Distances déclarées utilisables : TODA RWY 11, 22 et 29 réduites cause obstacles dans la trouée de décollage.",
+      "Dangers à la navigation aérienne Présence d'une hélisurface à usage restreint (Centre d'incendie et de secours) située dans le 222°/0.8 NM.",
+      "Privilégier l'utilisation de la piste 04/22 en raison de la présence d'obstacles dans les dégagements de la piste 11/29.",
+      "QFU 037° préférentiel pour des raisons environnementales.",
+      "Dégager obligatoirement vers les installations après LDG quelle que soit la piste en service.",
+      "Compte tenu de l'environnement urbain, respecter les circuits représentés sur la carte atterrissage à vue.",
+      "Atterrissage interdit en piste 11.",
+      "Tours de piste solo pour élèves pilotes en formation initiale interdits.",
+      "Touch and Go interdits."
+    ]
+  }
+}

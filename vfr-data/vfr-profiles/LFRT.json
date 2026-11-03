@@ -1,0 +1,58 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRT (AIP France, chart dated 2026-02-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFRT",
+  "name": "Saint-Brieuc Armor",
+  "source": {
+    "publication": "AIP France AD 2 LFRT",
+    "chartDate": "2026-02-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.5375,
+    "longitude": -2.85667
+  },
+  "elevationFeet": 452,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "HX. Activité réelle connue du SIV Rennes 126.950 MHz. Pour les vols programmés, les vols commerciaux, EVASAN, MEDEVAC : - LUN-VEN avec PPR 24 HR. - SAM-DIM et JF avec PPR 48 HR et avant 1100 le dernier jour ouvré. - demande par mail à : operations@aeroport-saint-brieuc.fr HX. Real activity known by SIV Rennes 126.950 MHz. For scheduled flights, commercial flights, EVASAN, MEDEVAC : - MON-FRI with PPR 24 HR. - SAT, SU (UTC HIV ; HOR ETE : - 1 HR)",
+    "outsideAtsHours": "air-air frequency 118.455",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 118.455,
+    "airAir": 118.455
+  },
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD usable by ULM only with PPR 24 HR or before 1100 on the last working day, by E-mail to: tour@aeroport-saint-brieuc.fr Possible IFR operations.",
+    "AD likely to be covered by sea-haze in a few minutes.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "\"Low height\" patterns authorized for training flights with an instructor: 300 ft AAL MNM North of the RWY, limited to 2 per training session and prohibited on Sunday.",
+    "Use of PAPI mandatory IFR / VFR for night LDG RWY 06.",
+    "TWY A unusable at night.",
+    "Pilot control lighting (PCL) usable O/R before 1100 (SUM: - 1 HR) on the last working day, by E-mail to: tour@aeroport-saint-brieuc.fr AEM (NR 8974): see AIP ENR 5.5 Divers / Miscellaneous: GRF: Service d'évaluation et de report de l'état de surface de la piste / Global Reporting Format: HOR AFIS / AFIS SKED.",
+    "Assistance / Handling - TEL exploitant d'aérodrome / AD operator."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD accessible aux ULM uniquement sur PPR 24 HR ou avant 1100 le dernier jour ouvré, par E-mail à : tour@aéroport-saint-brieuc.fr Activité IFR possible.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Roulage interdit hors RWY et TWY.",
+      "Circuits \"basse hauteur\" dans le cadre des vols d'entraînement avec instructeur : minimum 300 ft AAL au Nord de la RWY, limités à 2 par séance d'instruction et interdit le dimanche.",
+      "Utilisation du PAPI obligatoire IFR / VFR pour ATT de nuit RWY 06.",
+      "Taxiway A inutilisable de nuit.",
+      "",
+      ""
+    ]
+  }
+}

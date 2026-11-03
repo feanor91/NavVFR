@@ -1,0 +1,197 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOB (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFOB",
+  "name": "Paris Beauvais",
+  "source": {
+    "publication": "AIP France AD 2 LFOB",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.45444,
+    "longitude": 2.11278
+  },
+  "elevationFeet": 359,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "0615-2200. Extension pour tout vol commercial programmé. Activité connue sur ATIS. Extension for all planned commercial flights. Activity known on ATIS (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "atis": 118.38,
+    "approach": 123.985,
+    "tower": 121.405
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        122,
+        302
+      ]
+    },
+    {
+      "id": "04/22",
+      "qfu": [
+        40,
+        220
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 49.52361,
+      "longitude": 2.1875,
+      "location": "Croisement de l'A16 sur la RD 1001 au lieu dit \" Le bois Saint Martin \""
+    },
+    {
+      "name": "WB",
+      "spoken": {
+        "fr": "Whisky Bravo",
+        "en": "Whiskey Bravo"
+      },
+      "latitude": 49.42778,
+      "longitude": 2.03972,
+      "location": "Goincourt"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 49.41944,
+      "longitude": 1.9375,
+      "location": "Hameau \" le pont qui penche \", sur la N31"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 49.32389,
+      "longitude": 2.08,
+      "location": "Travers Ouest d'un relais de télévision près de l'A16, au lieu dit \" Le bois de Molle \""
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 49.32917,
+      "longitude": 2.2,
+      "location": "Croisement de la RD 1001 avec les D2 et D44 à Noailles"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 49.39778,
+      "longitude": 2.12889,
+      "location": "Échangeur de l'A16 à Allone"
+    }
+  ],
+  "notes": [
+    "No ACFT may take off or land from 2300 to 0400, departure or arrival time on apron.",
+    "Due to partially unpaved shoulders of RWY 12-30, AD is not usable for four-engine ACFT whose wingspan is equal or greater than 36 m and whose overall width of main undercarriage is equal or greater than 9 m.",
+    "Prohibited to gliders.",
+    "Prohibited to ULM.",
+    "An exemption can be delivered by ATC when air traffic conditions and characteristics of ACFT allow it.",
+    "Outside ATS SKED: simultaneous TKOF and LDG on RWY 12/30 and 04/22 prohibited.; When taxiing on RWY 12/30, in the event of simultaneous use of RWY 04/22 by another ACFT, maintain on RWY 12/30 before TWY November, away from the center lines of RWY 04/22.",
+    "VAC published routes are likely to be imposed by ATC.",
+    "RWY 12/30: Closed at night outside ATS SKED (absence of PCL).",
+    "RWY 04/22: TKOF and LDG prohibited at night (absence of lighting).",
+    "Trafic forbidden by visibility < 1500m.",
+    "TWY A: limited to ACFT whose wingspan is < 15m with OMGWS < 4.5m.",
+    "Traffic forbidden by visibility < 1500 m.",
+    "TWY H: limited to ACFT whose wingspan is < 15m with OMGWS < 4.5m.",
+    "Usable daytime only.Traffic forbidden by visibility < 1500 m.",
+    "TWY N: limited to ACFT whose wingspan is < 52m with OMGWS < 15m.",
+    "TWY P: limited to ACFT whose wingspan is < 15m with OMGWS < 4.5m.",
+    "Traffic forbidden by visibility < 1500 m.",
+    "TWY R: limited to ACFT whose wheelbase < 18m.",
+    "Trafic forbidden by RVR < 550 m.",
+    "TWY T: limited to ACFT whose wingspan is < 24m with OMGWS < 6m.",
+    "Traffic forbidden by RVR < 350 m.",
+    "Management of PRKG areas On aprons, pilots ensure collision avoidance, their own separation and the safety of third parties.",
+    "The control tower organizes the taxiing sequences for the entrance to the manoeuvring area.",
+    "The TWR's responsibility ceases upon arrival, when the aircraft enters the apron (delimited by the safety line) and, on departure, begins as soon as it enters the manoeuvring area.",
+    "The establishment of radio contact is required before entering this area.",
+    "Slopes on PRKG stands between 1% and 1.8%: wheel chocks mandatory.",
+    "Main apron assigned primarily to commercial ACFT.",
+    "Light Aviation apron assigned primarily to light transient ACFT.",
+    "North apron assigned primarily to based ACFT.",
+    "IGN apron reserved for ACFT authorized by the IGN.",
+    "MAIN APRON: On arrival, parking stands are assigned by Beauvais OPS, this information is relayed to the aircraft by the TWR.",
+    "No guidance device, marshaller required at all parking stands.",
+    "Upon arrival at the parking stand, mandatory contact with Beauvais OPS 131.540 MHz, do not leave the aircraft without being screened by a security officer.",
+    "At departure and prior to all taxiing, mandatory contact with the TWR.",
+    "When a route overfly a town or an isolated location, they have to be bypassed in order to respect overflying rules as described in order dated October 10th, 1957.",
+    "Traffic surveillance equipment: AD equipped with radar display (see AD 1.0).",
+    "Radiocommunication failure: Visual signals and pyrotechnic means are inoperative.",
+    "Informations diverses / Miscellaneous Divers / Miscellaneous: GRF: Service d'évalution et de report de l'état de surface de piste / Global Reporting Format: HOR RFFS / RFFS SKED Sûreté / Security H24 - TEL: 06 78 98 88 39 ou / or 06 17 65 55 71. « COLLABORATIVE AERODROME SAFETY HIGHLIGHTS » sont disponibles à Additional information for the preparation of flights called \"COLLABORATIVE AERODROME SAFETY HIGHLIGHTS\" is available at https://www.ecologiquesolidaire.gouv.fr/collaborative-aerodrome-safety-highlights-cash These data are published for information purposes only, and are not exhaustive.",
+    "They are in no way a substitute for the reference aeronautical information disseminated through AIP France, NOTAMs and SUP AIPs."
+  ],
+  "fr": {
+    "notes": [
+      "Aucun ACFT ne peut décoller ou atterrir entre 2300 et 0400, heures de départ ou d'arrivée sur l'aire de stationnement.",
+      "En raison d'accotements partiellement revêtus de la piste 12-30, l'aérodrome n'est pas utilisable par les aéronefs quadrimoteurs d'envergure supérieure ou égale à 36 m et dont la largeur hors-tout du train principal est supérieure ou égale à 9 m.",
+      "Interdit au VAV.",
+      "Interdit aux ULM.",
+      "Une dérogation peut être accordée par la tour lorsque les conditions de circulation aérienne et les caractéristiques de l'ACFT le permettent.",
+      "Hors horaires ATS : DEC et ATT simultanés sur RWY 12/30 et 04/22 interdits. Lors du roulage sur la RWY 12/30, en cas d'exploitation simultanée de la RWY 04/22 par un autre.",
+      "Les itinéraires publiés sur la carte VAC sont susceptibles d'être imposés par le CTL.",
+      "",
+      "Piste 04/22 : DEC et ATT interdits de nuit (absence de balisage lumineux).",
+      "Circulation des aéronefs interdite par visibilité < 1500m.",
+      "TWY A : limité aux aéronefs d'envergure < 15 m avec OMGWS < 4.5m.",
+      "Circulation des aéronefs interdite par visibilité < 1500 m.",
+      "TWY A : limité aux aéronefs d'envergure < 15 m avec OMGWS < 4.5m.",
+      "Circulation des aéronefs interdite par visibilité < 1500 m.",
+      "TWY N : limité aux aéronefs d'envergure < 52 m avec OMGWS < 15m.",
+      "TWY P : limité aux aéronefs d'envergure < 15 m avec OMGWS < 4.5m.",
+      "Circulation des aéronefs interdite par visibilité < 1500 m.",
+      "TWY R : limité aux aéronefs d'empattement < 18m.",
+      "Circulation des aéronefs interdite par RVR < 550 m.",
+      "TWY T : limité aux aéronefs d'envergure < 24 m avec OMGWS < 6m.",
+      "Circulation des aéronefs interdite par RVR < 350 m.",
+      "BEAUVAIS TILLE RWY TORA TODA 04 708 708 22 708 708 12 2429 2429 TWY N 1653 1653 TWY T 1925 1925 TWY W 2033 2033 30 2429 2429 TWY N 799 799 Gestion des aires de trafic Sur les aires de trafic, les pilotes assurent la prévention des abordages et des collisions, leur propre séparation et la sécurité des tiers.",
+      "La tour de contrôle organise les séquences de roulage pour l'entrée sur l'aire de manoeuvre.",
+      "BEAUVAIS TILLE La responsabilité de la TWR cesse à l'arrivée, lorsque l'aéronef pénètre sur l'aire de trafic (délimitée par la ligne de sécurité) et, au départ, commence dès qu'il entre sur l'aire de manoeuvre.",
+      "L'établissement d'un contact radio est obligatoire avant la pénétration sur cette aire.",
+      "Pentes sur postes de stationnement entre 1% et 1,8% : calage obligatoire.",
+      "PRKG Principal affecté prioritairement aux ACFT commerciaux.",
+      "PRKG Aviation Légère affecté prioritairement aux ACFT légers de passage.",
+      "PRKG Nord affecté prioritairement aux ACFT basés.",
+      "PRKG IGN réservé aux ACFT autorisés par l'IGN.",
+      "PARKING PRINCIPAL : A l'arrivée, les postes de stationnement sont attribués par Beauvais OPS, cette information est relayée aux aéronefs par la TWR.",
+      "Aucun dispositif de guidage, placeur obligatoire sur tous les postes de stationnement.",
+      "Dès l'arrivée au poste de stationnement, contact obligatoire avec Beauvais OPS 131.540 MHz, ne pas quitter l'aéronef sans avoir été inspecté filtré par un agent de sûreté.",
+      "Au départ et préalablement à tous les déplacements, contact obligatoire avec la TWR.",
+      "Lorsqu'un itinéraire passe par une agglomération ou une installation isolée, celles-ci devront être contournées afin de respecter les règles de survol décrites dans l'arrêté du 10 octobre 1957.",
+      "Équipement de surveillance du trafic : Aérodrome équipé d'une visualisation radar (voir AD 1.0).",
+      "",
+      "BEAUVAIS TILLE 18 - Des informations complémentaires pour la préparation des vols appelées l'adresse https://www.écologique-solidaire.gouv.fr/collaborative-aérodrome-safetyhighlights-cash Ces données sont publiées uniquement à titre indicatif et informatif, et ne sont pas exhaustives.",
+      "Elles ne se substituent en aucun cas à l'information aéronautique de référence diffusée au travers de l'AIP France, des NOTAM et des SUP AIP."
+    ]
+  }
+}

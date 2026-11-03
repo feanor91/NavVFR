@@ -1,0 +1,235 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFTW (AIP France, chart dated 2026-03-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFTW",
+  "name": "Nîmes-Garons",
+  "source": {
+    "publication": "AIP France AD 2 LFTW",
+    "chartDate": "2026-03-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.7575,
+    "longitude": 4.41639
+  },
+  "elevationFeet": 309,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "NOV-FEB : 0700-1900 MAR, APR, SEP, OCT : 0700-2000 MAY, AUG : 0600-2130 JUN, JUL : 0600-2200 Extensions d'horaires connues sur ATIS / Schedules extensions reported on ATIS Modifications possibles par NOTAM / Possible changes via NOTAM Absence ATS : O/R exploitant / operator via (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 129.355,
+    "approach": 131.055,
+    "tower": 123.2,
+    "ground": 121.8
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        175,
+        355
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "AL",
+      "spoken": {
+        "fr": "Alpha Lima",
+        "en": "Alpha Lima"
+      },
+      "latitude": 43.66639,
+      "longitude": 4.5875,
+      "location": "Arles"
+    },
+    {
+      "name": "BC",
+      "spoken": {
+        "fr": "Bravo Charlie",
+        "en": "Bravo Charlie"
+      },
+      "latitude": 43.83028,
+      "longitude": 4.63333,
+      "location": "Beaucaire"
+    },
+    {
+      "name": "ET",
+      "spoken": {
+        "fr": "Écho Tango",
+        "en": "Echo Tango"
+      },
+      "latitude": 43.61917,
+      "longitude": 4.25944,
+      "location": "Canal Rhône à Séte-ouest étang du Charnier"
+    },
+    {
+      "name": "CA",
+      "spoken": {
+        "fr": "Charlie Alpha",
+        "en": "Charlie Alpha"
+      },
+      "latitude": 43.77944,
+      "longitude": 4.19472,
+      "location": "Calvisson"
+    },
+    {
+      "name": "AS",
+      "spoken": {
+        "fr": "Alpha Sierra",
+        "en": "Alpha Sierra"
+      },
+      "latitude": 43.68194,
+      "longitude": 4.21389,
+      "location": "Aimargues"
+    },
+    {
+      "name": "CS",
+      "spoken": {
+        "fr": "Charlie Sierra",
+        "en": "Charlie Sierra"
+      },
+      "latitude": 43.95278,
+      "longitude": 4.47833,
+      "location": "Collias"
+    },
+    {
+      "name": "SG",
+      "spoken": {
+        "fr": "Sierra Golf",
+        "en": "Sierra Golf"
+      },
+      "latitude": 43.64417,
+      "longitude": 4.43244,
+      "location": "Écluse canal Sud Saint-Gilles"
+    },
+    {
+      "name": "PA",
+      "spoken": {
+        "fr": "Papa Alpha",
+        "en": "Papa Alpha"
+      },
+      "latitude": 43.69025,
+      "longitude": 4.54454,
+      "location": "Péage autoroutier d'Arles"
+    },
+    {
+      "name": "BG",
+      "spoken": {
+        "fr": "Bravo Golf",
+        "en": "Bravo Golf"
+      },
+      "latitude": 43.75331,
+      "longitude": 4.51456,
+      "location": "Bellegarde",
+      "purpose": "point de compte rendu spécifique aux hélicoptères"
+    },
+    {
+      "name": "CZ",
+      "spoken": {
+        "fr": "Charlie Zoulou",
+        "en": "Charlie Zulu"
+      },
+      "latitude": 43.81514,
+      "longitude": 4.32858,
+      "location": "Saint Césaire",
+      "purpose": "point de compte rendu spécifique aux hélicoptères"
+    },
+    {
+      "name": "RD",
+      "spoken": {
+        "fr": "Roméo Delta",
+        "en": "Romeo Delta"
+      },
+      "latitude": 43.8315,
+      "longitude": 4.49725,
+      "location": "Redessan",
+      "purpose": "point de compte rendu spécifique aux hélicoptères"
+    },
+    {
+      "name": "UH",
+      "spoken": {
+        "fr": "Uniform Hôtel",
+        "en": "Uniform Hotel"
+      },
+      "latitude": 43.75606,
+      "longitude": 4.26758,
+      "location": "Uchaud",
+      "purpose": "point de compte rendu spécifique aux hélicoptères"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited for gliders.",
+    "AD prohibited for ULM, a dispensation may be granted by the chief of Aeronautical Circulation (04 66 05 31 00) when the characteristics of the aircraft allow it.",
+    "Because of few parking stands, IFR and VFR ACFT are admitted to stop over after AD operator authorization via E-mail.",
+    "NOTE: for ARR or DEP outside HOR SKED, PPR MON-FRI before 1500 and SAT, SUN, public HOL before 1500 the last working day before the flight (SUM: - 1 HR).",
+    "Unusable outside TWY and RWY.",
+    "\"Sécurité Civile\" FATO: reserved only for the \"Sécurité Civile\" ACFT.",
+    "Traffic patterns and instrument approaches trainings are: Authorized after agreement from AD operator via E- mail,; Prohibited for ACFT in CAT 1, 2 and 3 acoustic groups,; Authorized for ACFT with turbojet and turbopropeller engines in CAT 4 and 5 acoustic groups: MON-SAT except public HOL: 0700-1900 with a mandatory interruption of 1 HR between 1100 and 1300 (SUM:; 1HR),; Authorized for piston engined ACFT: 0700-1900 with a mandatory interruption of 1 HR between 1100 and 1300 (SUM: - 1HR).",
+    "Low altitude patterns trainings can only be performed in the circuit in the west from AD and are limited to 3 per hour.",
+    "Instrument approaches trainings can be restricted by Air Navigation Services (Istres and/or Montpellier Approach) and are announced by NOTAM.",
+    "Conditions: ACFT: VIS 3000m - ceiling 1000ft; HEL: VIS 800m - ceiling 600ft.",
+    "AD approved for night VFR, usable O/R to AD operator.",
+    "Traffic surveillance equipment.",
+    "AD equipped with radar display (see AD 1.0).",
+    "STAP / PCL: FR only.",
+    "Reserved for based aircraft.",
+    "Available parameters: Wind, VIS, RVR, ceiling, T, DP, QNH, QFE.",
+    "PCL: PPR to AD operator.",
+    "Informations diverses / Miscellaneous Horaires sauf indication contraire / Timetables unless otherwise specified UTC HIV; HOR ETE: - 1 HR / UTC WIN; SUM SKED: - 1 HR Douanes, Police / Customs, Police: Commercial scheduled flights according to programme.",
+    "International flights, MON-FRI: 0700-1600: PPR 24 HR,; 1600-1900: PPR 1 HR before 1500,; 1900-0700: PPR 24 HR.",
+    "SAT, SUN and public HOL: PPR before 1500 on the last working day.",
+    "Carburant / Fuel: JET A1 - AVGAS Lubrifiants / Oil: NIL.",
+    "HOR / SKED: voir / see NOTAM.",
+    "Hors HOR / Outside SKED: O/R avant / before 1700 - SAM, DIM et JF / SAT, SUN and public HOL: PPR avant / before 1700 le dernier jour ouvrable / on the last working day.",
+    "Cash payment, WFS, AEG or credit card.",
+    "Level 7 for regular scheduled commercial flights or on PPR 24 HR from AD operator.",
+    "SKED: see NOTAM.",
+    "Level 5: see RFFS NOTAM.",
+    "Péril animalier / Wildlife strike hazard: By day, occasional and scheduled commercial flights."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux VAV.",
+      "AD interdit aux ULM, une dérogation peut être accordée par le Chef de la Circulation Aérienne (04 66 05 31 00) lorsque les caractéristiques de l'avion le permettent.",
+      "En raison de la capacité d'accueil réduite, les aéronefs IFR et VFR désirant faire escale sont admis sur autorisation auprès de l'exploitant AD par E-mail.",
+      "NOTA : pour ARR ou DEP hors HOR ATS, PPR LUNVEN avant 1500 et SAM, DIM, JF avant 1500 le dernier jour ouvrable précédent le vol.",
+      "Inutilisable hors TWY et RWY.",
+      "FATO Sécurité Civile : réservée à l'usage exclusif des ACFT de la Sécurité Civile.",
+      "",
+      "Les entraînements aux tours de piste basse hauteur ne sont autorisés que dans le circuit à l'ouest de l'AD et limités à 3 par heure.",
+      "Les entraînements aux procédures IFR peuvent être limités par les Services de la Navigation Aérienne (Approche d'Istres et/ou Montpellier) et sont annoncés par NOTAM.",
+      "HEL : VIS ≥ 800m - plafond ≥ 600ft VFR de nuit AD agrée VFR de nuit, utilisable sur demande auprés de l'exploitant AD.",
+      "AD agrée VFR de nuit, utilisable sur demande auprés de l'exploitant AD.",
+      "Équipement de surveillance du trafic.",
+      "AD équipé d'une visualisation radar (voir AD 1.0).",
+      "STAP / PCL : FR uniquement.",
+      "Réservé aux aéronefs basés.",
+      "Paramètres disponibles : Vent, VISI, RVR, base des nuages, T°, DP, QNH, QFE.",
+      "PCL : PPR auprès de l'exploitant d'aérodrome.",
+      "NIMES GARONS 9 - Vols réguliers commerciaux selon programmation.",
+      "Vols internationaux, LUN-VEN : 0700-1600 : PPR 24 HR ; 1600-1900 : PPR 1 HR avant 1500 ; 1900-0700 : PPR 24 HR.",
+      "SAM, DIM et JF : PPR avant 1500 le dernier jour ouvrable.",
+      "",
+      "",
+      "",
+      "",
+      "11 - RFFS : Niveau 7 pour ACFT commerciaux réguliers programmés ou sur PPR 24 HR à l'exploitant d'AD.",
+      "HOR : voir NOTAM.",
+      "Niveau 5 : voir NOTAM RFFS.",
+      ""
+    ]
+  }
+}

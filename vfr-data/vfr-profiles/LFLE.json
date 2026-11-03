@@ -1,0 +1,91 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLE (AIP France, chart dated 2025-09-04): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFLE",
+  "name": "Chambéry - Challes-les-Eaux",
+  "source": {
+    "publication": "AIP France AD 2 LFLE",
+    "chartDate": "2025-09-04",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.56056,
+    "longitude": 5.97583
+  },
+  "elevationFeet": 973,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.405",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.405
+  },
+  "runways": [
+    {
+      "id": "14",
+      "qfu": [
+        141
+      ]
+    }
+  ],
+  "preferredQfu": 321,
+  "preferredQfuReason": "preferred QFU 321, due to prevailing wind",
+  "notes": [
+    "AD located in a densely populated area.",
+    "Therefore, it is prohibited to carry out HEL training flights to or from the AD, as well as over the same areas, nonstop circular tourist flights or flights with a stopover of less than one hour.",
+    "AD reserved for radio-equipped ACFT.",
+    "Grass RWY reserved for gliders and home-based ACFT.",
+    "LDF and TKOF suspended if a glider is immobilized on the grass RWY within half a RWY width of the common boundary.",
+    "Simultaneous use of paved RWY and grass RWY prohibited.",
+    "Simultaneous use of paved RWY and FATO prohibited.",
+    "Simultaneous use of TWY B and FATO prohibited.",
+    "TWY A and F reserved for based ACFT.",
+    "TWY B, C, D and E reserved for ACFT with main gear width smaller or equal to 3.5 m.",
+    "TWY E reserved for ACFT with a MAX wingspan of 10 m.",
+    "Without glider activity, possible presence of 13e BCA paragliders between the spot elevation 2700 ft QNH located East of AD and the barracks located on East edge of unpaved RWY.",
+    "This activity is subjected to a radio listening on the AD frequency during flights.",
+    "Training and commercial IFR traffic from, to or in transit in CHAMBERY AIX LES BAINS (LFLB) airspaces to the West of the AD.",
+    "Highly noise-sensitive AD.",
+    "Avoid TKOF and LDG before 0700 (LOC) and after 1900 (LOC).",
+    "Traffic patterns reserved for based ACFT.",
+    "Traffic patterns and exercises close to the ground are prohibited for rotating wings.",
+    "Arrival flights: anticipate radio contact to listen FREQ during 2 minutes before contact.",
+    "During winch launching: Avoid overflying AD below 2000 ft ASFC; Respect radio silence.",
+    "Preferred QFU: 321°, due to prevailing wind."
+  ],
+  "fr": {
+    "notes": [
+      "Aérodrome situé en zone à forte densité de population.",
+      "En conséquence, il est interdit pour les HEL d'effectuer des vols d'entraînement au départ ou à destination de l'aérodrome ainsi qu'au-dessus des mêmes zones, des vols touristiques circulaires sans escale ou avec escale de moins d'une heure.",
+      "AD réservé aux ACFT munis de radio.",
+      "Piste non revêtue réservée aux planeurs et aux ACFT basés.",
+      "LDG et TKOF suspendus si un planeur est immobilisé sur la piste non revêtue à moins d'une demi-largeur de piste de la limite commune.",
+      "Utilisation simultanée des deux pistes interdite.",
+      "Utilisation simultanée de la piste revêtue et de la FATO interdite.",
+      "Utilisation simultanée du TWY B et de la FATO interdite.",
+      "TWY A et F réservés aux aéronefs basés.",
+      "TWY B, C, D et E réservés aux ACFT avec largeur de train principal inférieure ou égale à 3,5 m.",
+      "TWY E réservé aux ACFT avec une envergure MAX de 10 m.",
+      "En l'absence d'activité planeur, présence possible de parapentes du 13ème BCA entre le point coté 2700 ft QNH situé à l'Est de l'AD et la caserne implantée en bordure Est de la piste non revêtue.",
+      "Cette activité est soumise à une veille radio sur la fréquence de l'aérodrome pendant la durée des vols.",
+      "Trafic IFR commercial et d'entraînement au départ, à destination ou en transit dans les espaces de CHAMBERY AIX LES BAINS (LFLB) à l'Ouest de l'AD.",
+      "AD très sensible au bruit.",
+      "Éviter au maximum les décollages et atterrissages avant 0700 (LOC) et après 1900 (LOC).",
+      "Tours de piste réservés aux ACFT basés.",
+      "Tours de piste et exercices à proximité du sol interdits pour les voilures tournantes.",
+      "Vols à l'arrivée : anticiper le contact radio afin d'écouter la FREQ pendant 2 minutes avant de s'annoncer.",
+      "Pendant les périodes de treuillage : Ne pas effectuer la reconnaissance de site à une hauteur < 2000 ft ASFC. Respecter le silence radio.",
+      "QFU 321° préférentiel cause vent dominant."
+    ]
+  }
+}

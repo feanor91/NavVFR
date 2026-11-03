@@ -1,0 +1,40 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFEW (AIP France, chart dated 2019-08-15): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFEW",
+  "name": "Saulieu - Liernais",
+  "source": {
+    "publication": "AIP France AD 2 LFEW",
+    "chartDate": "2019-08-15",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 47.23861,
+    "longitude": 4.26444
+  },
+  "elevationFeet": 1710,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "fis": 120.675,
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        54,
+        234
+      ]
+    }
+  ]
+}

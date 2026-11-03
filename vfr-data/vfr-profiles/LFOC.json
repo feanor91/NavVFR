@@ -1,0 +1,61 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOC (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFOC",
+  "name": "Châteaudun",
+  "source": {
+    "publication": "AIP France AD 2 LFOC",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.05778,
+    "longitude": 1.37972
+  },
+  "elevationFeet": 431,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 125.625",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 125.625
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        96,
+        276
+      ]
+    }
+  ],
+  "notes": [
+    "AD with restricted use: AD reserved for radio equipped ACFT; AD reserved for home-based ACFT and for non home- based ACFT authorized by AD operator.",
+    "RWY 28: TKOF funnel penetrated by surrounding fences and natural terrain.",
+    "RWY 10: TKOF funnel penetrated by surrounding fences and natural terrain.",
+    "AEM activity at Nottonville: see AIP ENR 5.5 Taxiing: Width TWY A limited to 14.5 m; Width TWY C limited to 14.1 m; PCN TWY B: 18 R/B/W/T.",
+    "Altimeter setting on holding points: TWY A: ALT 430 ft; TWY C: ALT 416 ft; TWY B: ALT 428 ft.",
+    "AEM activity at AD (N°8240): see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD à usage restreint : AD réservé aux ACFT munis de radio ; AD réservé aux ACFT basés et à ceux non basés autorisés par l'exploitant.",
+      "Piste 10 : Trouée de TKOF percée par le grillage de l'enceinte et le terrain naturel.",
+      "Piste 10 : Trouée de TKOF percée par le grillage de l'enceinte et le terrain naturel.",
+      "Activité AEM à Nottonville (N° 8899) : voir AIP ENR 5.5 Procédures et consignes particulières Roulage : Largeur TWY A limitée à 14.5 m ; Largeur TWY C limitée à 14.1 m ; Portance TWY B limitée à 18 R/B/W/T.",
+      "Calage altimétrique sur points d'attente : TWY A : ALT 430 ft ; TWY C : ALT 416 ft ; TWY B : ALT 428 ft.",
+      "Activité AEM sur AD (N°8240) : voir AIP ENR 5.5"
+    ]
+  }
+}

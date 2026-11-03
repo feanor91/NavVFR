@@ -1,0 +1,172 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFNA (AIP France, chart dated 2026-04-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFNA",
+  "name": "Gap - Tallard",
+  "source": {
+    "publication": "AIP France AD 2 LFNA",
+    "chartDate": "2026-04-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.45389,
+    "longitude": 6.03667
+  },
+  "elevationFeet": 1966,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : HIV / WIN : 0800-1130, 1300-1530. ETE / SUM : 0800-1130, 1300-1630. Extension possible toute l'année / Possible extension all year long. CIV : (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 119.105",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 119.105
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        23,
+        203
+      ]
+    },
+    {
+      "id": "02L/20R",
+      "qfu": [
+        23,
+        203
+      ]
+    },
+    {
+      "id": "02R/20L",
+      "qfu": [
+        23,
+        203
+      ]
+    }
+  ],
+  "preferredQfu": 203,
+  "preferredQfuReason": "preferred QFU 203, for TKOF with North sector wind whose speed is lower than 5 m/s",
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 44.54083,
+      "longitude": 6.03528,
+      "location": "Viaduc SNCF",
+      "purpose": "altitude de vol 4500 ft AMSL"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 44.46778,
+      "longitude": 6.16778,
+      "location": "Remollon",
+      "purpose": "altitude de vol 4500 ft AMSL"
+    },
+    {
+      "name": "E1",
+      "spoken": {
+        "fr": "Écho un",
+        "en": "Echo one"
+      },
+      "latitude": 44.47944,
+      "longitude": 6.08333,
+      "location": "Carrefour routier",
+      "purpose": "altitude de vol 3500 ft AMSL"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 44.38028,
+      "longitude": 5.94556,
+      "location": "Pont sur Durance",
+      "purpose": "altitude de vol 4000 ft AMSL"
+    },
+    {
+      "name": "S1",
+      "spoken": {
+        "fr": "Sierra un",
+        "en": "Sierra one"
+      },
+      "latitude": 44.42083,
+      "longitude": 6.02028,
+      "location": "Barrage",
+      "purpose": "altitude de vol 3300 ft AMSL"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio equipped ACFT.",
+    "Helistation for home based HEL use only.",
+    "Simultaneous use of both paved RWY and unpaved RWY prohibited.",
+    "All airplane LDG and TKOF are to be suspended if a glider or a launching tug towing a glider are closer than 40 m from the common side.",
+    "Landing or take off of an ACFT on RWY (paved or not) will be possible if on the other RWY, the other ACFT is at the holding point or \"speed controlled\" has been annonced.",
+    "Simultaneous use of both unpaved RWY (20R/02L) 700 x 80 m and glider gathering strip (20L/02R) 400 x 60 m is forbidden.",
+    "Glider gathering strip (20L/02R) 400 x 60 m reserved only for gliders LDG and for helicopters training upon authorization from operator.",
+    "Simultaneous use of both gilder gathering strip 400 x 60 m and helicopter FATO is forbidden.",
+    "Gliders' acceleration strip 443 x 10 m reserved for gliders activity and other ACFT outside gliders activity period.",
+    "Pilots' attention is drawn towards the declivity of RWY 20 at LDG.",
+    "Possible presence of birds in autumn.",
+    "Routes are depicted on chart.",
+    "Avoid overflying the surrounding built up areas.",
+    "Reserved area for parachuting West of RWY.",
+    "Pilots must stay on the Eastside of the paved RWY in order to know the windsock information.",
+    "No overhead airfield.",
+    "Preferred QFU 203° for TKOF with North sector wind whose speed is lower than 5 m/s.",
+    "During PJE or glider activity aircraft HR service aircrafts, (glider-tower or parachute droping plane) can use QFU 023° for landing instead of preferential QFU 203°.",
+    "For ACFT joining traffic pattern at 203° must give position beginning base leg.",
+    "Gliders descent zone (ZPA) for integration.",
+    "Arrival ALT 3000 ft (1000 m) AMSL.",
+    "Based ACFT: circuit patterns limited to 4 per ACFT, limited to 2 ACFT MAX for training, except AD operator's agreement.",
+    "Non-based ACFT: circuit pattern prohibited, except AD operator's agreement.",
+    "Gathering of more than 6 ACFT, PPR 2 months to AD operator.",
+    "GROUND TAXIING:"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Hélistation réservée aux HEL basés.",
+      "L'utilisation simultanée piste revêtue et piste non revêtue accolées interdite.",
+      "Tout LDG et TKOF d'avions est suspendu si un planeur ou un attelage se trouve à moins de 40 m de la limite commune.",
+      "L'atterrissage ou le décollage d'un aéronef sur l'une des pistes (revêtues ou non) pourra avoir lieu à condition que, sur l'autre piste, l'autre aéronef soit à l'arrêt ou ait annoncé \"vitesse contrôlée\".",
+      "Utilisation simultanée de la piste non revêtue (20R/02L) 700 x 80 m et de la bande recueil planeur (20L/02R) 400 x 60 m interdite.",
+      "Bande recueil planeur (20L/02R) 400 x 60 m réservée uniquement à l'atterrissage des planeurs et à l'entraînement des hélicoptères sur autorisation du gestionnaire.",
+      "Utilisation simultanée de la bande recueil planeur 400 x 60 m et de la FATO hélicoptère interdite.",
+      "Bande d'accélération planeur 443 x 10 m réservée à l'activité planeurs et autres ACFT hors activité planeurs.",
+      "L'attention des pilotes est attirée sur la déclivité de la RWY 20 à l'atterrissage.",
+      "Présence d'oiseaux possible en automne.",
+      "Itinéraires figurés sur la carte.",
+      "Éviter le survol des zones habitées avoisinantes.",
+      "A l'Ouest des pistes zone réservée au parachutisme.",
+      "Pour la reconnaissance de la manche à air, rester à l'Est de la piste en dur.",
+      "Pas de verticale terrain.",
+      "QFU 203° préférentiel au décollage par vent de secteur Nord inférieur à 5 m/s.",
+      "Durant les heures d'activité du parachutage ou du vol à voile, les avions de servitude (avions largueurs ou remorqueurs) peuvent utiliser le QFU 023° à l'atterrissage alors que le QFU préférentiel est le 203°.",
+      "Pour les aéronefs intégrant le circuit de piste au 203°, s'annoncer obligatoirement en début d'étape de base.",
+      "Zone de perte d'altitude (ZPA) des planeurs pour intégration.",
+      "ALT d'arrivée 3000 ft (1000 m) AMSL.",
+      "Aéronefs basés: tours de piste limités à 4 par aéronef dans la limite de 2 aéronefs maximum en entraînement sauf autorisation de l'exploitant.",
+      "Aéronefs non-basés : tour de piste interdit sauf autorisation de l'exploitant.",
+      "Rassemblement d'aéronefs supérieur à 6, contact exploitant obligatoire avec PPR 2 mois.",
+      ""
+    ]
+  }
+}

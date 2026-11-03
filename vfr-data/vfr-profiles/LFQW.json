@@ -1,0 +1,86 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQW (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFQW",
+  "name": "Vesoul - Frotey",
+  "source": {
+    "publication": "AIP France AD 2 LFQW",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.63861,
+    "longitude": 6.20417
+  },
+  "elevationFeet": 1249,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.155",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.155
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        79,
+        259
+      ]
+    },
+    {
+      "id": "08R/26L",
+      "qfu": [
+        79,
+        259
+      ]
+    }
+  ],
+  "preferredQfu": 79,
+  "preferredQfuReason": "preferred QFU 79, due to noise pollution and West funnel",
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "Simultaneous use of RWY prohibited.",
+    "AD reserved for radio-equipped ACFT.",
+    "Paved RWY 08/26 prohibited for ACFT whose take-off distance reference greater than 800 m.",
+    "Unpaved RWY reserved for ULM.",
+    "Preferred QFU: 079°, due to noise pollution and West funnel.",
+    "With a NW or SW wind, heavy turbulences and wind shear at THR 26, allow a displaced LDG 350 m from THR.",
+    "Obstacles (trees) through lateral surfaces.",
+    "Reserved for pilots authorized by AD operator.",
+    "PCL on frequency 118.155 MHz, SKED 1500-0800 (SUM: - 1 HR).",
+    "Threshold and RWY end lights are made up of 2 side bars perpendicular to the threshold and RWY end.",
+    "Each side bar consists of 5 lights.",
+    "PJE (NR 232): see AIP ENR 5.5 Aerobatic activity (NR 6466): see AIP ENR 5.5 AEM (NR 8051): see AIP ENR 5.5 Balloons activity: reserved for home based ACFT.",
+    "Occasional TKOF and as per as protocol."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Utilisation simultanée des pistes interdite.",
+      "AD réservé aux ACFT munis de radio.",
+      "RWY revêtue 08/26 interdite aux aéronefs dont la distance de référence au décollage est supérieure à 800 m.",
+      "Piste non revêtue réservée aux ULM.",
+      "QFU 079° préférentiel cause nuisances et trouée Ouest.",
+      "Par vent de NW ou SW, fortes turbulences et cisaillement au seuil 26, prévoir un atterrissage décalé de 350 m du seuil.",
+      "Présence d'obstacles (arbres) dans les surfaces latérales.",
+      "Réservé aux pilotes autorisés par l'exploitant.",
+      "PCL sur fréquence 118.155 MHz, HOR 1500-0800.",
+      "Feux de seuils et d'extrémité de piste installés au droit du seuil et de l'extrémité en 2 barres de flanc.",
+      "Chaque barre de flanc est composée de 5 feux.",
+      "Activité parachutisme (N° 232) : voir AIP ENR 5.5 Activité voltige (N° 6466) : voir AIP ENR 5.5 AEM (N° 8051) : voir AIP ENR 5.5 Activité ballons : réservée aéronefs basés.",
+      "Décollages occasionnels et selon protocole."
+    ]
+  }
+}

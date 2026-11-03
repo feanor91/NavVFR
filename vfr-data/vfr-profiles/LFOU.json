@@ -1,0 +1,92 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOU (AIP France, chart dated 2026-06-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFOU",
+  "name": "Cholet - Le Pontreau",
+  "source": {
+    "publication": "AIP France AD 2 LFOU",
+    "chartDate": "2026-06-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.08194,
+    "longitude": -0.87722
+  },
+  "elevationFeet": 443,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : ETE : LUN - SAM : 0530-1000 et 1130-1700, DIM et JF : 1200-1700. HIV : LUN - SAM : 0700-1100 et 1230-1800, DIM et JF : 1300-1800. En dehors de ces HOR, PPR dernier jour ouvrable avant 1700. SUM : MON - SAT : 0530-1000 and 1130-1700, SUN and public HOL : 1200-1700. WIN : MON - SAT : 0700-1100 and 1230-1800, SUN and public HOL : 1300-1800. Outside these SKED, PPR before 1700 on the last working day. Aérodrome de (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 124.25,
+    "afis": 120.405
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        25,
+        205
+      ]
+    },
+    {
+      "id": "02R/20L",
+      "qfu": [
+        25,
+        205
+      ]
+    }
+  ],
+  "preferredQfu": 204,
+  "preferredQfuReason": "preferred QFU 204, due to IFR procedure",
+  "notes": [
+    "Possible IFR operations.",
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of both RWYs prohibited.",
+    "Unpaved RWY not available after heavy rain.",
+    "TORA RWY 20 = 1290 m Reduced TORA and TODA RWY 20 due to road gauge located in take-off funnel.",
+    "Use of unpaved RWY reserved for ACFT authorized by AD operator outside gliders activity hours.",
+    "Outside ATS SKED, entrance and exit of unpaved RWY must be performed in front of the terminal.",
+    "\"Low height\" circuits: during training flights only with an instructor on board: minimum 500 AAL, West of RWY 02/20.",
+    "Preferred QFU: 204° due to IFR procedure.",
+    "TKOF QFU 024°: outside ATS SKED, backtracking and lining up only from holding point A.",
+    "From East apron, join holding point A via TWY C and B.",
+    "TKOF QFU 204°: line up at RWY threshold to avoid noise.",
+    "After TKOF: take initial departure heading 267°.",
+    "TWY C reserved for ACFT with wingspan less than 15 m.",
+    "RWY pattern training forbidden between 2100 and 0700 (SUM: - 1 HR).",
+    "ATS absence: PAPI 02 unavailable.",
+    "Aerobatics NR 6390: see AIP ENR 5.5 AEM NR 8308: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux pistes interdite.",
+      "Piste non revêtue inutilisable après fortes pluies.",
+      "TORA RWY 20 = 1290 m TORA et TODA réduites RWY 20 cause gabarit routier situé dans la trouée de décollage.",
+      "",
+      "Hors HOR ATS, la pénétration et la sortie de la piste non revêtue s'effectuent impérativement face à l'aérogare.",
+      "Circuits \"basse hauteur\" dans le cadre des vols d'entraînement avec instructeur uniquement : minimum 500 AAL à l'Ouest de la piste 02/20.",
+      "QFU 204° préférentiel cause procédure IFR.",
+      "TKOF QFU 024° : hors HOR ATS, remontée de piste et alignement uniquement depuis point d'attente A.",
+      "Depuis PRKG Est, rejoindre le point d'attente A par TWY C puis B.",
+      "TKOF QFU 204° : alignement au seuil de piste cause nuisances sonores.",
+      "Après TKOF : prendre cap de départ initial 267°.",
+      "TWY C réservé aux ACFT d'envergure inférieure à 15 m.",
+      "Entraînement tour de piste interdit entre 2100 et 0700 (ETE : - 1 HR).",
+      "Absence ATS : PAPI 02 indisponible.",
+      "Activité voltige N° 6390 : voir AIP ENR 5.5 AEM N° 8308 : voir AIP ENR 5.5"
+    ]
+  }
+}

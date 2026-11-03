@@ -1,0 +1,71 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDV (AIP France, chart dated 2024-01-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFDV",
+  "name": "Couhé - Vérac",
+  "source": {
+    "publication": "AIP France AD 2 LFDV",
+    "chartDate": "2024-01-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.27056,
+    "longitude": 0.18833
+  },
+  "elevationFeet": 500,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.23",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "airAir": 119.23
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        19,
+        199
+      ]
+    }
+  ],
+  "preferredQfu": 199,
+  "preferredQfuReason": "preferred QFU 199, due to DTHR RWY 20",
+  "notes": [
+    "Simultaneous use of ACFT RWY and ULM strip prohibited.",
+    "ACFT without radio must contact ACB before use.",
+    "Low height patterns only with onboard instructor.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Access to ULM strip from TWY / access to TWY from ULM strip: crossing grass RWY at the panel A02/20.",
+    "Preferred QFU 199° due to DTHR RWY 20.",
+    "Wind turbines near the South circuit of ULM strip: caution is recommended.",
+    "1- Based pilots: a) holder of the night flight rating, b) practical assessment of night flying ability on site by a qualified instructor, c) certificate of knowledge of local regulations setting out specific rules for use of the aerodrome.",
+    "2- Non-based pilots: a) authorized by aerodrome operator, b) holder of the night flight rating, c) a minimum of 200 flight hours' experience, including 20 hours at night, and recent practical experience (3 night take-offs and 3 night landings in the last 3 months) or have passed a practical assessment of night flying ability on site by a qualified instructor are required, d) certificate of knowledge of local regulations setting out specific rules for use of the aerodrome.",
+    "Pilots should be aware before each flight of special instructions concerning the use of the platform from the ACB, PN 36 HR.",
+    "PUL towed by ULM activity on ULM strip."
+  ],
+  "fr": {
+    "notes": [
+      "Utilisation simultanée de la piste avion et de la bande ULM interdite.",
+      "Les ACFT sans radio doivent s'informer auprès de l'ACB avant utilisation.",
+      "Circuits basse hauteur avec instructeur à bord uniquement.",
+      "Roulage interdit hors RWY et TWY.",
+      "Accès à la bande ULM depuis le TWY / accès au TWY depuis la bande ULM : traversée de la piste en herbe au niveau du panneau A02/20.",
+      "QFU 199° préférentiel cause DTHR RWY 20.",
+      "Présence d'éoliennes à proximité du circuit Sud de la bande ULM : prudence recommandée.",
+      "VFR de nuit limité : 1- Pilotes basés : a) titulaire de la qualification vol de nuit, b) évaluation pratique d'aptitude en vol de nuit sur site par un instructeur qualifié, c) Attestation de connaissance des consignes locales fixant les règles particulières d'utilisation de l'aérodrome.",
+      "2- pilotes non-basés : a) Autorisé par l'exploitant de l'aérodrome, b) titulaire de la qualification vol de nuit, c) Avoir une expérience minimale de 200 heures de vol dont 20 heures de nuit et une pratique récente (3 décollages et 3 atterrissages de nuit dans les 3 derniers mois) ou avoir satisfait à une évaluation pratique d'aptitude en vol de nuit sur site par un instructeur qualifié, d) Attestation de connaissance des consignes locales fixant les règles particulières d'utilisation de l'aérodrome.",
+      "Les pilotes devront avant chaque vol prendre connaissance des conditions particulières d'utilisation de l'infrastructure auprès de l'ACB avec un préavis de 36 HR.",
+      "Activité Deltaplanes tractés par ULM sur bande ULM."
+    ]
+  }
+}

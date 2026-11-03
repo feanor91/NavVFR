@@ -1,0 +1,91 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFFO (AIP France, chart dated 2022-06-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFFO",
+  "name": "Beauvoir - Fromentine",
+  "source": {
+    "publication": "AIP France AD 2 LFFO",
+    "chartDate": "2022-06-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.89056,
+    "longitude": -2.08861
+  },
+  "elevationFeet": 10,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.935",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.935
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        99,
+        279
+      ]
+    }
+  ],
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "AD reserved for home-based ACFT.",
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited to paramotors.",
+    "Unpaved RWY unusable after strong rains: ask to the AD operator.",
+    "Paved HEL landing area: FATO: 27 x 27 m, embedded white lights.",
+    "TLOF: 11.4 x 11.4 m, embedded green lights.",
+    "No Taxiing prohibited except on RWY and TWY.",
+    "AD very sensitive to the noise.",
+    "Avoid overflying inhabited neighboring areas.",
+    "School flying activity reserved for associations with prior authorization from AD operator.",
+    "Training or school traffic patterns reserved for homebased ACFT.",
+    "Low height pattern for training flights with instructor pilot: 600 ft AAL North and South of RWY.",
+    "AD accessible to helicopters by day when unpaved runway is closed.",
+    "The Beauvoir-L'Ile d'Yeu connection is authorized to make a straight-in approach RWY 10.",
+    "Opening at night for helicopters with 24 hours notice to the operator and without notice for rescue operations.",
+    "At night, preferential approach and take-off axes of the helipad are those of the unpaved runway (099° and 279°).",
+    "The parking stand must be cleared.",
+    "Parachuting activity on AD (NR 214): SFC/FL 135.",
+    "15 APR - 15 OCT: SAT, SUN, public HOL: SR-SS.",
+    "Activity reserved for users authorized by DSAC-O / Pays-de-la-Loire delegation and according to protocol.",
+    "Users' information on NANTES Information or NANTES Approach FREQ."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "AD réservé aux ACFT basés.",
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux paramoteurs.",
+      "Piste non revêtue inutilisable après fortes pluies : se renseigner auprès de l'exploitant.",
+      "Zone de poser HEL revêtue : FATO : 27 x 27 m, balisage encastré blanc.",
+      "TLOF : 11,4 x 11,4 m, balisage encastré vert.",
+      "",
+      "AD très sensible au bruit.",
+      "Éviter le survol des zones habitées avoisinantes.",
+      "Activité école réservée aux associations avec autorisation préalable de l'exploitant.",
+      "Tours de piste en entraînement ou instruction réservés aux ACFT basés.",
+      "Circuit « basse hauteur » dans le cadre des vols d'entraînement avec instructeur : 600 ft AAL au Nord et au Sud de la piste.",
+      "De jour, AD accessible aux hélicoptères lorsque la piste non revêtue est fermée.",
+      "La liaison Beauvoir-L'Ile d'Yeu est autorisée à s'intégrer par une approche directe en piste 10.",
+      "Ouverture de nuit pour les hélicoptères avec préavis de 24H auprès de l'exploitant et sans avis pour les opérations de secours.",
+      "De nuit, les axes d'approche et de décollage préférentiels de l'hélisurface sont ceux de la piste non revêtue (099° et 279°).",
+      "Le poste de stationnement doit être dégagé.",
+      "Parachutage sur AD (N° 214) : SFC/FL135.",
+      "15 APR - 15 OCT : SAM, DIM, JF : SR-SS.",
+      "Activité réservée aux usagers autorisés par la DSAC-O / Délégation Pays de-la-Loire et selon protocole.",
+      "Information des usagers sur NANTES Information ou NANTES Approche."
+    ]
+  }
+}

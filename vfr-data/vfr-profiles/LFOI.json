@@ -1,0 +1,78 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOI (AIP France, chart dated 2022-10-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFOI",
+  "name": "Abbeville",
+  "source": {
+    "publication": "AIP France AD 2 LFOI",
+    "chartDate": "2022-10-06",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 50.14222,
+    "longitude": 1.83111
+  },
+  "elevationFeet": 220,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.06",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.06
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        21,
+        201
+      ]
+    },
+    {
+      "id": "13/31",
+      "qfu": [
+        132,
+        312
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "TKOF or LDG is suspended if any glider is immobilized on the unpaved RWY within less than half RWY width from the common side.",
+    "During period of strong frost or after heavy rainfalls caution advised when using unpaved RWY.",
+    "Paved RWY 02/20 prohibited for gliders.",
+    "Simultaneous use of RWY prohibited.",
+    "Hotspot: multiple holding points in the vicinity indicated with ground markings and sign names.",
+    "Caution for unintentional RWY 13/31 penetration while taxing from paved RWY 02/20.",
+    "Aerobatics NR 6507 St Riquier Gapennes on 080°/ 5 NM.",
+    "Preferential QFU RWY 02 right.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "AEM (NR 8333): 657 ft ASFC (880 ft AMSL).",
+    "0800 - SS."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Tout TKOF ou LDG d'avion est suspendu si un planeur est immobilisé sur la piste non revêtue à moins d'une demi largeur de la limite commune.",
+      "Piste non revêtue utilisable avec précaution en période de fortes gelées ou après pluies intenses.",
+      "Piste revêtue 02/20 interdite aux planeurs.",
+      "Utilisation simultanée des pistes interdite.",
+      "Hotspot : multiples points d'attente proches indiqués via marquage au sol et noms panneaux.",
+      "Attention à la pénétration involontaire de la 13/31 en roulant depuis la 02/20 revêtue.",
+      "Présence de l'activité voltige NR 6057 St Riquier Gapennes à 5 NM 080°.",
+      "QFU préférentiel en piste 02 droite.",
+      "Roulage interdit hors RWY et TWY.",
+      "AEM (N° 8333) : 657 ft ASFC (880 ft AMSL).",
+      "0800 - CS."
+    ]
+  }
+}

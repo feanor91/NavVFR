@@ -1,0 +1,201 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFTH (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFTH",
+  "name": "Toulon-Hyères",
+  "source": {
+    "publication": "AIP France AD 2 LFTH",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.09722,
+    "longitude": 6.14611
+  },
+  "elevationFeet": 13,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "Annoncés par NOTAM / Announced by NOTAM (UTC HIV ; HOR ETE : -1HR)"
+  },
+  "frequencies": {
+    "atis": 129.65,
+    "approach": 126.325,
+    "tower": 121.0,
+    "ground": 121.8
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        49,
+        229
+      ]
+    },
+    {
+      "id": "13/31",
+      "qfu": [
+        132,
+        312
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "VC",
+      "spoken": {
+        "fr": "Victor Charlie",
+        "en": "Victor Charlie"
+      },
+      "latitude": 43.19167,
+      "longitude": 6.28028,
+      "location": "Pointe NE du golf de Valcros"
+    },
+    {
+      "name": "ET",
+      "spoken": {
+        "fr": "Écho Tango",
+        "en": "Echo Tango"
+      },
+      "latitude": 43.16139,
+      "longitude": 6.61806,
+      "location": "Cap Lardier"
+    },
+    {
+      "name": "BT",
+      "spoken": {
+        "fr": "Bravo Tango",
+        "en": "Bravo Tango"
+      },
+      "latitude": 43.08,
+      "longitude": 6.39583,
+      "location": "Sud Cap Bénat"
+    },
+    {
+      "name": "CT",
+      "spoken": {
+        "fr": "Charlie Tango",
+        "en": "Charlie Tango"
+      },
+      "latitude": 42.96417,
+      "longitude": 6.23889,
+      "location": "Sud Île de Porquerolles"
+    },
+    {
+      "name": "PT",
+      "spoken": {
+        "fr": "Papa Tango",
+        "en": "Papa Tango"
+      },
+      "latitude": 43.04167,
+      "longitude": 5.81667,
+      "location": "Cap Sicié"
+    },
+    {
+      "name": "WT",
+      "spoken": {
+        "fr": "Whisky Tango",
+        "en": "Whiskey Tango"
+      },
+      "latitude": 43.14417,
+      "longitude": 5.60444,
+      "location": "1 NM Sud Cap de l'Aigle"
+    },
+    {
+      "name": "CL",
+      "spoken": {
+        "fr": "Charlie Lima",
+        "en": "Charlie Lima"
+      },
+      "latitude": 43.11028,
+      "longitude": 6.29472,
+      "location": "Cap de Léoube"
+    },
+    {
+      "name": "DG",
+      "spoken": {
+        "fr": "Delta Golf",
+        "en": "Delta Golf"
+      },
+      "latitude": 43.15778,
+      "longitude": 6.18361,
+      "location": "Chapeau de Gendarme"
+    },
+    {
+      "name": "MR",
+      "spoken": {
+        "fr": "Mike Roméo",
+        "en": "Mike Romeo"
+      },
+      "latitude": 43.16278,
+      "longitude": 6.11583,
+      "location": "Mont Redon"
+    },
+    {
+      "name": "PC",
+      "spoken": {
+        "fr": "Papa Charlie",
+        "en": "Papa Charlie"
+      },
+      "latitude": 43.07056,
+      "longitude": 6.02167,
+      "location": "Pointe de Carqueiranne"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 43.33944,
+      "longitude": 6.12083,
+      "location": "Sainte Anastasie - Travers sud du gymnase"
+    },
+    {
+      "name": "SL",
+      "spoken": {
+        "fr": "Sierra Lima",
+        "en": "Sierra Lima"
+      },
+      "latitude": 43.19139,
+      "longitude": 6.03528,
+      "location": "Solliès-Pont"
+    }
+  ],
+  "notes": [
+    "RWY 05/23: Main runway RWY 13/31: Secondary usable only if 05/23 use is not allowed by MET conditions or is not available RWY 13: LDG prohibited except state ACFT under AD director exemption RWY 31: LDG prohibited in tailwind component Wind limitations: all QFU, limitation cross wind maximum 25 kt dry RWY, 20 kt wet RWY, calculated on medium wind In order to reduce noise pollution, RWY 05/23 preferential for TKOF, whenever MET conditions allow it Priority reception to MIL traffic.",
+    "During ATS HOR Airplanes: VFR authorized under FPL and only without PAX PPR sent to civil concessionary with the following PN: Business aviation flights via myhandling; Regular flights: 2 weeks; Unregular flights during ATS HOR; 4 HR for a manager of the EU and Switzerland or from/to US and Canada; 24 HR in other case.",
+    "Usable by ACFT with the following features: ACFT: weight > 3,5 t or 10 PAX.",
+    "Others, subject to derogation from the AD director; HEL: weight > 2,7 t or 6 PAX.",
+    "HEL without these features could be admitted as part of air work or PAX transport in connection with the ACFT using AD Contact TOULON OPS before entering or moving on the air terminal PRKG or 131.910 for private PRKG For State ACFT: PPR mandatory (only by MSG or aero-hyeres.bdv-gestion.fct@intradef.gouv.fr and aero-hyeres.oqcla.fct@intradef.gouv.fr) Marshallers mandatory for start-up The afterburning is prohibited except exemption given by AD CDT Restrictions on use for combat jet engines: ATT subject to agreement by the AD director (except ACFT in an emergency situation) Quality charter from 01/06/2017 from 01/07 to 31/08: No training between 1100-1300 and 1800-2000, nor SAT, SUN and HOL Limited night track training HEL: DEP 500 ft - ARR 800 ft DEP procedures: Starting after TWR authorization Turning pad at the end of RWY 23, 31 as far as A 321 Turning pad fitted to end of RWY 13 as far as A 321 RWY 23: At the end of the strip, compulsory QDM 197°, ACFT have to overfly at MNM 21 ft a road located at a distance of 180 m from end of RWY 23 RWY 05: Climb 1000 ft straight ahead, till north of \"Les Salins\" before turning RWY 31: At the end of the RWY follow QDM 303° RWY 13: Climb QDM 139° during 30 SEC then resume navigation Post-LDG instructions: After LDG on RWY 05, a mandatory U-turn is required in the turnaround area at the end of the RWY Taxiing restriction: B2: holding point shared with strip A2.",
+    "Unusable at night T1/4/6: exclusive use for MIL or state ACFT with ATC clearance T3: width 13.7 m, taxiing cleared for ACFT with wingspan < 24 m and OMGWS (outer main gear wheelspan) < 6 m T8: usable only with ATC clearance Cargo aera: usable only with ATC clearance Transit VFR: Contact TOULON TRANSIT ACFT VIS: 1500 m Ceiling: 600 ft HEL VIS: 800 m Ceiling: 600 ft Approved with limitations.",
+    "Circuits at 1500 ft",
+    "RWY 05/23: BAK arresting cable and arresting cable with textile brakes in place according to defense needs.",
+    "Announced by NOTAM or ATIS",
+    "RWY 13/31: Arresting cable with textile brakes in place according to defense needs.",
+    "Announced by NOTAM or ATIS Taxiing on BRA is not recommended to ACFT with small wheels or low ground Airdropping activity annonced by ATS Possible UAV flights Wildlife strike hazard Yes Transit aircraft hangar"
+  ],
+  "fr": {
+    "notes": [
+      "RWY 05/23 : Piste principale RWY 13/31 : Secondaire utilisable uniquement lorsque les conditions MET ne permettent plus l'utilisation de la 05/23 ou en cas d'indisponibilité de celle-ci RWY 13 : LDG interdit sauf ACFT d'état sur dérogation du directeur d'AD RWY 31 : LDG interdit en composante vent arrière Limitation vent : tous QFU, limitation vent traversier maximum 25 kt RWY sèche, 20 kt RWY mouillée, calculée sur vent moyen Afin de diminuer les nuisances sonores, RWY 05/23 privilégiée au TKOF si les conditions MET le permettent Accueil prioritaire au trafic MIL.",
+      "Dans les HOR ATS Avions : VFR autorisés sous FPL et uniquement sans transport de PAX PPR adressé au concessionnaire civil avec PN suivants : Vols aviation d'affaires via myhandling ; Vols commerciaux réguliers : 2 semaines ; Vols non réguliers pendant les HOR ATS ; 4 HR pour un exploitant de l'espace CE, de la Suisse ou en provenance/DEST des États-Unis et du Canada ; 24 HR dans les autres cas.",
+      "Utilisable par ACFT avec les critères suivants : ACFT : masse > 3,5 t ou 10 PAX.",
+      "Autres, soumis à dérogation du directeur d'AD ; HEL : masse > 2,7 t ou 6 PAX.",
+      "HYERES LE PALYVESTRE Pour ACFT État : PPR obligatoire (uniquement par MSG ou aero-hyeres.bdv-gestion.fct@intradef.gouv.fr et aero-hyeres.oqcla.fct@intradef.gouv.fr) Présence obligatoire des parqueurs pour la mise en route Post combustion interdite sauf dérogation accordée par CDT de l'AD Restrictions d'utilisation pour les réacteurs de combat : ATT soumis à accord du directeur d'AD (sauf ACFT en situation d'urgence) Charte qualité du 01/06/2017 du 01/07 au 31/08 : Pas d'entraînement entre 1100-1300 et 1800-2000, ni SAT, SUN et JF Entraînement RWY de nuit limité Procédures et consignes particulières HEL : DEP 500 ft - ARR 800 ft Procédures de DEP : Mise en route après accord de la TWR Aire de retournement extrémité des RWY 23, 31 jusqu'à A 321 Aire de retournement adaptée extrémité de RWY 13 jusqu'à A 321 RWY 23 : En fin de bande QDM 197° impératif, ACFT doivent survoler à MNM 21 ft une route située à 180 m de l'extrémité RWY 23 RWY 05 : Monter 1000 ft dans l'axe jusqu'au travers nord des Salins puis mise de cap RWY 31 : En fin de bande suivre QDM 303° RWY 13 : Monter dans l'axe QDM 139° pendant 30 SEC puis mise de cap Consignes après LDG : Après LDG sur RWY 05, demi-tour ogligatoire sur l'aire  de retournement en bout de RWY Restriction de roulage : B2 : point d'arrêt mutualisé avec la bretelle A2.",
+      "",
+      "Agréé avec limitations. Circuits à 1500 ft",
+      "RWY 05/23 : Brins BAK et brins freins textiles en place suivant les besoins de la défense.",
+      "Annoncé par NOTAM et ATIS",
+      "RWY 13/31 : Brins freins textiles en place suivant les besoins de la défense.",
+      ""
+    ]
+  }
+}

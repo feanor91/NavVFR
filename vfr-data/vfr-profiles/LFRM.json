@@ -1,0 +1,84 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRM (AIP France, chart dated 2026-02-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFRM",
+  "name": "Le Mans-Arnage",
+  "source": {
+    "publication": "AIP France AD 2 LFRM",
+    "chartDate": "2026-02-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.94861,
+    "longitude": 0.20167
+  },
+  "elevationFeet": 194,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN-DIM /MON-SUN : - 01/10 au / to 31/03 : 0800-1130 et / and 1230-1600 - 01/04 au / to 30/09 : 0800-1130 et / and 1230-1700 Extension sur PPR 48 HR sur https://cy.myhandlingsoftware.com Extension with PPR 48 HR on https://cy.myhandlingsoftware.com Aérodrome du Mans - Route d'Angers - 72100 LE MANS (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 125.905",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 125.905,
+    "airAir": 125.905
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        19,
+        199
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of both RWY prohibited.",
+    "Possible IFR operations.",
+    "Restrictions during motor race ‘'24 heures du Mans'' and others events \"Le Mans Classic\", \"MOTO GP\" (issued by NOTAM).etc.",
+    "RWY 02 and 20 prohibited if crosswind higher than: 20 kt on wet RWY,; 25 kt on dry RWY.",
+    "North apron unavailable, except for the \"24 Hours of Le Mans\" event.",
+    "Noise-sensitive AD: RWY patterns prohibited for non home based ACFT between 2100 and 0700 UTC (SUM: - 1 HR).",
+    "The use of the RWY is permitted at night only if the PAPI are in use.",
+    "By night only TWY A is available.",
+    "Preferred QFU 019° due to IFR procedure.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "\"Low height\" circuits only for training flights with instructor and forbidden the WE and public holidays from 01st April to 31st October between 1100-1300 UTC (SUM: -1HR) and between 1800-SS UTC (SUM: -1HR): MNM 500 ft AAL East of RWY 02/20.",
+    "Avoid overflying Le Mans, Arnage and gasplant Butagaz located 2500 m from ARP QDR 200°.",
+    "RVR < 800 m: lighting and runway guard lights switched on, TWY A available only.",
+    "After TKOF runway 02, route alteration by 30° right as soon as possible.",
+    "PAPI 20: MEHT adapted to CAT A ACFT only.",
+    "Gliders' winching activity (NR 887): see AIP ENR 5.5 Parachuting (NR 220): see AIP ENR 5.5 AEM (NR 8390): see AIP ENR 5.5 Péril animalier / Wildlife strike hazard: Adapted: unavailable outside AFIS SKED or extensions."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux pistes interdite.",
+      "Activité IFR possible.",
+      "Restriction à l'occasion de l'épreuve automobile des \"24 heures du Mans\" et autres épreuves \"Le Mans Classic\", GP MOTO (annoncées par NOTAM) .etc.",
+      "RWY 02 et 20 interdites par vent traversier supérieur à : 20 kt sur piste mouillée ; 25 kt sur piste sèche.",
+      "PRKG Nord inaccessible sauf à l'occasion de l'épreuve des \"24 Heures du Mans\".",
+      "AD sensible au bruit : tours de piste interdits aux non basés entre 2100 et 0700 UTC (ETE : - 1 HR).",
+      "L'utilisation des pistes est autorisée de nuit uniquement si les PAPI sont en fonctionnement.",
+      "De nuit seul le TWY A est utilisable.",
+      "QFU préférentiel 019° cause procédure IFR.",
+      "Roulage interdit hors RWY et TWY.",
+      "Circuits \"basse hauteur\" autorisés dans le cadre des vols d'entraînement avec instructeur uniquement et interdits les WE et jours fériés du 1er avril au 31 octobre entre 1100-1300 UTC (ETE : -1HR) et entre 1800-SS UTC (ETE : -1HR) : minimum 500 ft AAL à l'Est de la piste 02/20.",
+      "Éviter le survol du Mans, Arnage, et du centre Butagaz situé à 2500 m de l'ARP dans le QDR 200°.",
+      "RVR < 800 m : balisage et feux de protection de piste allumés, seul le TWY A est utilisable.",
+      "Après TKOF piste 02, altération de route 30° droite dès que possible.",
+      "PAPI 20 : MEHT appropriée pour les avions de CAT A seulement.",
+      ""
+    ]
+  }
+}

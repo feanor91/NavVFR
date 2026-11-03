@@ -1,0 +1,93 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFAO (AIP France, chart dated 2022-09-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFAO",
+  "name": "Bagnoles-de-l'Orne - Couterne",
+  "source": {
+    "publication": "AIP France AD 2 LFAO",
+    "chartDate": "2022-09-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.54472,
+    "longitude": -0.385
+  },
+  "elevationFeet": 714,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        120,
+        300
+      ]
+    },
+    {
+      "id": "12L/30R",
+      "qfu": [
+        120,
+        300
+      ]
+    }
+  ],
+  "preferredQfu": 300,
+  "preferredQfuReason": "preferred QFU 300, due to environment (noise reduction)",
+  "notes": [
+    "AD reserved for radio-equipped ACFT Simultaneous use of RWYs prohibited.",
+    "Unpaved RWY reserved for the exclusive use of gliders.",
+    "TKOF and LDG is suspended if a glider is stopped on unpaved RWY at less than half of common limit width.",
+    "Preferred QFU: 300°, due to environment (noise reduction).",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Aircraft departure RWY 30: at the end of RWY, right alteration of 15° or left alteration of 90° before the town (especially for traffic patterns).",
+    "During winching activity, do not perform the recognition site at a height less than 2000 ASFC (2750 AMSL).",
+    "ASFC ( 2750 AMSL).",
+    "Occasional aerobatic activity according to the protocol reserved for users authorized by CAA.",
+    "Low height circuits reserved to home-based ACFT.",
+    "Non home-based gliders: get information on the RWY availability from Elan Planeur.",
+    "Treuillage planeurs (N°910): 2750 AMSL – HJ – Câble Gliders winching activity (NR 910): 2750 AMSL – HJ – Non-marked cable.",
+    "Winch equipped with a rotating beacon.",
+    "Users information on A/A FREQ.",
+    "Activité voltige (N° 6303) FL 055 - 2500 AMSL.",
+    "Aerobatic activity (N° 6303) FL 055 - 2500 AMSL.",
+    "RWY axis 12/30 length 1500 m, 1300-SS (SUM: -1HR).",
+    "Activity according to protocole reserved for pilots authorized by DSAC-West."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Piste non revêtue réservée à l'usage exclusif des planeurs.",
+      "Atterrissages et décollages suspendus si un planeur est immobilisé sur la piste non revêtue à moins d'une demilargeur de la limite commune.",
+      "QFU 300° préférentiel cause environnement (moindre bruit).",
+      "Roulage interdit hors RWY et TWY.",
+      "Départs avions RWY 30 : en fin de piste altération de route de 15° à droite ou 90° à gauche avant la ville (tours de piste notamment).",
+      "",
+      "",
+      "Activité de voltige occasionnelle selon protocole réservée aux usagers autorisés par CAA.",
+      "Circuits basse hauteur autorisés uniquement aux ACFT basés.",
+      "Planeur non basé : se renseigner en amont sur l'état de la piste auprès d'Elan Planeur.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Axe de piste 12/30 longueur 1500 m, 1300-SS (ETE : -1HR).",
+      "Activité selon protocole réservée aux pilotes autorisés par la DSAC Ouest."
+    ]
+  }
+}

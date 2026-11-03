@@ -1,0 +1,162 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLI (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFLI",
+  "name": "Annemasse",
+  "source": {
+    "publication": "AIP France AD 2 LFLI",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.19194,
+    "longitude": 6.26833
+  },
+  "elevationFeet": 1620,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 125.88",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 125.88
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        115,
+        295
+      ]
+    }
+  ],
+  "preferredQfu": 115,
+  "preferredQfuReason": "preferred QFU 115, due to environment",
+  "reportingPoints": [
+    {
+      "name": "R",
+      "spoken": {
+        "fr": "Roméo",
+        "en": "Romeo"
+      },
+      "latitude": 46.14194,
+      "longitude": 6.26111,
+      "location": "Ouest de Reignier"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 46.34722,
+      "longitude": 6.36306,
+      "location": "EXCENEVEX (Plage)"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 46.35444,
+      "longitude": 6.1525,
+      "location": "Lac de DIVONNE-LES-BAINS"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 46.22861,
+      "longitude": 5.995,
+      "location": "St JEAN"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 46.12194,
+      "longitude": 5.89917,
+      "location": "Est de"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 46.13361,
+      "longitude": 6.09944,
+      "location": "St JULIEN (Intersection Autoroutes A40-A41)"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 46.21278,
+      "longitude": 6.1725,
+      "location": "PORT NOIR"
+    }
+  ],
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "AD reserved for radio-equipped ACFT.",
+    "Training pattern reserved for home based ACFT and HEL.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "The attention of pilots is drawn to the proximity of Geneva controlled airspaces.",
+    "Preferred QFU 115° due to environment.",
+    "Inbound flights: Recommended procedure for integration QFU 115°: After AD recognization or found out data of RWY 12 in use, report over point R at 3100 ft and join downwind leg at 2600 ft.",
+    "Flights with IFR cancellation in LSGG TMA: refer to STAR, instrument approach charts and VFR Geneva (LSGG) charts.",
+    "Under good weather conditions, IFR cancellations may occur before starting an instrument approach at LSGG.",
+    "In the event of an instrument approach at LSGG, plan to leave approach axis of LSGG at the latest at 3000 ft AMSL to join Anemasse by VFR/VMC.",
+    "If meteorological conditions do not allow it, say intentions to LSGG ATC.",
+    "The attention of pilots is drawn to the presence of a relief (Mont Salève) between VFR S point and Anemasse aerodrome.",
+    "Outbound flights: Extensive information available from aerodrome operator.; Flight with passage to IFR in LSGG TMA:.",
+    "Before start-up, contact Genève departure on FREQ (or by phone +41 22 747 13 68 in case of successive nonresponses).",
+    "Expect an IFR passage at BIVLO or towards MOLUS or CBY.",
+    "Flights with IFR passage outside LSGG TMA but in LSAG FIR: Before start-up, contact ALPS RADAR by phone 00 41 22 747 13 91.",
+    "Noise abatment procedures: All TKOF must compulsorily start from RWY threshold;; After TKOF RWY 12, make a 45° right turn as soon as possible after overflying the first houses located at the end of RWY.; After TKOF RWY 30 maintain strictly RWY axis up to the railway station.; At departure, as soon as possible after TKOF reduce to normal climb power up to the circuit end.; At arrival, set holding power rating on approach to AD.",
+    "HEL procedures: Suivre trajectoire spécifiée à 3100 (1500) pour; Follow prescribed flight track at 3100 (1500) to join or to leave HEL circuit.; Adopt if possible noise abatement procedure.",
+    "Aerobatics activity NR 6838: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "AD réservé aux ACFT munis de radio.",
+      "Entraînement tours de piste réservé aux avions et hélicoptères basés.",
+      "Roulage interdit hors RWY et TWY.",
+      "",
+      "QFU 115° préférentiel cause environnement.",
+      "Vols à l'arrivée : Procédure recommandée pour intégration QFU 115° : A l'issue de la reconnaissance ou avoir pris connaissance de la piste 12 en service, report sur le point R à 3100 ft et s'intégrer en vent arrière à 2600 ft.",
+      "Vols avec annulation IFR dans la TMA LSGG : Se référer aux STAR, cartes d'approche aux instruments et cartes VFR VAC de Genève (LSGG).",
+      "Par bonnes conditions météorologiques, les annulations IFR peuvent intervenir avant d'entamer une approche aux instruments de LSGG.",
+      "En cas d'approche aux instruments de LSGG, prévoir de quitter l'axe d'approche de LSGG au plus tard à 3000 ft AMSL pour rejoindre Annemasse en VFR/VMC.",
+      "Si les conditions météorologiques ne le permettent pas, indiquer les intentions à l'ATC de LSGG.",
+      "L'attention des pilotes est attirée sur la présence d'un relief (Mont Salève) entre le point VFR S et l'aérodrome d'Annemasse.",
+      "",
+      "Avant la mise en route, contacter Genève départ sur FREQ (ou par téléphone +41 22 747 13 68 en cas de non-réponses successives).",
+      "S'attendre à un passage en IFR à BIVLO ou en direction de MOLUS ou CBY.",
+      "Vols avec passage en IFR hors TMA LSGG mais dans la FIR LSAG : Avant la mise en route, contacter ALPS RADAR par téléphone 00 41 22 747 13 91.",
+      "ANNEMASSE Procédures moindre bruit : Les TKOF doivent être effectués obligatoirement à partir des extrémités de piste ; ; Après TKOF RWY 12, altération de cap de 45° à droite dès que possible après les premières maisons situées à l'extrémité de piste. Après TKOF RWY 30 maintenir strictement l'axe de piste jusqu'à la gare SNCF. Au départ, dès que possible après TKOF réduction à la puissance de montée normale jusqu'à la sortie du circuit. A l'arrivée, adopter régime attente à l'approche de l'AD.",
+      "",
+      "Activité de voltige N° 6838 : voir AIP ENR 5.5"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <ProjectReference Include="..\VFRNav.Core\VFRNav.Core.csproj" />
@@ -12,6 +12,11 @@
        (un fichier compressé par terrain). Elles viennent de la base de navigation de MSFS : elles ne sont pas versionnées (voir .gitignore). -->
   <ItemGroup>
     <Content Include="..\..\data\procedures\**\*" Link="data\procedures\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- Aérodromes (liste nationale) et profils VFR : livrés avec l'application, à côté de l'exécutable (dossier vfr-data). -->
+  <ItemGroup>
+    <Content Include="..\..\vfr-data\**\*" Link="vfr-data\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,86 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQK (AIP France, chart dated 2022-05-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFQK",
+  "name": "Châlons - Écury-sur-Coole",
+  "source": {
+    "publication": "AIP France AD 2 LFQK",
+    "chartDate": "2022-05-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.90556,
+    "longitude": 4.35278
+  },
+  "elevationFeet": 321,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.98",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 118.98
+  },
+  "runways": [
+    {
+      "id": "04R/22L",
+      "qfu": [
+        35,
+        215
+      ]
+    },
+    {
+      "id": "04L/22R",
+      "qfu": [
+        35,
+        215
+      ]
+    }
+  ],
+  "notes": [
+    "Simultaneous use of both RWY prohibited.",
+    "Caution advised during thaw period.",
+    "Except for safety related communications, aircrafts entering the aerodrome circuit are required to listen for at least two minutes of the frequency to ensure that there is no winching operation in progress, the use of the frequency may hinder communication between the operator and the glider pilot.",
+    "During winching periods, do not perform site reconnaissance at <2500ft AMSL.",
+    "Preferred QFU: 035° due to noise nuisance.",
+    "TKOF and LDG must be stopped when a glider is unmoved on the glider runway at less than a half width of the common limit.",
+    "For aircraft, after TKOF QFU 215°, take the heading 200°.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Gliders winch activity on RWY 04R / 22L (NR 954): SFC1700 ft ASFC / 2100 AMSL, SR-SS.",
+    "Flashing lights on winch.",
+    "User information on FREQ A / A Ecury.",
+    "Glider aerobatic activity (NR 6102) over RWY 04/22 axis, into the RWY limits,1500 ft AMSL / 5000 ft AMSL, SAT, SUN and HOL: SR-SS.",
+    "Reserved for gliders authorized by the DSAC Nord-est.",
+    "Activity known of SEINE INFO or PARIS INFO in case of SEINE INFO closing.",
+    "AEM (NR 8241): upper limit at 800 ft ASFC (1150 ft AMSL) if no glider activity (NR 6102) in aerodrome traffic.",
+    "In case of glider activity, upper limit at 350 ft ASFC (700 ft AMSL)."
+  ],
+  "fr": {
+    "notes": [
+      "Utilisation simultanée des pistes avions/planeurs interdite.",
+      "Précautions à prendre en période de dégel.",
+      "Hors communications liées à des impératifs de sécurité, il est demandé aux aéronefs entrant dans le circuit d'aérodrome d'effectuer une écoute d'au moins deux minutes de la fréquence afin de s'assurer qu'il n'y a pas d'opération de treuillage en cours, l'utilisation de la fréquence pouvant gêner la communication entre l'opérateur et le pilote planeur.",
+      "Pendant les périodes de treuillage, ne pas effectuer la reconnaissance de site à une hauteur < 2500ft AMSL.",
+      "QFU 035° préférentiel cause nuisances sonores.",
+      "Tout TKOF et LDG d'un avion est suspendu si un planeur est immobilisé sur la piste planeurs à moins d'une demi largeur de la limite commune.",
+      "Pour les avions, après TKOF QFU 215°, prendre le cap 200°.",
+      "Roulage interdit hors RWY et TWY.",
+      "Activité treuillage planeurs sur piste 04R/22L (N° 954) : SFC-1700 ft ASFC / 2100 AMSL, SR-SS.",
+      "Treuil équipé d'un feu à éclats.",
+      "Information des usagers sur FREQ A/A Ecury.",
+      "Activité de voltige planeur N° 6102 sur axe de piste 04/22, dans les limites de la piste, plancher 1500 ft AMSL plafond 5000 ft AMSL, SAM, DIM et JF : SR-SS.",
+      "Réservée aux planeurs autorisés par la DSAC Nord-est.",
+      "Activité connue de SEINE INFO ou de PARIS INFO en cas de fermeture de SEINE INFO.",
+      "AEM N° 8241 : Plafond défini à 800 ft ASFC (1150 ft AMSL) hors activité planeur N° 6102 dans la circulation en vol de l'aérodrome.",
+      "En cas d'activité vélivole, le plafond est défini à 350 ft ASFC (700 ft AMSL)."
+    ]
+  }
+}

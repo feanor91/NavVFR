@@ -1,0 +1,115 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFEK (AIP France, chart dated 2022-11-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFEK",
+  "name": "Issoudun - Le Fay",
+  "source": {
+    "publication": "AIP France AD 2 LFEK",
+    "chartDate": "2022-11-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.88861,
+    "longitude": 2.04139
+  },
+  "elevationFeet": 531,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.885",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 119.885
+  },
+  "runways": [
+    {
+      "id": "17/35",
+      "qfu": [
+        174,
+        354
+      ]
+    },
+    {
+      "id": "11/29",
+      "qfu": [
+        111,
+        291
+      ]
+    },
+    {
+      "id": "02",
+      "qfu": [
+        2
+      ]
+    },
+    {
+      "id": "06/24",
+      "qfu": [
+        58,
+        238
+      ]
+    }
+  ],
+  "preferredQfu": 291,
+  "preferredQfuReason": "preferred QFU 291, due to 3 secant RWY",
+  "notes": [
+    "Pilots' attention is drawn to the absence of visual range between the different THR.",
+    "A/A FREQ frequently jammed by radio broadcasting station.",
+    "Windsock: possibility of false indication with E-SE sector wind.",
+    "Preferred QFU 291° due to 3 secant RWY.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "No sign and stop indication mark before the RWY (except on TWY S THR 35).",
+    "Special attention required to ensure that there is no traffic before crossing runways.",
+    "01/04-31/10: possible heavy gliding activity.",
+    "Service planes are likely to land on a different RWY than the one where gliders are lined up.",
+    "Outdoor motorized aircraft: landing on the RWY used by service planes during the glider activity,; contact and monitor 5 mn before overhead aerodrome for observation when joining the circuit.",
+    "On final approach, make sure there is no take-off on another RWY.",
+    "Possible traffic of vehicles on the maneuvering area for towing gliders.",
+    "TODA RWY 06/24 and 11/29 modified due to country roads close to THR 06, 11, 24 and 29.",
+    "AEM on AD (NR 9025): SFC - 500 ft ASFC.",
+    "SEP-MAR: SR-30 - SS+30.",
+    "Radio controlled model flying as per protocol.",
+    "Gliders aerobatics on AD (NR 6408): RWY 11/29 and 17/35 axis, length 2000 m centered on ARP.",
+    "SUM: 0700-1900, WIN: SR-SS.",
+    "1050 ft AMSL - 5000 ft AMSL.",
+    "Activity reserved for gliders authorized according to protocol.",
+    "LF-R 20 B3: entry authorized after radio contact.",
+    "Apply instructions provided by AVORD APP.",
+    "Users' information on LIMOGES INFO, AVORD APP."
+  ],
+  "fr": {
+    "notes": [
+      "L'attention des pilotes est attirée par l'absence de portée visuelle entre les différents seuils de pistes.",
+      "FREQ A/A fréquemment brouillée par des émetteurs RFI.",
+      "Manche à vent : possibilités d'indications erronées par vent de secteur E-SE.",
+      "QFU 291° préférentiel cause 3 pistes sécantes.",
+      "Roulage interdit hors piste et TWY.",
+      "Absence de panneau et de marque d'indication d'arrêt avant piste (sauf sur TWY S seuil 35).",
+      "Une vigilance particulière devra être portée sur l'absence de trafic avant de traverser les pistes.",
+      "01/04-31/10 : activité planeur intense potentielle.",
+      "Les avions de servitude sont susceptibles d'atterrir sur une piste différente de celle où sont alignés les planeurs.",
+      "Aéronefs motorisés extérieurs : atterrissage sur la piste utilisée par les avions de servitude durant l'activité planeur ; contact et écoute 5 mn avant verticale aérodrome pour observation lors de l'intégration dans le circuit.",
+      "En approche finale, s'assurer de l'absence d'un décollage sur une autre piste.",
+      "Circulation éventuelle de véhicules sur l'aire de manœuvre pour le tractage des planeurs.",
+      "Cause chemins ruraux à proximité des seuils 06, 11, 24 et 29 : modifications des TODA des pistes afférentes.",
+      "AEM sur AD (N° 9025) : SFC - 500 ft ASFC.",
+      "",
+      "Vols radiocommandés selon protocole.",
+      "Voltige planeurs sur AD (N° 6408) : Axes RWY 11/29 et 17/35 de longueur 2000 m centrés sur ARP.",
+      "ETE : 0700-1900, HIV : SR-SS.",
+      "1050 ft AMSL - 5000 ft AMSL.",
+      "Activité réservée aux planeurs autorisés et selon protocole.",
+      "LF-R 20 B3 : pénétration autorisée après contact radio.",
+      "Suivre instructions d'AVORD APP.",
+      "Information des usagers sur LIMOGES INFO, AVORD APP."
+    ]
+  }
+}

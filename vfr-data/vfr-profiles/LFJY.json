@@ -1,0 +1,113 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFJY (AIP France, chart dated 2026-05-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFJY",
+  "name": "Chambley",
+  "source": {
+    "publication": "AIP France AD 2 LFJY",
+    "chartDate": "2026-05-14",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.02556,
+    "longitude": 5.87611
+  },
+  "elevationFeet": 866,
+  "service": {
+    "kind": "None",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.405
+  },
+  "runways": [
+    {
+      "id": "05R/23L",
+      "qfu": [
+        48,
+        228
+      ]
+    }
+  ],
+  "preferredQfu": 228,
+  "preferredQfuReason": "preferred QFU 228, due to IFR procedure",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Possible IFR operations.",
+    "Constrained airspace, AD close to Ochey CTR, Etain CTR and Lorraine CTR.",
+    "Paragliding activity: Within the limits of LF-R104 when not active.",
+    "From ground level to 2000ft AGL.",
+    "Grass strip reserved for gliders and ACFT exceptionally authorized by AD operator.",
+    "RWY 05L/23R: reserved for ULM and helicopters.",
+    "Simultaneous use of grass strip and RWY 05L/23R prohibited.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Taxiing on TWY E restricted to aircraft with a wingspan smaller than 15 m.",
+    "Preferred QFU: 228° due to IFR procedure.",
+    "Activity on glider take off strip announced by NOTAM.",
+    "Anchor points available on PRKG P4.",
+    "P1 and P2 parking stands restricted to ACFT with a wingspan smaller than 30 m.",
+    "P3 parking stand restricted to ACFT with a wingspan smaller than 36 m.",
+    "Avoid overflying the surrounding built up areas, Traffic patterns training only possible tuesday and thursday from SS to SS + 0300.",
+    "Low height patterns prohibited.",
+    "Access to RWY 05R/23L: from P4: via B or C; from P1 or P2: via M only.",
+    "TWY and parking equipped with lighting system: B, C, T2, T3, G, J and P4.",
+    "TWY and parking equipped with reflective markers: M, P1 et P2.",
+    "WEATHER INFORMATION available by STAP on the AD FREQ: 7 clicks on mic.",
+    "Available parameters: wind, pressure, temperature.",
+    "Horaires sauf indication contraire / Timetables unless otherwise specified UTC HIV; HOR ETE: -1HR / UTC WIN; SKED SUM: -1HR Situation / Location: VFR de nuit / Night VFR: Agréé - voir aides lumineuses / Approved - see lighting aids.",
+    "Exploitant d'aérodrome / AD operator: Siège / Seat: Maison de Madine 55210 Nonsard-Lamarche DSAC-NE (voir / see GEN).",
+    "BORDEAUX (voir / see GEN).",
+    "Préparation du vol / Flight preparation: Acheminement / Addressing FPL: voir / see voir / see GEN; Station: NIL.",
+    "Douanes, Police / Customs, Police: 100 LL: Paiements cartes TOTAL H24 / Payment TOTAL card H24.",
+    "100 LL, UL91: O/R paiements par CB, cash, chèque / O/R payments by credit card, cash, cheque.",
+    "JET A1: Paiements / payments CB H24.",
+    "O/R paiements par cash, chèque / O/R payments by cash, cheque.",
+    "TEL: 03 29 89 30 10 ou / or 06 07 85 15 39.",
+    "Niveau 1 / Level 1.",
+    "Péril animalier / Wildlife strike hazard:"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Activité IFR possible.",
+      "Espace aérien contraint, AD enclavé entre la CTR Ochey, la CTR Étain et la CTR Lorraine.",
+      "Activité parapente : Dans la limite de la zone LF-R 104 quand celle-ci est inactive.",
+      "Du sol à 2000 ft AGL.",
+      "Piste en herbe réservée aux planeurs et aux aéronefs exceptionnellement autorisés par l'exploitant d'aérodrome.",
+      "Piste 05L/23R : réservée aux ULM et aux hélicoptères.",
+      "Utilisation simultanée de la piste en herbe et piste 05L/23R, interdite.",
+      "Roulage interdit hors RWY et TWY.",
+      "Roulage sur TWY E limité aux ACFT d'envergure inférieure à 15 m.",
+      "QFU 228° préférentiel cause procédure IFR.",
+      "Activité sur bande d'envol planeur annoncée par NOTAM.",
+      "Points d'ancrages disponibles sur PRKG P4.",
+      "Postes de stationnement P1 et P2 limités aux ACFT d'une envergure inférieure à 30 m.",
+      "Poste de stationnement P3 limité aux ACFT d'une envergure inférieure à 36 m.",
+      "Éviter le survol des zones habitées avoisinantes, Entraînement en tour de piste possible uniquement les mardi, et jeudi de SS à SS + 0300.",
+      "Tours de piste basse hauteur interdits.",
+      "Accès à la piste 05R/23L : depuis P4 : via B ou C ; depuis P1 ou P2 : via M uniquement.",
+      "Voies de circulation et parking équipés de balisage lumineux : B, C, T2, T3, G, J et P4.",
+      "Voies de circulation et parking équipés de balises réfléchissantes : M, P1 et P2.",
+      "INFO MET disponibles par STAP sur la FREQ AD : 7 coups d'alternat.",
+      "Paramètres disponibles : vent, pression, température.",
+      "CHAMBLEY 1 - 3 km SW Chambley-Bussières (54 – Meurthe et Moselle).",
+      "2 - ATS : NIL.",
+      "3 - 4 - SPL Chambley-Madine AD : Aérodrome de Chambley Tour de Contrôle 54470 Hageville.",
+      "Web : https://chambleyplanetair.com E-mail : contact.chambley@chambley-madine.com 5 - CAA : 6 - BRIA : 7 - GEN.",
+      "8 - MET : 9 - O/R.",
+      "10 - AVT : 11 - RFFS : 12 - NIL.",
+      "13 - 14 - E-mail : ld.maintenance.aviation@gmail.com 15 - ACB : ACFT : les Ailes Mosellanes TEL : 09 60 39 84 23.",
+      "E-mail : contact@lesailesmosellanes.com",
+      "Planeurs : Les Planeurs de Chambley TEL : 07 56 98 07 71 E-mail : planeurs.chambley@gmail.com",
+      "ULM : Club ULM Chambley TEL : 03 82 22 79 33.",
+      ""
+    ]
+  }
+}

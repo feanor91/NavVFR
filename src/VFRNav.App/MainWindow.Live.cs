@@ -85,9 +85,9 @@ public partial class MainWindow
 
     private IEnumerable<Airspace> RelevantZones() => _airspaces.Where(z => z.Kind is not (AirspaceKind.Sector or AirspaceKind.Other));
 
-    /// <summary>Fréquences publiées par StormATC pour un terrain de la route.</summary>
+    /// <summary>Fréquences de la base d'aérodromes pour un terrain de la route.</summary>
     private IReadOnlyList<string> AerodromeFrequencies(Waypoint wp) =>
-        wp.IsAirport && _stormAtc?.Find(wp.Icao!) is { } a
+        wp.IsAirport && _aerodromes?.Find(wp.Icao!) is { } a
             ? [.. a.Frequencies.Select(f => PointBriefings.Format($"{wp.Icao} {f.Service}", f.Mhz))]
             : [];
 

@@ -1,0 +1,199 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRD (AIP France, chart dated 2026-06-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFRD",
+  "name": "Dinard Saint-Malo",
+  "source": {
+    "publication": "AIP France AD 2 LFRD",
+    "chartDate": "2026-06-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.58778,
+    "longitude": -2.08
+  },
+  "elevationFeet": 219,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "0730-1900 (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 124.58,
+    "approach": 126.95,
+    "tower": 120.155,
+    "airAir": 120.155
+  },
+  "runways": [
+    {
+      "id": "17/35",
+      "qfu": [
+        170,
+        350
+      ]
+    },
+    {
+      "id": "11/29",
+      "qfu": [
+        115,
+        295
+      ]
+    },
+    {
+      "id": "17R/35L",
+      "qfu": [
+        170,
+        350
+      ]
+    }
+  ],
+  "preferredQfu": 350,
+  "preferredQfuReason": "preferred QFU 350, due to IFR operations",
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 48.67694,
+      "longitude": -2.07222,
+      "location": "Île de Cézembre"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 48.71139,
+      "longitude": -1.84306,
+      "location": "Pointe du Grouin"
+    },
+    {
+      "name": "NB",
+      "spoken": {
+        "fr": "Novembre Bravo",
+        "en": "November Bravo"
+      },
+      "latitude": 48.61889,
+      "longitude": -2.02583,
+      "location": "Barrage de la Rance"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 48.53694,
+      "longitude": -1.97306,
+      "location": "Pont St Hubert"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 48.52194,
+      "longitude": -2.23278,
+      "location": "Plancoet"
+    },
+    {
+      "name": "WJ",
+      "spoken": {
+        "fr": "Whisky Juliett",
+        "en": "Whiskey Juliett"
+      },
+      "latitude": 48.5725,
+      "longitude": -2.21472,
+      "location": "Le Guildo"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 48.68778,
+      "longitude": -2.31917,
+      "location": "Cap Fréhel"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 48.49139,
+      "longitude": -2.00167,
+      "location": "Écluse du Châtelier"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT and A + C mode transponder.",
+    "RWY 17R/35L strip reserved for authorized ULM.",
+    "Numerous birds on airfield and surroundings.",
+    "Hot air balloons may be present inside CTR.",
+    "Paragliding activity may be present on the coast between Saint-Jacut de la Mer and La Guimorais.",
+    "AD likely to be covered by sea-haze in a few minutes.",
+    "During strong westerly winds: windshears and strong turbulences on final RWY 17 and on the RWY due to Preferred QFU: 350° due to IFR operations.",
+    "Training flights using jet engines or military ACFT possible with ATC authorization: MON-FRI 0700-1100 and 1300-1800, SAT 0700-1100 (SUM: -1 HR).",
+    "The control tower arranges the taxiing sequence for entering the manoeuvring area.",
+    "On departure and on arrival, only information about aircraft movement known by ATS can be provided.",
+    "Pilots are responsible for ground and air collision avoidance, their own separation and the third party safety.",
+    "Below 2500 ft AMSL, radio contact is required 3 min before overflying the CTR entry points, on TWR frequency.",
+    "\"Low height\" patterns are authorized only for training flights with instructor pilot on board and with ATC clearance: MNM 300 ft AAL on preferential patterns.",
+    "Overflying SABENA installations is forbidden while in patterns.",
+    "RWY 17R/35L unpaved: Closed from 1st November to 31st March.",
+    "RWY 11/29: unusable outside ATS SKED; visual use only in the daytime; usable as TWY under control of the tower or Air to.",
+    "Air communications.",
+    "TWY use: TWY C: limited to ACFT whose overall width of main gear is 3.05 m.",
+    "TWY D: only for EMERAUDE ULM.",
+    "TWY G, E, S: only for Sabena Tecnics.",
+    "Minimal width: 10.5 m.",
+    "Reserved for ACFT with wingspan < 24 m except on section from TWY 11/29 to ACFT painting hangar (code C ACFT accepted on this section).",
+    "On segment between intermediate holding points S1 and E1, code C ACFT are authorized under towing condition only.",
+    "TWY U: ULM only.",
+    "Traffic surveillance equipment: AD equipped with radar display (see AD 1.0)."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio et transpondeur mode A + C.",
+      "RWY 17R/35L réservée aux ULM autorisés par l'organisme.",
+      "Présence de nombreux oiseaux sur le terrain et aux environs.",
+      "Possibilité de présence de montgolfières dans la CTR.",
+      "Possibilité de présence d'activité Parapente sur la côte entre Saint-Jacut de la Mer et La Guimorais.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Par fort vent d'ouest : cisaillement et fortes turbulences en finale 17 et sur la piste dûs à la présence de hangars. QFU 350° préférentiel cause procédure IFR.",
+      "Vols d'entraînement réacteurs ou d'aéronefs militaires possibles après autorisation ATC : LUN-VEN 0700-1100 et 1300-1800, SAM 0700-1100 (ETE : -1 HR).",
+      "La tour de contrôle organise la séquence de roulage pour l'entrée sur l'aire de manoeuvre.",
+      "Au départ et à l'arrivée, seule l'information sur les aéronefs en mouvement connus des services ATS peut être fournie.",
+      "Le pilote assure la prévention des abordages et des collisions, sa propre séparation et la sécurité des tiers.",
+      "Au dessous de 2500 ft AMSL, contact radio obligatoire 3 min avant le survol des points d'entrée de la CTR, fréquence TWR.",
+      "Circuits \"basse hauteur\" autorisés dans le cadre des vols d'entraînement avec instructeur uniquement et sur autorisation du CTL : minimum 300 ft AAL sur les circuits préférentiels.",
+      "Lors des circuits, il est interdit de survoler les installations SABENA.",
+      "RWY 17R/35L non revêtue : Fermée du 1er novembre au 31 mars.",
+      "RWY 11/29 : inutilisable hors HOR ATS ; utilisable uniquement à vue, de jour ; utilisable comme voie de circulation sous contrôle de la tour et en auto-information.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Réservé aux ACFT d'envergure < 24 m sauf sur le tronçon de la piste 11/29 vers hangar peinture avion (ACFT de code C acceptés sur ce tronçon).",
+      "Sur le tronçon entre points d'attente intermédiaires S1 et E1, les ACFT code C sont autorisés sous conditions de tractage uniquement.",
+      "TWY U : Réservé aux ULM.",
+      "Équipement de surveillance de trafic : Aérodrome équipé d'une visualisation radar (voir AD 1.0)."
+    ]
+  }
+}

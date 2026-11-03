@@ -1,0 +1,39 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFFU (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFFU",
+  "name": "Châteauneuf-sur-Cher",
+  "source": {
+    "publication": "AIP France AD 2 LFFU",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 46.87111,
+    "longitude": 2.37694
+  },
+  "elevationFeet": 551,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5"
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        84,
+        264
+      ]
+    }
+  ]
+}

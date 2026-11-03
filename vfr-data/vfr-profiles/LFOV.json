@@ -1,0 +1,123 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOV (AIP France, chart dated 2025-01-23): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFOV",
+  "name": "Laval - Entrammes",
+  "source": {
+    "publication": "AIP France AD 2 LFOV",
+    "chartDate": "2025-01-23",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.03222,
+    "longitude": -0.74278
+  },
+  "elevationFeet": 330,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN-VEN / MON-FRI : 0700-1100, 1300-1600 sauf JF / except public HOL. En dehors de ces HOR, avance PPR la veille avant 1100, prolongation PPR le jour même avant 1100 pour vols commerciaux, sanitaires et officiels. Avance ou prolongation possible 0600 à 2100, PPR la veille avant 1100 pour vols non commerciaux. Outside these SKED, earlier HOR PPR on the day before, before 1100, extension PPR on the same day befo (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 120.805",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 120.805,
+    "airAir": 120.805
+  },
+  "runways": [
+    {
+      "id": "14/32",
+      "qfu": [
+        142,
+        322
+      ]
+    },
+    {
+      "id": "14L/32R",
+      "qfu": [
+        142,
+        322
+      ]
+    }
+  ],
+  "preferredQfu": 322,
+  "preferredQfuReason": "preferred QFU 322, due to IFR procedures and weather conditions",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Possible IFR activity.",
+    "Grass strip unusable by rainy weather.",
+    "Simultaneous use of both parallel RWY prohibited.",
+    "ULM: authorized access only with written agreement O/R AD operator by E-mail: contact@aeroport-laval.fr PPR PN 24 HR or the last working day during ATS SKED.",
+    "Comply with published circuits as far as possible.",
+    "Low height circuits for training with instructor: West RWY 14/32, avoiding to fly over St Pierre le Potier by the North.",
+    "Low height circuit East RWY 500 AAL.",
+    "Preferred QFU 322° due to IFR procedures and weather conditions.",
+    "Pendulous ULM: East circuit compulsory.",
+    "On arrival, report at least 3 minutes before overhead AD due to possible glider winching activity notified on A/A FREQ.",
+    "During winching activity notified on A/A FREQ overflight AD above 2300 AMSL.",
+    "Taxiing prohibited out of RWY and TWY.",
+    "TWY B prohibited during glider activity.",
+    "TWY C prohibited if MTOW > 2,5 t.",
+    "Unpaved mixed flying/gliding RWY with glider lighting.",
+    "Except for communications related to safety, it is required for ACFT changing to LAVAL frequency, to listen to the frequency for at least 2 minutes to ensure that there is no winching operation in progress, because the use of the frequency may interfere with communications between the winch operator and the glider's pilot.",
+    "PJE on AD (NR 276): SR-SS, FL 135.",
+    "Activity according to protocol.",
+    "Users information during ATS SKED on LAVAL INFO or A/A, RENNES INFO/APP, or on NANTES APP.",
+    "Aerobatics on AD(NR 6353): SR-SS, 2000 ft AMSL / FL 055 over paved RWY centre line.",
+    "Activity reserved for users authorized by CAA.",
+    "Users' information during ATS SKED on LAVAL INFO.",
+    "Gliders winching activity on AD (NR 924-1): SFC - 1650 ft ASFC / 2000 ft AMSL.",
+    "SR-30 - SS+30.",
+    "On grass strip 14L/32R.",
+    "Cable equipped with a descent parachute.",
+    "Winch equipped with flashing lights and radio.",
+    "Users information: LAVAL INFO or A/A or RENNES INFO.",
+    "Paradropping winch activity on AD (NR 924-2): SFC1800 ft AMSL.",
+    "Winch equipped with flashing lights.",
+    "Activity reserved for users authorized by CAA.",
+    "Users information: LAVAL INFO or RENNES INFO."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Activité IFR possible.",
+      "Bande gazonnée inutilisable par temps de pluie.",
+      "Utilisation simultanée des deux pistes parallèles interdite.",
+      "ULM : accès autorisé uniquement sur accord écrit O/R exploitant par E-mail : contact@aéroport-laval.fr, PPR PN 24 HR ou le dernier jour ouvrable pendant HOR ATS.",
+      "Respecter les circuits publiés dans la mesure du possible.",
+      "Circuits \"basse hauteur\" dans le cadre des vols d'entraînement avec instructeur : à l'Ouest de la piste 14/32 en évitant le survol de St Pierre le Potier par le Nord.",
+      "Circuit \"basse hauteur\" à l'Est de la piste 500 AAL.",
+      "QFU 322° préférentiel cause procédure IFR et conditions météo.",
+      "ULM pendulaire : circuit Est obligatoire.",
+      "A l'arrivée, s'annoncer au moins 3 minutes avant la verticale terrain en raison activité possible de treuillage planeur annoncée sur FREQ A/A.",
+      "Pendant l'activité treuillage annoncée sur FREQ A/A, reconnaissance du site au-dessus de 2300 AMSL.",
+      "Roulage interdit hors RWY et TWY.",
+      "TWY B interdit en période d'activité planeur.",
+      "TWY C interdit si MTOW > 2,5 t.",
+      "Piste non revêtue mixte vol à moteur/vol à voile avec balisage de type planeur.",
+      "Hors communications liées à des impératifs de sécurité, il est demandé aux aéronefs passant sur la fréquence de LAVAL d'effectuer une écoute d'au moins 2 minutes de la fréquence afin de s'assurer qu'il n'y a pas d'opérations de treuillage en cours, l'utilisation de la fréquence pouvant gêner la communication entre l'opérateur treuil et le pilote planeur.",
+      "",
+      "Activité selon protocole.",
+      "Information des usagers pendant HOR ATS sur LAVAL INFO ou A/A, sur RENNES INFO/APP, ou sur NANTES APP.",
+      "Activité de voltige sur AD (N° 6353) : SR-SS, 2000 ft AMSL / FL 055 sur axe de piste revêtue.",
+      "Activité réservée aux usagers autorisés par CAA.",
+      "Information des usagers pendant HOR ATS sur LAVAL INFO.",
+      "Activité de treuillage planeurs sur AD (N° 924-1) : SFC",
+      "",
+      "Sur bande non revêtue 14L/32R.",
+      "Câble équipé d'un parachute de descente.",
+      "Treuil équipé d'un feu à éclat et d'une radio.",
+      "Information des usagers : LAVAL INFO ou A/A ou RENNES INFO.",
+      "Activité de treuillage parachutisme sur AD (N° 924-2) : SFC-1800 ft AMSL.",
+      "Treuil équipé de feux à éclats.",
+      "Activité réservée aux usagers autorisés par CAA.",
+      "Information des usagers : LAVAL INFO ou RENNES INFO."
+    ]
+  }
+}

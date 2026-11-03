@@ -1,0 +1,78 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFEQ (AIP France, chart dated 2025-04-17): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFEQ",
+  "name": "Quiberon",
+  "source": {
+    "publication": "AIP France AD 2 LFEQ",
+    "chartDate": "2025-04-17",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.48139,
+    "longitude": -3.10167
+  },
+  "elevationFeet": 38,
+  "magneticVariationDegrees": -1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : Du 01/05 au 30/06 : VEN, SAM, DIM et JF : 0900 -1130, 1300-1700. From 01/05 to 30/06 : FRI, SAT, SUN and public HOL : 0900 -1130, 1300-1700. Du 01/07 au 31/08 : 0900 -1130, 1300-1700. From 01/07 to 31/08 : 0900 -1130, 1300-1700. Du 01/09 au 30/09 : VEN, SAM, DIM : 0900 -1130, 1300-1700. From 01/09 to 30/09 : FRI, SAT, SUN : 0900 -1130, 1300-1700. Du 01/10 au 30/04 : NIL. From 01/10 to 30/04 : NIL (UTC HIV ; HOR ETE : - 1 HR)",
+    "outsideAtsHours": "air-air frequency 119.605",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 119.605
+  },
+  "runways": [
+    {
+      "id": "11",
+      "qfu": [
+        112
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited for gliders and paramotors.",
+    "From 01/06 to 15/09, (except for State ACFT on a public mission), AD usable: on ARR: 0600-1900; on DEP: 0600-1030 and 1200-1800.",
+    "From 16/09 to 31/05: AD available SR-30 - SS+30.",
+    "Flights only inside Schengen boundaries.",
+    "AD likely to be covered by sea haze in few minutes.",
+    "QFU 292°: severe turbulence on short final in case of strong wind.",
+    "Area LF-R 13 and LF-R 14 from the coastline: caution with their activities.",
+    "Bird presence all year through.",
+    "No RWY inspection outside AFIS SKED Radio contact is mandatory according to the AFIS volume 3 NM / 2000 ft.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "TWY A width: 8.55 m.",
+    "TWY A1 and A2 only usable to vacate RWY.",
+    "TWY A reserved for ACFT whose main gear overall width is lower or equal to 5.10 m.",
+    "Unpaved PRKG available from May to September."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux planeurs et aux paramoteurs.",
+      "Du 01/06 au 15/09, (sauf ACFT d'État en mission de service public), AD utilisable : à l'ARR : 0600-1900 ; au DEP : 0600-1030 et 1200-1800.",
+      "Du 16/09 au 31/05 : AD utilisable SR-30 - SS+30.",
+      "Vols uniquement à l'intérieur de l'espace Schengen.",
+      "AD suceptible d'être envahi en quelques minutes par la brume de mer.",
+      "QFU 292° : en cas de fort vent risque de turbulences importantes en courte finale.",
+      "Zone LF-R 13 et LF-R 14 dès le trait de côte ouest : prudence à leurs activités.",
+      "Présence d'oiseaux toute l'année.",
+      "Inspection de piste non réalisée hors HOR AFIS Contact radio obligatoire selon le volume AFIS 3 NM / 2000 ft.",
+      "Roulage interdit hors RWY et TWY.",
+      "Largeur du TWY A : 8,55 m.",
+      "TWY A1 et A2 utilisables en sortie de piste uniquement.",
+      "TWY A limité aux ACFT dont la largeur hors-tout du train principal est inférieure ou égale à 5,10 m.",
+      "PRKG en herbe utilisable de Mai à Septembre."
+    ]
+  }
+}

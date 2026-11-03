@@ -1,0 +1,217 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBZ (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFBZ",
+  "name": "Biarritz Pays Basque",
+  "source": {
+    "publication": "AIP France AD 2 LFBZ",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.46833,
+    "longitude": -1.53111
+  },
+  "elevationFeet": 245,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "TWR : LUN-DIM : 0515-2200. Prolongation au-delà de 2200 pour tout vol programmé, pour vols sanitaires et pour tout trafic ayant obtenu l'autorisation préalable de la DSAC-SO et de l'exploitant AD. TWR : MON-SUN : 0515-2200. Extension after 2200 for all scheduled flights, sanitary flights and for all traffic which have got PPR from DSAC-SO and AD operator. Aéroport de BIARRITZ PAYS BASQUE SNA-SO : 5, Esplanade de l'Eu (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 119.18,
+    "atis": 128.23,
+    "approach": 125.605,
+    "tower": 118.705,
+    "ground": 121.955
+  },
+  "preferredQfu": 268,
+  "preferredQfuReason": "preferred QFU 268, : due to ILS procedure",
+  "reportingPoints": [
+    {
+      "name": "NC",
+      "spoken": {
+        "fr": "Novembre Charlie",
+        "en": "November Charlie"
+      },
+      "latitude": 43.65583,
+      "longitude": -1.44833,
+      "location": "Capbreton : phare digue Nord"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 43.53028,
+      "longitude": -1.52361,
+      "location": "Embouchure de l'Adour"
+    },
+    {
+      "name": "NP",
+      "spoken": {
+        "fr": "Novembre Papa",
+        "en": "November Papa"
+      },
+      "latitude": 43.49278,
+      "longitude": -1.5525,
+      "location": "Phare de Biarritz"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 43.51972,
+      "longitude": -1.4025,
+      "location": "Château d'eau"
+    },
+    {
+      "name": "BG",
+      "spoken": {
+        "fr": "Bravo Golf",
+        "en": "Bravo Golf"
+      },
+      "latitude": 43.54611,
+      "longitude": -1.195,
+      "location": "Bec-de-Gave - Confluent Adour"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 43.40167,
+      "longitude": -1.66,
+      "location": "Chapelle Nord baie de St-Jean-de-Luz"
+    },
+    {
+      "name": "SB",
+      "spoken": {
+        "fr": "Sierra Bravo",
+        "en": "Sierra Bravo"
+      },
+      "latitude": 43.43222,
+      "longitude": -1.60083,
+      "location": "Bidart - plage UHABIA"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 43.41722,
+      "longitude": -1.49472,
+      "location": "Colline Ste Barbe"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 43.40583,
+      "longitude": -1.57139,
+      "location": "Ahetze église"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 43.36778,
+      "longitude": -1.4225,
+      "location": "Cambo - Arnaga"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 43.46667,
+      "longitude": -1.28694,
+      "location": "Intersection D936 et sortie n°4 autoroute A64"
+    },
+    {
+      "name": "SH",
+      "spoken": {
+        "fr": "Sierra Hôtel",
+        "en": "Sierra Hotel"
+      },
+      "latitude": 43.385,
+      "longitude": -1.305,
+      "location": "Hasparren centre bourg"
+    }
+  ],
+  "notes": [
+    "ULM activity: restricted to multi-axis ULM class 3.",
+    "AD prohibited for gliders.",
+    "AD likely to be covered by sea haze in few minutes.",
+    "Aerobatics NR 6683: see AIP ENR 5.5 AEM NR 9113, 9130, 9460: see AIP ENR 5.5 Parachuting NR 302, 329, 366, 376: see AIP ENR 5.5 Drone NR 40-001: see AIP ENR 5.5 Starting-up with PPR 5 min.",
+    "Low height circuits reserved to home-based ACFT at 500 ft AAL.",
+    "Pilots are advised to use VOR.",
+    "Preferred QFU 268°: due to ILS procedure.",
+    "For noise reduction purpose: route upon ATC instruction NA --> overhead TWR: 2000 ft AMSL MNM, TKOF RWY 09: maintain runway heading and climb to 1500 ft QNH as soon as possible.",
+    "The Northern left hand turn can only be made after clearance from ATC and avoid overflying the built up areas of Biarritz Anglet Bayonne, TKOF RWY 27: maintain runway heading and climb to 1500 ft QNH as soon as possible.",
+    "Northern turn must only be performed after passing the coastline, If DZ 376 active, the turn to the South must only be performed after passing the coastline.",
+    "Adhere to ATC instructions when joining departure routes after take-off and when coming from published routes to circuits.",
+    "Ground movements: After LDG, except special instruction, clear the RWY by the 2nd TWY.",
+    "Taxiways: S1 prohibited at night; S1 prohibited by day with RVR < 800 m; T1 reserved for HEL of overall length 13 m.",
+    "Use conditions of South apron: airplanes with max wingspan 15 m.",
+    "In the event of radio failure, squawk code 7600, fly overhead AD at 1500 ft AAL before entering the circuit, monitor final approach axes, momentary blinking of final approach lights is equivalent to landing clearance.",
+    "Routes Reporting points Flight altitude ACFT / HEL (AMSL) These routes are used: mandatory within CTR, in special VFR situation; in VMC on ATC instruction.",
+    "Coastal transit TW1: An explicit authorization from Biarritz ATS must be obtained before crossing RWY axis.",
+    "Failing that: direction North to South: holding over NP; direction South to North: holding over SB.",
+    "SpecialVFR: MTO minima Visibility Ceiling Arrivée / Arrival Aircraft Départ / Departure Tours de piste / RWY pattern Traffic surveillance equipment: AD equipped with a secondary radar display (see AD 1.0).",
+    "Arrival procedures: 1st contact on BIARRITZ INFO.",
+    "Aircraft bound for LFBZ must call 5 minutes before overflying entry points.",
+    "Transit procedures with BIARRITZ FIS: 1st contact on BIARRITZ INFO.",
+    "Radiocommunication failure: Sqawk 7600.",
+    "If failure occurs after entering CTR: before receiving the entry clearance in AD circuit: perform a holding If possible contact TWR 05 59 22 43 92 (emergency number only).",
+    "Failing that, exit CTR as soon as possible. after receiving traffic circuit integration clearance: proceed with landing as cleared."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "AD interdit aux planeurs.",
+      "Site susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Voltige N° 6683 : voir AIP ENR 5.5 AEM N° 9113, 9130, 9460 : voir AIP ENR 5.5 Parachutage N° 302, 329, 366, 376 : voir AIP ENR 5.5 Drone N° 40-001 : voir AIP ENR 5.5 Procédures et consignes particulières Mise en route avec PPR 5 min.",
+      "Tour de piste à basse hauteur réservé aux aéronefs basés à 500 ft AAL.",
+      "L'usage du VOR est recommandé.",
+      "QFU préférentiel 268° : cause procédure ILS.",
+      "",
+      "",
+      "",
+      "La trajectoire de rejointe des itinéraires de départ après le décollage et la trajectoire de rejointe du circuit de piste depuis les itinéraires publiés s'effectueront sur instruction du contrôle.",
+      "",
+      "Voies de circulation : S1 interdit la nuit ; S1 interdit le jour par RVR < 800 m ; T1 réservé aux HEL de LHT ≤ 13 m.",
+      "Conditions d'utilisation du PRKG Sud : avions d'envergure maximale de 15 m.",
+      "BIARRITZ PAYS BASQUE VFR de nuit Consignes particulières : En cas de panne radio, afficher transpondeur 7600, effectuer une verticale aérodrome à 1500 ft AAL avant intégration du circuit, surveiller l'axe d'approche finale, le clignotement momentané du balisage a valeur d'autorisation d'atterrir.",
+      "Itinéraires Points cheminement Altitude de vol avion/hélicoptère (AMSL) N1 NC-NA NE1 NE-NA S1 SE-S SW1 SW-SB TS1 S-SB TW1 NA-SB Ces itinéraires sont suivis : obligatoirement en CTR, en situation de VFR spécial ; en VMC sur instruction du contrôle.",
+      "BIARRITZ PAYS BASQUE Transit \"côtier\" TW1 : Une autorisation explicite de Biarritz ATS doit être obtenue pour croiser l'axe de piste.",
+      "",
+      "VFR spécial : minima MTO Avions Équipement de surveillance du trafic : AD équipé d'un radar secondaire (voir AD 1.0).",
+      "",
+      "Contacter 5 mn avant le survol des points d'entrée.",
+      "",
+      "Panne de radiocommunication : Afficher transpondeur 7600.",
+      "Si la panne survient après pénétration dans la CTR : avant d'avoir reçu la clairance d'intégration dans la ; circulation d'aérodrome : se mettre en attente. Si possible contacter la TWR (n° d'urgence uniquement) au 05 59 22 43 92.",
+      "Sinon quitter la CTR dès que possible. après avoir reçu la clairance d'entrée dans le circuit de piste : poursuivre son atterrissage comme indiqué dans la clairance."
+    ]
+  }
+}

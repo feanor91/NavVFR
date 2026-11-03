@@ -1,0 +1,84 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFEL (AIP France, chart dated 2026-04-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFEL",
+  "name": "Blanc",
+  "source": {
+    "publication": "AIP France AD 2 LFEL",
+    "chartDate": "2026-04-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.62,
+    "longitude": 1.08583
+  },
+  "elevationFeet": 382,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.355",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.355
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        40,
+        220
+      ]
+    },
+    {
+      "id": "04R/22L",
+      "qfu": [
+        40,
+        220
+      ]
+    }
+  ],
+  "preferredQfu": 220,
+  "preferredQfuReason": "preferred QFU 220, to avoid take-off over inhabited areas",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous TKOF and/or LDG on the RWY are prohibited.",
+    "All simultaneous TKOF and/or LDG on the concrete RWY must be stopped if a glider is immobilized on the half width of the grass strip.",
+    "Unpaved RWY reserved for gliders and tugs ACFT.",
+    "Aerobatics NR 6449: see AIP ENR 5.5.",
+    "Very high sensitivity of the platform during bad weather and precipitation in autumn and spring.",
+    "Wind sock: erroneous indications possible when NW to NE wind.",
+    "Lack of visibility between THR 04 and 22.",
+    "Intense HEL activity in the West of AD.",
+    "Preferred QFU 220° to avoid take-off over inhabited areas.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Non-regulatory TWY A width, portion from the ACB to the North-West: 6.2 m.",
+    "Parachuting NR 272: see AIP ENR 5.5 Glider winching NR 966-1: see AIP ENR 5.5 Parasailing winching NR 966-2: see AIP ENR 5.5 AEM NR 8317: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "TKOF et/ou LDG simultanés sur les deux pistes interdits.",
+      "Tout TKOF et/ou LDG sur la piste revêtue doit être suspendu si un planeur est immobilisé sur la demilargeur contiguë de la piste en herbe.",
+      "Piste non revêtue réservée aux planeurs et avions de servitude.",
+      "Voltige N°6449 : voir AIP ENR 5.5.",
+      "Très forte sensibilité de la plate-forme aux intempéries et précipitations de l'automne et du printemps.",
+      "Manche à vent : possibilité d'indications erronées par vent du NW au NE.",
+      "Absence de visibilité entre les seuils de piste 04 et 22.",
+      "Importante activité HEL dans l'ouest de l'AD.",
+      "QFU 220° préférentiel pour éviter le décollage au-dessus de zones habitées.",
+      "Roulage interdit hors RWY et TWY.",
+      "Largeur TWY A non réglementaire, portion depuis l'ACB vers le Nord-Ouest : 6.2 m.",
+      "Parachutage N°272 : voir AIP ENR 5.5 Treuillage planeurs N°966-1 : voir AIP ENR 5.5 Treuillage parachutisme ascensionnel N°966-2 : voir see ENR 5.5 AEM N°8317 : voir AIP ENR 5.5"
+    ]
+  }
+}

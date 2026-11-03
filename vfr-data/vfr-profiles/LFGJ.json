@@ -1,0 +1,121 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGJ (AIP France, chart dated 2026-08-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFGJ",
+  "name": "Dole-Jura",
+  "source": {
+    "publication": "AIP France AD 2 LFGJ",
+    "chartDate": "2026-08-06",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.04278,
+    "longitude": 5.435
+  },
+  "elevationFeet": 645,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "TWR : LUN-VEN sauf JF / MON-FRI except public HOL : 0800-1800. SAM-DIM sauf JF / SAT-SUN except public HOL : 0800-1130 1230-1600. Extensions possibles sur PPR auprès de l'exploitant, le dernier jour ouvrable avant 1200. Possible extension on PPR from AD operator on the last working day before 1200. L'activité est connue sur la fréquence TWR ainsi que via l'ATIS. The activity is known on TWR frequency as well as via A (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 121.605,
+    "approach": 125.415,
+    "tower": 130.775,
+    "afis": 130.775
+  },
+  "reportingPoints": [
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 47.02306,
+      "longitude": 5.48444,
+      "location": "Parcey"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 47.12194,
+      "longitude": 5.38111,
+      "location": "Saint-Seine en Bâche (croisement autoroute)"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 46.8524,
+      "longitude": 5.5714,
+      "location": "Péage de Poligny"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 47.0325,
+      "longitude": 5.17013,
+      "location": "AMDT 02/26"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Outside ATS SKED, AD reserved for home-based ACFT or authorized.",
+    "RWY 05/23 limited: Use of RWY 05 and 23 prohibited when crosswind from North sector is equal to or above 25 kt.",
+    "TWY width: TWY A and B: 15 m, TWY C: 18 m, TWY D: 7.5 m and TWY J: 15 m.",
+    "PCN: TWY A, B, D, J: 31 F/B/X/T TWY C: 46 F/B/X/T Use of reporting points mandatory.",
+    "With IFR traffic: special VFR prohibited.",
+    "Without IFR traffic: ACFT: VIS: 1500 m, out of clouds; Helicopter: 800 m, out of clouds; Ceiling >= 600 ft.",
+    "Traffic surveillance equipment: AD equipped with a radar display during ATS SKED (see AD 1.0).",
+    "Aerobatics NR 6450: see AIP ENR 5.5 AEM NR 8062: see AIP ENR 5.5 RADIOCOMMUNICATION FAILURE.",
+    "Before receiving the entry clearance in CTR, unless emergency, do not enter it.",
+    "After receiving the entry clearance in CTR, proceed via South facing the tower headlights ON at 1900 ft AMSL, then join AD circuit.",
+    "If possible, try to contact TWR by mobile phone at 03 84 71 98 98.",
+    "MON-FRI except public HOL: Level 5: ATS SKED.",
+    "For any class 3 or above ACFT with passengers onboard.",
+    "Outside these ATS SKED, PPR AD operator before 1600.",
+    "By mail operations.dole@edeis.com or TEL: 03 84 72 87 25 No RFFS level outside these SKED and requests.",
+    "Péril animalier / Wildlife strike hazard: Occasionnel / Random.",
+    "HOR RFFS / RFFS SKED (HJ seulement / only )."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "En dehors des HOR ATS, AD réservé aux ACFT basés ou autorisés.",
+      "Piste 05/23 limitée : Utilisation des pistes 05 et 23 interdite avec composante de vent traversier secteur Nord supérieure ou égale à 25 kt.",
+      "Largeur TWY : TWY A et B : 15 m, TWY C : 18 m, TWY D : 7,5 m et TWY J : 15 m.",
+      "",
+      "En présence de trafic IFR : VFR spécial interdit.",
+      "En l'absence de trafic IFR : Avions : VIS : 1500 m, hors des nuages ; Hélicoptères : 800 m, hors des nuages ; Plafond >= 600 ft.",
+      "Équipement de surveillance du trafic : AD équipé d'une visualisation radar pendant les HOR ATS (voir AD 1.0).",
+      "",
+      "Avant d'avoir reçu la clairance d'entrée en CTR, sauf urgence, ne pas y pénétrer.",
+      "Après avoir reçu la clairance d'entrée en CTR, se présenter par le Sud, face à la Tour, phares allumés à 1900 ft AMSL, puis rejoindre le circuit d'aérodrome.",
+      "Si possible, essayer de contacter la TWR par téléphone portable au 03 84 71 98 98.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+}

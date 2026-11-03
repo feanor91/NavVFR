@@ -1,0 +1,76 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCT (AIP France, chart dated 2023-10-05): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCT",
+  "name": "Thouars",
+  "source": {
+    "publication": "AIP France AD 2 LFCT",
+    "chartDate": "2023-10-05",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.96194,
+    "longitude": -0.15278
+  },
+  "elevationFeet": 341,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.355",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.355
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        118,
+        298
+      ]
+    }
+  ],
+  "preferredQfu": 298,
+  "preferredQfuReason": "preferred QFU 298, due to longitudinal slope",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "During gliders launching activity arriving ACFT must fly at 2000 ft ASFC and wait till the end of winching.",
+    "Due to the RWY 12/30 convex profile, THR 30 is not visible from THR 12, a great caution is required to enter the RWY.",
+    "Preferred QFU 298° due to longitudinal slope.",
+    "Gliders winching activity on AD (NR 965) signalled by rotating light set up on winch SR-SS, 1000 ft ASFC.",
+    "Announced on A/A THOUARS.",
+    "Aerobatics (NR 6509).",
+    "1000 m along RWY 12/30 axis, centered on PSN: 465739N – 0000913W, 0700-1100, 1300-1800 (SUM: - 1 HR), 2000 ft AMSL/5000 ft AMSL.",
+    "Activity reserved for home based pilots or users who have signed the protocol.",
+    "Real activity announced on THOUARS A/A and POITIERS INFO.",
+    "Winching and aerobatics activities prohibited simultaneously.",
+    "AEM (NR 9043): HJ, 330 ft ASFC.",
+    "As per protocol."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Pendant l'activité de treuillage planeurs, les aéronefs à l'arrivée doivent évoluer à 2000 ft ASFC et attendre la fin du treuillage.",
+      "En raison du profil bombé de la piste 12/30, le seuil 30 n'est pas visible de l'entrée de piste du seuil 12, une grande prudence est requise pour pénétrer sur la piste.",
+      "QFU 298° préférentiel cause pente longitudinale.",
+      "Activité treuillage planeurs sur AD (N° 965) annoncée par feu tournant installé sur le treuil SR-SS, 1000 ft ASFC.",
+      "Annoncée sur A/A THOUARS.",
+      "Activité de voltige (N° 6509).",
+      "Axe RWY 12/30 de 1 km de long, centré sur PSN : 465739N – 0000913W, 07001100, 1300-1800 (ETE : - 1 HR), 2000 ft AMSL/5000 ft AMSL.",
+      "Activité réservée aux usagers basés ou signataires du protocole.",
+      "Activité réelle annoncée sur THOUARS A/A et POITIERS INFO.",
+      "Activités treuillage et voltige interdites simultanément.",
+      "AEM (N° 9043) : HJ, 330 ft ASFC.",
+      "Selon protocole."
+    ]
+  }
+}

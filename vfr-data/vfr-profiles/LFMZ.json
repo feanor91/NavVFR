@@ -1,0 +1,75 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFMZ (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFMZ",
+  "name": "Lézignan-Corbières",
+  "source": {
+    "publication": "AIP France AD 2 LFMZ",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.175,
+    "longitude": 2.73278
+  },
+  "elevationFeet": 204,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "HOR AFIS : - ETE / SUM : 0545-1000, 1145-1530 - HIV / WIN : 0745-1100, 1245-1630 (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 121.205",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 121.205,
+    "airAir": 121.205
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        77,
+        257
+      ]
+    },
+    {
+      "id": "08L/26R",
+      "qfu": [
+        77,
+        257
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT and ULM.",
+    "Simultaneous use of both RWY prohibited.",
+    "South AD traffic pattern: no turn before 500 ft ASFC during initial climb; downwind: overflight of the motorway at 1000 ft ASFC MNM.",
+    "North AD traffic pattern prohibited.",
+    "Low height circuit: by the South, only with instructor on board; prohibited below 500 ft ASFC avoiding the overflight of the motorway.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "PJE (NR 426): see AIP ENR 5.5.",
+    "Compulsory contact before startup with AFIS in order to know the PJE activity.",
+    "Aerobatic activity (NR 6851): see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT et ULM munis de radio.",
+      "Utilisation simultanée des pistes interdite.",
+      "Tour de piste au Sud, en montée initiale pas de virage avant 500 ft ASFC, survol en vent arrière de l'autoroute à 1000 ft ASFC MNM.",
+      "Tour de piste au Nord interdit.",
+      "Circuit basse hauteur au Sud, uniquement avec instructeur à bord, interdit en-dessous de 500 ft ASFC en évitant à cette hauteur le survol de l'autoroute.",
+      "Roulage interdit hors RWY et TWY.",
+      "Parachutage (N° 426) : voir AIP ENR 5.5.",
+      "Contact obligatoire à la mise en route avec l'agent AFIS pour obtenir l'information de l'activité PJE.",
+      "Activité de voltige (N° 6851) : voir AIP ENR 5.5."
+    ]
+  }
+}

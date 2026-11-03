@@ -1,0 +1,123 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFEV (AIP France, chart dated 2026-04-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFEV",
+  "name": "Gray - Saint-Adrien",
+  "source": {
+    "publication": "AIP France AD 2 LFEV",
+    "chartDate": "2026-04-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.43222,
+    "longitude": 5.62139
+  },
+  "elevationFeet": 689,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.84",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.84
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        72,
+        252
+      ]
+    },
+    {
+      "id": "07L/25R",
+      "qfu": [
+        72,
+        252
+      ]
+    },
+    {
+      "id": "07R/25L",
+      "qfu": [
+        72,
+        252
+      ]
+    }
+  ],
+  "preferredQfu": 72,
+  "preferredQfuReason": "preferred QFU 72, due to RNP procedure RWY 07",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Unpaved RWY 350 x 20 m reserved for home-based ULM.",
+    "Unpaved RWY 860 x 50 m reserved for home-based ACFT.",
+    "Possible IFR operations.",
+    "Simultaneous use of RWY prohibited.",
+    "Usable declared distances: (1) Reduced TORA, TODA and LDA on paved RWY 07/25.",
+    "Ends of these declared distances are located at the opposite DTHR.",
+    "In case of strong winds from the North-North-East, risk of turbulence and windshear during LDG on the first third of paved RWY 07.",
+    "In case of strong winds from the South-South-East, risk of turbulence and windshear during LDG on the first third of paved RWY 25.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "HS 1: Taxiing priority on TWY B.",
+    "HS 2: Taxiing priority on TWY B.",
+    "TWY A reserved for ACFT whose wingspan is smaller than 15 meters.",
+    "TWY C reserved for ACFT whose wingspan is smaller than 12 meters.",
+    "Preferred QFU: 072° due to RNP procedure RWY 07.",
+    "Comply with published circuits as far as possible.",
+    "Mandatory use of PAPI on paved RWY, by day and by night.",
+    "Mandatory TKOF from RWYs ends.",
+    "After TKOF on RWY 07, do not turn right before the D474 road.",
+    "Douanes, Police / Customs, Police: Obligations for goods air flow: Concerned flights: from third country to the customs territory of the.",
+    "Union but within Schengen: Iceland, Liechtenstein, Norway, Swiss.",
+    "E-mail with the following information: Airport/aerodrome of origin, ACFT registration number, Pilot and passengers identity: Name, First name, date of birth, nationality Estimated time of arrival,",
+    "Send to: codt-metz@douane.finances.gouv.fr As soon as possible or at the latest: 12 HR before LDG for flights from MON to FRI, 24 HR before LDG for flights on SAT, SUN and public HOL.",
+    "Carburant / Fuel: 100 LL et / and JET A1, H24 et / and 7j/7 / 7 days on 7.",
+    "Lubrifiant / Lubricants: possible.",
+    "S'adresser à / Contact JG Aviation.",
+    "Paiement carte TOTAL uniquement sur automate / Payment by TOTAL card only on automatic dispenser.",
+    "Niveau 1 / Level 1.",
+    "Péril animalier / Wildlife strike hazard:"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Piste non revêtue 350 x 20 m réservée aux ULM basés.",
+      "Piste non revêtue 860 x 50 m réservée aux ACFT basés.",
+      "Activité IFR possible.",
+      "Utilisation simultanée des pistes interdite.",
+      "Distances déclarées utilisables : (1) TORA, TODA et LDA RWY 07/25 revêtue réduites.",
+      "Les fins de ces distances se situent au DTHR opposé.",
+      "Par vent fort du Sud-Sud-Est, risque de turublences et cisaillements lors de l'atterrissage sur le premier tiers de la piste revêtue 25.",
+      "Par vent fort du Sud-Sud-Est, risque de turublences et cisaillements lors de l'atterrissage sur le premier tiers de la piste revêtue 25.",
+      "Roulage interdit hors RWY et TWY.",
+      "HS 1 : Priorité roulage sur TWY B.",
+      "HS 2 : Priorité roulage sur TWY B.",
+      "TWY A réservé aux aéronefs dont l'envergure est inférieure à 15 mètres.",
+      "TWY C réservé aux aéronefs dont l'envergure est inférieure à 12 mètres.",
+      "QFU 072° préférentiel cause procédure RNP RWY 07.",
+      "Respecter les circuits publiés dans la mesure du possible.",
+      "Utilisation du PAPI obligatoire de jour et de nuit sur piste revêtue.",
+      "Décollage obligatoire depuis les extrémités de piste.",
+      "Après décollage en piste 07, ne pas tourner à droite avant la route D474.",
+      "",
+      "",
+      "",
+      "Le plus tôt possible et au plus tard : 12 HR avant l'atterrissage de l'aéronef pour les vols du LUN au VEN, 24 HR avant l'atterrissage de l'aéronef pour les vols des SAM, DIM et JF. ❍ ❍ ❍ ❍ 10 - AVT : 11 - RFFS : 12 - NIL.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFSD (AIP France, chart dated 2026-05-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFSD",
+  "name": "Dijon-Bourgogne",
+  "source": {
+    "publication": "AIP France AD 2 LFSD",
+    "chartDate": "2026-05-14",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.26583,
+    "longitude": 5.095
+  },
+  "elevationFeet": 728,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "HIV : LUN-DIM : 0800-1700 / WIN : MON-SUN : 0800-1700 (UTC HIV ; HOR ETE : - 1 HR)",
+    "outsideAtsHours": "air-air frequency 118.330",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 135.85,
+    "approach": 125.415,
+    "afis": 118.33
+  },
+  "runways": [
+    {
+      "id": "17/35",
+      "qfu": [
+        173,
+        353
+      ]
+    },
+    {
+      "id": "01/19",
+      "qfu": [
+        13,
+        193
+      ]
+    }
+  ],
+  "notes": [
+    "Unusable outside RWY and TWY.",
+    "Radio contact mandatory.",
+    "AD usable outside ATS SKED for home-based ACFT or authorized ACFT with PPR 24HR. circled areas.",
+    "Helicopters: TKOF outside RWY prohibited.",
+    "Training flights authorized during ATS SKED.",
+    "RWY 01/19 usable daytime only for VFR, reserved for home-based or authorized ACFT.",
+    "Runways resistance: RWY 01/19: old THR 01: 102 R/B/W/T; centre part of RWY: 41 F/C/W/T - 10 t/RSI -14t/J;.",
+    "THR 19: 49 R/B/W/T RWY 17/35:.",
+    "THR 17: 119 R/B/W/T",
+    "North half-part of RWY: 120 F/B/W/T",
+    "South half-part of RWY: 133 F/B/W/T",
+    "THR 35: 119 R/B/W/T Use of TWY B limited to aircraft whose wheelbase is less than 18 m.",
+    "TWY B and C: closed to aircraft whose wingspan is greater than 36 m.",
+    "Use of TWY D and E limited to aircraft whose overall width of main gear is less than 9 m.",
+    "TWY D: limited to aircraft whose wingspan is less than 39 m,; special caution when taxiing for aircraft whose wingspan is greater than 36 m, follow Flyco instructions.",
+    "TWY E: limited to aircraft whose wingspan is less than 49 m,; special caution when taxiing for aircraft whose wingspan is greater than 35 m, follow Flyco instructions.",
+    "Mandatory handling for ACFT heavier than 3 t: PPR PN 24 HR via cy.myhandlingsoftware.com Secondary parking TWY C: follow FOLLOW-ME instructions.",
+    "TWY A closed.",
+    "TWY B prohibited for jet engine ACFT.",
+    "Hot Spots: HS: crossing RWY 01/19 and road.",
+    "Presence of a fence at 134 m East and parallel to RWY 17/35.",
+    "Length 1750 m, 7 ft high, altitude on top 735 ft, unmarked.",
+    "Carburants / Fuel: 100 LL - JET A 1 (CIV-MIL).",
+    "Paiement comptant ou cartes / Cash payment or cards: Level 5: ATS SKED Outside ATS SKED: level 1 Outside ATS SKED: level 2 or 5 with PPR 24HR.",
+    "Péril animalier / Wildlife strike hazard: Service adapté HOR RFFS HJ seulement / Adapted service RFFS SKED HJ only."
+  ],
+  "fr": {
+    "notes": [
+      "Inutilisable hors RWY et TWY.",
+      "Contact radio obligatoire.",
+      "AD utilisable hors HOR ATS pour les ACFT basés ou autorisés avec PPR 24HR.",
+      "Hélicoptères : décollages interdits hors RWY.",
+      "Vols d'entraînement autorisés pendant HOR ATS.",
+      "RWY 01/19 utilisable de jour uniquement en VFR, réservée aux aéronefs basés ou autorisés.",
+      "Résistance des pistes : RWY 01/19 : ancien THR 01 : 102 R/B/W/T ; partie centrale de piste : 41 F/C/W/T - 10 t/RSI -14t/J.",
+      "",
+      "",
+      "",
+      "",
+      "THR 35 : 119 R/B/W/T Utilisation TWY B limitée aux aéronefs dont l'empattement est inférieur à 18 m.",
+      "TWY B et C : fermés aux aéronefs d'envergure supérieure à 36 m.",
+      "Utilisation TWY D et E limitée aux aéronefs dont la largeur hors-tout du train principal est inférieure à 9 m.",
+      "TWY D : limité aux aéronefs d'envergure inférieure à 39 m ; roulage de précaution aux aéronefs d'envergure supérieure à 36 m, suivre les instructions du Flyco.",
+      "TWY E : utilisation limitée aux aéronefs d'envergure inférieure à 49 m ; roulage de précaution aux aéronefs d'envergure supérieure à 35 m, suivre les instructions du Flyco.",
+      "Assistance obligatoire pour ACFT de masse supérieure à 3 t : PPR PN 24 HR via cy.myhandlingsoftware.com Parking secondaire TWY C : suivre les instructions du FOLLOW-ME.",
+      "TWY A fermé.",
+      "TWY B interdit aux ACFT à réaction.",
+      "Points chauds : HS : croisement RWY 01/19 et route.",
+      "Présence d'une clôture à 134 m à l'Est et parallèle à la RWY 17/35.",
+      "Longueur 1750 m, hauteur 7 ft, altitude au sommet 735 ft, non balisée.",
+      "",
+      "",
+      ""
+    ]
+  }
+}

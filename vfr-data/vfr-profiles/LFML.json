@@ -1,0 +1,407 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFML (AIP France, chart dated 2026-01-22): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "Procedures (arrivals, departures, special VFR, radio failure) were then structured by hand from the English column of the text pages; what the chart only draws is not recorded.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFML",
+  "name": "Marseille Provence",
+  "source": {
+    "publication": "AIP France AD 2 LFML",
+    "chartDate": "2026-01-22",
+    "extraction": "chart text, table and English column read by script, procedures structured by hand",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 43.43667,
+    "longitude": 5.215
+  },
+  "elevationFeet": 70,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "H 24. DGAC - SNASSE - Aéroport MARSEILLE -PROVENCE BP1, Aéroport, 13727 Marignane CEDEX (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 124.35,
+    "atis": 125.355,
+    "approach": 124.35,
+    "tower": 133.1,
+    "ground": 121.905
+  },
+  "runways": [
+    {
+      "id": "13L/31R",
+      "qfu": [
+        132,
+        312
+      ]
+    },
+    {
+      "id": "13R/31L",
+      "qfu": [
+        133,
+        313
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "LP",
+      "spoken": {
+        "fr": "Lima Papa",
+        "en": "Lima Papa"
+      },
+      "latitude": 43.61639,
+      "longitude": 5.315,
+      "location": "St Cannat – La Pile"
+    },
+    {
+      "name": "CB",
+      "spoken": {
+        "fr": "Charlie Bravo",
+        "en": "Charlie Bravo"
+      },
+      "latitude": 43.62694,
+      "longitude": 5.40472,
+      "location": "château de CABANNE"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 43.555,
+      "longitude": 5.28389,
+      "location": "Ventabren (intersection A8 et D19)"
+    },
+    {
+      "name": "NB",
+      "spoken": {
+        "fr": "Novembre Bravo",
+        "en": "November Bravo"
+      },
+      "latitude": 43.47139,
+      "longitude": 5.24239,
+      "location": "Antenne du radar de Vitrolles"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 43.44,
+      "longitude": 5.45167,
+      "location": "Terril au Sud Ouest de Gardanne"
+    },
+    {
+      "name": "EA",
+      "spoken": {
+        "fr": "Écho Alpha",
+        "en": "Echo Alpha"
+      },
+      "latitude": 43.43147,
+      "longitude": 5.38436,
+      "location": "Échangeur autoroutier de Cabriés"
+    },
+    {
+      "name": "EB",
+      "spoken": {
+        "fr": "Écho Bravo",
+        "en": "Echo Bravo"
+      },
+      "latitude": 43.41047,
+      "longitude": 5.32461,
+      "location": "Carrefour routier aménagé à l'Est des Pennes Mirabeau"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 43.32444,
+      "longitude": 5.04167,
+      "location": "Sud de Carro"
+    },
+    {
+      "name": "SC",
+      "spoken": {
+        "fr": "Sierra Charlie",
+        "en": "Sierra Charlie"
+      },
+      "latitude": 43.21056,
+      "longitude": 5.30194,
+      "location": "1 NM Ouest Cap Croisette"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 43.32444,
+      "longitude": 5.17222,
+      "location": "Sud de Carry-le-Rouet"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 43.37408,
+      "longitude": 5.18793,
+      "location": "Est de Chateauneuf les Martigues"
+    },
+    {
+      "name": "SB",
+      "spoken": {
+        "fr": "Sierra Bravo",
+        "en": "Sierra Bravo"
+      },
+      "latitude": 43.40758,
+      "longitude": 5.18481,
+      "location": "Convergence étang de Bolmon et canal de Marseille"
+    },
+    {
+      "name": "SR",
+      "spoken": {
+        "fr": "Sierra Roméo",
+        "en": "Sierra Romeo"
+      },
+      "latitude": 43.15389,
+      "longitude": 5.38194,
+      "location": "1 NM Sud des îles du Riou"
+    }
+  ],
+  "withAts": {
+    "arrivals": [
+      {
+        "note": "take note of the ATIS before contacting the ATC unit; request the clearance to enter the CTR at least 3 minutes before reaching the entry points; entry by LP, CB, E, SC or SW: contact Provence TWR"
+      },
+      {
+        "note": "unless otherwise cleared or instructed by the ATS, overfly the entry points and follow the routings at the altitudes of the table; the routings printed on the VAC are likely to be imposed by the ATS; other routings and altitudes may be granted after pilot request and ATC clearance"
+      },
+      {
+        "entry": "LP or CB",
+        "contact": "Provence 133.100",
+        "route": "LP (1700 ft) or CB (2000 ft), then NA (1500 ft), then NB (1500 ft)"
+      },
+      {
+        "entry": "E",
+        "contact": "Provence 133.100",
+        "route": "E (2000 ft), then EA (1500 ft), then NB (1500 ft)"
+      },
+      {
+        "entry": "SC",
+        "contact": "Provence 133.100",
+        "route": "SC (1500 ft MAX), then S (1500 ft), then SA (1500 ft), then SB (1500 ft)"
+      },
+      {
+        "entry": "SW",
+        "contact": "Provence 133.100",
+        "route": "SW (700 ft MAX), then S (1000 ft), then SA (1500 ft), then SB (1500 ft)"
+      },
+      {
+        "transit": "coastal transit",
+        "routes": [
+          {
+            "entry": "SW",
+            "exit": "SC",
+            "contact": "Provence 133.100",
+            "route": "SW (700 ft), then S (1000 ft), then SC (1500 ft MAX)"
+          },
+          {
+            "entry": "SC",
+            "exit": "SW",
+            "contact": "Provence 133.100",
+            "route": "SC (1500 ft MAX), then S (1000 ft), then SW (700 ft)"
+          },
+          {
+            "entry": "SC",
+            "exit": "SR",
+            "contact": "Provence 132.950",
+            "route": "SC (1500 ft), then SR (1650 ft)"
+          },
+          {
+            "entry": "SR",
+            "exit": "SC",
+            "contact": "Provence 132.950",
+            "route": "SR (1650 ft), then SC (1500 ft)"
+          }
+        ]
+      },
+      {
+        "transit": "other than coastal transit",
+        "note": "tell ATC the entry point in the CTR and the planned exit point, then comply with ATC instructions"
+      }
+    ],
+    "departures": [
+      {
+        "note": "look at the ATIS before contacting the ATC unit: contact Provence Preflight, indicate the exit point and, when there is no flight plan, the flight data; the routings printed on the VAC are likely to be imposed by the ATC; other routings and altitudes may be granted after pilot request and ATC clearance"
+      },
+      {
+        "exit": "LP or CB",
+        "route": "NB (1500 ft), then NA (1500 ft), then LP (1700 ft) or CB (2000 ft)"
+      },
+      {
+        "exit": "E",
+        "runway": "31",
+        "route": "NB (1500 ft), then EA (1500 ft), then E (2000 ft)"
+      },
+      {
+        "exit": "E",
+        "runway": "13",
+        "route": "EB (1500 ft), then EA (1500 ft), then E (2000 ft)"
+      },
+      {
+        "exit": "SC",
+        "route": "SB (1000 ft), then SA (1000 ft), then S (1500 ft), then SC (1500 ft MAX)"
+      },
+      {
+        "exit": "SW",
+        "route": "SB (1000 ft), then SA (1000 ft), then S (1000 ft), then SW (700 ft)"
+      }
+    ],
+    "axisCrossing": "an explicit authorisation from Provence TWR must be obtained to cross the runway axes; failing that, hold at NB for a north to south crossing or at SB for a south to north crossing, without interfering with the axes",
+    "specialVfr": "a special VFR clearance is necessary to enter the CTR at arrival, departure or transit when the observed conditions are: 1500 m <= visibility < 5000 m, and 600 ft <= ceiling < 1500 ft; special VFR by day only; to keep separation from IFR traffic, special VFR aircraft may be asked to hold",
+    "nightVfr": "local flights inside the Provence CTR: no cloud below 2500 ft AMSL and visibility of at least 5 km; holding sectors: comply with ATC instructions; night VFR routes: comply with ENR 3.3.5",
+    "radio": {
+      "failureOnArrival": "squawk 7600; outside the CTR, do not enter it; inside the CTR, west of the runways leave the CTR by the routing via S (1000 ft) to SC, then climb to 1500 ft MAX; east of the runways leave by the most appropriate routing, either E (2000 ft) or NA (1500 ft) to LP (1700 ft) or CB (2000 ft)",
+      "failureOnDeparture": "before take-off do not take off; after take-off squawk 7600; west of the runways leave the CTR via S (1000 ft) to SC, then climb to 1500 ft MAX; east of the runways leave by the planned routing",
+      "failureInTransit": "outside the CTR do not enter it; inside the CTR leave it by the nearest VFR routing without crossing the runway axes"
+    }
+  },
+  "notes": [
+    "Significant HEL activity in the AD traffic pattern or in the vicinity of the RWY.",
+    "For safety and security reasons, handling is compulsory for any ACFT, including ACFT going to the AIRBUS HELICOPTERS area.",
+    "List of handling services must be contacted before departure from origin AD: see AD 2 LFML TXT 06.",
+    "QFU 31L take-offs are prohibited when the crosswind component (including gusts) is greater than 12 kts on wet runway.",
+    "Large gathering of birds on the platform and close nearby.",
+    "Marked pylon day and night, North-East of the axis between the pond and the General Aviation Terminal (see AD 2 LFML ATT 01).",
+    "Taxiing prohibited except on RWY and TWY.",
+    "AEM activity (NR 9510): SR-SS, 650 ft ASFC.",
+    "Traffic surveillance equipment: aerodrome equipped with primary and secondary surveillance radar."
+  ],
+  "fr": {
+    "notes": [
+      "Importante activité HEL, dans le circuit de piste ou aux abords de celle-ci.",
+      "Pour des raisons de sécurité et de sûreté l'assistance est obligatoire pour tous les ACFT, y compris les ACFT à destination du site AIRBUS HELICOPTERS.",
+      "Liste des assistants à contacter impérativement avant le départ du terrain d'origine : voir AD 2 LFML TXT 06.",
+      "Les décollages QFU 31L sont interdits lorsque la composante traversière du vent (y compris en rafales) est supérieure à 12 kt sur piste mouillée.",
+      "Forte concentration d'oiseaux sur la plate-forme et aux abords immédiats de celle-ci.",
+      "Pylône balisé jour et nuit sur AD, au Nord-Est des axes entre étang et Terminal Aviation Générale (voir AD 2 LFML ATT 01).",
+      "",
+      "AEM (N° 9510) : SR-SS, 650 ft ASFC.",
+      "Équipement de surveillance du trafic : aérodrome équipé d'un radar primaire et secondaire."
+    ],
+    "withAts": {
+      "arrivals": [
+        {
+          "note": "prendre connaissance de l'ATIS avant de contacter les services du contrôle ; l'autorisation de pénétrer dans la CTR sera demandée 3 min au moins avant le survol des points d'entrée ; entrée par LP, CB, E, SC ou SW : contacter Provence TWR"
+        },
+        {
+          "note": "sauf autorisation ou instructions particulières, survol des points d'entrée et itinéraires à l'altitude prévue dans le tableau ; les itinéraires publiés sur la carte VAC sont susceptibles d'être imposés par le contrôle ; sur demande du pilote et autorisation du contrôle, des itinéraires et/ou ALT différents pourront être suivis"
+        },
+        {
+          "entry": "LP ou CB",
+          "contact": "Provence 133.100",
+          "route": "LP (1700 ft) ou CB (2000 ft), puis NA (1500 ft), puis NB (1500 ft)"
+        },
+        {
+          "entry": "E",
+          "contact": "Provence 133.100",
+          "route": "E (2000 ft), puis EA (1500 ft), puis NB (1500 ft)"
+        },
+        {
+          "entry": "SC",
+          "contact": "Provence 133.100",
+          "route": "SC (1500 ft MAX), puis S (1500 ft), puis SA (1500 ft), puis SB (1500 ft)"
+        },
+        {
+          "entry": "SW",
+          "contact": "Provence 133.100",
+          "route": "SW (700 ft MAX), puis S (1000 ft), puis SA (1500 ft), puis SB (1500 ft)"
+        },
+        {
+          "transit": "transit côtier",
+          "routes": [
+            {
+              "entry": "SW",
+              "exit": "SC",
+              "contact": "Provence 133.100",
+              "route": "SW (700 ft), puis S (1000 ft), puis SC (1500 ft MAX)"
+            },
+            {
+              "entry": "SC",
+              "exit": "SW",
+              "contact": "Provence 133.100",
+              "route": "SC (1500 ft MAX), puis S (1000 ft), puis SW (700 ft)"
+            },
+            {
+              "entry": "SC",
+              "exit": "SR",
+              "contact": "Provence 132.950",
+              "route": "SC (1500 ft), puis SR (1650 ft)"
+            },
+            {
+              "entry": "SR",
+              "exit": "SC",
+              "contact": "Provence 132.950",
+              "route": "SR (1650 ft), puis SC (1500 ft)"
+            }
+          ]
+        },
+        {
+          "transit": "transit autre que transit côtier",
+          "note": "annoncer au contrôle le point d'entrée dans la CTR et le point de sortie prévu, puis se référer aux instructions données par le contrôle"
+        }
+      ],
+      "departures": [
+        {
+          "note": "prendre connaissance de l'ATIS avant de contacter les services de contrôle : contacter Provence Prévol, indiquer le point de sortie et, en l'absence de PLN, les éléments de vol ; les itinéraires publiés sur la carte VAC sont susceptibles d'être imposés par le contrôle ; sur demande du pilote et autorisation du contrôle, des itinéraires et/ou ALT différents pourront être suivis"
+        },
+        {
+          "exit": "LP ou CB",
+          "route": "NB (1500 ft), puis NA (1500 ft), puis LP (1700 ft) ou CB (2000 ft)"
+        },
+        {
+          "exit": "E",
+          "runway": "31",
+          "route": "NB (1500 ft), puis EA (1500 ft), puis E (2000 ft)"
+        },
+        {
+          "exit": "E",
+          "runway": "13",
+          "route": "EB (1500 ft), puis EA (1500 ft), puis E (2000 ft)"
+        },
+        {
+          "exit": "SC",
+          "route": "SB (1000 ft), puis SA (1000 ft), puis S (1500 ft), puis SC (1500 ft MAX)"
+        },
+        {
+          "exit": "SW",
+          "route": "SB (1000 ft), puis SA (1000 ft), puis S (1000 ft), puis SW (700 ft)"
+        }
+      ],
+      "axisCrossing": "une autorisation explicite de Provence TWR doit être obtenue pour croiser les axes de piste ; à défaut, une attente sera exécutée à NB dans le sens nord-sud ou à SB dans le sens sud-nord, sans interférer avec les axes",
+      "specialVfr": "une clairance VFR spécial est nécessaire pour pénétrer dans la CTR à l'arrivée, au départ ou en transit dès que les conditions météo constatées sur l'aérodrome sont : 1500 m ≤ VISI < 5000 m et 600 ft ≤ plafond < 1500 ft ; VFR spécial possible de jour seulement ; en VFR spécial, dans le but d'assurer une séparation avec le trafic IFR, des attentes en vol pourront être demandées aux ACFT en VFR souhaitant pénétrer dans la CTR",
+      "nightVfr": "vols locaux à l'intérieur de la CTR PROVENCE : pas de nuage en dessous de 2500 ft AMSL, VH ≥ 5 km ; secteurs d'attente : se référer aux instructions données par le contrôle ; itinéraires VFR de nuit : se conformer à l'ENR 3.3.5",
+      "radio": {
+        "failureOnArrival": "afficher A7600 ; à l'extérieur de la CTR, interdiction d'y pénétrer ; à l'intérieur de la CTR, à l'ouest des RWY : quitter la CTR par l'itinéraire S (1000 ft) vers SC, ensuite en montée vers 1500 ft MAX ; à l'est des RWY : quitter la CTR par l'itinéraire le plus approprié soit E (2000 ft), soit NA (1500 ft) vers LP (1700 ft) ou CB (2000 ft)",
+        "failureOnDeparture": "avant TKOF : ne pas décoller ; après TKOF : afficher A7600 ; à l'ouest des RWY : quitter la CTR par l'itinéraire S (1000 ft) vers SC, ensuite en montée vers 1500 ft MAX ; à l'est des RWY : quitter la CTR par l'itinéraire prévu",
+        "failureInTransit": "à l'extérieur de la CTR, ne pas y pénétrer ; à l'intérieur de la CTR, quitter la CTR par l'itinéraire VFR le plus proche sans couper les axes de pistes"
+      }
+    }
+  }
+}

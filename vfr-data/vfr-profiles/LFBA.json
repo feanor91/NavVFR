@@ -1,0 +1,70 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBA (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFBA",
+  "name": "Agen-La Garenne",
+  "source": {
+    "publication": "AIP France AD 2 LFBA",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.17472,
+    "longitude": 0.59056
+  },
+  "elevationFeet": 204,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "LUN-VEN : 0700-1700, SAM-DIM et JF : 0800-1100 1215-1700. MON-FRI : 0700-1700, SAT-SUN and public HOL: 0800-1100 1215-1700 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 129.605,
+    "approach": 120.355,
+    "tower": 121.305
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        111,
+        291
+      ]
+    }
+  ],
+  "preferredQfu": 291,
+  "preferredQfuReason": "preferred QFU 291, due to IFR procedure",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD highly sensitive to noise.",
+    "Low height circuit during training flights and with an instructor only.",
+    "MNM 600 ft.",
+    "Preferred QFU: 291° due to IFR procedure.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Traffic surveillance equipment: AD equipped with a radar display (see AD 1.0).",
+    "Consignes particulières / Special instructions Paradropping NR 380: see AIP ENR 5.5 During paradropping activity start up clearance compulsory during ATS SKED.",
+    "AEM NR 9132: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD très sensible au bruit.",
+      "Circuit basse hauteur dans le cadre des vols d'entraînement avec instructeur uniquement.",
+      "",
+      "QFU 291° préférentiel cause procédure IFR.",
+      "Roulage interdit hors RWY et TWY.",
+      "Équipement de surveillance du trafic : AD équipé d'une visualisation radar (voir AD 1.0).",
+      "Parachutage N° 380 : voir AIP ENR 5.5 Durant les périodes d'activité parachutage demande mise en route obligatoire pendant HOR ATS.",
+      "AEM N° 9132 : voir AIP ENR 5.5"
+    ]
+  }
+}

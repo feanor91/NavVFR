@@ -1,0 +1,189 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRN (AIP France, chart dated 2026-02-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFRN",
+  "name": "Rennes - Saint-Jacques",
+  "source": {
+    "publication": "AIP France AD 2 LFRN",
+    "chartDate": "2026-02-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.07194,
+    "longitude": -1.73222
+  },
+  "elevationFeet": 124,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "H24 (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "fis": 134.0,
+    "atis": 136.405,
+    "approach": 134.0,
+    "tower": 120.505,
+    "ground": 121.73
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        101,
+        281
+      ]
+    },
+    {
+      "id": "14/32",
+      "qfu": [
+        142,
+        322
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 48.18556,
+      "longitude": -1.65028,
+      "location": "Betton"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 47.98194,
+      "longitude": -1.58444,
+      "location": "Corps Nuds"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 48.02306,
+      "longitude": -1.74389,
+      "location": "Bruz"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 47.96972,
+      "longitude": -1.79528,
+      "location": "Guichen"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 48.15778,
+      "longitude": -1.83083,
+      "location": "St Gilles"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 48.125,
+      "longitude": -1.75833,
+      "location": "Vezin Le Coquet (transformateur EDF)"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 48.11667,
+      "longitude": -1.56667,
+      "location": "Cesson-Sévigné (Échangeur périphérique)"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Reduced declared distances for take-off RWY 28 from TWY intersections: TWY A: TORA/TODA/ASDA = 1910 m; TWY B: TORA/TODA/ASDA = 1707 m; TWY C: TORA/TODA/ASDA = 1188 m.",
+    "Reduced declared distances for take-off RWY 10 from TWY intersections: TWY C: TORA/TODA/ASDA = 947 m; TWY D: TORA/TODA/ASDA = 1307 m.",
+    "Reduced declared distances for take-off RWY 32 from TWY G1 intersection: TORA/TODA/ASDA: 718 m.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "RWY 14 circuit must be respected as far as possible.",
+    "Final approches RWY 10 and 14/14L merged.",
+    "\"Low height\" circuits only on ATC authorization.",
+    "RWY 14/32: MNM 300 ft AAL Southern pattern.",
+    "RWY 10/28: MNM 500 ft AAL Northern pattern.",
+    "Training flights: MIL ACFT: prohibited between 2200 and 0800 local time.",
+    "TWY G restrictions: Part between commercial passengers APRON and ACB prohibited to ACFT with wingspan above 25 m.",
+    "Bypass G2: Use limited to light ACFT (< 1.5 t), code A (wingspan <= 15 m) and OMGWS <= 4.5 m.",
+    "Helicopters prohibited.",
+    "The bypass may only be used at the request of air traffic control.",
+    "TWY J unpaved: Reserved for light aviation ACFT < 1,5 t.",
+    "Right of way for the TWY G.",
+    "From 01 NOV to 15 APR: prohibited for ACFT; HEL with the largest overall dimension less than or equal to 12 m and with weight less than 3 T can air taxiing only and upon CTL authorization.",
+    "Run up areas: Under AD operator's agreement and with marshaller's assistance.",
+    "Freight area: West side of freight apron taxilane (facing West or East only).",
+    "Use of aprons Restriction for using the military apron: Heavy ACFT (MTOW > 7 t) entrance prohibited, except emergency situation diversion.; Light ACFT (MTOW < 7 t) PPR 24 HR on working days.",
+    "TEL to +33 2 99 35 37 37.",
+    "Commercial passenger and commercial freight apron: Mandatory parking for: all passenger and freight commercial flights; non-Shengen commercial and non-commercial flights.",
+    "At these stands, handling compulsory with PPR 48 HR.",
+    "General aviation and business operators can request With IFR traffic: Airplanes: VIS: 3000 m - Ceiling: 1000 ft.",
+    "Traffic patterns: 1500 ft MNM.",
+    "Traffic surveillance equipment: AD equipped with secondary surveillance radar (see AD 1.0).",
+    "Aerobatics (NR 6365): See AIP ENR 5.5 Radio failure at arrival If failure occurs after CTR entry: In case entry instructions were communicated, follow the last received instructions.; Otherwise, fly AD overhead at 1500 ft AAL squawking 7600 before circuit entry.",
+    "Visual signals and pyrotechnic means are inoperative."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Distances déclarées réduites pour le décollage RWY 28 depuis les intersections : du TWY A : TORA/TODA/ASDA = 1910 m ; du TWY B : TORA/TODA/ASDA = 1707 m ; du TWY C : TORA/TODA/ASDA = 1188 m.",
+      "Distances déclarées réduites pour le décollage RWY 10 depuis les intersections : du TWY C : TORA/TODA/ASDA = 947 m ; du TWY D : TORA/TODA/ASDA = 1307 m.",
+      "Distances déclarées réduites pour le décollage RWY 32 depuis l'intersection du TWY G1 : TORA/TODA/ASDA : 718 m.",
+      "Roulage interdit hors RWY et TWY.",
+      "Roulage interdit hors RWY et TWY.",
+      "Circuit en vol RWY 14 à respecter dans la mesure du possible Finales RWY 10 et 14/14L confondues.",
+      "RENNES SAINT JACQUES Circuits « basse hauteur » uniquement sur autorisation du contrôle.",
+      "RWY 14/32 : MNM 300 ft AAL au Sud de la piste.",
+      "RWY 10/28 : MNM 500 ft AAL au Nord de la piste.",
+      "Vols entraînements : ACFT MIL : interdits entre 2200 et 0800 locales.",
+      "TWY G limité : Portion comprise entre PRKG commercial passagers et ACB interdite aux ACFT d'envergure supérieure à 25 m.",
+      "Bypass G2 : limitée aux aéronefs légers (< 1,5 t) de code A (envergure <= 15 m) et OMGWS <= 4,5 m.",
+      "Interdit aux hélicoptères.",
+      "L'utilisation du bypass se fait uniquement sur demande du contrôle aérien.",
+      "TWY J non revêtu : Réservé à l'aviation légère < 1,5 t.",
+      "Non prioritaire par rapport au TWY G.",
+      "Du 01 NOV au 15 APR : interdit aux avions ; les hélicoptères de longueur hors tout inférieure ou égale à 12 m et de masse inférieure à 3 T peuvent circuler en translation uniquement et sur autorisation du contrôle aérien.",
+      "Zones de point fixe : Sous réserve d'accord de l'exploitant d'AD et de l'assistance d'un placeur.",
+      "Zone de fret : sur l'Ouest du taxilane du PRKG fret (orientation Ouest ou Est uniquement).",
+      "Utilisation des parkings Restriction d'utilisation parking militaire : ACFT lourds (MTOW > 7 t), accès interdit sauf déroutement en situation d'urgence. ACFT légers (MTOW < 7 t), PPR 24 HR jours ouvrés.",
+      "TEL au +33 2 99 35 37 37.",
+      "Utilisation PRKG commercial passagers et commercial fret : Stationnement obligatoire pour : tous vols commerciaux passager et fret ; les vols hors-Shengen commerciaux et non commerciaux.",
+      "Sur ces parkings, l'assistance est obligatoire avec PPR 48 HR.",
+      "",
+      "Tours de piste : Hauteur minimale : 1500 ft.",
+      "Équipement de surveillance du trafic : AD équipé d'un radar secondaire (voir AD 1.0).",
+      "Activité de voltige (N° 6365) : Voir AIP ENR 5.5 Panne de communication à l'arrivée Si la panne intervient après pénétration dans la CTR : Dans le cas où les consignes d'intégration ont été délivrées, suivre les dernières instructions reçues. Dans le cas contraire, se présenter verticale de l'aérodrome à 1500 ft AAL en affichant 7600 avant intégration dans le circuit.",
+      "Signaux visuels et moyens pyrotechniques inopérants."
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGI (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGI",
+  "name": "Dijon - Darois",
+  "source": {
+    "publication": "AIP France AD 2 LFGI",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.38528,
+    "longitude": 4.94694
+  },
+  "elevationFeet": 1586,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.555"
+  },
+  "frequencies": {
+    "airAir": 119.555
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        16,
+        196
+      ]
+    },
+    {
+      "id": "02R/20L",
+      "qfu": [
+        16,
+        196
+      ]
+    }
+  ],
+  "notes": [
+    "AD prohibited to non-radio equipped ACFT.",
+    "Simultaneous use of RWY prohibited.",
+    "Simultaneous use of RWY and FATO prohibited.",
+    "RWY not cleared of snow.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "DEP 20, paved RWY: caution D 971 road 95 m from RWY end: adjust rate of climb.",
+    "Preferred QFU 017°, due to proximity of D 971 at the South and runway slope for landing.",
+    "Ground traffic: C1 to C5: Private areas access (under pilot in command's responsibility).",
+    "C1: Paved portion of the TWY to CEAPR company is 5 meters wide.",
+    "ACFT coming to/from CEAPR company exit aerodrome and cross D 971 South of TWY under pilot in command's responsibility.",
+    "Prior phone call to the company recommended (see TXT 02).",
+    "Helico circuit: Follow helico circuit published West of the field, use of ULM circuit 2100 (500) East of the Field possible for instructions flight of Helico only.",
+    "Gliders winch activity on AD (NR 946): see ENR 5.5 Aerobatics activity on AD (NR 6461): see ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD interdit aux ACFT non-munis de radio.",
+      "Utilisation simultanée des pistes interdite.",
+      "Utilisation simultanée des pistes et de la FATO interdite.",
+      "Piste non déneigée.",
+      "Roulages interdits hors RWY et TWY.",
+      "DEP 20, piste revêtue : présence de la D 971 à 95 m de l'extrémité de piste : adapter le taux de montée.",
+      "QFU 017° préférentiel cause proximité de la D 971 au sud et pente montante à l'atterrissage.",
+      "Circulation au sol : C1 à C5 : accès aux zones privées (sous la responsabilité du CDB).",
+      "C1 : La partie revêtue de la voie de circulation qui mène à la société CEAPR a une largeur de 5 mètres.",
+      "Sortie d'AD et traversée de la D 971 au Sud du TWY par les aéronefs à destination ou en provenance de la société CEAPR, sous la responsabilité du CDB.",
+      "Contact téléphonique préalable recommandé avec la société (voir TXT 02).",
+      "Circuit hélicoptère : suivre le circuit hélicoptères publié à l'Ouest, utilisation du circuit ULM 2100 (500) à l'Est possible pour les vols d'instruction hélicoptères uniquement.",
+      "Activité de treuillage planeurs sur AD (N°946) : voir ENR 5.5 Activité de voltige sur AD (N° 6461) : voir ENR 5.5"
+    ]
+  }
+}

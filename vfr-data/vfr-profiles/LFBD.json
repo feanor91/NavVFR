@@ -1,0 +1,273 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBD (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "Procedures (arrivals, departures, special VFR, radio failure) were then structured by hand from the English column of the text pages; what the chart only draws is not recorded.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFBD",
+  "name": "Bordeaux - Mérignac",
+  "source": {
+    "publication": "AIP France AD 2 LFBD",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, procedures structured by hand",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 44.82861,
+    "longitude": -0.71528
+  },
+  "elevationFeet": 166,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "H24 - Aéroport de BORDEAUX Mérignac - BP 70116 - 33704 Mérignac Cedex (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 120.575,
+    "atis": 131.155,
+    "approach": 119.275,
+    "tower": 118.305,
+    "ground": 121.905
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        45,
+        225
+      ]
+    },
+    {
+      "id": "11/29",
+      "qfu": [
+        106,
+        286
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 44.97556,
+      "longitude": -0.88083,
+      "location": "Ste Hélène"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 44.9075,
+      "longitude": -0.74722,
+      "location": "Carrefour D1215 / D6 St Médard"
+    },
+    {
+      "name": "EA",
+      "spoken": {
+        "fr": "Écho Alpha",
+        "en": "Echo Alpha"
+      },
+      "latitude": 44.89361,
+      "longitude": -0.66889,
+      "location": "Carrefour D1215 / D1 Le Taillan"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 45.02889,
+      "longitude": -0.79694,
+      "location": "Castelnau-de-Médoc"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 45.00833,
+      "longitude": -0.6125,
+      "location": "Macau"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 44.70417,
+      "longitude": -0.77,
+      "location": "Antenne"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 44.775,
+      "longitude": -0.69167,
+      "location": "Usine"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 44.71667,
+      "longitude": -0.69028,
+      "location": "Carrefour D1010 / D214 La Birade"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 44.74583,
+      "longitude": -0.50417,
+      "location": "Île de la Lande"
+    },
+    {
+      "name": "OA",
+      "spoken": {
+        "fr": "Oscar Alpha",
+        "en": "Oscar Alpha"
+      },
+      "latitude": 44.76972,
+      "longitude": -0.77111,
+      "location": "Usine déchetterie"
+    }
+  ],
+  "withAts": {
+    "arrivals": [
+      {
+        "note": "aircraft bound to Bordeaux-Merignac and operating in uncontrolled airspace must call Merignac TWR 3 minutes before overflying the entry points"
+      },
+      {
+        "note": "transit within the Aquitaine FIS: the flight information given on Aquitaine Information to VFR flights in class E and G airspace can be interrupted without notice; in that case each transit of class D airspace must be cleared with Aquitaine Approach, sector BW 129.880 or sector BE 119.275"
+      },
+      {
+        "note": "vacating by the inactive runway is considered effective once the aircraft has crossed the wildlife control way; it is subject to ATC clearance and prohibited by night or by day when the RVR is below 800 m"
+      }
+    ],
+    "departures": [
+      {
+        "note": "for flights to the south-west, because of TMA 1.1 whose lower limit is 1000 ft AMSL, the default exit point is S; the exit by SW is possible only on request and ATC clearance, at the altitude given by ATC"
+      },
+      {
+        "note": "pilots are reminded of the proximity of the Le Barp LF P 5 area and must adapt their navigation accordingly"
+      }
+    ],
+    "routes": {
+      "use": "except particular ATC clearance, these routes are followed in special VFR conditions and in VMC for environmental protection; they are two-way, usable for departures, arrivals and transits",
+      "altitudeFeetAmsl": 1500,
+      "altitudeNote": "except particular clearance, an overfly altitude of 1500 ft AMSL is respected on all routes (except the exit by SW, see the departure procedure)",
+      "legend": "-- visibility of at least 1500 m; == visibility of at least 3000 m",
+      "tracks": [
+        {
+          "runway": "23/05",
+          "tracks": "NA -- NW; NA == N; NA == NE; SA -- SW; SA -- S; SA == SE"
+        },
+        {
+          "runway": "29",
+          "tracks": "EA -- N; EA == NE; SA -- SW; SA -- S; SA == SE"
+        },
+        {
+          "runway": "11",
+          "tracks": "EA -- N; EA == NE; OA -- SW; OA == S"
+        }
+      ]
+    },
+    "nightVfr": "radio contact with Aquitaine Approach is compulsory before entering class D airspace",
+    "radio": {
+      "failureOnArrival": "before the clearance to enter the CTR, do not enter it; inside the CTR, before the clearance to join the traffic pattern, leave the CTR by the most suitable VFR route; after the clearance to join the pattern, continue to land as cleared",
+      "failureOnDeparture": "before take-off do not take off; after take-off leave the CTR following the last clearance (route and altitude)"
+    }
+  },
+  "notes": [
+    "Compulsory Airport handling service: see TXT 03 Engine tests should have been carried out before taxiing request.",
+    "Areas K/J: Aircraft departing under VFR flight rules also contact ATC to request startup clearance, which may include a taxi hold, before leaving their parking position or the refueling station.",
+    "From 1st APR to 31st OCT, due to ACFT stands congestion, obtaining a stand is subject to a request before the departure, to the AD operator SA-ADBM via the ground handling company.",
+    "This procedure does not apply to based ACFT, State ACFT and HEMS.",
+    "Gliders and ULM prohibited within the CTR.",
+    "Training flights are under restriction (see AIP: AD 2 LFBD.21.4.1.3).",
+    "Air navigation hazard Confusion risk between thresholds 05 and 11 due to their proximity.",
+    "Paradropping activity NR 312: see AIP ENR 5.5 AEM activity NR 9011, 9026, 9380 and 9497: see AIP ENR 5.5 Free flying winch launch activity NR 905: see AIP ENR 5.5 special VFR conditions.",
+    "Niveau / Level 8.",
+    "Voir / see AIP AD 2 LFBD.6 Péril animalier / Wildlife strike hazard: de / from SR-30 à / to SS+30."
+  ],
+  "fr": {
+    "notes": [
+      "Service assistance aéroportuaire obligatoire : voir TXT 03 Les essais moteurs devront avoir été effectués avant la demande de roulage.",
+      "Aires K/J : Les aéronefs au départ en régime de vol VFR contactent également l'ATC pour demande de mise en route incluant potentiellement une attente au roulage, avant de quitter leur poste de stationnement ou la station d'avitaillement.",
+      "Du 1er avril au 31 octobre, cause saturation des postes de stationnement, l'obtention d'un poste est soumise à la demande avant le départ auprès de l'exploitant aéroportuaire SA-ADBM via l'assistant.",
+      "Cette procédure ne s'applique pas aux ACFT basés, aux ACFT d'État, ni aux SMUH.",
+      "Vols de planeurs et d'ULM interdits dans la CTR.",
+      "Les vols d'entraînement sont soumis à restriction (voir AIP : AD 2 LFBD.21.4.1.3).",
+      "Danger à la navigation Risque de confusion des seuils 05 et 11 du fait de leur proximité.",
+      "Activité parachutage N°312 : voir AIP ENR 5.5 Activités AEM N° 9011, 9026, 9380 et 9497 : voir AIP ENR 5.5 Activité treuillage de vol libre N°905 : voir AIP ENR 5.5 Procédures et consignes particulières",
+      "",
+      ""
+    ],
+    "withAts": {
+      "arrivals": [
+        {
+          "note": "les aéronefs à destination de LFBD et évoluant en espace aérien non contrôlé doivent contacter MERIGNAC TWR 3 minutes avant le survol des points d'entrée"
+        },
+        {
+          "note": "transit dans le SIV Aquitaine : le service d'information de vol rendu sur la fréquence Aquitaine Information aux aéronefs évoluant en VFR à l'intérieur des espaces de classe E et G peut être interrompu sans préavis ; dans ce cas, tout transit en espace de classe D doit faire l'objet d'une demande de clairance sur les fréquences Aquitaine Approche, secteur BW 129.880 ou secteur BE 119.275"
+        },
+        {
+          "note": "dégagement par la piste inactive : considéré effectif dès que l'ACFT a dépassé le chemin de péril animalier ; il est soumis à l'autorisation du contrôle et interdit de nuit ou de jour par RVR inférieure à 800 m"
+        }
+      ],
+      "departures": [
+        {
+          "note": "pour les vols vers le sud-ouest, en raison de la présence de la TMA 1.1 dont le plancher est à 1000 ft AMSL, le point de sortie par défaut est le point S ; la sortie par SW est possible sur demande et autorisation du contrôle uniquement, à l'altitude donnée par le contrôle"
+        },
+        {
+          "note": "l'attention des pilotes est attirée sur la proximité de la zone LF P 5 du Barp ; il est nécessaire d'adapter la navigation en conséquence"
+        }
+      ],
+      "routes": {
+        "use": "sauf clairance particulière du contrôle, ces itinéraires sont suivis en situation de VFR spécial et en VMC dans le cadre du respect de l'environnement ; ils sont à double sens, utilisables pour les départs, les arrivées et les transits",
+        "altitudeNote": "sauf clairance particulière, une altitude de survol de 1500 ft AMSL sera respectée sur tous les itinéraires (excepté la sortie par SW, voir la procédure de départ)",
+        "legend": "-- VIS ≥ 1500 m ; == VIS ≥ 3000 m",
+        "tracks": [
+          {
+            "runway": "23/05",
+            "tracks": "NA -- NW; NA == N; NA == NE; SA -- SW; SA -- S; SA == SE"
+          },
+          {
+            "runway": "29",
+            "tracks": "EA -- N; EA == NE; SA -- SW; SA -- S; SA == SE"
+          },
+          {
+            "runway": "11",
+            "tracks": "EA -- N; EA == NE; OA -- SW; OA == S"
+          }
+        ]
+      },
+      "nightVfr": "contact radio obligatoire avec Aquitaine Approche avant de pénétrer en espace D",
+      "radio": {
+        "failureOnArrival": "si la panne survient avant d'avoir reçu l'autorisation de pénétrer en CTR, l'aéronef ne devra pas y pénétrer ; à l'intérieur de la CTR, avant d'avoir reçu la clairance d'entrée dans le circuit de piste : sortir de la CTR par l'itinéraire VFR le plus approprié ; après avoir reçu la clairance d'entrée dans le circuit de piste : poursuivre son atterrissage comme indiqué dans la clairance",
+        "failureOnDeparture": "avant décollage : ne pas décoller ; après décollage : quitter la CTR en respectant la dernière clairance (itinéraire et altitude)"
+      }
+    }
+  }
+}

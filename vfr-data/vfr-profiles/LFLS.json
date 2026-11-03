@@ -1,0 +1,207 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLS (AIP France, chart dated 2026-08-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFLS",
+  "name": "International de Grenoble-Isère",
+  "source": {
+    "publication": "AIP France AD 2 LFLS",
+    "chartDate": "2026-08-06",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.36306,
+    "longitude": 5.33278
+  },
+  "elevationFeet": 1302,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "LUN-SAM / MON-SAT : 0600-2000. DIM et JF / SUN and public HOL : 0700-2000. En cas d'extension des HOR ATS, l'activation des services et le statut de la CTR sont annoncés sur la FREQ TWR et l'ATIS / In case of extension of ATS SKED, activation of services and CTR status are announced on TWR FREQ and ATIS (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 133.855,
+    "approach": 125.43,
+    "tower": 119.305,
+    "ground": 121.93
+  },
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        88,
+        268
+      ]
+    },
+    {
+      "id": "09R/27L",
+      "qfu": [
+        88,
+        268
+      ]
+    }
+  ],
+  "preferredQfu": 88,
+  "preferredQfuReason": "preferred QFU 88, due to IFR procedure",
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 45.46889,
+      "longitude": 5.2975,
+      "location": "Circuit automobile de Champier"
+    },
+    {
+      "name": "PU",
+      "spoken": {
+        "fr": "Papa Uniform",
+        "en": "Papa Uniform"
+      },
+      "latitude": 45.47194,
+      "longitude": 5.55583,
+      "location": "Nord du lac de Paladru"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 45.44778,
+      "longitude": 5.52389,
+      "location": "Sud du lac de Paladru"
+    },
+    {
+      "name": "VN",
+      "spoken": {
+        "fr": "Victor Novembre",
+        "en": "Victor November"
+      },
+      "latitude": 45.36028,
+      "longitude": 5.625,
+      "location": "Travers Est Voiron"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 45.32389,
+      "longitude": 5.05361,
+      "location": "Rond point sud déviation de Beaurepaire"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 45.445,
+      "longitude": 5.0325,
+      "location": "Tunnel TGV"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 45.30972,
+      "longitude": 5.6175,
+      "location": "Échangeur nord de Voreppe"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 45.25167,
+      "longitude": 5.24639,
+      "location": "Lac au Sud de Roybon"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Unpaved RWY 09/27 unusable outside ATS SKED.",
+    "Paved and unpaved RWY not usable simultaneously.",
+    "Pilots' attention is drawn towards: a road THR 27 (road gauge: 1334 ft),; an antenna (ALT on top: 1871 ft) close to reporting point NW.",
+    "It is recommended to stay West of TGV railway.; AEM NR 9552: see AIP ENR 5.5, known by TWR; AEM NR 9748: see AIP ENR 5.5; AEM NR 9582: see AIP ENR 5.5; AEM NR 9556: see AIP ENR 5.5; AEM NR 9586: see AIP ENR 5.5; AEM NR 9640: see AIP ENR 5.5.",
+    "Preferred QFU 088° due to IFR procedure.",
+    "Landing RWY 27 prohibited when PAPI 27 U/S.",
+    "TWY T, S1, S2, S3, S4 and S5 restricted to ACFT whose code is below or equal to D with overall width of main landing gear (OMGWS) less than 9 m.",
+    "Taxiway N7: usable during daytime only.",
+    "TWY N6 and N7: restricted to code B or lower ACFT with wingspan under 16 m and with outer main gear wheel span (OMGWS) less than 4.49 m.",
+    "TWY K1 and K: restricted code B or lower ACFT with outer main gear wheel span (OMGWS) less than 4.49 m.",
+    "TWY K3: restricted to code B or lower ACFT.",
+    "Use by Code C aircraft with mandatory pushback.",
+    "Outer Main Gear Width (OMGWS) less than 6 m.",
+    "TWY K1 and K2: use with ENAC agreement.",
+    "TWY K2 preferred for departures.",
+    "TWY K2 preferred for departures.",
+    "TWY K3: use with OYONNAIR agreement.",
+    "Engine start prohibited while aircraft is chocked and/or coned.",
+    "Altitude of 2300 ft QNH could be imposed when entering CTR at W due to IFR traffic.",
+    "W reporting point is a clearance limit point, continuing flights on ATC clearances only.",
+    "If no, pilots should perform a right hand holding pattern.",
+    "West departures: join published itinerary at Beaurepaire at 2500 ft.",
+    "Other departures: climb overhead AD to the routing minimal altitude.",
+    "West arrival: after Beaurepaire, maintain 2500 ft until AD in sight and within 5 NM then join the circuit.",
+    "Other arrivals: last used route altitude shall be held until AD in sight and within 5 NM then join the circuit.",
+    "Radio failure: proceed at right angle to RWY, 2800 ft AMSL, with lights on and comply with visible signals from TWR.",
+    "Traffic surveillance equipment: AD equipped with secondary surveillance radar (see AD 1.0).",
+    "Aerobatics NR 6821: see AIP ENR 5.5 Parachuting NR 420: see AIP ENR 5.5 Radiocommunication failure on arrival during ATS SKED: Squawk 7600; Comply with the latest instructions from control, or approach the TWR from the North or South at 2800 ft.",
+    "AMSL without crossing the RWY centerline, in order to observe visual parameters.",
+    "Join the circuit in downwind leg with headlights on and maintaining a visual separation with other aircraft then land.",
+    "Visual signals and pyrotechnic devices are ineffective."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Piste non revêtue 09/27 inutilisable en dehors HOR ATS.",
+      "Piste revêtue et non revêtue non utilisables simultanément.",
+      "L'attention des pilotes est attirée sur la présence : d'une route au seuil 27 (gabarit routier : 1334 ft) ; d'une antenne (altitude au sommet : 1871 ft) à proximité du point NW.",
+      "Il est conseillé de rester à l'Ouest de la voie TGV. AEM N° 9552 : voir AIP ENR 5.5, connue de TWR ; AEM N° 9748 : voir AIP ENR 5.5 ; AEM N° 9582 : voir AIP ENR 5.5 ; AEM N° 9556 : voir AIP ENR 5.5 ; AEM N° 9586 : voir AIP ENR 5.5 ; AEM N° 9640 : voir AIP ENR 5.5.",
+      "QFU 088° préférentiel cause procédure IFR.",
+      "Atterrissage en piste 27 interdit si PAPI 27 inutilisable.",
+      "TWY T, S1, S2, S3, S4 et S5 limités aux aéronefs de code inférieur ou égal à D avec largeur hors tout du train principal (OMGWS) de moins de 9 m.",
+      "Taxiway N7 : utilisation de jour uniquement.",
+      "TWY N6 et N7 : Utilisation limitée aux aéronefs de code inférieur ou égal à B d'envergure inférieure à 16 m et avec largeur hors tout du train principal (OMGWS) inférieure à 4,49 m.",
+      "TWY K1 et K2 : Utilisation limitée aux aéronefs de code inférieur ou égal à B, avec largeur hors tout du train principal (OMGWS) inférieure à 4,49 m.",
+      "TWY K3 : utilisation limitée aux aéronefs de code inférieur ou égal à B.",
+      "Utilisation par les aéronefs de code C avec push obligatoire.",
+      "Largeur hors tout du train principal (OMGWS) inférieure à 6 m.",
+      "TWY K1 et K2 : utilisation avec accord ENAC.",
+      "TWY K2 préférentiel pour les départs.",
+      "TWY K2 préférentiel pour les départs.",
+      "TWY K3 : utilisation avec accord OYONNAIR.",
+      "Mise en route moteur interdite lorsque l'aéronef est calé et/ou côné.",
+      "L'altitude de 2300 ft QNH est susceptible d'être imposée à l'entrée de la CTR au point W en raison de la présence de trafic IFR.",
+      "Le point W constitue un point de clairance limite, audelà duquel le vol ne pourra être poursuivi que sur instruction de l'organisme du contrôle de la circulation aérienne.",
+      "A défaut une attente par virage à droite devra être exécutée.",
+      "GRENOBLE ALPES ISERE VFR de nuit Départs vers l'Ouest : rejoindre l'itinéraire publié à Beaurepaire à 2500 ft.",
+      "Autres départs : monter verticale aérodrome à l'altitude minimale du tronçon à emprunter.",
+      "Arrivée de l'Ouest : après Beaurepaire, maintenir 2500 ft jusqu'à être en vue et dans les 5 NM de l'aérodrome, puis rejoindre le circuit.",
+      "Autres arrivées : l'altitude du dernier segment utilisé sera maintenue jusqu'à la vue et dans les 5 NM de l'aérodrome, puis rejoindre le circuit.",
+      "Panne radio : se présenter perpendiculairement à la piste 2800 ft AMSL, phares allumés et se conformer aux signaux optiques de la TWR.",
+      "Équipement de surveillance du trafic : Aérodrome équipé d'un radar secondaire (voir AD 1.0).",
+      "Voltige N° 6821 : voir AIP ENR 5.5 Parachutage N° 420 : voir AIP ENR 5.5 Panne de radiocommunication à l'arrivée pendant les HOR ATS : Afficher le code transpondeur 7600 ; Se conformer aux dernières instructions de contrôle reçues, ou se présenter face à la TWR par le Nord ou.",
+      "",
+      "S'intégrer phares allumés en vent arrière en assurant une séparation visuelle avec les autres appareils puis atterrir.",
+      "Signaux visuels et moyens pyrotechniques inopérants."
+    ]
+  }
+}

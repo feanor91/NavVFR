@@ -1,0 +1,64 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHH (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFHH",
+  "name": "Vienne - Reventin",
+  "source": {
+    "publication": "AIP France AD 2 LFHH",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.46278,
+    "longitude": 4.82778
+  },
+  "elevationFeet": 720,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5"
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "notes": [
+    "TODA RWY 19 reduced by 60 m due to road in the vicinity of RWY physical end.",
+    "Zone P18 in the vicinity (2 NM South-West) of the AD.",
+    "Proximity of a private AD at Côtes d'Arey, 1.7 NM/143° from AD.",
+    "Risk of confusion between paved TWY and grass RWY.",
+    "Airfield likely to be impracticable in case of rainfalls.",
+    "QFU 009° preferred due to environnement.",
+    "Only 2 successive traffic circuits allowed for non based ACFT.",
+    "Traffic circuits and training close to the ground are prohibited for rotating wings.",
+    "Taxi with caution towards AVT, reduced TWY width (4.5 m).",
+    "Powered movements prohibited in the ACB hangars area indicated by ground red markings.",
+    "Take off QFU 009°: As soon as possible, turn right to reach highway A7 before the toll station.",
+    "Do not turn before the toll station.",
+    "East departure, do not turn before the Rhône."
+  ],
+  "fr": {
+    "notes": [
+      "TODA piste 19 réduite de 60 m cause route à proximité de l'extrémité physique de la piste.",
+      "Proximité de la zone P18 à 2 NM au Sud-Ouest de l'AD.",
+      "Proximité d'un AD privé aux Côtes d'Arey à 1,7 NM/143° de l'AD.",
+      "Risque de confusion entre le TWY en dur et la piste en herbe.",
+      "Terrain susceptible d'être impraticable en cas de précipitations.",
+      "QFU 009° préférentiel, cause environnement.",
+      "Tours de piste limités à 2 pour les aéronefs non basés.",
+      "Tours de piste et entraînements près du sol interdits aux voilures tournantes.",
+      "Rouler avec précaution vers l'AVT, largeur de TWY réduite (4,5 m).",
+      "Évolutions au moteur interdites dans la zone située au droit du hangar de l'ACB et matérialisée au sol par un zébra rouge.",
+      "Décollage QFU 009° : Dès que possible, faire une altération de route vers la droite pour rejoindre l'autoroute A7 avant la gare de péage.",
+      "Ne pas virer avant la gare de péage.",
+      "Départ vers l'Est, ne pas virer avant le Rhône."
+    ]
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRS (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "Procedures (arrivals, departures, special VFR, radio failure) were then structured by hand from the English column of the text pages; what the chart only draws is not recorded.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFRS",
+  "name": "Nantes Atlantique",
+  "source": {
+    "publication": "AIP France AD 2 LFRS",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, procedures structured by hand",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 47.15694,
+    "longitude": -1.60778
+  },
+  "elevationFeet": 90,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "H24 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 130.275,
+    "atis": 126.93,
+    "approach": 124.43,
+    "tower": 118.655
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        28,
+        208
+      ]
+    }
+  ],
+  "circuit": {
+    "trainingPatterns": "aircraft under 5.7 t: prohibited 2230-0600 local time, minimum height 1000 ft AAL; aircraft of 5.7 t or more: prohibited Monday to Friday 1200-1400 and 1800-0800 local time, and on Saturdays, Sundays and public holidays, minimum height 1500 ft AAL; manoeuvrability training flights on the aerodrome in VFR need prior permission from ATC; for aircraft of 5.7 t or more, requests go to the SNA Ouest ATC subdivision by mail (sna-o-e-ct-ld@aviation-civile.gouv.fr) with PPR 72 HR",
+    "lowHeight": "only for VFR training flights, with an instructor on board and under ATC clearance; aircraft under 5.7 t: minimum height 500 ft AAL; aircraft of 5.7 t or more: minimum height 800 ft AAL; runway 03: left-hand circuit only; runway 21: right-hand circuit only; limited to one aircraft at a time",
+    "restrictions": "noise-sensitive platform: considering the environment, comply with the published circuits as far as possible; east circuits are available only on ATC clearance"
+  },
+  "reportingPoints": [
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 47.09639,
+      "longitude": -1.44917,
+      "location": "Rond-point du Butay (silo et château d'eau)"
+    },
+    {
+      "name": "E1",
+      "spoken": {
+        "fr": "Écho un",
+        "en": "Echo one"
+      },
+      "latitude": 47.37222,
+      "longitude": -1.02111,
+      "location": "Pont de Varades"
+    },
+    {
+      "name": "E2",
+      "spoken": {
+        "fr": "Écho deux",
+        "en": "Echo two"
+      },
+      "latitude": 47.08389,
+      "longitude": -1.26889,
+      "location": "Clisson"
+    },
+    {
+      "name": "E3",
+      "spoken": {
+        "fr": "Écho trois",
+        "en": "Echo three"
+      },
+      "latitude": 46.83806,
+      "longitude": -1.41722,
+      "location": "Saint Dénis Lès Lucs"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 47.15222,
+      "longitude": -1.39056,
+      "location": "Château d'eau de la Haye Fouassière"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 47.25722,
+      "longitude": -1.68528,
+      "location": "Sautron"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 47.20722,
+      "longitude": -1.78639,
+      "location": "Écluse du canal de la Martinière"
+    },
+    {
+      "name": "W1",
+      "spoken": {
+        "fr": "Whisky un",
+        "en": "Whiskey one"
+      },
+      "latitude": 47.44056,
+      "longitude": -1.5,
+      "location": "Nort sur Erdre"
+    },
+    {
+      "name": "W2",
+      "spoken": {
+        "fr": "Whisky deux",
+        "en": "Whiskey two"
+      },
+      "latitude": 47.29167,
+      "longitude": -1.87806,
+      "location": "Cordemais"
+    },
+    {
+      "name": "W3",
+      "spoken": {
+        "fr": "Whisky trois",
+        "en": "Whiskey three"
+      },
+      "latitude": 47.04333,
+      "longitude": -1.9525,
+      "location": "Bourgneuf en Retz"
+    },
+    {
+      "name": "W4",
+      "spoken": {
+        "fr": "Whisky quatre",
+        "en": "Whiskey four"
+      },
+      "latitude": 46.84694,
+      "longitude": -1.88083,
+      "location": "Challans"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 47.10778,
+      "longitude": -1.78861,
+      "location": "Sainte Pazanne"
+    }
+  ],
+  "withAts": {
+    "arrivals": [
+      {
+        "note": "first contact on Nantes Information 130.275"
+      },
+      {
+        "note": "request the clearance to enter the class D airspace at least 5 minutes before reaching the entry points, unless special clearance or instructions are given; points NE, E, SW, W and NW: 1500 ft AMSL"
+      },
+      {
+        "note": "on pilot request and with ATC clearance, routes different from those published on the APP 01 chart may be used; in case of a direct route clearance to the aerodrome, overflying the urban area of Nantes is always avoided; visual approaches: see the IAC atlas page AD 2 LFRS ENV 01"
+      },
+      {
+        "note": "parking in the recreational and general aviation areas is self-guided; inside those areas the pilot chooses the position according to the space available and is responsible for keeping safety margins while parking"
+      }
+    ],
+    "departures": [
+      {
+        "note": "at the first contact with the TWR, give the requested exit point; points NE, E, SW, W and NW: 1000 ft AMSL; on pilot request and with ATC clearance, routes different from those published on the APP 01 chart may be used, but overflying the urban area of Nantes is always avoided"
+      }
+    ],
+    "transit": "first contact on Nantes Information 130.275; the points E1, E2, E3 and W1, W2, W3, W4 of the APP 01 chart can be made compulsory reporting points by ATC; risk of loss of radio contact at the east limits of the FIS below 2500 ft",
+    "specialVfr": "in case of IFR traffic within the CTR, special VFR is not authorised",
+    "nightVfr": "all types of aircraft: QFU 028 is recommended while the tailwind does not exceed 5 kt, except when the runway state makes it unusable"
+  },
+  "notes": [
+    "AD prohibited for gliders and ULM.",
+    "Noise abatement procedure for TKOF.",
+    "Lost of radio contact may occure EAST limits of FIS bellow 2500 ft.",
+    "Hotspot: HS 1: risk of incoming in RWY: holding point located far upstream of the RWY.",
+    "HS 2: Risk of confusion between TWY RC and C.",
+    "Systematic and complete readback mandatory.",
+    "HS 3: Risk of confusion between TWY RD and D.",
+    "Systematic and complete readback mandatory.",
+    "Touchdown point of RWY 21: slope locally higher than 0.8 %, reaching up to 1.8 %.",
+    "Hard landing risk (See long profile on AD 2 LFRS AOC RWY03-21 chart).",
+    "RWY length from TWY B: 2001 m.",
+    "TKOF from TWY B only possible for CAT A and B ACFT.",
+    "No TKOF from TWY C and TWY D, except helicopter.",
+    "The use of TWY RD is restricted to ACFT with wingspan < 36 m.",
+    "The use of TWY D and E is restricted to ACFT with OMGWS < 9 m.",
+    "For single-engined and multi-engined ACFT in VFR flight and weight < 5.7 t, LDG and TKOF RWY 03 abeam TWY B.",
+    "For ACFT whose wingspan 36 m, taxiing must be perfomed via RC.",
+    "Traffic surveillance equipment: AD equipped with secondary surveillance radar (see AD 1.0).",
+    "Aerobatics activity (NR 6380) 12 km West of AD; activity overhead RD 723; 1700 ft AMSL / FL 055.",
+    "Activity reserved for users authorized by AVA.",
+    "PPR NANTES APP."
+  ],
+  "fr": {
+    "notes": [
+      "AD interdit au VAV et aux ULM.",
+      "Procédure de moindre bruit au décollage.",
+      "Possibilité de perte de contact radio aux limites EST du SIV en dessous de 2500 ft.",
+      "Hotspot : HS 1 : risque d'incursion de piste : unique point d'attente situé très en amont de la piste.",
+      "HS 2 : Risque de confusion entre les TWY RC et C.",
+      "Collationnement systématique et complet obligatoire.",
+      "HS 3 : Risque de confusion entre les TWY RD et D.",
+      "Collationnement systématique et complet obligatoire.",
+      "Point de toucher RWY 21 : pente localement supérieure à 0,8 %, atteignant jusqu'à 1,8 %.",
+      "",
+      "Longueur du roulement depuis TWY B : 2001 m.",
+      "Décollage depuis TWY B uniquement possible pour les aéronefs de CAT A et B.",
+      "Pas de décollage depuis TWY C et TWY D, sauf hélicoptère.",
+      "L'utilisation du TWY RD est limitée aux ACFT d'envergure < 36 m.",
+      "L'utilisation des TWY D et E est limitée aux ACFT avec OMGWS < 9 m.",
+      "",
+      "",
+      "Équipement de Surveillance du trafic : Aérodrome équipé d'un radar secondaire (voir AD 1.0).",
+      "Activité de voltige (N° 6380) 12 km à l'Ouest de l'AD ; activités sur RD 723 ; 1700 ft AMSL / FL 055.",
+      "Activité réservée aux usagers autorisés par AVA.",
+      ""
+    ],
+    "circuit": {
+      "trainingPatterns": "ACFT < 5,7 t : interdits 2230-0600 locale, hauteur minimale 1000 ft AAL ; ACFT ≥ 5,7 t : interdits LUN-VEN 1200-1400 locale et 1800-0800 locale, SAM, DIM et JF, hauteur minimale 1500 ft AAL ; les vols d'entraînement de maniabilité sur l'AD en VFR sont soumis à autorisation préalable du contrôle ; pour les ACFT ≥ 5,7 t, les demandes sont faites auprès de la subdivision contrôle du SNA Ouest par mail (sna-o-e-ct-ld@aviation-civile.gouv.fr), sur PPR 72 HR",
+      "lowHeight": "uniquement pour vols d'entraînement en VFR, avec instructeur et sur autorisation du contrôle ; ACFT < 5,7 t : hauteur minimale 500 ft AAL ; ACFT ≥ 5,7 t : hauteur minimale 800 ft AAL ; RWY 03 : circuit main gauche uniquement ; RWY 21 : circuit main droite uniquement ; limités à un seul appareil à la fois",
+      "restrictions": "plate-forme sensible au bruit : compte tenu de l'environnement, respecter les circuits publiés dans la mesure du possible ; les circuits Est ne sont possibles que sur autorisation du contrôle"
+    },
+    "withAts": {
+      "arrivals": [
+        {
+          "note": "premier contact sur NANTES Information 130.275"
+        },
+        {
+          "note": "l'autorisation de pénétrer dans l'espace de classe D sera demandée 5 minutes au moins avant l'arrivée aux points d'entrée, sauf autorisation ou instructions particulières ; points NE, E, SW, W et NW : 1500 ft AMSL"
+        },
+        {
+          "note": "sur demande du pilote et autorisation du contrôle, des itinéraires différents de ceux publiés sur la carte APP 01 pourront être suivis ; en cas de clairance de route directe vers l'AD, le survol de l'agglomération nantaise sera systématiquement évité ; approche à vue : voir atlas IAC page AD 2 LFRS ENV 01"
+        },
+        {
+          "note": "le stationnement dans les zones d'aviation de loisir et d'aviation générale se fait en autoguidage ; à l'intérieur des aires de trafic, la position de stationnement est au choix du pilote en fonction de la place disponible ; la surveillance du maintien des marges de sécurité lors de la manœuvre de stationnement relève de la responsabilité du pilote"
+        }
+      ],
+      "departures": [
+        {
+          "note": "au premier contact avec la TWR, préciser le point de sortie demandé ; points NE, E, SW, W et NW : 1000 ft AMSL ; sur demande du pilote et autorisation du contrôle, des itinéraires différents de ceux publiés sur carte APP 01 pourront être suivis, mais le survol de l'agglomération nantaise sera systématiquement évité"
+        }
+      ],
+      "transit": "premier contact sur NANTES Information 130.275 ; les points E1, E2, E3 et W1, W2, W3, W4 publiés sur la carte APP 01 peuvent être imposés en tant que points de reports par le contrôle ; possibilité de perte de contact radio aux limites Est du SIV en dessous de 2500 ft",
+      "specialVfr": "en cas de trafic IFR dans la CTR, VFR spécial non autorisé",
+      "nightVfr": "avions de tous types : le QFU 028° est recommandé jusqu'à un vent arrière de 5 kt, sauf si l'état de la piste rend son utilisation impossible"
+    }
+  }
+}

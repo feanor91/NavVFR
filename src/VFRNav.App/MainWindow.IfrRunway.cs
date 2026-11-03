@@ -104,8 +104,8 @@ public partial class MainWindow
             source = "vent supposé du formulaire";
         }
 
-        bool known = _stormAtc?.Find(icao)?.MagneticVariation is not null;
-        double variation = _stormAtc?.Find(icao)?.MagneticVariation ?? 0;
+        bool known = _aerodromes?.Find(icao)?.MagneticVariation is not null;
+        double variation = _aerodromes?.Find(icao)?.MagneticVariation ?? 0;
         return new RunwayAdviceState(wind, source, known, RunwayAdvice.Rank(runways, wind, variation));
     }
 

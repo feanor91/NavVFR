@@ -1,0 +1,92 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFPQ (AIP France, chart dated 2026-04-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFPQ",
+  "name": "Fontenay-Trésigny",
+  "source": {
+    "publication": "AIP France AD 2 LFPQ",
+    "chartDate": "2026-04-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.70611,
+    "longitude": 2.90278
+  },
+  "elevationFeet": 371,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.23",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.23
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        118,
+        298
+      ]
+    },
+    {
+      "id": "12R/30L",
+      "qfu": [
+        118,
+        298
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Aerodrome use: non-based ACFT subject to PPR 72 HR or protocol signature See website http://www.aeroclubchaubuisson.com/venir-nous-voir/ Simultaneous use of both paved RWY and grass strip prohibited.",
+    "Unpaved RWY and TWY usable with caution after heavy rainfalls.",
+    "Class 1, 2, 4, 5 ULM activity prohibited.",
+    "HEL training prohibited.",
+    "In the event of N/NE wind, heavy turbulence and windshears may occur on both QFU.",
+    "Use of unpaved runway: due to the proximity of the windsock, the use of the unpaved runway is prohibited when cross-wind component is greater than 20 kts.",
+    "Presence of a restricted use helipad (fire and rescue center) located in the 282° / 2 NM ARP.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Paved TWY B and C reserved to access or to clear paved RWY: RWY 30: access RWY by TWY C, RWY exit by.",
+    "RWY 12: access RWY by TWY B, RWY exit by TWY C.",
+    "Caution: Width of TWY B reduced to 7 m; Axial guideline to PRKG usable by ACFT with wingspan 12 m.",
+    "Except in cases of immediate safety, aerodrome users are requested to strictly respect the published circuits.",
+    "Low height training patterns are reserved for homebased aircraft with flying instructor on board.",
+    "Activity reserved for pilot authorized according local instructions.",
+    "PCL coupled with PAPI RWY 12 on A/A FREQ.",
+    "Windsock lighting switched on by PCL.",
+    "PCL operating hours: SS + 30 / SR-30."
+  ],
+  "fr": {
+    "notes": [
+      "Aérodrome réservé aux ACFT munis de radio.",
+      "Utilisation de l'aérodrome : aéronefs non basés soumis à PPR 72 HR ou signature protocole. Voir site http://www.aeroclub-chaubuisson.com/venirnous-voir/ Utilisation simultanée piste revêtue et bande gazonnée interdite.",
+      "RWY et TWY non revêtus utilisables avec précaution après fortes précipitations.",
+      "Activité ULM de classe 1, 2, 4, 5 interdite.",
+      "Entraînement HEL interdit.",
+      "Par situation de vent soufflant entre le secteur Nord et le secteur Est, risque de turbulences fortes et cisaillements sur les deux QFU.",
+      "Utilisation de la piste non revêtue : en raison de sa proximité avec la manche à vent, l'utilisation de la piste non revêtue est interdite lorsque la composante traversière du vent est supérieure à 20 kts.",
+      "Présence d'une hélisurface à usage restreint (centre d'incendie et de secours) située dans le 282° / 2 NM ARP.",
+      "Roulage interdit hors RWY et TWY.",
+      "",
+      "",
+      "Attention : Largeur de la voie de circulation B réduite à 7 m ; Ligne de guidage axial vers le parking utilisable par ≤ des aéronefs d'une envergure 12 m.",
+      "Hors cas de sécurité immédiate, il est demandé aux usagers de l'aérodrome de respecter strictement les circuits publiés.",
+      "Les tours de piste d'entraînement basse hauteur sont réservés aux avions basés avec instructeur à bord.",
+      "Activité réservée aux pilotes autorisés selon consignes locales.",
+      "PCL couplé au PAPI RWY 12 sur FREQ A/A.",
+      "Manche à air éclairée par PCL.",
+      "Plage horaire de fonctionnement PCL : CS + 30 / LS-30."
+    ]
+  }
+}

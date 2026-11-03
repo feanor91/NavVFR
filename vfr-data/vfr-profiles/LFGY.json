@@ -1,0 +1,79 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGY (AIP France, chart dated 2024-11-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGY",
+  "name": "Saint-Dié - Remomeix",
+  "source": {
+    "publication": "AIP France AD 2 LFGY",
+    "chartDate": "2024-11-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.26639,
+    "longitude": 7.0075
+  },
+  "elevationFeet": 1187,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.91",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.91
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        67,
+        247
+      ]
+    }
+  ],
+  "preferredQfu": 67,
+  "preferredQfuReason": "preferred QFU 67, due to environment",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "RWY 07/25 prohibited to ACFT whose MTOW is greater than 5,7 t and to ACFT with turbojet engines.",
+    "Air navigation hazard Possible presence of paragliders near hills North and West of AD.",
+    "Preferred QFU 067° due to environment.",
+    "Repetitive traffic patterns reserved for home-based pilots.",
+    "TWY A restricted to ACFT whose main gear overall width is smaller than or equal to 3 m TWY B restricted to ACFT whose main gear overall width is smaller than or equal to 4 m.",
+    "TWY C and TWY D for private use, non public air traffic.",
+    "Aerobatics at AD (NR 6155) axis RWY 07/25, length 3000 m centred on ARP, 1700 ft / 5000 ft AAL.",
+    "MON-SAT: 0800-1100, 1300-1800.",
+    "SUN: 0900-1100, 1330-1800 (SUM: - 1 HR).",
+    "PJE on AD (NR 570): FL 130, SR-SS.",
+    "Activity reserved for ACFT authorized by AD operator.",
+    "According to protocol.",
+    "User's information on STRASBOURG INFO."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Piste 07/25 interdite aux aéronefs dont la masse (MTOW) est supérieure à 5,7 t et aux aéronefs avec turboréacteurs.",
+      "Dangers à la navigation aérienne Présence possible de parapentes près des collines au Nord et à l'Ouest de l'AD.",
+      "QFU 067° préférentiel cause environnement.",
+      "Tours de piste répétitifs réservés aux pilotes basés.",
+      "TWY A limité aux aéronefs dont la largeur hors tout du train principal est inférieure ou égale à 3 m.",
+      "TWY C et TWY D à usage privé, non ouverts à la CAP.",
+      "Voltige sur AD (N°6155), axe de piste, longueur 3000 m, centré sur ARP, 1700 ft / 5000 ft AAL.",
+      "LUN-SAM : 0800-1100, 1300-1800.",
+      "DIM : 0900-1100, 1330-1800 (ETE : - 1 HR).",
+      "Parachutage sur AD (N°570): FL 130, SR-SS.",
+      "Activité réservée aux aéronefs autorisés par le gestionnaire d'AD.",
+      "Selon protocole.",
+      "Information des usagers STRASBOURG INFO."
+    ]
+  }
+}

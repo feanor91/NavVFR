@@ -1,0 +1,70 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFAD (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFAD",
+  "name": "Compiègne - Margny",
+  "source": {
+    "publication": "AIP France AD 2 LFAD",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.43361,
+    "longitude": 2.80472
+  },
+  "elevationFeet": 316,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 122.305",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 122.305
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        46,
+        226
+      ]
+    }
+  ],
+  "preferredQfu": 226,
+  "preferredQfuReason": "preferred QFU 226, due to departmental road",
+  "notes": [
+    "AD reserved for radio equipped ACFT.",
+    "Usable declared distances: TODA RWY 05 reduced due to presence of the secondary road D935.",
+    "AD prohibited for Ultra Light ACFT class 1 and 5 as well as for Ultra Light gliders.",
+    "Possible presence of farming vehicles inside clearings North of RWY 05/23.",
+    "The portal width enclosing the paved parking is equal to 30 m.",
+    "Preferred QFU 226° due to departmental road.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Avoid overflying town of Compiègne and surrounding built up areas.",
+    "TWY S deflected near DTHR 23 because of wing bar lights.",
+    "Gliders aerobatics activity (NR 6053): See ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Distances déclarées utilisables : TODA RWY 05 réduite en raison de la présence de la route départementale D935.",
+      "AD interdit aux ULM de classe 1 et 5 ainsi qu'aux PUL.",
+      "Présence de véhicules agricoles possible dans les dégagements latéraux au Nord de la piste 05/23.",
+      "La largeur du portail clôturant le parking revêtu est égale à 30 m.",
+      "QFU 226° préférentiel cause route départementale Roulage interdit hors RWY et TWY.",
+      "Roulage interdit hors RWY et TWY.",
+      "Éviter le survol de la ville de Compiègne et des communes avoisinantes.",
+      "TWY S dévoyé au niveau du DTHR 23 en raison de la présence des balises lumineuses composant la barre de flanc.",
+      "Activité voltige planeurs (N° 6053) : Voir ENR 5.5"
+    ]
+  }
+}

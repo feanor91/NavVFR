@@ -1,0 +1,148 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLG (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFLG",
+  "name": "Grenoble - Le Versoud",
+  "source": {
+    "publication": "AIP France AD 2 LFLG",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.21806,
+    "longitude": 5.84861
+  },
+  "elevationFeet": 724,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "0700 - (SS + 30) limité à / not after 1900 (UTC HIV ; HOR ETE : -1HR)",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "tower": 121.0,
+    "ground": 121.655
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        42,
+        222
+      ]
+    },
+    {
+      "id": "04L/22R",
+      "qfu": [
+        42,
+        222
+      ]
+    }
+  ],
+  "preferredQfu": 42,
+  "preferredQfuReason": "preferred QFU 42, due to declared distances",
+  "reportingPoints": [
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 45.27194,
+      "longitude": 5.90028,
+      "location": "Péage de Crolles-Brignoud"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 45.18167,
+      "longitude": 5.77389,
+      "location": "Centre commercial"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD located in highly density area.",
+    "Consequently, it is prohibited for HEL to perform training flights departing from or arriving at AD as well as above the same areas, non-stop or stopover tourist flights less than one hour.",
+    "MLG04 and MLG22 are HEL arrival points with a switch from IFR to VFR.",
+    "Paragliding activity outskirts AD on reliefs or valley crossing Lumbin sector North installations essentially.",
+    "IFR activity in AD vicinity.",
+    "Preferred QFU: 042° due to declared distances.",
+    "Low height circuits: training flights with instructor on instructeur uniquement - MNM 1200 (500). board only - MNM 1200 (500).",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Use of PAPI during ATS SKED.",
+    "Outside ATS SKED: Simultaneous TKOF QFU 222° prohibited; TKOF unpaved RWY reserved for home-based ACFT.",
+    "Unpaved RWY: ACFT upon landing, do not overfly gliders intended to be towed.",
+    "Absence of cones at the edge of the unpaved RWY.",
+    "FPL Z with IFR within SIV LYON prohibited.",
+    "HLDG possible before entering TMA LYON for VFR flights.",
+    "Helicopters: In the presence of ACFT on E1 or E2, proceed via paved RWY.",
+    "FATO and HEL apron limited to overall length < 13.03 m (EC 145).",
+    "Helicopters whose overall length > 13.03 m (EC145): LDG and TKOF on paved RWY, refuelling via E2.",
+    "Helicopters apron: parking longer than 2 hours for visiting helicopters: PPR 48 HR compulsory to operator.",
+    "Spot H1 reserved for Civil Security.",
+    "Simultaneous use of the rotating rotor of two adjacent stands is not possible except for stands 1 and 2.",
+    "Use of TWY between the FATO and the HEL parking is prohibited if stand 5 is occupied.",
+    "TKOF must start from RWY ends unless TWR clearance.",
+    "1) TKOF RWY 04: at RWY end climb 036° report over silos passing the Isère river (1 NM) then come back heading 042°.",
+    "2) TKOF RWY 22: climb 242° until overflying the road (0.5 NM) then follow 222°.",
+    "3) Avoid overflying towns located on the right side of the Isère river, the downwind leg shall not go beyond the motorway.",
+    "4) Caution: in order not to interfere with departure trajectories from paved RWY, all the departures from unpaved RWY have to change heading after TKOF.",
+    "ULM: Aerodrome circuit: see chart; Arrivals and departures: proceed flight using airplane circuit at 1700 ft (1000).",
+    "Aéronde airship activity on the AD.",
+    "Mandatory TKOF on paved RWY 04 from E4.",
+    "At departure, clear to the East at 500 ft ASFC (1200 ft AMSL) MAX.",
+    "On arrival, specific holding fix D at 150 ft ASFC (850 ft AMSL).",
+    "Mandatory landing on paved RWY 22 with exit on E4 or E5.",
+    "Radiocommunication failure upon arrival during ATS SKED: comply with the latest intructions received or join facing the TWR coming from the NW at 2500 ft AMSL and proceed overhead AD with lights on avoiding the circuits and RWY axis.; join beginning of downwind leg with lights on, ensuring visual separation from other aircraft then comply with the TWR optical signals."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD situé en zone à forte densité de population.",
+      "En conséquence, il est interdit pour les HEL d'effectuer des vols d'entraînement au départ ou à destination de l'AD ainsi qu'au-dessus des mêmes zones, des vols touristiques circulaires sans escale ou avec escale de moins d'une heure.",
+      "MLG04 et MLG22 sont des points d'arrivée HEL avec changement de régime de vol IFR / VFR.",
+      "Activité parapente en périphérie d'aérodrome sur les reliefs ou en traversées de vallée secteur Lumbin au Nord des installations essentiellement.",
+      "Activité IFR à proximité du terrain.",
+      "QFU 042° préférentiel cause distances déclarées.",
+      "",
+      "Roulage interdit hors RWY et TWY.",
+      "Utilisation du PAPI pendant les horaires ATS.",
+      "En dehors HOR ATS : TKOF simultanés QFU 222° interdits ; TKOF piste non revêtue réservés aux ACFT basés.",
+      "RWY non revêtue : appareils à l'atterrissage, ne pas survoler les planeurs en attente de remorquage.",
+      "Absence de cônes aux abords de la RWY non revêtue.",
+      "FPL Z avec passage IFR dans le SIV LYON interdit.",
+      "HLDG possible avant pénétration en TMA LYON pour les vols VFR.",
+      "Hélicoptères : En présence d'avions sur E1 ou E2, procéder par la piste revêtue.",
+      "FATO et PRKG HEL limités aux LHT < 13.03 m (EC 145).",
+      "Hélicoptères de LHT > 13,03 m (EC145) : LDG et TKOF en piste revêtue, AVT via E2.",
+      "Parking hélicoptères : stationnement supérieur à 2 heures pour hélicoptères de passage : PPR 48 HR obligatoire auprès de l'exploitant.",
+      "Spot H1 réservé à la Sécurité Civile.",
+      "L'utilisation simultanée rotor tournant de deux postes mitoyens n'est pas possible sauf pour les postes 1 et 2.",
+      "Utilisation du TWY entre la FATO et le parking HEL interdite si le poste 5 est occupé.",
+      "Les décollages doivent être effectués à partir des extrémités de piste sauf clairance de la tour.",
+      "1) Décollage piste 04 : en extrémité de piste monter 036°, report verticale des silos au passage de l'Isère (1 NM) puis revenir au 042°.",
+      "2) Décollage piste 22 : monter 242° jusqu'au passage de la route (0.5 NM) et poursuivre 222°.",
+      "3) Éviter le survol des villes situées sur la rive droite de l'Isère, la branche vent arrière ne doit pas dépasser l'autoroute.",
+      "4) Attention : pour ne pas converger avec les trajectoires de la piste revêtue, il est impératif que tous les départs de la piste en herbe appliquent l'altération de cap après TKOF.",
+      "ULM : Tour de piste selon carte ; Arrivées et départs par utilisation du circuit avion à 1700 ft (1000).",
+      "Activité dirigeable Aéronde sur l'aérodrome.",
+      "Décollage obligatoire en piste revêtue 04 depuis E4.",
+      "Au départ, dégagement vers l'est à 500 ft ASFC (1200 ft AMSL) MAX.",
+      "A l'arrivée, repère d'attente spécifique D à 150 ft ASFC (850 ft AMSL).",
+      "Atterrissage obligatoire en piste revêtue 22 avec dégagement E4 ou E5.",
+      "Panne de radiocommunication à l'arrivée pendant les HOR ATS : se conformer aux dernières instructions reçues ou se présenter face à la TWR par le Nord-Ouest à 2500 ft. AMSL et effectuer une verticale terrain phares allumés en évitant les circuits et l'axe de piste. s'intégrer phares allumés en début de vent arrière en assurant une séparation visuelle avec les autres appareils puis se conformer aux signaux optiques de la TWR."
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using VFRNav.Core.Models;
 
 namespace VFRNav.Core.Services;
@@ -16,7 +16,10 @@ public sealed class AppSettings
     public double VariationEast { get; set; } = 1;
     public double WindDir { get; set; } = 270;
     public double WindKt { get; set; } = 10;
-    /// <summary>Dossier de StormATC ; vide = détection automatique.</summary>
+    /// <summary>Dossier des cartes VAC (PDF du SIA) ; vide = %AppData%\VFRNav\Cartes VAC.</summary>
+    public string VacFolder { get; set; } = "";
+
+    /// <summary>Ancien réglage (dossier de StormATC), relu une fois pour reprendre le dossier des cartes ; plus jamais écrit.</summary>
     public string StormAtcPath { get; set; } = "";
     public bool AutoVariation { get; set; } = true;
     public AirportFilter Filter { get; set; } = new();

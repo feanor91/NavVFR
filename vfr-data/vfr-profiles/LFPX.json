@@ -1,0 +1,134 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFPX (AIP France, chart dated 2025-03-20): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFPX",
+  "name": "Chavenay - Villepreux",
+  "source": {
+    "publication": "AIP France AD 2 LFPX",
+    "chartDate": "2025-03-20",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.84222,
+    "longitude": 1.98028
+  },
+  "elevationFeet": 424,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "LUN - VEN / MON - FRI : 0800 - 1200, 1330 - SS+30 limité à / limited to 1900. SAM, DIM et JF / SAT, SUN and HOL : 0800 - SS+30 limité à / limited to 2000. SOL : SAM, DIM et JF / GND : SAT, SUN and HOL : Activation annoncée sur l'ATIS entre / announced on ATIS between 0800 et / and SS+30. Aérodrome de CHAVENAY VILLEPREUX 78450 Villepreux (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 125.275,
+    "tower": 129.525,
+    "ground": 121.9,
+    "airAir": 129.525
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        51,
+        231
+      ]
+    },
+    {
+      "id": "10/28",
+      "qfu": [
+        103,
+        283
+      ]
+    }
+  ],
+  "notes": [
+    "Ad reserved for radio-equipped ACFT.",
+    "Radio contact mandatory.",
+    "Radio contact mandatory before entering the RMZ.",
+    "Ban specific to AD HEL: school flights and training flights are prohibited AD usage restrictions ULM of classes 1, 2, 4, 5 and 6 prohibited.",
+    "Aerobatics: Activity reserved for ACFT and pilots authorized by French Aviation Authority DSAC Nord and according to protocol (1) RWY 10: reduced TODA, presence of a road gauge at 14 m from runway end.",
+    "Fences HGT 1.20 m close to THRs.",
+    "In the vicinity, users' attention is drawn to: ST-CYR traffic circuits (do not pass through the road.",
+    "D98 during traffic patterns and departures QFU 103° and 051°),",
+    "LF-D 568 B area (helicopters activities), gliders traffic circuits and winching activity (NR 914, 2000 AMSL, unmarked cable), on BEYNES AD.",
+    "Use of preferential runway 10/28 except: crosswind element greater than 5 kts,; pilot's request.",
+    "Taxiing Taxiing prohibited except on RWY and TWY.",
+    "Runway 10/28: line-up at the runway centre to avoid taxiing on displaced threshold old marks when take-off coursing.",
+    "Feeder at the foot of TWR is a one-way taxiway from South to North, except with ATC clearance.",
+    "Access / Output refueling station only in the direction west-east.",
+    "No passing.",
+    "Avoid overfly the surrounding built-up areas.",
+    "Adhere to the traffic circuits depicted on chart as much as possible, especially North of clos d'Ancoigny farm.",
+    "Departures TKOF prohibited from TWYs (A2, A3, A4, B2, B3, B4) or from RWYs intersection.",
+    "Departure QFU 051° and QFU 231° Maintain runway center line til end of strip because of presence of fences (1.20 m) located at the left end of runways 05 and 23.",
+    "Departure QFU 051° After taking-off QFU 051°, turn right 20° over the end of the strip.",
+    "Departure QFU 103° Pilots must pay attention to the necessity for them to check the aircraft performances related to local conditions (wind, temperature, loading, RWY condition) insure them a minimum 35 ft obstacle clearance limit above the 15 ft road gauge located East bound RWY end.",
+    "Low height Authorized only with instructor on board, in the opposite direction of published circuits and cleared by ATS.",
+    "Departure QFU 051° Departure QFU 051° (except for runway circuit pattern).",
+    "Procedure recommended by returning back over the aerodrome: at the holding point, request for ATC clearance turn to the right at a sufficient distance from runways ends and come back over the control tower at a minimum altitude of 1500 ft AMSL.",
+    "Over the control tower, as appropriate, continue climbing and join the planned route by keeping clear of urban areas.",
+    "If the altitude of 1500 ft AMSL cannot be reached, report immediately to ATC.",
+    "Transit Exceptionally, departures and arrivals from Saint Cyr aerodrome proceeding overhead Chavenay aerodrome might be allowed after coordination between both ATS.",
+    "Departing from SAINT CYR, the CTL clearance shall be obtained before reaching holding point.",
+    "Arriving from SAINT CYR, the clearance to proceed overhead CHAVENAY aerodrome shall be obtained directly from CHAVENAY TWR and asked as soon as the first contact before entering the RMZ.",
+    "RMZ inactive.",
+    "Before crossing runways, report for runways to be crossed.",
+    "Departure QFU 051° (except for runway circuit pattern): Procedure recommended by returning back over the aerodrome is not applicable when ATS are not operating.",
+    "Departures and arrivals from Saint Cyr aerodrome proceeding overhead Chavenay aerodrome prohibited outside ATS SKED.",
+    "Low height circuits prohibited.",
+    "Aerobatics activity (NR 6203) over AD: 2300 m long axis, centered on THR 05 on RWY 10/28 axis,; 1500 ft AMSL / 3500 ft AMSL.",
+    "Ceiling limited to 2500 ft AMSL if LF-R 3107 area is not active,; daytime only, if CHAVENAY ATS provided,; MON-FRI: 0800 - 1830,; SAT, SUN, HOL: 1000 - 1830.",
+    "SUM: - 1 HR; activity reserved for users authorized by French.",
+    "Aviation Authority DSAC Nord and according to protocol, users' information on CHAVENAY TWR. services Radiocommunication failure: Aerodrome accessible to based users, according to local instructions when ATC is active."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Contact radio obligatoire.",
+      "Contact radio obligatoire avant pénétration dans la RMZ.",
+      "Restrictions d'utilisation de l'AD ULM de classes 1, 2, 4, 5 et 6 interdits.",
+      "Voltige : Activité réservée aux aéronefs et pilotes autorisés par la DSAC/N et selon protocole. (1) RWY 10 : TODA réduite, présence d'un gabarit routier à 14 m de l'extrémité de piste.",
+      "",
+      "L'attention des usagers est attirée sur la proximité : des circuits de piste de ST-CYR (ne pas dépasser la.",
+      "",
+      "",
+      "Utilisation de la piste préférentielle 10/28 sauf : composante vent de travers supérieure à 5 kts ; demande du pilote.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Éviter le survol des communes avoisinantes.",
+      "",
+      "CHAVENAY VILLEPREUX Avant utilisation de l'aérodrome, prendre connaissance Before using the aérodrome, read the aérodrome charter de la charte de l'aérodrome disponible à l'adresse available at the following URL : suivante : https://entrevoisins.groupeadp.fr/wphttps://entrevoisins.groupeadp.fr/wpcontent/uploads/2023/04/20180921content/uploads/2023/04/20180921Charte_Chavenay.pdf Charte_Chavenay.pdf Départs Décollage interdit depuis les voies intermédiaires (A2, A3, A4, B2, B3, B4) ou depuis l'intersection des pistes.",
+      "Décollage QFU 051° et QFU 231° Maintenir l'axe au décollage jusqu'en fin de bande en raison de la présence de clôtures (1.20 m) situées à l'extrémité gauche des pistes 05 et 23.",
+      "Départ QFU 051° Après décollage QFU 051°, altération de route de 20° à droite après la fin de bande.",
+      "Départ QFU 103° L'attention des pilotes est attirée sur la nécessité de vérifier que les performances de leur appareil, en fonction des circonstances (vent, température, chargement, état de la piste) garantissent le survol du gabarit routier (15 ft) situé à l'extrémité Est de la bande, avec la marge d'au moins 35 ft.",
+      "Circuit basse hauteur Autorisé uniquement avec instructeur à bord, dans le sens opposé des circuits publiés et sur accord des services ATS.",
+      "Départs QFU 051° Départs QFU 051° (autres que pour un tour de piste).",
+      "Procédure recommandée par un retour à la verticale : au point d'attente, obtenir la clairance du contrôle ; ; virer par la droite à une distance suffisante de ; l'extrémité des pistes pour une présentation à la verticale de la tour, à une altitude minimale de 1500 ft AMSL.",
+      "A la verticale de la tour, le cas échéant, poursuivre la montée et s'établir sur la route projetée en contournant les zones urbanisées.",
+      "Si l'altitude de 1500 ft AMSL ne peut pas être atteinte à la verticale, aviser sans délai le contrôle.",
+      "Transit A titre exceptionnel, les départs et arrivées de l'aérodrome de Saint Cyr par passage verticale de l'aérodrome de Chavenay peuvent être autorisés après coordination entre les deux organismes.",
+      "Au départ de SAINT CYR, la clairance du contrôle doit être obtenue au plus tard au point d'attente.",
+      "A l'arrivée pour SAINT CYR, la clairance du passage verticale CHAVENAY doit être obtenue directement par la TWR de CHAVENAY et demandée dès le premier contact avant de pénétrer dans la RMZ.",
+      "RMZ inactive.",
+      "Avant de traverser les pistes, annoncer les pistes traversées.",
+      "Départs QFU 051° (autres que pour un tour de piste): La procédure recommandée par un retour à la verticale n'est pas applicable hors services ATS.",
+      "Les départs et arrivées de l'aérodrome de Saint Cyr par passage verticale de l'aérodrome de Chavenay ne sont pas applicables hors services ATS.",
+      "Circuits basse hauteur interdits.",
+      "Activité voltige (N° 6203) sur AD : axe de longueur 2300 m, centré sur seuil 05, orienté selon piste 10/28.",
+      "",
+      "",
+      "Nord et selon protocole, information des usagers sur CHAVENAY TWR. spécifiques à la présence des services ATS Panne de radiocommunication : Aérodrome accessible aux usagers basés selon les consignes locales quand l'organisme de contrôle est en activité."
+    ]
+  }
+}

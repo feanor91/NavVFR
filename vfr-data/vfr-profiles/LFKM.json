@@ -1,0 +1,72 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFKM (AIP France, chart dated 2017-09-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFKM",
+  "name": "Saint-Galmier",
+  "source": {
+    "publication": "AIP France AD 2 LFKM",
+    "chartDate": "2017-09-14",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.60639,
+    "longitude": 4.305
+  },
+  "elevationFeet": 1269,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "16/34",
+      "qfu": [
+        155,
+        335
+      ]
+    }
+  ],
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "AD reserved for ACFT and gliders whose pilots have been recognized fit to use the AD by an instructor (or hold a flight instructor qualification) AD usable by HEL and ULM AD reserved for radio-equipped ACFT.",
+    "TKOF and LDG prohibited for motorized ACFT except for emergency landing from 1130 to 1315 and from 1900 to 0800 (SUM: - 1 HR).",
+    "Flights of aeroplanes and ULM are prohibited during parachuting.",
+    "R 224 activation SKED: 0800-1900 (SUM: - 1 HR).",
+    "AD located within CTR SAINT-ETIENNE. a) IFR approach path to Saint-Etienne Loire AD via EB, above R 224. b) Special instruction inside restricted area: 1) inside R 224 (MAX 500 ft ASFC) possible flight on A/A 123.5 and without transponder.",
+    "2) to leave R 224, mandatory clearance to enter CTR: signal flight purpose before take off on 119.250, otherwise contact immediately ST ETIENNE TWR after taking off.; stay within R 224 as far as possible until obtaining the clearance to enter CTR.",
+    "Parachuting over AD (NR 419): FL 150.",
+    "SAT, SUN and HOL: SR-SS+30.",
+    "Activity reserved for authorized pilots and according to the current agreement protocol.",
+    "The effective activity is known by SAINT-ETIENNE TWR, CLERMONT INFO, LYON INFO, and MARSEILLE ACC.",
+    "Other SKED announced by NOTAM AEM (NR 9905): 500 ft ASFC, during R 224 activation."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Aérodrome réservé aux avions et planeurs dont les pilotes ont été reconnus aptes à utiliser l'aérodrome par un instructeur (ou détiennent une qualification d'instructeur). Aérodrome utilisable par les HEL et ULM. AD réservé aux ACFT munis de radio.",
+      "Décollages et atterrissages interdits à tout aéronef motorisé, sauf atterrissage d'urgence de 1130 à 1315 et de 1900 à 0800.",
+      "Les vols avions et ULM, sont interdits lors des parachutages.",
+      "HOR activation R 224 : 0800-1900 (ETE : - 1 HR).",
+      "AD situé à l'intérieur de la CTR SAINT-ETIENNE. a) Trajectoire d'approche IFR de Saint-Etienne Loire axée sur EB, au-dessus de la R 224. b) Consigne particulière en zone réglementée : 1) à l'intérieur de la R 224 (MAX 500 ft ASFC), vol possible en A/A sur 123.5 et sans transpondeur.",
+      "2) pour sortir de la R 224, clairance obligatoire pour entrer dans la CTR : signaler l'intention de vol avant le décollage sur 119.250, sinon contacter ST-ETIENNE TWR immédiatement après décollage. se maintenir dans la R 224 jusqu'à l'obtention de la clairance pour pénétrer dans la CTR.",
+      "",
+      "",
+      "",
+      "",
+      "Autres HOR annoncés par NOTAM AEM (N° 9905) : 500 ft ASFC, HOR activation R 224."
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$comment": [
+    "REAL DATA, transcribed by hand from the SIA chart set AD 2 LFHP (AIP France, AMDT 10/24, chart dated 2024-09-05).",
+    "Only facts are recorded here; the charts themselves are (c) SIA and are not redistributed.",
+    "Runway geometry, taxiways, parking and frequencies also come from the simulator at run time; this file holds",
+    "what the simulator does not know: services, circuit rules and reporting points.",
+    "Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFHP",
+  "name": "Le Puy-Loudes",
+  "source": {
+    "publication": "AIP France AD 2 LFHP",
+    "amendment": "AMDT 10/24",
+    "chartDate": "2024-09-05"
+  },
+  "referencePosition": {
+    "latitude": 45.07972,
+    "longitude": 3.76333
+  },
+  "elevationFeet": 2731,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "MON-FRI 0530-0900, 1000-1300, 1530-1900 (UTC in winter, local time minus 1 h in summer); not provided SAT, SUN and public holidays",
+    "outsideAtsHours": "air-air frequency only (French only); opening possible on PPR 48 h",
+    "radioMandatory": true,
+    "nightVfrApproved": true,
+    "ifrPossible": true
+  },
+  "frequencies": {
+    "afis": 118.005,
+    "airAir": 118.005
+  },
+  "runways": [
+    {
+      "id": "15/33",
+      "qfu": [
+        149,
+        329
+      ],
+      "surface": "paved",
+      "lengthMetres": 1393,
+      "widthMetres": 30
+    },
+    {
+      "id": "15R/33L",
+      "qfu": [
+        149,
+        329
+      ],
+      "surface": "unpaved",
+      "lengthMetres": 940,
+      "widthMetres": 80
+    }
+  ],
+  "stations": {
+    "afis": "Le Puy Info"
+  },
+  "preferredQfu": 329,
+  "preferredQfuReason": "a single taxiway on runway 33",
+  "notes": [
+    "Landing runway 15 prohibited when there is no ATS or when the PAPI is out of service.",
+    "Simultaneous take-off and landing on the unpaved and the paved runway are prohibited.",
+    "The unpaved runway is unusable after heavy rain. Taxiing prohibited except on runway and taxiway.",
+    "Glider winching (NR 997) up to 5000 ft AMSL on the grass strip, announced on Le Puy Info or air-air; cable not beaconed.",
+    "Parachuting on the aerodrome (NR 437) up to FL160; parascending SR-SS up to 1300 ft AAL."
+  ]
+}

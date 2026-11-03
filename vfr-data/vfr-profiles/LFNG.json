@@ -1,0 +1,106 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFNG (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFNG",
+  "name": "Montpellier - Candillargues",
+  "source": {
+    "publication": "AIP France AD 2 LFNG",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.61028,
+    "longitude": 4.07028
+  },
+  "elevationFeet": 5,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.605",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.605
+  },
+  "runways": [
+    {
+      "id": "14/32",
+      "qfu": [
+        142,
+        322
+      ]
+    }
+  ],
+  "preferredQfu": 142,
+  "preferredQfuReason": "preferred QFU 142, due to environment",
+  "reportingPoints": [
+    {
+      "name": "AM",
+      "spoken": {
+        "fr": "Alpha Mike",
+        "en": "Alpha Mike"
+      },
+      "latitude": 43.56361,
+      "longitude": 4.19278,
+      "location": "- Reporting points Remparts de la cite médéviale d'Aigues Mortes"
+    },
+    {
+      "name": "ER",
+      "spoken": {
+        "fr": "Écho Roméo",
+        "en": "Echo Romeo"
+      },
+      "latitude": 43.57861,
+      "longitude": 4.10083,
+      "location": "Nord échangeur routier D62/D61 au nord de la Grande Motte"
+    },
+    {
+      "name": "NC",
+      "spoken": {
+        "fr": "Novembre Charlie",
+        "en": "November Charlie"
+      },
+      "latitude": 43.62528,
+      "longitude": 4.00389,
+      "location": "Château d'eau de Mauguio"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Parallel TWY not available after heavy rainfalls.",
+    "Site likely to be covered by sea haze in a few minutes.",
+    "Particular caution must be observed by LFNG users on heavy commercial and training activity in Montpellier CTR.",
+    "A request for clearance from Montpellier TWR 118.775 is mandatory before entering Montpellier CTR.",
+    "After take-off, risk of intrusion into Montpellier CTR, due to its proximity: Take-off from QFU 322°: turn right and avoid Mudaison and Baillargues.",
+    "Take-off from QFU 142°: turn left, and stay north of the «Rhône à Sète» canal,; direct to ER and/or AM prohibited without clearance from Montpellier TWR.",
+    "Traffic circuits: Bypass Candillargues via North.",
+    "Cross-wind leg QFU 322° or base leg QFU 142° is located midway between built-up areas of Mudaison and Candillargues.",
+    "Downwind leg exclusively East of Berange river.",
+    "Preferred QFU: 142° due to environment."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Voie de circulation parallèle inutilisable après fortes précipitations.",
+      "Site susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Une attention particulière doit être observée par les usagers de LFNG sur la forte activité IFR commerciale et d'entraînement dans la CTR MONTPELLIER.",
+      "Une demande de clairance auprès de MONTPELLIER TOUR 118.775 est obligatoire avant de pénétrer dans la CTR Montpellier.",
+      "Après décollage, risque d'intrusion dans la CTR de Montpellier, du fait de sa proximité : Décollage en QFU 322 ° : virer à droite et éviter les communes de Mudaison et Baillargues.",
+      "Décollage en QFU 142° : virer à gauche, et rester au nord du canal du Rhône à.",
+      "Circuits en vol : Contourner l'agglomération de Candillargues par le Nord.",
+      "La branche vent traversier QFU 322° ou base QFU 142° se fera à mi-distance entre l'agglomération de Mudaison et celle de Candillargues.",
+      "La branche vent arrière se fera exclusivement à l'Est de la rivière Berange.",
+      "QFU 142° préférentiel cause environnement."
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFPE (AIP France, chart dated 2026-01-22): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFPE",
+  "name": "Meaux - Esbly",
+  "source": {
+    "publication": "AIP France AD 2 LFPE",
+    "chartDate": "2026-01-22",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.92694,
+    "longitude": 2.83389
+  },
+  "elevationFeet": 220,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "TWR : 0800 - SS + 30 limité à / limited to 1900. Chef C.A / ATC manager : (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "tower": 120.15
+  },
+  "runways": [
+    {
+      "id": "16R/34L",
+      "qfu": [
+        155,
+        335
+      ]
+    },
+    {
+      "id": "16L/34R",
+      "qfu": [
+        155,
+        335
+      ]
+    }
+  ],
+  "preferredQfu": 335,
+  "preferredQfuReason": "preferred QFU 335, due to APCH and LDG axis better clearings",
+  "notes": [
+    "AD reserved to radio-equipped ACFT.",
+    "Restriction use of AD Class 2, 3, 4 and 6 ULM activity authorized in accordance with the provisions of the decree of july 12, 2019 relating to general air trafic procedures for the use of aerodromes by aircraft.",
+    "Class 1 and 5 ULM activity prohibited.",
+    "Presence of particular hazards: Birds presence all year long.",
+    "A - Permanent special instructions Visual marking circuit 16/34: Presence of AMER (significatif point) materialized by a checked pattern red and white.",
+    "Downwind 16/34, stay West of AMER.",
+    "Circuits Except in cases of immediate safety, aerodrome users are asked to strictly comply with the published circuits.",
+    "In 07/25 configuration, full stop landings performed preferentially on RWY 07R/25L.",
+    "Taxiing: after landing on 07R/25L, vacating prohibited on B1 between A9 and D4 due to drainage trench Taxiing prohibited except on RWY and TWY.",
+    "Rwy vacating only via taxiways Refuelling: entry on refuelling area via TWY D2.",
+    "Refuelling heading 335°.",
+    "B - Special instructions in the presence of ATS services In 07/25 configuration: 700 ft AAL pattern usable by ACFT, HEL and high performance ULM.; 500 ft AAL pattern usable by slow-moving ULM and by slow-moving ACFT and HEL with ATC clearance.; 400 ft AAL pattern usable only with ATC clearance (ULM and HEL only).",
+    "In 16/34 configuration: 700 ft AAL pattern usable by ACFT, HEL and high performance ULM.",
+    "Consignes particulières / Special instructions",
+    "500 ft AAL pattern usable only with ATC clearance (ULM and HEL only).",
+    "400 ft AAL pattern usable by slow-moving ULM and by slow-moving ACFT and HEL with ATC clearance.",
+    "C - Special instruction in the absence of ATS services.",
+    "RMZ inactive.",
+    "Preferential RWY Preferred QFU 335° due to APCH and LDG axis better clearings.",
+    "In 07/25 configuration: 500 ft AAL pattern reserved for slow-moving ULM; 400 ft AAL pattern unusable.",
+    "In 16/34 configuration: 400 ft AAL pattern reserved for slow-moving ULM; 500 ft AAL pattern unusable.",
+    "Activity reserved for authorized home-based pilots according to local restrictions.",
+    "Traffic monitoring equipment: Aerodrome equipped with radar display (see AD 1.0).",
+    "Radiocommunication equipment failure: AD accessible to based users as per local instructions when ATS is active."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux aéronefs (ACFT) munis de radio.",
+      "Activité ULM de classe 2, 3, 4 et 6 autorisée selon les dispositions de l'arrêté du 12 juillet 2019 relatif aux procédures générales de circulation aérienne pour l'utilisation des aérodromes par les aéronefs.",
+      "Activité ULM de classe 1 et 5 interdite.",
+      "",
+      "A - Consignes particulières permanentes Repère tour de piste 16/34 : Présence d'un AMER (point significatif) matérialisé par un damier rouge et blanc.",
+      "En vent arrière 16/34, rester à l'Ouest de l'AMER.",
+      "Circuits Hors cas de sécurité immédiate, il est demandé aux usagers de l'aérodrome de respecter strictement les circuits publiés.",
+      "En configuration 07/25, les complets seront effectués de manière préférentielle sur la piste 07R/25L.",
+      "Circulation au sol : après atterrissage en 07R/25L, dégagement interdit sur B1 entre A9 et D4 cause tranchée drainante.",
+      "Avitaillement : entrée aire AVT par le TWY D2.",
+      "Avitaillement cap au 335°.",
+      "B - Consignes particulières en présence des services ATS En configuration 07/25 : Circuit 700 ft AAL utilisable par avions, hélicoptères et ULM performants. Circuit 500 ft AAL utilisable par ULM lents et par hélicoptères et avions lents uniquement sur autorisation du contrôle. Circuit 400 ft AAL utilisable uniquement sur autorisation du contrôle (ULM et hélicoptères exclusivement).",
+      "En configuration 16/34 : Circuit 700 ft AAL utilisable par avions, hélicoptères et ULM performants.",
+      "MEAUX ESBLY",
+      "Circuit 500 ft AAL utilisable uniquement sur autorisation du contrôle (ULM et hélicoptères exclusivement).",
+      "Circuit 400 ft AAL utilisable par ULM lents et par hélicoptères et avions lents uniquement sur autorisation du contrôle.",
+      "C - Consignes particulières en l'absence des services ATS.",
+      "RMZ inactive.",
+      "Pistes préférentielles QFU préférentiel 335° cause meilleurs dégagements des axes d'APP et de DEP.",
+      "En configuration 07/25 : Circuit 500 ft AAL réservé aux ULM lents ; Circuit 400 ft AAL inutilisable.",
+      "En configuration 16/34 : Circuit 400 ft AAL réservé aux ULM lents ; Circuit 500 ft AAL inutilisable.",
+      "Activité réservée aux pilotes basés autorisés selon consignes locales.",
+      "Équipement de surveillance du trafic : Aérodrome équipé d'une visualisation radar (voir AD 1.0).",
+      "Panne de l'équipement de radiocommunication : AD accessible aux usagers basés selon consignes locales quand l'organisme de contrôle est en activité."
+    ]
+  }
+}

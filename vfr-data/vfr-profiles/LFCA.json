@@ -1,0 +1,82 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCA (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCA",
+  "name": "Châtellerault - Targé",
+  "source": {
+    "publication": "AIP France AD 2 LFCA",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.78028,
+    "longitude": 0.55056
+  },
+  "elevationFeet": 210,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.055",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.055
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        176,
+        356
+      ]
+    }
+  ],
+  "preferredQfu": 176,
+  "preferredQfuReason": "preferred QFU 176, due to noise pollution and obstructions in TKOF funnel QFU 356°",
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of paved RWY and ULM strip prohibited.",
+    "Non home based class 3 ULM must use paved RWY and ACFT circuit 1000 ft.",
+    "ULM strip reserved for pendulous class ULM and autogyro, as well as home-based multiaxis ULM.",
+    "Paved RWY slippery after heavy rainfall.",
+    "Obstructions (trees line) on both sides of RWY axis in North approach funnel, ALT 285 ft (75 ft ASFC).",
+    "Integration only by exterior RWY circuit at 1000 ft ASFC.",
+    "Downwind leg of exterior RWY circuit located East of TARGE.",
+    "Landing QFU 176°: maintain a slope of 7% MNM.",
+    "Preferred QFU 176° due to noise pollution and obstructions in TKOF funnel QFU 356°.",
+    "Approved with limitations because the power supply is not backed up.",
+    "TWY N and S are prohibited at night.",
+    "1 - Based aircraft pilot: Have passed a practical assessment of night flying aptitude on site with a qualified instructor.",
+    "2 - Non-based pilot:; Have a minimum of 200 hours' flying experience, including 20 hours at night, and recent practice (3 night take-offs and 3 night landings in the last 3 months) or have passed a practical assessment of aptitude for night flying on site with a qualified instructor.",
+    "Pilots must get to know local procedures by contacting the aerodrome operator by mail at bureau.aileschat@gmail.com"
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée de la piste revêtue et de la bande ULM interdite.",
+      "Les ULM de la classe 3 non basés doivent utiliser la piste revêtue et le circuit avion 1000 ft.",
+      "Bande ULM réservée aux ULM de la classe pendulaire et autogyre, ainsi qu'aux ULM multiaxes basés.",
+      "Piste revêtue glissante après de fortes précipitations.",
+      "Présence d'obstacles (ligne d'arbres) de chaque côté de l'axe de piste dans la trouée Nord, ALT 285 ft (75 ft ASFC).",
+      "Intégration uniquement par le tour de piste extérieur à 1000 ft ASFC.",
+      "Branche vent arrière du circuit extérieur située à l'Est de TARGE.",
+      "Atterrissage QFU 176° : observer une pente mini de 7%.",
+      "QFU 176° préférentiel cause nuisances sonores et obstacles dans la trouée de décollage QFU 356°.",
+      "Agréé avec limitations car l'alimentation électrique n'est pas secourue.",
+      "Les voies de circulation N et S sont interdites de nuit.",
+      "1 - Pilote d'aéronef basé : Avoir satisfait à une évaluation pratique d'aptitude en vol de nuit sur site par un instructeur qualifié.",
+      "2 - Pilote non basé : Avoir une expérience minimale de 200 heures de vol dont 20 heures de nuit et une pratique récente (3 décollages et 3 atterrissages de nuit dans les 3 derniers mois) ou avoir satisfait à une évaluation pratique d'aptitude en vol de nuit sur site par un instructeur qualifié.",
+      "Les pilotes doivent prendre connaissance des conditions particulières d'utilisation de l'aérodrome par courriel à l'adresse bureau.aileschat@gmail.com"
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFYS (AIP France, chart dated 2026-05-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFYS",
+  "name": "Sainte-Léocadie",
+  "source": {
+    "publication": "AIP France AD 2 LFYS",
+    "chartDate": "2026-05-14",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 42.44722,
+    "longitude": 2.01083
+  },
+  "elevationFeet": 4331,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "nightVfrApproved": false
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        69,
+        249
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 42.47083,
+      "longitude": 2.03361,
+      "location": "5600 ft AMSL Nom / Pont sur voie ferrée /"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 42.45083,
+      "longitude": 1.955,
+      "location": "Rond point / D 68 - D 30"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 42.425,
+      "longitude": 1.99361,
+      "location": "Chapelle de NAHUJA /"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 42.44556,
+      "longitude": 2.04889,
+      "location": "Point côté 1558 m (entre ERR et LIO) /"
+    }
+  ],
+  "notes": [
+    "AD reference code (ICAO): 1A AD reserved for government ACFT and for authorized ACFT from Sainte Léocadie and La Llagonne La Quillane AD available for other ACFT under conditions fixed by AD Director: Plane's pilot in command shall: Either be «Mountain» licensed;; Or detain a private ACFT pilot's license with a total of 200 flying hours as a pilot AND have completed a site familiarization with an instructor from the based ACB (mentioned on the flight book).",
+    "Concerning the Class 3 microlight's pilot in command: FFPLUM (FNVM) mountain training programme strongly recommanded;; Have completed a site familiarization with an instruc- tor from the based ACB (mentioned on the flight book).",
+    "In both situations, pilot in command shall obtain a LDG authorization from the Centre commander LDG authorization form available at the Mountain Flight Centre (CVM) MIL ACFT: PPR for LDG to OPS, PN 24 HR AD forbidden to non-radio-equipped ACFT AD forbidden to non-multi-axis microlights AD forbidden to GLD except for flight safety AD forbidden to ultralight GLD FATO / TLOF non compliant, strictly reserved for government ACFT ACB road protrude in obstacle limitation surface for 1.40 m Possible agricultural machinery W THR 07 Due to RWY slope, prefer LDG RWY 07 and TKOF RWY 25 Avoid «Touch and go RWY 07 Incoming and outgoing from the traffic circuit are to be proceed via points W, SW, E and N at 5600 ft AMSL Traffic circuit is mandatory south of the airfield at 5300 ft AMSL (overflight of Llivia prohibited) RWY 07, incoming by N, report south downwind via the overhead THR 25 at 5600 ft AMSL RWY 25, incoming by W, report south downwind via the overhead THR 07 at 5600 ft AMSL ACFT: AD waterlogged after prolonged rain, snow covered in winter HEL: Ground taxiing prohibited on MIL PRKG Gate width = 28 m: Fence height = 3.4 m",
+    "Non compliant for ACFT with wingspan > 19 m",
+    "Non compliant for HEL with overall width > 14 m ACFT with wingspan > 19 m and < 24 m must be guided by crew member on the ground.",
+    "2 m from edge on each side.",
+    "No access if wingspan > 24 m HEL with overall width > 14 m, translation out of ground effect at height > 4 m Light HEL spots numbered 1 to 7 and 12, 13: No simultaneous operations on successive spots, overlapping of protection areas Heavy HEL spots numbered 8 to 11: Non compliant for NH 90.",
+    "Overlapping of protection areas Prior contact with AD Authority for instructions No occasional crash cradle Holding point located before service vehicle track Paved part out of fence is not usable for ACFT backtracking RWY 25 for departure: western side not flattened out Aerobatics (NR 6856): 069/249 axis centred on ARP 6000/7500 ft AMSL Activity reserved for pilots authorized by the CDT of the mountain flying center and using the LFYS AD based ACFT HJ only 0800-1800 UAV: Request for flight in MIL training sector and airfield vicinity: letter of agreement mandatory"
+  ],
+  "fr": {
+    "notes": [
+      "Code de référence AD (OACI) : 1A AD réservé aux ACFT d'État, aux ACFT CIV autorisés de Sainte Léocadie et de La Llagonne La Quillane AD accessible aux autres ACFT sous conditions fixés par le directeur d'AD : Le commandant de bord Avion doit : Soit détenir la qualification «Montagne» ; Soit totaliser 200 hdv ET avoir réalisé une recon- nasance de site avec un instructeur des ACB basés (mention portée au carnet de vol).",
+      "Concernant le CDT de bord ULM multiaxes (classe 3) : Le suivi du cursus Montagne organisé par la FFPLUM est fortement recommandé ; ; Avoir réalisé une reconnaissance de site avec un instructeur des ACB basés (mention portée au carnet de vol).",
+      "Dans les 2 cas, le CDT de bord doit obtenir une autorisation de LDG du chef de Centre Modèle disponible au Centre de Vol en Montagne (CVM) ACFT MIL : LDG soumis à PPR des OPS, PN 24 HR AD interdit aux ACFT non munis de radio AD interdit aux ULM non multiaxes AD interdit aux GLD sauf sécurité des vols AD interdit aux GLD ultralégers (PUL) FATO/TLOF non conforme, exclusivement réservée aux ACFT d'État La route d'accès à l'ACB perce les dégagements aéronautiques d'environ 1,40 m Passage possible d'engins agricoles W THR 07 Cause pente de piste, privilégier LDG RWY 07 et TKOF RWY 25 Éviter «Toucher décoller» RWY 07 123.065",
+      "Non conforme pour ACFT avec envergure > 19 m",
+      "Non conforme pour HEL avec LgHT > 14 m ≤ Pour les ACFT d'engergure > 19 m et 24 m : guidage par membre d'équipage au sol obligatoire.",
+      "Marge de 2 m de part et d'autre.",
+      "Accès interdit si envergure > 24 m Pour les HEL avec largeur hors tout > 14 m, translation hors effet de sol à une hauteur > 4 m Plots HEL légers numérotés 1 à 7 et 12, 13 : Pas d'opérations simultanées sur plots consécutifs, chevauchement des aires de protection Plots HM numérotés 8 à 11 : Non conformes NH 90.",
+      ""
+    ]
+  }
+}

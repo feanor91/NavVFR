@@ -1,0 +1,88 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGF (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGF",
+  "name": "Beaune - Challanges",
+  "source": {
+    "publication": "AIP France AD 2 LFGF",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.01028,
+    "longitude": 4.89639
+  },
+  "elevationFeet": 656,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.91"
+  },
+  "frequencies": {
+    "airAir": 119.91
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        23,
+        203
+      ]
+    },
+    {
+      "id": "02R/20L",
+      "qfu": [
+        23,
+        203
+      ]
+    }
+  ],
+  "notes": [
+    "Simultaneous use of both RWY prohibited.",
+    "Unpaved RWY unusable after heavy rainfalls.",
+    "Only TWY A and helicopter path towards TLOF can be used in night conditions.",
+    "TWY C: access planes and ULM to Air Services 21 and residents only.",
+    "After TKOF follow 010° or 190° heading and join AD pattern.",
+    "Maintain heading until 1500 ft QNH.",
+    "Preferred QFU: 023° due to noise pollution.",
+    "For short-term stopover, operators of commercial flights are invited to use preferably the paved turning area located at the western end of TWY A.",
+    "Visiting aircraft are invited to park in front of the hangars above the mooring chain located on the edge of paved strip.",
+    "Training patterns limited to 2 after 2100 local time.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "AD vicinity very sensitive to noise.",
+    "ULM pattern reserved for ACFT using grass RWY 02R20L and able to follow pattern as published. based instruction.",
+    "E-mail: pcl@aeroclub-beaunois.fr MSG: PPR / REG / TYP / CDT / DOF / ETA Departure or local flight during night: without PPR, see instructions on ACB.",
+    "PCL on FREQ A/A: HN.",
+    "PCL orders shall be transmitted within a 10 NM radius from airfield.",
+    "Aerobatics at AD (NR 6491): See AIP ENR 5.5 AEM at AD (NR 8046): See AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "Utilisation simultanée des deux pistes interdite.",
+      "Piste non revêtue inutilisable après fortes pluies.",
+      "Seuls le TWY A et le cheminement hélicoptères vers la TLOF sont utilisables de nuit.",
+      "TWY C : accès avions et ULM à Air Services 21 et riverains seulement.",
+      "TKOF : après décollage, prendre le cap 010° ou 190° et rejoindre le tour de piste.",
+      "Maintenir le cap jusqu'à 1500 ft QNH.",
+      "QFU 023° préférentiel : cause nuisances environnementales.",
+      "Les exploitants d'appareils commerciaux sont invités à utiliser préférentiellement l'aire de retournement revêtue située en extrémité Ouest du TWY A pour leurs opérations d'escale de courte durée.",
+      "Les appareils visiteurs sont invités à stationner face aux hangars à l'aplomb de la chaîne d'amarrage en bordure de bande bitumée.",
+      "Entraînement limité à 2 tours de piste après 2100 heure locale.",
+      "Roulage interdit hors RWY et TWY.",
+      "Plateforme très sensible au bruit.",
+      "Circuit ULM réservé aux appareils utilisant la piste non revêtue 02R-20L et en mesure de respecter la trace au sol publiée.",
+      "",
+      "PCL sur FREQ A/A : HN.",
+      "Les commandes PCL doivent être émises à l'intérieur d'un rayon de 10 NM du terrain.",
+      "Voltige sur AD (N° 6491) : Voir AIP ENR 5.5 AEM sur AD (N° 8046) : Voir AIP ENR 5.5"
+    ]
+  }
+}

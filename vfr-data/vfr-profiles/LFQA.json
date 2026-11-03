@@ -1,0 +1,102 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQA (AIP France, chart dated 2025-06-12): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFQA",
+  "name": "Reims - Prunay",
+  "source": {
+    "publication": "AIP France AD 2 LFQA",
+    "chartDate": "2025-06-12",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.20861,
+    "longitude": 4.15667
+  },
+  "elevationFeet": 313,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : Du 01/03 au 31/10 : 0800-1130, 1230-1730 / From 01/03 to 31/10: 0800-1130, 1230-1730 Du 01/11 au 28/02 : 0800-1130, 1230-1630 / From 01/11 to 28/02: 0800-1130, 1230-1630 En dehors de ces HOR PPR avant 1500 / Outside these SKED PPR before 1500 (UTC HIV ; HOR ETE : - 1 HR)",
+    "outsideAtsHours": "air-air frequency 134.930",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 134.93
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        65,
+        245
+      ]
+    },
+    {
+      "id": "07R/25L",
+      "qfu": [
+        65,
+        245
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved to radio-equipped ACFT.",
+    "Possible IFR operations.",
+    "Simultaneous use of both RWY is probibited.",
+    "Unpaved RWY to be used with caution after heavy rainfalls.",
+    "Risk of mix up with the former and unusable REIMSCHAMPAGNE AD located 324°/7.6 NM from ARP (RWY 07/25).",
+    "After TKOF QFU 245°, proceed heading 267° and avoid over flying of FRANGAZ site, towns of Sillery and Puisieulx.",
+    "PPR to AFIS is mandatory requested for turbo-jet engine equipped airplanes.",
+    "All ACFT TKOF or LDG are suspended if a glider is immobilized on unpaved RWY within 40 m from common side.",
+    "Low height traffic patterns: Same side than ACFT pattern, at 500 ft AAL MNM and with pilot instructor on board.",
+    "TWY B not available for ACFT whose gear width is greater or equal to 4.5 m.",
+    "Stand A on apron P 2 reserved for code A ACFT.",
+    "Douanes, Police / Customs, Police: Services de douanes en déplacement sur l'AD / Customs service coming in the AD: Vols Schengen non UE: sur PPR 24 HR / Schengen flights ouside.",
+    "European Union: PPR 24HR",
+    "Vols non Schengen: non autorisés / Non-Schengen flights: not authorized.",
+    "Carburants / Fuel: JET A1 - 100LL.",
+    "Lubrifiants / Lubricant: NIL.",
+    "JET A1: ATS SKED.",
+    "AVGAS: H24 bank card or ATS SKED others payments.",
+    "TEL: Operator.",
+    "Outside these SKED, PPR before 1500 via TEL / E-mail Operator.",
+    "Payment: VISA, MASTERCARD, AMERICAN EXPRESS, WFS, COLT, AVCARD, MULTISERVICE, UVAIR, AEG FUEL, BONS ENAC or CASH.",
+    "Niveau 2 / Level 2: HOR ATS / ATS SKED En dehors de ces HOR / Outside these SKED PPR avant / before 1500 par / by TEL / E-mail Exploitant / Operator.",
+    "Péril animalier / Wildlife strike hazard: Occasionnel HOR ATS / Random ATS SKED."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Activité IFR possible.",
+      "Utilisation simultanée des 2 RWY interdite.",
+      "Après des pluies prolongées, utiliser la piste non revêtue avec précautions.",
+      "Risque de confusion avec l'ancien AD de REIMSCHAMPAGNE inutilisable situé dans le 324°/7,6 NM de l'ARP (RWY 07/25).",
+      "Après TKOF QFU 245°, prendre le cap 267° et éviter le survol du site FRANGAZ, les villages de Sillery et de Puisieulx.",
+      "PPR obligatoire auprès de l'AFIS pour les ACFT équipés de turboréacteurs.",
+      "Tout TKOF ou LDG d'avions est suspendu si un planeur est immobilisé sur la RWY non revêtue à moins de 40 m de la limite commune.",
+      "Circuits basse hauteur : Côté circuit ACFT, hauteur MNM 500 ft AAL et instructeur à bord.",
+      "TWY B inutilisable par les ACFT dont la largeur de train d'atterrissage est supérieure ou égale à 4,5 m.",
+      "Emplacement A sur PRKG P 2 réservé aux ACFT de code A.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "AVGAS : H24 carte bancaire ou HOR ATS autres paiements.",
+      "TEL : Exploitant.",
+      "En dehors de ces HOR, PPR avant 1500 par TEL / E-mail Exploitant.",
+      "",
+      "",
+      ""
+    ]
+  }
+}

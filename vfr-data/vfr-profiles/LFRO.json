@@ -1,0 +1,107 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRO (AIP France, chart dated 2025-08-07): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFRO",
+  "name": "Lannion",
+  "source": {
+    "publication": "AIP France AD 2 LFRO",
+    "chartDate": "2025-08-07",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.75444,
+    "longitude": -3.47194
+  },
+  "elevationFeet": 290,
+  "magneticVariationDegrees": -1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN, MAR, JEU, VEN / MON, TUE, THU, FRI : 0730-1100, 1200-1600. En dehors de ces HOR / Outside these SKED : PPR 72 HR (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 118.405",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 125.86,
+    "afis": 118.405
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        108,
+        288
+      ]
+    }
+  ],
+  "preferredQfu": 288,
+  "preferredQfuReason": "preferred QFU 288, due to environment and IFR procedure when tailwind is not greater than 5 kt, except when RWY is unusable",
+  "reportingPoints": [
+    {
+      "name": "OP",
+      "spoken": {
+        "fr": "Oscar Papa",
+        "en": "Oscar Papa"
+      },
+      "latitude": 48.79556,
+      "longitude": -3.44306,
+      "location": "Rond-point"
+    },
+    {
+      "name": "OL",
+      "spoken": {
+        "fr": "Oscar Lima",
+        "en": "Oscar Lima"
+      },
+      "latitude": 48.71694,
+      "longitude": -3.50528,
+      "location": "Ploulec'h"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Possible IFR activity.",
+    "AD likely to be covered by sea-haze in a few minutes.",
+    "Presence of a tree line altitude 403 ft, 295° THR 11, at 956 m.",
+    "South apron reserved for home-based aircraft.",
+    "North TWY between fuel station and hangars restricted to aircraft whose wingspan is lower than 15 m.",
+    "Preferred QFU: 288°, due to environment and IFR procedure when tailwind is not greater than 5 kt, except when RWY is unusable.",
+    "Circuit North of AD for PJE ACFT only.",
+    "\"Low height\" circuits during training flights only with an instructor on board.",
+    "500 ft AAL MNM North side of RWY 11/29.",
+    "Stand L1 for electric ACFT in priority.",
+    "Traffic patterns on North side.",
+    "PCL available on PPR from AD operator during RFFS SKED:.",
+    "TEL: 02 96 05 82 18",
+    "Airport's website: http://www.lannion.aeroport.fr/demande-de-PCL PJE (NR 280): see AIP ENR 5.5 Unmanned aircraft activity (NR 22-001): see AIP ENR 5.5 Péril animalier / Wildlife strike hazard: Occasionnel / Random.",
+    "HOR / SKED RFFS HJ /OR."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Activité IFR possible.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Présence d'une ligne d'arbres d'altitude 403 ft, dans le 295° du THR 11, à 956 m.",
+      "Aire de stationnement Sud réservée aux aéronefs basés.",
+      "TWY Nord entre station AVT et hangars limité aux aéronefs dont l'envergure est inférieure à 15 m.",
+      "QFU 288° préférentiel cause environnement et procédure IFR jusqu'à vent arrière de 5 kt, sauf si l'état de la piste rend son utilisation impossible.",
+      "Circuit Nord réservé aux ACFT largueurs parachutistes.",
+      "Circuits \"basse hauteur\" dans le cadre des vols d'entraînement avec instructeur uniquement.",
+      "MNM 500 ft AAL au Nord de la piste 11/29.",
+      "Stand L1 réservé en priorité aux ACFT électriques.",
+      "Tours de piste au Nord.",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+}

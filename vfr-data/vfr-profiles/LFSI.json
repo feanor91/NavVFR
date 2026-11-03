@@ -1,0 +1,82 @@
+{
+  "$comment": [
+    "REAL DATA, transcribed by hand from the SIA eAIP AD 2 LFSI (AIP France, valid from 2026-08-06).",
+    "Only facts are recorded here; the charts themselves are (c) SIA and are not redistributed.",
+    "Saint-Dizier-Robinson is a military air base (Armee de l'Air et de l'Espace). Its tower and approach follow the",
+    "CAM regimes (circulation aerienne militaire): CAM V (Victor, a vue) and CAM I (India, aux instruments).",
+    "MSFS exposes only VHF radios: the UHF frequencies of the base (243.000, 342.000, 362.300, 388.800) are not usable.",
+    "Flight simulation only: never use for real navigation.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFSI",
+  "name": "Saint-Dizier-Robinson",
+  "source": {
+    "publication": "AIP France AD 2 LFSI",
+    "amendment": "valid from 2026-08-06",
+    "chartDate": "2026-08-06",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 48.63361,
+    "longitude": 4.90806
+  },
+  "elevationFeet": 459,
+  "magneticVariationDegrees": 2.5,
+  "service": {
+    "kind": "MilitaryTower",
+    "ats": "APP/TWR",
+    "regimes": [
+      "CAM V",
+      "CAM I"
+    ],
+    "controlZone": "CTR Saint-Dizier, class D, SFC to FL 055, possible activation H24, CAM/CAG procedures. LF-P 72 Saint-Dizier: entry prohibited."
+  },
+  "frequencies": {
+    "approach": 134.775,
+    "approachTransit": 142.45,
+    "tower": 122.1,
+    "towerLineUpAndTakeOff": 140.175,
+    "par": 123.3,
+    "sre": 140.9
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        110,
+        290
+      ],
+      "surface": "paved",
+      "lengthMetres": 2413,
+      "widthMetres": 45
+    },
+    {
+      "id": "11L/29R",
+      "qfu": [
+        110,
+        290
+      ],
+      "surface": "grass",
+      "lengthMetres": 1200,
+      "widthMetres": 100
+    }
+  ],
+  "preferredQfu": 110,
+  "circuit": {
+    "sideOfRunways": "south",
+    "sideBearingDegrees": 180,
+    "handNote": "ASSUMPTION, not read from a published text: circuit south of the runways, right-hand for QFU 11 and left-hand for QFU 29. Check against the base's own procedures."
+  },
+  "notes": [
+    "Military base: civil VFR pilots do not fly in without prior agreement; in the simulator the flight is flown in CAM V or CAM I.",
+    "The base publishes its frequencies in UHF and VHF. Only those a MSFS radio can tune (118 to 137 MHz) matter: APP 134.775, TWR 122.100, PAR 123.300. The VHF frequencies above 137 MHz (APP 142.450, TWR 140.175 for line-up and take-off, SRE 140.900) are military and cannot be tuned in MSFS.",
+    "Arresting gear (BAR) marked by six yellow circles 3 m in diameter on the runway; BATR over 1200 m, east part, on runway 11L/29R used by the ACB.",
+    "Deactivation of the CTR is announced on 134.775 (RAI)."
+  ],
+  "fr": {
+    "circuit": {
+      "sideOfRunways": "sud",
+      "handNote": "HYPOTHÈSE, non lue sur un texte publié : circuit au sud des pistes, main droite pour le QFU 11 et main gauche pour le QFU 29. À vérifier avec les procédures propres à la base."
+    }
+  }
+}

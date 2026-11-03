@@ -1,0 +1,91 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCM (AIP France, chart dated 2024-11-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCM",
+  "name": "Millau-Larzac",
+  "source": {
+    "publication": "AIP France AD 2 LFCM",
+    "chartDate": "2024-11-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.98917,
+    "longitude": 3.18333
+  },
+  "elevationFeet": 2606,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.805",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.805
+  },
+  "runways": [
+    {
+      "id": "14/32",
+      "qfu": [
+        141,
+        321
+      ]
+    }
+  ],
+  "preferredQfu": 321,
+  "preferredQfuReason": "preferred QFU 321, due to environment",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Risk of snow conditions in winter.",
+    "If strong wind, possible turbulence on final, at each QFU.",
+    "AD located at altitude with hills within funnels.",
+    "Caution advised on \"Touch and Go\".",
+    "With soft winds from North-West sector, stratus may frequently climb up from valleys to AD.",
+    "Zone LF-R 169 A located very close to RWY 14 final, follow the published circuit to avoid any incursion.",
+    "QFU 141° and QFU 321°: 6.2 % - 3.55° descent plan.",
+    "Preferred QFU: 321°, due to environment.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Exemption granted to ACFT of civil security, so as to TKOF with MTOW > 5,7 tons.",
+    "Use prohibited at night.",
+    "Simultaneous activities PJE and aerobatics are prohibited.",
+    "PJE over AD (NR 410): FL 115, SR-SS.",
+    "Possible activation by NOTAM from FL 115 to FL 155.",
+    "Real activity known on MONTPELLIER INFO.",
+    "Aerobatics on AD (NR 6709): 1000 m, along RWY axis 14/32.",
+    "3100 ft AMSL/ 6400ft AMSL.",
+    "SKED: from 21/08 to 09/07: SR-SS; from 10/07 to 20/08: PPR PN 15 days from AD operator.",
+    "Activity announced on MILLAU A/A Activity known on MONTPELLIER INFO."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Risque d'enneigement en période hivernale.",
+      "Par vent fort, risque de turbulences en finale aux deux QFU.",
+      "AD situé en altitude avec collines dans les trouées.",
+      "Prudence lors des \" Poser-décoller \".",
+      "Par vents faibles de secteur Nord-Ouest, fréquentes remontées de stratus des vallées vers la plate-forme.",
+      "Zone LF-R 169 A située très proche de la finale piste 14, respecter le circuit publié pour éviter toute incursion.",
+      "QFU 141° et QFU 321° : plan de descente à 6,2 % - 3,55°.",
+      "QFU 321° préférentiel cause environnement.",
+      "Roulage interdit hors RWY et TWY.",
+      "Dérogation accordée aux aéronefs de la sécurité civile pour décoller à une MTOW > 5,7 tonnes.",
+      "Utilisation de nuit interdite.",
+      "Activités voltige et parachutage simultanées interdites.",
+      "Activité de parachutage sur AD (N° 410) : FL 115, SR-SS.",
+      "Activable par NOTAM du FL 115 au FL 155.",
+      "Activité réelle connue de MONTPELLIER INFO.",
+      "Activité voltige (N°6709) : 1000 m, selon axe de piste 14/32.",
+      "3100 ft AMSL/6400 ft AMSL.",
+      "HOR : du 21/08 au 09/07 : SR-SS ; du 10/07 au 20/08 : PPR PN 15 jours auprès de l'exploitant AD.",
+      "Activité annoncée sur MILLAU A/A Activité connue de MONTPELLIER INFO."
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRF (AIP France, chart dated 2023-12-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFRF",
+  "name": "Granville-Mont-Saint-Michel",
+  "source": {
+    "publication": "AIP France AD 2 LFRF",
+    "chartDate": "2023-12-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.88278,
+    "longitude": -1.56389
+  },
+  "elevationFeet": 45,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.105",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.105
+  },
+  "runways": [
+    {
+      "id": "06/24",
+      "qfu": [
+        65,
+        245
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Paved TWY width: 9.30 m.",
+    "Grass strip reserved for home-based ULM and declared to the AD operator by ULM Air Cotentin.",
+    "Airfield likely to be covered by sea haze in a few minutes.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Grass TWY reserved for light ACFT.",
+    "TWY Z available to vacate runway only.",
+    "Traffic pattern North of RWY.",
+    "PCL available on PPR on last working day before the flight, before 1600 local time, to AD operator.",
+    "PJE on AD (NR 540): SR-SS, SFC-FL155.",
+    "Activity according to protocol.",
+    "Information on RENNES INFO / APP."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Largeur TWY revêtu : 9,30 m.",
+      "Bande gazonnée réservée aux ULM basés et déclarés auprès de l'exploitant par ULM Air Cotentin.",
+      "Site susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Roulage interdit hors RWY et TWY.",
+      "Voie de circulation gazonnée réservée aux ACFT légers.",
+      "Voie de circulation Z utilisable uniquement pour dégager la piste.",
+      "",
+      "PCL utilisable sur PPR le dernier jour ouvrable avant le vol avant 1600 locales à l'exploitant AD.",
+      "",
+      "Activité selon protocole.",
+      "Information aux usagers sur RENNES INFO / APP."
+    ]
+  }
+}

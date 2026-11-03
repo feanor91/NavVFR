@@ -1,0 +1,80 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFEN (AIP France, chart dated 2022-11-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFEN",
+  "name": "Tours - Sorigny",
+  "source": {
+    "publication": "AIP France AD 2 LFEN",
+    "chartDate": "2022-11-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.26639,
+    "longitude": 0.69917
+  },
+  "elevationFeet": 299,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.09",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.09
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        35,
+        215
+      ]
+    },
+    {
+      "id": "04R/22L",
+      "qfu": [
+        35,
+        215
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Unpaved RWY 04R/22L reserved for ULM.",
+    "Simultaneous TKOF and/or LDG on both RWY is prohibited.",
+    "All TKOF and/or LDG on paved RWY must be aborded if an ULM has entered unpaved RWY.",
+    "Access to ULM RWY: mark holding points at U, P1 and P2 TWY.",
+    "Before taxiing on U or A TWY, check that way will be free.",
+    "Aerobatics (NR 6404) on AD: axis RWY 04/22; 2100 ft ASFC / 2400 ft AMSL - 4400 ft AMSL; SR-SS outside TOURS VAL DE LOIRE CTR activity.",
+    "Reserved for ACFT with authorization and according to protocol.",
+    "Notification of beginning and end of activity on SEINE APP/INFO.",
+    "Radio monitoring of SORIGNY A/A FREQ for flying ACFT.",
+    "PJE on AD (NR 255): SFC-FL 130.",
+    "15 MAR-15 NOV: SR-SS; according to protocol reserved for users authorized by AD operator.",
+    "Users' information on SEINE APP/INFO or TOURS TWR/INFO.."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Piste en herbe 04R/22L réservée aux ULM.",
+      "DEC et/ou ATT simultanés sur les 2 pistes interdits.",
+      "Tout DEC et/ou ATT sur la piste revêtue doit être interrompu si un ULM est engagé sur la piste en herbe.",
+      "DEC et/ou ATT simultanés sur les 2 pistes interdits.",
+      "",
+      "Activité voltige (N° 6404) sur AD : axe RWY 04/22 ; 2100 ft ASFC / 2400 ft AMSL - 4400 ft AMSL ; SR-SS en dehors des activités CTR TOURS VAL DE LOIRE.",
+      "Réservée aux ACFT autorisés et selon protocole.",
+      "Notification début et fin d'activité à SEINE APP/INFO.",
+      "Veille de la FREQ SORIGNY A/A par les ACFT en évolution.",
+      "Activité parachutage sur AD (N° 255) : SFC-FL 130.",
+      "15 MAR-15 NOV : SR-SS ; selon protocole réservé aux usagers autorisés par l'exploitant d'aérodrome.",
+      "Information des usagers sur SEINE APP/INFO ou TOURS TWR/INFO."
+    ]
+  }
+}

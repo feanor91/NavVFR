@@ -1,0 +1,90 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQM (AIP France, chart dated 2025-09-04): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFQM",
+  "name": "Besançon-La Vèze",
+  "source": {
+    "publication": "AIP France AD 2 LFQM",
+    "chartDate": "2025-09-04",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.20528,
+    "longitude": 6.08056
+  },
+  "elevationFeet": 1270,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN-VEN sauf JF : 0800-1130 ; 1300-1700. En dehors de ces HOR : PPR AFIS 1HR. AFIS peut être rendu sans préavis 24/7. Info connue sur LA VEZE INFO. AFIS : MON-FRI except public HOL : 0800-1130 ; 1300-1700. Outside these SKED : PPR AFIS 1HR. AFIS may be provided without prior notice 24/7. Information available on LA VEZE INFO (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 122.205
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        51,
+        231
+      ]
+    }
+  ],
+  "preferredQfu": 231,
+  "preferredQfuReason": "preferred QFU 231, due to IFR procedure",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "ULM: PPR from AD operator.",
+    "Possible IFR operations.",
+    "RWY shoulders not provided.",
+    "ACFT traffic circuit SE of AD must be conducted in a way to avoid village of SAONE.",
+    "Landing preferred QFU 231° due to IFR procedure.",
+    "Take-off preferred QFU 231° due to environment.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "IFR training for non based ACFT: PPR from AD operator.",
+    "VFR restrictions (except sanitary and commercial flights): From 1st of April to 30th of September: TKOF and.",
+    "LDG prohibited at night starting 2159 LT.",
+    "From 1st of October to 31th of March: TKOF and LDG prohibited at night starting 2100 LT.",
+    "PCL for lighting and PAPI B1.",
+    "3 clicks on microphone on A/A FREQ in less than 5 seconds to turn on lighting and PAPI 05/23 on intensity 3 and apron lighting.",
+    "5 clicks on microphone on A/A FREQ in less than 5 seconds to turn on lighting and PAPI 05/23 on intensity 4, flashing lights and apron lighting.",
+    "Lighting on for 15 minutes.",
+    "PJE (NR 215): see AIP ENR 5.5 Level 2: MON-FRI: 0800-1130, 1300-1700.",
+    "Outside these SKED: Level 1, or level 2 PPR AFIS PN 1HR.",
+    "Level 4 possible with PPR PN 24 HR AFIS.",
+    "TEL: +33 (0)3 81 83 15 32 - E-mail: afis@smablv.fr Péril animalier / Wildlife strike hazard:"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "ULM sur PPR exploitant d'aérodrome.",
+      "Activité IFR possible.",
+      "Accotements de piste non aménagés.",
+      "Tour de piste avion par le SE en évitant le survol de la commune de SAONE.",
+      "QFU 231° préférentiel à l'atterrissage cause procédure IFR.",
+      "QFU 231° préférentiel au décollage cause environnement.",
+      "Roulage interdit hors RWY et TWY.",
+      "Entraînement IFR aéronefs non basés sur PPR exploitant d'aérodrome.",
+      "",
+      "",
+      "",
+      "PCL pour balisage et PAPI préchauffés B1.",
+      "3 impulsions sur FREQ A/A en moins de 5 secondes pour allumer le balisage avec PAPI 05/23 sur brillance 3 et éclairage PRKG avions.",
+      "5 impulsions sur FREQ A/A en moins de 5 secondes pour allumer le balisage avec PAPI 05/23 sur brillance 4, feux à éclats et éclairage PRKG avions.",
+      "Balisage allumé pour 15 minutes.",
+      "",
+      "En dehors de ces HOR : Niveau 1, ou niveau 2 PPR AFIS PN 1HR.",
+      "Niveau 4 possible avec PPR PN 24 HR AFIS.",
+      ""
+    ]
+  }
+}

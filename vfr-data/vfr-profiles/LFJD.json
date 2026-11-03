@@ -1,0 +1,84 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFJD (AIP France, chart dated 2025-09-04): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFJD",
+  "name": "Corlier",
+  "source": {
+    "publication": "AIP France AD 2 LFJD",
+    "chartDate": "2025-09-04",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.03972,
+    "longitude": 5.49611
+  },
+  "elevationFeet": 2770,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 130.0",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 130.0
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        119,
+        299
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 46.04472,
+      "longitude": 5.45556,
+      "location": "Ouest de Chatillon de Cornelle"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Aircraft pilots must hold a valid mountain license or altiport access authorization.",
+    "AD usable without restriction for HEL.",
+    "ULM: it is strongly recommended to have attended the mountain course organized by the FFPLUM.",
+    "Commercial air transport is prohibited with the exception of discovery flights.",
+    "Caution advised with south wind (risk of turbulence).",
+    "Snow clearance not provided.",
+    "After heavy rains, check runway condition with the AD operator.",
+    "Arrive via point W at 3100 ft AMSL without interfering with the aerodrome circuit, then follow the circuit indicated on the chart to join overhead.",
+    "Fly the aerodrome traffic circuit at 3100 ft AMSL.",
+    "Do not park in line-up and take-off positions."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Les pilotes d'avions doivent être titulaires de la qualification montagne ou de l'autorisation d'accès à l'altiport en état de validité.",
+      "L'AD est utilisable sans restriction par les HEL.",
+      "ULM : il est fortement recommandé d'avoir suivi le cursus montagne organisé par la FFPLUM.",
+      "Le transport aérien commercial par avion est interdit à l'exception des vols de découverte.",
+      "Prudence recommandée par vent de Sud (risques de turbulences).",
+      "Déneigement non assuré.",
+      "Après de fortes pluies, s'assurer de l'état de la piste auprès de l'exploitant.",
+      "Arriver par W à 3100 ft AMSL sans interférer avec le circuit d'aérodrome puis suivre le tracé figuré sur la carte pour rejoindre la verticale.",
+      "Effectuer le circuit d'aérodrome à 3100 ft AMSL.",
+      "Ne pas stationner en position alignement de décollage."
+    ]
+  }
+}

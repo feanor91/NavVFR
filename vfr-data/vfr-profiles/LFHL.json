@@ -1,0 +1,74 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHL (AIP France, chart dated 2023-07-13): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFHL",
+  "name": "Langogne - Lespéron",
+  "source": {
+    "publication": "AIP France AD 2 LFHL",
+    "chartDate": "2023-07-13",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.70556,
+    "longitude": 3.88722
+  },
+  "elevationFeet": 3339,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        36,
+        216
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Asphalt strip 100 x 15 m starting from THR 22, in poor condition.",
+    "RWY 04 and 22 use is limited to: Ultralight ACFT; Helicopter; Gliders; Plane whose pilots can prove:; to be home-based ACFT pilots; or to be a holder of the mountain license; or to have recognized beforehand the platform with an instructor and have used the aerodrome as captain within 12 last months.",
+    "Air navigation hazard Trees located at 10 m from THR 22, 89 ft ASFC.",
+    "RWY 04 is preferred RWY for landing.",
+    "RWY 22 is preferred RWY for take-off.",
+    "Touch and go and low height training patterns are prohibited.",
+    "TKOF RWY 04 forbidden for ACFT.",
+    "LDG RWY 22: presence of trees 89 ft ASFC imposes a plan of approach > 8.5 %.",
+    "Check performances and LDG distance.",
+    "Parachute activity on AD (NR 444), FL 160.",
+    "Activated HJ by NOTAM on SAT, SUN and public HOL, when LF-R 55C is not in use.",
+    "Activity known by MARSEILLE ACC (FL > 145) and by CLERMONT INFO."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Bande goudronnée, 100 x 15 m à partir du seuil 22, en mauvais état.",
+      "L'utilisation des pistes 04 et 22 est limitée aux types d'aéronefs suivants : ULM ; Hélicoptère ; Planeurs ; Avion dont les pilotes peuvent justifier : être des pilotes d'aéronefs basés ; ou être titulaire de la qualification montagne ; ou avoir préalablement reconnu la plateforme avec un instructeur et avoir utilisé l'aérodrome en tant que commandant de bord dans les 12 derniers mois.",
+      "Dangers à la navigation aérienne Arbres situés à 10 m de l'entrée de piste 22, 89 ft ASFC.",
+      "La piste 04 est la piste préférentielle à l'atterrissage.",
+      "La piste 22 est la piste préférentielle au décollage.",
+      "Les poser-redécoller (touch and go) et les circuits basse hauteur sont interdits.",
+      "Décollage piste 04 interdit pour les avions.",
+      "Atterrissage piste 22 : la présence d'arbres 89 ft ASFC impose un plan d'approche > à 8,5 %.",
+      "Vérifier les performances et distance d'atterrissage.",
+      "Parachutage sur AD (N° 444), FL 160.",
+      "Activable HJ par NOTAM les SAM, DIM et JF, lorsque LF-R 55C inactive.",
+      "Activité connue de MARSEILLE ACC (FL > 145) et de CLERMONT INFO."
+    ]
+  }
+}

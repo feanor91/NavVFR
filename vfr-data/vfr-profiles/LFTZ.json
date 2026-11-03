@@ -1,0 +1,213 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFTZ (AIP France, chart dated 2024-09-05): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFTZ",
+  "name": "Saint-Tropez",
+  "source": {
+    "publication": "AIP France AD 2 LFTZ",
+    "chartDate": "2024-09-05",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.20528,
+    "longitude": 6.48194
+  },
+  "elevationFeet": 63,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "HIV / WIN (NOV-MAR) : 0800-1600. O/R 0630 ou SR le plus tard des deux - SS / or SR later of the two - SS. ETE / SUM (APR-OCT) : 0600-1700. O/R 0530 ou SR le plus tard des deux - SS / or SR later of the two - SS. PN 24 HR (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 134.475,
+    "afis": 118.13
+  },
+  "runways": [
+    {
+      "id": "06/24",
+      "qfu": [
+        60,
+        240
+      ]
+    }
+  ],
+  "preferredQfu": 240,
+  "preferredQfuReason": "preferred QFU 240, due to relief",
+  "reportingPoints": [
+    {
+      "name": "EM",
+      "spoken": {
+        "fr": "Écho Mike",
+        "en": "Echo Mike"
+      },
+      "latitude": 43.26389,
+      "longitude": 6.59278,
+      "location": "Digue Sud-Est GRIMAUD"
+    },
+    {
+      "name": "ET",
+      "spoken": {
+        "fr": "Écho Tango",
+        "en": "Echo Tango"
+      },
+      "latitude": 43.16139,
+      "longitude": 6.61806,
+      "location": "Cap Lardier"
+    },
+    {
+      "name": "HE",
+      "spoken": {
+        "fr": "Hôtel Écho",
+        "en": "Hotel Echo"
+      },
+      "latitude": 43.20833,
+      "longitude": 6.52583
+    },
+    {
+      "name": "HA1",
+      "spoken": {
+        "fr": "Hôtel Alpha un",
+        "en": "Hotel Alpha one"
+      },
+      "latitude": 43.25278,
+      "longitude": 6.58639
+    },
+    {
+      "name": "HA2",
+      "spoken": {
+        "fr": "Hôtel Alpha deux",
+        "en": "Hotel Alpha two"
+      },
+      "latitude": 43.23889,
+      "longitude": 6.58417
+    },
+    {
+      "name": "HA3",
+      "spoken": {
+        "fr": "Hôtel Alpha trois",
+        "en": "Hotel Alpha three"
+      },
+      "latitude": 43.22889,
+      "longitude": 6.55944
+    },
+    {
+      "name": "HD1",
+      "spoken": {
+        "fr": "Hôtel Delta un",
+        "en": "Hotel Delta one"
+      },
+      "latitude": 43.2225,
+      "longitude": 6.55389
+    },
+    {
+      "name": "HD2",
+      "spoken": {
+        "fr": "Hôtel Delta deux",
+        "en": "Hotel Delta two"
+      },
+      "latitude": 43.20667,
+      "longitude": 6.62222
+    },
+    {
+      "name": "HD3",
+      "spoken": {
+        "fr": "Hôtel Delta trois",
+        "en": "Hotel Delta three"
+      },
+      "latitude": 43.20139,
+      "longitude": 6.66722
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD usable only with PPR PN 24 HR from AD operator.",
+    "Mandatory radio contact.",
+    "Possible IFR operations.",
+    "Landing and Take-off funnel characteristics: landing RWY 06 / Take-off RWY 24: slope at 5%; landing RWY 24 / Take-off RWY 06: slope at 4%.",
+    "Usable declared distances: TORA RWY 24 reduced to 931 m.",
+    "The aerodrome is qualified for restricted use: It may only be used by the aircraft under the conditions laid down by the order of 25 July 2019 and modified by the order of 23 July 2020 concerning qualification of the La Môle (Var) aerodrome and by the helicopters.",
+    "This order can be consulted via the Internet at the following address: The aerodrome cannot be used if the runway is contaminated.",
+    "Aircrafts Definitions: Group 1 aircraft: a) A turboprop multi-engine aircraft with a MOPSC greater than 9 or a maximum take-off weight greater than 5700 kg or; b) A turbojet multi-engine aircraft or, c) A turbojet single-engine aircraft or, d) A piston-engine aircraft with a MOPSC greater than 9 or a maximum take-off weight greater than 5700 kg.",
+    "Group 2 aircraft: An aircraft which does not meet the criteria of a group 1 aircraft.",
+    "Restriction of aerodrome use.",
+    "Group 1 aircraft: The operator must transmit a preliminary file one month beforehand to the DSAC SE by email to the address dsac-se-ops@aviation-civile.gouv.fr and comply with the procedures described in the order.",
+    "The La Môle aerodrome can only be used after obtaining the acknowledgment of receipt from the DSAC/SE and, where applicable, after performing a satisfactory flight under the supervision of an inspector pilot appointed by the south east civil aviation safety director.",
+    "Pilots Group 1 aircraft: The captain must have attended the training course described in the order and performed, within the six months prior to the first flight at La Môle as captain, an aerodrome reconnaissance flight as pilot on the type or class of aircraft concerned, with an instructor.",
+    "This aptitude is maintained if, during the last twelve months, the captain: has taken off from and landed on the aerodrome as captain on the type or class of aircraft concerned; or; has attended the competence maintenance course provided for in the order, on an FSTD of the type of aircraft concerned equipped with an image representative of the aerodrome and its environment, issued by an instructor qualified on the type or class of aircraft and for which the operator can certify that he is familiar with the aerodrome characteristics and use procedures.",
+    "Group 2 aircraft: Within the six months prior to the first flight at La Môle as captain, the captain has performed an aerodrome reconnaissance flight as pilot on the type or class of aircraft concerned, with an instructor approved by the south east civil aviation safety director.",
+    "This aptitude is maintained if, within the last twenty-four months, the captain has taken from and landed on the La Môle aerodrome as captain of an aircraft of the same class or type.",
+    "Wind restrictions: The aerodrome can only be used whether it be for LDG or TKOF when the surface reported wind at LA MOLE AD does not exceed: 15 kt for mean wind which direction is comprised between a sector 040° and 070° MAG, including those limits.; 16 kt included MAX wind and 13 kt mean wind for any other direction, the first of the two values reached.",
+    "This requirement does not apply to helicopters.",
+    "AD is unusable out of AFIS SKED.",
+    "AD is unusable when \"speed of wind\" parameter given by AFIS is not available except for the captain of light aircraft based yearly on AD and used in general aviation which has capacity to evaluate the surface wind.",
+    "Respect imperatively the published circuit.",
+    "AD surrounded by high reliefs which may hide the RWY when ACFT is in downwind leg.",
+    "LDG: preferred QFU 240° due to relief.",
+    "TKOF: preferred QFU 060° (TKOF from the yellow transverse band).",
+    "TKOF: pilot's attention is drawn towards the necessity of checking that their ACFT performances for TKOF are in compliance with the required obstacle clearances relating to obstructions located within the strip extension (trees and mountains) in the event of a N-1 engine breakdown for multi-engined ACFT.",
+    "Taxiing prohibited except on RWY.",
+    "No parking station available: all planes are supported by a marshaller and possibly towed.",
+    "Environnemental protection: Very noise-sensitive AD: strictly comply with routes and avoidance of urban areas highlighted with ‘'blue circles''.",
+    "Helicopters' movements from or to helipads located in the towns of Ramatuelle, Saint -Tropez, Gassin, Grimaud and Cogolin, are subject to restrictions set by a prefectural decree, which can be viewed on the Web portal: http://www.var.gouv.fr/reglementation-desdeposes-d-helicopteres-a4954.html Recommandations: Arriving ACFT to LFTZ:.",
+    "Reporting over EM is recommended for North and East inbound flights (EM: RDL 349° 2.7 NM of VOR STP).",
+    "Preferred altitude 2500 ft due to heavy recommended HEL traffic up to 2000 ft.",
+    "Arriving HEL to LFTZ or helipads quoted herebefore: Due to the IFR approach to LFTZ, it is recommanded coming from Saint Tropez Bay not to climb above 1500 ft QNH before contacting LA MOLE AFIS and receiving flight information to join the transit to EM.",
+    "Except for pilots training in order to obtain the specific agreement to use the AD, training and school activity prohibited on: SUN and public holidays;; all the days, from 14th July to 31st August.",
+    "Training in order to obtain the specific AD agreement prohibited on SUN and HOL from 1st July to 30 th September.",
+    "HEL activity: helipad of Grimaud.",
+    "ULM activity located 5 NM, NE of the airfield.",
+    "Destination / Destination Diverses / Miscellaneous Presqu'île de St Tropez / St Tropez peninsula LFTZ: AD La Mole / La Mole Airfield LFMD: AD Cannes Mandelieu / Cannes Mandelieu Airfield LFMN: AD Nice Côte d'Azur / Nice Côte d'Azur Airfield LNMC: Héliport Monaco / Monaco heliport Vols panoramiques / Scenic flights"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radios.",
+      "AD utilisable uniquement sur PPR PN 24 HR auprès de l'exploitant d'aérodrome.",
+      "Contact radio obligatoire.",
+      "Activité IFR possible.",
+      "Caractéristiques des trouées d'atterrissage et de décollage : atterrissage RWY 06 / décollage RWY 24 : pente à 5%. atterrissage RWY 24 / décollage RWY 06 : pente à 4%.",
+      "Distances déclarées utilisables : TORA RWY 24 réduite à 931 m.",
+      "L'aérodrome est agréé à usage restreint : Il est utilisable uniquement par les avions dans les conditions fixées par l'arrêté du 25 juillet 2019 et modifié par arrêté du 23 juillet 2020 portant agrément de l'aérodrome de La Môle (Var) et par les hélicoptères.",
+      "Cet arrêté est consultable via internet à l'adresse suivante : https://www.legifrance.gouv.fr/ L'aérodrome n'est pas utilisable si la piste est contaminée.",
+      "Aéronefs Définitions : Avion du groupe 1 : a) Un avion multi-moteurs à turbopropulseurs disposant d'une MOPSC supérieure à 9 ou d'une masse maximale au décollage supérieure à 5700 kg ou ; b) Un avion multi-moteurs à turboréacteur ou, c) Un avion monomoteur à turboréacteur ou, d) Un avion à moteur à pistons disposant d'une MOPSC supérieure à 9 ou d'une masse maximale au décollage supérieure à 5700 kg.",
+      "Avion du groupe 2 : Un avion qui ne répond pas aux critères d'un avion du groupe 1.",
+      "Limitation d'utilisation de l'aérodrome.",
+      "Aéronef du Groupe 1 : L'exploitant doit déposer un dossier préalable un mois avant auprès de la DSAC SE par mail à l'adresse dsacse-ops@aviation-civile.gouv.fr et se conformer aux procédures décrites dans l'arrêté.",
+      "L'utilisation de l'aérodrome de La Môle n'est possible qu'après obtention de l'accusé réception de la DSAC/SE et le cas échéant, après la réalisation jugée satisfaisante, d'un vol sous supervision d'un pilote inspecteur désigné par le directeur de la sécurité de l'aviation civile sud-est.",
+      "LA MOLE Pilotes Aéronef du Groupe 1 : Le commandant de bord doit avoir suivi la formation décrite dans l'arrêté et a effectué, dans les six mois précédant le premier vol à La Môle en tant que commandant de bord, un vol de reconnaissance de l'aérodrome comme pilote aux commandes, sur le type ou classe d'avion concerné, avec un instructeur.",
+      "Cette aptitude est maintenue si, dans les douze derniers mois, le commandant de bord : a effectué un décollage et un atterrissage sur l'aérodrome en tant que commandant de bord sur le type ou classe d'avion concerné ; ou ; a suivi le maintien des compétences prévu à l'arrêté, sur un FSTD du type d'avion concerné ayant un visuel représentatif de l'aérodrome et de son environnement, dispensé par un instructeur qualifié sur le type ou classe d'avion et, dont l'exploitant peut attester qu'il est familier des caractéristiques et procédures d'utilisation de l'aérodrome.",
+      "Aéronef du Groupe 2 : Le commandant de bord a effectué, dans les six mois précédant le premier vol à La Môle en tant que commandant de bord, une reconnaissance de l'aérodrome comme pilote aux commandes, sur le type ou classe d'avion concerné, avec un instructeur agréé par le directeur de la sécurité de l'aviation civile sud-est.",
+      "Cette aptitude est maintenue si, dans les vingt-quatre derniers mois, le commandant de bord a effectué un décollage et un atterrissage sur l'aérodrome de La Môle comme commandant de bord d'un avion de même classe ou type.",
+      "Limites de vent : L'utilisation de l'aérodrome n'est possible, tant au décollage qu'à l'atterrissage, que par un vent au sol mesuré à LA MOLE n'excédant pas : 15 kt vent moyen pour une direction de vent comprise entre le 040° et le 070° limites incluses. 16 kt vent MAX compris et pour 13 kt vent moyen pour toute autre direction de vent, la première des deux atteinte.",
+      "Cette exigence n'est pas applicable aux hélicoptères.",
+      "LA MOLE AD inutilisable lorsque le service AFIS n'est pas en activité.",
+      "AD inutilisable lorsque le paramètre \"vitesse du vent\" qui doit être fourni par l'AFIS n'est pas disponible excepté pour le commandant de bord d'un aéronef léger basé toute l'année sur l'aérodrome et utilisé en aviation générale qui a la possibilité d'estimer le vent au sol.",
+      "Respecter impérativement le circuit publié.",
+      "Aérodrome bordé de reliefs importants qui provoquent la perte de la vue de la piste dans une partie de la branche vent arrière du circuit en vol.",
+      "Atterrissage : QFU préférentiel 240° cause relief.",
+      "Décollage : QFU préférentiel 060° (décollage à partir de la bande transversale jaune)",
+      "Décollage : l'attention des pilotes est spécialement attirée sur la nécessité de vérifier que les performances au décollage de leur appareil sont suffisantes pour survoler avec les marges de sécurité requises les obstacles (arbres et relief) situés dans le prolongement de la bande, dans l'éventualité, en particulier d'une panne moteur pour les multimoteurs.",
+      "Roulage interdit hors RWY.",
+      "Pas de poste de stationnement : tous les avions sont pris en charge par un parqueur et éventuellement tractés.",
+      "Environnement : AD très sensible au bruit : respect impératif des itinéraires et des zones urbaines indiquées par des \"ronds bleus''.",
+      "",
+      "Le report sur le point EM est recommandé lors des arrivées par le Nord et par l'Est (EM : radial 349° du VOR STP pour 2.7 NM).",
+      "Altitude préférentielle 2500 ft cause important trafic hélico recommandé à 2000 ft.",
+      "Arrivée HEL vers LFTZ ou hélisurfaces susmentionnées : En raison de la procédure d'approche aux instruments à LFTZ, il est recommandé depuis la baie de Saint Tropez de ne pas monter au-dessus de 1500 ft QNH avant d'avoir pris contact avec LA MOLE AFIS et obtenu les informations de vol pour rejoindre le transit par EM.",
+      "LA MOLE Activités diverses Sauf entraînement à l'aptitude spécifique à l'AD, entraînement et activité école interdits : dimanche et jours fériés ; ; tous les jours, du 14 juillet au 31 août.",
+      "Entraînement et formation pour l'agrément AD interdits les dimanches et jours fériés du 01 juillet au 30 septembre.",
+      "Activité hélicoptères : hélistation de Grimaud.",
+      "Activité ULM : plate-forme ULM dans le NE du terrain à 5 NM.",
+      "SIV Nice afficher : Transpondeur 5470 5471 5472 5473 LFTL : HST Cannes Quai du Large 5474 5475 5476"
+    ]
+  }
+}

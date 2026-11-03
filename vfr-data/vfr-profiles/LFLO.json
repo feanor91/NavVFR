@@ -1,0 +1,110 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLO (AIP France, chart dated 2025-03-20): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFLO",
+  "name": "Roanne-Renaison",
+  "source": {
+    "publication": "AIP France AD 2 LFLO",
+    "chartDate": "2025-03-20",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.05278,
+    "longitude": 3.99972
+  },
+  "elevationFeet": 1106,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN-VEN / MON-FRI : 0800-1100, 1300-1700. SAM, DIM, JF / SAT, SUN, HOL : 01 JUN - 30 SEP : 0900-1100, 1330-1700. Possibilité d'ouverture sur PPR avant 16h00 la veille de week-ends et jours fériés (ex : le VEN PPR avant 1600 pour les week-end). Opening is possible on PPR before 1600 on the eve of WE and HOL (i.e. on FRI PPR before 1600 for week-end) (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 120.905",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 123.405,
+    "afis": 120.905,
+    "airAir": 120.905
+  },
+  "runways": [
+    {
+      "id": "01/19",
+      "qfu": [
+        14,
+        194
+      ]
+    },
+    {
+      "id": "01L/19R",
+      "qfu": [
+        14,
+        194
+      ]
+    }
+  ],
+  "notes": [
+    "Possible IFR operations.",
+    "AD reserved for radio-equipped aircraft.",
+    "Grass strip 01L/19R reserved for ACFT authorized by AD operator and for gliders.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Connecting TWY (at the foot of TWR) between A and B restricted to ACFT with wingspan < 15 m and MTOW < 3500 kg.",
+    "During ULM and/or flying models activities, parachuting activity is incompatible without settlement and coordination between the factions.",
+    "Avoid overflying AD below 3000 ft AMSL.",
+    "Departure: climb overhead airfield up to route segment minimum altitude.",
+    "Arrival: last en route segment altitude will be maintained until being in sight and within 5 NM of the airfield, then join traffic pattern.",
+    "Routes ROANNE-Le Donjon and ROANNE-La Palisse are not usable in case of ROA VOR malfunction.",
+    "PCL PPR PN 24 HR AFIS.",
+    "Not activated in good lighting conditions For operating instructions see AIP FRANCE AD 1.1.",
+    "AEM (NR 9825): SFC - 500 ft ASFC.",
+    "SR-SS as per protocol.",
+    "Parachuting activity on AD (NR 411) FL 110 - FRI, SAT, SUN and HOL: 0600-2300, (SUM: - 1 HR).",
+    "Activity reserved for pilots authorized according to protocol in force.",
+    "Activity known by: SAINT YAN APP; ROANNE / CLERMONT / LYON INFORMATION.",
+    "Winch gliders activity on AD (NR 989): SR-SS.",
+    "3000 ft AMSL.",
+    "Announced by orange turning light on the winch.",
+    "Non-marked cable.",
+    "User information on ROANNE INFORMATION.",
+    "Paramotor activity on ULM RWY.",
+    "Aerobatics activity on AD (NR 6836): 2 NM long axis oriented 015°/195° centered on ARP, 500 ft ASFC / FL 055, SR- 30 to SS+30.",
+    "Activity according protocol.",
+    "Activity known by: ROANNE INFO or A/A; CLERMONT INFO; SAINT YAN APP (when active)."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "Bande gazonnée 01L/19R réservée aux ACFT autorisés par l'exploitant AD et au VAV.",
+      "Roulage interdit hors RWY et TWY.",
+      "TWY de liaison (au pied de la tour) entre A et B réservé aux ACFT d'envergure < 15m et de MTOW < 3500 kg.",
+      "Pendant les vols ULM et/ou aéromodèles, l'activité parachutisme est incompatible sans accord préalable et coordination entre les parties.",
+      "Éviter verticale en dessous de 3000 ft AMSL.",
+      "Départ : monter verticale aérodrome à l'altitude minimale du tronçon à emprunter.",
+      "Arrivée : l'altitude du dernier segment utilisé sera maintenue jusqu'à être en vue et dans les 5 NM de l'aérodrome, puis rejoindre le circuit.",
+      "Itinéraires : les itinéraires ROANNE - Le Donjon et ROANNE - La Palisse ne sont pas utilisables en cas de non fonctionnement du VOR ROA.",
+      "",
+      "Mode opératoire décrit dans l'AIP FRANCE AD 1.1.",
+      "AEM (N° 9825) : SFC - 500 ft ASFC.",
+      "SR-SS selon protocole.",
+      "Parachutage sur AD (N° 411) : FL 110.VEN, SAM, DIM et JF : 0600-2300, (ETE : - 1 HR).",
+      "Activité réservée aux pilotes autorisés et selon protocole d'accord en vigueur.",
+      "Activité réelle connue de : SAINT YAN APP ; ROANNE / CLERMONT / LYON INFORMATION.",
+      "Activité de treuillage planeurs sur AD (N° 989) : SR-SS.",
+      "",
+      "Annoncée par feu tournant orange installé sur le treuil.",
+      "Câble non balisé.",
+      "Information des usagers sur ROANNE INFORMATION.",
+      "Activité paramoteur sur piste ULM.",
+      "ROANNE Activité de voltige sur AD (N°6836) : Axe de 015°/195° de 2 NM centré sur ARP, 500 ft ASFC / FL 055, LS-30 à CS+30.",
+      "Activité selon protocole.",
+      "Activité réelle connue de : ROANNE INFO ou A/A ; CLERMONT INFO ; SAINT YAN APP (quand actif)."
+    ]
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLX (AIP France, chart dated 2026-02-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFLX",
+  "name": "Châteauroux - Centre",
+  "source": {
+    "publication": "AIP France AD 2 LFLX",
+    "chartDate": "2026-02-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.86028,
+    "longitude": 1.72111
+  },
+  "elevationFeet": 529,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "TWR : LUN-VEN / MON-FRI : 0700 -1100, 1230- 1700 (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 134.1,
+    "tower": 125.88,
+    "afis": 125.88,
+    "airAir": 125.88
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        32,
+        212
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 46.97278,
+      "longitude": 1.6,
+      "location": "Levroux - Poste électrique"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 46.85056,
+      "longitude": 1.53028,
+      "location": "Villedieu sur Indre - Cimetière"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 46.69944,
+      "longitude": 1.58333,
+      "location": "Échangeur"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 46.74167,
+      "longitude": 1.83056,
+      "location": "Ardentes - Pont"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 46.94028,
+      "longitude": 1.94861,
+      "location": "Sud Issoudun sur D8"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 46.83111,
+      "longitude": 1.86667,
+      "location": "Ablenay et RD 925"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 46.91472,
+      "longitude": 1.59861,
+      "location": "Villegongis - Château"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited for gliders.",
+    "AD usable by ULM: ATS SKED daytime with PPR 2HR from AD operator.",
+    "Traffic information with CHATEAUROUX VILLERS AD pattern is not provided.",
+    "Winching activity (N° 867): see AIP ENR 5.5.",
+    "AEM activity (NR 8830): see AIP ENR 5.5.",
+    "Aerobatics activity (N° 6400): see AIP ENR 5.5.",
+    "Busy training of heavy aircraft and MIL jets.",
+    "All training flights are subject to prior agreement from AD operator.",
+    "ATS will give the special instructions and the possible use restrictions.",
+    "QFU 032° pattern, 1500 AMSL/1000 ft AAL for ACFT with wake turbulence category H.",
+    "Access and movement on Eastern apron prohibited except with ATS clearance.",
+    "Stands on aprons and services areas are allotted by the AD operator and information is relayed by ATS to the ACFT.",
+    "ACL on apron.",
+    "High-visibility vest mandatory on apron. until an ATC clearance.",
+    "No transit in SVFR.",
+    "MTO minima.",
+    "ACFT: VIS 1500 m.",
+    "HEL: VIS 800 m.",
+    "Traffic surveillance equipment: AD equipped with a radar display (see AD 1.0)."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux planeurs.",
+      "AD utilisable par ULM : HOR ATS de jour avec PPR 2HR auprès de l'exploitant d'aérodrome.",
+      "Les informations de trafic par rapport au circuit de l'AD de CHATEAUROUX VILLERS ne sont pas assurées.",
+      "Activité treuillage (N° 867) : voir AIP ENR 5.5.",
+      "Activité AEM (N° 8830) : voir AIP ENR 5.5.",
+      "Activité voltige (N° 6400) : voir AIP ENR 5.5.",
+      "Entraînements fréquents d'aéronefs lourds et de jets MIL.",
+      "Tout vol d'entraînement est soumis à accord préalable de l'exploitant d'aérodrome.",
+      "Les services ATS communiqueront les consignes et les éventuelles restrictions d'utilisation.",
+      "Tour de piste au QFU 032°, 1500 AMSL/1000 ft AAL pour ACFT de catégorie de turbulences de sillage H.",
+      "Accès et circulation sur l'aire de trafic Est interdits sauf sur autorisation des services ATS.",
+      "Les postes de stationnement sur les aires de trafic et les aires de service sont attribués par l'exploitant d'aérodrome et l'information est relayée par les services ATS aux ACFT.",
+      "ACL sur l'aire de stationnement.",
+      "Port du gilet haute-visibilité obligatoire sur l'aire de trafic. sur l'un des points de compte-rendu jusqu'à l'obtention d'une autorisation des services ATS.",
+      "Pas de transit VFR Spécial.",
+      "Minima MTO.",
+      "ACFT : VIS 1500 m.",
+      "HEL : VIS 800 m.",
+      "Équipement de surveillance du trafic : AD équipé d'une visualisation radar (Voir AD 1.0)."
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFEG (AIP France, chart dated 2025-02-20): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFEG",
+  "name": "Argenton-sur-Creuse",
+  "source": {
+    "publication": "AIP France AD 2 LFEG",
+    "chartDate": "2025-02-20",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.59583,
+    "longitude": 1.60111
+  },
+  "elevationFeet": 666,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        33,
+        213
+      ]
+    },
+    {
+      "id": "03R/21L",
+      "qfu": [
+        33,
+        213
+      ]
+    }
+  ],
+  "notes": [
+    "Simultaneous use of RWY prohibited.",
+    "All TKOF or LDG will be suspended if an ACFT is stopped on the half adjacent width of the unpaved RWY.",
+    "Paved RWY: pilots attention is drawn to its short length and its declivity (1.11 %).",
+    "Glider-type marking for unpaved runway.",
+    "Aerobatic (NR 6400) 2 km ENE from AD.",
+    "2500 ft AMSL / 4000 ft AMSL.",
+    "Activity as per protocol, reserved for radio-equipped aircraft.",
+    "Activity likely to be relocated over ARGENTON AD via NOTAM.",
+    "User information on POITIERS INFO.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Other activities Summer glider activity noticed by NOTAM.",
+    "Summer aerobatic activity (plane) noticed by NOTAM."
+  ],
+  "fr": {
+    "notes": [
+      "Utilisation simultanée des pistes interdites.",
+      "Tout TKOF ou LDG sera interrompu si un aéronef est immobilisé sur la demi largeur contigüe de la piste non revêtue.",
+      "",
+      "Balisage de piste non revêtue de type planeur.",
+      "Voltige (N° 6400) à 2 km à l'ENE de l'AD.",
+      "",
+      "Activité selon protocole, réservée aux aéronefs équipés de radio.",
+      "Activité susceptible d'être déplacée sur AD ARGENTON via NOTAM.",
+      "Information des usagers sur POITIERS INFO.",
+      "Roulage interdit hors RWY et TWY.",
+      "Activité planeur en été sur NOTAM.",
+      "Activité voltige avion en été sur NOTAM."
+    ]
+  }
+}

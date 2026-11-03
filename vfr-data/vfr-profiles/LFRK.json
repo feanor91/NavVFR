@@ -1,0 +1,169 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRK (AIP France, chart dated 2026-06-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFRK",
+  "name": "Caen - Carpiquet",
+  "source": {
+    "publication": "AIP France AD 2 LFRK",
+    "chartDate": "2026-06-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.17333,
+    "longitude": -0.45
+  },
+  "elevationFeet": 243,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "Horaires indicatifs (cf. NOTAM pour précisions) / Indicative SKED (cf. NOTAM for precision) : LUN-VEN / MON-FRI : 0500- 2100 , SAM / SAT : 0600-1900, DIM et JF / SUN and public HOL : 0600 -2100 Extension possible sous conditions / Extension available within conditions : - PN 72 HR (sous réserve acceptation / subject to approval). - Vols commerciaux seulement / Commercial flights only. - Jusqu'à 2359 maximum / Up to 2 (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 123.08,
+    "approach": 120.35,
+    "tower": 134.53,
+    "airAir": 134.53
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        124,
+        304
+      ]
+    },
+    {
+      "id": "12L/30R",
+      "qfu": [
+        124,
+        304
+      ]
+    }
+  ],
+  "preferredQfu": 304,
+  "preferredQfuReason": "preferred QFU 304, due to IFR procedure",
+  "reportingPoints": [
+    {
+      "name": "EK",
+      "spoken": {
+        "fr": "Écho Kilo",
+        "en": "Echo Kilo"
+      },
+      "latitude": 49.22389,
+      "longitude": -0.27556,
+      "location": "Cimenterie de Ranville"
+    },
+    {
+      "name": "EY",
+      "spoken": {
+        "fr": "Écho Yankee",
+        "en": "Echo Yankee"
+      },
+      "latitude": 49.14083,
+      "longitude": -0.25389,
+      "location": "Sucrerie de Cagny"
+    },
+    {
+      "name": "NK",
+      "spoken": {
+        "fr": "Novembre Kilo",
+        "en": "November Kilo"
+      },
+      "latitude": 49.21194,
+      "longitude": -0.40333,
+      "location": "Tour de télécommunication de St-Contest"
+    },
+    {
+      "name": "SC",
+      "spoken": {
+        "fr": "Sierra Charlie",
+        "en": "Sierra Charlie"
+      },
+      "latitude": 49.09917,
+      "longitude": -0.51222,
+      "location": "Château d'eau d'Evrecy"
+    },
+    {
+      "name": "SK",
+      "spoken": {
+        "fr": "Sierra Kilo",
+        "en": "Sierra Kilo"
+      },
+      "latitude": 48.99389,
+      "longitude": -0.49222,
+      "location": "Boucle de l'Orne au NO de Thury-Harcourt"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 49.07806,
+      "longitude": -0.64139,
+      "location": "Pont sur la 4 voies au SE de Villers Bocage"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 49.19361,
+      "longitude": -0.86444,
+      "location": "Giratoire de la forêt de Balleroy"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD likely to be covered by sea-haze in a few minutes.",
+    "Aerobatics: Outside ATS SKED: Risk of presence of model aircraft SFC-950 ft AMSL.",
+    "AEM NR 8976: see AIP ENR 5.5 (interference with VOR RWY 12 procedure).",
+    "AEM NR 9002: see AIP ENR 5.5 AEM NR 8376: see AIP ENR 5.5 From 1st APR to 31st OCT, training patterns are prohibited without prior ATC agreement.",
+    "Low height training possible on ATC clearance reserved for flight with instructor, for single-engined ACFT 300 ft MNM, twin-engined ACFT 500 ft MNM.",
+    "Preferred QFU 304 ° due to IFR procedure.",
+    "PPR (sending and requesting information contact operator): Arrivals and departures subject to PPR 24HR for all nonscheduled flights and requiring parking and/or possible intervention of the operator, except based ACFT, sanitary flights and \"touch and go\".",
+    "Time limit reduced to 2 hours for all ACFT welcomed in the parking of a platform user who has given their agreement and does not require any intervention from the operator.",
+    "Any ACFT that does not meet these criteria and does not have a PPR number will not be authorized by ATC.",
+    "Except VFR circuits, only one type of traffic (IFR or Circuits reserved for home-based ACFT.",
+    "VFR flights may be subject to hold out of CAEN CTR before entering.",
+    "Outside ATS SKED, PCL prohibited for traffic patterns.",
+    "STAP: Available data: wind, cloud base, VIS, RVR, T, DP, QNH, QFE.",
+    "Traffic surveillance equipment: AD equipped with radar display (see AD 1.0).",
+    "Aerobatics NR 6300: see AIP ENR 5.5 Péril animalier / Wildlife strike hazard: SR-30 - SS+30 during ATC SKED.",
+    "Implementation: for all commercial flights or every two hours minimum; on ATC triggering; on crew request (PN 15 minutes) before arrival / departure of an.",
+    "ACFT, contact operations FREQ."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Aéromodélisme : Hors HOR ATS : Risque de présence d'aéromodèles SFC-950 ft AMSL.",
+      "AEM N°8976 : voir AIP ENR 5.5 (interférence avec la procédure VOR RWY 12 ).",
+      "AEM N°9002 : voir AIP ENR 5.5 AEM N°8376 : voir AIP ENR 5.5 Procédures et consignes particulières Du 1er avril au 31 octobre, activité entraînement tour de piste soumise à l'accord du CTL.",
+      "Entraînement basse hauteur possible sur autorisation du CTL, uniquement pour vols avec instructeurs, pour les monomoteurs 300 ft MNM, bimoteurs 500 ft MNM.",
+      "QFU 304 ° préférentiel cause procédure IFR.",
+      "PPR (envoi et demande d'infos contacter l'exploitant) : Arrivées et départs soumis à PPR 24HR pour tous les vols non réguliers et nécessitant parking et/ou éventuelle intervention de l'exploitant, sauf ACFT basés, vols sanitaires et \"touch and go\".",
+      "Délai réduit à 2 heures pour tous les aéronefs accueillis sur le parking d'un usager de la plateforme ayant donné son accord et ne nécessitant aucune intervention de l'exploitant.",
+      "Tout ACFT ne respectant pas ces critères et n'ayant pas de numéro de PPR ne sera pas autorisé par l'ATC.",
+      "Hormis en TDP, un seul type de trafic (IFR ou VFR TDP réservés aux ACFT basés.",
+      "Des attentes en vol à l'extérieur de la CTR peuvent être demandées aux ACFT en VFR souhaitant pénétrer dans la CTR de CAEN.",
+      "Hors ATS, l'utilisation du PCL est interdite pour l'activité en tours de piste.",
+      "STAP : Paramètres disponibles : vent, base des nuages, VIS, RVR, T, DP, QNH, QFE.",
+      "Équipement de surveillance du trafic : Aérodrome équipé d'une visualisation radar (voir AD 1.0).",
+      "",
+      "Mis en place : pour tous vols commerciaux ou à minima toutes les deux heures ; sur déclenchement ATC ; sur demande équipage (PN 15 minutes) avant l'arrivée / le départ d'un ACFT, contact FREQ Opérations.",
+      ""
+    ]
+  }
+}

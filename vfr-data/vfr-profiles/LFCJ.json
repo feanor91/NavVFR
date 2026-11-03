@@ -1,0 +1,83 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCJ (AIP France, chart dated 2026-04-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCJ",
+  "name": "Jonzac - Neulles",
+  "source": {
+    "publication": "AIP France AD 2 LFCJ",
+    "chartDate": "2026-04-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.48306,
+    "longitude": -0.42306
+  },
+  "elevationFeet": 118,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.155",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.155
+  },
+  "runways": [
+    {
+      "id": "14/32",
+      "qfu": [
+        136,
+        316
+      ]
+    }
+  ],
+  "preferredQfu": 316,
+  "preferredQfuReason": "preferred QFU 316, due to noise pollution",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Due to the convex profile of RWY, the visibility between both THR is not garanteed.",
+    "Caution advise before entering the RWY.",
+    "Wind-sock not visible from THR 14.",
+    "Preferred QFU 316 ° due to noise pollution.",
+    "Backtrack RWY to join THR 14 from ALPHA.",
+    "BRAVO TWY for exiting RWY only.",
+    "Runway is cleared at intermediate holding point.",
+    "Shut down engines before accessing refueling area (red line).",
+    "Tugging possible upon PPR.",
+    "Helicopter with skids are exempted of engine shut down to access the refueling area.",
+    "Aerobatics NR 6504: see AIP ENR 5.5.",
+    "Flying school activity.",
+    "AEM NR 9202: voir AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Roulage interdit hors RWY et TWY.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "",
+      "",
+      "Manche à air non visible depuis le seuil 14.",
+      "QFU 316 ° préférentiel cause nuisances sonores.",
+      "Pour accéder au seuil 14 remonter la piste depuis ALPHA.",
+      "Bretelle BRAVO pour sortie de piste uniquement.",
+      "La piste est dégagée au point d'attente intermédiaire.",
+      "Ligne d'arrêt moteur rouge au sol : accès à la station d'avitaillement moteur éteint.",
+      "Remorquage possible sur PPR soumise à l'exploitant.",
+      "Dérogation à la ligne d'arrêt moteur pour les hélicoptères munis de patins.",
+      "Voltige N° 6504 : voir AIP ENR 5.5.",
+      "Activité école de pilotage.",
+      "AEM N° 9202 : voir AIP ENR 5.5."
+    ]
+  }
+}

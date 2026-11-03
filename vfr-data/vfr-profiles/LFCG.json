@@ -1,0 +1,86 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCG (AIP France, chart dated 2025-01-23): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCG",
+  "name": "Saint-Girons - Antichan",
+  "source": {
+    "publication": "AIP France AD 2 LFCG",
+    "chartDate": "2025-01-23",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.00778,
+    "longitude": 1.10306
+  },
+  "elevationFeet": 1376,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.255",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.255
+  },
+  "runways": [
+    {
+      "id": "15/33",
+      "qfu": [
+        152,
+        332
+      ]
+    },
+    {
+      "id": "15R/33L",
+      "qfu": [
+        152,
+        332
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of both adjacents RWY prohibited.",
+    "Mixed use (ACFT and gliders) of the grass strip reserved for home-based users, gliders' daytime markings.",
+    "Aerobatics (NR 6002) 3.5 NM NNW from ARP.",
+    "Heavy gliders school activity from April to September.",
+    "Gliders activity is possible on the paved RWY.",
+    "Presence of gliders and service ACFT in lining-up area at 140 m upside DTHR 33 of paved RWY.",
+    "Preferential QFU 332° due to relief and RWY slope.",
+    "Gliders descending area located NW of the aerodrome.",
+    "All TKOF or LDG suspended if a glider is lying on that half of the glider strip adjacent to the ACFT RWY.",
+    "Grass TWY parallel with the RWY is reserved for homebased aircraft.",
+    "The strip giving access to the RWY from the glider and aircraft hangars is reserved for home-based users.",
+    "Parachuting (NR 603): FL 115, SR-SS, accordind to protocol with SNA-Sud.",
+    "Simultaneous PARACHUTING and AEROBATICS activities prohibited.",
+    "Activity known by TOULOUSE INFO or A/A SAINT GIRONS."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux pistes adjacentes interdite.",
+      "Bande en herbe à utilisation mixte (avions et planeurs) réservée aux usagers basés, balisage diurne de type planeur.",
+      "Voltige à (N°6002) à 3.5 NM NNO de l'ARP.",
+      "",
+      "Activité vol à voile possible sur la piste revêtue.",
+      "Présence de planeurs et d'avions de servitude dans l'aire d'alignement de piste à 140 m en amont du seuil décalé 33 de la piste en dur.",
+      "QFU préférentiel 332° cause relief et pente RWY.",
+      "Zone de perte d'altitude des planeurs située au NW de l'aérodrome.",
+      "Tout TKOF ou LDG sera suspendu si un planeur est immobilisé sur la piste non revêtue à moins d'une demilargeur de la limite commune.",
+      "TWY en herbe parallèle à la piste réservé aux aéronefs basés.",
+      "La bretelle donnant accès à la piste depuis les hangars planeurs et avions est réservée aux usagers basés.",
+      "Parachutage (N° 603) : FL 115, SR-SS, selon protocole avec le SNA-Sud.",
+      "Activités simultanées PARACHUTAGE et VOLTIGE interdites.",
+      "Activité connue de TOULOUSE INFO ou SAINT GIRONS A/A."
+    ]
+  }
+}

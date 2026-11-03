@@ -1,0 +1,71 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFFG (AIP France, chart dated 2023-03-23): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFFG",
+  "name": "Ferté-Gaucher",
+  "source": {
+    "publication": "AIP France AD 2 LFFG",
+    "chartDate": "2023-03-23",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.7575,
+    "longitude": 3.27889
+  },
+  "elevationFeet": 536,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.355",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.355
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        43,
+        223
+      ]
+    }
+  ],
+  "notes": [
+    "Any AD activities with prior permission from AD operator within conditions defined by \"DSAC-N\".",
+    "Contact AD operator.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Aerobatics (NR 6217): 2300 ft AMSL/3500 ft AMSL axis RWY 04/22, length 1100 m.",
+    "WIN: from MON to SAT: 0930-1130 and 1300-1630.",
+    "SUN and HOL: odd weeks, 0900-1130 and 1400-1630.",
+    "SUM: from MON to SAT: 0830-1030 and 1200-1800.",
+    "SUN and HOL: odd weeks, 0800-1030 and 1300-1730.",
+    "Activity reserved for pilots authorized by DSAC-N and according to protocol.",
+    "Users information on FREQ A/A.",
+    "AEM activity (NR 8294): 550 ft.",
+    "As per protocol."
+  ],
+  "fr": {
+    "notes": [
+      "Toute activité de l'AD sur autorisation préalable de l'exploitant dans les conditions définies par la DSAC-N.",
+      "Contacter l'exploitant d'aérodrome.",
+      "Roulage interdit hors RWY et TWY.",
+      "Activité de voltige (N° 6217) : 2300 ft AMSL/3500 ft AMSL axe RWY 04/22, longueur 1100 m.",
+      "HIV : du LUN au SAM : 0930-1130 et 1300-1630.",
+      "DIM et JF : semaines impaires, 0900-1130 et 14001630.",
+      "ETE : du LUN au SAM : 0830-1030 et 1200-1800.",
+      "DIM et JF : semaines impaires, 0800-1030 et 13001730.",
+      "Activité réservée aux pilotes autorisés par la DSAC-N et selon protocole.",
+      "Information des usagers sur FREQ A/A.",
+      "Activité AEM (N° 8294) : 550 ft.",
+      "Selon protocole."
+    ]
+  }
+}

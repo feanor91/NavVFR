@@ -1,0 +1,85 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCN (AIP France, chart dated 2024-02-22): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCN",
+  "name": "Nogaro",
+  "source": {
+    "publication": "AIP France AD 2 LFCN",
+    "chartDate": "2024-02-22",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.76889,
+    "longitude": -0.03472
+  },
+  "elevationFeet": 304,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.505",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.505
+  },
+  "runways": [
+    {
+      "id": "14/32",
+      "qfu": [
+        135,
+        315
+      ]
+    },
+    {
+      "id": "14R/32L",
+      "qfu": [
+        135,
+        315
+      ]
+    }
+  ],
+  "preferredQfu": 135,
+  "preferredQfuReason": "preferred QFU 135, due to higher LDA",
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of RWY prohibited.",
+    "Unpaved RWY and acceleration strip reserved for gliders and home-based ACFT.",
+    "Preferred QFU 135° due to higher LDA.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Ground taxiing: taxi back along paved RWY centreline.",
+    "All TKOF and LDG of ACFT are stopped if a glider is immobilized on unpaved RWY within half width from common limit.",
+    "TWY A: stop will be hold.",
+    "ARR and DEP sectors to be verified before crossing extended RWY centreline perpendicular to South-East funnel centre line,; do not stay in South-East funnel of the paved RWY when there is a short final RWY 32 or a TKOF RWY 14,; presence of a fence 15 m from central axis of the.",
+    "Gliders tugging:.",
+    "TKOF RWY 32L on acceleration strip and unpaved RWY, on paved RWY when unpaved RWY is waterlogged.",
+    "The lower limit of the LF-R 34 C area as well as TMA 2 MARSAN is 1650 ft within a 2 NM radius circle centered on the AD, and 1000 ft in the rest of the area.",
+    "Gliders' aerobatics on AD (NR 6607): 1650 ft ASFC / 1950 ft AMSL - 4500 ft AMSL; SR-SS; 32/14 axis 3000 m long, centered on ARP; As per protocol with MONT DE MARSAN Air Base; Users information: MARSAN APP, NOGARO A/A."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux pistes interdites.",
+      "RWY non revêtue et bande d'accélération réservées au vol à voile et aux aéronefs basés.",
+      "QFU 135° préférentiel cause distance atterrissage utilisable maximale.",
+      "Roulage interdit hors RWY et TWY.",
+      "Roulage au sol : remonter la piste revêtue sur l'axe.",
+      "Tout TKOF et LDG d'avion est suspendu si un planeur est immobilisé sur la piste non revêtue à moins d'une demi-largeur de la limite commune.",
+      "",
+      "TWY A : l'arrêt devra être marqué et les dégagements APCH et TKOF contrôlés avant pénétration dans l'aire perpendiculaire aux axes de la trouée Sud-Est ; ne pas occuper la trouée Sud-Est de la piste revêtue en présence d'une courte finale RWY 32 ou d'un décollage RWY 14 ; présence d'une clôture à 15 m de l'axe central de la voie de circulation.",
+      "",
+      "TKOF RWY 32L, sur bande d'accélération et piste non revêtue, sur piste revêtue si bande planeur détrempée.",
+      "La limite inférieure de la zone LF-R 34 C ainsi que de la TMA 2 MARSAN est de 1650 ft dans un cercle de 2 NM centré sur l'AD, de 1000 ft dans le reste de la zone.",
+      "Voltige planeurs sur AD (N° 6607) : 1650 ft ASFC / 1950 ft AMSL - 4500 ft AMSL ; SR-SS ; Axe 32/14 de longueur 3000 m, centré sur ARP ; Selon protocole avec la base aérienne de MONT DE MARSAN ; Information des usagers : MARSAN APP, NOGARO A/A."
+    ]
+  }
+}

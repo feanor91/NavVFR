@@ -1,0 +1,70 @@
+{
+  "$comment": [
+    "EXTRACTED AUTOMATICALLY from the SIA eAIP page AD 2 LFPV (AIP France, valid from 2026-08-06), not read by hand.",
+    "This is a military air base (CAM regimes). Only what the page prints as text is recorded: position, elevation,",
+    "magnetic variation, runways and the VHF frequencies. Circuit rules and reporting points are NOT extracted.",
+    "MSFS exposes only VHF radios: the UHF frequencies of the base are not usable and are not listed.",
+    "Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFPV",
+  "name": "Vélizy-Villacoublay",
+  "source": {
+    "publication": "AIP France AD 2 LFPV",
+    "chartDate": "2026-08-06",
+    "extraction": "automatic"
+  },
+  "referencePosition": {
+    "latitude": 48.77417,
+    "longitude": 2.19139
+  },
+  "elevationFeet": 585,
+  "service": {
+    "kind": "MilitaryTower",
+    "regimes": [
+      "CAM V",
+      "CAM I"
+    ]
+  },
+  "frequencies": {
+    "app": [
+      {
+        "mhz": 119.425,
+        "remark": "APP"
+      },
+      {
+        "mhz": 123.3,
+        "remark": "Utilisée sur instruction"
+      },
+      {
+        "mhz": 123.75,
+        "remark": "Utilisée sur instruction"
+      }
+    ],
+    "twr": [
+      {
+        "mhz": 121.75,
+        "remark": "Fréquence SOL"
+      },
+      {
+        "mhz": 128.95,
+        "remark": "Fréquence TOUR"
+      }
+    ]
+  },
+  "magneticVariationDegrees": 1.8,
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        87,
+        267
+      ],
+      "surface": "bituminous mix",
+      "lengthMetres": 1957,
+      "widthMetres": 45
+    }
+  ],
+  "notes": [
+    "The base also publishes 10 UHF frequencies that MSFS cannot tune."
+  ]
+}

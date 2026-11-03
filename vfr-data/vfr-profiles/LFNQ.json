@@ -1,0 +1,64 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFNQ (AIP France, chart dated 2022-12-01): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFNQ",
+  "name": "Mont-Louis La Quillane",
+  "source": {
+    "publication": "AIP France AD 2 LFNQ",
+    "chartDate": "2022-12-01",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 42.54333,
+    "longitude": 2.12
+  },
+  "elevationFeet": 5612,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.91"
+  },
+  "frequencies": {
+    "airAir": 119.91
+  },
+  "runways": [
+    {
+      "id": "14/32",
+      "qfu": [
+        141,
+        321
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for home based ACFT and ACFT which are based at PERPIGNAN, SAINTE-LEOCADIE, and PUIVERT.",
+    "The captain must: either be mountain rated,; or have 100 flying hours as a pilot, and satisfy one of the two following conditions: 1) to have used the AD as a captain during the last twelve months, 2) to have performed an AD reconnaissance, during the last two months, with an instructor who is authorized to use the AD, and being authorized to fly solo after this reconnaissance (this must be recorded in the flight log).",
+    "Aerodrome reserved for home-based aircraft from October 31st to May 31st, and for aircraft equipped with skis and using the snowy aerodrome under the sole responsibility of the pilot in command, knowing that lighting and runway grooming are not carried out by the operator.",
+    "The RWY is often snow-covered, or waterlogged.",
+    "With North sector wind < 15 kt, use QFU 141° for takeoff, due to runway slope.",
+    "Preferred landing QFU 321°, due to runway slope and heavy turbulences at threshold 14.",
+    "Outside gliding activity hours, runway inspections are not carried out, the pilot in command shall get aware of runway conditions.",
+    "Glider winching on AD (NR 999), 1700 ft ASFC, SR-SS activity announced by rotating lights mounted on the electrical winch – users information on A/A FREQ.",
+    "PJE over AD (NR 319) 1300 ft ASFC, SR-SS, activity announced by NOTAM above 1300 ft."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT basés et à ceux basés sur les AD de PERPIGNAN, SAINTE-LEOCADIE et PUIVERT.",
+      "Le CDT de bord doit : soit avoir la qualification \"Montagne\" ; soit totaliser plus de 100 heures de vol comme pilote et satisfaire à l'une des deux conditions ci-après : 1) avoir utilisé le terrain comme CDT de bord dans les douze derniers mois, 2) avoir effectué une reconnaissance de site dans les deux derniers mois, avec un instructeur autorisé à fréquenter le terrain et avoir été lâché à l'issue de cette reconnaissance (mention portée sur le carnet de vol).",
+      "Aérodrome réservé aux aéronefs basés pour la période comprise entre le 31 octobre et le 31 mai, et aux aéronefs équipés de skis utilisant l'aérodrome enneigé sous la seule responsabilité du CDT de bord, le balisage et damage de la piste n'étant pas assuré par le gestionnaire.",
+      "Piste fréquemment enneigée ou détrempée.",
+      "Par vent de secteur Nord < 15 kt utiliser le QFU 141° pour le décollage en raison de la pente de la piste.",
+      "Atterrissage de préférence QFU 321° en raison de la pente de la piste et fortes turbulences seuil 14.",
+      "En dehors des horaires de l'activité vélivole les inspections de piste ne sont pas assurées, le CDT de bord se garantira de l'état de la piste.",
+      "Treuillage planeurs sur AD (N° 999), 1700 ft ASFC, SR-SS - activité annoncée par feux giratoires sur treuil électrique – information des usagers sur FREQ A/A.",
+      "Parachutages sur AD (N° 319) 1300 ft ASFC, SR-SS, activité annoncée par NOTAM au dessus de 1300 ft."
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "$comment": [
+    "EXTRACTED AUTOMATICALLY from the SIA eAIP page AD 2 LFOA (AIP France, valid from 2026-08-06), not read by hand.",
+    "This is a military air base (CAM regimes). Only what the page prints as text is recorded: position, elevation,",
+    "magnetic variation, runways and the VHF frequencies. Circuit rules and reporting points are NOT extracted.",
+    "MSFS exposes only VHF radios: the UHF frequencies of the base are not usable and are not listed.",
+    "Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFOA",
+  "name": "Avord",
+  "source": {
+    "publication": "AIP France AD 2 LFOA",
+    "chartDate": "2026-08-06",
+    "extraction": "automatic"
+  },
+  "referencePosition": {
+    "latitude": 47.05694,
+    "longitude": 2.63889
+  },
+  "elevationFeet": 578,
+  "service": {
+    "kind": "MilitaryTower",
+    "regimes": [
+      "CAM V",
+      "CAM I"
+    ]
+  },
+  "frequencies": {
+    "app": [
+      {
+        "mhz": 119.7,
+        "remark": "RAI"
+      },
+      {
+        "mhz": 121.5,
+        "remark": "NIL"
+      }
+    ],
+    "par": [
+      {
+        "mhz": 123.3,
+        "remark": "RDH 06 : 49ft - RDH 24 : 52ft"
+      }
+    ],
+    "sre": [
+      {
+        "mhz": 123.3,
+        "remark": "NIL"
+      }
+    ],
+    "twr": [
+      {
+        "mhz": 122.1,
+        "remark": "NIL"
+      },
+      {
+        "mhz": 119.7,
+        "remark": "Réservée au trafic civil avec ACFT CIV HNO : RAI"
+      },
+      {
+        "mhz": 121.5,
+        "remark": "NIL"
+      },
+      {
+        "mhz": 122.1,
+        "remark": "VDF"
+      }
+    ]
+  },
+  "magneticVariationDegrees": 1.9,
+  "runways": [
+    {
+      "id": "06/24",
+      "qfu": [
+        59,
+        239
+      ],
+      "surface": "macadam",
+      "lengthMetres": 3503,
+      "widthMetres": 45
+    }
+  ],
+  "notes": [
+    "The base also publishes 21 UHF frequencies that MSFS cannot tune."
+  ]
+}

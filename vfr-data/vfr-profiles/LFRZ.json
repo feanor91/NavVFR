@@ -1,0 +1,119 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRZ (AIP France, chart dated 2026-10-01): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFRZ",
+  "name": "Saint-Nazaire - Montoir",
+  "source": {
+    "publication": "AIP France AD 2 LFRZ",
+    "chartDate": "2026-10-01",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.31056,
+    "longitude": -2.15667
+  },
+  "elevationFeet": 13,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "LUN-SAM : 0600-2000. DIM et JF du 01/04 au 31/10 : 0800-1200 ; 1315-1700 DIM et JF du 01/11 au 31/03 : PPR au plus tard le dernier jour ouvrable avant 1200. MON-SAT : 0600-2000. SUN and public HOL from 01/04 to 31/10 : 0800-1200 ; 1315-1700. SUN and public HOL from 01/11 to 31/03 : PPR at the latest before 1200 on the last working day (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 124.43,
+    "tower": 118.955,
+    "airAir": 118.955
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        73,
+        253
+      ]
+    }
+  ],
+  "preferredQfu": 253,
+  "preferredQfuReason": "preferred QFU 253, due to environment",
+  "reportingPoints": [
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 47.28167,
+      "longitude": -2.02833,
+      "location": "Paimboeuf"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 47.44639,
+      "longitude": -2.09028,
+      "location": "Échangeur Pontchâteau"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 47.44972,
+      "longitude": -2.31694,
+      "location": "Herbignac"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 47.23417,
+      "longitude": -2.29861,
+      "location": "Pointe de Chemoulin"
+    },
+    {
+      "name": "W1",
+      "spoken": {
+        "fr": "Whisky un",
+        "en": "Whiskey one"
+      },
+      "latitude": 47.27861,
+      "longitude": -2.25556,
+      "location": "Lac Immaculée"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "\"Low height\" circuits: during training flights, only with an instructor on board: 500 ft AAL MNM, north of RWY 07/25 and with ATC clearance.",
+    "It's recommended to overfly regional park of Brière above 1000 ft.",
+    "It is recommended in VFR to avoid the overflight of MT, except PPR TWR 5 min before the estimated overflight.",
+    "Preferred QFU 253° due to environment.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "General and recreational aviation parking"
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Circuits \"basse hauteur\" dans le cadre des vols d'entraînement avec instructeur uniquement : minimum 500 ft AAL au nord de la piste 07/25 sur autorisation du contrôle.",
+      "Survol du parc régional de Brière déconseillé à moins de 1000 ft.",
+      "Il est recommandé en VFR d'éviter les verticales de MT, sauf PPR TWR 5 min avant verticale estimée.",
+      "QFU 253° préférentiel cause environnement.",
+      "Roulage interdit hors piste et TWY.",
+      ""
+    ]
+  }
+}

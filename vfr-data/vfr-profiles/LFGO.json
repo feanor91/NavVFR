@@ -1,0 +1,81 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGO (AIP France, chart dated 2025-01-23): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGO",
+  "name": "Pont-sur-Yonne",
+  "source": {
+    "publication": "AIP France AD 2 LFGO",
+    "chartDate": "2025-01-23",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.28944,
+    "longitude": 3.24889
+  },
+  "elevationFeet": 232,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.18",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.18
+  },
+  "runways": [
+    {
+      "id": "14R/32L",
+      "qfu": [
+        141,
+        321
+      ]
+    },
+    {
+      "id": "14L/32R",
+      "qfu": [
+        141,
+        321
+      ]
+    }
+  ],
+  "preferredQfu": 321,
+  "preferredQfuReason": "preferred QFU 321, due to noise pollution",
+  "notes": [
+    "Simultaneous use of both RWY airplanes/gliders prohibited.",
+    "AD reserved for radio-equipped ACFT.",
+    "Radio contact mandatory.",
+    "Taxiing prohibited except on RWY and TWY. areas.",
+    "Preferred QFU 321° due to noise pollution.",
+    "AVT reserved for ACFT with wingspan less than 11 m.",
+    "Aerobatics (NR 6465) on AD: RWY 14/32 axis, 1000 m each side of the ARP, 1500 ft ASFC / FL 050.",
+    "WED, SAT, SUN and public HOL: 0800-1100, 1300-SS (SUM: -1 HR).",
+    "Activity reserved for pilots authorized by the Sens Planeur club.",
+    "Activity known by SEINE INFO.",
+    "AEM activity (NR 8231): 300 ft ASFC.",
+    "SUM: 06002000, WIN: 0700-SS."
+  ],
+  "fr": {
+    "notes": [
+      "Utilisation simultanée des pistes accolées avions/ planeurs interdites.",
+      "AD réservé aux ACFT munis de radio.",
+      "Contact radio obligatoire.",
+      "Roulage interdit hors RWY et TWY. avoisinantes.",
+      "QFU 321° préférentiel cause nuisances.",
+      "Avitaillement réservé aux ACFT d'envergure inférieure à 11 m.",
+      "Activités particulières Activité de voltige (N° 6465) sur AD : axe RWY 14/32, 1000 m de part et d'autre de l'ARP, 1500 ft ASFC / FL 050.",
+      "MER, SAM, DIM et JF : 0800-1100, 1300-SS (ETE : -1 HR).",
+      "Activité réservée aux pilotes autorisés par le club Sens Planeur.",
+      "Activité connue de SEINE INFO.",
+      "Activité AEM (N° 8231) : 300 ft ASFC.",
+      "ETE : 0600-2000, HIV : 0700-SS."
+    ]
+  }
+}

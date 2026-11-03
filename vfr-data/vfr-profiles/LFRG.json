@@ -1,0 +1,177 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRG (AIP France, chart dated 2026-02-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFRG",
+  "name": "Deauville - Normandie",
+  "source": {
+    "publication": "AIP France AD 2 LFRG",
+    "chartDate": "2026-02-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.36333,
+    "longitude": 0.16
+  },
+  "elevationFeet": 479,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "TWR : 0800-1800 du / from 01 NOV au / to 31 MAR. 0700-1900 du / from 01 APR au / to 31 OCT. Modifications possibles par NOTAM. Possible modifications by NOTAM. CTR susceptible d'être maintenue active sans NOTAM dans l'heure qui suit la fin des horaires programmés. CTR likely to be kept active without NOTAM within one hour after the end of planned SKED. En dehors de ces horaires, CTR déclassée en G. Ouside these SKED, (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 119.18,
+    "approach": 120.35,
+    "tower": 118.305
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        116,
+        296
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "ED",
+      "spoken": {
+        "fr": "Écho Delta",
+        "en": "Echo Delta"
+      },
+      "latitude": 49.43667,
+      "longitude": 0.2725,
+      "location": "Pont de Normandie"
+    },
+    {
+      "name": "SD",
+      "spoken": {
+        "fr": "Sierra Delta",
+        "en": "Sierra Delta"
+      },
+      "latitude": 49.275,
+      "longitude": 0.19917,
+      "location": "Lac Pont l'Évêque"
+    },
+    {
+      "name": "WD",
+      "spoken": {
+        "fr": "Whisky Delta",
+        "en": "Whiskey Delta"
+      },
+      "latitude": 49.33917,
+      "longitude": 0.045,
+      "location": "Mont Canisy"
+    },
+    {
+      "name": "EG",
+      "spoken": {
+        "fr": "Écho Golf",
+        "en": "Echo Golf"
+      },
+      "latitude": 49.36083,
+      "longitude": 0.49056,
+      "location": "Lac Pont Audemer"
+    },
+    {
+      "name": "SG",
+      "spoken": {
+        "fr": "Sierra Golf",
+        "en": "Sierra Golf"
+      },
+      "latitude": 49.21472,
+      "longitude": 0.21611,
+      "location": "Croisée ligne HT"
+    },
+    {
+      "name": "WG",
+      "spoken": {
+        "fr": "Whisky Golf",
+        "en": "Whiskey Golf"
+      },
+      "latitude": 49.28556,
+      "longitude": -0.10222,
+      "location": "Dives-sur-mer"
+    },
+    {
+      "name": "NG",
+      "spoken": {
+        "fr": "Novembre Golf",
+        "en": "November Golf"
+      },
+      "latitude": 49.43917,
+      "longitude": 0.37278,
+      "location": "Confluence Risle - Seine"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Grass PRKG likely to be closed in case of weather conditions.",
+    "Mandatory wearing of fluorescent vests in areas.",
+    "RWY side access by the aeroclub strictly reserved for authorized users.",
+    "Pedestrian exit through the BGTA blue gate under responsibility of the pilot in command.",
+    "TWR has no sight on THR RWY 12 and turn around area.",
+    "Many birds on AD.",
+    "AD likely to be covered by sea haze in few minutes.",
+    "HS (hot spot): short taxiing distance from PRKG exit to holding point \"B\".",
+    "Holding point Bravo located at end of TWY B.",
+    "Turn around prohibited on RWY 12 intermediate turnaround area for ACFT with wingspan > 16 m and with overall main gear width (OMGWS) > 9 m.",
+    "Low height training flights possible only South of the field, after ATC clearance, and with instructor on board, single engined ACFT 300 ft MNM, twin-engined ACFT 500 ft MNM.",
+    "Training flights IFR ACFT and VFR ACFT > 6 t are forbidden (SUM: - 1 HR): MON-FRI: 1900-0700.",
+    "SAT: after 1300.",
+    "SUN and HOL.",
+    "It is recommended for VFR flights not to cross overhead VOR DVL except PPR TWR 5 min prior estimated overflight.",
+    "Arrival procedures Below 2500 ft AMSL, radio contact is required 3 min before overflying the CTR entry points.",
+    "Unless otherwise clearance, ACFT will follow routes published on the APP 01 chart.",
+    "Departure procedures Unless otherwise clearance, ACFT will follow routes published on the APP 01 chart.",
+    "Transit procedures VIS 2500 m (ACFT and HEL).",
+    "Landing prohibited RWY 12 AND 30 at night if PAPI U/S.",
+    "Traffic surveillance equipment: AD equipped with radar display (see AD 1.0).",
+    "Service d'évaluation et de report de l'état de surface de piste / Global Reporting Format Service provided by RFFS during the following hours: MON-SUN and public HOL: 0800-1800 from 01 NOV to 31 MAR 0700-1900 from 01 APR to 31 OCT, and during AD extended hours of operation.",
+    "Outside these SKED, GRF not provided.",
+    "GRF unavailability in case of RFFS triggering.",
+    "RCR (Runway Condition Report) updated and transmitted at each RWY inspection.",
+    "AIREP transmission to the services of the Operator and the Local SNA: aerosgs@deauville.aeroport.fr / sna-o-cca-lfrg-ld@aviation-civile.gouv.fr"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "PRKG en herbe susceptible d'être fermé en cas d'intempéries.",
+      "Port du gilet fluorescent obligatoire sur les aires.",
+      "Accès côté piste par l'aéroclub strictement réservé aux usagers autorisés.",
+      "Sortie piétons par le portillon bleu BGTA sous la responsabilité du commandant de bord.",
+      "THR RWY 12 et raquette de retournement invisibles depuis la TWR.",
+      "Présence de nombreux oiseaux sur l'AD.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "HS (hot spot) : distance de roulage très courte entre les sorties PRKG et le point d'attente \"B\".",
+      "Point d'attente Bravo situé à l'extrémité du TWY B.",
+      "Demi tour raquette intermédiaire piste 12 interdit aux ACFT d'envergure > 16 m et de largeur > 9 m hors tout du train principal (OMGWS)",
+      "Les entraînements basse hauteur sont possibles uniquement au Sud du terrain, sur autorisation du contrôle, et avec instructeur à bord : monomoteurs 300 ft MNM, bi-moteurs 500 ft MNM.",
+      "Les vols d'entraînement ACFT en IFR et ACFT > 6 t en VFR sont interdits (ETE : - 1 HR) : LUN-VEN : 1900-0700.",
+      "SAM : après 1300.",
+      "DIM et JF.",
+      "Il est recommandé en VFR d'éviter la verticale du VOR DVL sauf PPR TWR 5 min avant l'estimée verticale.",
+      "Procédures d'arrivée Au dessous de 2500 ft AMSL, contact radio obligatoire 3 min avant le survol des points d'entrée de la CTR.",
+      "Sauf clairance contraire, les ACFT suivront les itinéraires publiés sur la carte APP 01.",
+      "Procédures de départ Sauf clairance contraire, les ACFT suivront les itinéraires publiés sur la carte APP 01.",
+      "DEAUVILLE NORMANDIE Procédures de transit Sauf clairance contraire, les ACFT suivront l'itinéraire ≥ VIS 2500 m (ACFT et HEL).",
+      "Atterrissage RWY 12 et 30 interdit de nuit si PAPI U/S.",
+      "Équipement de surveillance du trafic : Aérodrome équipé d'une visualisation radar (voir AD 1.0).",
+      "DEAUVILLE NORMANDIE 16 - GRF : Service assuré par RFFS pendant les horaires suivants : LUN-DIM et JF : 0800-1800 du 01 NOV au 31 MAR 0700-1900 du 01 APR au 31 OCT, et pendant les opérations d'extension de l'Exploitant.",
+      "En dehors de ces HOR, GRF non assuré.",
+      "Indisponibilité GRF en cas de déclenchement du RFFS.",
+      "RCR (Runway Condition Report) actualisé et transmis à chaque inspection de piste.",
+      "Transmission AIREP auprès des services de l'Exploitant et du SNA Local : aerosgs@deauville.aéroport.fr / sna-o-cca-lfrg-ld@aviation-civile.gouv.fr"
+    ]
+  }
+}

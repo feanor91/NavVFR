@@ -1,0 +1,204 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFKF (AIP France, chart dated 2025-08-07): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFKF",
+  "name": "Figari Sud Corse",
+  "source": {
+    "publication": "AIP France AD 2 LFKF",
+    "chartDate": "2025-08-07",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 41.50222,
+    "longitude": 9.09667
+  },
+  "elevationFeet": 85,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "TWR : HOR annoncés par NOTAM / SKED announced by NOTAM. Aérodrome de FIGARI SUD CORSE, 20114 Figari (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 118.73,
+    "approach": 121.05,
+    "tower": 120.3,
+    "ground": 121.805
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        45,
+        225
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "EF",
+      "spoken": {
+        "fr": "Écho Foxtrot",
+        "en": "Echo Foxtrot"
+      },
+      "latitude": 41.46417,
+      "longitude": 9.27722,
+      "location": "Punta di Rondinara"
+    },
+    {
+      "name": "EAF",
+      "spoken": {
+        "fr": "Écho Alpha Foxtrot",
+        "en": "Echo Alpha Foxtrot"
+      },
+      "latitude": 41.5925,
+      "longitude": 9.37222,
+      "location": "Punta di a Chiappa"
+    },
+    {
+      "name": "AS",
+      "spoken": {
+        "fr": "Alpha Sierra",
+        "en": "Alpha Sierra"
+      },
+      "latitude": 41.71389,
+      "longitude": 9.40694,
+      "location": "Tour de Fautéa"
+    },
+    {
+      "name": "NEF",
+      "spoken": {
+        "fr": "Novembre Écho Foxtrot",
+        "en": "November Echo Foxtrot"
+      },
+      "latitude": 41.72278,
+      "longitude": 9.29917,
+      "location": "Pont du Cavu"
+    },
+    {
+      "name": "NF",
+      "spoken": {
+        "fr": "Novembre Foxtrot",
+        "en": "November Foxtrot"
+      },
+      "latitude": 41.66667,
+      "longitude": 9.20833,
+      "location": "Lac Ospédale"
+    },
+    {
+      "name": "NWF",
+      "spoken": {
+        "fr": "Novembre Whisky Foxtrot",
+        "en": "November Whiskey Foxtrot"
+      },
+      "latitude": 41.56472,
+      "longitude": 9.04139,
+      "location": "Giannuccio"
+    },
+    {
+      "name": "WF",
+      "spoken": {
+        "fr": "Whisky Foxtrot",
+        "en": "Whiskey Foxtrot"
+      },
+      "latitude": 41.49556,
+      "longitude": 8.92889,
+      "location": "Tour de Roccapina"
+    },
+    {
+      "name": "WAF",
+      "spoken": {
+        "fr": "Whisky Alpha Foxtrot",
+        "en": "Whiskey Alpha Foxtrot"
+      },
+      "latitude": 41.47528,
+      "longitude": 8.98417,
+      "location": "Tour d'Olmeto"
+    },
+    {
+      "name": "SAF",
+      "spoken": {
+        "fr": "Sierra Alpha Foxtrot",
+        "en": "Sierra Alpha Foxtrot"
+      },
+      "latitude": 41.39222,
+      "longitude": 9.09861,
+      "location": "Capo di Feno"
+    },
+    {
+      "name": "SF",
+      "spoken": {
+        "fr": "Sierra Foxtrot",
+        "en": "Sierra Foxtrot"
+      },
+      "latitude": 41.38694,
+      "longitude": 9.14444,
+      "location": "Phare de la Madonetta"
+    },
+    {
+      "name": "BF",
+      "spoken": {
+        "fr": "Bravo Foxtrot",
+        "en": "Bravo Foxtrot"
+      },
+      "latitude": 41.47333,
+      "longitude": 9.15,
+      "location": "1 NM nord du barrage de Figari"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD accessibility: for general aviation, PPR before DEP mandatory to operator by E-mail: fsc.ppr@cci.corsica ULM activity: Class 2, 3, 4, and 6 ULM with radio and transponder mode C.; Prohibited activity on SAT, SUN and public HOL between the 1st of June and the 30th of September.; Outside these periods use only after PPR acceptance by the operator.",
+    "Crosswind limitation on wet runway: 20 kt.",
+    "Wake turbulences during approach: With medium and strong wind (> 15 kt) especially from W/NW sector, strong or very strong turbulences are likely to be encountered in the vicinity of AD.",
+    "Turbulences on final: Caution, windshear possibility on final RWY 23.",
+    "HS (hot spot): short taxiing distance from parking exit to holding point \"C\".",
+    "On RWY 05 approach, the presence of a photovoltaic roof on an agricultural hangar, about 900 meters before the THR 05 and 70 meters to the right of the runway axis, is likely to cause a dazzle just before the abeam passing hangar.",
+    "From June 1st till September 30th RWY patterns must be approved by ATC service.",
+    "On final 05 overflight of Mont CALDARELLO (388 ft) covered by PAPI.",
+    "Low height patterns: preferential Northward patterns 300 ft minimum reserved for instruction.",
+    "Use of turnaround areas (intermediate or end of RWY) is compulsory, for half-turn on RWY.",
+    "East of the CTR, recommended transit itinerary northbound and southbound via AS, EAF, EF at 2500 ft AMSL MAX due to IFR activity.",
+    "Radio contact not guaranteed with Ajaccio INFO in the East and North East of CTR, due to imperfect VHF coverage.",
+    "Without clearance, remain in G class.",
+    "Traffic surveillance equipment: AD equipped with a radar display (see AD 1.0).",
+    "FATO operating conditions Compulsory airport handling services: see TXT 03.",
+    "Due to stands congestion, obtaining a stand is subject to a request 12 hours before departure, from the AD operator (CCI) by E-mail: fsc.ppr@cci.corsica This procedure does not apply to based helicopters, State and medical helicopters.",
+    "FATO use: The FATO is located North-East of the General Aviation Helicopters flying to FIGARI or transiting in the CTR must contact TWR 3 minutes before entering the class D airspace, and fly over the compulsory reporting points.",
+    "Radiocommunication failure If failure occurs before receiving the clearance to enter the CTR, the helicopter shall not enter the airspace.",
+    "If failure occurs within the CTR: before receiving the clearance to join the traffic pattern: leave the CTR the shortest way,; after receiving the clearance to join the traffic pattern: continue according to the latest clearance."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Accessibilité AD : pour l'Aviation Générale, PPR obligatoire avant le départ auprès de l'exploitant (CCI) par E-mail : fsc.ppr@cci.corsica Activité ULM : ULM de classe 2, 3, 4 et 6 muni de radio et transpondeur mode C. Activité interdite entre le 1er juin et le 30 septembre les SAM, DIM et JF. En dehors de ces périodes utilisation AD uniquement après acceptation PPR par l'exploitant.",
+      "Limitation à 20 kt de vent traversier sur piste mouillée.",
+      "Turbulences en approche : Par vent moyen et fort (> 15 kt), plus particulièrement de secteur W/NW, de fortes à très fortes turbulences sont susceptibles d'être rencontrées aux abords de l'aérodrome.",
+      "Turbulences en finale : Attention possibilité de cisaillement en finale RWY 23.",
+      "HS (hot spot) : distance de roulage très courte entre les sorties de PRKG et le point d'attente \"C\".",
+      "En approche en piste 05, la présence d'une toiture photovoltaïque sur un hangar agricole, à environ 900 mètres avant le seuil 05 et 70 mètres sur la droite de l'axe de piste, est susceptible d'entraîner un éblouissement peu avant le passage travers hangar.",
+      "",
+      "En finale 05 le PAPI assure le franchissement du Mont CALDARELLO (388 ft).",
+      "Circuit basse hauteur : circuit préférentiel par le Nord 300 ft minimum réservé aux besoins de l'instruction.",
+      "Utilisation obligatoire des raquettes (intermédiaires ou de fin de piste), pour demi-tour sur piste.",
+      "FIGARI SUD CORSE A l'Est de la CTR, itinéraire recommandé de transit dans les deux sens par AS, EAF, EF à 2500 ft AMSL MAX cause activité IFR.",
+      "Contact radio non garanti avec Ajaccio INFO à l'Est et au Nord-Est de la CTR cause couverture VHF défectueuse.",
+      "Sans clairance, rester en classe G.",
+      "Équipement de surveillance du trafic : Aérodrome équipé d'une visualisation radar (voir AD 1.0).",
+      "Conditions d'utilisation de la FATO Services d'assistance aéroportuaire : voir TXT 03.",
+      "Cause saturation des postes de stationnement, l'obtention d'un poste est soumise à la demande 12 heures avant le départ auprès de l'exploitant (CCI) par E-mail : fsc.ppr@cci.corsica Cette procédure ne s'applique pas aux hélicoptères basés, aux hélicoptères d'État ni aux SMUH.",
+      "",
+      "Panne de radiocommunication Si la panne survient avant d'avoir reçu l'autorisation de pénétrer dans la CTR, l'hélicoptère ne devra pas y pénétrer.",
+      "Si la panne survient à l'intérieur de la CTR : avant d'avoir reçu la clairance d'entrée dans le circuit de piste : sortir de la CTR par le trajet le plus court ; après avoir reçu la clairance d'entrée dans le circuit de piste : poursuivre selon la dernière clairance."
+    ]
+  }
+}

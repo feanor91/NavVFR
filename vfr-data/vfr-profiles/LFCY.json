@@ -1,0 +1,152 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCY (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFCY",
+  "name": "Royan - Médis",
+  "source": {
+    "publication": "AIP France AD 2 LFCY",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.63111,
+    "longitude": -0.97556
+  },
+  "elevationFeet": 72,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "HIV : LUN-VEN 0800-1100, 1300-1700 ETE : LUN-VEN 0800-1100, 1300-1700, SAM-DIM et JF 0900-1100, 1330-1700 WIN : MON-FRI 0800-1100, 1300-1700 SUM : MON-FRI 0800-1100, 1300-1700, SAT-SUN and public HOL 0900-1100, 1330-1700 En dehors de ces HOR, PPR 48 HR, jours ouvrés (UTC HIV ; HOR ETE : - 1 HR)",
+    "outsideAtsHours": "air-air frequency 118.805",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 129.875,
+    "afis": 118.805
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        100,
+        280
+      ]
+    },
+    {
+      "id": "10R/28L",
+      "qfu": [
+        100,
+        280
+      ]
+    }
+  ],
+  "preferredQfu": 280,
+  "preferredQfuReason": "preferred QFU 280, due to IFR procedure and noise pollution",
+  "reportingPoints": [
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 45.65931,
+      "longitude": -1.14611,
+      "location": "Duc d'Albe (ouvrage maçonné dit \"La chaise\" servant"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 45.70889,
+      "longitude": -0.9725,
+      "location": "Pont traversant la Seudre, village de l'Eguille"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 45.68917,
+      "longitude": -0.83528,
+      "location": "Échangeur Saint-Romain"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 45.59583,
+      "longitude": -0.815,
+      "location": "Carrières de Cozes"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 45.57722,
+      "longitude": -0.99222,
+      "location": "Pointe de Suzac"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of both RWY prohibited.",
+    "Possible IFR operations.",
+    "Usable declared distances: RWY length reduced in order to have a clear strip of 60 m at THR 28 paved.",
+    "QFU 10: wet paved RWY operating limitation when windspeed is 20 kts coming from 180°.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "If wind SE to S more than 20 kt, risk of turbulence on final QFU 100°.",
+    "AEM NR 9189: see AIP ENR 5.5 AEM activity interferes with low height circuits.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU 280° due to IFR procedure and noise pollution.",
+    "TKOF RWY 28 paved: adapt minimum speed when manoeuvring on the turnaround area and move forward at least as far as the second white arrow.",
+    "After TKOF QFU 280°, continue RWY heading to avoid AEM zone, and start right hand turn at 500 ft AAL minimum.",
+    "Southern circuit reserved for home-based ACFT.",
+    "Low height circuits reserved for flights under instruction, minimum height 500 ft ASFC.",
+    "THR 28 not visible from holding points A and B, therefore caution advised for entering on RWY.",
+    "During parachute dropping activity, or in case of high traffic, carry out engine tests at apron, as far as possible, in order to limit TWY occupation time.",
+    "TWY B prohibited by night and reserved for ACFT with overall width of main landing gear less than 4.50 m.",
+    "No holding point on unpaved RWY: After LDG on unpaved RWY, stay along the edge of RWY on the South side, before crossing the paved RWY.",
+    "TWY B prohibited by night.",
+    "Aerobatics NR 6500: see AIP ENR 5.5 Parachuting NR 388: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux RWY interdite.",
+      "Activité IFR possible.",
+      "Distances déclarées utilisables : Longueur de piste réduite afin de disposer d'une bande aménagée de 60 m au THR 28 revêtue.",
+      "QFU 10 : limitation d'exploitation piste revêtue mouillée par vent de 20 kts établi venant du 180°.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Par vent de secteur SE à S supérieur à 20 kt, risque de turbulences en finale au QFU 100°.",
+      "AEM N° 9189 : voir AIP ENR 5.5 Activité AEM interfère avec les tours de piste basse hauteur.",
+      "Roulage interdit hors RWY et TWY.",
+      "QFU 280° préférentiel cause procédure IFR et nuisances sonores.",
+      "Décollage RWY 28 revêtue : adapter une vitesse minimale lors de la manoeuvre sur l'aire de retournement et avancer au minimum jusqu'à la deuxième flèche blanche.",
+      "Après décollage QFU 280°, maintenir l'axe pour éviter le survol de la zone AEM puis débuter virage à droite à 500 ft AAL minimum.",
+      "Circuit Sud réservé aux ACFT basés.",
+      "Circuits basse hauteur réservés aux vols en instruction, hauteur minimale 500 ft ASFC.",
+      "Le seuil RWY 28 n'étant pas visible des points d'attente A et B, une extrême prudence est recommandée avant de pénétrer sur la piste.",
+      "Pendant l'activité largage para ou de fort trafic, dans la mesure du possible, faire les essais moteur sur le PRKG afin de diminuer le temps d'occupation du TWY.",
+      "TWY B interdit de nuit et réservé aux ACFT de largeur hors tout train principal inférieur à 4,50 m.",
+      "Absence de point d'attente sur RWY non revêtue : Après LDG sur RWY non revêtue, maintenir le bord de RWY côté Sud, avant de traverser la RWY revêtue.",
+      "TWY B interdit de nuit.",
+      "Voltige N° 6500 : voir AIP ENR 5.5 Parachutage N° 388 : voir AIP ENR 5.5"
+    ]
+  }
+}

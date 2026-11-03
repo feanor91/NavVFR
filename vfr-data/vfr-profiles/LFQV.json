@@ -1,0 +1,71 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQV (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFQV",
+  "name": "Charleville-Mézières - Belval",
+  "source": {
+    "publication": "AIP France AD 2 LFQV",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.785,
+    "longitude": 4.64278
+  },
+  "elevationFeet": 492,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 126.855",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 126.855
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        110,
+        290
+      ]
+    }
+  ],
+  "preferredQfu": 110,
+  "preferredQfuReason": "preferred QFU 110, due to LDA",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "RWY reserved for ACFT which TKOF reference distance is less than 1200 m.",
+    "Possible reception of ACFT with a mass exceeding 5.7 tons with PPR 72 HR.",
+    "Mandatory TKOF from the RWY ends for both QFU.",
+    "Preferred QFU: 110°, due to LDA.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "ACL: average PRKG ALT, 482 ft.",
+    "TWY limited to ACFT whose wheel base is less than 18m.",
+    "PJE NR 228: see AIP ENR 5.5.",
+    "AEM NR 8239: see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Piste réservée aux ACFTdont la distance de référence au décollage est inférieure à 1200 m.",
+      "",
+      "",
+      "QFU 110° préférentiel cause LDA.",
+      "Roulage interdit hors RWY et TWY.",
+      "ACL : ALT moyenne du parking, 482 ft.",
+      "Voie de circulation limitée aux aéronefs dont l'empattement est inférieur à 18m.",
+      "Parachutage N°228 : voir AIP ENR 5.5.",
+      "AEM N°8239 : voir AIP ENR 5.5."
+    ]
+  }
+}

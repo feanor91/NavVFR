@@ -1,0 +1,71 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFKO (AIP France, chart dated 2024-09-05): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFKO",
+  "name": "Propriano",
+  "source": {
+    "publication": "AIP France AD 2 LFKO",
+    "chartDate": "2024-09-05",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 41.66028,
+    "longitude": 8.89389
+  },
+  "elevationFeet": 16,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.505",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.505
+  },
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        93,
+        273
+      ]
+    }
+  ],
+  "notes": [
+    "AD restricted to ACFT whose wingspan is less than 24 m and whose overall width of main landing gear is less than 6 m.",
+    "AD limited to ACFT with maximum takeoff weight (MTOW) lower than 5700 kg.",
+    "AD reserved for radio-equipped ACFT.",
+    "Paramotors: use of AD under prior AD operator agreement.",
+    "Significant bird strike risk.",
+    "Presence of mountainous terrain (Castellu di Baresi) in downwind eastern part. traffic circuit integration.",
+    "HEL: ARR on RWY axis, clearing by TWY and translation to AVT or AST.",
+    "Parachute jumping activity ( NR 413): FL 140, SR-SS + 30.",
+    "From 1st JUN to 30th SEP: - SAT and SUN: activity limited to FL 070.",
+    "Activity known via AJACCIO APP and AJACCIO INFO.",
+    "Paramotor activity known in July and August North of the airfield on Olmeto beach."
+  ],
+  "fr": {
+    "notes": [
+      "AD limité aux aéronefs dont l'envergure est inférieure à 24 m et dont la largeur hors-tout du train principal est inférieure à 6 m.",
+      "AD limité aux aéronefs de Masse Maximum décollage (MTOW) inférieure à 5700 kg.",
+      "AD réservé aux ACFT munis de radio.",
+      "Paramoteurs : utilisation de l'AD après accord de l'exploitant.",
+      "Risque aviaire important.",
+      "Présence d'un relief montagneux (Castellu di Baresi) dans la partie Est de la vent arrière. intégration dans le circuit de piste.",
+      "HEL : ARR dans l'axe de piste, sortie par TWY et translation vers AVT ou AST.",
+      "Parachutage sur AD (N°413) : FL 140, SR-SS + 30.",
+      "Du 1er Juin au 30 Septembre : - SAM et DIM : activité limitée au FL 070.",
+      "",
+      "AJACCIO INFO. Activité paramoteur connue en juillet et août au Nord de l'aérodrome sur Olmeto plage. Vigilance accrue recommandée. Increased vigilance recommended."
+    ]
+  }
+}

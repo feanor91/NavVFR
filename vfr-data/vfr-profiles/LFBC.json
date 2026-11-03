@@ -1,0 +1,80 @@
+{
+  "$comment": [
+    "EXTRACTED AUTOMATICALLY from the SIA eAIP page AD 2 LFBC (AIP France, valid from 2026-10-01), not read by hand.",
+    "This is a military air base (CAM regimes). Only what the page prints as text is recorded: position, elevation,",
+    "magnetic variation, runways and the VHF frequencies. Circuit rules and reporting points are NOT extracted.",
+    "MSFS exposes only VHF radios: the UHF frequencies of the base are not usable and are not listed.",
+    "Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFBC",
+  "name": "Cazaux",
+  "source": {
+    "publication": "AIP France AD 2 LFBC",
+    "chartDate": "2026-10-01",
+    "extraction": "automatic"
+  },
+  "referencePosition": {
+    "latitude": 44.535,
+    "longitude": -1.13139
+  },
+  "elevationFeet": 85,
+  "service": {
+    "kind": "MilitaryTower",
+    "regimes": [
+      "CAM V",
+      "CAM I"
+    ]
+  },
+  "frequencies": {
+    "app": [
+      {
+        "mhz": 119.6,
+        "remark": "Particulière transit - veillée - RAI"
+      },
+      {
+        "mhz": 121.5,
+        "remark": "Détresse civile - veillée"
+      }
+    ],
+    "par": [
+      {
+        "mhz": 120.1,
+        "remark": "Particulière GCA - non veillée"
+      },
+      {
+        "mhz": 123.3,
+        "remark": "Commune GCA - non veillée"
+      }
+    ],
+    "twr": [
+      {
+        "mhz": 118.4,
+        "remark": "Particulière air"
+      },
+      {
+        "mhz": 121.5,
+        "remark": "Détresse civile - veillée"
+      },
+      {
+        "mhz": 122.1,
+        "remark": "Commune sol - veillée"
+      }
+    ]
+  },
+  "magneticVariationDegrees": 1.0,
+  "runways": [
+    {
+      "id": "06/24",
+      "qfu": [
+        57,
+        237
+      ],
+      "surface": "paved",
+      "lengthMetres": 2398,
+      "widthMetres": 45
+    }
+  ],
+  "notes": [
+    "The base also publishes 11 UHF frequencies that MSFS cannot tune."
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRH (AIP France, chart dated 2026-05-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFRH",
+  "name": "Lorient Bretagne Sud",
+  "source": {
+    "publication": "AIP France AD 2 LFRH",
+    "chartDate": "2026-05-14",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.76056,
+    "longitude": -3.44
+  },
+  "elevationFeet": 159,
+  "magneticVariationDegrees": 0.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "LUN-VEN (hors JF) TWR / AFIS : HX service annoncé au premier contact / MON-FRI (outside HOL) TWR / AFIS : HX service to be reported on initial contact (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "atis": 129.125,
+    "approach": 123.0,
+    "tower": 122.7,
+    "ground": 119.7
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        72,
+        252
+      ]
+    },
+    {
+      "id": "02/20",
+      "qfu": [
+        16,
+        196
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 47.85833,
+      "longitude": -3.75,
+      "location": "Pont Aven"
+    },
+    {
+      "name": "WL",
+      "spoken": {
+        "fr": "Whisky Lima",
+        "en": "Whiskey Lima"
+      },
+      "latitude": 47.8,
+      "longitude": -3.58333,
+      "location": "Clohars - Carnoet"
+    },
+    {
+      "name": "SL",
+      "spoken": {
+        "fr": "Sierra Lima",
+        "en": "Sierra Lima"
+      },
+      "latitude": 47.69722,
+      "longitude": -3.45,
+      "location": "Pointe du Talut"
+    },
+    {
+      "name": "EL",
+      "spoken": {
+        "fr": "Écho Lima",
+        "en": "Echo Lima"
+      },
+      "latitude": 47.71944,
+      "longitude": -3.34722,
+      "location": "Anse de Port-Louis"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 47.67639,
+      "longitude": -3.2,
+      "location": "Pont Lorois"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 47.86528,
+      "longitude": -3.54167,
+      "location": "Pont ferroviaire, SE de Quimperlé"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 47.64444,
+      "longitude": -3.45,
+      "location": "Port Tudy (Groix)"
+    },
+    {
+      "name": "NG",
+      "spoken": {
+        "fr": "Novembre Golf",
+        "en": "November Golf"
+      },
+      "latitude": 47.80583,
+      "longitude": -3.45917,
+      "location": "Échangeur de Guidel sur la N 165"
+    },
+    {
+      "name": "NL",
+      "spoken": {
+        "fr": "Novembre Lima",
+        "en": "November Lima"
+      },
+      "latitude": 47.83,
+      "longitude": -3.3375,
+      "location": "Carrefour St Severin"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 47.91667,
+      "longitude": -3.34722,
+      "location": "Carrefour D769 - D2, W Plouay"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 47.86917,
+      "longitude": -3.06278,
+      "location": "Échangeur N24, W Baud"
+    },
+    {
+      "name": "A",
+      "spoken": {
+        "fr": "Alpha",
+        "en": "Alpha"
+      },
+      "latitude": 47.68278,
+      "longitude": -3.02333,
+      "location": "Auray"
+    }
+  ],
+  "notes": [
+    "AD unusable out of RWY and TWY Caution when taxiing due to numerous cross-roads not visible from TWR AD prohibited to GLD, to ACFT without radio, and ACFT towing advertisement panels.",
+    "Priority reception to MIL traffic Compulsory PPR FPL mandatory for non based ACFT / Mandatory assistance from Last working day National flight for ACFT with a mass > 31 t before 12 HR mandatory Other PN 48 HR before the last International flight working day RWY 07/25: BRA 250 m THR 07 and 25, height 9 cm Presence of lighted OBST (deck landing mirror) at 27.5 m on the left side of the RWY in use (height 10 ft ASFC) at 185 m from THR 07 and 198 m from DTHR 25 Textile brakes, height 9 cm, 114 m from THR 07 and 8 m before DTHR 25 Caution when approaching: LOC antenna 10 ft ASFC, 150 m from THR 07 A/A to autorized users only as per protocol Overflight of the city of Lorient prohibited below 5000 ft, presence of a facility with distinctive markings Presence of LF-R 13 (SFC-UNL) and LF-R 14 (SFC3000 ft AMSL) in the Southeast of the AD: mandatory avoidance during activity MIL AVIATION: ARR, DEP and TRANSIT procedures within CTR LORIENT: At ARR, ask for CLR in airspace D to LORIENT APP 5 MIN prior overflying entering points Except otherwise instructed by ATC, overflight of entering points and routings at 1000 ft AMSL (transit between S and SL: 1500 ft AMSL) CIV AVIATION: Due to deck landing optical (RWY 07/25) and arresting cables shelters (RWY 07/25 and 02/20) on RWY safety strip, following max crosswind limits apply to the use of RWY 07/25 and 02/20: 25 kt RWY dry 20 kt RWY wet for CIV ACFT only Flight intentions mandatory by phone to the flight office 30 MIN before departure in case of special VFR Routings to be followed are those defined for VFR flights inside CTR Proximity coastal transit may cause interference with TKOF and LDG phases when ACFT are in IFR or Ceiling AEM NR 8916: SAT-SUN-HOL: SR - SS 330 ASFC Radio controlled model flying as per protocol Aerobatics NR 6366: MON- FRI: SR - SS SAT, SUN, HOL: 1300 - SS (SUM - 1 HR) Reveted RWY 07/25 axis, length 3000 m centred on ARP.",
+    "1700 ft AMSL / 5000 ft AMSL Activity for based ACB only Users information: LORIENT APP (ATS HOR) or SIV IROISE"
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "",
+      "1700 ft AMSL / 5000 ft AMSL Activité réservée aux ACB basés Information des usagers : LORIENT APP (HOR ATS) ou SIV IROISE"
+    ]
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFMA (AIP France, chart dated 2026-10-01): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFMA",
+  "name": "Aix - Les Milles",
+  "source": {
+    "publication": "AIP France AD 2 LFMA",
+    "chartDate": "2026-10-01",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.50528,
+    "longitude": 5.36722
+  },
+  "elevationFeet": 368,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "ETE / SUM : LUN-SAM / MON-SAT : 0600-1730, DIM / SUN : 0600-1700 HIV / WIN : 0700-1700 (UTC HIV ; HOR ETE : -1HR)",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 136.23,
+    "approach": 124.355,
+    "tower": 118.755,
+    "airAir": 118.755
+  },
+  "runways": [
+    {
+      "id": "14/32",
+      "qfu": [
+        143,
+        323
+      ]
+    }
+  ],
+  "preferredQfu": 323,
+  "preferredQfuReason": "preferred QFU 323, due to local meteorological conditions",
+  "reportingPoints": [
+    {
+      "name": "AN",
+      "spoken": {
+        "fr": "Alpha Novembre",
+        "en": "Alpha November"
+      },
+      "latitude": 43.56389,
+      "longitude": 5.33639,
+      "location": "Travers Est tour de guet incendie Ouest d'EGUILLES"
+    },
+    {
+      "name": "AT",
+      "spoken": {
+        "fr": "Alpha Tango",
+        "en": "Alpha Tango"
+      },
+      "latitude": 43.5725,
+      "longitude": 5.39194,
+      "location": "Carrefour Est d'EGUILLES"
+    },
+    {
+      "name": "AE",
+      "spoken": {
+        "fr": "Alpha Écho",
+        "en": "Alpha Echo"
+      },
+      "latitude": 43.48,
+      "longitude": 5.48528,
+      "location": "Nord cheminée de GARDANNE"
+    },
+    {
+      "name": "AR",
+      "spoken": {
+        "fr": "Alpha Roméo",
+        "en": "Alpha Romeo"
+      },
+      "latitude": 43.52694,
+      "longitude": 5.40222,
+      "location": "Bretelle autoroute A8 AIX Ouest"
+    },
+    {
+      "name": "AS",
+      "spoken": {
+        "fr": "Alpha Sierra",
+        "en": "Alpha Sierra"
+      },
+      "latitude": 43.445,
+      "longitude": 5.37222,
+      "location": "Ouest de CABRIES"
+    },
+    {
+      "name": "AW",
+      "spoken": {
+        "fr": "Alpha Whisky",
+        "en": "Alpha Whiskey"
+      },
+      "latitude": 43.51611,
+      "longitude": 5.31194,
+      "location": "Aqueduc de ROQUEFAVOUR"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited for gliders.",
+    "Usable by ULM: only classes 3 and 6 ULM are authorized.",
+    "High-visibility vest mandatory on runway side.",
+    "Preferred RWY 32 due to local meteorological conditions.",
+    "Except in case of immediate safety or air traffic control instruction, follow strictly circuits published on the visual landing chart.",
+    "Engine tests not included in take off procedure prohibited: at night from 1900 to 0700 (SUM: - 1 HR); SAT from 1100 to 1500 and from 1630 to 1900 (SUM: - 1 HR).; SUN and public HOL.",
+    "RWY 14: Between RWY end and THR 32: 232 m long strip available for takeoff.",
+    "RWY 32: Between RWY end and THR 14: 123 m long strip available for takeoff.",
+    "Air navigation hazard Parachuting NR 445: see AIP ENR 5.5 Meteorological minima: ACFT: VIS 3000 m; HEL: VIS 800 m.",
+    "Traffic surveillance equipment: AD equipped with radar display (see AD 1.0).",
+    "PCL available outside ATS SKED: 3 clicks on mic: brightness 2/4.",
+    "Available lighting: RWY edge lighting, TWY C, PAPI RWY 14, PAPI RWY 32, traffic area NW and SW.",
+    "5 clicks on mic: brightness 4/4.",
+    "Available lighting: RWY edge lighting, TWY C, PAPI RWY 14, PAPI RWY 32, traffic area NW and SW.",
+    "7 clicks on mic: OFF.",
+    "PCL submitted to PPR 12 HR, mandatory handling and notification on: https://cy.myhandlingsoftware.com Parachuting NR 401: see AIP ENR 5.5 Helicopter work area: not lighted, reserved for based HEL, daytime use only, during ATS SKED and outside PJE NR 401.",
+    "Landing and take-off maneuvers from and over this area are strictly forbidden.",
+    "Radiocommunication failure: Display transponder A7600; ARR: Before first contact, do not enter the CTR.",
+    "After authorization to enter CTR, continue inbound AR 2200 ft AMSL MAX and lights on, continue 228° up to overhead AD and follow a pattern to the West.; DEP: Before TKOF, taxi back to the apron.",
+    "TKOF, follow last clearance received.",
+    "TRANSIT: If transit is already authorized, follow last clearance received.",
+    "If not, do not enter the CTR.",
+    "Engine run-up area with noise barrier",
+    "Dimensions: 30 m x 27 m,",
+    "Limited to one aircraft,",
+    "Use of the run-up area under the responsability of the operator and/or pilot in command."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux planeurs.",
+      "Utilisable pour ULM : seuls les ULM de classes 3 et 6 sont autorisés.",
+      "Port d'un gilet haute visibilité obligatoire côté piste.",
+      "RWY 32 préférentielle : cause conditions météorologiques locales.",
+      "ENVIRONNEMENT - LIMITATION DES NUISANCES : Hors cas de sécurité immédiate ou instruction du contrôle de la circulation aérienne, respecter strictement les circuits publiés figurant sur le volet atterrissage à vue.",
+      "Essais moteurs autres que ceux inclus dans la procédure de décollage interdits : la nuit de 1900 à 0700 (ETE : - 1 HR) ; SAM de 1100 à 1500 et de 1630 à 1900 (ETE : - 1 HR). DIM et JF.",
+      "RWY 14 : Entre l'extrémité physique de la piste et le THR 32 : longueur de roulement de 232 m utilisable au décollage.",
+      "RWY 32 : Entre l'extrémité physique de la piste et le THR 14 : longueur de roulement de 123 m utilisable au décollage.",
+      "",
+      "Équipement de surveillance du trafic : AD équipé d'une visualisation radar (voir AD 1.0).",
+      "PCL en service en dehors HOR ATS : 3 coups d'alternat : brillance 2/4.",
+      "Balisage disponible : balisage latéral de piste,TWY C, PAPI RWY 14, PAPI RWY 32, aire de trafic NW et SW.",
+      "5 coups d'alternat : brillance 4/4.",
+      "Balisage disponible : balisage latéral de piste,TWY C, PAPI RWY 14, PAPI RWY 32, aire de trafic NW et SW.",
+      "7 coups d'alternat : OFF.",
+      "PCL soumis à PPR 12 HR, assistance obligatoire et notification sur : https://cy.myhandlingsoftware.com Activités diverses Parachutage N°401 : voir AIP ENR 5.5 Zone de travail hélicoptère : non revêtue et balisée, réservée aux hélicoptères basés, utilisable uniquement de jour, pendant HOR ATS et en dehors de l'activité parachutisme zone 401.",
+      "Manoeuvres de décollage et d'atterissage strictement interdites depuis et sur la zone de travail hélicoptère.",
+      "",
+      "Après autorisation de pénétrer dans la CTR, poursuivre vers AR 2200 ft AMSL MAX et phares allumés, poursuivre 228° jusqu'à la verticale AD et effectuer un circuit à l'OUEST. DEP : Avant TKOF, retourner au parking.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "L'utilisation de l'aire d'essai relève de la responsabilité de l'opérateur et/ou du commandant de bord."
+    ]
+  }
+}

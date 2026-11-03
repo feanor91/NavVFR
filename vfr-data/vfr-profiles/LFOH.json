@@ -1,0 +1,95 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOH (AIP France, chart dated 2026-10-01): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFOH",
+  "name": "Havre-Octeville",
+  "source": {
+    "publication": "AIP France AD 2 LFOH",
+    "chartDate": "2026-10-01",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.53389,
+    "longitude": 0.08806
+  },
+  "elevationFeet": 313,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : HIV : LUN-VEN : 0830-1200, 1300-1645. SAM-DIM et JF : 0930-1545. 25 DEC / 01 JAN : A/A. ETE : LUN-DIM et JF : 0730-1100, 1200-1645. Extension sur PPR (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 120.35,
+    "afis": 135.205
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        42,
+        222
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "RWY 04 and 22 prohibited if crosswind higher than: 20 kt on wet RWY,; 25 kt on dry RWY.",
+    "Parachuting (NR 238) and aerobatics (NR 6290) activities prohibited simultaneously.",
+    "Sea bird strike hazard all year long.",
+    "Site likely to be covered by sea haze in a few minutes.",
+    "If wind from W to NW: possibility of wind shear and turbulences between THR RWY 04 and mid-taxiway.",
+    "Startup request mandatory during ATS SKED.",
+    "TWY A restricted to ACFT whose wingspan is smaller than 36 m and whose main gear overall width is smaller than 9 m.",
+    "Stand B and B1 in front of the terminal with handling request only.",
+    "Wearing a high-visibility jacket is mandatory on the Use of PAPI RWY 04 mandatory for any LDG by night.",
+    "PAPI uncoupled with PCL: PAPI in A/A O/R to AFIS PPR 24 HR.",
+    "STAP, available data: wind, cloud base, RVR, T, DP, QNH, QFE and specific datas.",
+    "STAP paired with PCL: 3 clicks on mic: LIL; 5 clicks on mic: HIL; 7 clicks on mic: PCL shutdown.",
+    "PUL and downhill paragliding: at \"Cap de la Hève\": MAX 150 ft ASFC; at \"St-Andrieux\" (between abeam N and NW of threshold 22).",
+    "MAX 350 ft ASFC outside ATS SKED.",
+    "MAX 150 ft ASFC till Cauville then 350 ft ASFC till area limits during ATS SKED.",
+    "PJE on AD NR 238: See AIP ENR 5.5.",
+    "Aerobatics on AD NR 6290: See AIP ENR 5.5 Request by mail: bsep-le-havre@douane.finances.gouv.fr; codt-lille@douane.finances.gouv.fr; operations@lehavre.aeroport.fr email subject: 'ppf le havre octeville' Specify following items: shipper identity and details; flight date / eta / etd in local time / dep and/or arr ad (city) + country of origin; flight type / plane type / registration; number of passengers + crew; 'gendec' / passport number and or id / goods to be declared.",
+    "JET A1: HOR RFFS niveau 2 ou supérieur uniquement ou sur demande auprès de l'exploitant / Level 2 or higher RFFS SKED or upon request from AD operator.",
+    "AVGAS 100LL: Automate H24.",
+    "Paiement carte TOTAL ou carte de crédit / Payment TOTAL card or credit card.",
+    "WIN: Level 5: MON-FRI: 0830-1200 / 1300-1645 Level 2: SAT-SUN and public HOL: 0930-1545 Level 1: 25 DEC and 01 JAN SUM: Level 5: MON-FRI: 0730-1100 / 1200-1645 Level 2: SAT - SUN and public HOL: 0730-1100 / 1200-1645 Level 7: O/R operator Level 1: outside these SKED Equipment available for Level 1 RFFS: 5 fire extinguishers: 3 x 50 kg powder extinguishers: in front of the terminal, near the stands C1 to C3 and D1 to D3, at the AVT / AVGAS / 100LL.",
+    "Péril animalier / Wildlife strike hazard: Occasionnel / Random - O/R."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "RWY 04 et 22 interdites par vent traversier supérieur à : 20 kt sur piste humide ; 25 kt sur piste sèche.",
+      "Activités parachutage (N° 238) et voltige (N° 6290) interdites simultanément.",
+      "Présence d'oiseaux de mer toute l'année.",
+      "Site susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Par vents de secteurs W à NW : cisaillement et forte turbulence possibles entre le seuil 04 et la bretelle centrale.",
+      "Demande de mise en route obligatoire pendant HOR ATS.",
+      "TWY A limité aux ACFT dont l'envergure est inférieure à 36 m et dont la largeur hors tout du train principal est inférieure à 9 m.",
+      "Parkings commerciaux B et B1 face au terminal avec assistance obligatoire.",
+      "Port Gilet haute visibilité obligatoire coté piste. CIME Obligatoire durant activation PCZSAR. portillon situé entre l'aéroclub et le terminal : code disponible sur la porte du bureau des opérations. Utilisation PAPI RWY 04 obligatoire pour tout atterrissage de nuit.",
+      "PAPI non couplé à la PCL : PAPI en A/A O/R auprès de l'AFIS PPR 24 HR.",
+      "STAP, paramètres disponibles : vent, base des nuages, RVR, T, DP, QNH, QFE et info particulières.",
+      "STAP couplé au PCL : 3 coups d'alternat : BI ; 5 coups d'alternat : HI ; 7 coups d'alternat : coupure du PCL.",
+      "LE HAVRE OCTEVILLE Activités diverses Activité PUL et parapente : au Cap de la Hève : MAX 150 ft ASFC ; site St-Andrieux (entre les travers N et NW du seuil 22).",
+      "MAX 350 ft ASFC hors HOR ATS.",
+      "MAX 150 ft ASFC jusqu'à Cauville. puis 350 ft ASFC jusqu'à la sortie de zone pendant HOR ATS.",
+      "Parachutage sur AD N° 238 : Voir AIP ENR 5.5.",
+      "",
+      "",
+      "",
+      "",
+      "LE HAVRE OCTEVILLE 9 - AVT : 10 - RFFS : HIV: Niveau 5 : LUN-VEN : 0830-1200 / 1300-1645 Niveau 2 : SAM, DIM et JF : 0930-1545 Niveau 1 : 25 DEC et 01 JAN ETE : Niveau 5 : LUN-VEN : 0730-1100 / 1200-1645 Niveau 2 : SAM, DIM et JF : 0730-1100 / 1200-1645 Niveau 7 : O/R exploitant Niveau 1 : en dehors de ces HOR Moyen mis à disposition pour RFFS Niveau 1 : 5 extincteurs : 3 de 50 kg poudre devant l'aérogare, à proximité des emplacements de stationnement C1 à C3 et.",
+      "D1 à D3, au niveau de la station carburant AVGAS/100LL."
+    ]
+  }
+}

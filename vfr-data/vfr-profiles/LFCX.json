@@ -1,0 +1,99 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCX (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCX",
+  "name": "Castelsarrasin - Moissac",
+  "source": {
+    "publication": "AIP France AD 2 LFCX",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.08583,
+    "longitude": 1.12694
+  },
+  "elevationFeet": 243,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 121.055
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        100,
+        280
+      ]
+    },
+    {
+      "id": "10L/28R",
+      "qfu": [
+        100,
+        280
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Unpaved RWY reserved for home-based ACFT or ACFT with authorization from managing authority.",
+    "If unpaved RWY unusable after heavy rainfalls or other reasons, gliding activity reported on paved RWY.",
+    "Simultaneous use of both RWY prohibited.",
+    "QFU 100° preferred for both RWY.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "LDG and TKOF are delayed if a glider is immobilized on the South half of the unpaved RWY.",
+    "The central paved TWY cuts across the unpaved RWY.",
+    "Before entering on this TWY: coming from apron, hold position at holding point; coming from paved RWY, hold position before entering on unpaved RWY.",
+    "Say \"RWY vacated\" once the holding point is crossed.",
+    "Paved TWY width 7.5 m.",
+    "Unpaved North TWY primarily used by gliders and service planes for vacating unpaved RWY and pre-flight waiting.",
+    "The gliders line-up area occupies the northern half of unpaved RWY up to 50 m from THR.",
+    "At both QFU, if one or more gliders occupy the line-up area, it activates the temporary displaced threshold, which is not marked on RWY and is located 100 m from THR at the level of the first side strip.",
+    "Caution when landing.",
+    "When paved RWY is used by gliders, preflight areas are located at the south of paved RWY thresholds.",
+    "See diagram and instructions: https://aerodromecastelsarrasin-moissac.com/consignes/ AEM (NR 9072): See ENR 5.5 Aerobatics on AD (NR 6740), 500 m width each side of RWY axis and 1500 m length each side of ARP in RWY axis.",
+    "1500 ft AMSL / 3500 ft AMSL.",
+    "SUN and public HOL 0900-1100 and 1300-1700 (SUM: -1 HR).",
+    "Other days 0800-1100 and 1300-1700 (SUM: -1 HR).",
+    "Activity according to 2 protocols (based and non based users), with prior agreement of AD operator.",
+    "Activity announced on A/A FREQ.",
+    "Parachuting activity (NR 384): See ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "",
+      "",
+      "",
+      "QFU 100° préférentiel pour les 2 pistes.",
+      "Roulage interdit hors RWY et TWY.",
+      "LDG et TKOF suspendus si un planeur est immobilisé sur la moitié Sud de la piste non revêtue.",
+      "Le TWY central revêtu coupe la piste non revêtue.",
+      "Avant de pénétrer sur ce TWY : en provenance du parking, marquer l'arrêt au point d'attente. en provenance de la piste revêtue, marquer l'arrêt avant de pénétrer sur la piste non revêtue.",
+      "Annoncer « pistes dégagées » une fois le point d'attente franchi.",
+      "",
+      "",
+      "La zone d'alignement des planeurs occupe la moitié Nord de la piste non revêtue jusqu'à 50 m du seuil.",
+      "Aux 2 QFU, l'occupation par un ou des planeurs de la zone d'alignement active de facto le seuil décalé temporaire non matérialisé sur la piste et situé à 100 m du seuil au niveau de la 1ère bande latérale.",
+      "Prudence à l'atterrissage.",
+      "Lors de l'utilisation par les planeurs de la piste revêtue, les zones de prévol sont situées au Sud des seuils de la piste revêtue.",
+      "Voir schéma et consignes : https://aerodromecastelsarrasin-moissac.com/consignes/ Activités diverses AEM (N° 9072) : Voir ENR 5.5 Activité de voltige sur AD (N° 6740), largeur 500 m de part et d'autre de l'axe, longueur 1500 m de part et d'autre ARP dans l'axe de piste.",
+      "",
+      "DIM et JF 0900-1100 et 1300-1700 (ETE : -1 HR).",
+      "Autres jours 0800-1100 et 1300-1700 (ETE : -1 HR).",
+      "Activité selon deux protocoles (usagers basés et non-basés), sur accord préalable de l'exploitant d'AD.",
+      "Activité annoncée sur FREQ A/A.",
+      "Activité de parachutage (N° 384) : Voir ENR 5.5"
+    ]
+  }
+}

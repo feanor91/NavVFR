@@ -1,0 +1,145 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCH (AIP France, chart dated 2025-04-17): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFCH",
+  "name": "Arcachon - La Teste-de-Buch",
+  "source": {
+    "publication": "AIP France AD 2 LFCH",
+    "chartDate": "2025-04-17",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.59694,
+    "longitude": -1.11389
+  },
+  "elevationFeet": 52,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS du 15/04 au 15/09 / from 15 APR to 15 SEP : LUN-DIM / MON-SUN : 0800-1800, du 16/09 au 14/04 / from 16 SEP to 14 APR : LUN-VEN / MON-FRI : 0800-1100, 1315-1600, SAM, DIM et JF / SAT, SUN and HOL : 0800-1130, 1245-1600. 01/01 et 25/12 AFIS fermé / 01 JAN and 25 DEC AFIS closed. AFIS (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 119.080",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 119.08
+  },
+  "preferredQfu": 252,
+  "preferredQfuReason": "preferred QFU 252, due to the close golf apartment blocks in the East of AD",
+  "reportingPoints": [
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 44.64361,
+      "longitude": -1.04833,
+      "location": "Bassin de décantation à l'Est du port de la Môle"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 44.63333,
+      "longitude": -1.00556,
+      "location": "À l'Est du parc du Teich"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 44.58917,
+      "longitude": -1.21361,
+      "location": "Milieu de la Dune du Pyla"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 44.60333,
+      "longitude": -1.12694,
+      "location": "Nord de l'hippodrome"
+    },
+    {
+      "name": "P",
+      "spoken": {
+        "fr": "Papa",
+        "en": "Papa"
+      },
+      "latitude": 44.56806,
+      "longitude": -1.23056,
+      "location": "Sud plage du Petit Nice",
+      "purpose": "réservé exclusivement aux vols courts d'hélicoptères ayant un protocole avec l'exploitant de l'aérodrome"
+    },
+    {
+      "name": "SD",
+      "spoken": {
+        "fr": "Sierra Delta",
+        "en": "Sierra Delta"
+      },
+      "latitude": 44.57306,
+      "longitude": -1.22333,
+      "location": "Plage du Petit Nice"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited for paramotors.",
+    "Simultaneous use of RWY prohibited.",
+    "All TKOF or LDG is suspended if an ACFT is immobilized on unpaved RWY at less than half the width of the common limit.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Aerobatics at \"le Teich Taures\" (NR 6645).",
+    "AEM activity Dune du Pyla (NR 9115).",
+    "Particular activity La Teste de Buch (NR 33-001).",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Takeoff QFU 072°: possible presence of a moving obstacle on road.",
+    "D652, overflight at 6.5 m minimum, it is recommended to use all the RWY length, and alter heading by 020° to the right at the end of RWY and at 300 ft MNM.",
+    "Preferred QFU 252° due to the close golf apartment blocks in the East of AD.",
+    "Takeoff QFU 252°: the turnaround area is not included in the RWY.",
+    "Glider winching activity on AD (NR 972): SFC / 2500 ft AMSL, SR-SS, announced on ARCACHON Info.",
+    "Parachuting activity on AD (NR 306): SFC / FL 140, outside Cazaux activity.",
+    "As per protocol.",
+    "Actual activity known by AQUITAINE INFO / APP, ARCACHON INFO, CAZAUX APP.",
+    "Aerobatics over AD (NR 6650): 3000 ft ASFC / FL 100.",
+    "SUM: 0700-SS, WIN: 0800-SS, PPR CAZAUX APP.",
+    "AEM activity on AD (NR 9148): Daytime, 330 ft ASFC."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux paramoteurs.",
+      "Utilisation simultanée des pistes interdite.",
+      "Tout DEC ou ATT est suspendu si un ACFT est immobilisé sur la piste non revêtue à moins d'une demilargeur de la limite commune.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Voltige Le Teich \"Taures\" (N° 6645).",
+      "Activité AEM Dune du Pyla (N° 9115).",
+      "Activité particulière La Teste de Buch (N° 33-001).",
+      "Roulage interdit hors RWY et TWY.",
+      "Décollage QFU 072° : présence possible d'un obstacle mobile sur route.",
+      "",
+      "QFU 252° préférentiel en raison de la proximité des résidences du golf à l'Est de l'aérodrome.",
+      "",
+      "Activités particulières Activité de treuillage planeurs sur AD (N° 972) : SFC / 2500 ft AMSL, SR-SS, annoncée sur ARCACHON Info.",
+      "Parachutage sur AD (N° 306) : SFC / FL 140, hors activité Cazaux.",
+      "Selon protocole.",
+      "Activité réelle connue par AQUITAINE INFO / APP, ARCACHON INFO, CAZAUX APP.",
+      "Voltige sur AD (N° 6650) : 3000 ft ASFC / FL 100.",
+      "ETE : 0700-SS, HIV : 0800-SS, PPR CAZAUX APP.",
+      "Activité AEM sur AD (N° 9148) : HJ, 330 ft ASFC."
+    ]
+  }
+}

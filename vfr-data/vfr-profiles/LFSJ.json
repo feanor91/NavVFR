@@ -1,0 +1,86 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFSJ (AIP France, chart dated 2023-10-05): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFSJ",
+  "name": "Sedan - Douzy",
+  "source": {
+    "publication": "AIP France AD 2 LFSJ",
+    "chartDate": "2023-10-05",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.65889,
+    "longitude": 5.03667
+  },
+  "elevationFeet": 513,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        76,
+        256
+      ]
+    },
+    {
+      "id": "08L/26R",
+      "qfu": [
+        76,
+        256
+      ]
+    }
+  ],
+  "preferredQfu": 76,
+  "preferredQfuReason": "preferred QFU 76, due to clearing",
+  "notes": [
+    "During rainy period, pilots are restricted to use the paved RWY only and the East paved TWY.",
+    "Variation in level between paved RWY and grass strip 08/26.",
+    "Taxiing on this part of AD is prohibited.",
+    "Radio use highly recommended.",
+    "Preferred QFU: 076°, due to clearing.",
+    "Avoid overflying the surrounding built up areas.",
+    "Simultaneous use of both RWY prohibited.",
+    "Paved TWY reserved for ACFT whose overall length of the main landing gear is less than 3.5 m and whose wingspan is less than 11 m.",
+    "Precautionary taxiing recommended on the paved TWY due to the presence of a fence in the TWY strip.",
+    "Gliders winching (NR 956): SR-SS, SFC-2200 ft AMSL.",
+    "Winch equipped with a flashing light.",
+    "Users information on A/A SEDAN.",
+    "Aerobatics on AD (NR 6100): North and parallel to grass strip 08/26, East limit road D 964, length 3000 m, width 500 m.1650 ft AAL/5000 ft AAL.",
+    "SAT, SUN and HOL: SR-SS.",
+    "AEM (NR 8228): 500 ft ASFC (600 ft ASFC announced via NOTAM), SR-SS."
+  ],
+  "fr": {
+    "notes": [
+      "En période de pluie, n'utiliser que la piste macadam et le TWY Est en tarmac.",
+      "Existence d'une dénivellation entre la piste revêtue et la piste non revêtue 08/26.",
+      "Le roulage sur cette zone est interdit.",
+      "Utilisation de la radio vivement recommandée.",
+      "QFU 076° préférentiel cause dégagements.",
+      "Éviter le survol des zones habitées avoisinantes.",
+      "Usage simultané des deux pistes interdit.",
+      "Voie de circulation revêtue réservée aux aéronefs dont la longueur hors tout du train principal est inférieure à 3,5 m et dont l'envergure est inférieure à 11 m.",
+      "Roulage de précaution recommandé sur la voie de circulation revêtue en raison de la présence d'une clôture dans la bande de voie de circulation.",
+      "",
+      "Treuil équipé d'un feu à éclats.",
+      "Information des usagers sur A/A SEDAN.",
+      "Voltige sur AD (N° 6100) : axe accolé parallèlement au Nord de la bande gazonnée 08/26 limité à l'Est par la D 964, longueur 3000 m, largeur 500 m.",
+      "SAM, DIM et JF : SR-SS.",
+      "AEM (N° 8228) : 500 ft ASFC, SR-SS."
+    ]
+  }
+}

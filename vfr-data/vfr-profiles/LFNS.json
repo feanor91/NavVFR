@@ -1,0 +1,77 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFNS (AIP France, chart dated 2024-10-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFNS",
+  "name": "Sisteron-Thèze",
+  "source": {
+    "publication": "AIP France AD 2 LFNS",
+    "chartDate": "2024-10-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.28667,
+    "longitude": 5.92917
+  },
+  "elevationFeet": 1778,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.055",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.055
+  },
+  "runways": [
+    {
+      "id": "17/35",
+      "qfu": [
+        173,
+        353
+      ]
+    }
+  ],
+  "notes": [
+    "Aerodrome reserved for home-based ACFT, gliding and service airplanes.",
+    "Available for helicopters under the conditions specified by DSAC-SE.",
+    "AD reserved for radio-equipped ACFT.",
+    "ACFT: from 01/03 to 30/09, avoid departures and arrivals late in the morning, in the beginning and at the end of the afternoon, during heavy gliding activity.",
+    "Radio contact mandatory.",
+    "It is recommended to read \"Special instructions LFNS\" published on website: www.aerodrome-sisteron.com Priority at landing for gliders.",
+    "At TKOF and LDG, respect the road restriction 15 ft ASFC when overflying the secondary road located upstream THR 35.",
+    "Gliders paved strip 700 x 10 m reserved for gliders activity and for based ACFT out of gliders activity.",
+    "ZA31 parcel is located outside of movement area.",
+    "Taxiing of ACFT with running engine is prohibited.",
+    "Aerobatics on AD (NR 6911): 2450 ft AMSL - FL 065.",
+    "MAR-SEP: 0800-1000, 1700-SS (SUM: - 1HR).",
+    "OCTFEB: SR-SS.",
+    "Self information on A/A FREQ."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Utilisable par les hélicoptères dans les conditions définies par la DSAC-SE.",
+      "AD réservé aux ACFT munis de radio.",
+      "Aéronefs : du 01/03 au 30/09, éviter départs et arrivées en fin de matinée, début d'après-midi et fin d'après-midi, pendant les périodes de forte activité vol à voile.",
+      "Contact radio obligatoire A/A.",
+      "Il est recommandé de prendre connaissance des \"consignes particulières LFNS\" publiées sur le site : www.aérodrome-sisteron.com Priorité aux planeurs à l'atterrissage.",
+      "Respecter au décollage et à l'atterrissage le gabarit routier de 15 ft ASFC, au passage de la voie de circulation située au seuil de piste 35.",
+      "Bande revêtue planeurs 700 x 10 m réservée à l'activité planeurs et aux ACFT basés en dehors de l'activité planeurs.",
+      "La parcelle ZA31 se trouve en dehors de l'aire de mouvement.",
+      "La circulation des ACFT moteur en fonction y est interdite.",
+      "Voltige sur AD (N° 6911) : 2450 ft AMSL - FL 065.",
+      "MAR-SEP : 0800-1000, 1700-SS (ETE : - 1HR).",
+      "",
+      "Auto-information sur FREQ A/A."
+    ]
+  }
+}

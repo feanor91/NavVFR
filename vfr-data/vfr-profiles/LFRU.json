@@ -1,0 +1,101 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRU (AIP France, chart dated 2025-08-07): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFRU",
+  "name": "Morlaix Ploujean",
+  "source": {
+    "publication": "AIP France AD 2 LFRU",
+    "chartDate": "2025-08-07",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.60083,
+    "longitude": -3.81667
+  },
+  "elevationFeet": 278,
+  "magneticVariationDegrees": -1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN-VEN / MON-FRI : 0800-1100, 1300-1600. En dehors de ces HOR et JF : PPR la veille ou le dernier jour ouvrable pendant HOR AFIS par (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 122.4,
+    "afis": 118.505
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        41,
+        221
+      ]
+    },
+    {
+      "id": "15/33",
+      "qfu": [
+        153,
+        333
+      ]
+    },
+    {
+      "id": "09/27",
+      "qfu": [
+        90,
+        270
+      ]
+    }
+  ],
+  "notes": [
+    "Possible IFR activity.",
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of paved and unpaved RWY prohibited outside AFIS SKED.",
+    "Flight only inside Schengen boundaries.",
+    "It is recommended not to use RWY 04/22 when crosswind component is greater than: 25kt on dry RWY; 20kt on wet RWY.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "RWY 04/22: Obstacles (vegetation) in 04 and 22 RWY funnels: see chart AD 2 LFRU ATT 01.; Degraded RWY condition, cracks, dents, bumps; ACFT take-off and landing performances likely to be altered, even on dry RWY. and the grass strip at the home-based ACFT apron.",
+    "Cambered RWY: close attention required before entering RWY due to non-visibility.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Main RWY 04/22 has priority.",
+    "During AEM activity, it is recommended not to use unpaved RWY 09/27.",
+    "Low height pattern available only for training with instructor on board and subject to a written authorization by the operator.",
+    "TWY B without marking reserved for light aviation (MAX wing span: 15 m).",
+    "TWY B, C, G without marking.",
+    "Sloping apron: wheel chocks recommended.",
+    "Airport handling mandatory for ACFT and helicopters whose MTOW is greater than 3 t.",
+    "Contact: ATS.",
+    "PAPI compulsory for LDG RWY 04 and RWY 22.",
+    "AEM activity (NR 8972): see AIP ENR 5.5 \"Activity in progress\" indicated by a bright colour flag."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "En dehors HOR AFIS utilisation simultanée piste revêtue et piste non-revêtue interdite.",
+      "Vols à l'intérieur de l'espace Schengen uniquement.",
+      "Il est recommandé de ne pas utiliser la piste 04/22 par composante traversière du vent supérieure à : 25kt sur piste sèche ; 20kt sur piste mouillée.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Obstacles (végétation) dans les trouées de décollage et d'atterrissage RWY 04 et 22 : voir carte AD 2 LFRU ATT 01. État de piste dégradé, fissures, flaques, bosses. Performances des aéronefs au décollage et à l'atterrissage susceptibles d'être altérées, y compris sur piste sèche. partie gazonnée au niveau du parking réservé aux avions basés.",
+      "Pistes bombées : prudence recommandée avant de pénétrer sur les pistes en raison de l'absence de visibilité.",
+      "Roulage interdit hors RWY et TWY.",
+      "",
+      "Durant activité AEM, il est recommandé de ne pas utiliser la piste non revêtue 09/27.",
+      "Circuit basse hauteur utilisable uniquement en entraînement avec instructeur et sur autorisation écrite délivrée par l'exploitant.",
+      "TWY B non balisé, réservé à l'aviation légère (envergure MAX 15 m).",
+      "TWY B, C, G non balisé.",
+      "Parkings en pente : cales recommandées.",
+      "MORLAIX PLOUJEAN Assistance aéroportuaire obligatoire pour les aéronefs et les hélicoptères dont la MTOW est supérieure à 3 t.",
+      "Contact : ATS.",
+      "PAPI obligatoire pour LDG RWY 04 et RWY 22.",
+      "AEM (N° 8972) : voir AIP ENR 5.5 \"Activité en cours\" signalée par la présence d'un pavillon de couleur vive."
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRI (AIP France, chart dated 2024-10-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFRI",
+  "name": "Roche-sur-Yon - Les Ajoncs",
+  "source": {
+    "publication": "AIP France AD 2 LFRI",
+    "chartDate": "2024-10-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.7025,
+    "longitude": -1.38167
+  },
+  "elevationFeet": 299,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN-VEN / MON-FRI : 0800-1130, 1300-1600. SAM-DIM et JF / SAT-SUN and public HOL : 0830-1130, 1300-1600. AFIS fermé le 25 décembre et le 1er janvier / AFIS closed on 25th december and 1st january. En dehors de ces HOR : PPR AFIS la veille avant 1100 ou dernier jour ouvrable avant le vol. Outside these SKED: PPR AFIS on the previous day before 1100 or on the last working day preceding flight. Le service est sus (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 124.43,
+    "afis": 119.905
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        101,
+        281
+      ]
+    },
+    {
+      "id": "10L/28R",
+      "qfu": [
+        101,
+        281
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD available for radio certificate holder ultra light ACFT.",
+    "AD prohibited to ultra light ACFT category 1 (paramotor).",
+    "Simultaneous use of RWY prohibited.",
+    "Unpaved RWY reserved for gliders and home-based ACFT.",
+    "Runway, taxiways and unpaved parking stands cannot be used during rainy periods.",
+    "Possible IFR operations.",
+    "VFR at night: Landing RWY28 prohibited if PAPI 28 U/S.",
+    "Aerobatics \"La Chaise le Vicomte\" (NR 6394): 105° / 5,6 NM ARP (see AIP ENR 5.5).",
+    "Taxiing prohibited except on RWY and TWY.",
+    "\"Low Height\" circuits as part of training flights, only with instructor on board: minimum 500 ft AAL, North of RWY 10/28.",
+    "Cause many activities, avoid transit overhead AD.",
+    "PPR PN 24 HR for paved apron.",
+    "Gliders winching activity (NR 923): SR-SS, SFC/2300 ft AMSL, on unpaved strip 10/28.",
+    "Winch equipped with flashing lights and radio.",
+    "Unmarked cable.",
+    "Users information: LA ROCHE INFO or A/A.",
+    "Parachute jumping activity on AD (NR 257) SR-SS, FL 135, activity known on LA ROCHE INFO or A/A, and NANTES INFO/APP.",
+    "Aerobatics on AD (NR 6393): RWY 10/28 axis, 1700 ft AMSL/3300 ft AMSL, MON-FRI: 0830-1100, 1300-1800, 0900-1100, 1330-1700 (SUM: - 1 HR).",
+    "SAT, SUN and HOL: 0900-1100, 1330-1700 (SUM: - 1 HR).",
+    "Glider aerobatics: SR-SS.",
+    "AEM (NR 8984): SR-SS, SFC/1300 ft AMSL-1000 ft ASFC.",
+    "Niveau 5 / Level 5: jours d'activation, consulter NOTAM / activation days, consult NOTAM.",
+    "Niveau 2 / Level 2: LUN-VEN / MON-FRI: 0800-1130,1300-1600.",
+    "Niveau 1 / Level 1: en dehors de ces HOR, SAM-DIM et JF / outside these SKED, SAT-SUN and public HOL: Extincteur sur roues à disposition sur aire de trafic / Wheeled extinguisher available on"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD utilisable par les ULM détenteurs d'une aptitude radio.",
+      "AD interdit aux ULM de classe 1 (paramoteur).",
+      "Utilisation simultanée des pistes interdite.",
+      "Piste non revêtue réservée aux planeurs et aéronefs basés.",
+      "Piste, voies de circulation et parkings non revêtus non utilisables en période de pluie.",
+      "Activité IFR possible.",
+      ": Atterrissage RWY28 interdit si PAPI 28 U/S.",
+      "Voltige \"La Chaise le Vicomte\" (N° 6394) : 105° / 5,6 NM ARP (voir AIP ENR 5.5).",
+      "",
+      "Circuit \"basse hauteur\" dans le cadre des vols d'entraînement avec instructeur uniquement : minimum 500 ft AAL au Nord de la piste 10/28.",
+      "Cause nombreuses activités, éviter les transits par la verticale de l'aérodrome.",
+      "PPR PN 24 HR pour stationnement PRKG en dur.",
+      "Treuillage planeurs (N° 923) : SR-SS, SFC/2300 ft AMSL, sur bande non revêtue 10/28.",
+      "Treuil équipé de feux à éclats et radio.",
+      "Câble non balisé.",
+      "Information des usagers : LA ROCHE INFO ou A/A.",
+      "Parachutage sur AD (N° 257) SR-SS, FL 135, activité réelle connue de LA ROCHE INFO ou A/A, et de NANTES INFO/APP.",
+      "Voltige sur AD (N° 6393) : axe RWY 10/28, 1700 ft AMSL/3300 ft AMSL, LUN-VEN : 0830-1100,1300-1800, SAM, DIM et JF : 0900-1100, 1330-1700 (ETE : - 1 HR).",
+      "SAM, DIM et JF : 0900-1100, 1330-1700 (ETE : - 1 HR).",
+      "",
+      "AEM (N° 8984) : SR-SS, SFC/1300 ft AMSL-1000 ft ASFC.",
+      "",
+      "",
+      ""
+    ]
+  }
+}

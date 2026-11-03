@@ -1,0 +1,75 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFFK (AIP France, chart dated 2026-04-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFFK",
+  "name": "Fontenay-le-Comte",
+  "source": {
+    "publication": "AIP France AD 2 LFFK",
+    "chartDate": "2026-04-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.44083,
+    "longitude": -0.79389
+  },
+  "elevationFeet": 80,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.765",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.765
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        83,
+        263
+      ]
+    },
+    {
+      "id": "08R/26L",
+      "qfu": [
+        84,
+        264
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of RWY prohibited.",
+    "Unusable outside RWY and TWY.",
+    "Mixed use on unpaved RWY motor flight / gliding with glider type markings.",
+    "AEM over AD NR 9207: see AIP ENR 5.5 (activity located 271°/1.5 NM west of AD).",
+    "Entering conditions of LF-R 49 L/A for gliders and aerobatic flight: Pattern flights or local flights: notification by phone to COGNAC APP TEL: 05 45 32 73 06 PN 30 min.",
+    "IFF Mandatory above 4000 ft.",
+    "Radio notification on COGNAC APP 132.450 MHZ before entering within LFR 49 L/A.Watch APP COGNAC frequency into the area.",
+    "Radio closure as leaving LF-R 49 L/A.",
+    "IFR activity possible Aerobatics over AD NR 6352: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux pistes interdite.",
+      "Inutilisable hors RWY et TWY.",
+      "Piste non revêtue mixte vol moteur / vol à voile avec balisage de type planeurs.",
+      "AEM sur AD N° 9207 : voir AIP ENR 5.5 (activité dans le 271°/1,5 NM ouest de l'AD).",
+      "Conditions de perméabilité de la zone LF-R 49 L/A pour les planeurs et la voltige : Vols en circuits et vols locaux : notification téléphonique à COGNAC APP TEL : 05 45 32 73 06 avec préavis de 30 min.",
+      "Transpondeur obligatoire au dessus de 4000 ft.",
+      "Notification radio COGNAC APP sur 132.450 MHz avant pénétration dans LF-R 49 L/A.",
+      "Clôture en sortie de la zone LF-R 49 L/A.",
+      ""
+    ]
+  }
+}

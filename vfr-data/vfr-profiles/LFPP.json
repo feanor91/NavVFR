@@ -1,0 +1,47 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFPP (AIP France, chart dated 2024-07-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFPP",
+  "name": "Plessis-Belleville",
+  "source": {
+    "publication": "AIP France AD 2 LFPP",
+    "chartDate": "2024-07-11",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 49.10917,
+    "longitude": 2.73694
+  },
+  "elevationFeet": 387,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.405",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "airAir": 120.405
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        65,
+        245
+      ]
+    },
+    {
+      "id": "07R/25L",
+      "qfu": [
+        65,
+        245
+      ]
+    }
+  ]
+}

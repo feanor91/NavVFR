@@ -1,0 +1,75 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGP (AIP France, chart dated 2026-04-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGP",
+  "name": "Saint-Florentin - Chéu",
+  "source": {
+    "publication": "AIP France AD 2 LFGP",
+    "chartDate": "2026-04-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.98139,
+    "longitude": 3.77694
+  },
+  "elevationFeet": 355,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.04",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.04
+  },
+  "runways": [
+    {
+      "id": "07L/25R",
+      "qfu": [
+        70,
+        250
+      ]
+    },
+    {
+      "id": "07C/25C",
+      "qfu": [
+        70,
+        250
+      ]
+    },
+    {
+      "id": "07R/25L",
+      "qfu": [
+        70,
+        250
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of contiguous RWY prohibited.",
+    "RWY 07R/25L reserved for gliders winching.",
+    "Preferred QFU at landing: 070°, due to clearing.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Parachuting NR 268: see AIP ENR 5.5 Gliders' winching NR 951: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des pistes accolées interdite.",
+      "Piste 07R/25L réservée au treuillage planeurs.",
+      "QFU 070° préférentiels à l'atterrissage cause dégagements.",
+      "Roulage interdit hors pistes et TWY.",
+      "Activités particulières Parachutage N°268 : voir AIP ENR 5.5 Treuillage planeur N°951 : voir AIP ENR 5.5"
+    ]
+  }
+}

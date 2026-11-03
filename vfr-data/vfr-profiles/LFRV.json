@@ -1,0 +1,106 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRV (AIP France, chart dated 2025-08-07): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFRV",
+  "name": "Vannes - Meucon",
+  "source": {
+    "publication": "AIP France AD 2 LFRV",
+    "chartDate": "2025-08-07",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.71917,
+    "longitude": -2.72333
+  },
+  "elevationFeet": 440,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS du 01/11 au 31/03 : LUN-DIM et JF : 0800-1130, 1230-1700. Du 01/04 au 31/10 : LUN-DIM et JF : 0800-1130, 1230-1800. AFIS activable sur demande de 1130 à 1230. En dehors de ces HOR : O/R PN 48 HR à l'exploitant AD pour les EVASAN et vols commerciaux uniquement sur myhandling.com From 01/11 to 31/03 : MON-SUN and public HOL : 0800-1130, 1230-1700. From 01/04 to 31/10 : MON-SUN and public HOL : 0800-1130, 1230-1800 (UTC HIV ; HOR ETE : - 1 HR)",
+    "outsideAtsHours": "air-air frequency 122.605",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 122.605,
+    "airAir": 122.605
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        40,
+        220
+      ]
+    },
+    {
+      "id": "08/26",
+      "qfu": [
+        81,
+        261
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Outside of scheduled operating hour: AFIS service can be provided for aerodrome traffic anytime without prior notice.",
+    "The service is known on.",
+    "AFIS FREQ.",
+    "Possible IFR operations.",
+    "Simultaneous use of both RWY prohibited out AFIS SKED.",
+    "Request by E-mail AFIS During the parachuting activity, RWY 08/26 reserved for aircraft used by the signatory entities of the parachuting protocol 274 and for aircraft authorized by the operator.",
+    "Information available AFIS or A/A.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "PAPI in mandatory operation for any night approach RWY 22.",
+    "\"Low height\" circuits allowed only for training flights with instructor: minimum 500 ft AAL SE RWY 04/22.",
+    "Pilots should use the following VFR reporting points especially for the LF-R 278 and R 279 avoiding tracks.",
+    "LF-R 278 VANNES entry conditions (excluding LF- R94 A Meucon area): radio contact mandatory with VANNES INFO or A/A absence AFIS.",
+    "LF-R 279 VANNES PARA entry conditions (excluding LF-R 94 A and B Meucon areas): avoidance mandatory during activity except for: ACFT departing from or arriving to VANNES GOLFE.",
+    "DU MORBIHAN AD",
+    "ACFT dropping parachutists",
+    "ACFT conducting assistance, rescue or public safety missions, when they can't avoid the area.",
+    "Starting -up request is mandatory for all helicopters.",
+    "During the parachuting activity, aircraft departing from/arriving at Vannes, avoid overflying the North and North-West sectors of the installations.",
+    "During the parachuting activity, aircraft making an arrival followed by a departure, do not turn before overflying the opposite THR.",
+    "For the reconnaissance of the windsock, stay East of paved RWY.",
+    "Bridge near the village Bono.",
+    "Important parachuting activity.",
+    "TWY B prohibited.",
+    "PJE (NR 274) on AD: see AIP ENR 5.5 Aerobatics (NR 6358) on AD: see AIP ENR 5.5 Simultaneous aerobatics and parachuting activity forbidden."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "En dehors des horaires programmés : le service AFIS peut être rendu à tout moment sans.",
+      "",
+      "",
+      "Activité IFR possible.",
+      "Interdiction d'utilisation simultanée des deux pistes hors HOR AFIS.",
+      "Demande par E-mail AFIS Pendant l'activité parachutage, piste 08/26 réservée aux appareils utilisés par les entités signataires du protocole parachutage 274 et aux appareils autorisés par l'exploitant.",
+      "Information disponible AFIS ou A/A.",
+      "Roulage interdit hors RWY et TWY.",
+      "PAPI en fonctionnement obligatoire pour toute approche de nuit RWY 22.",
+      "Circuits « basse hauteur » autorisés dans le cadre des vols d'entraînement avec instructeur uniquement : minimum 500 ft AAL, au SE RWY 04/22.",
+      "Les pilotes sont invités à utiliser les points de report VFR notamment dans les trajectoires de contournement des LF-R 278 et R 279.",
+      "Conditions de pénétration de la LF-R 278 VANNES (à l'exclusion de la zone LF - R94 A Meucon) : contact radio obligatoire avec VANNES INFO ou A/A en l'absence AFIS.",
+      "Conditions de pénétration de la LF-R 279 VANNES PARA (à l'exclusion des zones LF-R 94 A et B Meucon): contournement obligatoire pendant l'activité sauf : ACFT au départ et à destination AD VANNES GOLFE.",
+      "DU MORBIHAN",
+      "ACFT largueurs de parachutistes",
+      "ACFT assurant des missions d'assistance, de sauvetage ou de sécurité publique, lorsque leur mission ne permet pas le contournement de la zone.",
+      "Demande de mise en route obligatoire pour tout hélicoptère.",
+      "Pendant l'activité parachutage, les appareils au départ/arrivée de Vannes, éviter le survol des secteurs Nord et Nord-Ouest des installations.",
+      "Pendant l'activité de parachutage, les appareils effectuant une arrivée suivie d'un départ, ne pas virer avant le survol du seuil opposé.",
+      "",
+      "",
+      "Importante activité de parachutage.",
+      "TWY B non utilisable.",
+      "Activité parachutage (N°274) sur AD : voir AIP ENR 5.5 Voltige (N° 6358) sur AD : voir AIP ENR 5.5 Activité simultanée de voltige et de parachutage interdite."
+    ]
+  }
+}

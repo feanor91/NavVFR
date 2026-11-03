@@ -1,0 +1,394 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFMD (AIP France, chart dated 2026-04-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFMD",
+  "name": "Cannes - Mandelieu",
+  "source": {
+    "publication": "AIP France AD 2 LFMD",
+    "chartDate": "2026-04-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.54639,
+    "longitude": 6.95417
+  },
+  "elevationFeet": 14,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "0700-1900 ou / or 0700-2000 ou / or 0700-2100 selon / according to NOTAM (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "atis": 130.48,
+    "approach": 120.655,
+    "tower": 118.625
+  },
+  "runways": [
+    {
+      "id": "17/35",
+      "qfu": [
+        170,
+        350
+      ]
+    },
+    {
+      "id": "04/22",
+      "qfu": [
+        43,
+        223
+      ]
+    },
+    {
+      "id": "17L/35R",
+      "qfu": [
+        170,
+        350
+      ]
+    }
+  ],
+  "preferredQfu": 170,
+  "preferredQfuReason": "preferred QFU 170, due to LDA and environment",
+  "reportingPoints": [
+    {
+      "name": "EW",
+      "spoken": {
+        "fr": "Écho Whisky",
+        "en": "Echo Whiskey"
+      },
+      "latitude": 43.66,
+      "longitude": 6.98,
+      "location": "Golf au Sud du village d'Opio"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 43.63278,
+      "longitude": 6.85306,
+      "location": "Stade Le Tignet"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 43.75,
+      "longitude": 7.18889,
+      "location": "Sur le Var, Barrage Nord du centre commercial"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 43.48889,
+      "longitude": 7.04694,
+      "location": "1 NM au Sud de l'île Saint Honorat"
+    },
+    {
+      "name": "SB",
+      "spoken": {
+        "fr": "Sierra Bravo",
+        "en": "Sierra Bravo"
+      },
+      "latitude": 43.53528,
+      "longitude": 7.145,
+      "location": "1 NM au Sud du Cap Gros"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 43.43583,
+      "longitude": 6.935,
+      "location": "1 NM Sud-Est Cap Roux"
+    },
+    {
+      "name": "DR",
+      "spoken": {
+        "fr": "Delta Roméo",
+        "en": "Delta Romeo"
+      },
+      "latitude": 43.39833,
+      "longitude": 6.85556,
+      "location": "0.8 NM Sud du Phare du Cap du Dramont"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 43.66694,
+      "longitude": 7.14556,
+      "location": "Château de Cagnes-sur-Mer"
+    },
+    {
+      "name": "WL",
+      "spoken": {
+        "fr": "Whisky Lima",
+        "en": "Whiskey Lima"
+      },
+      "latitude": 43.55389,
+      "longitude": 6.79389,
+      "location": "Pointe Sud du lac de St Cassien"
+    },
+    {
+      "name": "WD",
+      "spoken": {
+        "fr": "Whisky Delta",
+        "en": "Whiskey Delta"
+      },
+      "latitude": 43.52111,
+      "longitude": 6.80667,
+      "location": "Stade du Planestel au Sud de l'autoroute A8"
+    },
+    {
+      "name": "LC",
+      "spoken": {
+        "fr": "Lima Charlie",
+        "en": "Lima Charlie"
+      },
+      "latitude": 43.58583,
+      "longitude": 6.99778,
+      "location": "Intersection entre l'avenue du maréchal Juin et l'autoroute A8"
+    },
+    {
+      "name": "HE",
+      "spoken": {
+        "fr": "Hôtel Écho",
+        "en": "Hotel Echo"
+      },
+      "latitude": 43.54417,
+      "longitude": 6.97028,
+      "location": "Digue rocheuse à l'Est de la double jetée au S/O de la gare de triage de Cannes-La Bocca et au S/E du bâtiment au toit jaune"
+    },
+    {
+      "name": "HV",
+      "spoken": {
+        "fr": "Hôtel Victor",
+        "en": "Hotel Victor"
+      },
+      "latitude": 43.52556,
+      "longitude": 7.01667,
+      "location": "Ouest Phare du Batéguier (île Sainte-Marguerite)"
+    },
+    {
+      "name": "HW",
+      "spoken": {
+        "fr": "Hôtel Whisky",
+        "en": "Hotel Whiskey"
+      },
+      "latitude": 43.53778,
+      "longitude": 6.95861,
+      "location": "Jetée longue à l'Est du port abri du Béal"
+    },
+    {
+      "name": "SV",
+      "spoken": {
+        "fr": "Sierra Victor",
+        "en": "Sierra Victor"
+      },
+      "latitude": 43.5075,
+      "longitude": 7.03167,
+      "location": "Travers Ouest de l'île Saint-Honorat"
+    },
+    {
+      "name": "PF",
+      "spoken": {
+        "fr": "Papa Foxtrot",
+        "en": "Papa Foxtrot"
+      },
+      "latitude": 43.53944,
+      "longitude": 7.07778,
+      "location": "Phare de la Fourmigue (Baie de Golfe-Juan)"
+    },
+    {
+      "name": "TA",
+      "spoken": {
+        "fr": "Tango Alpha",
+        "en": "Tango Alpha"
+      },
+      "latitude": 43.53667,
+      "longitude": 7.00167,
+      "location": "Entre le Sud des rochers rouges et HV"
+    },
+    {
+      "name": "TD",
+      "spoken": {
+        "fr": "Tango Delta",
+        "en": "Tango Delta"
+      },
+      "latitude": 43.50556,
+      "longitude": 6.99444,
+      "location": "Ouest de SV et Sud de TA"
+    }
+  ],
+  "notes": [
+    "Except for emergency cases liable to affect ACFT safety, AD reserved for general aviation operations or tourism in particular, prohibited to: ACFT providing commercial scheduled air transport; ACFT equipped with turbopropellers, whose MTOW exceeds 22 t.; ACFT concerned by chapter 2 and turbojet-engined.",
+    "ACFT concerned by ICAO Annex 16, chapter 3, part 2, entitled \"Environmental protection (volumes I and II)* with a cumulated margin lower than 13 EPNdB (Effective Perceived Noise deciBel) non radio equipped ACFT microlights HEL: see AD 3 LFMD RWY 04/22: For use in the daytime only, when ATS are present.",
+    "Dedicated mainly to helicopter traffic, plane traffic only with ATC clairance.",
+    "Prohibited to ACFT whose one the following conditions is applicable: wingspan > 15 m; main gear overall width > 4,5 m; TKOF reference distance > 800 m.",
+    "Grass RWY 17/35: Usable only with ATC clearance.",
+    "Unusable after rain.",
+    "Line-up and clearing shall be performed at the end of strip, laterally, from and to TWY W (see GMC 01).",
+    "Outside ATS SKED: aerodrome is closed during night time,; daytime, A/A in French only for the aerodrome traffic.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "LDG are difficult with severe winds from NW (Mistral).",
+    "Severe turbulences due to down-draughts and rotors on AD.",
+    "Mix-up risk with AD CANNES-MANDELIEU and old AD FREJUS which is closed.",
+    "Presence of groups of trees in the South, in the North and in the West of RWY 17/35.",
+    "OBSTACLES (TREES) PENETRATING THE FOLLOWING CLEARING SURFACES: 1/ LDG funnel paved RWY 35 OBST 1: RDL 193°/823 m ARP ALT top 18.9 m OBST 2: RDL 194°/836 m ARP ALT top 18.7 m OBST 3: RDL 193°/841 m ARP ALT top 20.1 m OBST 4: RDL 191°/842 m ARP ALT top 19.8 m OBST 5: RDL 193°/854 m ARP ALT top 19.5 m OBST 6: RDL 193°/867 m ARP ALT top 19.2 m OBST 7: RDL 191°/901 m ARP ALT top 21.7 m 2/ TKOF funnel South area of paved RWY 17 OBST 1: RDL 194°/758 m ARP ALT top 7.2 m OBST 2: RDL 195°/739 m ARP ALT top 13 m OBST 3: RDL 195°/834 m ARP ALT top 19 m OBST 4: RDL 194°/861 m ARP ALT top 20 m (N° 65) 3/ Lateral surface West part of paved RWY 17/35 OBST 1: RDL 199°/722 m ARP ALT top 9.4 m The use of A3 and A5 turn-offs is prohibited.",
+    "Preferred QFU 170°, due to LDA and environment.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "ALPHA apron reserved for piston or turboprop ACFT whose wingspan does not exceed 8.61 m.",
+    "MIKE and GOLF aprons reserved for piston or turboprop ACFT whose wingspan does not exceed 12 m and length does not exceed 10.46 m with mandatory parking inside markings of white and yellow cone beacons.",
+    "ECHO and LIMA apron limited to piston or turboprop ACFT whose wingspan does not exceed 15 m.",
+    "Other code A ACFT: towing mandatory from/to Tango 1.",
+    "RWY 17/35: Multi-engined ACFT must perform traffic pattern at 1500 ft and maintain 1500 ft until the interception of RWY axis.",
+    "Except for emergency, reverse prohibited.",
+    "In RWY circuit, according to operational conditions, comply with configuration and rate available for low noise procedure.",
+    "After TKOF RWY 17, do not turn before: 800 ft climbing to the right,; 600 ft climbing to the left 5.",
+    "RWY 04/22:; Engine run-up area for turbojets and turbopropellers is located on RWY 04/22 or VICTOR TWY.; Turn as soon as possible towards the sea; Circuits only above the sea.",
+    "Densely populated area: strictly comply with routes and avoidance of urban areas highlighted with \"blue circles\".",
+    "Apply noise abatement approach procedures.",
+    "Base leg RWY 22 at the West of the railway CannesGrasse.",
+    "Circling limitations - Definitions: \"Aircraft based on the aerodrome\": aircraft whose main operating base has been declared to be Cannes.",
+    "Mandelieu aerodrome, to the surveillance authority or the aerodrome manager.",
+    "\"Light aircraft\": aircraft equipped with one or several piston engines, the maximum take-off weight is lower than or equal to 8 618 kg.",
+    "They are: either aircraft having an airworthiness certificate or restricted airworthiness certificate under regulation (EU) no.",
+    "748/2012, annex I, part 21, section B;; or aircraft having an airworthiness certificate, a special airworthiness certificate or a restricted airworthiness certificate for aircraft with no type airworthiness manager under order dated 28 August 1978.; \"Circling\": aerodrome traffic pattern starting by take- off, circling around the airfield in VFR conditions and ending by landing.; \"Low-altitude circuits\" are circlings performed between 150 meters and the standard circuit height, following a short pattern to remain close to the runway.; The classification of aircraft into categories is set by the decree of July 17, 2024 classifying light aircraft according to their noise performance index (CALIPSO).",
+    "General: The circling performance conditions for light aircraft on Cannes Mandelieu aerodrome are as follows (these restrictions do not apply to electric aviation): Circling is authorized only between 0800 and 1900 (SUMMER: - 1 HR) during ATS SKED.; Low-altitude circling are authorized only on RWY 17/35 and outside any helicopter activity on runway 04/22.",
+    "They are reserved for initial and practical training with an instructor onboard.",
+    "Circling is limited to 5 consecutive patterns, including 3 low altitude patterns maximum for based aircraft classified in categories A+, A or B.",
+    "Circling is limited to 3 consecutive patterns, including 2 low altitude patterns maximum for based aircraft classified in category C.",
+    "Circling is limited to 2 consecutive patterns and lowaltitude circling is prohibited for based aircraft classified in category D or unclassified.",
+    "For non-based light aircraft, circling is prohibited: On Saturdays, Sundays, and public holidays;; If the aircraft is classified in category C or D, or unclassified;; If performed at low altitude.",
+    "In other cases, circling is limited to 2 consecutive patterns.",
+    "From 1st June to 15th September: Circling is prohibited for non-based aircraft; On Saturdays, Sundays and public holidays:; Circling is prohibited for ACFT classified in categories.",
+    "C or D, or unclassified.",
+    "Circling is prohibited between 1000 and 1300.",
+    "Incoming Flights ARR via WL1: ARR WL at PREF ALT 2500 ft AMSL, clearance limit then, on ATC instruction to the overhead TWR, 2 NM before TWR, descend to 1500 ft.",
+    "Pass to the North of the highway.",
+    "ARR via DR1: Clearance only until DR, then with CANNES TWR instruction route to SW-SA 1000 ft.",
+    "Arrival from Corsica: LERMA (R 160 VOR CNM ) --> SW (1000 ft AMSL).",
+    "With ATC clearance only: MERLU ---> SA MAX 2000 ft AMSL by night, 1000 ft AMSL by day.",
+    "ALT préférentielles / Preferred altitudes Outgoing flights DEP via WD2: after TKOF RWY 17, climb on axis up to 800 ft.",
+    "At 800 ft, turn right over the sea to WD2 DEP route via Theoule viaduct, climbing to 2000 ft maximum inbound WD.",
+    "After TKOF RWY 22, left turn ASAP to join RWY 17 axis, then WD2 route.",
+    "DEP via DR2: after TKOF RWY 17, climb on axis to join DR2 route up to 1000 ft maximum until SW then climb up to 2000 ft maximum inbound DR.",
+    "After TKOF RWY 22, left turn ASAP to join RWY 17 axis, then DR2 route.",
+    "Departure to Corsica SW (1000 ft AMSL) --> LERMA.",
+    "With ATC clearance only: SA ---> MERLU MAX 2000 ft AMSL by night, 1000 ft AMSL by day.",
+    "Ingoing and outgoing: (unless otherwise instructed by control) DR <—> LFMD, 1000 ft MAX, follow the shore line.",
+    "Only RWY 35 available for landing.",
+    "Traffic pattern at 1500 ft for all ACFT.",
+    "First turn at minimum 1000 ft climbing avoiding flying over the village of ‘'La Roquette sur Siagne''.",
+    "Particular restrictions may be implemented in case of failure of some obstacle lighting.",
+    "Departure RWY 17: To CNM: At 1000 ft turn left climbing up to vertical AD at 2500 ft then route to CNM climbing up to 3500 ft AMSL.",
+    "To EW: At 1000 ft turn left climbing up to 2500 ft to EW.",
+    "Departure RWY 35: To CNM: At 1000 ft MNM turn right, climb overhead 2500 ft then proceed towards CNM climbing up to 3500 ft AMSL avoid overflying of \"la Roquette sur Siagne\".",
+    "To EW: climb, in RWY axis to 1000 ft AMSL, continue climbing to 2500 ft AMSL by turning to the right to EW, avoid overflying of \"la Roquette sur Siagne\".",
+    "Arrival RWY 35: From CNM: CNM at 3500 ft then vertical AD at 2500 ft then right hand down wind at 1500 ft.",
+    "From EW: EW at 2500 ft then right hand down wind at 1500 ft.",
+    "Complementary routes: This route is only available with NICE Approach VFR clearance.",
+    "It depends of NICE Approach configuration. a) CANNES Arrival: STP - DR 2500 ft AMSL followed by: straight approach 35 or,; overhead the airfield at 2500 ft AMSL and airfield circuit. b) Maritime crossings:.",
+    "Maritime crossings with LFMD departure or destination join the route VOR LUC <--> VOR CNM (3500 ft QNH MNM) <--> Vertical LFMD (2500 ft QNH MNM) via LERMA <--> STP.",
+    "With ATC clearance only: MERLU <--> SA (2000 ft QNH).",
+    "Traffic surveillance equipment: AD equipped with radar display (see AD 1.0).",
+    "Radiocommunication failure: Out of CTR: Do not enter CTR and land at the nearest appropriate aerodrome.",
+    "Services d'assistance / Handling services:"
+  ],
+  "fr": {
+    "notes": [
+      "Sauf cas d'urgence susceptible de mettre en jeu la sécurité des ACFT, AD réservé aux besoins de l'aviation générale et spécialement de tourisme, interdit : aux ACFT assurant des transports commerciaux réguliers. aux ACFT équipés de turboréacteurs, dont la MTOW exède 35 t. aux ACFT équipés de turbopropulseurs, dont la MTOW excède 22 t. aux ACFT relevant du chapitre 2 et aux ACFT turboréacteurs relevant du chapitre 3, de l'annexe 16 de la Convention de l'aviation Civile Internationale, volume 1, deuxième partie intitulée \"Protection de l'environnement (volume I et II)* avec une marge cumulée inférieure à 13 EPNdB (Effective Perceived.",
+      "",
+      "Dédiée principalement au trafic hélico, trafic avion uniquement sur clairance du contrôle.",
+      "Interdite aux ACFT dont l'une au moins des conditions ci-dessous est remplie : envergure > 15 m ; largeur hors tout du train principal > 4,5 m ; distance de référence au décollage > 800 m.",
+      "CANNES MANDELIEU RWY non revêtue 17/35 : Utilisable uniquement sur clairance du contrôle.",
+      "Inutilisable après pluie.",
+      "L'alignement et le dégagement s'effectuent en fin de bande, latéralement, en provenance de et vers le TWY W (voir GMC 01).",
+      "Absence ATS : terrain fermé de nuit ; de jour : A/A en français uniquement dans la circulation d'aérodrome.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "LDG difficiles par vents forts de NW (Mistral).",
+      "Fortes turbulences causées par cisaillements de vent et rotor sur AD.",
+      "Risque de confusion entre l'aérodrome de CANNESMANDELIEU et l'ancien aérodrome de FREJUS qui est fermé.",
+      "Présence de massifs d'arbres au Sud, au Nord et à l'Ouest RWY 17/35.",
+      "OBSTACLES (ARBRES) PERCANT LES SURFACES DE DEGAGEMENT SUIVANTES : 1/ Trouée d'atterrissage piste 35 revêtue OBST 1 : RDL 193°/823 m ARP ALT top 18,9 m OBST 2 : RDL 194°/836 m ARP ALT top 18,7 m OBST 3 : RDL 193°/841 m ARP ALT top 20,1 m OBST 4 : RDL 191°/842 m ARP ALT top 19,8 m OBST 5 : RDL 193°/854 m ARP ALT top 19,5 m OBST 6 : RDL 193°/867 m ARP ALT top 19,2 m OBST 7 : RDL 191°/901 m ARP ALT top 21,7 m 2/ Trouée de décollage piste 17 revêtue zone sud OBST 1 : RDL 194°/758 m ARP ALT top 7.2 m OBST 2 : RDL 195°/739 m ARP ALT top 13 m OBST 3 : RDL 195°/834 m ARP ALT top 19 m OBST 4 : RDL 194°/861 m ARP ALT top 20 m (N° 65) 3/ Surface latérale piste 17/35 revêtue partie ouest OBST 1 : RDL 199°/722 m ARP top 9,4 m L'utilisation des bretelles intermédiaires A3 et A5 est interdite.",
+      "QFU 170° préférentiel cause LDA et environnement.",
+      "Roulage interdit hors piste et TWY.",
+      "CANNES MANDELIEU Aire ALPHA réservée aux ACFT à piston ou turbopropulseurs dont l'envergure n'excède pas 8,61 m.",
+      "Aire MIKE et GOLF réservées aux ACFT à piston ou turbopropulseurs dont l'envergure n'excède pas 12 m et la longueur n'excède pas 10,46 m avec stationnement impératif à l'intérieur des emplacements matérialisés par les balises coniques blanches et jaunes.",
+      "Aire ECHO et LIMA : limité aux ACFT à piston et turbopropulseurs dont l'envergure n'excède pas 15 m.",
+      "Autres aéronefs code A : tractage obligatoire depuis/vers le parking TANGO.",
+      "RWY 17/35 : Circuit de piste multimoteurs à 1500 ft, et maintenir 1500 ft jusqu'à l'interception de l'axe de la finale.",
+      "Sauf cas d'urgence, ne pas utiliser les inverseurs de poussée.",
+      "En circuit de piste, selon les conditions opérationnelles du moment, adopter la configuration et le régime correspondant au moindre bruit.",
+      "Après TKOF RWY 17, ne pas virer avant : 800 ft à droite ; 600 ft à gauche.",
+      "La zone d'essais moteurs pour les jets et les turbopropulseurs se situe sur la piste 04/22 ou le TWY VICTOR. Tourner dès que possible vers la mer. Circuits uniquement sur la mer.",
+      "Zone fortement urbanisée : respect impératif des itinéraires et des zones urbaines indiquées par des « ronds bleus ».",
+      "Application des procédures de pilotage et de configuration d'approche moindre bruit.",
+      "Étape de base RWY 22 à l'Ouest de la voie ferrée Cannes-Grasse.",
+      "Restrictions des tours de piste - Définitions : \"Aéronef basé sur l'aérodrome\" : aéronef dont la base principale d'exploitation a été déclarée comme étant.",
+      "",
+      "",
+      "",
+      "Il s'agit : soit d'un avion muni d'un certificat de navigabilité ou d'un certificat de navigabilité restreint au sens du règlement (UE) n° 748/2012, annexe I, partie 21, section B ; ; soit d'un avion muni d'un certificat de navigabilité, d'un certificat de navigabilité spécial ou d'un certificat de navigabilité restreint d'aéronef sans responsable de navigabilité de type au sens de l'arrêté du 28 août 1978. « Tour de piste » : circuit d'aérodrome commençant par le décollage, faisant le tour en vue de l'aérodrome et se terminant par l'atterrissage. « Tours de piste à basse hauteur » : tours de piste exécutés entre 150 mètres et la hauteur du tour de piste standard et dont la trajectoire suivie est celle d'un circuit court afin de ne pas s'éloigner de la piste. La classification des avions en catégorie s'entend de celle fixée par l'arrêté du 17 juillet 2024 portant classification des avions légers selon leur indice de performance sonore (CALIPSO).",
+      "Généralités : Les conditions d'exécution des tours de piste des avions légers sur l'aérodrome de Cannes Mandelieu sont les suivantes (ces restrictions ne sont pas applicables à l'aviation électrique) : Les tours de piste sont autorisés seulement entre 0800 et 1900 (ETE : - 1 HR) pendant les HOR ATS. Les tours de piste basse hauteur ne sont autorisés qu'en piste 17/35 et en dehors de toute activité hélicoptère en piste 04/22.",
+      "",
+      "Ils sont réservés à la formation et à l'entraînement avec instructeur à bord. Les tours de piste sont limités à 5 consécutifs maximum, dont 3 au maximum à basse hauteur pour les avions basés classés dans la catégorie A+, A ou B.",
+      "Les tours de piste sont limités à 3 consécutifs maximum, dont 2 au maximum à basse hauteur pour les avions basés classés dans la catégorie C.",
+      "Les tours de piste sont limités à 2 consécutifs maximum et les tours de piste basse hauteur sont interdits pour les avions basés classés dans la catégorie D ou non classés.",
+      "Pour les avions légers non basés, les tours de piste sont interdits dans les cas suivants : Les samedis, dimanches et jours fériés ; ; Lorsque l'avion est classé dans la catégorie C ou D, ou non classé ; ; Lorsqu'ils sont exécutés à basse hauteur.",
+      "Les tours de piste sont limités à 2 consécutifs dans les autres cas.",
+      "Du 1er juin au 15 septembre : Les tours de piste sont interdits pour les aéronefs non basés. Les samedis, dimanches et jours fériés : Les tours de pistes sont interdits aux avions classés.",
+      "C ou D, ou non classés.",
+      "Les tours de pistes sont interdits entre 1000 et 1300.",
+      "CANNES MANDELIEU Arrivées Arrivée WL1 : Arrivée WL à 2500 ft AMSL PREF, WL clairance limite, sur instruction du CTL vers la verticale TWR, à 2 NM de la verticale, descendre vers 1500 ft.",
+      "Bien passer au Nord de l'autoroute.",
+      "Arrivée DR1 : DR clairance limite puis sur instruction CANNES TWR route vers SW-SA 1000 ft.",
+      "Arrivées en provenance de la Corse : LERMA (R 160 VOR CNM) --> SW (1000 ft AMSL).",
+      "Sur clairance du contrôle uniquement : MERLU ---> SA MAX 2000 ft AMSL de nuit, 1000 ft AMSL de jour.",
+      "Point ARR N 2500 ft EW 3000 ft SW 1000 ft WD WL 2500 ft Départs Départ WD2 : après TKOF RWY 17, monter dans l'axe jusqu'à 800 ft.",
+      "A 800 ft, tourner à droite sur la mer pour rejoindre la trajectoire WD2 par le viaduc de Théoule en poursuivant la montée à 2000 ft maximum vers WD.",
+      "Après TKOF RWY 22, virage à gauche dès que possible pour rejoindre l'axe RWY 17 puis l'itinéraire WD2.",
+      "Départ DR2 : après TKOF RWY 17, monter dans l'axe et rejoindre l'itinéraire DR2 1000 ft maximum jusqu'à SW puis monter jusqu'à 2000 ft maximum vers DR.",
+      "Après TKOF RWY 22, virage à gauche dès que possible pour rejoindre l'axe RWY 17 puis l'itinéraire DR2.",
+      "Départ vers la Corse SW (1000 ft AMSL) --> LERMA.",
+      "Sur clairance du contrôle uniquement : SA ---> MERLU MAX 2000 ft AMSL de nuit, 1000 ft AMSL de jour.",
+      "Cheminement arrivées et départs : (sauf clairance contraire du contrôle) DR <—> LFMD, 1000 ft MAX, suivre la côte.",
+      "Piste 35 seule utilisable à l'atterrissage.",
+      "Circuit de piste à 1500 ft pour tout ACFT.",
+      "1er virage à 1000 ft minimum en montée, en évitant le survol du village de La Roquette sur Siagne.",
+      "Attention des restrictions peuvent être mises en place en cas de panne de certains balisages d'obstacles.",
+      "Départ RWY 17 : Vers CNM : virage à gauche à 1000 ft monter verticale 2500 ft puis faire route vers CNM en montée vers 3500 ft AMSL.",
+      "Vers EW : virage à gauche à 1000 ft puis monter 2500 ft AMSL en route vers EW.",
+      "Départ RWY 35 : Vers CNM : virage à droite à minimum 1000 ft, monter verticale 2500 ft puis faire route vers CNM en montée vers 3500 ft AMSL en évitant le survol du village de la Roquette sur Siagne.",
+      "Vers EW : monter dans l'axe à 1000 ft AMSL puis poursuivre le montée 2500 ft AMSL par virage à droite en route vers EW en évitant le survol de la Roquette sur Siagne.",
+      "Arrivée RWY 35 : Depuis CNM : CNM 3500 ft puis verticale 2500 ft puis vent arrière droite à 1500 ft.",
+      "Depuis EW : 2500 ft EW puis vent arrière droite à 1500 ft.",
+      "Itinéraire complémentaire : Cet itinéraire est utilisable sur autorisation de NICE Approche VFR.",
+      "",
+      "Les traversées maritimes à destination ou au départ de LFMD rejoignent l'itinéraire VOR LUC <--> VOR CNM (3500 ft QNH MNM) <--> Verticale LFMD (2500 ft QNH MNM) via LERMA <--> STP.",
+      "Sur clairance CTL uniquement : MERLU <--> SA (2000 ft QNH).",
+      "Équipement de surveillance du trafic : Aérodrome équipé d'une visualisation radar (voir AD 1.0).",
+      "Panne de radiocommunication : Hors CTR : ne pas pénétrer dans la CTR et se poser sur l'aérodrome approprié le plus proche.",
+      ""
+    ]
+  }
+}

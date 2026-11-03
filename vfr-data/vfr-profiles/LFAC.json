@@ -1,0 +1,77 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFAC (AIP France, chart dated 2026-05-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFAC",
+  "name": "Calais - Dunkerque",
+  "source": {
+    "publication": "AIP France AD 2 LFAC",
+    "chartDate": "2026-05-14",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 50.96083,
+    "longitude": 1.95139
+  },
+  "elevationFeet": 12,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : HIV / WIN : 0830-1630 ETE / SUM : 0730-1600 En dehors de ces HOR, PPR 48 HR pour EVASAN et vols commerciaux au 03 52 44 04 17 ou 03 21 35 22 66 ou 06 85 96 80 68 ou par mail à calais.aeroport@edeis.com Outside these SKED, PPR 48 HR for MEDEVAC and commercial flights at 03 52 44 04 17 or 03 21 35 22 66 or 06 85 96 80 68, or by (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 119.485",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "fis": 132.54,
+    "approach": 120.275,
+    "afis": 119.485,
+    "airAir": 119.485
+  },
+  "preferredQfu": 239,
+  "preferredQfuReason": "preferred QFU 239, due to IFR procedure",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Outside SKED, AFIS service may be provided at any moment without any prior notice, in aerodrome circuit.",
+    "Actual activity known on AFIS FREQ.",
+    "FATO: helipad weight limit is 4.3 tons,; arriving helicopters will report for the helipad or paved RWY depending on their weight,; takeoff from the helipad at 06 is possible if there is no ACFT taxiing or parked on the apron.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Hospital helistation located on RWY 06 final axis (242°/ 2.6 NM ARP), usable day and night.",
+    "Activity announced on CALAIS FREQ.",
+    "Preferred QFU 239° due to IFR procedure.",
+    "Low altitude patterns: Trainings AD circuits lower than published heights: reserved for training flights with instructor on board; limited to 3 AD circuits by training flight; minimum height: 300 ft AAL.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "TWY A, B, C width: 15 m.",
+    "TWY D width: 8 m.",
+    "TWY D prohibited at night (no lighting).",
+    "PCL: for general Aviation, PPR 2 hours from AD operator, before the closing of ATS,;.",
+    "PPR from AFIS, controls FATO lighting.",
+    "PJE on AD NR 227: see ENR 5.5 Aerobatic activity on AD NR 6001: see ENR 5.5 AEM activity: NR 8299: see ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "En dehors des HOR, le service AFIS peut être rendu à tout moment sans préavis, en circulation d'aérodrome.",
+      "Activité réelle connue sur la FREQ AFIS.",
+      "FATO : hélistation limitée à 4,3 tonnes ; les hélicoptères à l'arrivée s'annonceront pour l'hélistation ou la piste revêtue en fonction de leur masse ; décollage de l'hélistation en 06 possible en l'absence d'aéronef au roulage ou stationné sur le parking.",
+      "Site susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Hélistation hospitalière située sous la finale 06 (242°/ 2.6 NM ARP), utilisable de jour et de nuit.",
+      "Activité annoncée sur FREQ CALAIS.",
+      "QFU 239° préférentiel cause procédure IFR.",
+      "Circuits basse hauteur : Entraînements tour de piste inférieurs aux hauteurs publiées : réservés aux vols de formation avec instructeur à bord ; limités à 3 tours de piste par séance d'instruction ; hauteur minimale : 300 ft AAL.",
+      "Roulage interdit hors RWY et TWY.",
+      "Largeur TWY A, B, C : 15 m.",
+      "Largeur TWY D : 8 m.",
+      "TWY D interdit de nuit (aucun balisage lumineux).",
+      "PCL : pour aviation générale, PPR 2 heures auprès de l'exploitant, avant la fermeture ATS.",
+      "PPR auprès du service AFIS, commande l'éclairage FATO.",
+      "Parachutage sur AD N° 227 : voir ENR 5.5 Voltige sur AD N° 6001 : voir ENR 5.5 Activité aéromodélisme N° 8299 : voir ENR 5.5"
+    ]
+  }
+}

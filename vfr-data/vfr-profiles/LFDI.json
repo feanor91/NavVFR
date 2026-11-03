@@ -1,0 +1,86 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDI (AIP France, chart dated 2025-02-20): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFDI",
+  "name": "Libourne - Artigues-de-Lussac",
+  "source": {
+    "publication": "AIP France AD 2 LFDI",
+    "chartDate": "2025-02-20",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.98417,
+    "longitude": -0.13722
+  },
+  "elevationFeet": 157,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.655",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.655
+  },
+  "preferredQfu": 215,
+  "preferredQfuReason": "preferred QFU 215, due to noise pollution",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "TWY A: paved TWY principal (width: 7.5 m)",
+    "TWY B: paved TWY (width: 5 m).",
+    "TWY C: grass TWY.",
+    "Simultaneous use of RWY prohibited.",
+    "Simultaneous use of RWY or TWY and HEL TWY (translation by ground effect) prohibited.",
+    "Unpaved RWY reserved for home-based and ultra light ACFT.",
+    "Unpaved RWY and TWY cannot be used during rainy weather.",
+    "Business aviation or parking for more than 2 HR on paved apron: O/R PN 24 HR by TEL operator.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU 215° due to noise pollution.",
+    "Low altitude circuit patterns (700 ft AMSL MNM) for training flights by day only with an instructor on board.",
+    "Take-off RWY 04 day or night: climb MAG 045° up to 700 ft AMSL due to noise pollution.",
+    "In case of North/North-West wind, heavy turbulence and windshears may occur on both QFU.",
+    "Approved with limitations (because the power supply is not backed up): 1- for home-based pilots, after having passed a practical night flight aptitude exam on site with a qualified instructor.",
+    "2- for non home-based pilots: Have a minimum experience of 200 hours of flight including 20 hours at night and recent practice (3 takeoffs and 3 landings at night in the last 3 months) or have passed a practical flight aptitude exam at night on site with a qualified instructor.",
+    "Pilots must contact the aerodrome operator with PPR PN 48 HR by the means of communication mentioned on the aeronautical chart.",
+    "Only taxiway A can be used at night.",
+    "PCL coupled with PAPIs on A/A FREQ.",
+    "AEM (NR 9145): SR-SS, 330 ft ASFC MAX.",
+    "As per protocol.",
+    "Aerobatics activity on AD (NR 6606): SR-SS; 1000 m along RWY 04/22 axis, centered on ARP; 1700 ft AMSL / 2700 ft AMSL.",
+    "Activity announced on A/A FREQ."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "TWY A : TWY revêtu principal (largeur : 7.5 m)",
+      "TWY B : TWY revêtu (largeur : 5 m).",
+      "TWY C : TWY en herbe.",
+      "Utilisation simultanée des pistes interdite.",
+      "Utilisation simultanée RWY ou TWY et TWY de translation par effet de sol HEL interdite.",
+      "RWY non revêtue réservée aux ACFT basés et aux ULM.",
+      "RWY non revêtue et TWY non revêtue inutilisables en période de pluie.",
+      "Aviation d'affaire ou stationnement de plus de 2 HR sur parking revêtu : O/R PN 24 HR par TEL exploitant.",
+      "Roulage interdit hors pistes et TWY.",
+      "QFU 215° préférentiel cause nuisances sonores.",
+      "Tour de piste basse hauteur (700 ft AMSL MNM) pour les vols d'entraînement de jour uniquement avec instructeur.",
+      "Décollage piste 04 de jour comme de nuit : monter RM 045° jusqu'à 700 ft AMSL cause nuisances sonores.",
+      "Par situation de vent soufflant entre le secteur Nord et Nord-Ouest, risque de turbulences fortes et cisaillements sur les deux QFU.",
+      "VFR de nuit réservé : Agréé avec limitations (car l'alimentation électrique n'est pas secourue) : 1- aux pilotes basés, aprés avoir satisfait à une évaluation pratique d'aptitude en vol de nuit sur site par un instructeur qualifié.",
+      "2- aux pilotes non-basés : Avoir une expérience minimale de 200 heures de vol dont 20 heures de nuit et une pratique récente (3 décollages et 3 atterrissages de nuit dans les 3 derniers mois) ou avoir satisfait à une évaluation pratique d'aptitude en vol de nuit sur site par un instructeur qualifié.",
+      "Les pilotes devront contacter l'exploitant d'aérodrome avec PPR PN 48 HR par le moyen de communication mentionné sur la carte aéronautique.",
+      "Seule la voie de circulation A est utilisable de nuit.",
+      "PCL couplé aux PAPI sur FREQ A/A.",
+      "AEM (N° 9145) : SR-SS, 330 ft ASFC MAX.",
+      "Selon protocole.",
+      "Voltige sur AD (N°6606) : SR-SS ; axe RWY 04/22 de longueur 1000 m centré sur ARP 1700 ft AMSL / 2700 ft AMSL.",
+      "Activité annoncée sur FREQ A/A."
+    ]
+  }
+}

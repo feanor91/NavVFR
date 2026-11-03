@@ -1,0 +1,97 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHS (AIP France, chart dated 2022-07-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFHS",
+  "name": "Bourg - Ceyzériat",
+  "source": {
+    "publication": "AIP France AD 2 LFHS",
+    "chartDate": "2022-07-14",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.20556,
+    "longitude": 5.29167
+  },
+  "elevationFeet": 857,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.455",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.455
+  },
+  "preferredQfu": 178,
+  "preferredQfuReason": "preferred QFU 178, due to surrounding",
+  "notes": [
+    "AD reserved to radio-equipped ACFT.",
+    "Simultaneous use of both RWY prohibited.",
+    "Any TKOF or LDG on ACFT RWY is stopped if a glider is immobilized on unpaved RWY within a half width from the common RWY.",
+    "Do not use the unpaved RWY during rainy period.",
+    "Preferred QFU: 178°, due to surrounding.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "TWY B: limited to CAT A ACFT with a MAX speed of 10 kt.",
+    "Preferred parking to the North of the main apron.",
+    "ACFT TKOF: After take-off, follow MAG 012° or 162° and join circuit.",
+    "For departures, maintain these tracks, climbing to 1500 ft AMSL.",
+    "HEL: Arrivals from North or South must be conducted following the motorway at 500 ft.",
+    "Convex RWY: aligned ACFT are not visible from the opposed threshold.",
+    "Before penetrating, announce RWY used.",
+    "TWY B prohibited.",
+    "AD usable by night on PPR PN 24 HR.",
+    "E-mail: ppr.lfhs@gmail.com",
+    "Parking N to use.",
+    "RWY circuit at 2300 ft AMSL.",
+    "Training patterns reserved for home-based ACFT or authorized by AD operator.",
+    "West ARR: fly-pass overhead the RWY is compulsory.",
+    "Mandatory PAPI (re-routing if light off).",
+    "PAPI not turned on by PCL.",
+    "Aerobatics (NR 6806): RWY axis, FL 060 / 2500 ft AMSL: MON-FRI: 0900-1700 (SUM: - 1 HR); SAT, SUN, HOL: Day time.",
+    "Reserved for home-based ACFT and ACFT authorized beforehand by the AD operator.",
+    "Beginning and end of activity must be notified on LYON INFO 135.525 MHz.",
+    "Permanent radio monitoring on A/A FREQ.",
+    "AEM (NR 9665), SFC - 700 ft ASFC / 1600 ft AMSL, SR-SS as per protocol.",
+    "PARAMOTOR ULM reserved for home-based ACFT and authorized by AD operator."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux pistes interdite.",
+      "Tout TKOF ou LDG sur la piste avions est suspendu si un planeur est immobilisé sur la piste gazonnée à moins d'une demi largeur de la piste commune.",
+      "Ne pas utiliser la piste non revêtue en période humide.",
+      "QFU 178° préférentiel cause environnement.",
+      "Roulage interdit hors RWY et TWY.",
+      "TWY B : limité aux aéronefs de catégorie A avec une vitesse MAX de 10 kt.",
+      "Privilégier le stationnement au Nord du parking principal.",
+      "TKOF avions : Après décollage, prendre RM 012° ou 162° et rejoindre le tour de piste.",
+      "Pour les départs, maintenir les RM jusqu'à 1500 ft AMSL.",
+      "HEL : arrivées N et S en suivant l'autoroute à 500 ft.",
+      "",
+      "Avant de pénétrer, annoncer la piste utilisée.",
+      "TWY B interdit.",
+      "AD utilisable de nuit sur PPR PN 24 HR.",
+      "E-mail : ppr.lfhs@gmail.com",
+      "Parking N à utiliser.",
+      "Circuit 2300 ft AMSL.",
+      "Entraînement tours de piste réservé aux ACFT basés ou autorisés par l'exploitant d'aérodrome.",
+      "ARR Ouest : passage verticale RWY obligatoire.",
+      "PAPI obligatoire (déroutement si éteint).",
+      "PCL n'allume pas le PAPI.",
+      "Voltige sur AD (N° 6806) : axe de piste, FL 060 / 2500 ft AMSL : LUN-VEN : 0900-1700 (ETE : - 1 HR) ; SAM, DIM, JF : HJ.",
+      "Réservé aux ACFT basés et ceux autorisés au préalable par l'exploitant AD.",
+      "Notification de début et de fin d'activité sur la fréquence LYON INFO 135.525 MHz.",
+      "Veille radio permanente sur FREQ A/A.",
+      "AEM (N° 9665), SFC - 700 ft ASFC / 1600 ft AMSL, SRSS selon protocole.",
+      "ULM PARAMOTEUR réservé aux aéronefs basés et autorisés par l'exploitant d'aérodrome."
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFKP (AIP France, chart dated 2025-03-20): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFKP",
+  "name": "Tour-du-Pin - Cessieu",
+  "source": {
+    "publication": "AIP France AD 2 LFKP",
+    "chartDate": "2025-03-20",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.5575,
+    "longitude": 5.38611
+  },
+  "elevationFeet": 1055,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.615",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 119.615
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        112,
+        292
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved to ACFT and gliders whom pilots had been recognized able to use AD, by an instructor (or holding an instructor qualification).",
+    "Usable by HEL and ULM.",
+    "Usable declared distances: TODA RWY 11 and RWY 29 reduced to take into account obstacles in TKOF funnels.",
+    "Convex RWY: aligned ACFT are not visible from the opposite THR.",
+    "Hill East of the airfield with a large angle of 2.7° / 4.7% (from the East end of RWY 11).",
+    "Hill before THR 29: can create the illusion of being too low on the plan.",
+    "Possible air turbulence and descending air currents on final.",
+    "Presence of birds due to the waste reception centre in the East of the AD.",
+    "In case of gliding activity, possible absence of the dihedrals of RWY North-East or North-West angles.",
+    "Preferential QFU 292° due to hill East of the airfield.",
+    "TKOF RWY 29: after take-off, follow MAG 280°.",
+    "South AD traffic pattern for helicopters and class 3 ULM.",
+    "Limitation of noise emissions: Non home-based ACFT: avoid exceeding 3 consecutive AD circuits; HEL: limit prolonged hovering flights."
+  ],
+  "fr": {
+    "notes": [
+      "Aérodrome réservé aux avions et planeurs dont les pilotes ont été reconnus aptes à utiliser l'aérodrome par un instructeur (ou détiennent une qualification d'instructeur).",
+      "Utilisable par les HEL et ULM.",
+      "Distances déclarées utilisables : TODA RWY 11 et RWY 29 réduites afin de tenir compte des obstacles dans les trouées de TKOF.",
+      "Piste convexe : les ACFT alignés ne sont pas visibles du seuil opposé.",
+      "Colline à l'Est du terrain avec un angle important de 2,7° / 4,7% (à partir de l'extrémité Est de la piste 11).",
+      "Colline avant le seuil 29 : peut créer l'illusion d'être trop bas sur le plan.",
+      "Turbulences et rabattants possibles en finale.",
+      "Présence d'oiseaux générée par la déchetterie à l'Est du terrain.",
+      "En cas d'activité VAV, absence possible des dièdres des angles Nord-Est ou Nord-Ouest de la piste.",
+      "QFU 292° préférentiel cause colline à l'Est de l'AD.",
+      "TKOF RWY 29 : après le décollage, prendre la RM 280°.",
+      "Tour de piste au Sud pour les hélicoptères et les ULM de classe 3.",
+      "Limitations des nuisances sonores : Aéronefs non basés : éviter de dépasser 3 tours de piste consécutifs ; HEL : limiter les vols stationnaires prolongés."
+    ]
+  }
+}

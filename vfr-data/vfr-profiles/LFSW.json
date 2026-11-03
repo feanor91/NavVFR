@@ -1,0 +1,45 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFSW (AIP France, chart dated 2023-03-23): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFSW",
+  "name": "Épernay - Plivot",
+  "source": {
+    "publication": "AIP France AD 2 LFSW",
+    "chartDate": "2023-03-23",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 49.00444,
+    "longitude": 4.08528
+  },
+  "elevationFeet": 291,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.185"
+  },
+  "frequencies": {
+    "airAir": 120.185
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        35,
+        215
+      ]
+    },
+    {
+      "id": "10/28",
+      "qfu": [
+        103,
+        283
+      ]
+    }
+  ]
+}

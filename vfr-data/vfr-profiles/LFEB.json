@@ -1,0 +1,85 @@
+{
+  "$comment": [
+    "Transcribed by hand from the SIA chart set AD 2 LFEB (AIP France, chart dated 2026-02-19): the text pages checked against the images of the pages.",
+    "Only what the chart states is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text; the reporting points, rules and notes were added by hand.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "The circuit side is not printed on this chart, so none is recorded. No reporting points are printed on this chart.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFEB",
+  "name": "Dinan - Trélivan",
+  "source": {
+    "publication": "AIP France AD 2 LFEB",
+    "chartDate": "2026-02-19",
+    "extraction": "manual, from the chart text and images",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 48.44333,
+    "longitude": -2.10333
+  },
+  "elevationFeet": 393,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "radioMandatory": true,
+    "nightVfrApproved": false,
+    "outsideAtsHours": "air-air frequency 119.765"
+  },
+  "frequencies": {
+    "airAir": 119.765
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        70,
+        250
+      ]
+    }
+  ],
+  "preferredQfu": 70,
+  "preferredQfuReason": "preferred QFU 070 to avoid long landings on runway 25, which slopes downhill",
+  "circuit": {
+    "lowHeight": "training flights only, with an instructor on board: minimum 300 ft AAL",
+    "restrictions": "traffic patterns for non-based aircraft only 0900-1100 and 1300-1700 (summer: minus 1 h); rotary-wing aircraft: minimum 1000 ft ASFC"
+  },
+  "withoutAts": {
+    "departures": {
+      "note": "QFU 070: recommended to turn at the latest over the racecourse (hippodrome). QFU 250: continue on the axis to avoid overflying Trélivan."
+    }
+  },
+  "notes": [
+    "Aerodrome reserved for radio-equipped aircraft. Night VFR is not approved. No ATS: air-air frequency 119.765 only.",
+    "The chart also prints RENNES Approach 126.950 (above 2500 ft) and DINARD Tower 120.150 (1500 to 2500 ft); these are the units of other aerodromes and not services of Dinan-Trélivan.",
+    "Do not enter CTR 2 DINARD without clearance.",
+    "The aerodrome can be covered by sea haze within a few minutes.",
+    "An antenna lies in the runway axis: obstacle of 465 ft AMSL at 1.3 NM on bearing 254 from the aerodrome. Possible turbulence at the runway 07 threshold in crosswind.",
+    "Taxiing prohibited except on runways and taxiways. Taxiway B is usable only by aircraft whose main gear overall width is under 3 m.",
+    "Transient aircraft: use the grass apron except in periods of heavy rain. The first 3 stands of the paved apron near the hangar are reserved for the flying club.",
+    "AEM no. 8971 and parachuting no. 275: see ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "",
+      "Ne pas rentrer dans la CTR 2 DINARD sans clairance.",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "circuit": {
+      "lowHeight": "vols d'entraînement uniquement, avec instructeur à bord : 300 ft AAL minimum",
+      "restrictions": "tours de piste des aéronefs non basés uniquement de 0900 à 1100 et de 1300 à 1700 (été : 1 h plus tôt) ; aéronefs à voilure tournante : 1000 ft ASFC minimum"
+    },
+    "withoutAts": {
+      "departures": {
+        "note": "QFU 070 : virer au plus tard à la verticale de l'hippodrome. QFU 250 : poursuivre dans l'axe pour éviter le survol de Trélivan."
+      }
+    }
+  }
+}

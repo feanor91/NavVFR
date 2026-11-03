@@ -1,0 +1,81 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFNU (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFNU",
+  "name": "Uzès",
+  "source": {
+    "publication": "AIP France AD 2 LFNU",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.08361,
+    "longitude": 4.39389
+  },
+  "elevationFeet": 884,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.54",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.54
+  },
+  "runways": [
+    {
+      "id": "17/35",
+      "qfu": [
+        174,
+        354
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD reserved for home based ACFT and ACFT based on the neighbouring AD (1).",
+    "For the external users, PPR to AD operator, PN at least 72 hours at the following address: aeroclub.uzes@gmail.com Simultaneous use of aircraft RWY and HEL RWY prohibited.",
+    "Usable declared distances: TODA RWY 17 reduced due to trees within the departure funnel.",
+    "QFU 354°, in AD pattern, mandatory to avoid flying over La Bruguière.",
+    "If this is not possible, crosswind behind this village.",
+    "Non home-based ACFT limited to 2 patterns.",
+    "HEL circuit identical to RWY circuit.",
+    "Hovering forbidden on th RWY for all helicopters.",
+    "Autorotation forbidden on the RWY for ACFT equipped with skids.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Trees pierce the lateral clearance areas to the East and West, see map ATT 01.",
+    "Do not use AD after heavy rain or during bad weather periods.",
+    "Electrical fence around RWY perimeter.",
+    "HEL area (300 x 30 m) located North West from AD reserved for State, Civil Security, and Emergency Services helicopters.",
+    "AEM (NR 9549): 500 ft ASFC, HJ (1) Aérodromes voisins / Neighbouring AD:"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD réservé aux ACFT basés et à ceux basés sur les AD voisins (1).",
+      "Pour les usagers extérieurs, sur autorisation préalable de l'exploitant AD, demande à déposer au moins 72 heures à l'avance à l'adresse suivante : aeroclub.uzes@gmail.com Utilisation simultanée piste avions et piste HEL interdite.",
+      "Distances déclarées utilisables : TODA RWY 17 réduite cause arbres dans la trouée de décollage.",
+      "",
+      "En cas d'impossibilité, passer en vent traversier derrière ce village.",
+      "Aéronefs non basés limités à 2 tours de piste.",
+      "Circuit HEL identique au circuit avion.",
+      "",
+      "",
+      "Roulage interdit hors RWY et TWY. Parking visiteurs entre la manche à air et le club-house.",
+      "Des arbres percent les surfaces latérales de dégagement à l'Est et à l'Ouest, voir carte ATT 01.",
+      "",
+      "Clôture électrique en périphérie de la piste.",
+      "Zone hélicoptère (300 x 30 m) au nord-ouest du terrain réservée aux hélicoptères de l'État, de la Sécurité Civile et des Services d'Urgence.",
+      ""
+    ]
+  }
+}

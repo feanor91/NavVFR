@@ -1,0 +1,59 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFMG (AIP France, chart dated 2024-11-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFMG",
+  "name": "Montagne Noire",
+  "source": {
+    "publication": "AIP France AD 2 LFMG",
+    "chartDate": "2024-11-28",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 43.40639,
+    "longitude": 1.98917
+  },
+  "elevationFeet": 1468,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 134.155",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 134.155
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        119,
+        299
+      ]
+    },
+    {
+      "id": "03/21",
+      "qfu": [
+        32,
+        212
+      ]
+    },
+    {
+      "id": "20",
+      "qfu": [
+        275
+      ]
+    },
+    {
+      "id": "36",
+      "qfu": [
+        2
+      ]
+    }
+  ]
+}

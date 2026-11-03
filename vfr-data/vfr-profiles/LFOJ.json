@@ -1,0 +1,105 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOJ (AIP France, chart dated 2026-01-22): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFOJ",
+  "name": "Orléans - Bricy",
+  "source": {
+    "publication": "AIP France AD 2 LFOJ",
+    "chartDate": "2026-01-22",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.98778,
+    "longitude": 1.76056
+  },
+  "elevationFeet": 412,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "LUN-JEU / MON-THU : 0700-1600, VEN / FRI : 0700-1400 SAM, DIM, JF : O/R avant 1600 le VEN ou le dernier jour ouvrable / SAT, SUN, HOL : O/R the last working day or FRI before 1600 LDG est soumis PPR du Directeur des Vols à demander avant 1500 du LUN au VEN / MIL OPS PPR is requested for LDG to the flight director before 1500 from MON to FRI (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "approach": 122.7,
+    "tower": 122.1
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        68,
+        248
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 47.95,
+      "longitude": 1.84889,
+      "location": "Saran Échangeur routier A10 / D2701"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 48.10194,
+      "longitude": 1.88333,
+      "location": "Étangs Nord de Artenay"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 48.04722,
+      "longitude": 1.70417,
+      "location": "Zone industrielle Est de Patay"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 47.81944,
+      "longitude": 1.64167,
+      "location": "Aire de repos autoroute A10 Meung-sur-Loire"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 47.90278,
+      "longitude": 1.84722,
+      "location": "Échangeur autoroutier Ouest Orléans"
+    }
+  ],
+  "notes": [
+    "AD prohibited to ACFT without radio and to GLD PPR requested for LDG to the flight director before VFR flights are recommended to follow Special VFR routes HEL: inbound and outbound routes 330 ft ASFC, LDG and TKOF axis 068°/248° Large gathering of birds and deers on the platform and close nearby.",
+    "Especially on and around the discharge of Bucy Saint Liphard and the composting plant of Saint Peravy La Colombe Off-airport trees penetrating the 07 TKOF clearance and lateral surfaces Road in RWY axis at 180 m from THR 25, road clearance: 438 ft AMSL Railway track in RWY axis at 300 m from THR 25, rail clearance: 431 ft AMSL PJE on AD (NR 207): H24 / FL 195 Possible up to FL 300 announced by NOTAM By day, contact ORLEANS APP or PARIS UAC/ACC By night, real activity known by ORLEANS APP AEM on AD (NR 8415): SFC - 500 ft ASFC Radio controlled model flying as per protocol"
+  ],
+  "fr": {
+    "notes": [
+      "Demande à effectuer avant Les itinéraires en VFR Spécial sont recommandés pour les VFR HEL : itinéraires d'entrée et de sortie 330 ft ASFC, LDG et TKOF axe 068°/248° Dangers à la navigation aérienne Forte concentration d'oiseaux et de cervidés sur la plate-forme et aux abords de celle-ci.",
+      "Notamment sur et aux abords de la décharge de Bucy Saint Liphard et de l'usine de compostage de Saint Peravy La Colombe Présence d'arbres hors emprise qui percent la trouée  de TKOF 07 et les surfaces latérales Présence route dans l'axe de RWY à 180 m THR 25, gabarit routier de 438 ft AMSL  Présence voie ferrée dans l'axe de RWY à 300 m THR 25, gabarit ferroviaire de 431 ft AMSL Activités diverses PJE sur AD (NR 207) : H24 / FL 195 Possible jusqu'au FL 300 annoncée par NOTAM De jour, contacter ORLEANS APP ou PARIS UAC/ACC De nuit, activité réelle connue de ORLEANS APP AEM sur AD (NR 8415) : SFC - 500 ft ASFC / SR - SS Vols radiocommandés selon protocole"
+    ]
+  }
+}

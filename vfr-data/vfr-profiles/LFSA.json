@@ -1,0 +1,80 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFSA (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFSA",
+  "name": "Besançon - Thise",
+  "source": {
+    "publication": "AIP France AD 2 LFSA",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.27361,
+    "longitude": 6.08306
+  },
+  "elevationFeet": 807,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5"
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "06L/24R",
+      "qfu": [
+        61,
+        241
+      ]
+    },
+    {
+      "id": "06R/24L",
+      "qfu": [
+        61,
+        241
+      ]
+    }
+  ],
+  "preferredQfu": 61,
+  "preferredQfuReason": "preferred QFU 61, due to best clearing",
+  "notes": [
+    "Simultaneous use of both RWY prohibited.",
+    "RWY 06R/24L reserved for gliders and motorgliders.",
+    "RWY 06L/24R reserved for other ACFT.",
+    "Preferred QFU 061° due to best clearing.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Soft ground after settled rainfalls, often flooded in rainy periods.",
+    "Paved TWY higher than surrounding terrain.",
+    "DEP 06: forest to the North-East in the take-off funnel constituting an piercing obstacle that could reach 30 m.",
+    "Use Max climb slope.",
+    "Check the performance of the aircraft according to published obstacles.",
+    "Short field take-off procedure recommended.",
+    "Glider aerobatic activity (NR 6496): see AIP ENR 5.5 AEM activity (NR 8048): see AIP ENR 5.5 Paramotor activity reserved for home-based school and for USACD (ACB) members."
+  ],
+  "fr": {
+    "notes": [
+      "Utilisation simultanée des pistes interdite.",
+      "RWY 06R/24L réservée aux planeurs et moto-planeurs.",
+      "RWY 06L/24R réservée aux autres aéronefs.",
+      "QFU 061° préférentiel cause meilleurs dégagements.",
+      "Roulage interdit hors RWY et TWY.",
+      "Terrain mou après pluies prolongées, inondable en période de crue.",
+      "TWY revêtu en surélévation par rapport au terrain traversé.",
+      "DEP 06 : forêt au Nord-Est dans la trouée de décollage constituant un obstacle perçant pouvant atteindre 30 m.",
+      "Montée pente Max.",
+      "Vérifier les performances de l'aéronef en fonction des obstacles publiés.",
+      "Procédure départ court recommandée.",
+      "Activité de voltige planeurs (N° 6496) : voir AIP ENR 5.5 Activité AEM (N° 8048) : voir AIP ENR 5.5 Activité paramoteur réservée à l'école basée et aux membres de l'ACB (USACD)."
+    ]
+  }
+}

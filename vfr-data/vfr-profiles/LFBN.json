@@ -1,0 +1,114 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBN (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFBN",
+  "name": "Niort - Marais Poitevin",
+  "source": {
+    "publication": "AIP France AD 2 LFBN",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.31333,
+    "longitude": -0.39444
+  },
+  "elevationFeet": 201,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS HIV : LUN-VEN sauf JF : 0800-1630, ETE : LUN-VEN : 0800-1800, SAM, DIM et JF : 0900-1200, 1400-1800. En dehors de ces HOR, PPR 2 HR (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 119.105
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        66,
+        246
+      ]
+    },
+    {
+      "id": "07L/25R",
+      "qfu": [
+        66,
+        246
+      ]
+    }
+  ],
+  "preferredQfu": 246,
+  "preferredQfuReason": "preferred QFU 246, due to THR 07 visibility at holding point",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Possible IFR operations.",
+    "Paved RWY: using by gliders only with AFIS authorization.",
+    "Unpaved RWY: simultaneous use by ACFT and gliders: land downstream of the last glider.",
+    "Simultaneous use of both RWY and ULM strip only possible if AFIS service open and for single-engine ACFT operating under daytime VFR.",
+    "ULM strip at the south of paved RWY reserved for home based ULM and for aeromodels authorized by the AD operator.",
+    "Simultaneous activities on ULM strip prohibited.",
+    "Glider activity: entering conditions for LF-R 49 A1 and L1 according FFVV/BA709 protocol.",
+    "If wind blowing from N/NE possibility of high to very high turbulence in final approach RWY 07.",
+    "Threshold 07 not visible from holding point, close attention advised before entering the paved RWY.",
+    "Intense parachuting activity during summer.",
+    "The paradropping ACFT may fly a southern traffic pattern for the grass RWY, which interferes with the traffic pattern of the paved RWY.",
+    "Preferred QFU 246° due to THR 07 visibility at holding point.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Use of grass TWY: caution in the vicinity of the skydivers boarding area, crossing of pedestrians.",
+    "Use of paved TWY: do not cross the grass RWY centreline if an ACFT is on final or taking off from the grass RWY.",
+    "Grass apron equipped with tie-down fittings.",
+    "Ground marking of fueling area and turn-around areas on RWY: reference ACFT, Beech 1900 D.",
+    "HEL apron, rotor diameter 11 m MAX.",
+    "Overall length 13 m MAX, daytime only.",
+    "Low altitude traffic pattern only with flight instructor on board.",
+    "Prohibited on paved RWY if AEM activity in volume NR 9184-2.",
+    "Vertical passage over W road interchange recommended to avoid flying over Aiffres during RWY 25 departure and RWY 07 arrival.",
+    "Lighting system: O/R TEL: AD operator.",
+    "Due to noise pollution, after TKOF and as far as possible:.",
+    "RWY 07: take heading 060°,",
+    "RWY 25: take heading 260°.",
+    "Continuous patterns prohibited between 0000 and 0600 (local time) except for State flights and/or authorized by AD operator.",
+    "Aerobatics NR 6506: see AIP ENR 5.5 AEM NR 9184.1 and 9184.2: see AIP ENR 5.5 Parachuting NR 379: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Activité IFR possible.",
+      "Piste revêtue : usage par les planeurs avec accord AFIS uniquement.",
+      "Piste non revêtue : utilisation simultanée par avions et planeurs : se poser en aval du dernier planeur.",
+      "Usage simultané des deux pistes et de la bande ULM uniquement possible si le service AFIS est ouvert et si les aéronefs sont monomoteurs et évoluent en VFR de jour.",
+      "Bande ULM au sud de la piste revêtue réservée aux ULM basés et aux aéro modèles autorisés par l'exploitant.",
+      "Activités simultanées sur bande ULM interdites.",
+      "Activité planeurs : conditions de perméabilité des LF-R 49 A1 et L1 selon protocole FFVV/BA709.",
+      "Par vent N à NE possibilité turbulence forte à très forte en finale 07.",
+      "Le seuil 07 n'étant pas visible au point d'attente,une extrême prudence est recommandée avant de pénétrer sur la piste revêtue.",
+      "Forte activité de parachutisme en été.",
+      "Le largueur para peut effectuer un circuit au Sud pour la piste en herbe, ce qui interfère avec le circuit de la piste revêtue.",
+      "QFU 246° préférentiel cause visibilité THR 07 au point d'attente.",
+      "Roulage interdit hors RWY et TWY.",
+      "Usage du taxiway en herbe : prudence à proximité de l'aire d'embarquement des parachutistes, traversée de piétons.",
+      "Usage du taxiway revêtu : ne pas traverser l'axe de la piste en herbe si un aéronef est en finale ou au décollage de la piste en herbe.",
+      "PRKG en herbe équipé de points d'attache.",
+      "Marquage au sol de l'aire d'avitaillement et des aires de demi-tour sur piste : avion de référence, Beech 1900 D.",
+      "PRKG HEL, diamètre rotor 11 m maximum.",
+      "LHT 13 m maximum, de jour uniquement.",
+      "Circuit basse hauteur avec instructeur uniquement.",
+      "Interdit sur piste revêtue si activité AEM dans le volume n°9184-2.",
+      "NIORT MARAIS POITEVIN Passage verticale de l'échangeur routier W recommandé pour éviter le survol d'Aiffres pour les départs RWY 25 et les arrivées RWY 07.",
+      "Allumage du balisage : O/R TEL : exploitant AD.",
+      "",
+      "",
+      "RWY 25 : prendre un cap 260°.",
+      "Succession de tours de piste interdite entre 0000 et 0600 (heures locales) sauf pour les vols d'État et/ou autorisés par l'exploitant.",
+      "Voltige N° 6506 : voir AIP ENR 5.5 AEM N° 9184.1 et 9184.2 : voir AIP ENR 5.5 Parachutage N° 379 : voir AIP ENR 5.5"
+    ]
+  }
+}

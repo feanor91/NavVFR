@@ -1,0 +1,84 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCC (AIP France, chart dated 2026-10-01): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCC",
+  "name": "Cahors - Lalbenque",
+  "source": {
+    "publication": "AIP France AD 2 LFCC",
+    "chartDate": "2026-10-01",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.35056,
+    "longitude": 1.47861
+  },
+  "elevationFeet": 912,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN-VEN / MON-FRI : 0815-1100, 1300-1700. En dehors de ces HOR O/R AFIS pour vols IFR / Outside these SKED, O/R AFIS for IFR only. SAM, DIM et JF : assuré uniquement au profit des vols IFR avec PPR le jour ouvrable précédent avant 1600. SAT, SUN and HOL : possible only for IFR flights on PPR before 1600 on the previous working day. Aérodrome de CAHORS - 46230 CIEURAC (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 133.725,
+    "afis": 119.23
+  },
+  "runways": [
+    {
+      "id": "13/31",
+      "qfu": [
+        127,
+        307
+      ]
+    },
+    {
+      "id": "13L/31R",
+      "qfu": [
+        127,
+        307
+      ]
+    }
+  ],
+  "preferredQfu": 307,
+  "preferredQfuReason": "preferred QFU 307, while RWY 13 is in use (in this configuration, priority is given to the traffic using the RWY in use)",
+  "notes": [
+    "Possible IFR operations.",
+    "Night use prohibited.",
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of both RWY prohibited.",
+    "In certain weather conditions, couplings ACFT-glider of Lotois Gliding Center may have to take-off from preferred QFU 307° while RWY 13 is in use (in this configuration, priority is given to the traffic using the RWY in use).",
+    "Domed runway: caution is advised before entering RWY due to lack of visibility along RWY.",
+    "Sloping apron: wheel chocks recommended.",
+    "TKOF and LDG of ACFT prohibited if an ACFT is immobilized on the unpaved RWY.",
+    "When parking aircraft, take care not to obstruct access to the pelicandrome.",
+    "Prefer parking facing the runway, with your back to the PJE (NR 391) on AD, FL 140, SR - SS+30.",
+    "Above FL 115, real activity known on TOULOUSE APP.",
+    "Below FL 115: real activity known by CLERMONT APP and by CAHORS A/A.",
+    "PJE ACFT circuit SW of AD."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "Utilisation de nuit interdite.",
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux pistes interdite.",
+      "Dans certaines conditions météorologiques, les attelages avions-planeurs du Centre de Vol à Voile Lotois peuvent être amenés à décoller depuis le QFU 307° alors que la piste 13 est en service (lors de cette configuration, les trafics utilisant la piste en service restent prioritaires).",
+      "Piste bombée : prudence recommandée avant de pénétrer sur la piste à cause de l'absence de visibilité.",
+      "PRKG en pente : cales recommandées.",
+      "Tout TKOF ou LDG d'ACFT est suspendu si un ACFT est immobilisé sur la piste non revêtue.",
+      "Lors du stationnement, attention à ne pas bloquer l'accès au pélicandrome.",
+      "",
+      "Au-dessus FL 115, activité réelle connue de TOULOUSE APP.",
+      "En dessous du FL 115 : activité réelle connue de CLERMONT APP et de CAHORS A/A.",
+      "Circuit ACFT largueurs parachutistes au SW."
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLD (AIP France, chart dated 2024-11-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFLD",
+  "name": "Bourges",
+  "source": {
+    "publication": "AIP France AD 2 LFLD",
+    "chartDate": "2024-11-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.06083,
+    "longitude": 2.37
+  },
+  "elevationFeet": 529,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN-VEN : 0800-1130 / 1230-1700. Extension sur PPR la veille avant 1100. SAM, DIM et JF : 0800-1130 / 1230-1600. Extension sur PPR la veille avant 1100. MON-FRI: 0800-1130 / 1230-1700. Extension on PPR on previous day before 1100. SAT, SUN and HOL: 0800-1130 / 1230-1600. Extension on PPR on previous day before 1100 (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 119.605",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 119.605
+  },
+  "preferredQfu": 238,
+  "preferredQfuReason": "preferred QFU 238, due to environment",
+  "notes": [
+    "Possible IFR operations.",
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited to paramotors and pendular ULM.",
+    "Multiaxes ULM authorised.",
+    "Unpaved RWY reserved for gliders, service ACFT and home-based ACFT.",
+    "Simultaneous use of RWY prohibited.",
+    "Use of RWY: respect holding points in all circumstances.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU 238°, due to environment.",
+    "TKOF or LDG on paved RWY must be aborted if a glider is stopped on the half width of the glider strip adjoining the paved RWY.",
+    "WDI: possibly wrong information when North and NorthWest wind is blowing.",
+    "Take-off RWY 06 must start from THR 06.",
+    "If RVR < 550 m, take-off prohibited.",
+    "Applicable instructions when using the PCL: allow accessible alternative AD with ATS or have 2 E/R VHF.; local night VFR only with travelling night.",
+    "VFR conditions.",
+    "PAPI RWY 24 mandatory for IFR and night VFR landing.",
+    "PCL: PAPI permanently on; PPR from AFIS before 1100 on the last working day.",
+    "AEM (NR 8304) on AD: 860 ft AMSL or 330 ft ASFC, SR-SS.",
+    "As per protocol.",
+    "Aerobatics (N°6409): Axis 045°/225° length 2630 m centered on ARP, 2000 ft AMSL/4500 ft AMSL.",
+    "ACFT: LUN-SAM, exept public HOL: 0800-1100 and 1400-1700 (SUM -1HR).",
+    "Gliders: 1100-SS.",
+    "Activity reserved to ACFT authorized by AD operator.",
+    "Users information: BOURGES INFO, AVORD APP, PARIS INFO.",
+    "Level 1: Outside AFIS SKED.",
+    "Level 2: AFIS SKED.",
+    "Level 3: PPR PN 24HR, except emergency.",
+    "Péril animalier / Wildlife strike hazard: Occasionnel / Random."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux paramoteurs et ULM pendulaires.",
+      "ULM multiaxes autorisés.",
+      "Piste non revêtue réservée aux planeurs, avions de servitude et aéronefs basés.",
+      "Utilisation simultanée des pistes interdite.",
+      "",
+      "Roulage interdit hors RWY et TWY.",
+      "QFU 238° préférentiel cause environnement.",
+      "Tout TKOF ou LDG sur la piste revêtue doit être suspendu si un planeur est immobilisé sur la demilargeur contigüe à la piste revêtue.",
+      "Manche à air : possibilité d'indications erronées par vent de Nord et de Nord-Ouest.",
+      "Les décollages en piste 06 doivent s'effectuer depuis le seuil 06.",
+      "En cas de RVR < 550 m, décollage interdit.",
+      "Consignes applicables en cas d'utilisation de la PCL : prévoir AD de dégagement accessible et doté d'un service ATS ou disposer de 2 E/R VHF. VFR de nuit local uniquement dans les conditions du.",
+      "",
+      "PAPI RWY 24 obligatoire pour l'atterrissage IFR et VFR de nuit.",
+      "PCL : PAPI allumés en permanence ; sur PPR AFIS avant 1100 le dernier jour ouvrable.",
+      "",
+      "Selon protocole.",
+      "Voltige (N°6409) : Axe 045°/225° de longueur 2630 m centré sur ARP, 2000 ft AMSL/4500 ft AMSL.",
+      "Avions : LUN-SAM, sauf jour férié : 0800-1100 et 1400-1700 (ETE -1HR).",
+      "Planeur : 1100-CS.",
+      "Activité réservée aux aéronefs autorisés par l'exploitant d'aérodrome.",
+      "Information des usagers : BOURGES INFO, AVORD APP, PARIS INFO.",
+      "BOURGES 11 - RFFS : Niveau 1 : En dehors HOR AFIS.",
+      "Niveau 2 : HOR AFIS.",
+      "Niveau 3 : PPR PN 24HR, sauf cas d'urgence.",
+      "12 - 13 - 14 - 01 Aviation TEL : 09 50 49 19 80."
+    ]
+  }
+}

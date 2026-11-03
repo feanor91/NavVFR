@@ -1,0 +1,170 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOP (AIP France, chart dated 2026-05-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFOP",
+  "name": "Rouen Vallée de Seine",
+  "source": {
+    "publication": "AIP France AD 2 LFOP",
+    "chartDate": "2026-05-14",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.39083,
+    "longitude": 1.18389
+  },
+  "elevationFeet": 512,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "LUN-VEN : 0700-1900, SAM-DIM : 0800-1800. En dehors de ces HOR, extension et réouverture : Pour ligne régulière : O/R. Pour EVASAN : contacter le SAMU 76. Pour aéronef d'Etat : contacter la Préfecture de Seine-Maritime. Pour aéronef autre que ligne régulière, EVASAN ou aéronef d'Etat, PPR au plus tard le dernier jour ouvrable avant 1500 : par SITA : UROAPXH ou (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 120.73,
+    "approach": 134.825,
+    "tower": 120.2
+  },
+  "preferredQfu": 220,
+  "preferredQfuReason": "preferred QFU 220, due to IFR procedure and RWY lighting LIH",
+  "reportingPoints": [
+    {
+      "name": "AC",
+      "spoken": {
+        "fr": "Alpha Charlie",
+        "en": "Alpha Charlie"
+      },
+      "latitude": 49.44806,
+      "longitude": 0.90528,
+      "location": "Circuit de karting d'AMBOURVILLE"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 49.5475,
+      "longitude": 0.95639,
+      "location": "Viaduc ferroviaire de BARENTIN"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 49.48972,
+      "longitude": 1.145,
+      "location": "Échangeur autoroutier d'ISNEAUVILLE"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 49.35861,
+      "longitude": 1.35889,
+      "location": "FLEURY SUR ANDELLE"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 49.31222,
+      "longitude": 1.23722,
+      "location": "Écluses Étangs de POSES"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 49.31,
+      "longitude": 0.99917,
+      "location": "Viaduc d'ORIVAL"
+    },
+    {
+      "name": "SB",
+      "spoken": {
+        "fr": "Sierra Bravo",
+        "en": "Sierra Bravo"
+      },
+      "latitude": 49.26806,
+      "longitude": 1.13722,
+      "location": "Aire d'autoroute de BORD"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Restrictions of unpaved RWY 05/23: Unpaved RWY 05/23 reserved for home based ACFT.",
+    "RWY Condition Information or special operating conditions available at AD operator.",
+    "Runway 04/22 grooved.",
+    "Heavy concentration of birds in the vicinity and over the aerodrome in the event of winds and/or of heavy rainfalls on the coast.",
+    "ULM, paragliders and gliders heavy activity in the vicinity of \"S\" point: private AD VAL-DE-REUIL.",
+    "Private aerodromes activity: PONT DE L'ARCHE ( R 200 / 5.4 NM ROUEN AD -.",
+    "ULM, ACFT, HEL)",
+    "VAL DE REUIL ( R 163 / 6.8 NM ROUEN AD - ULM, ACFT, HEL)",
+    "ST CYR LA CAMPAGNE ( R 215 / 10.3 NM ROUEN AD - ACFT).",
+    "Preferred QFU: 220°, due to IFR procedure and RWY lighting LIH.",
+    "On arrival and in transit, radio contact recommended with LILLE APP 10 min before overhead ROU.",
+    "Because of frequent activation of CTR outside specified SKED, airspace real activity information on ATIS.",
+    "Eastern pattern from RWY 04/22 under ATS clearance.",
+    "After take-off RWY 04 or RWY 22, climb straight ahead 1000 ft AAL before turning.",
+    "\"Low height\" circuits: minimum 300 ft AAL only with ATC clearance for training flights with an instructor on board.",
+    "STAP: available data: wind, cloud base, VIS, RVR, T°, DP, QNH, QFE and possible particular information.",
+    "Traffic surveillance equipment: AD equipped with a radar display (see AD 1.0).",
+    "Aerobatics NR 6225: see AIP ENR 5.5 Parachute jumping activity NR 211: see AIP ENR 5.5 Radio failure: visual signals U/S.",
+    "Carburants / Fuel: 100 LL-JET A1.",
+    "SKED: MON-FRI: 0745-1630, SAT and SUN: 0845-1730.",
+    "Credit cards: VISA, WORLD FUEL SVC, cash payment.",
+    "Level 5: MON-FRI: 0700-1700, SAT and SUN: 0800-1800.",
+    "Niveau 1 / Level 1: hors / outside HOR / SKED.",
+    "Extension et réouverture / Extension and reopening: O/R: Pendant heures ouvrables / During working hours:; En dehors heures ouvrables / Outside working hours: TEL: 06 74 69 57 69.",
+    "Level 1 for 05/23 unpaved RWY.",
+    "Péril animalier / Wildlife strike hazard: Occasionnel / Random."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Restrictions d'utilisation piste non revêtue RWY 05/23 : Piste 05/23 non revêtue réservée aux ACFT basés.",
+      "Information sur l'état de la piste ou conditions particulières d'utilisation disponibles auprès de l'exploitant d'aérodrome.",
+      "Piste 04/22 rainurée.",
+      "Forte concentration d'oiseaux aux abords et sur l'aérodrome en cas de vents et/ou de fortes pluies sur la côte.",
+      "Forte activité ULM, parapentes et planeurs à proximité du point « S »: aérodrome privé de VAL-DE-REUIL.",
+      "Présence des AD privés de : PONT DE L'ARCHE ( R 200 / 5.4 NM ROUEN AD -.",
+      "",
+      "",
+      "",
+      "QFU 220° préférentiel cause procédure IFR et balisage HI.",
+      "A l'arrivée et en transit, contact radio recommandé avec LILLE APP 10 min avant la verticale de ROU.",
+      "En raison de l'activation fréquente CTR hors HOR prévus, information activité réelle des espaces sur ATIS.",
+      "Utilisation du circuit à l'est de la piste 04/22 (côté planeurs) sur clairance ATS.",
+      "Au décollage RWY 04 ou RWY 22, monter à 1000 ft AAL dans l'axe avant de virer.",
+      "Circuits \"basse hauteur\" : minimum 300 ft AAL uniquement sur clairance ATC et dans le cadre des vols d'entraînement avec instructeur à bord.",
+      "ROUEN VALLEE DE SEINE VFR Spécial STAP : paramètres disponibles :Vent, base des nuages, VIS, RVR, T°, DP, QNH, QFE, et Infos particulières éventuelles.",
+      "Équipement de surveillance du trafic : AD équipé de visualisation radar (voir AD 1.0).",
+      "Voltige N° 6225 : voir AIP ENR 5.5 Parachutage N° 211: voir AIP ENR 5.5 Panne radio : Signaux visuels inopérants.",
+      "",
+      "ROUEN VALLEE DE SEINE 10 - AVT : HOR : LUN-VEN : 0745-1630, SAM et DIM : 0845-1730.",
+      "Cartes VISA, WORLD FUEL SVC, paiement comptant.",
+      "11 - RFFS : Niveau 5 : LUN-VEN : 0700-1700, SAM et DIM : 0800-1800.",
+      "TEL : 02 35 79 41 03 - FAX : 02 35 79 41 22.",
+      "Niveau 1 pour piste non-revêtue 05/23.",
+      "12 - 13 - 14 - NIL.",
+      "15 - ACB : ACRN TEL."
+    ]
+  }
+}

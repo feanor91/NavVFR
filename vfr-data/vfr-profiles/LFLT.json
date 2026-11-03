@@ -1,0 +1,94 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLT (AIP France, chart dated 2023-08-10): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFLT",
+  "name": "Montluçon - Domérat",
+  "source": {
+    "publication": "AIP France AD 2 LFLT",
+    "chartDate": "2023-08-10",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.35278,
+    "longitude": 2.57056
+  },
+  "elevationFeet": 771,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        109,
+        289
+      ]
+    }
+  ],
+  "preferredQfu": 289,
+  "preferredQfuReason": "preferred QFU 289, due to environment",
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 46.37917,
+      "longitude": 2.5825,
+      "location": "Stade et centre aquatique"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 46.3325,
+      "longitude": 2.55972,
+      "location": "Étang de Sault"
+    }
+  ],
+  "notes": [
+    "AD reserved for: home-based ACFT; ACFT exceptionnally authorized by AD operator.",
+    "For ACFT, pilot must have been indicated able to use AD by an instructor (or hold an instructor qualification).",
+    "If wind blowing from E possibility of high downdrafts QFU 109°.",
+    "Avoid overflying inhabited areas.",
+    "ARRIVALS / DEPARTURES FROM EAST: Proceed via N or S point for noise abatement.",
+    "Preferred QFU 289° due to environment.",
+    "LDG RWY 29: Do not go beyond the Cher river on base leg.",
+    "TKOF RWY 11 prohibited.",
+    "TWY B one-way (from RWY intersection to A).",
+    "Take-off RWY 29: do not turn before the bridge on the RN 145 and avoid flying over Domérat.",
+    "As per protocol."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé : aux ACFT basés ; aux ACFT exceptionnellement autorisés par l'exploitant d'aérodrome.",
+      "Pour les avions, le pilote doit de plus avoir été reconnu apte à utiliser l'AD par un instructeur (ou détenir une qualification d'instructeur).",
+      "Par vent d'Est possibilité de rabattants au QFU 109°.",
+      "Éviter au maximum le survol des zones habitées.",
+      "ARRIVEES / DEPARTS SECTEUR EST : Cause nuisances procéder via les points N ou S.",
+      "QFU 289° préférentiel cause environnement.",
+      "Atterrissage RWY 29 : Ne pas dépasser le Cher en étape de base.",
+      "Décollage RWY 11 interdit.",
+      "TWY B à sens unique (de l'intersection piste vers A).",
+      "Décollage RWY 29 : ne pas virer avant le pont sur la RN 145 et éviter le survol de la ville de Domérat.",
+      "Selon protocole."
+    ]
+  }
+}

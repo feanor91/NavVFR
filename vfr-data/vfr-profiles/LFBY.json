@@ -1,0 +1,186 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBY (AIP France, chart dated 2026-05-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFBY",
+  "name": "Dax - Seyresse",
+  "source": {
+    "publication": "AIP France AD 2 LFBY",
+    "chartDate": "2026-05-14",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.68917,
+    "longitude": -1.06889
+  },
+  "elevationFeet": 102,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "LUN-JEU, sauf JF / MON-THU, except HOL : 0700-1600 VEN, sauf JF / FRI, except HOL : 0700-1400 Hors HOR : activités réelles connues de BIARRITZ INFO ou RAI sur FREQ APP / Out of HOR : real activities known on BIARRITZ INFO or RAI on APP FREQ En circulation d'aérodrome, effectuez votre auto-information sur FREQ TWR / In the AD pattern, perform your auto-information on TWR FREQ AD activable H 24 selon les besoins du ges (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "atis": 140.075,
+    "approach": 122.05,
+    "tower": 118.325,
+    "ground": 121.775
+  },
+  "runways": [
+    {
+      "id": "07",
+      "qfu": [
+        73
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 43.85389,
+      "longitude": -0.91889,
+      "location": "Croisement D413 - ligne HT 1,5 km W Lesgor"
+    },
+    {
+      "name": "NG",
+      "spoken": {
+        "fr": "Novembre Golf",
+        "en": "November Golf"
+      },
+      "latitude": 43.82361,
+      "longitude": -0.96667,
+      "location": "Gare de triage 3 km Sud-Est Laluque"
+    },
+    {
+      "name": "NEA",
+      "spoken": {
+        "fr": "Novembre Écho Alpha",
+        "en": "November Echo Alpha"
+      },
+      "latitude": 43.75722,
+      "longitude": -1.00944,
+      "location": "Château d'eau à proximité de la voie de chemin de fer Nord Saint Vincent de Paul"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 43.73389,
+      "longitude": -1.10667,
+      "location": "Antenne à l'ouest de l'échangeur D824 et D16"
+    },
+    {
+      "name": "N2",
+      "spoken": {
+        "fr": "Novembre deux",
+        "en": "November two"
+      },
+      "latitude": 43.69806,
+      "longitude": -1.07306,
+      "location": "Château d'eau - Saubagnac"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 43.62972,
+      "longitude": -1.39611,
+      "location": "Gare de péage Benesse - Maremne"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 43.63417,
+      "longitude": -1.10361,
+      "location": "Lacets D6 3 km Nord-Est St Lon les Mines"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 43.64528,
+      "longitude": -1.01389,
+      "location": "Bâtiment Est de la carrière de Bénesse"
+    },
+    {
+      "name": "SEA",
+      "spoken": {
+        "fr": "Sierra Écho Alpha",
+        "en": "Sierra Echo Alpha"
+      },
+      "latitude": 43.52417,
+      "longitude": -0.90972,
+      "location": "Puyoô"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 43.49,
+      "longitude": -0.78556,
+      "location": "Ouest d'Orthez"
+    },
+    {
+      "name": "BG",
+      "spoken": {
+        "fr": "Bravo Golf",
+        "en": "Bravo Golf"
+      },
+      "latitude": 43.54667,
+      "longitude": -1.195,
+      "location": "Bec de Gave - Gaves Réunis (Confluent Adour)"
+    }
+  ],
+  "notes": [
+    "MIL AD (protected area) Restrictied use AD (list 3) approved for daytime visual flight AD forbidden to non-radio-equiped ACFT AD forbidden to GLD and to non-multi-axis microlights (except already based multi-axis microlights) MIL ACFT: AD reserved: Priority to MIL and government traffic (PPR required); To authorized particular activities; To based or detached ACFT.",
+    "PPR for LDG to OPS, PN 48 HR FPL mandatory to all incomming MIL flights with PPL NR in field 18 of FPL By night, OAT-T FPL only (night VFR and night OAT-V not approved) As AD is not IFR approved, change to GAT or OAT visual flight rules is to be done before entering LF-R 40 A/B at the latest CIV ACFT: AD reserved: To based ACFT; To ACFT based at neighboring AD within a radius of 40 NM, submitted to OPS authorization and daytime only (PPR and FPL required); Other CIV ACFT: LDG submitted to OPS authoriza; tion (PN 48 HR) and regarding AD/ACFT compatibility.",
+    "FPL mandatory to all incomming flights with PPL NR in field 18 of FPL AD likely to be covered by sea haze in a few MIN, plan on a possibility of diversion to a non-coastal AD User's attention is drawn to the presence of Seyresse's Wood on RWY axis at E of AD, and on the need to check that the performance levels of their ACFT are sufficient enough to fly over trees of Seyresse's Wood located in the extension of the strip (EAST funnel) with the required safety margins A line of trees of 170 ft long located at 410 m W of DTHR 07 breaks down aeronautical releases A line of trees of 208 ft long located at 690 m E of DTHR 25 breaks down aeronautical releases Road RD 6 in RWY axis at 120 m from RWY 07 extremity.",
+    "Road clearance: 124 ft AMSL MON-FRI: heavy ACFT and HEL activity (VSV training flight training school) LF- R 40 penetration upon authorization from DAX TWR < 2000 ft AMSL and from DAX APP > 2000 ft ASML Follow mandatory VFR track with radio, 1500 ft MNM Avoid the zone if no reply Outside activity hours of LF-R 40: Inactivity of LF-R 40 A and B areas announced by.",
+    "RAIZ 122.050",
+    "Auto-information procedures on DAX TOWER frequency 118.325.",
+    "Comply with published routes and procedures",
+    "A/D prohibited to ACFT non radio equipped FOR ARR and DEP procedures, proceed SOUTH of RWY for runway pattern Preferred axis QFU 25 Preferred speed in RWY pattern: 100 kt The published LDA at DTHR 07 = a final slope of 5 % The published LDA at DTHR 25 = a final slope of 5 % QFU 25: Touch and go are only authorized with instruc tor on board QFU 07: Touch and go are prohibited Noise-sensitive AD Low height circuits are prohibited LDG and TKOF on RWY only Taxiing prohibited out of TWY limits The protection areas of HEL parking pads and those of HEL in ground effect translation overlap and overlap the refueling trucks'lanes: no simultaneous operations ARR After authorization from DAX TWR, comply the visual circuit published Coming from North: Fly over N point at 1000 ft AMSL, then south downwind leg by overhead TWR Coming from South: At QFU 07, fly over S at 1000 ft AMSL, then right base leg; At QFU 25, fly over E at 1000 ft AMSL, then left base leg.",
+    "In case of go around RWY 25 or 07, maintain 500 ft on track until end of RWY DEP QFU 25: South DEP: Climb up to 1500 ft AMSL then fly over S North DEP: Climb up to 1500 ft AMSL and join down wind then fly over TWR, N2 and N QFU 07: South DEP: Climb up to 1500 ft AMSL then fly over E North DEP: Climb up to 1500 ft AMSL and join down wind then fly over TWR, N2 and N Aerobatics axis NR 6670 DAX 1: RWY 07/25 centerline 1000 m long, within AD limits.",
+    "2000 ft / 5000 ft AAL SAT for solo release Floor 3300 ft during ALAT specialised school working hours.",
+    "Radio monitoring on DAX FREQ NR 6680 HEUGAS: Axis located QDR 225°/4000 m from AD on RD6 south of RD6 / RD13 crossroad.",
+    "1650 ft / 3300 ft AAL MON-FRI 1530 (WIN 1630) - SS + 30 SAT 1000 (WIN 1100) - SS + 30 SUN, HOL: Daytime HEL high training activity on 6 HLP reserved for government services in LF-R 40 A Reserved for MIL HEL of DAX AD school OPS agreement compulsory for other MIL HEL See AIP AD 1.3 - DAX Azur, DAX Castets, DAX Herm, DAX Pontonx, DAX Tinon, DAX Came Drones: for flight in LF-R 40 areas, authorisation request by mandatory agreement letter E-mail: begn-bops-drone.resp.fct@intradef.gouv.fr Processing request: minimum 3 weeks (provided the file is complete)"
+  ],
+  "fr": {
+    "notes": [
+      "AD MIL (zone protégée) AD agréé à usage restreint (liste 3) homologué à vue de jour Interdit aux ACFT non munis de radio Interdit aux GLD et ULM (sauf multiaxes déjà basés) ACFT MIL : AD réservé : Prioritairement à l'accueil du trafic MIL et d'État (PPR obligatoire) ; Aux activités particulières autorisées ; Aux ACFT basés ou détachés.",
+      "LDG soumis à PPR auprès des OPS PN 48 HR FPL obligatoire pour tous vols MIL à destination de l'AD Le NR de PPR obligatoire en case 18 du FPL De nuit FPL CAM T uniquement (VFR de nuit et CAM V de nuit non agrées) L'AD n'étant pas agréé IFR, le passage en CAM ou CAG/VFR se fait au plus tard à l'entrée des zones LF-R 40 A/B ACFT CIV : AD réservé : Aux ACFT basés ; Aux ACFT basés sur les AD voisins dans un rayon de 40 NM, accès possible après autorisation des OPS en.",
+      "Autres ACFT CIV : LDG soumis à PPR auprès des OPS PN 48 HR, accès possible sous réserve comptabilité ACFT/AD FPL obligatoire, le NR de PPR obligatoire en case 18 du FPL  Dangers à la navigation aérienne AD susceptible d'être envahi en quelques MIN par la brume de mer, envisager l'éventualité d'un déroutement sur AD non côtier L'attention des utilisateurs est spécialement attirée sur la présence du Bois de Seyresse dans l'axe de RWY E de l'AD, et sur la nécessité de vérifier que les performances de leur ACFT sont suffisantes pour survoler les arbres du bois de Seyresse dans le prolongement de la bande (trouée EST) avec les marges de sécurité requises Une ligne d'arbres de 170 ft située à 410 m à l'ouest du DTHR 07 perce les dégagements aéronautiques Une ligne d'arbres de 208 ft située à 690 m à l'est du DTHR 25 perce les dégagements aéronautiques Présence route RD 6 dans l'axe de RWY à 120 m de l'extrémité RWY 07.",
+      "",
+      "",
+      "Procédures d'auto-information sur la FREQ DAX TOUR 118.325.",
+      "Respecter les cheminements et procédures publiées",
+      "",
+      "",
+      "2000 ft / 5000 ft AAL SAT pour lâcher solo Plancher 3300 ft pendant HOR de travail école spécialisée de l'ALAT.",
+      "Veille radio sur FREQ DAX NR 6680 HEUGAS : Axe situé QDR 225°/4000 m de l'AD sur RD6 au sud du croisement RD06 / RD13.",
+      ""
+    ]
+  }
+}

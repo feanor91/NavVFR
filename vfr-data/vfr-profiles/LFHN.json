@@ -1,0 +1,83 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHN (AIP France, chart dated 2026-08-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFHN",
+  "name": "Bellegarde - Vouvray",
+  "source": {
+    "publication": "AIP France AD 2 LFHN",
+    "chartDate": "2026-08-06",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.12333,
+    "longitude": 5.80472
+  },
+  "elevationFeet": 1626,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        183,
+        3
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Possible derogation for home-based ACFT.",
+    "Glider activity reserved for gliders authorized by the AD operator.",
+    "TORA and TODA RWY 36 reduced due to road gauge in RWY strip.",
+    "Access to South hangars: the distance between the two buildings facing hangar 5 is only 17 meters, thus only one ACFT at a time can be manoeuvring engine running.",
+    "Gyroplane and helicopter training activity subject to agreement of AD operator.",
+    "Presence of numerous power cables without marking, crossing the Rhône river.",
+    "Heavy paragliding activity NE and SW of AD.",
+    "Particular weather conditions: wind shear and down draughts from North sector wind, notably on landing and take off at QFU 003°.",
+    "Due to topography, RWY length and slope climbing 1.5 %, weak performances hazards requiring weight limitation for most light ACFT, notably at QFU 003°.",
+    "Central TWY: follow the centreline because it is asphalted on 6.3 m wide.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Transversal slope of RWY: slope descending 3% from West to East.",
+    "Except emergency, avoid go-arounds on final RWY 36 above housing estate.",
+    "SAT, SUN and public HOL: traffic pattern reserved for home-based aircraft.",
+    "ULM: High approach recommended for LDG on QFU 003°; Traffic pattern: avoid overflight of motorway A40.",
+    "Aerobatics NR 6807: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux aéronefs munis de radio.",
+      "Possibilité de dérogation pour les aéronefs basés.",
+      "Activité VAV réservée aux planeurs autorisés par l'exploitant AD.",
+      "TORA et TODA RWY 36 réduites cause gabarit routier dans la bande de piste.",
+      "Accès aux hangars Sud : l'espace entre les deux bâtiments face au hangar 5 étant de 17 m seulement, un seul appareil à la fois peut y manoeuvrer moteur tournant.",
+      "Activité d'entraînement en autogyre et hélicoptère soumise à l'accord de l'exploitant AD.",
+      "Présence de nombreuses lignes électriques non balisées traversant le Rhône.",
+      "Forte activité parapente au NE et SW de l'AD.",
+      "Conditions aérologiques particulières : cisaillement et rabattants par vents de secteur Nord, notamment en QFU 003° au décollage et à l'atterrissage.",
+      "Cause topographie, longueur des pistes et pente montante moyenne de 1,5 %, risques de faibles performances nécessitant des limitations de masse pour la plupart des avions légers, notamment en QFU 003°.",
+      "",
+      "Roulage interdit hors RWY et TWY.",
+      "Profil en travers : pente descendante moyenne 3% d'Ouest en Est.",
+      "Sauf urgences, éviter les remises de gaz en finale RWY 36 au-dessus du lotissement.",
+      "SAM, DIM et JF : entraînement TDP réservés aux aéronefs basés.",
+      "ULM : Présentation haute recommandée en configuration. LDG QFU 003°. Tour de piste : éviter le survol de l'autoroute A40.",
+      "Voltige N° 6807 : voir AIP ENR 5.5"
+    ]
+  }
+}

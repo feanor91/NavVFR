@@ -1,0 +1,162 @@
+{
+  "$comment": [
+    "Transcribed by hand from the SIA chart set AD 2 LFAQ (AIP France, chart dated 2025-05-15): the text pages checked against the images of the pages.",
+    "Only what the chart states is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text; the reporting points, rules and notes were added by hand.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "No circuit height or circuit side is printed on this chart, so none is recorded. The chart is titled ALBERT BRAY.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFAQ",
+  "name": "International Amiens Henry Potez",
+  "source": {
+    "publication": "AIP France AD 2 LFAQ",
+    "chartDate": "2025-05-15",
+    "extraction": "manual, from the chart text and images",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 49.97,
+    "longitude": 2.6925
+  },
+  "elevationFeet": 363,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "TWR: winter Monday to Friday 0800 to 1800, Saturday 0830 to 1600; summer Monday to Friday 0700 to 1700, Saturday 0730 to 1600; not provided on Sundays and public holidays (UTC in winter, local time minus 1 h in summer). Extension on PPR from the aerodrome operator before 1300 on the previous working day",
+    "outsideAtsHours": "AFIS outside the TWR hours, on PPR from the aerodrome operator before 1000 on the previous working day",
+    "radioMandatory": true,
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "approach": 129.36,
+    "tower": 136.36,
+    "afis": 136.36
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        84,
+        264
+      ]
+    },
+    {
+      "id": "08R/26L",
+      "qfu": [
+        84,
+        264
+      ]
+    }
+  ],
+  "preferredQfu": 264,
+  "preferredQfuReason": "preferred QFU 264, due to the IFR procedure",
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 50.06556,
+      "longitude": 2.66222,
+      "location": "Village de Hamel sur la D50",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 50.01611,
+      "longitude": 2.67333,
+      "location": "Extrémité Nord du parc d'activité Henry Potez",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 49.87389,
+      "longitude": 2.83472,
+      "location": "Intersection D1029 et autoroute A1",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 49.92389,
+      "longitude": 2.75972,
+      "location": "Village de Cappy sur le canal de la Somme",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 49.88694,
+      "longitude": 2.51167,
+      "location": "Mémorial au Sud de Corbie",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 49.90556,
+      "longitude": 2.6325,
+      "location": "Mémorial à l'Ouest de Cerisy",
+      "purpose": "point de compte rendu VFR spécial"
+    }
+  ],
+  "withAts": {
+    "radio": {
+      "arrival": "arrivals and transits in the CTR: first contact on ALBERT TWR at least 3 minutes before entering the CTR"
+    }
+  },
+  "notes": [
+    "Aerodrome reserved for radio-equipped aircraft.",
+    "The routes published on the VAC chart are likely to be imposed by ATC.",
+    "Preferred QFU 264, due to the IFR procedure.",
+    "Taxiing prohibited except on runways and taxiways. Taxiway B is 10.50 m wide and limited to aircraft with MTOW up to 5.7 t, or wingspan under 24 m and main gear overall width under 6 m.",
+    "Large aircraft \"Beluga\" are frequently present: crews are invited to make sure spacings are respected because of wake turbulence.",
+    "Special VFR minima with IFR traffic: visibility 3000 m, ceiling 600 ft. Without IFR traffic: aeroplanes visibility 1500 m and clear of clouds; helicopters visibility 800 m and clear of clouds.",
+    "Pilot-controlled lighting outside ATS hours: 3 clicks on the microphone for low intensity, 5 for high intensity, 7 within 5 seconds to switch off; automatic shut-off after 15 minutes.",
+    "Radio failure: air traffic light signals and pyrotechnic signals are unserviceable.",
+    "Radio failure on arrival: squawk 7600. Before receiving the CTR entry clearance, do not enter the CTR. Within the CTR, continue as cleared, or fly overhead the tower with lights on at 1700 ft and join the aerodrome circuit watching the approach axes.",
+    "Radio failure on departure: before take-off, do not take off. After take-off, squawk 7600 and leave the CTR.",
+    "Aerobatics on the aerodrome (no. 6012), during ATC hours only, on the axis of paved runway 08/26, 1000 m long, 1900 ft AMSL to 3500 ft AMSL (extension possible down to 900 ft AMSL under the protocol); reserved for authorised pilots; information on ALBERT TWR and LILLE INFO."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "",
+      "QFU 264° préférentiel cause procédure IFR.",
+      "",
+      "",
+      "",
+      "",
+      "Panne radio : signaux visuels et moyens pyrotechniques inopérants.",
+      "Panne radio à l'arrivée : Afficher 7600. Si la panne survient avant d'avoir reçu l'autorisation de pénétrer en CTR, l'aéronef ne devra pas y pénétrer. Si la panne survient à l'intérieur de la CTR, poursuivre le vol comme indiqué dans la clairance, ou se présenter verticale la tour, phares allumés à 1700 ft et rejoindre le circuit d'aérodrome en surveillant les axes d'approche.",
+      "",
+      ""
+    ],
+    "withAts": {
+      "radio": {
+        "arrival": "arrivées et transits dans la CTR : premier contact avec ALBERT TWR au moins 3 minutes avant d'entrer dans la CTR"
+      }
+    }
+  }
+}

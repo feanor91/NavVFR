@@ -1,0 +1,47 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFSH (AIP France, chart dated 2025-08-07): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFSH",
+  "name": "Haguenau",
+  "source": {
+    "publication": "AIP France AD 2 LFSH",
+    "chartDate": "2025-08-07",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 48.79694,
+    "longitude": 7.81917
+  },
+  "elevationFeet": 491,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.63",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 120.63
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        26,
+        206
+      ]
+    },
+    {
+      "id": "03L/21R",
+      "qfu": [
+        26,
+        206
+      ]
+    }
+  ]
+}

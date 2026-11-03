@@ -1,0 +1,221 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFMK (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFMK",
+  "name": "Carcassonne Salvaza",
+  "source": {
+    "publication": "AIP France AD 2 LFMK",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.21583,
+    "longitude": 2.30861
+  },
+  "elevationFeet": 434,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "HX : voir / see NOTAM (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 123.85,
+    "tower": 134.505,
+    "airAir": 134.505
+  },
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        94,
+        274
+      ]
+    },
+    {
+      "id": "09L/27R",
+      "qfu": [
+        94,
+        274
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "EN",
+      "spoken": {
+        "fr": "Écho Novembre",
+        "en": "Echo November"
+      },
+      "latitude": 43.28222,
+      "longitude": 2.58778,
+      "location": "Rieux Minervois",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "ES",
+      "spoken": {
+        "fr": "Écho Sierra",
+        "en": "Echo Sierra"
+      },
+      "latitude": 43.185,
+      "longitude": 2.55611,
+      "location": "Capendu",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "NC",
+      "spoken": {
+        "fr": "Novembre Charlie",
+        "en": "November Charlie"
+      },
+      "latitude": 43.26861,
+      "longitude": 2.40056,
+      "location": "Conques sur Orbiel",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "SF",
+      "spoken": {
+        "fr": "Sierra Foxtrot",
+        "en": "Sierra Foxtrot"
+      },
+      "latitude": 43.15556,
+      "longitude": 2.30583,
+      "location": "Coufoulens",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 43.05444,
+      "longitude": 2.21667,
+      "location": "Limoux",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 43.25417,
+      "longitude": 2.1775,
+      "location": "Alzonne",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 43.28222,
+      "longitude": 2.08639,
+      "location": "Villepinte",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "WM",
+      "spoken": {
+        "fr": "Whisky Mike",
+        "en": "Whiskey Mike"
+      },
+      "latitude": 43.19028,
+      "longitude": 2.14194,
+      "location": "Montréal",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "WP",
+      "spoken": {
+        "fr": "Whisky Papa",
+        "en": "Whiskey Papa"
+      },
+      "latitude": 43.19361,
+      "longitude": 2.055,
+      "location": "Prouille ≥ ≥ ≥",
+      "purpose": "point de compte rendu VFR spécial"
+    }
+  ],
+  "notes": [
+    "AD reserved to radio-equipped ACFT.",
+    "Grass strip reserved for based single-engined ACFT.",
+    "Simultaneous use of both RWY prohibited.",
+    "RWY 09/27 limited by crosswind component: Dry RWY: more than 25 kt; Wet RWY: more than 20 kt.",
+    "RWY 09/27 not operated by downwind component greater than 10 kt.",
+    "AEM activities NR 9632, NR 9633-1 and NR 9633-2 in the vicinity.",
+    "See ENR 5.5.",
+    "Aerobatics activities NR 6852 and NR 6855 in the vicinity.",
+    "See ENR 5.5.",
+    "Avoid overflying the City.",
+    "LF-R46 N1 and F activities known by CARCASSONNE TWR.",
+    "QFU 094°: No RESA on landing.",
+    "RESA = 61 x 45 on TKOF.",
+    "Steep slope in the RWY strip.",
+    "QFU 274°: RESA = 61 x 45 on landing.",
+    "No RESA on TKOF.",
+    "Steep slope in the RWY strip.",
+    "TWY T1 to T6 reserved for ACFT whose wingspan is less than 12 m.",
+    "TWY T1 to T6 are prohibited when RWY is used by code C or D ACFT.",
+    "Casa CN-235 is taxiing only: between RWY and stands K1 to K4, via TWY B and between RWY and stand P1 via TWY E and F.",
+    "C130 and A400M only taxi between RWY and stand K5 via taxiways Bravo and Charlie.",
+    "C130 and A400M operators are informed of the insufficient transition radius dimensions in some turns and of the necessity of using oversteering technique during taxi if necessary.",
+    "During taxi to join the apron or the RWY, external engine of C130 and A400M must be shut down.",
+    "Dash8 is taxiing only: for fire-fighting missions between RWY and the pelicandrome via TWY Echo and Fox;; for passengers and freight transport between RWY and apron stands K via TWY B and C.",
+    "TWY strength: A, D, T1 to T6, Z: 5.7 t/0.9 Mpa; B: 59 F/B/W/T; C: 61 F/C/W/T; E: 4 F/C/W/T; F: 9 F/C/W/T.",
+    "General aviation apron mandatory for single-engined aircraft and light twin-engined planes.",
+    "Aircraft remaining in the general aviation apron must be moored to the mooring points on each stand.",
+    "Helicopter apron on paved area: 2 stands for Dauphin hélicopters, 1 stand for Super Puma helicopter.",
+    "Commercial apron reserved for scheduled flights or with PPR 72 HR from AD operator.",
+    "The stands for Transall are only: stands K1, K2 and K3, located on commercial apron; stand P1 located on pelicandrome.",
+    "C130 and A400M parking is only authorised on stand K5."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Piste non revêtue réservée aux ACFT monomoteurs basés.",
+      "Utilisation simultanée des deux pistes interdite.",
+      "Piste 09/27 limitée par composante vent traversier : Piste sèche : sup 25 kt ; Piste mouillée : sup 20 kt.",
+      "RWY 09/27 non exploitée par composante vent arrière supérieure à 10 kt.",
+      "",
+      "Voir ENR 5.5.",
+      "Présence des activités de voltige N°6852 et N°6855 à proximité.",
+      "Voir ENR 5.5.",
+      "",
+      "Activités réelles R 46 N1 et F connues par CARCASSONNE Tour.",
+      "QFU 094° : Absence de RESA à l'atterrissage.",
+      "RESA = 61 x 45 au décollage.",
+      "Forte pente dans la bande aménagée.",
+      "QFU 274° : RESA = 61 x 45 à l'atterrissage.",
+      "Absence de RESA au décollage.",
+      "Forte pente dans la bande aménagée.",
+      "TWY T1 à T6 réservés aux aéronefs ne dépassant pas 12 m d'envergure.",
+      "Les voies de circulation T1 à T6 sont interdites lorsque la piste est utilisée par des aéronefs de code C ou D.",
+      "Le Casa CN-235 circule uniquement sur les cheminements suivants : entre la piste et les postes de stationnement K1 à K4, via les TWY B et C. entre la piste et le poste de stationnement P1, via les. TWY E et F.",
+      "Le C130 et l'A400M circulent uniquement entre la piste et le poste de stationnement K5 via les voies de circulation Bravo et Charlie.",
+      "Les exploitants du C130 et de l'A400M sont informés des dimensions insuffisantes de congés de raccordement dans certains virages et de la nécessité d'utiliser la technique de l'oversteering lors du roulage si besoin.",
+      "Lors de leur circulation pour rejoindre le parking ou la piste, les propulseurs extérieurs du C130 et de l'A400M devront être arrêtés.",
+      "CARCASSONNE SALVAZA Le Dash8 circule uniquement sur les cheminements suivants : pour les missions de lutte anti-incendie entre la piste et le pélicandrome via les TWY Écho et Fox ; ; pour le transport de passagers et de fret entre la piste et les postes de stationnement K via les TWY B et C.",
+      "Résistance TWY : A, D, T1 à T6, Z : 5.7 t/0.9 Mpa ; B : 59 F/B/W/T ; C : 61 F/C/W/T ; E : 4 F/C/W/T ; F : 9 F/C/W/T.",
+      "Parking aviation générale obligatoire pour tous monomoteurs ou bimoteurs légers.",
+      "Les avions restant sur le parking d'aviation générale doivent être amarrés aux points d'amarrage présents sur chaque poste de stationnement.",
+      "Stationnement hélicoptères sur aire revêtue: 2 postes pour hélicoptères type Dauphin, 1 poste pour hélicoptère type Super Puma.",
+      "Parking commercial réservé aux vols programmés ou sur PPR 72 HR auprès de l'exploitant d'aérodrome.",
+      "Le stationnement du Transall est autorisé uniquement sur les postes K1, K2 et K3 situés sur le PRKG aviation commerciale, et sur le poste P1, situé sur le pélicandrome.",
+      "Le stationnement du C130 et de l'A400M est autorisé uniquement sur le poste K5."
+    ]
+  }
+}

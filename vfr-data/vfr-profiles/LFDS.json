@@ -1,0 +1,83 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDS (AIP France, chart dated 2024-01-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFDS",
+  "name": "Sarlat - Domme",
+  "source": {
+    "publication": "AIP France AD 2 LFDS",
+    "chartDate": "2024-01-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.79222,
+    "longitude": 1.24361
+  },
+  "elevationFeet": 979,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.155",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 118.155
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        104,
+        284
+      ]
+    }
+  ],
+  "preferredQfu": 104,
+  "preferredQfuReason": "preferred QFU 104, due to environment",
+  "notes": [
+    "AD reserved to ACFT radio-equipped.",
+    "Grass strip reserved for ULM.",
+    "Simultaneous use of paved RWY and ULM grass strip prohibited.",
+    "ULM grass strip and unpaved apron areas likely to be soggy in winter and after severe rainfalls.",
+    "LDG paved RWY 10: Base leg and final turn must be made West of Domme village.",
+    "After take-off RWY 10, if ACFT performance allows it, turn right MAG 110° at DER for initial climb.",
+    "During DZ331 activation, during the entire descent of paratroopers and until they land, any movement of ACFT is prohibited on paved RWY and ULM grass strip.",
+    "Preferred QFU: 104° due to environment.",
+    "Taxiing prohibited except on RWY, ULM grass strip and TWY.",
+    "TWY A only usable by ACFT with a wingspan not exceeding 15 m and an overall width of the main gear not exceeding 4.5 m.",
+    "Aerobatic activity (NR 6600): 2500 ft AMSL - 5000 ft AMSL, SR-SS.",
+    "Actual activity announced on A/A SARLAT.",
+    "Parachuting on AD (NR 331): SFC/ FL 135, SR-SS+30.",
+    "Activity reserved for users who have signed a protocol with AD operator.",
+    "Actual activity provided by: LIMOGES Information, AQUITAINE Information, RODEZ Information and announced on A/A SARLAT.",
+    "AEM activity (NR 9142): 500 ft ASFC, radio controlled model flying as per protocol.",
+    "Flights by night are allowed only on FRI-SAT-public HOL: SS-2100."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Bande gazonnée réservée aux ULM.",
+      "Utilisation simultanée de la piste revêtue et de la bande gazonnée ULM interdite.",
+      "Bande gazonnée ULM et parkings non revêtus susceptibles d'être détrempés en période hivernale et après fortes pluies.",
+      "LDG piste revêtue RWY 10 : L'étape de base et le dernier virage doivent s'effectuer à l'Ouest du village de Domme.",
+      "Après décollage RWY 10, si les performances de l'aéronef le permettent, virer à droite Rm 110° à l'extrémité de piste pour la montée initiale.",
+      "Lors des périodes d'activité de la DZ331, pendant toute la descente des parachutistes et jusqu'à leur poser, tout mouvement d'un aéronef est interdit sur la piste revêtue et la bande gazonnée ULM.",
+      "QFU 104° préférentiel cause environnement.",
+      "Roulage interdit hors RWY, bande gazonnée ULM et TWY.",
+      "TWY A utilisable uniquement par les aéronefs dont l'envergure ne dépasse pas 15 m et dont la largeur hors tout du train principal n'excède pas 4.5 m.",
+      "",
+      "Activité réelle annoncée sur A/A SARLAT.",
+      "Parachutages sur AD (N° 331) : SFC/FL 135, SRSS+30.",
+      "Activité réservée aux usagers ayant signé un protocole avec l'exploitant de l'AD.",
+      "Activité réelle connue de : LIMOGES Information, AQUITAINE Information, RODEZ Information et annoncée sur A/A SARLAT.",
+      "Activité AEM (N° 9142) : 500 ft ASFC, vols radiocommandés selon protocole.",
+      "Des vols de nuit sont possibles uniquement VEN-SAMJF : SS-2100."
+    ]
+  }
+}

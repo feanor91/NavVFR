@@ -1,0 +1,198 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQT (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFQT",
+  "name": "Merville - Calonne",
+  "source": {
+    "publication": "AIP France AD 2 LFQT",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 50.61667,
+    "longitude": 2.64
+  },
+  "elevationFeet": 61,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "Sauf JF / Except HOL. ETE / SUM : LUN-VEN / MON-FRI : 0630-1830. HIV / WIN : LUN-VEN / MON-FRI : 0730-1800. En dehors de ces HOR, PPR le dernier jour ouvrable avant 1400 auprès de l'exploitant. Outside these SKED, PPR before 1400 on the last working day from AD operator (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "atis": 127.905,
+    "approach": 126.48,
+    "tower": 119.08,
+    "ground": 121.68
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        36,
+        216
+      ]
+    },
+    {
+      "id": "04R/22L",
+      "qfu": [
+        36,
+        216
+      ]
+    }
+  ],
+  "preferredQfu": 216,
+  "preferredQfuReason": "preferred QFU 216, due to ILS procedure",
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 50.77528,
+      "longitude": 2.56389,
+      "location": "Relais hertzien 2 NM Sud Steenvoorde"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 50.68333,
+      "longitude": 2.57083,
+      "location": "Château de La Motte-au-Bois"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 50.68389,
+      "longitude": 2.84333,
+      "location": "Échangeur autoroutier à l'Ouest d'Armentières"
+    },
+    {
+      "name": "EA",
+      "spoken": {
+        "fr": "Écho Alpha",
+        "en": "Echo Alpha"
+      },
+      "latitude": 50.64083,
+      "longitude": 2.745,
+      "location": "Château d'eau à l'Est d'Estaires"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 50.43528,
+      "longitude": 2.70417,
+      "location": "Échangeur autoroutier à Liévin"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 50.54111,
+      "longitude": 2.65056,
+      "location": "Rond-point au Nord-Est de Béthune"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 50.64611,
+      "longitude": 2.40806,
+      "location": "Silos à l'Est d'Aires-sur-la-Lys"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 50.62639,
+      "longitude": 2.55111,
+      "location": "Intersection RD 916 et rivière Lys"
+    },
+    {
+      "name": "EB",
+      "spoken": {
+        "fr": "Écho Bravo",
+        "en": "Echo Bravo"
+      },
+      "latitude": 50.57528,
+      "longitude": 2.775,
+      "location": "Mémorial de Neuve-Chapelle et intersection RD 171 - RD 947"
+    }
+  ],
+  "notes": [
+    "Grass strip reserved for gliders during their activity.",
+    "Simultaneous use of both grass strip and main RWY 04- 22 is prohibited.",
+    "ULM activity: reserved to ACFT equipped with radio and sqwak, affiliated to based organisations having signed an agreement with CA services.",
+    "Usable declared distances: TORA,TODA, ASDA and LDA RWY 22 reduced due to the infrangible shelter of LOC 22 at 180 m from RWY end.",
+    "Heavy IFR training activity.",
+    "On arrival and on transit, radio contact recommended with MERVILLE TWR at least 5 min before entering the CTR.",
+    "Low height traffic patterns: only with ATS clearance and at 300 ft AAL MNM.",
+    "Night training patterns prohibited outside ATC SKED except AD operator authorization on standard circuit and at a MNM height of 1500 ft.",
+    "Departure 04: climb in the axis 036°, do not turn before having overtaken the factory in the north east sector.",
+    "Departure 04 with turn before factory: only on ATS clearance, turn right and follow trajectory south of railway.",
+    "Preferred QFU: 216°, due to ILS procedure.",
+    "Consignes particulières / Special instructions PCL outside ATS SKED upon PPR from AD operator.",
+    "PCL inactive 0000-0500 (SUM: -1 HR).",
+    "Activation with PPR 48 HR.",
+    "Traffic surveillance equipment: AD equipped with a radar display (see AD 1.0).",
+    "AEM NR 8253: see AIP ENR 5.5.",
+    "Aerobatics NR 6015: see AIP ENR 5.5.",
+    "PJE NR 241: see AIP ENR 5.5.",
+    "Pyrotechnic inoperative.",
+    "Radiocommunication failure: Transit: Before ATC clearance, pass round of the CTR.",
+    "After ATC clearance, comply with the latest clearance received.",
+    "ARR/DEP: Join the nearest compulsory WPT and turn back to AD by the mandatory route, proceed overhead higher than the circuit and join published downwind leg.",
+    "Adhere to possible visual signals."
+  ],
+  "fr": {
+    "notes": [
+      "Bande gazonnée réservée aux planeurs pendant leur activité.",
+      "Utilisation simultanée de la bande gazonnée et de la piste principale 04-22 interdite.",
+      "Activité ULM : réservée aux ULM équipés de radio et transpondeur, affiliés aux associations basées signataires d'un protocole avec les services de la CA.",
+      "Distances déclarées utilisables : TORA, TODA, ASDA et LDA, RWY 22 réduites en raison de la présence du shelter du LOC 22 non frangible à 180 m de l'extrémité de piste.",
+      "Forte activité d'entraînement IFR.",
+      "A l'arrivée et en transit, contact radio recommandé avec MERVILLE TWR au moins 5 min avant pénétration dans la CTR.",
+      "Circuits basse hauteur : uniquement sur clairance ATS et à une hauteur MNM de 300 ft AAL.",
+      "Entraînements tours de piste de nuit interdits en dehors des horaires de contrôle d'aérodrome sauf autorisation exploitant d'AD sur circuit standard et à une hauteur MNM de 1500 ft.",
+      "Départ 04 : monter dans l'axe 036°, ne pas virer avant d'avoir dépassé l'usine au Nord-Est des installations.",
+      "Départ 04 avec virage avant l'usine : uniquement sur clairance ATS, virer à droite et suivre la trajectoire au sud de la voie ferrée.",
+      "QFU préférentiel 216° cause procédure ILS.",
+      "MERVILLE CALONNE Équipement AD PCL hors HOR ATS sur PPR exploitant d'AD.",
+      "PCL inactive 0000-0500 (ETE : -1 HR).",
+      "Activation sur PPR 48 HR.",
+      "Équipement de surveillance du trafic : Aérodrome équipé d'une visualisation radar (voir AD 1.0).",
+      "AEM N° 8253 : voir AIP ENR 5.5.",
+      "Voltige N° 6015 : voir AIP ENR 5.5.",
+      "Parachutage N° 241 : voir AIP ENR 5.5.",
+      "Moyens pyrotechniques inopérants.",
+      "Panne de radiocommunication : Transit : Avant autorisation, contourner la CTR. Après.",
+      "",
+      "",
+      ""
+    ]
+  }
+}

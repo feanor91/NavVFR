@@ -1,0 +1,87 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGG (AIP France, chart dated 2025-08-07): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGG",
+  "name": "Belfort - Chaux",
+  "source": {
+    "publication": "AIP France AD 2 LFGG",
+    "chartDate": "2025-08-07",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.70111,
+    "longitude": 6.83083
+  },
+  "elevationFeet": 1367,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.515",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "fis": 130.9,
+    "airAir": 119.515
+  },
+  "runways": [
+    {
+      "id": "18R/36L",
+      "qfu": [
+        175,
+        355
+      ]
+    },
+    {
+      "id": "18L/36R",
+      "qfu": [
+        175,
+        355
+      ]
+    }
+  ],
+  "preferredQfu": 175,
+  "preferredQfuReason": "preferred QFU 175, due to environment (high relief NW of AD)",
+  "notes": [
+    "Simultaneous use of both RWY prohibited.",
+    "AD reserved for radio-equipped ACFT.",
+    "AD snow covered during winter.",
+    "By strong wind, risks of down draughts close to relief.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU 175° due to environment (high relief NW of AD).",
+    "TWY E not usable during winching procedure.",
+    "Holding point W: compulsory stop before crossing TKOF funnel RWY 18R.",
+    "TKOF and LDG must be stopped if a glider is immobilised on one of the two runways within half width from common limit.",
+    "AD aerial survey at or above 3200 ft AMSL.",
+    "Radio silence required during ULM/airplanes winching procedures.",
+    "Number of circuits limited to 2 per day for non home-based engined ACFT.",
+    "TKOF RWY 18: avoid overflying surrounding villages.",
+    "Aerobatics (NR 6455): see AIP ENR 5.5 Gliders winching activity (NR 940): see AIP ENR 5.5 AEM (NR 8047): see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "Utilisation simultanée des pistes avion et planeur interdite.",
+      "AD réservé aux ACFT munis de radio.",
+      "Enneigé en hiver.",
+      "Par vent fort risque de rabattants à proximité des reliefs.",
+      "Roulage interdit hors piste et TWY.",
+      "QFU 175° préférentiel cause environnement (relief au NW de l'AD).",
+      "TWY E non utilisable pendant la procédure de treuillage.",
+      "Point d'attente W : arrêt obligatoire avant de pénétrer dans la trouée de décollage RWY 18R.",
+      "Tout TKOF ou LDG sera suspendu si un planeur est immobilisé sur une des deux pistes à moins d'une demilargeur de la limite commune.",
+      "Reconnaissance du site à une altitude supérieure ou égale à 3200 ft AMSL.",
+      "",
+      "ULM/AVIONS : nombre de tours de piste limité à deux par jour par ACFT motorisés non basés.",
+      "",
+      "Activité voltige (N° 6455) : voir AIP ENR 5.5 Activité de treuillage planeurs (N° 940) : voir AIP ENR 5.5 AEM (N° 8047) : voir AIP ENR 5.5"
+    ]
+  }
+}

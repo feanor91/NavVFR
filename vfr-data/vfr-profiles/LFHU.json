@@ -1,0 +1,137 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHU (AIP France, chart dated 2021-10-07): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFHU",
+  "name": "Alpe d'Huez",
+  "source": {
+    "publication": "AIP France AD 2 LFHU",
+    "chartDate": "2021-10-07",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.0875,
+    "longitude": 6.08361
+  },
+  "elevationFeet": 6103,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "reportingPoints": [
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 45.08333,
+      "longitude": 6.13333,
+      "location": "Col de Sarenne"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 45.04167,
+      "longitude": 6.14722,
+      "location": "Lac du Chambon"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 45.075,
+      "longitude": 6.10417,
+      "location": "Col de Cluy"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 45.07778,
+      "longitude": 6.01944,
+      "location": "La Paute"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Special characteristic AD reserved for airplane pilots holding: Either a valid mountain qualification (wheels or skis); Either a valid mountain qualification restricted to the altiport (ground not covered with snow, or ground covered with packed snow).",
+    "For the pilots of microlight ACFT, it is strongly advised to have followed the mountain program organized by the FFPLUM.",
+    "For helicopters, phone to (association of management of the Altiport - 06 88 48 70 49) for the integration and If runway is not groomed, landing and takeoff under the entire responsibility of the pilot in command.",
+    "Simultaneous movements between an airplane taxiing on the upper part of the aerodrome and a helicopter manœuvring to or from its stand are prohibited.",
+    "No take-off before 0900 (except special dispension given by AD operator).",
+    "Non home-based ACFT: flight activity is limited at two landings a day; flight with an instructor on board is limited at four landings by plane a day, engine muffler mandatory.; no flight with an instructor on board between 1230 and 1400 local time.",
+    "Home-based ACFT: no local flight between 1230 and 1400, local time, except special dispension given by the AD operator.",
+    "Only one take-off funnel.",
+    "Prohibited entry by the Poutran's pass, to the North, to avoid overflying the ski resort.",
+    "Landing: QFU 058 compulsory.",
+    "Low pass prohibited.",
+    "Passing over the RWY at 500 ft ASFC (6700 ft AMSL), in NNE/SSW direction.",
+    "Pilots must check RWY conditions (possible snowing-up).",
+    "Join down wind leg with an angle of 45° and maintain this ALT up to the turning base leg point.",
+    "Takeoff: QFU 238 compulsory.",
+    "After TKOF, turn left (see ch art) crossing the flying circuit at an ALT lower than that of the downwind leg.",
+    "Note: during the procedures of arrivals or departures, pilots must avoid the overflight of the ski resort and the concentration of people and housing estates.",
+    "Altimeter setting: QNH If unknown QNH, enter compulsorily via « Signal de l'Homme ».",
+    "Refer to the top of ski lifts at 7139 ft when passing abeam.",
+    "Taxiing prohibited except on RWY, TWY and PRKG.",
+    "No parking in direction of TKOF.",
+    "Preferential crash area: 6 km in the 294° / AD.",
+    "Maximum permissible weight: 5.7 tons.",
+    "White colored marking aids:.",
+    "Threshold 06: 3 marks (15 x 1 m) on each side of the centerline.",
+    "RWY centerline: lines (15 x 0,2 m) 15 meters apart.",
+    "Approved touchdown zone: marks (30 x 2,50 to 7,50 m) on each side of RWY centerline located 75 meters after the threshold.",
+    "End of the RWY and slope interruption with the"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD à caractéristiques spéciales, réservé aux pilotes d'avion, titulaires : Soit de la qualification montagne (roues ou skis), en état de validité. Soit de la qualification montagne restreinte à l'altiport (sol non enneigé ou sol enneigé et damé), en état de validité.",
+      "Pour les pilotes d'ULM, il est fortement conseillé d'avoir suivi le cursus montagne organisé par la FFPLUM.",
+      "Pour les hélicoptères, téléphoner à l'AGA (association de gestion de l'Altiport – 06 88 48 70 49) pour les En cas de RWY non damée, atterrissage et décollage sous l'entière responsabilité du commandant de bord.",
+      "Mouvements simultanés entre un avion au roulage sur la plateforme supérieure et un hélicoptère en translation vers ou depuis son poste de stationnement interdits.",
+      "Pas de décollage avant 0900 (sauf dérogation particulière donnée par l'exploitant AD).",
+      "Aéronefs non basés : activité limitée à deux atterrissage par jour ; activité d'instruction limitée à quatre atterrissages par avion et par jour, silencieux moteur obligatoire. pas de vol d'instruction entre 1230 et 1400, heures locales.",
+      "Aéronefs non basés : activité limitée à deux atterrissage par jour ; activité d'instruction limitée à quatre atterrissages par avion et par jour, silencieux moteur obligatoire. pas de vol d'instruction entre 1230 et 1400, heures locales.",
+      "Une seule trouée d'envol.",
+      "",
+      "L'ALPE D'HUEZ Atterrissage : QFU 058 obligatoire.",
+      "Passages bas interdits.",
+      "Passage à 500 ft ASFC (6700 ft AMSL) audessus de la piste selon un axe orienté NNE/SSW.",
+      "S'assurer de l'état de la piste et de son enneigement éventuel.",
+      "Rejoindre la branche vent arrière suivant un angle de 45° en maintenant cette ALT jusqu'à l'avant dernier virage.",
+      "Décollage : QFU 238 obligatoire.",
+      "Après TKOF dégager par la gauche (cf. trajectoire) en coupant le circuit en vol à une ALT inférieure à celle de la branche vent arrière.",
+      "Note : pendant les manoeuvres de ralliement et circuit en vol, éviter le survol de la station et les zones de concentration d'habitations ou de personnes.",
+      "",
+      "Signal de l'Homme, prendre comme référence le sommet des remontées mécaniques à 7139 ft lors du passage travers.",
+      "Roulage interdit hors RWY, TWY and PRKG.",
+      "Stationnement interdit en PSN alignement de TKOF.",
+      "Zone préférentielle de LDG forcé à 6 km dans le 294° de l'AD.",
+      "",
+      "",
+      "Seuil 06 : 3 marques de 15 x 1 m de part et d'autre de l'axe.",
+      "Axe de piste : marques de 15 x 0,20 m espacées de 15 m.",
+      "Zone recommandée pour l'impact : marques de 30 x 2,50 m à 7,50 m de part et d'autre de l'axe, la base de ces marques se trouvant à 75 m du seuil de piste.",
+      ""
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFFE (AIP France, chart dated 2022-02-24): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFFE",
+  "name": "Enghien - Moisselles",
+  "source": {
+    "publication": "AIP France AD 2 LFFE",
+    "chartDate": "2022-02-24",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 49.04556,
+    "longitude": 2.35194
+  },
+  "elevationFeet": 337,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 121.255",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "airAir": 121.255
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        65,
+        245
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBU (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFBU",
+  "name": "international Angoulême-Cognac",
+  "source": {
+    "publication": "AIP France AD 2 LFBU",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.72944,
+    "longitude": 0.21917
+  },
+  "elevationFeet": 436,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "LUN-VEN / MON-FRI : 0800-1130, 1230-1730 JF et en dehors des HOR, le service est susceptible d'être rendu : O/R opérations. Public HOL and outside SKED, ATS may be provided : O/R operations (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 123.155",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 130.09,
+    "approach": 118.08,
+    "afis": 123.155
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        96,
+        276
+      ]
+    }
+  ],
+  "preferredQfu": 276,
+  "preferredQfuReason": "preferred QFU 276, due to IFR procedure",
+  "reportingPoints": [
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 45.81056,
+      "longitude": 0.1925,
+      "location": "Intersection N 10 et D 15"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 45.7775,
+      "longitude": 0.19222,
+      "location": "Entrepôts de la Poutardière"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 45.79361,
+      "longitude": 0.29361,
+      "location": "Carrière au Nord de la forêt de la Braconne"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 45.7025,
+      "longitude": 0.26472,
+      "location": "Échangeur N 141 + Antenne"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 45.66111,
+      "longitude": 0.25944,
+      "location": "Village de Touvre"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 45.69194,
+      "longitude": 0.15083,
+      "location": "Nord du plan d'eau de Saint-Yriex"
+    }
+  ],
+  "notes": [
+    "General conditions",
+    "IFR activity possible.",
+    "AD reserved for radio-equipped ACFT.",
+    "Proximity of LF-R 102 East of aerodrome.",
+    "Actual activity provided by ANGOULEME, COGNAC and LIMOGES Information.",
+    "AD restrictions",
+    "Limitation to 4 simultaneous training ACFT.",
+    "Use of FATO: reserved for home based helicopters, according to protocol with AD operator.",
+    "Low height patterns below 500 ft AAL: with instructor only and except on SUN and public HOL.",
+    "Prohibited from 1200 to 1400 local time.",
+    "Preferred QFU 276° due to IFR procedure.",
+    "RWY 10: alter heading by the left then towards water tower to avoid overflying of La Prevoterie if permitted by ACFT performances.",
+    "RWY 28: continue RWY heading then turn right crossing RN10 highway.",
+    "In the event of heavy activity, use the long circuit as a priority as following: Landing RWY 10: join NA point then NE point, and return to the AD circuit at 1400 ft AMSL, if weather conditions permit.",
+    "Landing RWY 28: join NE point then NA point, and return to the AD circuit at 1400 ft AMSL, if weather conditions permit.",
+    "One way only on TWY GOLF, the westwern part of TWY FOX and the Southern part of TWY WHISKY (see AD 2 LFBU GMC 01).",
+    "Niveau 4 / Level 4: LUN-VEN / MON-FRI: 0800-1130 1230-1730 Niveau 5 sur demande / Level 5 on request.",
+    "Public HOL and outside these SKED: Level 1 Opening and extension possible level 4 or 5 on request.",
+    "Péril animalier / Wildlife strike hazard: Occasionnel / Random: HOR / SKED RFFS"
+  ],
+  "fr": {
+    "notes": [
+      "Conditions générales",
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "Proximité immédiate LF-R 102 à l'Est de l'aérodrome.",
+      "Activité connue d'ANGOULEME, COGNAC et LIMOGES Information.",
+      "Restrictions d'exploitation",
+      "Limitation à 4 aéronefs simultanés en entraînement tour de piste.",
+      "Utilisation de la FATO : réservée aux hélicoptères basés, signataires d'un protocole avec l'exploitant.",
+      "Circuit basse hauteur inférieur à 500 ft AAL : avec instructeur uniquement et hors DIM et JF.",
+      "Interdit entre 1200 et 1400 locales.",
+      "QFU préférentiel 276° cause procédure IFR.",
+      "RWY 10 : altérer le cap vers la gauche puis vers le château d'eau pour éviter le survol de la Prévoterie si les performances de l'aéronef le permettent.",
+      "RWY 28 : poursuivre dans l'axe jusqu'à la RN10 avant le virage à droite.",
+      "En cas d'activité dense, utiliser prioritairement le circuit long défini ci-dessous : RWY10 : rejoindre le point NA puis NE, et réintégrer ensuite le circuit de piste, à 1400 ft AMSL, si les conditions météo le permettent.",
+      "RWY28 : rejoindre le point NE puis NA, et réintégrer ensuite le circuit de piste, à 1400 ft AMSL, si les conditions météo le permettent.",
+      "Circulation à sens unique sur le TWY GOLF, sur la partie Ouest du TWY FOX et sur la partie Sud du TWY WHISKY (voir AD 2 LFBU GMC 01).",
+      "",
+      "ANGOULEME BRIE CHAMPNIERS 11 - RFFS : JF et en dehors de ces HOR : Niveau 1 Ouverture et extension possible niveau 4 ou 5 sur demande.",
+      ""
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBK (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFBK",
+  "name": "Montluçon Guéret",
+  "source": {
+    "publication": "AIP France AD 2 LFBK",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.22611,
+    "longitude": 2.36278
+  },
+  "elevationFeet": 1367,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN-VEN / MON-FRI : 0945-1230, 1330-1630 locale / local time de / from 01 OCT à / to 31 MAR, 0915-1230, 1330-1800 locale / local time de / from 01 APR à / to 30 SEP. SAM, DIM et JF non assurés / SAT, SUN and public HOL not provided (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 118.405",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 118.405
+  },
+  "runways": [
+    {
+      "id": "17/35",
+      "qfu": [
+        166,
+        346
+      ]
+    },
+    {
+      "id": "17R/35L",
+      "qfu": [
+        166,
+        346
+      ]
+    }
+  ],
+  "notes": [
+    "Possible IFR operations.",
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of RWY prohibited.",
+    "Use of the unpaved RWY: reserved for gliders, service planes, ACFT with conventional undercarriage and aerobatic ACFT with conventional undercarriage,; during gliding activity, reserved for gliders and service planes,; frequently unusable in heavy rain.",
+    "Paved RWY unusable when a glider is stopped on half East side of unpaved RWY.",
+    "Occasionnaly used by gliders when unpaved RWY is unusable.",
+    "Heavy bird hazard over \"Etang des Landes\" (219°/3,4 NM from ARP).",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Do not enter TWY when TKOF QFU 346° or LDG QFU 166° in progress on the unpaved RWY.",
+    "Threshold 35 not visible from holding point: caution recommended before entering runway.",
+    "For nuisance limitation on the village of Lépaud, west circuits are authorized for aerobatic ACFT in the absence of gliding activity.",
+    "PCL: 3 times: LIL; 5 times: LIH; Lighting extinction by operating the trigger 7 times in less than 5 seconds.",
+    "Aerobatic activity NR 6551 on AD: centered on ARP, 2000 m along RWY 17/35 axis, 1650 ft ASFC / 3300 ft ASFC, lower limit and upper limit (MAX FL 060) changeable by NOTAM, SR-SS, announced on FREQ MONTLUÇON INFO or A/A, reserved to pilots authorized by CAA.",
+    "Glider winching NR 967 on AD, take off from grass strip, 2000 ft AMSL, non marked cable, rotating light on ground.",
+    "Activity announced on MONTLUÇON INFO or A/A.",
+    "Simultaneous activity with aerobatic NR 6551 prohibited."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des pistes interdite.",
+      "Utilisation de la piste non-revêtue : réservée aux planeurs, aéronefs de servitude, avions basés à train classique et avions de voltige à train classique ; pendant l'activité vol à voile, réservée aux planeurs et aéronefs de servitude ; fréquemment inutilisable par fortes pluies.",
+      "Piste en dur inutilisable si un planeur est immobilisé sur la moitié Est de la piste non revêtue.",
+      "Utilisation occasionnelle par planeurs lorsque la piste non revêtue est inutilisable.",
+      "Risque aviaire important sur l'Étang des Landes (219°/3,4 NM ARP).",
+      "Roulage interdit hors RWY et TWY.",
+      "Ne pas s'engager sur le TWY si TKOF QFU 346° ou LDG QFU 166° en cours sur la piste non revêtue.",
+      "Seuil 35 non visible du point d'attente : prudence recommandée avant de pénétrer sur la piste.",
+      "Pour limitation de nuisances sur le village de Lépaud, tours de piste à l'Ouest autorisés pour les voltigeurs en l'absence d'activité vol à voile.",
+      "PCL : 3 coups : BI ; 5 coups : HI ; Extinction du balisage en donnant 7 coups d'alternat en moins de 5 secondes.",
+      "Activité voltige N° 6551 sur AD : centrée sur l'ARP, 2000 m de long sur l'axe RWY 17/35,1650 ft ASFC / 3300 ft ASFC, plancher et plafond (MAX FL 060) modifiables par NOTAM, SR-SS, annoncée sur MONTLUÇON INFO ou A/A, réservée aux pilotes autorisés par la CAA.",
+      "Treuillage planeurs N° 967 sur AD, lancement de la BG, 2000 ft AMSL, câble non balisé, feu rotatif au sol, activité annoncée sur MONTLUÇON INFO ou A/A.",
+      "",
+      "Activité simultanée avec voltige N° 6551 interdite."
+    ]
+  }
+}

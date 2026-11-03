@@ -1,0 +1,145 @@
+{
+  "$comment": [
+    "Transcribed by hand from the SIA chart set AD 2 LFBL (AIP France, chart dated 2026-07-09): the text pages checked against the images of the pages.",
+    "Only what the chart states is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text; the reporting points, rules and notes were added by hand.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "No circuit height or circuit side for ordinary traffic is printed on this chart, so none is recorded.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFBL",
+  "name": "Limoges-Bellegarde",
+  "source": {
+    "publication": "AIP France AD 2 LFBL",
+    "chartDate": "2026-07-09",
+    "extraction": "manual, from the chart text and images",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.86083,
+    "longitude": 1.18028
+  },
+  "elevationFeet": 1300,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "Monday 0515 to Saturday 2200; Sundays and public holidays 0700 to 2200. Outside these hours, for commercial flights only, PPR with the Airport Coordination Post; air traffic control may nevertheless be provided within the aerodrome circuit at any time without notice, its presence being known on the TWR and ATIS frequencies (UTC in winter, local time minus 1 h in summer)",
+    "radioMandatory": true,
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 124.05,
+    "approach": 118.08,
+    "tower": 119.555
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        32,
+        212
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 45.88333,
+      "longitude": 1.01667,
+      "location": "Saint-Victurnien",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 45.86667,
+      "longitude": 1.08333,
+      "location": "Carrière",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 45.93333,
+      "longitude": 1.03333,
+      "location": "Oradour-sur-Glane",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 45.75556,
+      "longitude": 1.27778,
+      "location": "Solignac",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 45.76667,
+      "longitude": 1.23944,
+      "location": "Carrière",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 45.88333,
+      "longitude": 1.4,
+      "location": "Saint-Priest-Taurion",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "EA",
+      "spoken": {
+        "fr": "Écho Alpha",
+        "en": "Echo Alpha"
+      },
+      "latitude": 45.895,
+      "longitude": 1.29389,
+      "location": "Échangeur routier",
+      "purpose": "point de compte rendu VFR spécial"
+    }
+  ],
+  "notes": [
+    "Aerodrome reserved for radio-equipped aircraft. The unpaved runway is reserved for home-based gliders and tow aircraft.",
+    "In winter the relief north of the aerodrome is often covered in mist, even when the weather at LFBL is good.",
+    "On ATC clearance, jet aircraft may fly a low-height circuit at 700 ft AAL minimum north-west of the runway, or a circuit at 1500 ft AAL minimum south-east of the runway.",
+    "Avoid overflying the sensitive site \"PRIMAGAZ Les Bardys\", 1.6 NM north-west of point E.",
+    "Taxiway Sierra is limited to aircraft of 7 tonnes maximum. Code C and larger aircraft (wingspan over 24 m): no half-turn on runway 03/21 except on the turn-around areas 03 and 21. The orange turn-around line between S4 and G2 is reserved for aircraft using the water-bomber (pélicandrome) area.",
+    "Special VFR meteorological conditions with IFR traffic, visibility on the routes: NW-WA 2000 m; W-WA 1500 m, following the Vienne river; E-EA 2000 m; EA-LFBL 1500 m, following the west Limoges loop road; S-SA 1500 m, following the Briance valley; SA-LFBL 2500 m.",
+    "Radio failure: squawk 7600, continue in visual meteorological conditions, land at the nearest suitable aerodrome and report the arrival to the ATS concerned by the quickest means.",
+    "Aerobatics no. 6591: see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Conditions météorologiques en présence IFR : NW <----->WA : 2000 m ; W <-----> WA : 1500 m, suivre le cours de la Vienne ; E <-----> EA : 2000 m.",
+      "",
+      ""
+    ]
+  }
+}

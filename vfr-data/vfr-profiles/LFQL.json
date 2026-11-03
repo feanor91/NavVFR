@@ -1,0 +1,94 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQL (AIP France, chart dated 2023-09-07): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFQL",
+  "name": "Lens - Bénifontaine",
+  "source": {
+    "publication": "AIP France AD 2 LFQL",
+    "chartDate": "2023-09-07",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 50.46639,
+    "longitude": 2.81972
+  },
+  "elevationFeet": 170,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.355",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.355
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        30,
+        210
+      ]
+    },
+    {
+      "id": "09/27",
+      "qfu": [
+        89,
+        269
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Usable declared distances reduced due to obstacles near RWY thresholds.",
+    "AD prohibited for class 5 microlights (balloons).",
+    "LDG RWY 03 and RWY 09: caution advised due to roads in front.",
+    "A/A frequency shared with Laon Chambry.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "LDG or TKOF is prohibited if an ACFT is lying on adjacent TWY and between the two thresholds of RWY in use.",
+    "Avoid overflying Lens (Hospital), Bénifontaine and Loosen-Gohelle.",
+    "Aerobatics (NR 6010): 2000 ft AMSL/3500 ft AMSL.",
+    "SAT, SUN and public HOL: SR-SS overhead RWY in use.",
+    "PJE (NR 264) on AD: FL 140.",
+    "Upper limit FL 115 when LF-CBA 1A active.",
+    "SR-SS + 30.",
+    "Users information on A/A LENS and LILLE APP/FIS.",
+    "Activity reserved for signatory users to the protocol.",
+    "Paramotor activity near parachute target: holding altitude 700 ft.",
+    "Activity reserved for the signatories of the protocol.",
+    "For non-based, imperative agreement of the aerodrome director.",
+    "AEM NR 8295: 400 ft ASFC MAX, SR-SS.",
+    "Radio controlled model flying as per protocol."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Distances déclarées réduites en raison de la présence d'obstacles proches des seuils de piste.",
+      "AD interdit aux ULM de classe 5 (ballons).",
+      "LDG RWY 03 et RWY 09 : précautions à prendre dues à la présence de routes.",
+      "Fréquence A/A commune avec Laon Chambry.",
+      "Roulage interdit hors piste et TWY.",
+      "LDG ou TKOF interdit tant qu'un aéronef se trouve sur le TWY accolé à la piste en service et entre les deux THR.",
+      "Éviter le survol de Lens (Centre Hospitalier), Bénifontaine et de Loos-en-Gohelle.",
+      "Voltige sur AD (N° 6010) : 2000 ft AMSL/3500 ft AMSL.",
+      "SAM, DIM et JF : SR-SS sur l'axe de la piste qui est en service.",
+      "Parachutage sur AD (N° 264) : FL 140.",
+      "Plafond FL 115 si LF-CBA 1A active.",
+      "SR-SS + 30.",
+      "Information des usagers sur A/A LENS et LILLE APP/FIS.",
+      "Activité réservée aux usagers signataires du protocole.",
+      "Activité paramoteur à proximité de la cible parachute : altitude d'attente fixée à 700 ft.",
+      "Activité réservée aux signataires du protocole.",
+      "Pour les non-basés, accord impératif du directeur d'aérodrome.",
+      "AEM N° 8295 : 400 ft ASFC MAX, SR-SS.",
+      "Vols radiocommandés selon protocole."
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQE (AIP France, chart dated 2024-09-05): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFQE",
+  "name": "Étain-Rouvres",
+  "source": {
+    "publication": "AIP France AD 2 LFQE",
+    "chartDate": "2024-09-05",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.22917,
+    "longitude": 5.67611
+  },
+  "elevationFeet": 760,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "Activable H24 Activité réelle connue de / Real activity known by : ETAIN APP ou RAI 120.125 HNO : O/R le dernier jour ouvrable avant 1100 / O/R the last working day before 1100 SAM, DIM et JF : O/R le dernier jour ouvrable avant 1100 / SAT, SUN and HOL : O/R the last working day before 1100 chef CLA  03 29 87 83 52 - 863 552 8352 TWR Principal :  03 29 87 82 51 Secondaire :  03 29 87 82 74 Secours :  03 54 65 80  (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "approach": 120.125,
+    "tower": 118.95,
+    "ground": 138.1
+  },
+  "runways": [
+    {
+      "id": "01/19",
+      "qfu": [
+        11,
+        191
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 49.21,
+      "longitude": 5.73917,
+      "location": "Noms / Bechamps"
+    },
+    {
+      "name": "E1",
+      "spoken": {
+        "fr": "Écho un",
+        "en": "Echo one"
+      },
+      "latitude": 49.16139,
+      "longitude": 5.82389,
+      "location": "Pont sur l'Orne /"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 49.33167,
+      "longitude": 5.66361,
+      "location": "Silo Spincourt"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 49.06111,
+      "longitude": 5.70972,
+      "location": "Étang de / Doncourt aux Templiers"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 49.23389,
+      "longitude": 5.60583,
+      "location": "Foameix Ornel"
+    },
+    {
+      "name": "W1",
+      "spoken": {
+        "fr": "Whisky un",
+        "en": "Whiskey one"
+      },
+      "latitude": 49.19889,
+      "longitude": 5.53861,
+      "location": "Abaucourt Hautecourt"
+    }
+  ],
+  "notes": [
+    "AD reference code (ICAO): 4C AD with restricted use and prohibited to ACFT without radio For ACFT proceeding in GAT rules: AD strictly reserved for ACFT based in a radius of 40 NM centered on Etain and whose registration is listed in the protocols between the 3rd combat HEL regiment and their ACB.",
+    "The access to the airfield is only possible by day during ATS working hours and under VMC Civilian ACFT: can only use the RWY and the TWY Unusable outside TWY and RWY Overflight of AD prohibited H24 below 1000 ft ASFC Overflight of Etain city prohibited below 3300 ft ASFC FPL compulsory for ARR: out of ATS HOR for home based ACFT and H24 for other ACFT PPR mandatory for non based ACFT 03 29 87 82 34 (OFF/OPS) AEM (NR 8206): SFC - 500 ft ASFC FRI: SUM: 1100 - SS, WIN: 1200 - SS SAT, SUN and HOL: SR - SS"
+  ],
+  "fr": {
+    "notes": [
+      "Code de référence AD (OACI) : 4C AD à usage restreint et interdit aux ACFT sans radio Pour les ACFT évoluant suivant les règles de la CAG : AD strictement réservé aux ACFT basés dans un rayon de 40 NM centré sur Étain et dont l'immatriculation est listée dans les protocoles d'accord entre le 3ième RHC et l'ACB d'appartenance.",
+      "L'accès au terrain d'Étain est possible uniquement pendant les horaires d'activités des ATS, de jour et en condition VMC ACFT civils : L'utilisation de la plateforme est strictement limitée à la RWY et au TWY Inutilisable hors TWY et RWY Survol AD interdit H24 au-dessous de 1000 ft ASFC Survol ville d'Étain interdit en-dessous de 3300 ft ASFC FPL obligatoire à l'ARR : en dehors des HOR ATS pour les ACFT basés et H24 pour ceux non basés PPR obligatoire pour les ACFT non basés 03 29 87 82 34 (OFF/OPS)   AEM (NR 8206) : SFC - 500 ft ASFC VEN : ETE : 1100 - SS, HIV : 1200 - SS SAM, DIM et JF : SR - SS"
+    ]
+  }
+}

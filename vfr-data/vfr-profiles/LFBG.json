@@ -1,0 +1,168 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBG (AIP France, chart dated 2025-04-17): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFBG",
+  "name": "Cognac-Châteaubernard",
+  "source": {
+    "publication": "AIP France AD 2 LFBG",
+    "chartDate": "2025-04-17",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.65833,
+    "longitude": -0.3175
+  },
+  "elevationFeet": 103,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "LUN-JEU / MON-THU : 0715-1600 VEN / FRI : 0715-1400 APP, service radar et VDF rendus pendant l'activité MIL / APP, radar service and VDF assured during MIL activity En dehors de cette activité, TWR uniquement / Out of this activity, TWR only Activité annoncée par RAI ou COGNAC APP / Activity announced on RAI or COGNAC APP 132.450 Pour les ACFT équipés UHF, l'informations ATIS a connaître avant le premier contact avec (UTC HIV ; HOR ETE : -1HR)",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 132.45,
+    "tower": 120.075
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        48,
+        228
+      ]
+    },
+    {
+      "id": "08/26",
+      "qfu": [
+        83,
+        263
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "E1",
+      "spoken": {
+        "fr": "Écho un",
+        "en": "Echo one"
+      },
+      "latitude": 45.65083,
+      "longitude": -0.2525,
+      "location": "Nom / Carrefour / Centre Gensac la Pallue"
+    },
+    {
+      "name": "E2",
+      "spoken": {
+        "fr": "Écho deux",
+        "en": "Echo two"
+      },
+      "latitude": 45.61722,
+      "longitude": -0.21889,
+      "location": "Carrefour / Centre Ségonzac"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 45.77222,
+      "longitude": -0.42278,
+      "location": "Église / Burie"
+    },
+    {
+      "name": "N1",
+      "spoken": {
+        "fr": "Novembre un",
+        "en": "November one"
+      },
+      "latitude": 45.68556,
+      "longitude": -0.39722,
+      "location": "Pont de Merpins /"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 45.68833,
+      "longitude": -0.285,
+      "location": "Pont de Saint Brice /"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 45.52361,
+      "longitude": -0.29083,
+      "location": "Silo Est / Archiac"
+    },
+    {
+      "name": "S1",
+      "spoken": {
+        "fr": "Sierra un",
+        "en": "Sierra one"
+      },
+      "latitude": 45.57694,
+      "longitude": -0.30528,
+      "location": "Centre Saint Fort sur le Né"
+    },
+    {
+      "name": "S2",
+      "spoken": {
+        "fr": "Sierra deux",
+        "en": "Sierra two"
+      },
+      "latitude": 45.62056,
+      "longitude": -0.28222,
+      "location": "Centre Roissac"
+    },
+    {
+      "name": "W1",
+      "spoken": {
+        "fr": "Whisky un",
+        "en": "Whiskey one"
+      },
+      "latitude": 45.61778,
+      "longitude": -0.33278,
+      "location": "Clocher / Salles d'Angles"
+    },
+    {
+      "name": "W2",
+      "spoken": {
+        "fr": "Whisky deux",
+        "en": "Whiskey two"
+      },
+      "latitude": 45.54167,
+      "longitude": -0.4425,
+      "location": "Carrefour / Centre Chadenac"
+    }
+  ],
+  "notes": [
+    "Overflying the AD prohibited H24 below 1000 ft ASFC AD reserved for radio-equipped ACFT Restricted use third list AD Restrictions for CIV ACFT: On permission, with advance notice of 5 working days, of Colone commanding BA709 via the Base operation office (BOB) The PPR NR must be entered in box 18 of the PLN RWY 05/23 paved restricted to 15 kt of cross-wind ACFT operated by Cognac ACB: PPR from Head of activity support group through Base operation office (BOB) or Flight director MIL ACFT: PPR from Head of activity support group through Base operation office (BOB) or Flight director PPR Number must be entered in box 18 of the FPL High Low High Training Missions and working missions in areas with COGNAC APP liable to authorization from shift supervisor RWY 05/23 paved restricted to 20 kt of cross-wind RWY wet and 25 kt RWY dry TKOF climb surfaces crossed: Departure RWY 23, THR 05:; OBST BG950, road clearance ALT = 101ft; OBST fenses; Departure RWY 05, THR 23:; OBST BG951, road clearance ALT = 112 ft; Departure RWY 26, THR 08:; OBST BG952, road clearance ALT = 102 ft; OBST fenses; Departure RWY 08, THR 26:; OBST BG951, road clearance ALT = 112 ft; OBST fenses.",
+    "Landing gap surfaces pierced by obstacles: Arrival RWY 05, THR 05: OBST trees.",
+    "Sidelong surfaces pierced by obstacles: RWY 05/23:; OBST BG927, tree ATL = 149 ft; OBST BG926, hurst of trees ATL = 142 ft.",
+    "CIV ACFT: RWY 05 and 23: TORA / TODA / ASDA / LDA:.",
+    "AEM NR 9185 1: SFC - 500 ft ASFC - Daytime Remote piloted flights according to protocol AEM NR 9185 2: SFC - 150 ft ASFC - Daytime Remote piloted flights according to protocol Aerobatics NR 6508: RWY 05/23 axis, 2500 m longer 1600 ft AMSL - FL 060 Activity reserved for ACB pilots home based Out of ATS HOR Activity known by AQUITAINE INFO"
+  ],
+  "fr": {
+    "notes": [
+      "Survol de l'AD interdit H24 au-dessous de 1000 ft ASFC AD réservé aux ACFT munis de radio AD liste 3 à usage restreint Restriction pour ACFT CIV : Sur autorisation, avec préavis de 5 jours ouvrables, du Colonel commandant la BA709 par l'intermédiaire du Bureau Opérations Base (BOB) Le numéro PPR devant figurer en case 18 du FPL RWY 05/23 revêtue limitée à 15 kt de vent traversier ACFT exploités par ACB de Cognac : PPR du commandant du groupement d'appui à l'activité via le BOB ou le Directeur des Vols ACFT MIL : PPR du commandant du groupement d'appui à l'activité via le bureau des opérations base (BOB) ou le DV Le NR de PPR devant figurer en case 18 du FPL Missions d'entraînement Haut Bas Haut et missions travail en zone avec COGNAC APP soumises à accord du chef de quart  05 45 32 73 06 - 811 709 7306 - 811 579 5001  05 45 32 73 06 - 811 709 7306 - 811 579 5001 RWY 05/23 revêtue limitée à 20 kt de vent traversier RWY mouillée et 25 kt RWY sèche Trouées de TKOF percées par OBST : Départ RWY 23, THR 05 : OBST BG950, gabarit routier ALT = 101ft ; OBST clôture périphérique ; Départ RWY 05, THR 23 : OBST BG951, gabarit routier ALT = 112 ft ; Départ RWY 26, THR 08 : OBST BG952, gabarit routier ALT = 102 ft ; OBST clôture périphérique ; Départ RWY 08, THR 26 :  ; OBST BG951, gabarit routier ALT = 112 ft ; OBST clôture périphérique.",
+      "Trouées de LDG percées par obstacles : Arrivée RWY 05, THR 05 : OBST arbres.",
+      "Surfaces latérales percées par obstacles : RWY 05/23 : OBST BG927, arbre ATL = 149 ft ; OBST BG926, bosquet d'arbres ATL = 142 ft.",
+      "",
+      "AEM NR 9185 1 : SFC - 500 ft ASFC - HJ Vols radiocommandés selon protocole AEM NR 9185 2 : SFC - 150 ft ASFC - HJ Vols radiocommandés selon protocole Activité Voltige NR 6508 : axe RWY 05/23 de 2500 m 1600 ft AMSL - FL 060 Activité réservée aux pilotes basés de l'ACB Hors HOR ATS Activité connue de AQUITAINE INFO"
+    ]
+  }
+}

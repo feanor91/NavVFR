@@ -1,0 +1,65 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLV (AIP France, chart dated 2026-08-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFLV",
+  "name": "Vichy — Charmeil",
+  "source": {
+    "publication": "AIP France AD 2 LFLV",
+    "chartDate": "2026-08-06",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.17167,
+    "longitude": 3.40417
+  },
+  "elevationFeet": 817,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS sauf JF / except public HOL : - LUN / MON : 1300-1600 - MAR-VEN / TUE-FRI : 0800-1100, 1300-1600 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 122.225,
+    "afis": 121.405
+  },
+  "runways": [
+    {
+      "id": "01/19",
+      "qfu": [
+        6,
+        186
+      ]
+    }
+  ],
+  "preferredQfu": 6,
+  "preferredQfuReason": "preferred QFU 6, due to IFR procedure",
+  "notes": [
+    "Possible IFR operations.",
+    "AD reserved for radio-equipped ACFT.",
+    "ULM activity reserved for radio-equipped ULM.",
+    "Bird presence during all the year.",
+    "Temporary parachuting activity announced by NOTAM and known to VICHY INFO and CLERMONT APP.",
+    "Preferred RWY 01 due to IFR procedure.",
+    "Aerobatics NR 6780: See AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "Activité ULM réservée aux ULM munis de radio.",
+      "Présence d'oiseaux toute l'année.",
+      "Activité temporaire de parachutage annoncée par NOTAM et connue de VICHY INFO et CLERMONT APP.",
+      "RWY 01 préférentielle cause procédure IFR.",
+      "Voltige N°6780 : Voir AIP ENR 5.5."
+    ]
+  }
+}

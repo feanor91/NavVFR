@@ -1,0 +1,66 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRP (AIP France, chart dated 2026-02-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFRP",
+  "name": "Ploërmel - Loyat",
+  "source": {
+    "publication": "AIP France AD 2 LFRP",
+    "chartDate": "2026-02-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.00194,
+    "longitude": -2.37861
+  },
+  "elevationFeet": 237,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.255",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.255
+  },
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        95,
+        275
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Radio contact mandatory 3 minutes before entering AD circuit.",
+    "ULM: ARR/DEP, maintain 500 ft AAL until leaving the airplane circuit.",
+    "In case of plane or glider arrival or departure, ULM must vacate the RWY and the axis (holding on apron or in the ULM circuit).",
+    "Presence of an unbeaconed winch launching runway (800 x 50 m) North of the RWY, and preflight and alignment areas, East of the RWY, only used for homebased gliding activity.",
+    "Due to glider activity on the joint RWY, absence of the RWY edge markings.",
+    "Gliders winching (NR 921): see AIP ENR 5.5.",
+    "Orange flashing light located on the winch at threshold 09 or 27 of the winch launching runway North of beaconed RWY.",
+    "Avoid AD overhead below 2000 ft AMSL Gliders aerobatics (NR 6370): see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Contact radio obligatoire 3 minutes avant intégration dans le circuit de l'aérodrome.",
+      "ULM : ARR/DEP, maintenir 500 ft AAL jusqu'à dégagement du circuit avion.",
+      "En cas d'ARR ou DEP planeurs ou avions, les ULM doivent libérer la piste et l'axe de piste (attente sur PRKG ou dans circuit ULM).",
+      "Présence d'une piste de lancement au treuil (800 x 50 m) non balisée au Nord de la piste ainsi que de zones de prévol et d'alignement à l'Est de la piste balisée, uniquement utilisées dans le cadre de l'activité du club de vol à voile basé.",
+      "En raison de l'activité planeur sur la piste mixte, les balises de bord de piste sont absentes.",
+      "Treuillage planeurs (N°921) : voir AIP ENR 5.5.",
+      "Feu orange à éclats installé sur le treuil positionné sur le seuil 09 ou 27 de la piste de lancement au treuil au Nord de la piste balisée.",
+      "Les verticales terrain sont à éviter en dessous de 2000 ft AMSL Voltige planeurs (N° 6370) : voir AIP ENR 5.5."
+    ]
+  }
+}

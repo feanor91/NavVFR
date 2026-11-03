@@ -1,0 +1,39 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFTM (AIP France, chart dated 2022-05-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFTM",
+  "name": "Serres - La Bâtie-Montsaléon",
+  "source": {
+    "publication": "AIP France AD 2 LFTM",
+    "chartDate": "2022-05-19",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 44.45722,
+    "longitude": 5.72722
+  },
+  "elevationFeet": 2328,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        181,
+        1
+      ]
+    }
+  ]
+}

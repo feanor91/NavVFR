@@ -1,0 +1,104 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFKX (AIP France, chart dated 2026-02-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFKX",
+  "name": "Méribel",
+  "source": {
+    "publication": "AIP France AD 2 LFKX",
+    "chartDate": "2026-02-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.4075,
+    "longitude": 6.5775
+  },
+  "elevationFeet": 5639,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.755",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 118.755
+  },
+  "runways": [
+    {
+      "id": "15/33",
+      "qfu": [
+        152,
+        332
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for ACFT equipped with radio Altiport.",
+    "Altiport reserved for pilots holding: for the plane pilots, either a mountain rating (wheels and/or skis), or a valid authorization to access the altiport.; for ULM pilots, it is strongly recommended to have attended the mountain training organised by the.",
+    "FFPLUM (French Microlight Federation).",
+    "Commercial air transport by plane is prohibited, with the exception of introductory flights.",
+    "Presence of numerous paragliders near airfield trafic.",
+    "Reduced size RWY markings.",
+    "In winter conditions, unplowed RWY.",
+    "Find out about the state of the RWY before the flight and before landing.",
+    "No TKOF in the morning before 0900 local time (except special authorization from the AD operator).",
+    "Mandatory engine muffler for training flights",
+    "No training flights between 1230 and 1400 local time.",
+    "Non home-based ACFT: activity limited at two LDG / half day.",
+    "Helicopters: limit operations with rotor turning during boarding and disembarking.",
+    "Arrival: Recommended arrival via Col de la Lune at 7000 ft.",
+    "Via NE: arrival at 6500 ft, taking care not to interfere with the published flight paths for Courchevel.",
+    "Report when in sight of the altiport facilities and report overhead AD.",
+    "In case of unknown QNH: incoming via the \"Col de la Lune\".",
+    "Use as reference the top of Crêt Voland whose altitude is 6867 ft when flying abeam this terrain.",
+    "LDG: QFU 152° compulsory.",
+    "Overflying overhead THR 15 at 6500 ft AMSL.",
+    "Integration downwind leg at 6000 ft AMSL.",
+    "Taxiing: ensure that the approach and short final are clear before crossing the RWY toward the west turn pad and before line up.",
+    "Perform engine tests on the turn pad west of the RWY.",
+    "TKOF: QFU 332° compulsory.",
+    "Departure: after TKF, turn right to heading 360° and announce on the radio \"RWY center line vacated\".",
+    "Contact Courchevel in case of interference with their published flight paths.",
+    "Use by helicopters The plane airfield traffic pattern must be followed with flying overhead the AD at 6500 ft AMSL.",
+    "Be careful not to interfere with published flight paths of Courchevel."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Altiport réservé aux pilotes titulaires : pour les pilotes avions, soit de la qualification montagne (roues et/ou skis), soit de l'autorisation d'accès à l'altiport en état de validité. pour les pilotes ULM, il est fortement conseillé d'avoir suivi le cursus montagne organisé par la FFPLUM.",
+      "",
+      "Le transport aérien commercial par avion est interdit à l'exception des vols de découverte.",
+      "",
+      "Marquages de piste de dimensions réduites.",
+      "En conditions hivernales, piste non déneigée.",
+      "S'assurer de l'état de la piste avant le vol et avant l'atterrissage.",
+      "Pas de décollage le matin avant 0900 locales (sauf autorisation particulière donnée par l'exploitant d'aérodrome de l'altiport).",
+      "Silencieux moteur obligatoire pour l'activité d'instruction.",
+      "Pas de vols d'instruction entre 1230 et 1400 locales.",
+      "Aéronefs non basés : activité limitée à deux atterrissages par demi-journée.",
+      "Hélicoptères : limiter les opérations rotor tournant lors des embarquements / débarquements.",
+      "Arrivée : Arrivée recommandée par le Col de la Lune à 7000 ft.",
+      "Provenance NE : arriver à 6500 ft en veillant à ne pas interférer avec les trajectoires publiées de Courchevel.",
+      "S'annoncer en vue des installations de l'altiport et se reporter verticale.",
+      "En cas de QNH non connu : arriver par le Col de la Lune.",
+      "Prendre comme référence le dos de Crêt Voland dont l'altitude est de 6867 ft lors du passage travers.",
+      "MERIBEL ROBERT MERLOZ Atterrissage : QFU 152° obligatoire.",
+      "Passage verticale seuil 15 à 6500 ft AMSL.",
+      "Intégration branche éloignement à 6000 ft AMSL.",
+      "Roulage : s'assurer que l'approche et la courte finale sont dégagées avant de traverser la piste vers la raquette ouest et avant l'alignement.",
+      "Effectuer les essais moteur sur la raquette à l'ouest de la piste.",
+      "Décollage : QFU 332° obligatoire.",
+      "Départ : après décollage, ouvrir à droite au cap 360° et annoncer à la radio \"axe dégagé\".",
+      "Contacter Courchevel en cas d'interférence avec les trajectoires publiées.",
+      "Utilisation par les hélicoptères Respecter le circuit avion en passant par la verticale 6500 ft AMSL.",
+      "Veiller à ne pas interférer avec les trajectoires publiées de Courchevel."
+    ]
+  }
+}

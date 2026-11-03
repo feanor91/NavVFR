@@ -1,0 +1,177 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRJ (AIP France, chart dated 2024-11-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFRJ",
+  "name": "Base d'aéronautique navale de Landivisiau",
+  "source": {
+    "publication": "AIP France AD 2 LFRJ",
+    "chartDate": "2024-11-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.53028,
+    "longitude": -4.15167
+  },
+  "elevationFeet": 348,
+  "service": {
+    "kind": "MilitaryTower",
+    "regimes": [
+      "CAM V",
+      "CAM I"
+    ]
+  },
+  "frequencies": {
+    "app": [
+      {
+        "mhz": 122.4,
+        "remark": "APP"
+      }
+    ],
+    "par": [
+      {
+        "mhz": 118.8,
+        "remark": "Pente"
+      }
+    ],
+    "sre": [
+      {
+        "mhz": 120.9,
+        "remark": "Radar CENTAURE"
+      }
+    ],
+    "twr": [
+      {
+        "mhz": 119.2,
+        "remark": "TWR"
+      },
+      {
+        "mhz": 119.7,
+        "remark": "TWR"
+      },
+      {
+        "mhz": 118.8,
+        "remark": "VDF"
+      },
+      {
+        "mhz": 119.2,
+        "remark": "VDF"
+      },
+      {
+        "mhz": 119.7,
+        "remark": "VDF"
+      },
+      {
+        "mhz": 120.9,
+        "remark": "VDF"
+      },
+      {
+        "mhz": 122.4,
+        "remark": "UDF"
+      }
+    ]
+  },
+  "magneticVariationDegrees": -0.2,
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        73,
+        253
+      ],
+      "surface": "concrete",
+      "lengthMetres": 2700,
+      "widthMetres": 45
+    }
+  ],
+  "notes": [
+    "Southbound traffic may be prohibited depending on IFR or OAT traffic in progress or expected. plafond / ceiling: 450 m plafond / ceiling: 243 m (800 ft) VIS: 800 m ou 30 SEC de vol / or 30 SEC of fly plafond / ceiling: 183 m (600 ft) Authorization to enter must be requested to LANDIVISIAU APP 5 min before entering points NEL, NWL, EL or SWL.",
+    "If failure occurs before having received the entering CLR in CTR: entrance prohibited.",
+    "If failure occurs in CTR follow the last CTL instructions."
+  ],
+  "reportingPoints": [
+    {
+      "name": "EL",
+      "spoken": {
+        "fr": "Écho Lima",
+        "en": "Echo Lima"
+      },
+      "latitude": 48.52222,
+      "longitude": -3.94444,
+      "location": "Saint Thegonnec"
+    },
+    {
+      "name": "NEL",
+      "spoken": {
+        "fr": "Novembre Écho Lima",
+        "en": "November Echo Lima"
+      },
+      "latitude": 48.68056,
+      "longitude": -3.99722,
+      "location": "Saint Pol de Léon"
+    },
+    {
+      "name": "NL",
+      "spoken": {
+        "fr": "Novembre Lima",
+        "en": "November Lima"
+      },
+      "latitude": 48.6,
+      "longitude": -4.1375,
+      "location": "Saint Vougay"
+    },
+    {
+      "name": "NWL",
+      "spoken": {
+        "fr": "Novembre Whisky Lima",
+        "en": "November Whiskey Lima"
+      },
+      "latitude": 48.61028,
+      "longitude": -4.37889,
+      "location": "Kerdroc - Croisement RD 25 / RD 38"
+    },
+    {
+      "name": "SEL",
+      "spoken": {
+        "fr": "Sierra Écho Lima",
+        "en": "Sierra Echo Lima"
+      },
+      "latitude": 48.49444,
+      "longitude": -4.04167,
+      "location": "Lampaul Guimiliau"
+    },
+    {
+      "name": "SL",
+      "spoken": {
+        "fr": "Sierra Lima",
+        "en": "Sierra Lima"
+      },
+      "latitude": 48.48611,
+      "longitude": -4.15,
+      "location": "Sud AD Landivisiau"
+    },
+    {
+      "name": "SWL",
+      "spoken": {
+        "fr": "Sierra Whisky Lima",
+        "en": "Sierra Whiskey Lima"
+      },
+      "latitude": 48.41667,
+      "longitude": -4.2,
+      "location": "Sud antennes de Pencran"
+    }
+  ],
+  "fr": {
+    "notes": [
+      "L'itinéraire Sud peut être interdit en fonction de l'activité IFR ou CAM contrôlée en cours ou prévue. VFR VIS : 5 km ACFT VIS : 4000 m VFR spécial HEL L'autorisation de pénétrer dans la zone est demandée à LANDIVISIAU APP 5 min avant NEL, NWL, EL ou SWL.",
+      "Si la panne se produit avant d'avoir reçu la CLR de pénétrer dans la CTR, l'ACFT doit contourner la zone.",
+      "Si la panne se produit à l'intérieur de la CTR, suivre les dernières instructions du CTL."
+    ]
+  }
+}

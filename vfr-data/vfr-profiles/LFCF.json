@@ -1,0 +1,64 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCF (AIP France, chart dated 2025-10-02): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCF",
+  "name": "Figeac-Livernon",
+  "source": {
+    "publication": "AIP France AD 2 LFCF",
+    "chartDate": "2025-10-02",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.6725,
+    "longitude": 1.78806
+  },
+  "elevationFeet": 1085,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.635",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 119.635
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        108,
+        288
+      ]
+    }
+  ],
+  "notes": [
+    "LDG prohibited when an ACFT is stationary on the turnaround area.",
+    "Usable declared distances: TORA, TODA, ASDA and LDA RWY 11 reduced due to THR marks 14 m beyond physical THR.",
+    "Possible snow conditions, contact BORDEAUX BNIA for information.",
+    "Simultaneous use of the different RWY or TKOF areas prohibited.",
+    "South shoulders of the paved RWY are usable as TWY.",
+    "Strength of TWY and PRKG: 5.7 t.",
+    "TWY width: 8,50 m.",
+    "Ground markings: there is a distance of 13 m between Aerobatics activity (NR 6630): see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "Atterrissage interdit si un ACFT est immobilisé sur une raquette.",
+      "Distances déclarées utilisables : TORA, TODA, ASDA et LDA RWY 11 réduites pour cause de marques de seuil 14 m aprés le seuil physique.",
+      "Enneigement possible, se renseigner auprès du BNIA BORDEAUX.",
+      "Utilisation simultanée des différentes pistes ou surfaces d'envol interdite.",
+      "Les accotements Sud de la piste revêtue sont utilisables comme TWY.",
+      "Force portante de la bretelle et du PRKG : 5.7 t.",
+      "Largeur TWY : 8,50 m.",
+      "Marquage PRKG : la distance entre deux postes de QFU 108° préférentiel cause environnement et LDA maximale. Faire les essais moteurs avant de pénétrer sur le TWY. ACFT de passage : utiliser les deux postes de parking Activité de voltige (N° 6630) : voir AIP ENR 5.5"
+    ]
+  }
+}

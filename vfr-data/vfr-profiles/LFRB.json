@@ -1,0 +1,186 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRB (AIP France, chart dated 2026-06-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFRB",
+  "name": "Brest-Bretagne",
+  "source": {
+    "publication": "AIP France AD 2 LFRB",
+    "chartDate": "2026-06-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.44722,
+    "longitude": -4.42167
+  },
+  "elevationFeet": 325,
+  "magneticVariationDegrees": -1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "H24. Organisme de contrôle de Brest - CS 20301 Guipavas - 29806 Brest Cedex 9 CAA (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 119.575,
+    "atis": 129.355,
+    "approach": 122.4,
+    "tower": 120.105
+  },
+  "runways": [
+    {
+      "id": "07R/25L",
+      "qfu": [
+        72,
+        252
+      ]
+    },
+    {
+      "id": "07L/25R",
+      "qfu": [
+        72,
+        252
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "NG",
+      "spoken": {
+        "fr": "Novembre Golf",
+        "en": "November Golf"
+      },
+      "latitude": 48.56667,
+      "longitude": -4.52833,
+      "location": "Lannilis"
+    },
+    {
+      "name": "SG",
+      "spoken": {
+        "fr": "Sierra Golf",
+        "en": "Sierra Golf"
+      },
+      "latitude": 48.37,
+      "longitude": -4.26111,
+      "location": "Daoulas"
+    },
+    {
+      "name": "K",
+      "spoken": {
+        "fr": "Kilo",
+        "en": "Kilo"
+      },
+      "latitude": 48.40667,
+      "longitude": -4.37417,
+      "location": "Le Relecq-Kerhuon"
+    },
+    {
+      "name": "WG",
+      "spoken": {
+        "fr": "Whisky Golf",
+        "en": "Whiskey Golf"
+      },
+      "latitude": 48.42972,
+      "longitude": -4.61722,
+      "location": "St Renan"
+    },
+    {
+      "name": "LC",
+      "spoken": {
+        "fr": "Lima Charlie",
+        "en": "Lima Charlie"
+      },
+      "latitude": 48.365,
+      "longitude": -4.78361,
+      "location": "Nord"
+    },
+    {
+      "name": "PA",
+      "spoken": {
+        "fr": "Papa Alpha",
+        "en": "Papa Alpha"
+      },
+      "latitude": 48.50417,
+      "longitude": -4.42278,
+      "location": "Château d'eau de Plabennec"
+    },
+    {
+      "name": "SWL",
+      "spoken": {
+        "fr": "Sierra Whisky Lima",
+        "en": "Sierra Whiskey Lima"
+      },
+      "latitude": 48.41667,
+      "longitude": -4.2,
+      "location": "Sud antennes de Pencran"
+    },
+    {
+      "name": "LF",
+      "spoken": {
+        "fr": "Lima Foxtrot",
+        "en": "Lima Foxtrot"
+      },
+      "latitude": 48.28333,
+      "longitude": -4.13333,
+      "location": "Le Faou"
+    },
+    {
+      "name": "NWL",
+      "spoken": {
+        "fr": "Novembre Whisky Lima",
+        "en": "November Whiskey Lima"
+      },
+      "latitude": 48.61028,
+      "longitude": -4.37889,
+      "location": "Kerdroc, croisement de la RD25/RD38"
+    }
+  ],
+  "notes": [
+    "RWY proximity and orientation of BREST AD (RWY 25) and LANDIVISIAU AD (RWY 25) require position check during APCH.",
+    "The AD is accessible to ULM only with a justified request to the ATS by E-mail: sna-o-cca-lfrb-ld@aviation-civile.gouv.fr Light signals unavailable.",
+    "AD subject to European regulations (EASA).",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "\"Reduced runway separation minima\" procedure applied RWY 07R/25L for ACFT with MTOW < 7 t only, under the conditions set by AMC9 of ATS.TR.210(c)(2)(i) of the EU regulation 2017/373 and only on the initiative of ATC.",
+    "TWY S width: 7 m.",
+    "Taxiway Sierra reserved at night for vehicles and locally based aircraft.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "General Aviation Apron: For non home-based general aviation aircraft willing to park on general aviation stands: PPR 6 HR from PRKG area manager and host (double agreement).",
+    "TEL: 02 98 32 87 00 or E-mail: pce@brest.aeroport.bzh; ACFT with MTOW greater than 2 tons: parking on secondary apron area with compulsory marshaller.; Without prior agreement for use the general aviation.",
+    "With IFR traffic: ACFT: VIS: 3500 m - Ceiling: 1000 ft.",
+    "FPL deposit mandatory for night flight outside CTR.",
+    "Traffic surveillance equipment: AD equipped with secondary surveillance radar (see AD 1.0).",
+    "MON-FRI: 0400-2100, SAT-SUN: 0400-1930.",
+    "Outside these SKED, fueling provided for scheduled commercial flights or on PPR for emergencies (police.), MEDEVAC and diverting commercial flights TEL: 06 47 39 26 74 (maximal delay of 1 hour expected).",
+    "Payment: credit cards, SHELL cards, cash (750 euros max) and BROKER cards (WOLRDFUEL, AEG.).",
+    "General Aviation Apron: AVGAS/100LL and JET A1 automatic dispensers available H24 only by credit card or local SHELL card (issued to users based in GA Brest).",
+    "Niveau / Level 8: possible sur demande ou selon vol programmé / possible O/R or scheduled flight Niveau / Level 7: LUN-DIM / MON-SUN: 0445-2300 Niveau / Level 5: LUN-DIM / MON-SUN: 2300-0445 Péril animalier / Wildlife strike hazard: De LS-30 à CS+30 / From SR-30 to SS+30 Sur demande en dehors de ce créneau / On request outside this slot."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "AD accessible aux ULM uniquement après demande écrite justifiée aux services ATS par E-mail : sna-o-cca-lfrb-ld@aviation-civile.gouv.fr Signaux lumineux indisponibles.",
+      "AD soumis à la réglementation européenne (EASA).",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Procédure de « réduction de séparation sur piste » applicable sur la piste 07R/25L aux seuls aéronefs de moins de 7 t dans les conditions fixées à l'AMC9 de l'ATS.TR.210(c)(2)(i) du règlement (UE) 2017/373 et uniquement à l'initiative du contrôle.",
+      "Largeur TWY S : 7 m.",
+      "Taxiway Sierra réservé de nuit aux véhicules et aéronefs basés.",
+      "Roulage interdit hors RWY et TWY.",
+      "Parking Aviation Générale : Pour les aéronefs non basés d'aviation générale souhaitant stationner sur les parkings de l'aviation générale : PPR 6 HR pour double accord du Poste de.",
+      "",
+      "En présence de TFC IFR : Avions : VIS : 3500 m - Plafond : 1000 ft.",
+      "Dépôt de FPL obligatoire si vol de nuit hors CTR.",
+      "Équipement de surveillance du trafic : Aérodrome équipé d'un radar secondaire (voir AD 1.0).",
+      "BREST BRETAGNE 10 - AVT : LUN-VEN : 0400-2100, SAM-DIM : 0400-1930.",
+      "En dehors de ces HOR, avitaillement assuré pour les vols commerciaux programmés ou sur PPR pour les urgences (gendarmerie….), EVASAN et vols commerciaux déroutés au 06 47 39 26 74 (délai maximal pour intervention d'une heure à prévoir).",
+      "Moyens de paiement : cartes bancaires, cartes SHELL, espèces (750 euros max) et cartes BROKER (WORLDFUEL, AEG.).",
+      "Parking Aviation Générale : Distributeurs JETA1 et AVGAS/100LL disponibles H24 uniquement par carte bancaire ou carte SHELL locale (délivrée aux usagers basés AG Brest).",
+      ""
+    ]
+  }
+}

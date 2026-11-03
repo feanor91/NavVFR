@@ -1,0 +1,74 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFTP (AIP France, chart dated 2022-04-21): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFTP",
+  "name": "Puimoisson",
+  "source": {
+    "publication": "AIP France AD 2 LFTP",
+    "chartDate": "2022-04-21",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.86889,
+    "longitude": 6.16278
+  },
+  "elevationFeet": 2469,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        74,
+        254
+      ]
+    },
+    {
+      "id": "16/34",
+      "qfu": [
+        158,
+        338
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for home-based ACFT.",
+    "If northern wind is higher than 20 kt use of RWY 07/25 is prohibited.",
+    "RWY 16/34 usable only by seasonal or permanent home based ACFT in accordance with local instructions decided by the CAA.",
+    "Simultaneous movements on both RWY 07 and 25 prohibited.",
+    "Landing of powered ACFT on QFU 074°, with West sector wind lower than 15 kt, authorized considering sloping ground.",
+    "TWY width: 30 m TWY A along the runway, and TWY B 22 m when joining the hangar, 45 m TWY C SouthEast of the RWY.",
+    "Fire extinguisher located close to the refuelling area.",
+    "QFU 338°: In mistral wind conditions, highly turbulent aerology due to a ravine ahead of THR 34.",
+    "Taxiing outside runway possible.",
+    "Caution for LDG RWY 25 (3.5% declivity)."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT basés.",
+      "Utilisation RWY 07/25 interdite par vent de secteur Nord supérieur à 20 kt.",
+      "RWY 16/34 utilisable uniquement par les usagers basés de façon permanente ou saisonnière conformément aux consignes locales établies par la CAA.",
+      "Mouvements simultanés sur RWY 07 et 25 interdits.",
+      "Atterrissage des ACFT motopropulsés en QFU 074° autorisé par vent d'Ouest inférieur à 15 kt compte tenu de la déclivité du terrain.",
+      "Largeur des TWY : 30 m TWY A le long de la piste, et TWY B 22 m pour rejoindre le hangar, 45 m TWY C au Sud-Est de la piste.",
+      "Extincteur situé à proximité de l'aire d'avitaillement.",
+      "QFU 338° : Aérologie fortement pertubée à l'ATT par mistral dû à la présence d'un ravin en amont du THR 34.",
+      "Roulage hors-piste autorisé.",
+      "Précautions pour ATT RWY 25 (déclivité 3.5 %)."
+    ]
+  }
+}

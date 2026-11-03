@@ -1,0 +1,87 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCS (AIP France, chart dated 2026-08-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCS",
+  "name": "Bordeaux - Léognan - Saucats",
+  "source": {
+    "publication": "AIP France AD 2 LFCS",
+    "chartDate": "2026-08-06",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.69917,
+    "longitude": -0.59722
+  },
+  "elevationFeet": 192,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.005",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.005
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        31,
+        211
+      ]
+    },
+    {
+      "id": "03R/21L",
+      "qfu": [
+        31,
+        211
+      ]
+    }
+  ],
+  "preferredQfu": 211,
+  "preferredQfuReason": "preferred QFU 211, due to environment",
+  "notes": [
+    "AD reserved for radio equipped ACFT.",
+    "Wildlife hazard: possible crane flights.",
+    "Unpaved RWY likely to be damaged by some animals, check RWY conditions when passing overhead the aerodrome.",
+    "TKOF RWY 03: left turn forbidden after TKOF.",
+    "Helicopter: traffic patterns on West part, 500 ft AAL.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Acceleration strip of 300 m x 8 m included in grass strip on QFU 211° side reserved for home-based ACFT.",
+    "\"Low height\" circuits during training flights with an instructor only: minimum 500 ft AAL East of RWY 03/21.",
+    "Preferred QFU 211°, due to environment.",
+    "One-way AVT roudabout, follow the yellow line marking.",
+    "The paved RWY 03/21 is approved for night operations with limitations.",
+    "ACFT pilots must meet the following conditions, in addition to the regulation in force: Based ACFT pilot: a.",
+    "Holder of the night rating. b.",
+    "Having completed a practical night flight proficiency assessment on site by a qualified instructor. c.",
+    "Taking into account local instructions setting the specific rules for the use of the AD."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Risque animalier : vols de grues possibles.",
+      "Piste non revêtue pouvant être dégradée occasionnellement par des animaux, vérifier son état lors de votre arrivée à la verticale de l'aérodrome.",
+      "",
+      "Hélicoptères : tour de piste à l'Ouest à 500 ft AAL.",
+      "Roulage interdit hors RWY et TWY.",
+      "Bande d'accélération de 300 m x 8 m, incluse dans la piste en herbe côté QFU 211° réservée aux avions basés.",
+      "Circuit \"basse hauteur\" dans le cadre des vols d'entraînement avec instructeur uniquement : minimum 500 ft AAL à l'Est de la piste 03/21.",
+      "QFU 211° préférentiel cause environnement.",
+      "Sens giratoire AVT à sens unique, suivre marquage ligne jaune.",
+      "La piste revêtue 03/21 est homologuée pour une exploitation à vue de nuit avec limitations.",
+      "Les pilotes d'aéronefs doivent satisfaire aux conditions suivantes, outre la réglementation en vigueur : Pilote d'aéronef basé : a.",
+      "Titulaire de la qualification vol de nuit. b.",
+      "Avoir satisfait à une évaluation pratique d'aptitude en vol de nuit sur site par un instructeur qualifié. c.",
+      "Prise en compte des consignes locales fixant les règles particulières d'utilisation de l'aérodrome."
+    ]
+  }
+}

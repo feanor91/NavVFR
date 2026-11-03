@@ -1,0 +1,59 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFNZ (AIP France, chart dated 2024-11-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFNZ",
+  "name": "Mazet de Romanin",
+  "source": {
+    "publication": "AIP France AD 2 LFNZ",
+    "chartDate": "2024-11-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.77083,
+    "longitude": 4.89444
+  },
+  "elevationFeet": 395,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.455",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "fis": 132.3,
+    "atis": 125.355,
+    "airAir": 118.455
+  },
+  "notes": [
+    "AD reserved for glider activity and operation ACFT.",
+    "AD available for HEL.",
+    "Heavy turbulences in the AD vicinity in case of wind.",
+    "Trees close to preferential axis N/S.",
+    "Gliders towing activity (NR 983): SR-SS, SFC/2200 ft AMSL.",
+    "Non-marked cable.",
+    "Aerobatic glider activity (NR 6902): 1NM-long axis orientated North-South, centered at 43° 45' 48'' N - 004° 56' 17'' E.",
+    "1500 ft AMSL/4000 ft AMSL.",
+    "Activity reserved for based gliders, SR-SS, A/A on LE MAZET INFORMATION."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé au vol à voile et aux avions de servitude.",
+      "AD utilisable par HEL.",
+      "",
+      "",
+      "",
+      "Câble non balisé.",
+      "Activité voltige planeur (N° 6902) : Axe Nord-Sud de 1 NM de longueur, centré sur 43° 45' 48'' N - 004° 56' 17'' E.",
+      "",
+      "Activité réservée aux planeurs basés, SR-SS, A/A sur LE MAZET INFORMATION."
+    ]
+  }
+}

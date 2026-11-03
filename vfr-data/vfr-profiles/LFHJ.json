@@ -1,0 +1,51 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHJ (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFHJ",
+  "name": "Lyon - Corbas",
+  "source": {
+    "publication": "AIP France AD 2 LFHJ",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.65278,
+    "longitude": 4.91222
+  },
+  "elevationFeet": 652,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.055",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 119.055
+  },
+  "notes": [
+    "AD reserved for gliding activity, parachuting, for home based ACFT and service ACFT.",
+    "Simultaneous use of both RWY is prohibited.",
+    "TKOF or LDG of ACFT is stopped if a glider is lying on the glider RWY, at a distance less than a RWY half width from the limit of both RWY.",
+    "ACFT down wind leg: pilot must not overshoot the wooded area of Chapotin (overflight of CHAPOTIN prohibited).",
+    "Taxiing prohibited except on RWY and TWY and the Parachuting on AD (NR 421): see AIP ENR 5.5.",
+    "AEM on AD (NR 9755): see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé au vol à voile, au parachutisme, aux avions basés et de servitude.",
+      "Utilisation simultanée des pistes non revêtues interdite.",
+      "Tout TKOF ou LDG avion est suspendu si un planeur est immobilisé sur la piste planeur, à moins d'une demi largeur de piste de la limite commune.",
+      "Avions en branche vent arrière, ne pas dépasser la verticale du bois de Chapotin (survol du bourg exclu).",
+      "Roulage interdit hors RWY et TWY et zone comprise Activités diverses Parachutages sur AD (N° 421) : voir AIP ENR 5.5.",
+      "AEM sur AD (N° 9755) : voir AIP ENR 5.5."
+    ]
+  }
+}

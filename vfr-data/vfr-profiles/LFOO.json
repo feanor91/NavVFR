@@ -1,0 +1,91 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOO (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFOO",
+  "name": "Sables-d'Olonne - Talmont",
+  "source": {
+    "publication": "AIP France AD 2 LFOO",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.47556,
+    "longitude": -1.725
+  },
+  "elevationFeet": 104,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.355",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.355
+  },
+  "runways": [
+    {
+      "id": "06/24",
+      "qfu": [
+        62,
+        242
+      ]
+    },
+    {
+      "id": "06L/24R",
+      "qfu": [
+        62,
+        242
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of adjacent RWY prohibited.",
+    "Check the ACFT performance against published obstacles.",
+    "Presence of a road located 70 m at the end of paved RWY 24.",
+    "Presence of a wooded massif of about 140 ft altitude, located between 90 m and 190 m from the end of paved RWY 24.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Bird hazard around and on AD.",
+    "Presence of trees at RWY thresholds.",
+    "Altimeter setting: Holding point TWY A altitude 104 ft.",
+    "Taxiing prohibited except on RWY, TWY and PRKG.",
+    "Unpaved RWY, TWY and PRKG not available after heavy rain and prohibited for non authorized ACFT from 01/10 to 31/05.",
+    "Transient ACFT: unpaved PRKG mandatory from 01/06 to 30/09.",
+    "Paved PRKG usable only from 01/10 to 31/05 or with the auhorization of the AD operator.",
+    "A, B areas reserved to based ACFT.",
+    "AD very sensitive to noise; avoid flying over surrounding inhabited areas.",
+    "PJE activity (NR 520): SKED: APR-OCT: 0800-1130 and 1300-SS MAX 2000 (SUM: -1 HR), NOV-MAR: 0800-1200 and 1300-SS; FL 145.",
+    "Activity acording to protocol.",
+    "User information on NANTES INFO/APP."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée piste non revêtue et piste revêtue accolée interdite.",
+      "Vérifier les performances de l'ACFT en fonction des obstacles publiés.",
+      "Présence d'une route située à 70 m à l'extrémité de la piste 24 revêtue.",
+      "Présence d'un massif boisé d'altitude 140 ft environ, situé entre 90 m et 190 m de l'extrémité de la piste 24 revêtue.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Risque aviaire autour et sur l'AD.",
+      "Présence d'arbres aux seuils des pistes.",
+      "Calage altimétrique : Point d'attente TWY A altitude 104 ft.",
+      "Roulage interdit hors RWY, TWY et parking.",
+      "RWY, TWY et parking non revêtus inutilisables après fortes pluies et interdits aux ACFT non autorisés du 01/10 au 31/05.",
+      "Aéronefs de passage : parking non revêtu obligatoire du 01/06 au 30/09.",
+      "Parking bitumé utilisable uniquement du 01/10 au 31/05 ou avec autorisation de l'exploitant.",
+      "Aires A, B réservées aux avions basés.",
+      "AD très sensible au bruit ; éviter le survol des zones habitées avoisinantes.",
+      "Activité parachutisme (N° 520) : HOR : APR-OCT : 0800-1130 et 1300-SS MAX 2000 (SUM : -1 HR), NOVMAR : 0800-1200 et 1300-SS ; FL 145.",
+      "Activité selon protocole.",
+      "Information des usagers sur NANTES INFO/APP."
+    ]
+  }
+}

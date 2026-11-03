@@ -1,0 +1,171 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFPT (AIP France, chart dated 2026-10-01): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFPT",
+  "name": "Paris- Pontoise",
+  "source": {
+    "publication": "AIP France AD 2 LFPT",
+    "chartDate": "2026-10-01",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.09667,
+    "longitude": 2.04083
+  },
+  "elevationFeet": 325,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "0800-1900 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 118.805,
+    "tower": 121.205
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        43,
+        223
+      ]
+    },
+    {
+      "id": "12/30",
+      "qfu": [
+        116,
+        296
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 48.97056,
+      "longitude": 1.79611,
+      "location": "Sud des réservoirs de Gargenville",
+      "purpose": "point de compte rendu facultatif, recommandé pour les arrivées et les départs par le secteur sud"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 49.1475,
+      "longitude": 1.89917,
+      "location": "Château d'eau de Bercagny"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 49.07833,
+      "longitude": 2.10722,
+      "location": "Ennery"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 49.06722,
+      "longitude": 1.87694,
+      "location": "Distillerie de Frémainville",
+      "purpose": "obligatoire pour les arrivées par le secteur sud, sauf instruction de l'ATC"
+    }
+  ],
+  "notes": [
+    "The MTOW for ACFT allowed on the AD is limited to 17 t.",
+    "AD reserved for radio-equipped ACFT.",
+    "ULM activity of classes 1, 2, 4 and 5 prohibited.",
+    "ULM activity of classes 3 and 6 authorised according to the provisions of the Order of July 12 2019.",
+    "Thrill flights / first flights in a jet plane activity reserved for operators authorised by AD operator according to local regulations.",
+    "Usable declared distances: TORA, TODA and LDA RWY 04 reduced: due to road clearance in the take-off funnel.",
+    "TORA and TODA RWY 12 reduced: due to road height restriction barrier in take-off funnel.",
+    "TORA and TODA RWY 30 reduced: due to potential obstacle (agricultural machinery) at the edge of the fence.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "TKOF RWY 12 must be conducted with MAX climb gradient.",
+    "Helicopters: HEL training flights reserved for home based HEL with a MAX weight 5 t.",
+    "Restrictions SAT, SUN and public HOL: Trainings on traffic patterns reserved for home based.",
+    "ACFT or ACFT cleared by ATC.",
+    "From 1100 to 1300 ( SUM - 1HR): trainings on traffic patterns reserved for home based planes, singleengined propeller, equipped with a noise attenuator, and with MTOW lower than 8618 kg.",
+    "VFR activity prohibited for aircraft equipped with turbojet engines before 0900, between 1100 and 1400 and after 1800 (SUM: -1 HR).",
+    "Circuits: Low-height circuits: only for training flights with instructor.",
+    "RWY 04/22: same direction as the published circuits.",
+    "RWY 12/30: opposite direction to the published circuit.",
+    "04/22 1000 ft (700 ft AAL) circuit: With ATC clearance; Without ATS services: available if VIS < 5 km or ceiling < 1500 ft.",
+    "Comply with published circuits as far as possible and with the blue circles.",
+    "On RWY 22 take-off, continue along the RWY centerline until \"bois de Chante-Coq\" copse.",
+    "At this point, marked by the \"Boissy l'Aillerie\" church on the left-hand side, take 199°.",
+    "Turn right across the left-hand side of the warehouse to join the published circuit.",
+    "Educational map available at the following address: https://entrevoisins.groupeadp.fr/pontoise-cormeillesen-vexin/",
+    "Optional reporting points: AMJUS ) Monitor ATIS and contact LE BOURGET Approach 3 min before the points Magny or l'Isle Adam.",
+    "Radiocommunication failure: on arrival, follow the last received instructions and/or respect the radio failure instructions by proceeding overhead AD 1500 ft (1200 ft AAL) (SUM: - 1HR).",
+    "BOURGET: With ATS LE BOURGET clearance; Respect of minimum level is not required (SERA 5005C): manoeuvers at 2000 ft AMSL are possible in the TMA LE BOURGET except for the protection of the antenna of Mantes.",
+    "On RWY 22 take-off, take 199° 0.5 NM after crossing the end of the RWY.",
+    "On the left-hand side of the departmental road D14, turn right to join the published circuit.",
+    "Carburant / Fuel: Aviation d'affaires / Business aviation: Lubrifiants / Lubricants - JET A1: E-mail: ameridair@ameridair.com HOR / SKED: 0800-1100 / 1200-1600.",
+    "En dehors de ces HOR / out of these SKED: contactez / contact AMERIDAIR handling.",
+    "Aviation générale / General aviation: Zone Sud / South area: 100LL: HX - Exploitant/ Operator: Total Energies Aviation C/O.",
+    "Paiement / Payment: Carte TOTAL / TOTAL card H24 ou espèces / or cash: 0800-1100 / 1300-1700 Niveau 4 / Level 4: HOR RFFS si ATS assurés / RFFS SKED if ATS provided.",
+    "Niveau 1 / Level 1: Absence ATS ou hors HOR RFFS / Absence ATS or out of RFFS SKED.",
+    "Péril animalier / Wildlife strike hazard: Occasionnel / Random."
+  ],
+  "fr": {
+    "notes": [
+      "La MTOW des ACFT admis sur l'AD est limitée à 17 t.",
+      "AD réservé aux ACFT munis de radio.",
+      "Activité ULM de classes 1, 2, 4 et 5 interdite.",
+      "Activité ULM de classes 3 et 6 autorisée selon les dispositions de l'arrêté du 12 juillet 2019.",
+      "Activité vols à sensations / baptêmes de l'air en avion à réaction réservée aux opérateurs autorisés par l'exploitant selon consignes locales.",
+      "Distances déclarées utilisables : TORA, TODA et LDA RWY 04 réduites : cause gabarit routier dans la trouée de décollage.",
+      "TORA et TODA RWY 12 réduites : cause gabarit routier situé dans la trouée de décollage.",
+      "TORA et TODA RWY 30 réduites : cause présence potentielle d'un obstacle (engin agricole) en limite de clôture.",
+      "Roulage interdit hors-piste et TWY.",
+      "Effectuer le décollage à pente MAX RWY 12.",
+      "Hélicoptères : Vols d'école et d'entraînement HEL réservés aux HEL basés ≤ 5 t.",
+      "",
+      "",
+      "De 1100 à 1300 ( ETE - 1 HR) : entraînements tour de piste réservés aux avions basés, monomoteurs à hélices, équipés d'un dispositif atténuateur de bruit, et dont la MTOW est inférieure à 8618 kg.",
+      "Activité VFR interdite aux aéronefs munis de turboréacteurs avant 0900, entre 1100 et 1400 et après 1800 (ETE : -1 HR).",
+      "",
+      "",
+      "",
+      "Circuit 04/22 1000 ft (700 ft AAL ) : Sur clairance ATC ; En l'absence des services ATS : utilisable si VIS < 5 km ou plafond < 1500 ft.",
+      "Respecter les circuits publiés dans la mesure du possible ainsi que les cercles bleus.",
+      "PONTOISE CORMEILLES EN VEXIN Au décollage piste 22, continuer dans l'axe de piste jusqu'à atteindre le bosquet du « bois de Chante-Coq ».",
+      "A ce point, matérialisé par l'église de « Boissy l'Aillerie » sur le travers gauche, prendre 199°.",
+      "Au travers gauche de l'entrepôt logistique, virer à droite pour rejoindre le circuit publié.",
+      "Carte pédagogique de l'aérodrome disponible à l'adresse suivante : https://entrevoisins.groupeadp.fr/pontoise-cormeillesen-vexin/",
+      "",
+      "Panne de communication à l'arrivée : suivre les dernières instructions reçues et/ou respecter les consignes générales de panne radio, en se présentant à la verticale de l'aérodrome à 1500 ft (1200 ft AAL).",
+      "Sur autorisation des services ATS LE BOURGET. Dispense du respect du niveau minimal (SERA 5005C) : les évolutions à 2000 ft AMSL sont possibles dans toute la TMA LE BOURGET à l'exception de la protection de l'antenne de Mantes.",
+      "Au décollage piste 22, prendre 199° 0.5 NM après avoir franchi l'extrémité de la piste.",
+      "Au travers gauche de la route départementale D14, virer à droite pour rejoindre le circuit publié.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+}

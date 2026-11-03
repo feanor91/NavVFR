@@ -1,0 +1,68 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFKR (AIP France, chart dated 2026-08-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFKR",
+  "name": "Saint-Rémy-de-Maurienne",
+  "source": {
+    "publication": "AIP France AD 2 LFKR",
+    "chartDate": "2026-08-06",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.375,
+    "longitude": 6.27778
+  },
+  "elevationFeet": 1399,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None"
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "notes": [
+    "AD suitable for aircraft whose pilots: have been assessed as competent to use the aerodrome by an instructor holding a mountain rating following a site reconnaissance or; hold a mountain qualification.",
+    "AD suitable for HEL and microlights.",
+    "Microlight pilots are strongly advised to have completed the mountain training course organised by the FFPLUM.",
+    "Commercial air travel by aeroplane is prohibited, with the exception of sightseeing flights.",
+    "Usable declared distances: TORA and TODA RWY 16 and 34 reduced due to obstacles in TKOF funnels.",
+    "Paragliding area South-East of the AD.",
+    "Tricky flying conditions in Southerly winds.",
+    "Presence of extra-high-voltage power lines beneath the flight paths of ARR and DEP.",
+    "Departure and arrival following the valley.",
+    "Preferred RWY 34 due to environment.",
+    "Landing on RWY 16 and 34: do not descend below 1800 ft AMSL at the base leg due to a high-voltage power line within the AD's easements, running parallel to the runway and unmarked.",
+    "Flying over the Arkéma factory in La Chambre is prohibited.",
+    "Take-off from RWY 34: Turn right heading 016°.",
+    "Do not turn before1525 ft AMSL.",
+    "Circling prohibited for non-based aircraft.",
+    "AEM NR 9865: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD utilisable par les avions dont les pilotes : ont été reconnus aptes à utiliser l'aérodrome par un instructeur possédant la qualification montagne à la suite d'une reconnaissance du site ou ; détiennent une qualification montagne.",
+      "AD utilisable par les HEL et ULM.",
+      "Pour les pilotes d'ULM, il est fortement conseillé d'avoir suivi le cursus montagne organisé par la FFPLUM.",
+      "Le transport aérien commercial par avion est interdit à l'exception des vols de découverte.",
+      "Distances déclarées utilisables :TORA et TODA RWY16 et 34 réduites cause obstacles dans les trouées de décollage.",
+      "",
+      "Conditions aérologiques délicates par vent de secteur Sud.",
+      "Présence de lignes à très haute tension sous les trajectoires d'ARR et DEP.",
+      "Départ et arrivée en suivant la vallée.",
+      "RWY 34 préférentielle cause environnement.",
+      "Atterrissage RWY 16 et 34 : ne pas descendre en étape de base à moins de 1800 ft AMSL cause ligne HT dans les servitudes de l'AD, parallèle à la piste, non balisée.",
+      "Survol de l'usine Arkéma à La Chambre interdit.",
+      "Départ RWY 34 : Virer à droite cap 016°.",
+      "Ne pas virer avant 1525 ft AMSL.",
+      "Tours de piste interdits aux ACFT non basés.",
+      "AEM N° 9865 : voir AIP ENR 5.5"
+    ]
+  }
+}

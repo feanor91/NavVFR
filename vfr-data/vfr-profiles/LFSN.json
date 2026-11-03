@@ -1,0 +1,117 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFSN (AIP France, chart dated 2026-01-22): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFSN",
+  "name": "Nancy-Essey",
+  "source": {
+    "publication": "AIP France AD 2 LFSN",
+    "chartDate": "2026-01-22",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.69222,
+    "longitude": 6.22611
+  },
+  "elevationFeet": 757,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : LUN-VEN / MON-FRI : 0800-1145, 1215-1800, SAM, DIM et JF / SAT, SUN and public HOL : 0800-1100, 1300-1800. Autres HOR, ouverture possible auprès de l'AFIS : O/R PN 45 min pour vols sanitaires, PPR 72 HR pour autres vols. Other SKED, possible opening from AFIS : O/R PN 45 min for medical evacuation flights, PPR 72 HR for other flights (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 127.25,
+    "afis": 119.605
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        26,
+        206
+      ]
+    }
+  ],
+  "notes": [
+    "Possible IFR operations.",
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited for gliders.",
+    "AD prohibited for class 2 ULM.",
+    "Unpaved RWY reserved for helicopters and only usable with AFIS agreement and during ATS SKED.",
+    "Simultaneous use of paved RWY and grass RWY prohibited.",
+    "Overflying the gas storage facilities of Gaz de France, unscheduled degasification up to 500 m above the ground.",
+    "Presence of an obstacle: marked fence 163 m from the axis, 2 m high, between R 140 and R 170 of THR 21.",
+    "Aerobatics (NR 6156): see AIP ENR 5.5 Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU 026°, due to IFR procedure.",
+    "Low height circuits (500 ft AAL MNM) authorized during training flights with an instructor aboard, and limited to one movement per session,only during ATS SKED and after agreement from AFIS.",
+    "HEL: arrivals via initial point H1 at 1300 (500).",
+    "DEP RWY 03: after TKOF or going around, fly RWY axis up to 1000 ft AAL before turning.",
+    "Préparation du vol / Flight preparation: RSFTA / AFTN HOR AFIS et / AFIS SKED and Internet.",
+    "Acheminement / Addressing: voir / see GEN. voir / see GEN; Station: NIL.",
+    "METAR auto H24.",
+    "Douanes, Police / Customs, Police: FLIGHT WITHIN SCHENGEN and UE: Authorized; FLIGHT WITHIN SCHENGEN outside UE (Norway, Switzerland,.",
+    "Island): Authorized under conditions of franchises (funds and merchandises).",
+    "PPR PN 24 HR to CODT METZ codtmetz@douane.finances.gouv.fr Form available on AD operator website.",
+    "FLIGHT OUTSIDE SCHENGEN or OUTSIDE EU: Prohibited.",
+    "Carburant / Fuel: 100LL - JET A1.",
+    "Assuré par l'exploitant AD / Provided by AD operator: LUN-VEN / MON-FRI: 0800-1745.",
+    "Payment possible with Total credit card, credit card except American Express and cash (750 € max, no change).",
+    "SAM, DIM et JF / SAT, SUN and public HOL: 0800-1045, 1300-1745.",
+    "Automatic fuel dispenser available with TOTAL card (only for 100LL).",
+    "O/R AD operator or ATS PN 45 min for medical evacuation flights and PPR PN 72 HR for other flights.",
+    "Automatic refuelling H24 stand R2 available for HEL with TOTAL card (Jet A1).",
+    "LUN- VEN / MON- FRI: Niveau 2 / Level 2: 0900-1145, 1215-1700.",
+    "Niveau 5 / Level 5: pour tout ACFT de classe 3 ou supérieure transportant des passagers.",
+    "PN 30 min pendant HOR ATS / for all class 3 or upper ACFT carrying passengers: PN 30 min during ATS SKED.",
+    "Niveau 1 / Level 1: en dehors de ces HOR / outside these SKED.",
+    "SAM, DIM et JF / SAT, SUN and public HOL: Niveau 2 / Level 2: PN 30 min pendant HOR ATS / PN 30 min during ATS SKED.",
+    "Niveau 5 / Level 5: PPR exploitant d'aérodrome PN 72 HR avant le vol / PPR AD operator PN 72 HR before the flight.",
+    "Péril animalier / Wildlife strike hazard: Occasionnel HOR RFFS / Random RFFS SKED."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux planeurs.",
+      "AD interdit aux ULM de classe 2.",
+      "Piste non revêtue réservée aux hélicoptères et utilisable uniquement sur accord du service AFIS et pendant les HOR ATS.",
+      "Utilisation simultanée de la piste revêtue et de la piste en herbe interdite.",
+      "Survol des installations de stockage de Gaz de France, dégazage intempestif jusqu'à 500 m du sol.",
+      "Présence d'un obstacle de type clôture balisée à 163 m de l'axe, d'une hauteur de 2 m entre les R 140 et 170 du seuil 21.",
+      "Activité voltige (n° 6156) : voir AIP ENR 5.5 Roulage interdit hors RWY et TWY.",
+      "QFU 026° préférentiel cause procédure IFR.",
+      "Circuits basse hauteur (500 ft AAL MNM) autorisés dans le cadre des vols d'entraînement avec instructeur à bord, limités à un seul mouvement par séance, uniquement pendant HOR ATS et après accord AFIS.",
+      "HEL : arrivées par le point initial H1 à 1300 (500).",
+      "DEP RWY 03 : après décollage ou remise de gaz, poursuivre dans l'axe jusqu'à 1000 ft AAL avant de virer.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "10 - AVT : Paiement possible par CB Total, CB hors American Express et en espèce (750 € max, pas de rendu de monnaie).",
+      "",
+      "Avitaillement automatique disponible avec CB TOTAL (uniquement 100LL).",
+      "PN 45 min pour les vols sanitaires et PPR PN 72 HR pour les autres vols.",
+      "Avitaillement auto H24 poste R2 disponible pour HEL avec CB Total (Jet A1).",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+}

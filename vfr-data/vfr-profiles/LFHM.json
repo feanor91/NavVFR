@@ -1,0 +1,96 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHM (AIP France, chart dated 2017-07-20): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFHM",
+  "name": "Megève",
+  "source": {
+    "publication": "AIP France AD 2 LFHM",
+    "chartDate": "2017-07-20",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.82444,
+    "longitude": 6.64833
+  },
+  "elevationFeet": 4830,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 132.055",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 132.055
+  },
+  "runways": [
+    {
+      "id": "15/33",
+      "qfu": [
+        153,
+        333
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "EH",
+      "spoken": {
+        "fr": "Écho Hôtel",
+        "en": "Echo Hotel"
+      },
+      "latitude": 45.84444,
+      "longitude": 6.68111,
+      "location": "Col du Christ"
+    },
+    {
+      "name": "WH",
+      "spoken": {
+        "fr": "Whisky Hôtel",
+        "en": "Whiskey Hotel"
+      },
+      "latitude": 45.79583,
+      "longitude": 6.61583,
+      "location": "Col de Very"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 45.845,
+      "longitude": 6.62556,
+      "location": "Arrivée télécabine de la Caboche"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD with special caracteristics, reserved for rated pilots: for ACFT pilots, hold mountain qualification (wheels or/and skis), or site authorization of altiport in validity.; for ULM pilots, it is strongly recommended to take mountain course organized by FFPLUM.",
+    "Unmarked telepheric cables near from entering circuit and RWY.",
+    "ACFT: Only one departure sector available.",
+    "Respect flying circuits due to the moutains and the environment.",
+    "Avoid overflying the farms downstream the mountain aerodrome 200 m from RWY.",
+    "Unusable outside RWY and PRKG platform."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD à caractéristiques spéciales, réservé aux pilotes titulaires : pour les pilotes avions, soit de la qualification montagne (roues et/ou skis), soit de l'autorisation de site de l'altiport en état de validité. pour les pilotes ULM, il est fortement conseillé d'avoir suivi le cursus montagne organisé par la FFPLUM.",
+      "Présence de câbles de téléphérique non balisés à proximité des circuits d'intégration et de piste.",
+      "",
+      "Une seule trouée d'envol. Circuit en vol à respecter compte tenu du relief et de l'environnement.",
+      "Éviter le survol des fermes en aval de l'altiport à 200 m de la piste.",
+      ""
+    ]
+  }
+}

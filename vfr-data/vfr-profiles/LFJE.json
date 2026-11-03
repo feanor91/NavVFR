@@ -1,0 +1,103 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFJE (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFJE",
+  "name": "Motte-Chalancon",
+  "source": {
+    "publication": "AIP France AD 2 LFJE",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.49667,
+    "longitude": 5.40333
+  },
+  "elevationFeet": 2883,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 130.0",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 130.0
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        32,
+        212
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 44.51306,
+      "longitude": 5.35528,
+      "location": "Travers Est CHALANCON"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 44.4625,
+      "longitude": 5.36583,
+      "location": "Lac de CORNILLON SUR OULE"
+    }
+  ],
+  "notes": [
+    "Altiport reserved for licensed pilots: for airplane pilots, either a mountain qualification (wheels and/or skis), or a valid altiport access permit.; ULM pilots are strongly advised to have taken the mountain course organized by the FFPLUM.",
+    "Commercial air transport is prohibited, except discovery flights.",
+    "AD available for HEL and ULM.",
+    "Mandatory radio.",
+    "Possible presence of vultures near the high altitude airport (breeding in the vicinity).",
+    "Caution advised: when northern or southern wind > 15 kt (strong turbulences),; Northbound DEP when northern wind > 15 kt and/or heavy load and high temperature (down-draught, low climb).",
+    "High part of the RWY pebbled.",
+    "Runway not cleared of snow.",
+    "Check runway condition before flight.",
+    "Corner marks at the bottom of the runway less than the width of the runway.",
+    "Due to noise pollution, training sessions are kept to a strict minimum.",
+    "Arrivals: ARR from the North: abeam East of CHALANCON (NW).",
+    "ARR from the South: CORNILLON SUR OULE lake (S) then follow the circuits drawn on the chart.",
+    "Landing: RWY 03 mandatory.",
+    "No parking in take-off line position.",
+    "Do not park in front of the hangar."
+  ],
+  "fr": {
+    "notes": [
+      "Altiport réservé aux pilotes titulaires : pour les pilotes avions, soit de la qualification montagne (roues et/ou skis), soit de l'autorisation d'accès à l'altiport en état de validité. pour les pilotes ULM, il est fortement conseillé d'avoir suivi le cursus montagne organisé par la FFPLUM.",
+      "Le transport aérien commercial par avion est interdit à l'exception des vols de découverte.",
+      "AD utilisable par HEL et ULM.",
+      "Radio obligatoire.",
+      "Présence possible de vautours aux alentours de l'altiport (élevage à proximité).",
+      "Prudence recommandée : par vent > 15 kt du Nord ou Sud (fortes turbulences) ; au départ Nord avec vent du secteur Nord > 15 kt et/ou poids et température élevés (rabattants, vario faible).",
+      "Partie haute de la piste caillouteuse.",
+      "Piste non déneigée.",
+      "S'assurer de l'état de la piste avant le vol.",
+      "Marques d'angles de bas de piste de largeur inférieure à la largeur de la piste.",
+      "Cause nuisances sonores, les entraînements sont limités au strict minimum.",
+      "Arrivées : ARR du Nord : travers Est de CHALANCON (NW).",
+      "ARR du Sud : lac de CORNILLON SUR OULE (S) puis suivre les tracés figurés sur la carte.",
+      "Atterrissage : RWY 03 obligatoire.",
+      "Stationnement interdit en position alignement de décollage.",
+      "Ne pas stationner devant le hangar."
+    ]
+  }
+}

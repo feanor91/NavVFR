@@ -1,0 +1,78 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFEF (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFEF",
+  "name": "Amboise - Dierre",
+  "source": {
+    "publication": "AIP France AD 2 LFEF",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.34056,
+    "longitude": 0.94111
+  },
+  "elevationFeet": 177,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.78",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.78
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        104,
+        284
+      ]
+    },
+    {
+      "id": "10L/28R",
+      "qfu": [
+        104,
+        284
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of both RWY with 2 moving ACFT prohibited.",
+    "Unpaved RWY and TWY not available after heavy rainfalls.",
+    "Severe bird hazard.",
+    "Severe turbulences QFU 284° possible if wind from SW.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Vacate via TWY compulsory if traffic on final.",
+    "Low height circuits are allowed only during training flights with flight instructor on board above 300 ft AAL North of RWY.",
+    "Downwind of AD circuit is conducted to the South of Athée sur Cher (1) Due to road CV 300 close to THR 10, TODA RWY 28 and 28R reduced to 600 m.",
+    "Aerobatics at AD (NR 6401), axis RWY 10/28, 2500 m length, SR-SS, 1700 ft AMSL / 1520 ft ASFC - 3500 ft AMSL reserved for signatory users to the protocol.",
+    "Radio monitoring AMBOISE A/A."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux pistes par 2 ACFT en mouvement interdite.",
+      "Pistes et TWY non revêtus inutilisables après fortes pluies.",
+      "Risque important lié à la présence d'oiseaux.",
+      "Importantes turbulences possibles QFU 284° par vent SW.",
+      "Roulage interdit hors RWY et TWY.",
+      "Sortie par TWY obligatoire si trafic en finale.",
+      "Circuits basse hauteur uniquement dans le cadre des vols d'entraînement basés, avec instructeur à bord, mini 300 ft AAL au Nord des pistes.",
+      "Vent arrière du circuit d'aérodrome, au Sud d'Athée sur Cher. (1) Cause CV 300 à proximité du seuil 10, TODA RWY 28 et 28R réduite à 600 m. basés. Accès AVT : suivre la ligne bleue discontinue. Ne pas bloquer les TWY si la pompe est occupée.",
+      "Activité voltige sur AD (N° 6401) axe RWY 10/28, longueur 2500 m, SR-SS, 1700 ft AMSL / 1520 ft ASFC",
+      ""
+    ]
+  }
+}

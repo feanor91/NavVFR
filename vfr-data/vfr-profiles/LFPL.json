@@ -1,0 +1,244 @@
+{
+  "$comment": [
+    "REAL DATA, transcribed by hand from the SIA chart set AD 2 LFPL (AIP France, AMDT 03/26,",
+    "effective 19 FEB 2026). Only facts are recorded here; the charts themselves are (c) SIA and",
+    "are not redistributed. Runway geometry, taxiways, parking and frequencies also come from the",
+    "simulator at run time; this file holds what the simulator does not know: services, circuit",
+    "rules and reporting points. Flight simulation only: never use for real navigation.",
+    "The circuit side was read off the landing chart drawing, not from a text, and is worth a second look.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFPL",
+  "name": "Lognes-Émerainville",
+  "source": {
+    "publication": "AIP France AD 2 LFPL",
+    "amendment": "AMDT 03/26",
+    "effective": "2026-02-19",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 48.82194,
+    "longitude": 2.62278
+  },
+  "elevationFeet": 359,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "0800 to sunset + 30 min, limited to 1900 (UTC in winter, local time minus 1 h in summer)",
+    "outsideAtsHours": "air-air frequency only",
+    "radioMandatory": true,
+    "jetsProhibited": true,
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "atis": 125.03,
+    "tower": 118.605,
+    "ground": 122.13,
+    "airAir": 118.605
+  },
+  "stations": {
+    "atis": "Lognes Information",
+    "tower": "Lognes Tour",
+    "ground": "Lognes Sol",
+    "airAir": "Lognes Auto-information"
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        80,
+        260
+      ],
+      "surface": "paved",
+      "lengthMetres": 700,
+      "widthMetres": 20,
+      "papi": {
+        "08": "3.0 deg"
+      }
+    },
+    {
+      "id": "08R/26L",
+      "qfu": [
+        80,
+        260
+      ],
+      "surface": "unpaved",
+      "lengthMetres": 1100,
+      "widthMetres": 100
+    }
+  ],
+  "preferredQfu": 80,
+  "preferredQfuReason": "better obstacle clearance",
+  "circuit": {
+    "heightFeetAmsl": 1200,
+    "heightFeetAgl": 800,
+    "sideOfRunways": "north",
+    "sideBearingDegrees": 0,
+    "handNote": "the circuit lies north of the runways, so it is left-hand for runway 08 and right-hand for runway 26 (read off the landing chart, AD 2 LFPL ATT 01)",
+    "lowHeight": "only with an instructor on board, in the published direction, cleared by ATS",
+    "restrictedWeekendsAndHolidays": "Saturday, Sunday and public holidays: circuits reserved for home-based aircraft or aircraft authorised by ATS",
+    "ulmCircuitsProhibited": true,
+    "landmark": {
+      "description": "red and white checkerboard on the roof of an H-shaped building",
+      "use": "overfly on base leg runway 08 or crosswind runway 26"
+    }
+  },
+  "reportingPoints": [
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 48.83,
+      "longitude": 2.70611,
+      "location": "Localisation Travers Nord du Château de Ferrières",
+      "purpose": "point de compte rendu pour les arrivées par l'est"
+    }
+  ],
+  "withAts": {
+    "arrivals": [
+      {
+        "from": "East",
+        "instruction": "contact the tower at least 2 minutes before point E, at 1200 ft AMSL",
+        "via": "E",
+        "altitudeFeetAmsl": 1200
+      },
+      {
+        "from": [
+          "SouthEast",
+          "South"
+        ],
+        "altitudeFeetAmsl": 1500
+      },
+      {
+        "note": "runway 08 in use: avoid arriving from the south-east, to stay clear of the initial climb"
+      }
+    ],
+    "arrivalUnlessImpossible": "circuit lights on and speed below 100 kt",
+    "departures": [
+      {
+        "runway": "08",
+        "climbToFeetAmsl": 1500,
+        "note": "leaving the 08 circuit, do not interfere with the arrival path via E"
+      },
+      {
+        "runway": "26",
+        "climbToFeetAmsl": 1500,
+        "inCircuit": true,
+        "note": "reach it before half downwind where possible"
+      },
+      {
+        "overheadDepartureOnRequest": true,
+        "note": "do not interfere with the arrival path via E"
+      }
+    ],
+    "radio": {
+      "arrival": "once the runway is vacated, contact Lognes Sol directly",
+      "departure": "at the holding point, on Sol's clearance, hold and monitor the tower frequency until Lognes Tour calls"
+    }
+  },
+  "withoutAts": {
+    "arrivals": {
+      "contactAirAirMinutesBefore": 4,
+      "contactBefore": "overhead the facilities or integration in the runway circuit",
+      "enterFrom": [
+        "East",
+        "South"
+      ],
+      "altitudeFeetAmsl": 1300
+    },
+    "maxAircraftInCircuit": 4,
+    "departures": {
+      "climbToFeetAmsl": 1500,
+      "runway26": "climb in the circuit to 1500 ft before half downwind where possible",
+      "afterHalfDownwind": "join the aerodrome overhead for a departure on magnetic 120"
+    },
+    "rmzActive": false
+  },
+  "airspaceNearby": [
+    {
+      "name": "RMZ Lognes-Émerainville",
+      "floor": "SFC",
+      "ceilingFeetAmsl": 1500,
+      "note": "inactive without ATS"
+    },
+    {
+      "name": "TMA 2-3-4-5 Paris",
+      "floorFeetAmsl": 1500,
+      "ceiling": "FL065"
+    },
+    {
+      "name": "R 324",
+      "floor": "SFC",
+      "ceilingFeetAmsl": 2500
+    },
+    {
+      "name": "R 275",
+      "floor": "SFC",
+      "ceilingFeetAmsl": 2000
+    }
+  ],
+  "fr": {
+    "circuit": {
+      "sideOfRunways": "nord",
+      "handNote": "le circuit est au nord des pistes : main gauche pour la piste 08 et main droite pour la piste 26 (lu sur la carte d'atterrissage, AD 2 LFPL ATT 01)",
+      "lowHeight": "uniquement avec instructeur à bord, dans le sens publié, après autorisation de l'ATS",
+      "restrictedWeekendsAndHolidays": "samedi, dimanche et jours fériés : circuits réservés aux aéronefs basés ou autorisés par l'ATS",
+      "landmark": {
+        "description": "damier rouge et blanc sur le toit d'un bâtiment en forme de H",
+        "use": "survoler en étape de base piste 08 ou en vent traversier piste 26"
+      }
+    },
+    "withAts": {
+      "arrivals": [
+        {
+          "from": "Est",
+          "instruction": "contacter la tour au moins 2 minutes avant le point E, à 1200 ft AMSL",
+          "via": "E"
+        },
+        {
+          "from": [
+            "Sud-Est",
+            "Sud"
+          ]
+        },
+        {
+          "note": "piste 08 en service : éviter d'arriver par le sud-est, pour rester à l'écart de la montée initiale"
+        }
+      ],
+      "arrivalUnlessImpossible": "feux de circuit allumés et vitesse inférieure à 100 kt",
+      "departures": [
+        {
+          "runway": "08",
+          "note": "en quittant le circuit 08, ne pas gêner la trajectoire d'arrivée par E"
+        },
+        {
+          "runway": "26",
+          "note": "l'atteindre avant la mi-vent arrière si possible"
+        },
+        {
+          "note": "ne pas gêner la trajectoire d'arrivée par E"
+        }
+      ],
+      "radio": {
+        "arrival": "une fois la piste dégagée, contacter directement Lognes Sol",
+        "departure": "au point d'attente, sur clairance de Sol, attendre et écouter la fréquence de la tour jusqu'à l'appel de Lognes Tour"
+      }
+    },
+    "withoutAts": {
+      "arrivals": {
+        "contactBefore": "à la verticale des installations ou intégration dans le circuit de piste",
+        "enterFrom": [
+          "Est",
+          "Sud"
+        ]
+      },
+      "departures": {
+        "runway26": "monter dans le circuit jusqu'à 1500 ft avant la mi-vent arrière si possible",
+        "afterHalfDownwind": "rejoindre la verticale de l'aérodrome pour un départ au cap magnétique 120"
+      }
+    }
+  }
+}

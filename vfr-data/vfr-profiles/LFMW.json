@@ -1,0 +1,76 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFMW (AIP France, chart dated 2024-11-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFMW",
+  "name": "Castelnaudary - Villeneuve",
+  "source": {
+    "publication": "AIP France AD 2 LFMW",
+    "chartDate": "2024-11-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.31111,
+    "longitude": 1.92
+  },
+  "elevationFeet": 553,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.905",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 118.905
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        109,
+        289
+      ]
+    }
+  ],
+  "preferredQfu": 289,
+  "preferredQfuReason": "preferred QFU 289, due to environment",
+  "notes": [
+    "TWY access to parking W is limited to ACFT whose wingspan is less than 20 m.",
+    "West sector: take-off funnel crossed by a 1.5 m high fence and a farm road.",
+    "East sector: take-off funnel crossed by a 2 m high fence and a farm road.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU 289° due to environment.",
+    "TKOF RWY 11: compulsory line up at extreme end of RWY.",
+    "After TKOF, passing 300 ft AAL, make right turn in order to avoid overflying highschools.",
+    "Leave circuit due east.",
+    "Y or Z IFR FPL and all related messages: see GEN VAC.",
+    "Aerobatics on AD (NR 6853): RWY 11/29 axis, 2400 m long, overhead AD, HJ, 2000 ft ASFC - 3600 ft AMSL.",
+    "Users' information on A/A FREQ.",
+    "Aerobatics (NR 6854): axis 120°/300°, 3800 m long, centered on 43 17 00 N - 001 52 00 E (QDR 233°/2.9 NM ARP LFMW), HJ, 2000 ft ASFC - 3600 ft AMSL.",
+    "Users' information on A/A FREQ."
+  ],
+  "fr": {
+    "notes": [
+      "TWY d'accès au parking W limité aux ACFT d'envergure inférieure à 20 m.",
+      "Secteur Ouest : trouée de décollage percée par une clôture de 1,5 m et un chemin agricole.",
+      "Secteur Est : trouée de décollage percée par une clôture de 2 m et un chemin agricole.",
+      "Roulage interdit hors RWY et TWY.",
+      "QFU 289° préférentiel cause environnement.",
+      "TKOF RWY 11 : alignement obligatoire à l'extrémité physique de piste.",
+      "Après TKOF, passant 300 ft AAL, effectuer un virage à droite pour éviter le survol des lycées.",
+      "Sortie de circuit vers l'est.",
+      "FPL IFR Y ou Z et tous les messages s'y rapportant : voir GEN VAC.",
+      "Voltige sur AD (N° 6853) : axe de piste 11/29, 2400 m de longueur, verticale AD, HJ, 2000 ft ASFC - 3600 ft AMSL.",
+      "Information sur FREQ A/A.",
+      "Voltige (N° 6854) : axe 120°/300°, 3800 m de longueur, centré sur 43 17 00 N - 001 52 00 E (QDR 233°/2,9 NM ARP LFMW), HJ, 2000 ft ASFC - 3600 ft AMSL.",
+      "Information sur FREQ A/A."
+    ]
+  }
+}

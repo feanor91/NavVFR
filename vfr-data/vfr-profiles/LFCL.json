@@ -1,0 +1,148 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCL (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFCL",
+  "name": "Toulouse - Lasbordes",
+  "source": {
+    "publication": "AIP France AD 2 LFCL",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.58778,
+    "longitude": 1.49861
+  },
+  "elevationFeet": 460,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "NOV à FEV / NOV to FEB : 0800-1700 UTC HIV / WIN UTC. MAR à OCT / MAR to OCT : 0800-1800 UTC HIV / WIN UTC . TWR (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "tower": 122.705
+  },
+  "runways": [
+    {
+      "id": "15/33",
+      "qfu": [
+        154,
+        334
+      ]
+    },
+    {
+      "id": "15R/33L",
+      "qfu": [
+        153,
+        333
+      ]
+    }
+  ],
+  "preferredQfu": 334,
+  "preferredQfuReason": "preferred QFU 334, due to environment For every ACFT, in self-information, apply order of July 12th, 2019",
+  "reportingPoints": [
+    {
+      "name": "DN",
+      "spoken": {
+        "fr": "Delta Novembre",
+        "en": "Delta November"
+      },
+      "latitude": 43.65417,
+      "longitude": 1.52472,
+      "location": "Pont à l'intersection de l'A68 et de la D70"
+    },
+    {
+      "name": "DS",
+      "spoken": {
+        "fr": "Delta Sierra",
+        "en": "Delta Sierra"
+      },
+      "latitude": 43.54806,
+      "longitude": 1.60833,
+      "location": "Lac de Val de Saune"
+    },
+    {
+      "name": "AE",
+      "spoken": {
+        "fr": "Alpha Écho",
+        "en": "Alpha Echo"
+      },
+      "latitude": 43.69389,
+      "longitude": 1.66139,
+      "location": "Lac de Laragou"
+    },
+    {
+      "name": "AS",
+      "spoken": {
+        "fr": "Alpha Sierra",
+        "en": "Alpha Sierra"
+      },
+      "latitude": 43.56389,
+      "longitude": 1.4975,
+      "location": "Deux bâtiments blancs / Two white buildings"
+    },
+    {
+      "name": "PI",
+      "spoken": {
+        "fr": "Papa India",
+        "en": "Papa India"
+      },
+      "latitude": 43.53333,
+      "longitude": 1.55278,
+      "location": "Piscine"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Use of AD may comply with the \" Charte de Qualité de l'Environnement \" (cf AD operator website: https://metropole.toulouse.fr/sites/toulouse-fr/files/202511/charte_environnement_lasbordes_2025_signee.pdf) AD prohibited for class 5 ULM.",
+    "Strong turbulence near the AD by greater than 25 kt wind.",
+    "Strong gliders activity on the outskirts of Toulouse - Bourg Saint Bernard aerodrome.",
+    "Preferred QFU: 334°, due to environment For every ACFT, in self-information, apply order of July 12th, 2019.",
+    "Except opposite clearance: 1) Departures: RWY 33:.",
+    "After take-off, climb to 2000 ft AMSL while remaining on the east side of motorway A61, then turn after commercial center, overfly motorway A68 and follow motorway to DN located North of Montrabé",
+    "RWY 15: After take-off, climb to 2000 ft AMSL, turn after commercial centre to DS point.",
+    "2) Arrivals For all QFU, arrivals from AE point.",
+    "3) Circuit training",
+    "RWY 33: After crosswind leg, proceed to downwind over Sironis hangar.",
+    "Final turn over commercial centre.",
+    "RWY 15: After crosswind leg, proceed to downwind abeam Pechestier castle.",
+    "Final turn over CEAT.",
+    "Low height circuits prohibited except emergency.",
+    "Circuit training authorized only on (SUM: - 1HR): week from 0800 to 1900; Saturday from 0800 to 1100 and 1400 to 1800; Sunday from 0800 to 1100; holidays: between 01/10 and 30/04: from 0800 to 1100 and from 1400 to 1900. between 01/05 and 30/09: from 0800 to 1100.; Simultaneous circuit training limited to 4 aircraft.",
+    "This limitation doesn't apply to next generation aircraft with innovative and quiet propulsion (electrics ones for.",
+    "Site web / Website: https://auatbl.wixsite.com/lasbordes Bus à proximité / Bus in the vicinity.",
+    "Sur AD l'été ou à proximité toute l'année / On AD in summer or in the vicinity all year."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "L'utilisation de l'AD est soumise au respect de la Charte de Qualité de l'Environnement (cf site web Exploitant : https://métropole.toulouse.fr/sites/toulouse-fr/files/202511/charte_environnement_lasbordes_2025_signée.pdf) AD interdit aux ULM de classe 5.",
+      "Par vent supérieur à 25 kt, fortes turbulences aux abords de l'AD.",
+      "Forte activité de planeurs aux abords de l'aérodrome de Toulouse - Bourg Saint Bernard.",
+      "QFU 334° préférentiel cause environnement En auto-information, pour tout aéronef, appliquer l'arrêté du 12 juillet 2019.",
+      "",
+      "Après décollage, monter vers 2000 ft AMSL en restant en bordure Est de l'autoroute A61, puis virer sur le centre commercial, survoler l'autoroute A68 et poursuivre sur l'autoroute jusqu'au point DN au Nord de l'agglomération de Montrabé.",
+      "RWY 15 : Après décollage, monter vers 2000 ft AMSL, virer après le centre commercial vers le point DS.",
+      "2) A l'arrivée Pour tout QFU, arrivées par le point AE.",
+      "3) Entraînements en tour de piste",
+      "RWY 33 : Après branche vent traversier, intégration en vent arrière par la verticale du Hangar Sironis.",
+      "Dernier virage à la verticale du centre commercial.",
+      "RWY 15 : Après branche vent traversier, intégration en vent arrière par le travers du château de Pechestier.",
+      "Dernier virage à la verticale du CEAT.",
+      "Circuits basse hauteur interdits sauf urgence.",
+      "Les entraînements en tour de piste sont autorisés uniquement (ETE : - 1HR) : en semaine de 0800 à 1900 ; le samedi de 0800 à 1100 et de 1400 à 1800 ; le dimanche de 0800 à 1100 ; les jours fériés : entre le 01/10 et 30/04 de 0800 à 1100 et de 1400 à 1900. entre le 01/05 et 30/09 : de 0800 à 1100. Limitation à 4 avions simultanés en entraînement tour de piste.",
+      "Cette limitation ne concerne pas les aéronefs de nouvelle génération à propulsion innovante et.",
+      "",
+      ""
+    ]
+  }
+}

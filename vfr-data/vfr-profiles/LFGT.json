@@ -1,0 +1,88 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGT (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGT",
+  "name": "Sarrebourg - Buhl",
+  "source": {
+    "publication": "AIP France AD 2 LFGT",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.71833,
+    "longitude": 7.08
+  },
+  "elevationFeet": 873,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        40,
+        220
+      ]
+    },
+    {
+      "id": "04L/22R",
+      "qfu": [
+        40,
+        220
+      ]
+    }
+  ],
+  "preferredQfu": 220,
+  "preferredQfuReason": "preferred QFU 220, due to noise pollution",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of RWY prohibited.",
+    "ACFT TKOF or LDG must be stopped if a glider lies on the unpaved RWY on less than a half width of its SE limit.",
+    "PHALSBOURG BOURSCHEID air base with associated IFR procedures, notably when RWY 06 in use.",
+    "Very high sensitivity of unpaved RWY to bad weather and precipitation.",
+    "Frequent presence of molehill on unpaved RWY.",
+    "Inquire about the practicability of the RWY from one of the ACB.",
+    "Curved RWY: no visibility from one THR to another.",
+    "Gliding activity possible on paved RWY.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU 220° due to noise pollution.",
+    "ACL: apron ALT in front of windsock: 853 ft.",
+    "Follow indicated AD circuit as much as possible.",
+    "Radio contact with PHALSBOURG is required in D class CTR except if strictly following published AD circuit of SARREBOURG BUHL.",
+    "AEM NR 8053: see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radios.",
+      "Utilisation simultanée des pistes interdite.",
+      "Tout TKOF ou LDG d'ACFT est suspendu si un planeur est immobilisé sur la piste non revêtue à moins d'une demi-largeur de la limite SE de celle-ci.",
+      "Proximité de la base aérienne de PHALSBOURG BOURSCHEID et ses procédures IFR associées, notamment si piste 06 en service.",
+      "Très forte sensibilité de la piste non revêtue aux intempéries et précipitations.",
+      "Présence fréquente de taupinières sur piste non revêtue.",
+      "Se renseigner sur la praticabilité de la piste auprès d'un des ACB.",
+      "Piste bombée : pas de visibilité d'un seuil à l'autre.",
+      "Activité vol à voile possible sur la piste revêtue.",
+      "Roulage interdit hors piste et TWY.",
+      "QFU 220° préférentiel cause nuisances sonores.",
+      "ACL : ALT parking devant manche à air : 853 ft.",
+      "Respecter dans la mesure du possible le circuit d'aérodrome publié.",
+      "Le contact radio avec PHALSBOURG est obligatoire dans la CTR de classe D, sauf dans le cadre du respect strict du circuit d'aérodrome de SARREBOURG BUHL.",
+      "AEM N° 8053 : voir AIP ENR 5.5"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCP (AIP France, chart dated 2023-04-20): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFCP",
+  "name": "Pons - Avy",
+  "source": {
+    "publication": "AIP France AD 2 LFCP",
+    "chartDate": "2023-04-20",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 45.56583,
+    "longitude": -0.51361
+  },
+  "elevationFeet": 117,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.885",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 119.885
+  },
+  "runways": [
+    {
+      "id": "13/31",
+      "qfu": [
+        128,
+        308
+      ]
+    }
+  ],
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): ."
+  ]
+}

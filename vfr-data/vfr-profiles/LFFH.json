@@ -1,0 +1,74 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFFH (AIP France, chart dated 2022-04-21): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFFH",
+  "name": "Château-Thierry - Belleau",
+  "source": {
+    "publication": "AIP France AD 2 LFFH",
+    "chartDate": "2022-04-21",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.06667,
+    "longitude": 3.35556
+  },
+  "elevationFeet": 723,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.38",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.38
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        34,
+        214
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT (1) Usable declared distances: TODA RWY 03 reduced due to road height restriction.",
+    "TODA RWY 21 reduced due to road height restriction RD9.",
+    "AD usable with caution after heavy rain fall or thaw.",
+    "Risk of damage by boars, check the RWY conditions.",
+    "Adjoining TWY to the west of the RWY: width 16 m; electric fence, height 1 m, to 13 m, from TWY centreline.",
+    "Electric fence, height 1 m, at the northern boundary of the platform, along the departmental road (D10).",
+    "Preferred QFU 034° due to environment.",
+    "Departure eastbound and southbound QFU 034°: maintain RWY heading to 1.5 NM before right turn in order to avoid overflying warehouses.",
+    "Arrival QFU 214°: do not overshoot RWY axis on final.",
+    "Noise sensitive environment, avoid overflying villages and hamlets.",
+    "Aerobatics activity (NR 6090) following centerline 1700 AMSL / 3500 AMSL, daytime only SUM 0800-1000, 1330-1730, WIN 0900-1100, 1300-1700.",
+    "Activity reserved for users authorized by CAA.",
+    "Activity announced on A/A CHATEAU THIERRY."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio. (1) Distances déclarées utilisables : TODA RWY 03 réduite cause gabarit routier RD10.",
+      "TODA RWY 21 réduite cause gabarit routier RD9.",
+      "AD utilisable avec précaution après fortes pluies ou dégel.",
+      "Risque de dégâts par sangliers, s'assurer de l'état de la piste.",
+      "",
+      "(1) Distances déclarées utilisables : TODA RWY 03 réduite cause gabarit routier RD10 ; TODA RWY 21 réduite cause gabarit routier RD9.",
+      "QFU 034° préférentiel cause environnement.",
+      "",
+      "Arrivée au QFU 214° : ne pas dépasser l'axe de finale.",
+      "Environnement sensible au bruit, éviter les survols des villages et hameaux environnants.",
+      "Activité de voltige (N° 6090) suivant axe de piste, 1700 AMSL / 3500 AMSL, HJ uniquement ETE 0800-1000, 1330-1730, HIV 0900-1100, 1300-1700.",
+      "Activité réservée aux usagers autorisés par CAA.",
+      "Activité annoncée sur A/A CHATEAU THIERRY."
+    ]
+  }
+}

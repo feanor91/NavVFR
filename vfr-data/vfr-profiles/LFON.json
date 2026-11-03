@@ -1,0 +1,40 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFON (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFON",
+  "name": "Dreux - Vernouillet",
+  "source": {
+    "publication": "AIP France AD 2 LFON",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 48.70583,
+    "longitude": 1.36139
+  },
+  "elevationFeet": 445,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.205",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 118.205
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        34,
+        214
+      ]
+    }
+  ]
+}

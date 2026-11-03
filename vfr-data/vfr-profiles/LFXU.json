@@ -1,0 +1,47 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFXU (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFXU",
+  "name": "Mureaux",
+  "source": {
+    "publication": "AIP France AD 2 LFXU",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 48.99861,
+    "longitude": 1.94167
+  },
+  "elevationFeet": 91,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 122.955",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 122.955
+  },
+  "runways": [
+    {
+      "id": "10L/28R",
+      "qfu": [
+        98,
+        278
+      ]
+    },
+    {
+      "id": "10R/28L",
+      "qfu": [
+        98,
+        278
+      ]
+    }
+  ]
+}

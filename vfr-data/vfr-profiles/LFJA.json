@@ -1,0 +1,61 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFJA (AIP France, chart dated 2026-03-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFJA",
+  "name": "Chaumont - Semoutiers",
+  "source": {
+    "publication": "AIP France AD 2 LFJA",
+    "chartDate": "2026-03-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.09167,
+    "longitude": 5.05
+  },
+  "elevationFeet": 1004,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.78",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.78
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        183,
+        3
+      ]
+    }
+  ],
+  "preferredQfu": 184,
+  "preferredQfuReason": "preferred QFU 184, due to noise pollution Strictly avoid to overfly military facilities on the East side of AD and neighbouring built-up areas 18/36, 1500 m from each side of point 48°04'58\"N - 005°02'53''E",
+  "notes": [
+    "AD reference code (ICAO): 3B Restricted use AD AD reserved for radio-equipped ACFT AD use possible out of LF-R 5 A area slots PPR mandatory for non home based CIV and MIL ACFT.",
+    "Contacting OPS 61 RA authorization by OPS 61 RA E-mail: 61ra.dv.fct@intradef.gouv.fr 61ème RA OPS 03 25 35 96 05 - 06 71 28 66 07 SAT, SUN, HOL: Duty officer 03 25 35 96 58 Extremely uneven ground on the South West of PRKG AGACS Unmanned ACFT evolutions in LF-R 5 areas, starting from MIL facilities located Preferred QFU 184° due to noise pollution Strictly avoid to overfly military facilities on the East side of AD and neighbouring built-up areas 18/36, 1500 m from each side of point 48°04'58\"N - 005°02'53''E.",
+    "SUM: 0700-SS, WIN: 0800-SS out of LF-R 5 A activity.",
+    "Activity reserved for pilots of Haute Marne ACB AEM NR 8237: SFC - 2300 AMSL ou 1300 ASFC Radio controlled model flying as per protocol Upper limit limited to 1000 ft ASFC.",
+    "Upper limit raised up to 1300 ft ASFC announced by NOTAM SR-SS outside LF-R 5 A and C activity"
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Code de référence AD (OACI) : 3B AD à usage restreint AD réservé aux ACFT munis de radio Utilisation de l'AD en dehors des créneaux d'activation de la zone LF-R 5 A PPR obligatoire à demander auprès des OPS 61 RA pour les ACFT non basés CIV et MIL PRKG ACFT soumis à autorisation des OPS 61 RA PRKG ACFT E-mail : 61ra.dv.fct@intradef.gouv.fr 61ème RA OPS  03 25 35 96 05 - 06 71 28 66 07 SAM, DIM, JF : Officier de permanence 03 25 35 96 58 Dangers à la navigation aérienne Fort denivelé au bord Sud-Ouest du PRKG AGACS Évolution d'aéronefs télépilotés non habités dans les zones LF-R 5, au départ des installations MIL  Procédures et consignes particulières QFU 184° préférentiel cause nuisances sonores Survol des installations militaires à l'Est de l'AD et des communes avoisinantes à éviter impérativement 18/36, 1500 m de part et d'autre du point 48°04'58''N - 005°02'53''E.",
+      "",
+      "ETE : 0700-SS, HIV : 0800-SS hors activation de la LF-R 5 A Activité réservée aux pilotes de l'ACB de la Haute Marne AEM NR 8237 : SFC - 2300 AMSL ou 1300 ASFC Vols radiocommandés selon protocole Plafond limité à 1000 ft ASFC.",
+      "Rehaussement du plafond jusqu'à 1300 ft ASFC annoncé par NOTAM SR-SS hors activité LF-R 5 A et C"
+    ]
+  }
+}

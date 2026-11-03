@@ -1,0 +1,150 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFPG (AIP France, chart dated 2026-06-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFPG",
+  "name": "Paris-Charles-de-Gaulle",
+  "source": {
+    "publication": "AIP France AD 2 LFPG",
+    "chartDate": "2026-06-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.00972,
+    "longitude": 2.54778
+  },
+  "elevationFeet": 392,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "H24 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "atis": 128.23,
+    "approach": 121.155,
+    "tower": 119.255,
+    "ground": 121.61
+  },
+  "runways": [
+    {
+      "id": "09L/27R",
+      "qfu": [
+        84,
+        264
+      ]
+    },
+    {
+      "id": "09R/27L",
+      "qfu": [
+        84,
+        264
+      ]
+    },
+    {
+      "id": "08L/26R",
+      "qfu": [
+        84,
+        264
+      ]
+    },
+    {
+      "id": "08R/26L",
+      "qfu": [
+        84,
+        264
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "RH1",
+      "spoken": {
+        "fr": "Roméo Hôtel un",
+        "en": "Romeo Hotel one"
+      },
+      "latitude": 49.08667,
+      "longitude": 2.55167,
+      "location": "Péage autoroute A1"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 49.04972,
+      "longitude": 2.5475,
+      "location": "Intersection A1 - Voie ferrée"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 48.97111,
+      "longitude": 2.58639,
+      "location": "Rond-point à l'intersection des routes D9 et D309 Est du bourg (099° 6.4 NM BT)"
+    }
+  ],
+  "notes": [
+    "AD prohibited for ACFT not equipped with APP and TWR FREQ.",
+    "Entry conditions: prior agreement from \"coordonnateur des aéroports parisiens\" (1).; compulsory service provided by approved company.",
+    "See TXT 03 non-based operators expecting a stay of more 24 HR must contact \"Aéroports de Paris\" (PPR 24 HR) (2).",
+    "Affair or private aviation operators are advised to take into account the 1994 15 11 order on intra-community traffic repartition within the Paris airport system and may ask for previous agreement from \"coordonnateur\" through an approved handling company.",
+    "See TXT 03 (1) Coordonnateur des aéroports parisiens / Parisian airports coordinator: Adresse postale / Postal address: Site web / Website: www.cohor.org (2) Coordonnées du gestionnaire de l'aéroport / Airport manager: TEL: 01 48 64 62 62 (responsable d'exploitation plateforme / airport operations manager) Aircraft: contact before flight SNA RP/CDG control subdivision in order to define the way of integration in aerodrome traffic.",
+    "E-mail: lfpg-ctl@aviation-civile.gouv.fr Helicopters: see VAC HEL chart.",
+    "Prohibited use for all other ACFT and training flights.",
+    "IFR cancellation, in order to continue the flight in VFR bound for a neighbouring AD: forbidden on all final approach procedures at PARIS-CHARLES DE GAULLE AD.",
+    "Hot spots: see AD 2 LFPG.20 Anti-collision lights must be on prior engine ignition and must stay on during their functionning on the parking area.",
+    "System for deterrance against bird collision RWY 09R / 27L and 08L/26R: see AD 1.1- 13.",
+    "Radiocommunication failure upon ARR: If radio failure occurs before receiving clearance to enter AD TFC zone, exit CTR (or do not enter it) flying inbound VFR route.",
+    "RWY clearing: RWY clearing after landing is only authorized on clearing TWYs intended for the RWY in use.",
+    "VFR ACFT routes: Transits above PARIS-CHARLES DE GAULLE AD (without stop at LFPG) are forbidden.",
+    "Arrival or departure VFR flights only, using at least one of the report point below.",
+    "VMC within class D ARR/DEP Helicopter procedure see AD3 ARR/DEP ACFT Procedure: IFR/VFR compatibility: N and S points are strategically separated from LFPG IFR.",
+    "Between points N and S, and/or above platform, VFR flying nearby and close to IFR runway of LFPG.",
+    "In or der to avoid conflict between IFR and VFR, flight crewmust comply strictly of the following instructions.",
+    "For all VFR arrival: ATC clearance is compulsory to join RWY axis of LFPG: Without clearance, holding compulsory over next authorized point and stay away from runways (ex.: south of S, north of N…);; During IFR arrival, clearance to join final runway axis of LFPG is effective when visual contact is established with IFR arrival and reported to ATC who delivered traffic information.",
+    "Divers / Miscellaneous: Exploitant d'aérodrome et services d'assistance / AD operator and Handling services: Coordonnées du gestionnaire de l'aéroport / Airport manager: (Responsable d'exploitation Plateforme / Airport operations management ) TEL: 01 48 62 39 79 (AOC / Airside Operations Center ) France. / For AIR FRANCE on-line connection between/with an AIR FRANCE flight only: Operations coordinating and control (PCO) for AIR FRANCE company.",
+    "Fréquence / Frequency: 136.800 (moyen-courrier AIR FRANCE / AIR FRANCE medium range liner ).",
+    "TEL: 01 48 16 22 13 (Chef d'escale de permanence / Station manager on duty) E-mail: traficcdg@alyzia.com (Bureau plan de vol / Flight plan office) Fréquence / Frequency: 131.915 TEL: 01 48 64 13 31 (Chef d'escale de permanence / Station manager on duty) SITA: RSYKKAF (Chef d'escale de permanence / Station manager on duty) Fréquences / Frequencies: 131.585 (moyen courrier / medium range liner) 131.880 (long courrier / long range liner) Fréquence / Frequency: 131.470 Divers / Miscellaneous: Additional information for the preparation of flights called \"COLLABORATIVE AERODROME SAFETY HIGHLIGHTS\" are available at: https://www.ecologique-solidaire.gouv.fr/en/collaborative-aerodrome-safetyhighlights-eng.",
+    "These data are published for informational purposes only, and are not exhaustive.",
+    "They do not replace the aeronautical reference information published in AIP France, NOTAM and Sup AIP."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Conditions d'accès : accord préalable du coordonnateur des aéroports parisiens (1). assistance obligatoire par société agréée.",
+      "Voir TXT 03. les opérateurs non basés envisageant un séjour de plus de 24 HR doivent contacter les services d'Aéroports de Paris (PPR 24 HR) (2).",
+      "Les opérateurs d'aviation d'affaires ou privée sont invités à prendre connaissance de l'arrêté du 15 novembre 1994 relatif à la répartition du trafic intracommunautaire au sein du système aéroportuaire parisien et peuvent formuler leur demande d'accord préalable du coordonnateur par l'intermédiaire d'une société d'assistance agréée.",
+      "TEL : 01 49 75 88 10 FAX : 01 49 75 88 20 SITA : HDQCOXH ORLYTECH – Bât 527 3 allée Maryse Bastié, Paray-Vieille-Poste 91325 WISSOUS CEDEX France E-mail : hdqcoxh@cohor.org TEL : 01 48 62 39 79 (PCO) FAX : 01 48 62 94 44 SITA : CDGSJXH Avions : Contacter avant le vol la subdivision Contrôle de l'organisme SNA RP/CDG, afin de convenir par avance des modalités d'intégration dans le trafic de l'aérodrome.",
+      "E-mail : lfpg-ctl@aviation-civile.gouv.fr Hélicoptères : voir carte VAC HEL.",
+      "Interdit à tous autres ACFT et aux vols d'entraînement.",
+      "Annulation IFR, en vue de la poursuite du vol en VFR vers un aérodrome voisin : interdite sur toutes les approches finales de l'AD PARIS-CHARLES DE GAULLE.",
+      "",
+      "Dispositif d'effarouchement d'oiseaux RWY 09R / 27L et 08L/26R : voir AD 1.1- 13.",
+      "",
+      "Dégagement des pistes : Le dégagement des pistes après atterrissage n'est autorisé que sur les voies de dégagement prévues pour le sens de la piste utilisé.",
+      "Itinéraires VFR Avions : Transits interdits verticale l'AD PARIS-CHARLES DE GAULLE (sans escale à LFPG).",
+      "Seuls sont autorisés les vols VFR à l'arrivée et au départ, utilisant au moins l'un des points de report cidessous.",
+      "VMC en classe D Procédures ARR/DEP Hélicoptères voir AD3 Procédures ARR/DEP Avions : Compatibilité IFR/VFR : Les points N et S sont stratégiquement séparés des procédures IFR de LFPG.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Ces données sont publiées uniquement à titre indicatif et informatif, et ne sont pas exhaustives.",
+      "Elles ne se substituent en aucun cas à l'information aéronautique de référence diffusée au travers de l'AIP France, des NOTAM et des Sup AIP."
+    ]
+  }
+}

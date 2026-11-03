@@ -1,0 +1,277 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLB (AIP France, chart dated 2026-08-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFLB",
+  "name": "Chambéry - Savoie",
+  "source": {
+    "publication": "AIP France AD 2 LFLB",
+    "chartDate": "2026-08-06",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.63917,
+    "longitude": 5.88
+  },
+  "elevationFeet": 779,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "0700-2000 sauf SAM période de facilitation 0600-2000 (voir AIP FRANCE AD 2 LFLB) / 0700-2000 except on SAT facilitation period 06000-2000 (see AIP FRANCE AD 2 LFLB). En cas d'extension des horaires ATS, le statut de l'espace est annoncé sur la fréquence TWR et l'ATIS (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "fis": 123.705,
+    "atis": 127.1,
+    "approach": 121.205,
+    "tower": 118.305
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        175,
+        355
+      ]
+    },
+    {
+      "id": "18L/36R",
+      "qfu": [
+        175,
+        355
+      ]
+    }
+  ],
+  "preferredQfu": 355,
+  "preferredQfuReason": "preferred QFU 355, due to environment",
+  "reportingPoints": [
+    {
+      "name": "ALBY",
+      "spoken": {
+        "fr": "Alpha Lima Bravo Yankee",
+        "en": "Alpha Lima Bravo Yankee"
+      },
+      "latitude": 45.81667,
+      "longitude": 6.02028,
+      "location": "Alby sur Chéran"
+    },
+    {
+      "name": "EY",
+      "spoken": {
+        "fr": "Écho Yankee",
+        "en": "Echo Yankee"
+      },
+      "latitude": 45.71417,
+      "longitude": 5.92389,
+      "location": "Grésy sur Aix"
+    },
+    {
+      "name": "NL",
+      "spoken": {
+        "fr": "Novembre Lima",
+        "en": "November Lima"
+      },
+      "latitude": 45.80583,
+      "longitude": 5.82889,
+      "location": "Bout du lac"
+    },
+    {
+      "name": "SB",
+      "spoken": {
+        "fr": "Sierra Bravo",
+        "en": "Sierra Bravo"
+      },
+      "latitude": 45.54306,
+      "longitude": 5.95667,
+      "location": "Ouest de la Zone industrielle de l'Albanne"
+    },
+    {
+      "name": "SM",
+      "spoken": {
+        "fr": "Sierra Mike",
+        "en": "Sierra Mike"
+      },
+      "latitude": 45.48389,
+      "longitude": 6.02361,
+      "location": "Échangeur autoroutier"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 45.55556,
+      "longitude": 5.83111,
+      "location": "Col du Crucifix"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 45.69278,
+      "longitude": 5.84694,
+      "location": "Col du Chat"
+    },
+    {
+      "name": "WB",
+      "spoken": {
+        "fr": "Whisky Bravo",
+        "en": "Whiskey Bravo"
+      },
+      "latitude": 45.75806,
+      "longitude": 5.70556,
+      "location": "Belley"
+    },
+    {
+      "name": "WC",
+      "spoken": {
+        "fr": "Whisky Charlie",
+        "en": "Whiskey Charlie"
+      },
+      "latitude": 45.84306,
+      "longitude": 5.77917,
+      "location": "Culoz"
+    },
+    {
+      "name": "WG",
+      "spoken": {
+        "fr": "Whisky Golf",
+        "en": "Whiskey Golf"
+      },
+      "latitude": 45.59806,
+      "longitude": 5.63167,
+      "location": "Saint Genix sur Guiers"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 46.03444,
+      "longitude": 6.10722,
+      "location": "Cruseilles"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 46.04472,
+      "longitude": 6.2575,
+      "location": "Col d'Elvires (jonction A410 et D1203 )"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 45.93528,
+      "longitude": 6.16806,
+      "location": "Les Glaisins (échangeur)"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Non-based ULM: prohibited use on FRI, SAT, SUN from 15/12 to 07/04.",
+    "Outside these days, possible use during ATC SKED with prior authorization of: snace.calflb@aviation-civile.gouv.fr ULM wishing to go to RECTIMO Aviation: contact the RECTIMO Aviation company for the authorization procedure.",
+    "Based ULM: use defined by protocol with the air navigation services.",
+    "These requirements are applicable to: All commercial flight with an airplane and; All non-commercial flight with an airplane having a maximum certified passenger seating capacity above 19, crew seats excepted.",
+    "Operating instructions These requirements are due to mountainous terrain in the vicinity of Chambéry Airport.",
+    "It is considered essential that pilots are well familiar with approach, missed approach, circling manœuvres, and departure procedures.",
+    "Therefore, concerned operators have to set up specific operational instructions about the use of Chambéry Airport and its specific meteorological conditions, as well as provisions for their pilots training.",
+    "The responsibility for the preparation of such instructions and for the design of contingency departure trajectories rests on the operator (or pilot-in-command for noncommercial flights).",
+    "Flight crew training For all flights, a theoretical training about procedures intended to be used is mandatory for the pilot-incommand.",
+    "Night operations and operations with weather conditions below 3 500 ft ceiling and 5 000 metres visibility require a training using a suitable flight simulation training device (FSTD) or an on-site training in VMC conditions on a same category aircraft.",
+    "Note: all operators and pilots must be able to prove that they comply with the above training(s).",
+    "The application of these provisions will be subject to verifications during ramp inspections.",
+    "Heavy paragliding activity on high terrain.",
+    "Possible presence of paragliders East of the airfield below 1160 ft and WA sector West of the pass below the crest line (see APP 01).",
+    "The use of PAPI 36 is prohibited beyond 5 NM.",
+    "Low height circuits possible for day training flights only.",
+    "Arrival procedures: First radio contact CHAMBERY INFO 123.705 due to radio range problems.",
+    "Preferred QFU 355° due to environment.",
+    "Take-off RWY 36: presence of a road immediately after the RWY.",
+    "Check that the take-off performance allows it to cross its gauge (782 ft, see ATT 01) by passing the end of the RWY.",
+    "RWY 36: declared distances reduced due to runway end safety area (RESA) compliance.",
+    "End of RWY 36 lighting located at 40 m beyond declared distances.",
+    "Simultaneous use of both runways is prohibited.",
+    "The procedure \"runway separation reduction\" is applicable on runway according to the national Air Traffic Regulations.",
+    "No RWY identification markings on the unpaved RWY.",
+    "Locally used phraseology: for the unpaved RWY 18L/36R: \"grass RWY 18\" or \"grass RWY 36\"; for the paved RWY 18/36: \"main RWY 18\" or \"main.",
+    "RWY 36\" Transit SB-SM: if possible, keep West of motorway, presence of CHAMBERY CHALLES LES EAUX (LFLE) AD circuit and traffic to and from in the East.",
+    "Departure via SB: Recommended altitude at SB: 3500 ft AMSL MNM.",
+    "RWY 18: unless contrary instruction, climb straight ahead then bypass the town of Chambéry by the South.",
+    "Arrival via SB: Recommended Altitude at SB: 3000 ft AMSL.",
+    "In case of holding, keep West of motorway due to AD traffic of CHAMBERY CHALLES LES EAUX (LFLE).",
+    "RWY 36: unless contrary instruction, join the long final bypassing the town of Chambéry by the South.",
+    "Recommended routes for VFR transit (see ENR 1-2): NE <--> E <--> ALBY <--> EY <--> SB à / to 4000 ft AMSL MNM.",
+    "Traffic circuit prohibited after 2000.",
+    "SUM: - 1 HR.",
+    "Outside ATS SKED, reserved for authorized pilots.",
+    "Departure: Recommended procedure: Climb to 1000 ft AGL in the axis before first turn.",
+    "Climb overhead AD at route segment minimum altitude.",
+    "Arrival: Used segment altitude will be maintained until being in sight and within 5 NM AD, then join traffic pattern.",
+    "Parachuting on AD (NR 417): see AIP ENR 5.5.",
+    "Douanes, Police / Customs, Police:"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "ULM non basés : utilisation interdite VEN, SAM, DIM du 15/12 au 07/04.",
+      "En dehors de ces journées, utilisation en HOR ATC soumise à autorisation préalable au vol auprès de : sna-ce.calflb@aviation-civile.gouv.fr ULM souhaitant se rendre chez RECTIMO Aviation : se renseigner auprès de la société RECTIMO Aviation pour la procédure d'autorisation.",
+      "ULM basés : utilisation définie par protocole avec les services de la navigation aérienne.",
+      "",
+      "",
+      "",
+      "Consignes d'exploitation En raison de l'environnement montagneux de l'aérodrome de Chambéry, il est nécessaire que les pilotes soient familiarisés avec les procédures d'approche, d'approche interrompue de même qu'aux manœuvres à vue et aux procédures de départ.",
+      "L'établissement de ces consignes et la conception des trajectoires de départ d'urgence sont de la responsabilité de l'opérateur (ou du commandant de bord pour les vols non-commerciaux).",
+      "Formation équipages Pour tout vol, une formation théorique portant sur les procédures envisagées est obligatoire pour tout commandant de bord.",
+      "Les opérations de nuit et les opérations avec des conditions météorologiques inférieures à 3 500 pieds de plafond et 5 000 mètres de visibilité requièrent un entraînement à l'aide d'un entraîneur synthétique de vol (FSTD) adapté ou un entraînement sur site en conditions VMC sur un avion de même catégorie.",
+      "Note : tout exploitant ou pilote doit pouvoir justifier qu'il satisfait les exigences de formation ci-dessus.",
+      "L'application de ces dispositions peut faire l'objet de vérifications lors de contrôles d'exploitation au sol.",
+      "Présence importante de parapentistes sur les reliefs.",
+      "Présence possible de parapentes à l'Est du terrain sous 1160 ft et secteur WA à l'Ouest du col sous la ligne de crête (voir APP 01).",
+      "Interdiction d'utiliser le PAPI 36 au-delà de 5 NM.",
+      "Circuits basse hauteur possibles pour vols d'entraînement de jour uniquement.",
+      "Procédures d'arrivée : Premier contact radio CHAMBERY INFO 123.705 cause problèmes portée radio.",
+      "QFU 355° préférentiel cause environnement.",
+      "Décollage RWY 36 : présence d'une route immédiatement après la piste.",
+      "Vérifier que les performances de décollage permettent le franchissement de son gabarit (782 ft, voir ATT 01) en passant l'extrémité de piste.",
+      "Piste 36 : distances déclarées réduites afin d'offrir une aire de sécurité d'extrémité de piste (RESA) conforme.",
+      "Balisage d'extrémité de piste 36 situé à 40 m au delà des distances déclarées.",
+      "Utilisation simultanée des deux pistes interdites.",
+      "La procédure \" réduction des séparations sur piste \" est applicable sur la piste dans les conditions fixées par la réglementation nationale.",
+      "Absence de marquage d'identification de piste sur la piste non revêtue.",
+      "Phraséologie utilisée localement : pour la piste 18L/36R non revêtue : \"piste 18 gazonnée\" ou \"piste 36 gazonnée\" ; pour la piste 18/36 revêtue : \"piste 18 principale\" ou \"piste 36 principale\".",
+      "Transit SB-SM : dans la mesure du possible, rester à l'Ouest de l'autoroute, présence du circuit d'aérodrome et du trafic au départ et à destination de CHAMBERY CHALLES LES EAUX (LFLE) à l'Est.",
+      "Départ via SB : Altitude recommandée à SB : 3500 ft AMSL MNM.",
+      "Piste 18 : sauf instruction contraire, monter dans l'axe de piste puis contourner la ville de Chambéry par le Sud.",
+      "CHAMBERY AIX LES BAINS Arrivée via SB : Altitude recommandée à SB : 3000 ft AMSL.",
+      "En cas d'attente, rester côté Ouest de l'autoroute cause trafic aérodrome de CHAMBERY CHALLES LES EAUX (LFLE).",
+      "Piste 36 : sauf instruction contraire, rejoindre la longue finale en contournant la ville de Chambéry par le Sud.",
+      "Itinéraires recommandés de transit VFR (voir ENR 1-2) : avant le vol en contactant l'exploitant par E-mail uniquement.",
+      "Tour de piste interdit après 2000.",
+      "ETE : - 1 HR.",
+      "En dehors des HOR ATS, réservé aux utilisateurs autorisés.",
+      "Départ : Procédure recommandée : Monter à 1000 ft AGL dans l'axe avant le premier virage.",
+      "Monter verticale aérodrome à l'altitude minimale du tronçon à emprunter.",
+      "Arrivée : L'altitude du segment utilisé sera maintenue jusqu'à être en vue et dans les 5 NM de l'aérodrome, puis rejoindre le circuit.",
+      "Activité parachutage sur AD (N° 417) : voir AIP ENR 5.5.",
+      ""
+    ]
+  }
+}

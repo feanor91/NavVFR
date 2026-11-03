@@ -1,0 +1,72 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDU (AIP France, chart dated 2025-02-20): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFDU",
+  "name": "Lesparre - Saint-Laurent-Médoc",
+  "source": {
+    "publication": "AIP France AD 2 LFDU",
+    "chartDate": "2025-02-20",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.19639,
+    "longitude": -0.88472
+  },
+  "elevationFeet": 105,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "06/24",
+      "qfu": [
+        63,
+        243
+      ]
+    }
+  ],
+  "preferredQfu": 63,
+  "preferredQfuReason": "preferred QFU 63, due to important dazzle at the end of the day Low altitude traffic pattern only for training with instructor on board",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU 063° due to important dazzle at the end of the day Low altitude traffic pattern only for training with instructor on board.",
+    "TKOF RWY 06: it is recommended to turn reaching the departemental road 1215.",
+    "For RWY 24 take-offs, it is recommended to turn after the silos.",
+    "Absence of any taxiway parallel to the runway: backtrack runway from holding point 24-06 mandatory.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Birdstrike hazard in final RWY 06.",
+    "Limitations: to home-based ACFT AEM (NR 9139) Activity 700 ft ASFC / 810 ft AMSL, SRSS except NOTAM.",
+    "As per protocol.",
+    "Parachute activity (NR 358): SFC-FL 100, SR-SS, activation known by AQUITAINE INFO/APP."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Roulage interdit hors RWY et TWY.",
+      "QFU préférentiel 063° cause éblouissement important en fin de journée Circuit basse hauteur limité à « l'instruction avec instructeur à bord ».",
+      "Pour les décollages RWY 06, il est recommandé d'effectuer le virage au niveau de la route départementale 1215.",
+      "Absence de voie de circulation parallèle à la piste : remonter obligatoirement la piste depuis le point d'attente 24-06.",
+      "Absence de voie de circulation parallèle à la piste : remonter obligatoirement la piste depuis le point d'attente 24-06.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Risque de péril aviaire en finale RWY 06.",
+      "",
+      "Selon protocole.",
+      "Parachutage (N° 358) : SFC-FL 100, SR-SS, activité réelle connue de AQUITAINE INFO/APP."
+    ]
+  }
+}

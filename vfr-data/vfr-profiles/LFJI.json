@@ -1,0 +1,67 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFJI (AIP France, chart dated 2025-09-04): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFJI",
+  "name": "Marennes",
+  "source": {
+    "publication": "AIP France AD 2 LFJI",
+    "chartDate": "2025-09-04",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.82389,
+    "longitude": -1.07722
+  },
+  "elevationFeet": 29,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.31",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.31
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        41,
+        221
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for home based ACFT and ACFT based on the neighbouring AD (1).",
+    "AD reserved for radio-equipped ACFT Simultaneous use of RWY and adjacent TWY prohibited.",
+    "TWY unusable during heavy rain.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Pilots attention is especially drawn to trees which penetrate clearing aeronautical area in the south west landing funnel: Grove located 360 m before DTHR 04 at 110 ft AMSL.",
+    "Preferential landing QFU 041° due to obstacles in take off funnel QFU 221°.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Low height circuits below 500 ft AAL: only with instructor on board.",
+    "Absence of RWY holding point marking sign: All ACFT must hold short off RWY at least 30 m from RWY edge (1) AD voisins/ Neighbouring AD:"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT basés et à ceux basés sur les AD voisins (1).",
+      "AD réservé aux ACFT munis de radio Utilisation simultanée de la piste et du TWY accolé interdite.",
+      "Taxiway inutilisable par forte pluie.",
+      "Site susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "L'attention de l'utilisateur est spécialement attirée sur la présence d'arbres qui percent les surfaces de dégagement aéronautiques dans la trouée d'atterrissage au sud-ouest : Bosquet 360 m en amont du seuil décalé 04 altitude 110 ft AMSL.",
+      "QFU préférentiel 041° cause obstacles dans la trouée de décollage QFU 221°.",
+      "Roulage interdit hors RWY et TWY.",
+      "Circuits basse hauteur inférieurs à 500 ft AAL : avec instructeur uniquement.",
+      "Absence de panneau et de marque d'indication d'arrêt avant piste : tout aéronef doit attendre à une distance du bord de la piste au moins égale à 30 m. COGNAC, FONTENAY LE COMTE, JONZAC, LA ROCHELLE, MONTENDRE, NIORT, PONS, ROCHEFORT, ROYAN, SAINTES, SOULAC, SAINT JEAN D'ANGELY, SAINT PIERRE D'OLERON."
+    ]
+  }
+}

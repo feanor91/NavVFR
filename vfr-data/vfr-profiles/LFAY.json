@@ -1,0 +1,90 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFAY (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFAY",
+  "name": "Amiens - Glisy",
+  "source": {
+    "publication": "AIP France AD 2 LFAY",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.87306,
+    "longitude": 2.38694
+  },
+  "elevationFeet": 208,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.89",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.89
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        115,
+        295
+      ]
+    },
+    {
+      "id": "12R/30L",
+      "qfu": [
+        115,
+        295
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous TKOF and LDG on unpaved RWY and paved RWY prohibited.",
+    "Any TKOF and/or LDG on the paved RWY must be stopped if a glider lies on the half of the grass RWY adjoining the paved RWY.",
+    "Possible IFR operations (GNSS).",
+    "AD prohibited for ACFT > 5.7 t.",
+    "Turbulence and downwash in final RWY 12 by South/South-West wind due to hangars and woods.",
+    "Wavy RWY profile: bad visibility from holding point THR 30 and vice versa, due to wavy RWY longitudinal profile.",
+    "Group of trees R 120/1.23 NM LFAY ARP.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Acces to paved RWY via paved TWY A: width 10 m.",
+    "A by-pass TWY on the paved TWY A allows two ACFT with a maximum wingspan of 12,25 m to pass one another when taxiing to the parking.",
+    "Follow published circuits whenever possible.",
+    "Platform sensitive to noise.",
+    "Aerobatics NR 6070: see AIP ENR 5.5",
+    "Gliders activity Activities known and announced on A/A and LILLE INFO.",
+    "PCL: 3 clicks: turns on lighting; 5 clicks: turns on lighting + flashing lights; 7 clicks: switches off.",
+    "Automatically switches off after 15 minutes."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "TKOF et LDG simultanés sur piste non revêtue et piste revêtue interdits.",
+      "Tout TKOF et/ou LDG sur la piste revêtue doit être suspendu si un planeur est immobilisé sur la demilargeur contigüe de la RWY en herbe.",
+      "Activité IFR possible (GNSS).",
+      "AD interdit aux aéronefs > 5.7 t.",
+      "Turbulences et rabattants en finale RWY 12 lors de vent du Sud/Sud-Ouest dûs aux hangars et bois.",
+      "Profil de la piste ondulé : mauvaise visibilité du point d'attente du seuil 30 et inversement, en raison du profil longitudinal de la piste bombée.",
+      "Groupe d'arbres R 120/1.23 NM LFAY ARP.",
+      "Roulage interdit hors RWY et TWY.",
+      "Accès piste revêtue par le TWY revêtu A : largeur 10 m.",
+      "Bretelle sur TWY revêtu A utilisable par les ACFT au roulage vers le parking et permettant le croisement de 2 ACFT d'envergure maximale 12,25 m.",
+      "Respecter les circuits publiés dans la mesure du possible.",
+      "Plateforme sensible au bruit.",
+      "Voltige N°6070 : voir AIP ENR 5.5",
+      "Activité planeurs Les activités sont connues et annoncées sur A/A et LILLE INFO.",
+      "PCL : 3 coups d'alternat : allumage du balisage ; 5 coups d'alternat : allumage balisage + feux à éclats ; 7 coups d'alternat : extinction.",
+      "Extinction automatique après 15 minutes."
+    ]
+  }
+}

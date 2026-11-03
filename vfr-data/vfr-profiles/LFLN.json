@@ -1,0 +1,196 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLN (AIP France, chart dated 2026-08-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFLN",
+  "name": "Saint-Yan",
+  "source": {
+    "publication": "AIP France AD 2 LFLN",
+    "chartDate": "2026-08-06",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.40667,
+    "longitude": 4.02111
+  },
+  "elevationFeet": 797,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "LUN-VEN sauf JF : ETE : 0600 - 2145 - HIV : 0700 - 2100. En dehors de ces HOR : PPR 72 HR auprès de l'exploitant d'aérodrome. MON-FRI except public HOL : SUM : 0600 - 2145 - WIN : 0700 - 2100. Outside these SKED: PPR 72 HR from AD operator. Aérodrome de SAINT YAN - 71600 SAINT YAN (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 132.48,
+    "approach": 123.405,
+    "tower": 122.3,
+    "ground": 121.805
+  },
+  "runways": [
+    {
+      "id": "15L/33R",
+      "qfu": [
+        146,
+        326
+      ]
+    },
+    {
+      "id": "15R/33L",
+      "qfu": [
+        146,
+        326
+      ]
+    },
+    {
+      "id": "15/33",
+      "qfu": [
+        146,
+        326
+      ]
+    }
+  ],
+  "preferredQfu": 326,
+  "preferredQfuReason": "preferred QFU 326, : due to IFR procedures",
+  "reportingPoints": [
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 46.58194,
+      "longitude": 4.23944,
+      "location": "Génelard"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 46.43389,
+      "longitude": 4.275,
+      "location": "Charolles"
+    },
+    {
+      "name": "EA",
+      "spoken": {
+        "fr": "Écho Alpha",
+        "en": "Echo Alpha"
+      },
+      "latitude": 46.44,
+      "longitude": 4.14083,
+      "location": "Paray le Monial, embranchement ferroviaire au SE de la ville"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 46.20306,
+      "longitude": 4.07778,
+      "location": "Iguerande"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 46.33472,
+      "longitude": 3.96278,
+      "location": "ABM W ville d'Avrilly, ABM E château d'eau d'Avrilly"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 46.35056,
+      "longitude": 3.79389,
+      "location": "Le Donjon"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 46.40694,
+      "longitude": 3.90083,
+      "location": "Le Pin, château d'eau au SE de la localité"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 46.50667,
+      "longitude": 3.81611,
+      "location": "Pierrefite sur Loire"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited to gliders except when authorized by AD operator on SAT, SUN and public HOL.",
+    "Paved RWY 15R/33L reserved for ACFT authorized by AD operator or ATS.",
+    "Paved RWY 15R/33L closed on SAT, SUN and public HOL.",
+    "Preferred QFU 326°: due to IFR procedures.",
+    "Low height traffic circuits: West of AD only within the context of training flights with an instructor on board.",
+    "MNM 500 ft AAL.",
+    "Noise sensitive AD - Avoid overflying the surrounding built-up areas.",
+    "Engine tests before Take-off on T1, T3 and T5.",
+    "Outside ATS SKED, half turn prohibited on unpaved RWY 15/33.",
+    "Flight request with assistance: MON - FRI: RFFS SKED, only at rffs.lfln@aeroportsaintyan.fr are recommended for VFR flights.",
+    "With IFR traffic, ACFT and HEL MTO MNM (CTR): VIS secondary surveillance radar (see AD 1.0).",
+    "STAP and PCL outside ATS SKED.",
+    "PCL on photoelectric cell.",
+    "Lighting may be turned off by 7 alternate strokes within less than 5 seconds.",
+    "STAP: available data (FR only): wind, VIS, cloud base, T, DP, QNH, QFE.",
+    "If PAPI 15 out of service under PCL use, landing is prohibited.",
+    "Radiocommunication failure: As far as possible, use a cellphone to contact TWR.",
+    "CTR part 2 may be downgraded to class G for the benefit of special activities according to modalities described by the protocol between users and ST YAN ACC.",
+    "Actual activity on SAINT YAN APP and CLERMONT INFO.",
+    "Parascending activity (NR 1006): see AIP ENR 5.5.",
+    "Aerobatics (NR 6458) see AIP ENR 5.5.",
+    "AEM (NR 8069) see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux planeurs sauf autorisés par l'exploitant les WE et JF.",
+      "RWY revêtue 15R/33L réservée aux aéronefs autorisés par l'exploitant d'aérodrome ou les services ATS.",
+      "Piste revêtue 15R/33L fermée WE et JF.",
+      "QFU 326° préférentiel cause procédures IFR.",
+      "Circuits basse hauteur : uniquement à l'ouest dans le cadre des vols d'entraînement avec instructeur à bord.",
+      "MNM 500 ft AAL.",
+      "AD sensible au bruit - Éviter le survol des zones habitées avoisinantes.",
+      "Essais moteur avant décollage en T1, T3 et T5.",
+      "Demi-tour interdit hors HOR ATS sur piste 15/33 non revêtue.",
+      "Demande de vol avec assistance : LUN - VEN : HOR RFFS, uniquement à rffs.lfln@aeroportsaintyan.fr recommandés pour les VFR.",
+      "En présence de trafic IFR, MNM MTO pour ACFT et radar secondaire.",
+      "STAP et PCL hors HOR ATS.",
+      "PCL sur celule photoélectrique.",
+      "Possibilité d'éteindre le balisage en donnant 7 coups d'alternat en moins de 5 secondes.",
+      "STAP : paramètres disponibles (FR uniquement) : vent, VIS, base des nuages, T, DP, QNH, QFE.",
+      "Si PAPI 15 HS sous fonctionnement PCL, atterrissage interdit.",
+      "Panne de radiocommunication : Si possible, utiliser un téléphone portable pour contacter la TWR.",
+      "La partie 2 de la CTR peut être déclassée en G au profit de certaines activités spécifiques selon les modalités décrites par le protocole entre les bénéficiaires et le centre de contrôle d'approche de ST YAN.",
+      "Activité réelle connue de SAINT YAN APP et CLERMONT INFO.",
+      "Treuillage parachutisme ascensionnel (N° 1006) : voir AIP ENR 5.5.",
+      "Voltige (N° 6458): voir AIP ENR 5.5.",
+      "AEM (N° 8069) voir AIP ENR 5.5."
+    ]
+  }
+}

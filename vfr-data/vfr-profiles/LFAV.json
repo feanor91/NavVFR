@@ -1,0 +1,87 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFAV (AIP France, chart dated 2024-10-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFAV",
+  "name": "Valenciennes - Denain",
+  "source": {
+    "publication": "AIP France AD 2 LFAV",
+    "chartDate": "2024-10-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 50.32472,
+    "longitude": 3.46556
+  },
+  "elevationFeet": 172,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "LUN-VEN : 0715 - 1100, 1215 - 1600. En dehors de ces horaires O/R par FAX ou mail avant 1500. SAM, DIM et JF : O/R par FAX ou mail le jour ouvrable précédent avant 1100 pour vols EVASAN et Officiels uniquement. PPR exploitant d'aérodrome par FAX ou mail le jour ouvrable précédent avant 1100 pour vols commerciaux et d'affaires. MON-FRI : 0715 - 1100, 1215 - 1600. Outside these SKED O/R by FAX or email before 1500. SAT (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 122.605",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 122.605
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        110,
+        290
+      ]
+    }
+  ],
+  "preferredQfu": 110,
+  "preferredQfuReason": "preferred QFU 110, due to IFR operations",
+  "notes": [
+    "Possible IFR operations.",
+    "AD reserved for radio-equipped ACFT Unpaved RWY 11/29 usable by ACFT.",
+    "Preferential use (except ULM): RWY 11/29.",
+    "Use of RWY 11/29 by ULM: paved: possible for multi-axis ULM; unpaved: possible with aeronautical authority prior agreement.",
+    "Simultaneous use of paved RWY 11/29 and unpaved RWY 11/29 or TWY D prohibited.",
+    "Simultaneous use of unpaved RWY 11/29 and TWY D prohibited (1) Reduced declared distances: RWY 11: due to LOC shelter located at 127 m from end of RWY.",
+    "TORA: 1685 m.",
+    "RWY 29: due to RD 630 height restriction barrier in take-off funnel 29.",
+    "TORA: 1618 m.",
+    "Not all obstacles are shown for readability reasons.",
+    "Preferred QFU 110° due to IFR operations.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Use of APU: 30 min before departure only.",
+    "RWY circuit training prohibited 1900 - 0800 (SUM -1HR).",
+    "RWY circuit training below published circuit heights: only on RWY 06/24; reserved for training flights with instructor on board.",
+    "TWY A: 400 m x 16 m.",
+    "TWY B: 200 m x 7,50 m.",
+    "Usable only by day by ACFT with MTOW < or = 5.7 t."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "Piste 11/29 non revêtue utilisable par avions.",
+      "Utilisation préférentielle (sauf ULM) : piste 11/29.",
+      "Utilisation des pistes 11/29 par les ULM : revêtue : possible pour les ULM multiaxes ; non revêtue : possible après accord de l'autorité aéronautique compétente.",
+      "Utilisation simultanée RWY 11/29 revêtue et RWY 11/29 non revêtue ou TWY D interdite.",
+      "",
+      "",
+      "RWY 29 : cause gabarit routier de la RD 630 dépassant la trouée de décollage 29.",
+      "",
+      "Tous les obstacles ne sont pas représentés pour cause de lisibilité.",
+      "QFU 110° préférentiel cause procédure IFR.",
+      "Roulage interdit hors RWY et TWY.",
+      "Utilisation APU : uniquement 30 min avant le départ.",
+      "Entraînements tours de piste interdits entre 1900 - 0800 (ETE -1HR).",
+      "Entraînements tours de piste inférieurs aux hauteurs de circuits publiées : uniquement sur piste 06/24 ; réservés aux vols de formation avec instructeur à bord.",
+      "TWY A : 400 m x 16 m.",
+      "TWY B : 200 m x 7,50 m.",
+      "Utilisable de jour uniquement et par aéronefs de MTOW < ou = à 5.7 t."
+    ]
+  }
+}

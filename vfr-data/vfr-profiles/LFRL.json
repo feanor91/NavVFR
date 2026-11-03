@@ -1,0 +1,110 @@
+{
+  "$comment": [
+    "EXTRACTED AUTOMATICALLY from the SIA eAIP page AD 2 LFRL (AIP France, valid from 2026-08-06), not read by hand.",
+    "This is a military air base (CAM regimes). Only what the page prints as text is recorded: position, elevation,",
+    "magnetic variation, runways and the VHF frequencies. Circuit rules and reporting points are NOT extracted.",
+    "MSFS exposes only VHF radios: the UHF frequencies of the base are not usable and are not listed.",
+    "Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFRL",
+  "name": "Base d'aéronautique navale de Lanvéoc-Poulmic",
+  "source": {
+    "publication": "AIP France AD 2 LFRL",
+    "chartDate": "2026-08-06",
+    "extraction": "automatic"
+  },
+  "referencePosition": {
+    "latitude": 48.2825,
+    "longitude": -4.44361
+  },
+  "elevationFeet": 287,
+  "service": {
+    "kind": "MilitaryTower",
+    "regimes": [
+      "CAM V",
+      "CAM I"
+    ]
+  },
+  "frequencies": {
+    "app": [
+      {
+        "mhz": 119.3,
+        "remark": "APP"
+      },
+      {
+        "mhz": 120.6,
+        "remark": "APP"
+      },
+      {
+        "mhz": 121.5,
+        "remark": "Urgence"
+      },
+      {
+        "mhz": 122.1,
+        "remark": "PAR"
+      }
+    ],
+    "par": [
+      {
+        "mhz": 119.3,
+        "remark": "PAR"
+      }
+    ],
+    "sre": [
+      {
+        "mhz": 120.6,
+        "remark": "SRE"
+      }
+    ],
+    "twr": [
+      {
+        "mhz": 121.9,
+        "remark": "Urgence"
+      },
+      {
+        "mhz": 121.5,
+        "remark": "Urgence"
+      },
+      {
+        "mhz": 123.2,
+        "remark": "TWR"
+      },
+      {
+        "mhz": 119.3,
+        "remark": "VDF"
+      }
+    ],
+    "atis": [
+      {
+        "mhz": 118.84,
+        "remark": "ATIS"
+      }
+    ]
+  },
+  "magneticVariationDegrees": -0.3,
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        51,
+        231
+      ],
+      "surface": "paved",
+      "lengthMetres": 1119,
+      "widthMetres": 40
+    },
+    {
+      "id": "13/31",
+      "qfu": [
+        128,
+        308
+      ],
+      "surface": "grass",
+      "lengthMetres": 751,
+      "widthMetres": 54
+    }
+  ],
+  "notes": [
+    "The base also publishes 8 UHF frequencies that MSFS cannot tune."
+  ]
+}

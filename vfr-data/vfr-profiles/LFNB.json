@@ -1,0 +1,80 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFNB (AIP France, chart dated 2026-04-16): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFNB",
+  "name": "Mende - Brenoux",
+  "source": {
+    "publication": "AIP France AD 2 LFNB",
+    "chartDate": "2026-04-16",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.50417,
+    "longitude": 3.5275
+  },
+  "elevationFeet": 3362,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : ETE / SUM : VEN-DIM/ FRI-SUN : 0800-1000 ; 1130-1630, HIV / WIN : SAM-DIM/ SAT-SUN : 1200-1530 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 119.605
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        124,
+        304
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Possible IFR operations.",
+    "AD prohibited to ULM class 1 and 5 except authorization by AD operator.",
+    "ULM strip reserved for based ULM and for aircraft authorised by AD operator.",
+    "ULM strip prohibited when gliders and tow aircraft are on the apron at the end of RWY 30.",
+    "ULM strip prohibited in presence of hot-air balloon.",
+    "Simultaneous use of ULM strip and RWY 12/30 prohibited.",
+    "RWY 30 strong down drafts when northerly winds.",
+    "ULM RWY 12 landing: beware of the vegetation in the east of the ULM strip near the ULM RWY 12 THR.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "TWY A width: 9.3 m.",
+    "Avoid overflight of Truc de Balduc, out of respect for birds of prey.",
+    "From July to August, a public safety helicopter is based on AD: the parking stands on the right of the refuelling station and on the signal area side are reserved for public safety.",
+    "Heavy turbulence generated in the vicinity.",
+    "AEM NR 9643: see AIP ENR 5.5 Towing glider activity RWY 12/30.",
+    "Hot-air balloons activity."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Activité IFR possible.",
+      "Aérodrome interdit aux ULM de classe 1 et 5 sauf autorisation de l'exploitant.",
+      "Bande ULM réservée aux ULM basés et aux aéronefs autorisés par l'exploitant.",
+      "Utilisation bande ULM interdite en cas de stationnement planeurs et remorqueur parking extrémité piste 30.",
+      "Utilisation bande ULM interdite en cas de présence montgolfière.",
+      "Utilisation simultanée bande ULM et RWY 12/30 interdite.",
+      "RWY 30 violents rabattants par vent de secteur N.",
+      "Atterrissage RWY 12 ULM : attention, végétation située à l'Est de la Bande ULM près du seuil RWY 12 ULM.",
+      "Roulage interdit hors RWY et TWY.",
+      "Largeur TWY A : 9.3 m.",
+      "Survol du Truc de Balduc à éviter pour la quiétude des rapaces.",
+      "De juillet à août, hélicoptère de la sécurité civile basé sur l'aérodrome : les postes de stationnement côté droit de la station d'avitaillement et côté aire à signaux sont réservés à la sécurité civile.",
+      "Fortes turbulences générées à proximité.",
+      "AEM N° 9643 : voir AIP ENR 5.5 Activité remorquage planeur RWY 12/30.",
+      "Activité montgolfières."
+    ]
+  }
+}

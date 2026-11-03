@@ -1,0 +1,88 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHV (AIP France, chart dated 2026-03-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFHV",
+  "name": "Villefranche - Tarare",
+  "source": {
+    "publication": "AIP France AD 2 LFHV",
+    "chartDate": "2026-03-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.92,
+    "longitude": 4.635
+  },
+  "elevationFeet": 1076,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.255",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.255
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        179,
+        359
+      ]
+    },
+    {
+      "id": "18L/36R",
+      "qfu": [
+        179,
+        359
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Possible IFR operations.",
+    "Simultaneous use of RWY prohibited.",
+    "Unpaved runway reserved for home-based ACFT according to local instructions.",
+    "TKOF and LDG delayed when a glider is holding on the unpaved RWY at less than a half width RWY of common limit.",
+    "Aerobatics prohibited on AD.",
+    "Uneven ground and bumps on airfield shoulders.",
+    "Unpaved RWY 18L/36R unusable after heavy rainfalls.",
+    "Ground traffic: Give priority to exiting via TWY S and entering via TWY N.",
+    "TWY N restricted to ACFT whose main landing gear overall width is below 3.5 m.",
+    "Unpaved RWY: evacuation and penetration front of TWY N.",
+    "Apron C reserved for visiting ACFT.",
+    "ACFT: Comply with published patterns as far as possible.",
+    "Avoid repeated patterns, especially: During WE and public HOL,.",
+    "Every day between 1100 and 1300 (SUM: -1 HR).",
+    "Avoid overflying built up area Alix, 1,5 km ESE from AD."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Activité IFR possible.",
+      "Utilisation simultanée des pistes interdite.",
+      "Utilisation de la piste non revêtue réservée aux aéronefs basés selon les consignes locales d'exploitation.",
+      "TKOF et LDG suspendus si un planeur est immobilisé sur la piste non revêtue à moins d'une demi-largeur de piste de la limite commune.",
+      "Voltige interdite sur l'AD.",
+      "",
+      "Piste non revêtue 18L/36R inutilisable après de fortes précipitations.",
+      "",
+      "",
+      "Piste non revêtue : évacuation et pénétration face au TWY N.",
+      "PRKG C réservé aux ACFT de passage.",
+      "VILLEFRANCHE TARARE HELICOPTERES : Respecter les circuits publiés dans la mesure du possible.",
+      "Éviter les tours de piste répétitifs, en particulier : Les week-ends et JF.",
+      "Tous les jours entre 1100 et 1300 (ETE : - 1 HR).",
+      "Éviter le survol de l'agglomération d'Alix à 1,5 km à l'ESE."
+    ]
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "$comment": [
+    "REAL DATA, transcribed by hand from the SIA chart set AD 2 LFPO (AIP France, AMDT 11/26, chart dated 2026-10-01).",
+    "Only facts are recorded here; the charts themselves are (c) SIA and are not redistributed.",
+    "Runway geometry, taxiways, parking and frequencies also come from the simulator at run time; this file holds",
+    "what the simulator does not know: services, circuit rules and reporting points.",
+    "Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFPO",
+  "name": "Paris-Orly",
+  "source": {
+    "publication": "AIP France AD 2 LFPO",
+    "amendment": "AMDT 11/26",
+    "chartDate": "2026-10-01",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 48.72333,
+    "longitude": 2.37944
+  },
+  "elevationFeet": 291,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "TowerGroundApproach",
+    "atsHours": "H24",
+    "radioMandatory": true,
+    "nightVfrApproved": true,
+    "access": "prior agreement from the Paris airports coordinator and PPR 72 working hours ahead; training flights banned; handling mandatory",
+    "equipment": "APP and TWR frequencies and a mode A+C transponder are required"
+  },
+  "frequencies": {
+    "atisFr": 126.505,
+    "atisEn": 131.355,
+    "approach": [
+      124.455,
+      123.88,
+      118.855
+    ],
+    "tower": [
+      118.705,
+      120.505
+    ],
+    "ground": [
+      121.705,
+      121.815
+    ],
+    "delivery": [
+      121.555,
+      120.505
+    ]
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        17,
+        197
+      ],
+      "surface": "paved",
+      "lengthMetres": 2400,
+      "widthMetres": 45
+    },
+    {
+      "id": "06/24",
+      "qfu": [
+        61,
+        241
+      ],
+      "surface": "paved",
+      "lengthMetres": 3650,
+      "widthMetres": 45
+    },
+    {
+      "id": "07/25",
+      "qfu": [
+        73,
+        253
+      ],
+      "surface": "paved",
+      "lengthMetres": 3320,
+      "widthMetres": 45
+    }
+  ],
+  "stations": {
+    "approach": "Orly Approche",
+    "tower": "Orly Tour",
+    "delivery": "Orly Prévol"
+  },
+  "withAts": {
+    "arrivals": [
+      {
+        "instruction": "contact Orly Tour 3 minutes before entering the Paris CTR; follow the route assigned by the tower between 1000 and 1300 ft AMSL"
+      }
+    ],
+    "departures": [
+      {
+        "instruction": "contact Orly Prévol 10 minutes before start-up; follow the route assigned by the tower between 1000 and 1300 ft AMSL"
+      }
+    ],
+    "specialVfr": "with IFR traffic: visibility 3000 m, ceiling 900 ft, by day only",
+    "radioFailureOnArrival": "if before the clearance to enter the aerodrome traffic zone, leave (or do not enter) the CTR by the inbound VFR route"
+  },
+  "notes": [
+    "Jet aircraft are banned from the VFR 'aeroplane' routes.",
+    "Flying over the engine run-up area is prohibited when it is in use.",
+    "Hot spot: risk of runway intrusion via taxiway W5 if the pilot does not identify W1 turning north after LF."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Survol de l'aire d'essais moteurs interdit lorsque celleci est utilisée.",
+      ""
+    ],
+    "withAts": {
+      "arrivals": [
+        {
+          "instruction": "contacter Orly Tour 3 minutes avant d'entrer dans la CTR Paris ; suivre l'itinéraire donné par la tour entre 1000 et 1300 ft AMSL"
+        }
+      ],
+      "departures": [
+        {
+          "instruction": "contacter Orly Prévol 10 minutes avant la mise en route ; suivre l'itinéraire donné par la tour entre 1000 et 1300 ft AMSL"
+        }
+      ],
+      "specialVfr": "avec du trafic IFR : visibilité 3000 m, plafond 900 ft, de jour uniquement",
+      "radioFailureOnArrival": "si la panne survient avant la clairance d'entrée dans la zone de circulation d'aérodrome, quitter (ou ne pas pénétrer dans) la CTR par l'itinéraire VFR d'arrivée"
+    }
+  }
+}

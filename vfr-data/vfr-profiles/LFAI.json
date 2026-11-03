@@ -1,0 +1,87 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFAI (AIP France, chart dated 2022-08-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFAI",
+  "name": "Nangis Les Loges",
+  "source": {
+    "publication": "AIP France AD 2 LFAI",
+    "chartDate": "2022-08-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.59694,
+    "longitude": 3.00806
+  },
+  "elevationFeet": 428,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 127.98",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 127.98
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        52,
+        232
+      ]
+    },
+    {
+      "id": "05L/23R",
+      "qfu": [
+        52,
+        232
+      ]
+    }
+  ],
+  "preferredQfu": 52,
+  "preferredQfuReason": "preferred QFU 52, in order to limit noise pollution",
+  "notes": [
+    "Simultaneous use of paved and unpaved RWY 05/23 prohibited.",
+    "AD reserved for radio-equipped ACFT.",
+    "RWY pattern landmarks: presence of visual cues materializing axis of final approaches RWY 05 and 23 (red and white checkerboard).",
+    "LDG QFU 232°, turn base leg EAST of \"Le Sceau\" then line up in long final 23 to overfly the checkerboard (leaving the farm on the Left side).",
+    "LDG QFU 052°, turn base leg overhead settling tanks of the sugar factory then line up in long final 05 to overfly the checkerboard (leaving the water tower on the Right side).",
+    "RWY circuit training below 800 ft AAL: only for training flights with instructor on board; height 300 ft AAL MNM.",
+    "Hot Spot: special attention to ground circulation on TWY Alpha: pay attention to proximity of parking areas on part of TWY Alpha parallel to the RWY.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Pilots are required a close attention when operating grass RWY after severe rain falls.",
+    "Half turn prohibited on paved RWY and grass RWY.",
+    "Preferred QFU 052° in order to limit noise pollution.",
+    "As far as possible, respect published AD circuit.",
+    "ULM: Air traffic: only at NW of AD in the area noticed on the map.",
+    "Entrances and exits of area by NW.; Ground traffic: Double WEST TWY to use and clear the ULM RWY.",
+    "Use limited to pilots authorized by the chief pilot of ACMDMV or ACAM ACB."
+  ],
+  "fr": {
+    "notes": [
+      "Utilisation simultanée piste revêtue et piste non revêtue 05/23 interdite.",
+      "AD réservé aux ACFT munis de radio.",
+      "Repères tour de piste : Présence d'AMER (points significatifs) matérialisant l'axe des finales RWY 05 et 23 (damier rouge et blanc).",
+      "LDG QFU 232°, virer en étape de base à l'EST du lieudit \"Le Sceau\" puis s'aligner en longue finale 23 sur l'AMER (en laissant la ferme sur votre Gauche).",
+      "LDG QFU 052°, virer en étape de base sur les bassins de décantation de la sucrerie puis s'aligner en longue finale 05 sur l'AMER (en laissant le château d'eau sur votre Droite).",
+      "Entraînements tour de piste inférieurs à 800 ft AAL : uniquement pour les vols de formation avec instructeur à bord. hauteur 300 ft AAL minimum.",
+      "Circulation au sol : Hot Spot : attention particulière circulation au sol sur le taxiway Alpha : Attention à la proximité des aires de stationnement sur la portion du taxiway Alpha parallèle à la piste.",
+      "Roulage interdit hors piste et TWY.",
+      "Piste non revêtue utilisable avec précaution après de fortes précipitations.",
+      "Demi-tour interdit sur la piste en dur et la bande gazonnée.",
+      "Environnement : QFU préférentiel 052° pour limiter les nuisances sonores.",
+      "Respecter le circuit publié dans la mesure du possible.",
+      "ULM : Circulation en vol : exclusivement au NW de l'AD dans le secteur défini sur la carte.",
+      "Entrées et sorties de zone par NW. Circulation au sol : Double TWY OUEST pour desservir et dégager la piste ULM.",
+      "Utilisation limitée aux pilotes autorisés par le chef pilote de l'ACMDMV ou celui de l'ACAM."
+    ]
+  }
+}

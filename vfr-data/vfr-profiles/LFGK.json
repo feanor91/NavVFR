@@ -1,0 +1,81 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGK (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGK",
+  "name": "Joigny",
+  "source": {
+    "publication": "AIP France AD 2 LFGK",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.99444,
+    "longitude": 3.39083
+  },
+  "elevationFeet": 732,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        78,
+        258
+      ]
+    },
+    {
+      "id": "08R/26L",
+      "qfu": [
+        78,
+        258
+      ]
+    }
+  ],
+  "preferredQfu": 78,
+  "preferredQfuReason": "preferred QFU 78, for landing due to climbing slope and better clearing",
+  "notes": [
+    "Simultaneous use of RWY prohibited.",
+    "Unpaved RWY not available after heavy rain.",
+    "Unpaved RWY reserved for home-based ACFT and ACFT authorized by AD operator.",
+    "Tree penetrating the paved RWY LDG funnel 26 and the TKOF funnel 08 by 9 m.",
+    "This 805 ft AMSL obstacle is shown on the aerodrome chart (1) The end of the TODA RWY 08L is located at the opposite QFU DTHR (2) The end of the TODA RWY 08R is located at the opposite QFU DTHR and is indicated by aboveground visual aids on the edge of the RWY in alignment with the DTHR marks.",
+    "Preferred QFU 078° for landing due to climbing slope and better clearing.",
+    "The west end of the RWY is identified by a yellow transverse mark.",
+    "High declivity after W end of paved RWY.",
+    "1 m unevenness in the W of the TWY between RWY and PRKG.",
+    "Crosswind South and North components are limited to 15 kt at landing and take-off on paved runways 08 and 26 (due to the presence of trees in the North side surfaces).",
+    "The stand markings on the PRKG are designed to accommodate aircraft with a maximum wingspan of 12 m.",
+    "AEM activity (NR 8235): see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "Utilisation simultanée des pistes interdite.",
+      "Piste non revêtue inutilisable après fortes pluies.",
+      "Piste non revêtue réservée aux ACFT basés et à ceux autorisés par l'exploitant.",
+      "Distances déclarées utilisables : Usable declared distances : Présence d'un arbre qui perce de 9 m la trouée d'atterrissage 26 et la trouée de décollage 08 de la piste revêtue.",
+      "Cet obstacle, d'altitude au sommet 805 ft est représenté sur la carte d'aérodrome. (1) La fin de la distance utilisable au décollage en piste 08L se situe au niveau du seuil décalé du QFU opposé. (2) La fin de la distance utilisable au décollage en piste 08R se situe au niveau du seuil décalé du QFU opposé et est matérialisée par des aides visuelles hors-sol disposées en bord de piste dans l'alignement des marques de seuil décalé.",
+      "QFU 078° préférentiel à l'atterrissage cause pente montante et meilleur dégagement.",
+      "L'extrémité ouest de la piste revêtue est identifiée par une marque transversale jaune.",
+      "Forte déclivité après extrémité W piste revêtue.",
+      "Dénivellation de 1 m à l'W du TWY entre la RWY et le PRKG.",
+      "Les composantes Sud et Nord de vents traversiers sont fixées à 15 kt à l'atterrissage et au décollage sur les pistes revêtues 08 et 26 (cause présence d'arbres dans les surfaces latérales Nord).",
+      "Les marques de poste de stationnement sur le PRKG sont prévues pour l'accueil d'aéronefs d'envergure 12 m max.",
+      "Activité d'aéromodélisme (N° 8235) : voir AIP ENR 5.5"
+    ]
+  }
+}

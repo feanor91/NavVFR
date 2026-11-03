@@ -1,0 +1,80 @@
+{
+  "$comment": [
+    "EXTRACTED AUTOMATICALLY from the SIA eAIP page AD 2 LFKS (AIP France, valid from 2026-08-06), not read by hand.",
+    "This is a military air base (CAM regimes). Only what the page prints as text is recorded: position, elevation,",
+    "magnetic variation, runways and the VHF frequencies. Circuit rules and reporting points are NOT extracted.",
+    "MSFS exposes only VHF radios: the UHF frequencies of the base are not usable and are not listed.",
+    "Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFKS",
+  "name": "Solenzara",
+  "source": {
+    "publication": "AIP France AD 2 LFKS",
+    "chartDate": "2026-08-06",
+    "extraction": "automatic"
+  },
+  "referencePosition": {
+    "latitude": 41.92639,
+    "longitude": 9.40528
+  },
+  "elevationFeet": 29,
+  "service": {
+    "kind": "MilitaryTower",
+    "regimes": [
+      "CAM V",
+      "CAM I"
+    ]
+  },
+  "frequencies": {
+    "app": [
+      {
+        "mhz": 119.9,
+        "remark": "APP : secteur Ouest portée réduite, inutilisable en-dessous de 10 000 ft."
+      },
+      {
+        "mhz": 121.5,
+        "remark": "Détresse - Veillée"
+      },
+      {
+        "mhz": 123.3,
+        "remark": "Particulière radar"
+      }
+    ],
+    "par": [
+      {
+        "mhz": 123.3,
+        "remark": "Particulière Radar - Peut utiliser toutes les fréquences de l'APP"
+      }
+    ],
+    "twr": [
+      {
+        "mhz": 118.35,
+        "remark": "Air-Sol VHF - Veillée"
+      },
+      {
+        "mhz": 121.5,
+        "remark": "Détresse - Veillée"
+      },
+      {
+        "mhz": 122.1,
+        "remark": "Roulage VHF - Veillée"
+      }
+    ]
+  },
+  "magneticVariationDegrees": 3.4,
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        176,
+        356
+      ],
+      "surface": "paved",
+      "lengthMetres": 2627,
+      "widthMetres": 45
+    }
+  ],
+  "notes": [
+    "The base also publishes 13 UHF frequencies that MSFS cannot tune."
+  ]
+}

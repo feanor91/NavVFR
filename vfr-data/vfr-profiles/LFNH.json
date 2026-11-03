@@ -1,0 +1,78 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFNH (AIP France, chart dated 2024-11-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFNH",
+  "name": "Carpentras",
+  "source": {
+    "publication": "AIP France AD 2 LFNH",
+    "chartDate": "2024-11-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.0225,
+    "longitude": 5.09
+  },
+  "elevationFeet": 388,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.18",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.18
+  },
+  "preferredQfu": 310,
+  "preferredQfuReason": "preferred QFU 310, due to environment",
+  "notes": [
+    "Simultaneous use of both RWY prohibited.",
+    "AD reserved for radio-equipped ACFT.",
+    "Possible presence of wild animals all year long.",
+    "Presence of trees next to the refuelling station, caution recommended, reduced speed.",
+    "Refuelling station fence close to TWY, reduced speed, caution recommended.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Grass TWY usable during dry weather only.",
+    "TWY B: TKOF not recommended.",
+    "Reduced clearance on the TWY South bend.",
+    "Observe displaced engine testing point.",
+    "Anti noise bank along East paved TWY.",
+    "Gliders circuit into ACFT circuit, entry point via NE: hill d'entrée NE: colline de La Lègue à 1400 (1000). of La Lègue at 1400 (1000).",
+    "Coupling cable 60 m available.",
+    "QFU 310°: avoid overflying hill of \"la Lègue\" located at the NE of the AD.",
+    "Training patterns and touch and go prohibited between 1100 and 1300 and after 1730 (SUM: -1 HR) due to Hovering flights prohibited over and in the vicinity of the AD due to environment.",
+    "Preferred QFU 310° due to environment.",
+    "Non home-based ACFT trainings: tours de piste inférieurs à 1400 (1000) interdits, patterns below 1400 (1000) prohibited,",
+    "2 circuit patterns maximum."
+  ],
+  "fr": {
+    "notes": [
+      "Utilisation simultanée des deux pistes interdite.",
+      "AD réservé aux ACFT munis de radio.",
+      "Présence d'animaux sauvages possible toute l'année.",
+      "Présence d'arbres à proximité de l'AVT, prudence recommandée, réduction de la vitesse.",
+      "Clôture de la station d'AVT proche de la voie de circulation, réduction de la vitesse, prudence recommandée.",
+      "Roulage interdit hors RWY et TWY.",
+      "Voie de circulation en herbe utilisable par temps sec exclusivement.",
+      "TWY B : décollage déconseillé.",
+      "Dégagement réduit dans le virage du TWY Sud.",
+      "Respecter le point d'essai moteur décalé.",
+      "Présence d'un talus anti-bruit en bordure du TWY Est revêtu.",
+      "",
+      "Câble d'attelage de 60 m disponible.",
+      "QFU 310° : éviter le survol de la colline de la Lègue située au Nord-Est de l'aérodrome.",
+      "Tour de piste et touch and go interdits entre 1100 et 1300 et après 1730 (ETE : -1 HR) cause environnement. Vol stationnaire interdit sur et aux abords de l'AD cause environnement.",
+      "QFU 310° préférentiel cause environnement.",
+      "",
+      "2 tours de piste maximum."
+    ]
+  }
+}

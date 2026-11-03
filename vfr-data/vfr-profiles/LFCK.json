@@ -1,0 +1,93 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCK (AIP France, chart dated 2025-10-02): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCK",
+  "name": "Castres-Mazamet",
+  "source": {
+    "publication": "AIP France AD 2 LFCK",
+    "chartDate": "2025-10-02",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.555,
+    "longitude": 2.29056
+  },
+  "elevationFeet": 785,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : - LUN-VEN / MON-FRI : 0500-2045 - SAM-DIM / SAT-SUN : Non assuré / Not provided En dehors de ces horaires, ouverture pour les vols commerciaux programmés et EVASAN uniquement sur PPR 05 HR, (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 123.85,
+    "afis": 118.505
+  },
+  "runways": [
+    {
+      "id": "14/32",
+      "qfu": [
+        140,
+        320
+      ]
+    }
+  ],
+  "preferredQfu": 140,
+  "preferredQfuReason": "preferred QFU 140, due to high terrain",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited for ULM and motorgliders except: ULM 3-axis and motorgliders equipped with radio and transponder home-based or authorized by the AD operator.",
+    "Possible IFR operations.",
+    "RESA 90 m x 60 m before THR 14 and 120 m x 60 m before THR 32.",
+    "LF-R246: ground firing.",
+    "Presence of a SEVESO type factory located 307° 3.5 NM from AD.",
+    "Presence of ULM base located 259° 3.4 NM from ARP.",
+    "AEM (NR 9370) located 099° 1.7 NM from ARP: See AIP ENR 5.5 The parking of aircraft outside AFIS SKED is subject to the approval of the AD operator, PPR 48 HR mandatory.",
+    "Due to RWY pavement, the ACFT with weight > 13 t must turn back only on turn-around area.",
+    "Preferred QFU 140° due to high terrain.",
+    "During AFIS SKED, mandatory use of intermediate holding points S or N before taxiing to RWY, unless otherwise specified by the AFIS.",
+    "CIV dropping zone usable on PPR from AD operator.",
+    "During CIV parachuting activity, low heigh ACFT circuits are prohibited.",
+    "Special vigilance when taxiing on commercial PRKG, reduce your speed by night or low visibility.",
+    "No approach lights.",
+    "Identification lights in THR RWY 14 and 32.",
+    "Approach runway 32: absence of touchdown zone lights.",
+    "TKOF prohibited from intersection M.",
+    "Use of trafic area M at night subject to agreement from AD operator.",
+    "In case of safety event on AD outside ATS SKED contact 05 63 70 82 54.",
+    "Military parachuting (NR 382): See AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux ULM et motoplaneurs sauf : ULM 3 axes et motoplaneurs munis de radio et transpondeur basés ou autorisés par l'exploitant.",
+      "Activité IFR possible.",
+      "RESA (aire de sécurité d'extrémité de piste) 90 m x 60 m avant THR 14 et 120 m x 60 m avant THR 32.",
+      "",
+      "Présence d'une usine de type SEVESO dans le 307° 3.5 NM du terrain.",
+      "Présence d'une base ULM dans le 259° 3.4 NM de l'ARP.",
+      "AEM (N° 9370) dans le 099° 1.7 NM de l'ARP : Voir AIP ENR 5.5 Procédures et consignes particulières Le stationnement des aéronefs hors HOR AFIS est soumis à l'approbation de l'exploitant, PPR 48 HR obligatoire.",
+      "Cause revêtement piste, les ACFT d'un poids > 13 t doivent faire demi-tour uniquement sur la raquette.",
+      "QFU 140° préférentiel cause relief.",
+      "Pendant HOR AFIS usage obligatoire des points d'attente intermédiaire S ou N avant le roulage vers la piste sauf autre indication de l'AFIS.",
+      "Cible para civile utilisable sur PPR auprès de l'exploitant AD.",
+      "Pendant l'activité parachutage civile, les tours de piste basse hauteur \" avion \" sont interdits.",
+      "La vigilance accrue est recommandée lors du roulage sur le parking commercial ainsi qu'une vitesse réduite de nuit ou en cas de mauvaise visibilité.",
+      "Abscence de dispositif lumineux d'approche.",
+      "Présence de feux d'identification de seuil de piste 14 et 32.",
+      "Approche piste 32 : absence de feux de zone de toucher des roues.",
+      "Décollage interdit de l'intersection M.",
+      "Utilisation aire de trafic M de nuit soumise à accord exploitant.",
+      "En cas d'évènement sur l'AD hors HOR ATS contacter le 05 63 70 82 54.",
+      "Parachutages militaires (N° 382) : Voir AIP ENR 5.5"
+    ]
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "$comment": [
+    "Transcribed by hand from the SIA chart set AD 2 LFBP (AIP France, chart dated 2026-09-03): the text pages checked against the images of the pages.",
+    "Only what the chart states is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text; the reporting points, rules and notes were added by hand.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "The circuit side is not printed on this chart, so none is recorded.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFBP",
+  "name": "Pau-Pyrénées",
+  "source": {
+    "publication": "AIP France AD 2 LFBP",
+    "chartDate": "2026-09-03",
+    "extraction": "manual, from the chart text and images",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 43.38,
+    "longitude": -0.41861
+  },
+  "elevationFeet": 616,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "civil: H24; military: Monday to Thursday 0700 to 1615, Friday 0700 to 1100, can be activated H24 (UTC in winter, local time minus 1 h in summer)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 126.525,
+    "approach": 128.8,
+    "tower": 124.15
+  },
+  "runways": [
+    {
+      "id": "13/31",
+      "qfu": [
+        125,
+        305
+      ]
+    }
+  ],
+  "circuit": {
+    "heightFeetAmsl": 1600,
+    "heightNote": "runway pattern at 1600 ft AMSL minimum, lower altitude forbidden; maintain 1600 ft AMSL until established on final runway 13 or 31. Minimum flight altitude within the CTR other than in the pattern: 2500 ft AMSL"
+  },
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 43.49472,
+      "longitude": -0.37,
+      "location": "Lème : Château d'eau",
+      "purpose": "arrivées piste 13 par le nord : compte rendu ici à 1600 ft AMSL ; départs piste 31 vers le nord : virage vers ce point"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 43.46,
+      "longitude": -0.32278,
+      "location": "Intersection RN 134 / D 944",
+      "purpose": "arrivées piste 31 par le nord : compte rendu ici à 2500 ft AMSL"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 43.42,
+      "longitude": -0.34611,
+      "location": "Navaillès Angos : Château d'eau",
+      "purpose": "arrivées piste 31 par le nord : maintenir 2500 ft AMSL jusqu'ici, à l'ouest de la N134 pour éviter la DZ301 ; après NA, suivre les instructions de l'ATC"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 43.29861,
+      "longitude": -0.48667,
+      "location": "Château d'eau",
+      "purpose": "arrivées piste 31 par le sud : compte rendu ici à 2500 ft AMSL (à SE ou S)"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 43.33667,
+      "longitude": -0.46056,
+      "location": "Rond point RN 117 / D509 / Silos de Lescar",
+      "purpose": "arrivées piste 31 par le sud : maintenir 2500 ft AMSL jusqu'ici ; après SA, suivre les instructions de l'ATC"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 43.27889,
+      "longitude": -0.38778,
+      "location": "Jurançon : Rond point RN 134 / D100",
+      "purpose": "arrivées piste 31 par le sud : compte rendu ici à 2500 ft AMSL (à SE ou S)"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 43.32111,
+      "longitude": -0.57778,
+      "location": "Monein",
+      "purpose": "arrivées piste 13 par le sud : compte rendu ici à 2500 ft AMSL ; départs piste 31 vers le sud : virage vers ce point"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 43.415,
+      "longitude": -0.57556,
+      "location": "H.T"
+    }
+  ],
+  "withAts": {
+    "arrivals": [
+      {
+        "runway": "31",
+        "from": "North",
+        "via": "NE",
+        "altitudeFeetAmsl": 2500,
+        "instruction": "report at NE at 2500 ft AMSL and maintain 2500 ft AMSL until NA; stay west of the N134 until NA (water tower) to avoid DZ301; after NA comply with ATC instructions"
+      },
+      {
+        "runway": "31",
+        "from": "South",
+        "via": "SE or S",
+        "altitudeFeetAmsl": 2500,
+        "instruction": "report at SE or S at 2500 ft AMSL and maintain 2500 ft AMSL until SA; after SA comply with ATC instructions"
+      },
+      {
+        "runway": "13",
+        "from": "North",
+        "via": "N",
+        "altitudeFeetAmsl": 1600,
+        "instruction": "report at N at 1600 ft AMSL and comply with ATC instructions"
+      },
+      {
+        "runway": "13",
+        "from": "South",
+        "via": "SW",
+        "altitudeFeetAmsl": 2500,
+        "instruction": "report at SW at 2500 ft AMSL and comply with ATC instructions"
+      },
+      {
+        "note": "overflight of the entry points, the VFR routes and the altitudes are mandatory unless otherwise cleared"
+      }
+    ],
+    "departures": [
+      {
+        "runway": "31",
+        "climbToFeetAmsl": 1600,
+        "note": "northern departures: at 500 ft AAL turn right towards N, climbing to 1600 ft AMSL"
+      },
+      {
+        "runway": "31",
+        "climbToFeetAmsl": 2000,
+        "note": "southern departures: at 500 ft AAL turn left towards SW, climbing to 2000 ft AMSL"
+      },
+      {
+        "runway": "13",
+        "climbToFeetAmsl": 1500,
+        "note": "northern departures: at 500 ft AAL turn left towards NA-NE, climbing to 1500 ft AMSL; after NA stay west of the N134 to avoid DZ301"
+      },
+      {
+        "runway": "13",
+        "climbToFeetAmsl": 2000,
+        "note": "southern departures: at 500 ft AAL turn right and climb to 2000 ft AMSL towards SA, then S or SE"
+      }
+    ],
+    "radio": {
+      "arrival": "first contact with PYRENEES Info at least 5 minutes before overflying the entry points, awaiting clearance",
+      "departure": "state the destination and the wished exit point"
+    }
+  },
+  "notes": [
+    "Aerodrome prohibited to gliders. Microlights are allowed with radio and transponder.",
+    "Non-commercial aviation: general aviation with PPR 48 HR mandatory.",
+    "Low-flying helicopters at 1500 ft AMSL maximum are present on all routes in the CTR (see the helicopter VAC chart).",
+    "Reduced spacing on the runway between single-engine VFR aircraft: minimum 1000 m.",
+    "Large bird presence from October to March.",
+    "Hot spots: HS 1, risk of runway incursion because of the short taxi distance from the parachuting boarding area to holding point S1; HS 2, risk of incursion on taxiways N and E from the end of the service road.",
+    "Special VFR meteorological minima, with IFR traffic: aeroplanes and helicopters visibility 3000 m, ceiling 1100 ft; without IFR traffic: aeroplanes visibility 1500 m, ceiling 600 ft; helicopters visibility 800 m, ceiling 600 ft. Special VFR routes are the same as the ones described.",
+    "Night VFR: radio contact with Pyrénées Information is compulsory 5 minutes before entering the controlled airspaces managed by Pau-Pyrénées.",
+    "Military: aircraft inbound to the 5th RHC or the 4th RHFS need prior permission from operations; radio contact with \"Pau Opérations\" is mandatory before entering the CTR, on 139.025, 55.65 or 379.225 MHz, and the landing clearance on the military area is given by \"Pau Opérations\".",
+    "Radio failure on arrival: squawk 7600; if the failure occurs before the CTR entry clearance, do not enter. Within the CTR before the pattern integration clearance, leave the CTR by the most suitable VFR route; after it, continue the landing as cleared.",
+    "Radio failure on departure: before take-off do not take off; after take-off squawk 7600 and turn around to return to the departure aerodrome.",
+    "Aerobatics nos. 6660, 6661 and 6666, AEM nos. 9016 and 9493 and parachuting nos. 301, 307, 355 and 373: see AIP ENR 5.5."
+  ],
+  "fr": {
+    "circuit": {
+      "heightNote": "circuit de piste à 1600 ft AMSL minimum, altitude inférieure interdite ; maintenir 1600 ft AMSL jusqu'à être établi en finale piste 13 ou 31. Altitude minimale de vol dans la CTR hors circuit : 2500 ft AMSL"
+    },
+    "withAts": {
+      "arrivals": [
+        {
+          "runway": "31",
+          "from": "Nord",
+          "via": "NE",
+          "instruction": "compte rendu à NE à 2500 ft AMSL et maintien de 2500 ft AMSL jusqu'à NA ; rester à l'ouest de la N134 jusqu'à NA (château d'eau) pour éviter la DZ301 ; après NA, suivre les instructions de l'ATC"
+        },
+        {
+          "runway": "31",
+          "from": "Sud",
+          "via": "SE or S",
+          "instruction": "compte rendu à SE ou S à 2500 ft AMSL et maintien de 2500 ft AMSL jusqu'à SA ; après SA, suivre les instructions de l'ATC"
+        },
+        {
+          "runway": "13",
+          "from": "Nord",
+          "via": "N",
+          "instruction": "compte rendu à N à 1600 ft AMSL et suivre les instructions de l'ATC"
+        },
+        {
+          "runway": "13",
+          "from": "Sud",
+          "via": "SW",
+          "instruction": "compte rendu à SW à 2500 ft AMSL et suivre les instructions de l'ATC"
+        },
+        {
+          "note": "le survol des points d'entrée, les itinéraires VFR et les altitudes sont obligatoires sauf clairance contraire"
+        }
+      ],
+      "departures": [
+        {
+          "runway": "31",
+          "note": "départs vers le nord : à 500 ft AAL, virer à droite vers N en montant à 1600 ft AMSL"
+        },
+        {
+          "runway": "31",
+          "note": "départs vers le sud : à 500 ft AAL, virer à gauche vers SW en montant à 2000 ft AMSL"
+        },
+        {
+          "runway": "13",
+          "note": "départs vers le nord : à 500 ft AAL, virer à gauche vers NA-NE en montant à 1500 ft AMSL ; après NA, rester à l'ouest de la N134 pour éviter la DZ301"
+        },
+        {
+          "runway": "13",
+          "note": "départs vers le sud : à 500 ft AAL, virer à droite et monter à 2000 ft AMSL vers SA, puis S ou SE"
+        }
+      ],
+      "radio": {
+        "arrival": "premier contact avec PYRENEES Info au moins 5 minutes avant le survol des points d'entrée, dans l'attente de la clairance",
+        "departure": "annoncer la destination et le point de sortie souhaité"
+      }
+    }
+  }
+}

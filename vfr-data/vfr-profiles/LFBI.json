@@ -1,0 +1,223 @@
+{
+  "$comment": [
+    "Transcribed by hand from the SIA chart set AD 2 LFBI (AIP France, chart dated 2026-02-19): the text pages checked against the images of the pages.",
+    "Only what the chart states is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text; the reporting points, rules and notes were added by hand.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "No circuit height or circuit side is printed on this chart, so none is recorded.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFBI",
+  "name": "Poitiers-Biard",
+  "source": {
+    "publication": "AIP France AD 2 LFBI",
+    "chartDate": "2026-02-19",
+    "extraction": "manual, from the chart text and images",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 46.5875,
+    "longitude": 0.30667
+  },
+  "elevationFeet": 423,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "H24 from Monday 0600 (public holiday 0700) to Saturday 1900 (eve of a public holiday 1900); Sunday 0700 to 1900. Outside these hours, for commercial flights only, on PPR 72 HR before Friday 1100 (or the eve of a public holiday 1100), request addressed to the aerodrome operator. The extension of control for scheduled IFR flights and medical flights is announced on the ATIS (UTC in winter, local time minus 1 h in summer)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 124.0,
+    "atis": 121.78,
+    "approach": 134.1,
+    "tower": 118.505,
+    "airAir": 118.505
+  },
+  "runways": [
+    {
+      "id": "03/21",
+      "qfu": [
+        29,
+        209
+      ]
+    },
+    {
+      "id": "03R/21L",
+      "qfu": [
+        29,
+        209
+      ]
+    },
+    {
+      "id": "03L/21R",
+      "qfu": [
+        29,
+        209
+      ]
+    }
+  ],
+  "preferredQfu": 209,
+  "preferredQfuReason": "preferred QFU 209, due to the IFR procedure",
+  "circuit": {
+    "restrictions": "the east circuit only with ATC clearance",
+    "lowHeight": "training flights only, with an instructor on board, avoiding the overflight of inhabited areas; reserved for home-based aircraft"
+  },
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 46.70417,
+      "longitude": 0.26667,
+      "location": "Neuville de Poitou",
+      "purpose": "n'est pas un point de compte rendu VFR spécial"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 46.55889,
+      "longitude": 0.50056,
+      "location": "St Julien - l'Ars : voie ferrée",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "EA",
+      "spoken": {
+        "fr": "Écho Alpha",
+        "en": "Echo Alpha"
+      },
+      "latitude": 46.59167,
+      "longitude": 0.39444,
+      "location": "Usine Buxerolles (cheminée blanche, route)",
+      "purpose": "point de compte rendu VFR spécial, point de clairance limite"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 46.64667,
+      "longitude": 0.17028,
+      "location": "Vouillé/route, rivière Auxance",
+      "purpose": "point de compte rendu VFR spécial"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 46.62861,
+      "longitude": 0.26417,
+      "location": "Rond-point de Moulinet",
+      "purpose": "point de compte rendu VFR spécial, point de clairance limite"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 46.44861,
+      "longitude": 0.26944,
+      "location": "Réservoir d'eau",
+      "purpose": "point de compte rendu VFR spécial, point de clairance limite"
+    }
+  ],
+  "withAts": {
+    "arrivals": [
+      {
+        "from": "East",
+        "via": "E",
+        "instruction": "E - EA: follow the main road to the ring road, then the ring road northbound to EA",
+        "note": "at EA: left-hand base leg runway 21 or right-hand downwind runway 03; go round the town by following the outside of the north-east and north ring road"
+      },
+      {
+        "from": "West",
+        "via": "W",
+        "instruction": "W - WA: follow the main road",
+        "note": "at WA: right-hand base leg runway 21 or left-hand downwind runway 03; follow the main road"
+      },
+      {
+        "from": "South",
+        "via": "S",
+        "instruction": "S: right-hand base leg runway 03 or left-hand downwind runway 21; follow the four-lane road N10 keeping it on the left side"
+      },
+      {
+        "note": "EA, WA and S are clearance limit points: a new ATC clearance must be given to join the aerodrome traffic. A maximum altitude of 2000 ft may be imposed on the routes"
+      }
+    ],
+    "departures": [
+      {
+        "runway": "21",
+        "note": "VFR take-off: climb straight ahead to 1000 ft ASFC before turning, except on ATC instruction"
+      }
+    ]
+  },
+  "notes": [
+    "Special VFR: visibility on the routes at least 1500 m for aeroplanes and 800 m for helicopters.",
+    "Simultaneous use of the paved runway and an unpaved runway is prohibited. Unpaved runway 03R/21L: runway condition information and special operating conditions from the aerodrome operator. Unpaved runway 03L/21R: home-based aircraft only, except with the operator's authorisation (special operating procedure).",
+    "Glider activity is limited to the gliders and motor-gliders of the aéro-club du Poitou and its guests. It takes place in CTR 2, downgraded to class G during the activity, and is announced on the ATIS and on the control frequency when trajectories may interfere.",
+    "TORA runway 21 is reduced to 2345 m.",
+    "Military jet training: west circuit at 1500 ft ASFC.",
+    "Training of aircraft over 5.7 t MTOW or with jet engines is prohibited Monday to Friday 2000-0700, on Sundays and on public holidays. Training on Saturday 0800-1100 and 1300-1500 is subject to the ATC manager's authorisation (summer: minus 1 h); PN 2 HR during working hours.",
+    "Heavy rain: risk of low adhesion, particularly at the runway 21 threshold. Taxiing prohibited except on runways and taxiways; taxiway D only with the operator's agreement, PN 24 HR.",
+    "Hot spot: exit of taxiway Alpha towards apron Sierra; beware of an aircraft coming the other way towards holding point A2. Holding points A3 and C are usable by day in VMC only.",
+    "AEM no. 9420 and winch glider activity no. 963: see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "",
+      "",
+      "TORA RWY 21 réduite à 2345 m.",
+      "Entraînements de jets MIL, circuit à l'ouest, 1500 ft ASFC.",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "circuit": {
+      "restrictions": "le circuit est uniquement possible avec l'autorisation de l'ATC",
+      "lowHeight": "vols d'entraînement uniquement, avec instructeur à bord, en évitant le survol des zones habitées ; réservé aux aéronefs basés"
+    },
+    "withAts": {
+      "arrivals": [
+        {
+          "from": "Est",
+          "via": "E",
+          "instruction": "E - EA : suivre la route principale jusqu'à la rocade, puis la rocade vers le nord jusqu'à EA",
+          "note": "à EA : étape de base main gauche piste 21 ou vent arrière main droite piste 03 ; contourner la ville en suivant l'extérieur de la rocade nord-est et nord"
+        },
+        {
+          "from": "Ouest",
+          "via": "W",
+          "instruction": "W - WA : suivre la route principale",
+          "note": "à WA : étape de base main droite piste 21 ou vent arrière main gauche piste 03 ; suivre la route principale"
+        },
+        {
+          "from": "Sud",
+          "via": "S",
+          "instruction": "S : étape de base main droite piste 03 ou vent arrière main gauche piste 21 ; suivre la route à quatre voies N10 en la gardant sur la gauche"
+        },
+        {
+          "note": "EA, WA et S sont des points de clairance limite : une nouvelle clairance de l'ATC est nécessaire pour rejoindre le circuit d'aérodrome. Une altitude maximale de 2000 ft peut être imposée sur les itinéraires"
+        }
+      ],
+      "departures": [
+        {
+          "runway": "21",
+          "note": "décollage VFR : monter dans l'axe jusqu'à 1000 ft ASFC avant de virer, sauf instruction contraire de l'ATC"
+        }
+      ]
+    }
+  }
+}

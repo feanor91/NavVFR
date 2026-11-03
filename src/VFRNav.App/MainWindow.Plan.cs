@@ -2,7 +2,7 @@ using System.Net.Http;
 using System.Windows;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
-using VFRNav.Core.StormAtc;
+using VFRNav.Core.Aerodromes;
 using VFRNav.Core.Weather;
 
 namespace VFRNav.App;
@@ -102,7 +102,7 @@ public partial class MainWindow
                 note = "Météo indisponible au moment du calcul : " + ex.Message;
             }
         }
-        var briefs = airports.Select(a => new AirportBrief(a, _stormAtc?.Find(a.Icao!),
+        var briefs = airports.Select(a => new AirportBrief(a, _aerodromes?.Find(a.Icao!),
             metars.FirstOrDefault(m => m.Station == a.Icao), tafs.FirstOrDefault(t => t.Station == a.Icao))).ToList();
         return (briefs, note);
     }

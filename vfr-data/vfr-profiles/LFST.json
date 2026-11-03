@@ -1,0 +1,282 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFST (AIP France, chart dated 2025-06-12): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "Procedures (arrivals, departures, special VFR, radio failure) were then structured by hand from the English column of the text pages; what the chart only draws is not recorded.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFST",
+  "name": "Strasbourg-Entzheim",
+  "source": {
+    "publication": "AIP France AD 2 LFST",
+    "chartDate": "2025-06-12",
+    "extraction": "chart text, table and English column read by script, procedures structured by hand",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 48.54194,
+    "longitude": 7.63444
+  },
+  "elevationFeet": 505,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "H24. Aérodrome de STRASBOURG ENTZHEIM, 67960 Entzheim - FAX : 03 88 59 91 20 (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 120.41,
+    "atis": 126.93,
+    "approach": 120.41,
+    "tower": 119.25,
+    "ground": 121.805
+  },
+  "runways": [
+    {
+      "id": "05/23",
+      "qfu": [
+        46,
+        226
+      ]
+    }
+  ],
+  "circuit": {
+    "trainingPatterns": "IFR or VFR training flights are prohibited every day from 2100 to 0700 (summer: 1 h earlier); IFR or VFR training flights of aircraft over 6 tonnes are prohibited on Saturdays after 1500 and on Sundays and public holidays (including local public holidays), summer 1 h earlier; outside these restrictions, training flights need prior authorisation: from the tower watch manager (+33 3 88 59 63 13) for IFR aircraft under 6 tonnes, from the aerodrome operator for aircraft of 6 tonnes or more"
+  },
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 48.74833,
+      "longitude": 7.68417,
+      "location": "Échangeur autoroutier Brumath Nord A4/A340"
+    },
+    {
+      "name": "N1",
+      "spoken": {
+        "fr": "Novembre un",
+        "en": "November one"
+      },
+      "latitude": 48.57361,
+      "longitude": 7.80167,
+      "location": "Pont de l'Europe entre STRASBOURG et KEHL"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 48.68389,
+      "longitude": 7.87556,
+      "location": "Sud du village de"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 48.47694,
+      "longitude": 7.75194,
+      "location": "Base nautique"
+    },
+    {
+      "name": "EA",
+      "spoken": {
+        "fr": "Écho Alpha",
+        "en": "Echo Alpha"
+      },
+      "latitude": 48.525,
+      "longitude": 7.66528,
+      "location": "Échangeur routier A35/D400"
+    },
+    {
+      "name": "EB",
+      "spoken": {
+        "fr": "Écho Bravo",
+        "en": "Echo Bravo"
+      },
+      "latitude": 48.50833,
+      "longitude": 7.69667,
+      "location": "Échangeur routier RN83/RN353"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 48.32111,
+      "longitude": 7.48833,
+      "location": "Échangeur routier A35/RN83"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 48.68972,
+      "longitude": 7.49889,
+      "location": "Bâtiment industriel caractéristique"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 48.56417,
+      "longitude": 7.6,
+      "location": "Château d'eau"
+    },
+    {
+      "name": "WB",
+      "spoken": {
+        "fr": "Whisky Bravo",
+        "en": "Whiskey Bravo"
+      },
+      "latitude": 48.60278,
+      "longitude": 7.59583,
+      "location": "Village ITTENHEIM sur RN4"
+    },
+    {
+      "name": "W1",
+      "spoken": {
+        "fr": "Whisky un",
+        "en": "Whiskey one"
+      },
+      "latitude": 48.56944,
+      "longitude": 7.52806,
+      "location": "Village ERGERSHEIM D30/D45"
+    },
+    {
+      "name": "W2",
+      "spoken": {
+        "fr": "Whisky deux",
+        "en": "Whiskey two"
+      },
+      "latitude": 48.52,
+      "longitude": 7.49778,
+      "location": "DORLISHEIM"
+    }
+  ],
+  "withAts": {
+    "arrivals": [
+      {
+        "note": "request the clearance to enter the CTR from Strasbourg TWR 2 minutes before entering; unless otherwise cleared, follow these routes"
+      },
+      {
+        "from": "East or South",
+        "route": "E - EB - EA"
+      },
+      {
+        "from": "West",
+        "route": "W - WB - WA"
+      },
+      {
+        "from": "North",
+        "route": "N - WB - WA"
+      },
+      {
+        "note": "VFR transit between N1 and NE: unless otherwise stated, fly at an altitude of 1500 ft AMSL"
+      }
+    ],
+    "departures": [
+      {
+        "note": "unless otherwise cleared, follow the published routes"
+      }
+    ],
+    "specialVfr": "arrivals and departures only by W and E; EB and WB are the special VFR clearance limit points for arrivals; with IFR traffic: visibility 3000 m minimum and ceiling 700 ft",
+    "nightVfr": {
+      "departureViaW": "climb to 2000 ft AMSL in the aerodrome pattern, then join W climbing to 3200 ft AMSL minimum; reach 4300 ft AMSL at Saverne",
+      "departureViaS": "climb to 2000 ft AMSL in the aerodrome pattern; reach S at 4700 ft AMSL",
+      "arrivalFromWest": "contact Strasbourg APP before Saverne; join W at 3200 ft AMSL minimum, then WB, then WA descending to 2000 ft AMSL",
+      "arrivalFromSouth": "contact Strasbourg APP at S at 4700 ft AMSL minimum; join EB, then EA descending to 2000 ft AMSL"
+    },
+    "radio": {
+      "beforeEnteringCtr2": "contact Strasbourg TWR 119.250 for an altitude of 2500 ft AMSL or below, Strasbourg APP 120.410 above 2500 ft AMSL",
+      "failure": "day VFR and night VFR: try to contact the TWR by phone on 03 88 59 63 13 and apply the national rules"
+    }
+  },
+  "notes": [
+    "FATO exclusively used by the Civil Security and according to Strasbourg TWR clearances.",
+    "AD prohibited to gliders, motor-gliders, aerostats and ULM.",
+    "ACFT in chapter 2 of the ICAO annex 16: prohibited H24.",
+    "Other ACFT: TKOF prohibited from 2230 to 0500.",
+    "LDG prohibited from 2300 to 0500 (SUM: - 1 HR).",
+    "For scheduled passenger commercial flights, which cumulative margin is lower than 10 EPNdB, delayed beyond aforementioned time restrictions, the airline or its local representative submits its request to the AD operator (SASE supervisor on duty, phone number: +33 3 88 64 69 85) that will process the request.",
+    "Particularly for ARR on apron Bravo, pilots are invited to check the ACFT is correctly parked on a stop bar visible on the left of the cockpit.",
+    "Presence of a market fence with a height of 2.5 m in the RWY strip at 120 m from THR 05 between RDL 179° and 209° and between RDL 249° and 279°.",
+    "\"Reduced runway separation minima\" procedure applied RWY 05/23 for single-engine propellers only, flying on VFR under the conditions set by the national regulation.",
+    "HEL with wheel landing gear: all movements are performed by taxiing on ground between TWY K, M, N, Q and the assigned stand and vice versa.",
+    "Traffic surveillance equipment: AD equipped with primary and secondary surveillance radar.",
+    "Free flight and AEM at Mundolsheim up to 500 ft ASFC."
+  ],
+  "fr": {
+    "notes": [
+      "FATO à usage exclusif de la Sécurité Civile et suivant instructions de Strasbourg TWR.",
+      "Interdit aux planeurs, motoplaneurs, aérostats et ULM.",
+      "ACFT du chapitre 2 de l'annexe 16 OACI : interdit H24.",
+      "Autres aéronefs : TKOF interdits entre 2230 et 0500.",
+      "LDG interdits entre 2300 et 0500.",
+      "En cas de retard d'un vol commercial passager programmé, dont la marge cumulée est inférieure à 10 EPNdB, au-delà des horaires précitées, la compagnie aérienne ou son représentant transmet sa demande à l'exploitant de l'AD (superviseur de service de la SASE joignable au 03 88 64 69 85) qui traite sa demande.",
+      "A l'ARR sur le parking Bravo notamment, les pilotes sont invités à vérifier qu'ils arrêtent correctement leur ACFT sur une barre d'arrêt visible depuis la gauche du cockpit.",
+      "Présence d'un obstacle de type clôture balisée d'une hauteur de 2,5 m dans la bande de piste à 120 m du seuil 05 entre les RDL 179° et 209° et entre les RDL 249° et 279°.",
+      "Procédure \"réduction des séparations sur piste\" applicable sur la piste 05/23 aux seuls aéronefs monomoteurs à hélice en vol VFR dans les conditions fixées par la réglementation nationale.",
+      "HEL équipés de roues : tous les mouvements doivent se faire au roulage au sol entre les TWY K, M, N, Q et le poste désigné et vice versa.",
+      "Équipement de surveillance des trafics : aérodrome équipé d'un radar primaire et secondaire.",
+      "Vol libre et AEM à Mundolsheim jusqu'à 500 ft ASFC."
+    ],
+    "circuit": {
+      "trainingPatterns": "les vols d'entraînement des ACFT en régime IFR ou VFR sont interdits tous les jours entre 2100 et 0700 (été : -1 HR) ; les vols d'entraînement en régime IFR ou VFR sont interdits pour les ACFT d'un poids supérieur à 6 tonnes les SAM après 1500, les DIM et jours fériés (y compris jours fériés en droit local) (été : -1 HR) ; en dehors de ces interdictions, tous les vols d'entraînement sont soumis à l'autorisation préalable du chef de quart de la tour (TEL : 03 88 59 63 13) pour les ACFT en régime IFR de moins de 6 tonnes, de l'exploitant de l'AD pour les ACFT d'un poids de 6 tonnes ou plus"
+    },
+    "withAts": {
+      "arrivals": [
+        {
+          "note": "la clairance de pénétration dans la CTR est demandée à STRASBOURG TWR 2 min avant d'y entrer ; sauf clairance contraire, les ACFT suivront les itinéraires suivants"
+        },
+        {
+          "from": "provenance de l'EST ou du SUD",
+          "route": "E - EB - EA"
+        },
+        {
+          "from": "provenance de l'OUEST",
+          "route": "W - WB - WA"
+        },
+        {
+          "from": "provenance du NORD",
+          "route": "N - WB - WA"
+        },
+        {
+          "note": "transit VFR : sauf clairance contraire, les VFR en transit entre N1 et NE doivent voler à une altitude de 1500 ft"
+        }
+      ],
+      "departures": [
+        {
+          "note": "sauf clairance contraire, les aéronefs suivront les itinéraires publiés"
+        }
+      ],
+      "specialVfr": "les ARR et DEP se font uniquement par W et E ; EB et WB seront les points de clairance limite pour les arrivées de VFR spécial ; en présence de trafic IFR : VIS 3000 m MNM, plafond 700 ft",
+      "nightVfr": {
+        "departureViaW": "via W : monter à 2000 ft AMSL dans le circuit de piste, puis rejoindre W en montée vers 3200 ft AMSL MNM ; atteindre 4300 ft AMSL à SAVERNE",
+        "departureViaS": "via S : monter à 2000 ft AMSL dans le circuit de piste ; atteindre S à 4700 ft AMSL",
+        "arrivalFromWest": "par l'OUEST : contacter STRASBOURG APP avant SAVERNE ; rejoindre W à 3200 ft AMSL MNM, rejoindre WB puis WA en descente vers 2000 ft AMSL",
+        "arrivalFromSouth": "par le SUD : contacter STRASBOURG APP à S à 4700 ft AMSL MNM, rejoindre EB puis EA en descente vers 2000 ft AMSL"
+      },
+      "radio": {
+        "beforeEnteringCtr2": "avant pénétration dans la CTR 2 STRASBOURG, contacter STRASBOURG TOUR 119.250 MHz pour une altitude inférieure ou égale à 2500 ft, STRASBOURG Approche 120.410 MHz pour une altitude supérieure à 2500 ft",
+        "failure": "VFR de jour et VFR de nuit : essayer de contacter la TWR par téléphone au 03 88 59 63 13 et appliquer la réglementation nationale"
+      }
+    }
+  }
+}

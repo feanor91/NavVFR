@@ -1,0 +1,114 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFPA (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFPA",
+  "name": "Persan - Beaumont",
+  "source": {
+    "publication": "AIP France AD 2 LFPA",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.165,
+    "longitude": 2.31167
+  },
+  "elevationFeet": 149,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.505",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.505
+  },
+  "runways": [
+    {
+      "id": "10L/28R",
+      "qfu": [
+        98,
+        278
+      ]
+    },
+    {
+      "id": "10R/28L",
+      "qfu": [
+        98,
+        278
+      ]
+    },
+    {
+      "id": "05/23",
+      "qfu": [
+        49,
+        229
+      ]
+    }
+  ],
+  "preferredQfu": 98,
+  "preferredQfuReason": "preferred QFU 98, (RWY 10L/R) due to Traffic pattern and touch and go reserved for homebased ACFT",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Pylon with white flashing lights at the end of downwind leg RWY 10.",
+    "Turn base between professional training center and pylon.",
+    "Due to environment, comply with published circuits as far as possible.",
+    "Do not fly beyond Oise river.",
+    "In WEST configuration, simultaneous use of unpaved RWY 10R/28L and 05/23 prohibited.",
+    "Use preferred QFU 098° (RWY 10L/R) due to Traffic pattern and touch and go reserved for homebased ACFT.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Facing WEST, to proceed RWY 28R bypass RWY 28L.",
+    "Unpaved RWY 05/23: Takeoffs RWY 23 prohibited.",
+    "Circlings RWY 05/23 prohibited.",
+    "Landings RWY 05 prohibited, except if the crosswind component on RWY 10/28 exceeds or equals 15 kt steadily or in gusts.",
+    "HEL: unpaved RWY 05/23 or strip between RWY 10/28 prohibited.",
+    "HEL use preferably unpaved RWY 10R/28L.",
+    "Air navigation hazard Unpaved RWY 10R/28L and 05/23 not available after heavy rain.",
+    "Special attention: intersection of two QFU (THR 23 and 28L unpaved).",
+    "Paramotor ULM activity in Chambly: radius of 500 m centered on 49 11 31 N - 002 15 00 E, SFC/1200ft AMSL.",
+    "Reserved for home-based ACFT with local instructions.",
+    "PCL available.",
+    "Aerobatics (NR 6204): Overhead Northern End of deconsecrated RWY 05/23, 1800 ft AMSL - 3000 ft AMSL.",
+    "SKED: see AIP ENR 5.5.",
+    "Activity reserved for home-based ACFT announced on FREQ A/A PERSAN, only when LF-R 3110 PERSAN is active.",
+    "Model flying activity (NR 8418): 170 ft ASFC over middle of deconsecrated RWY 05/23.",
+    "Winching activity (NR 1021): see AIP ENR 5.5 ULM activity: 350 ft ASFC, NE end of deconsecrated RWY 05/23.",
+    "Activity reserved for based or authorized ULM by managing authority TEL: 01 30 34 56 60."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Présence d'un pylône avec un feu à éclats de couleur blanche en fin de vent arrière 10.",
+      "Le virage en étape de base 10 doit être effectué entre le centre de formation professionnel et le pylône.",
+      "",
+      "",
+      "En configuration OUEST, utilisation simultanée des bandes en herbe 10R/28L et 05/23 interdite.",
+      "Utiliser les QFU préférentiels 098° (pistes 10L/R) en environnement. Tours de piste et touch and go réservés aux ACFT basés.",
+      "Roulage interdit hors piste et TWY.",
+      "En configuration OUEST, l'accès à la RWY 28R se fait par contournement de la piste 28L.",
+      "",
+      "",
+      "Atterrissages interdits en piste 05, sauf si la composante de vent travers 10/28 est supérieure ou égale à 15 noeuds de manière continue ou par rafales.",
+      "HEL : utilisation de la piste non revêtue 05/23 ou de la bande en herbe entre les 2 pistes 10/28 interdites.",
+      "Les HEL utiliseront de préférence la piste 10R/28L non revêtue.",
+      "PERSAN BEAUMONT Dangers à la navigation aérienne En cas de fortes précipitations, piste 10R/28L non revêtue et 05/23 inutilisables.",
+      "Attention particulière : intersection de deux QFU (THR 23 et 28L non revêtues).",
+      "Activité ULM PARAMOTEUR à Chambly : rayon de 500 m centré sur le point 49 11 31 N - 002 15 00 E, SFC/1200ft AMSL.",
+      "Réservé aux ACFT basés suivant consignes locales.",
+      "PCL en service.",
+      "Activité voltige (N° 6204) : Verticale extrémité Nord de la piste désaffectée 05/23, 1800 ft AMSL - 3000 ft AMSL.",
+      "HOR : voir AIP ENR 5.5.",
+      "Annoncée sur FREQ A/A PERSAN, uniquement lorsque la LF-R 3110 PERSAN est active.",
+      "Activité AEM (N° 8418) : 170 ft ASFC sur piste désaffectée 05/23, partie centrale.",
+      "Activité treuillage (N° 1021) : voir AIP ENR 5.5 Activité ULM : 350 ft ASFC sur extrémité NE de la piste désaffectée 05/23.",
+      "Activité réservée aux ULM basés ou autorisés par le gestionnaire TEL : 01 30 34 56 60."
+    ]
+  }
+}

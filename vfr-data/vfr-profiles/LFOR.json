@@ -1,0 +1,84 @@
+{
+  "$comment": [
+    "REAL DATA, transcribed by hand from the SIA chart set AD 2 LFOR (AIP France, AMDT 03/26, chart dated 2026-02-19).",
+    "Only facts are recorded here; the charts themselves are (c) SIA and are not redistributed.",
+    "Runway geometry, taxiways, parking and frequencies also come from the simulator at run time; this file holds",
+    "what the simulator does not know: services, circuit rules and reporting points.",
+    "Flight simulation only: never use for real navigation.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFOR",
+  "name": "Chartres-Métropole",
+  "source": {
+    "publication": "AIP France AD 2 LFOR",
+    "amendment": "AMDT 03/26",
+    "chartDate": "2026-02-19",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 48.45889,
+    "longitude": 1.52389
+  },
+  "elevationFeet": 509,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "ats": "NIL",
+    "radioMandatory": true,
+    "nightVfrApproved": true,
+    "nightVfr": "approved with limitations (local and navigation flights), home-based pilots only, on PPR from the ACB (e-mail before 1600, every day except Sunday and Monday)"
+  },
+  "frequencies": {
+    "airAir": 119.205
+  },
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        91,
+        271
+      ],
+      "surface": "paved",
+      "lengthMetres": 840,
+      "widthMetres": 25
+    },
+    {
+      "id": "09L/27R",
+      "qfu": [
+        91,
+        271
+      ],
+      "surface": "unpaved",
+      "lengthMetres": 900,
+      "widthMetres": 100
+    }
+  ],
+  "preferredQfu": 91,
+  "preferredQfuReason": "without winching: safety and noise on take-off",
+  "circuit": {
+    "sideOfRunways": "north",
+    "sideBearingDegrees": 0,
+    "handNote": "downwind leg north of the villages of Leves, Champhol and Oiseme, so the circuit lies north of the runways: left-hand for 09, right-hand for 27 (read from the text of the chart)",
+    "baseAndCrosswind": "west of the Mainvilliers west bypass and east of Oiseme village",
+    "trainingPatterns": "reserved for home-based aircraft; low altitude prohibited",
+    "listenBeforeJoining": "listen to the frequency for at least 2 minutes before joining the circuit: winching may be in progress"
+  },
+  "notes": [
+    "The unpaved runway is reserved for gliders, service and tug aircraft.",
+    "When there is winching, take-off and landing on the paved runway are at the QFU used for winching.",
+    "Very noise-sensitive platform: avoid overflying Chartres and the neighbouring towns.",
+    "Crossing areas B1 and B2: priority to aircraft leaving the runway. Do not enter the taxiway strip that crosses the runway axis if an aircraft is taking off or on final.",
+    "Engine tests are prohibited on aprons and in front of the hangars; before take-off on runway 27 they are done at the latest on crossing area B2.",
+    "Gliders winching (NR 892) and AEM (NR 8616, 8702): see AIP ENR 5.5. Gliders near the refuelling area.",
+    "The chart draws an arrival route from the west (towards L'Aigle) at 1500 ft AMSL (1000 ft AGL) that ends on final for runway 09 on 091 degrees. Read from the drawing, not from a text, and not the circuit height."
+  ],
+  "fr": {
+    "circuit": {
+      "sideOfRunways": "nord",
+      "handNote": "vent arrière au nord des villages de Leves, Champhol et Oiseme : le circuit est donc au nord des pistes, main gauche pour la 09 et main droite pour la 27 (lu sur le texte de la carte)",
+      "baseAndCrosswind": "à l'ouest de la déviation ouest de Mainvilliers et à l'est du village d'Oiseme",
+      "trainingPatterns": "réservé aux aéronefs basés ; basse altitude interdite",
+      "listenBeforeJoining": "écouter la fréquence au moins 2 minutes avant d'intégrer le circuit : un treuillage peut être en cours"
+    }
+  }
+}

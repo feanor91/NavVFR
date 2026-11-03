@@ -1,0 +1,101 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCQ (AIP France, chart dated 2024-04-18): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCQ",
+  "name": "Graulhet - Montdragon",
+  "source": {
+    "publication": "AIP France AD 2 LFCQ",
+    "chartDate": "2024-04-18",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.76861,
+    "longitude": 2.00778
+  },
+  "elevationFeet": 583,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.655",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.655
+  },
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        95,
+        275
+      ]
+    },
+    {
+      "id": "09L/27R",
+      "qfu": [
+        95,
+        275
+      ]
+    }
+  ],
+  "preferredQfu": 94,
+  "preferredQfuReason": "preferred QFU 94, due to surroundings",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Use of aerodrome restricted to airplanes weighing less than 5.7t except under operator's prior agreement.",
+    "Simultaneous use of both RWY prohibited.",
+    "Unpaved RWY: glider marker.",
+    "Unpaved RWY and North taxiway reserved for gliders, home-based users and available for foreign users aware of local instructions published on the website https://www.aeroclub-graulhet.com/informationsgeneraleslfcq/ Mandatory registration, valid for a 12month period, to be renewed if those instructions are modified.",
+    "Unpaved RWY not available after heavy rain: glider activity is transferred to paved RWY.",
+    "Two glider's descending areas of radius 1 km centred on QDR 330° and QDR 060° at 2 km from airfield for RWY 09 and RWY 27 respectively.",
+    "Use of microlight strip (300 x 20 m) prohibited if presence of an ACFT at holding point C.",
+    "Turbulences on QFU 094° when strong South-East wind.",
+    "Presence of a 38 ft high day-marked tower located 78 m RDL 197° from THR 09. drilling the lateral surface by 2 m.",
+    "Low height circuit reserved for home-based ACFT.",
+    "Preferred QFU 094° due to surroundings.",
+    "For reasons of noise pollution foreign users are recommended to limitate ACFT/microlight training circuits or helicopters ground work.",
+    "DEP 27: mandatory lining up at the physical end of the RWY.",
+    "After TKOF, climb straight ahead.",
+    "After crossing the river \"Le Dadou\", turn right MAG 300° to stay above the industrial area and avoid flying over the houses on either side.",
+    "During winching periods, do not carry out site reconnaissance at a height < 2000 ft ASFC.",
+    "Maintain radio silence during winching periods.",
+    "South TWY: 4 metres wide,; Fence located 10 m away from RWY axis,; Taxiing prohibited to airplanes weighing more than 1.5 t,; Taxiing reserved for home-based users.",
+    "Available for foreign users aware of local instructions published on the website https://www.aeroclub-graulhet.com/ informations-generaleslfcq/ Mandatory registration, valid for a 12-month period, to be renewed if those instructions are modified.",
+    "North TWY: 7 metres wide; Fence located 14 m away from RWY axis.",
+    "AEM (NR 9071), 330 ft ASFC: 1300-SS, SUM: - 1HR Gliders winching activity (NR 1017): SFC-2500 ft AMSL."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "",
+      "Utilisation simultanée des deux pistes interdite.",
+      "Balisage piste non revêtue type planeur.",
+      "",
+      "Piste non revêtue inutilisable après fortes pluies : activité vol à voile reportée sur piste revêtue.",
+      "Deux zones de perte d'altitude planeur de rayon 1 km centrées respectivement pour RWY 09 et RWY 27 à 2 km dans le 330° et 060° du terrain.",
+      "Utilisation de la bande ULM (300 x 20 m) interdite si présence d'un aéronef au point d'attente C.",
+      "Turbulences au QFU 094° par fort vent de Sud-Est.",
+      "Présence d'une tour balisée diurne haute de 38 ft qui perce la surface latérale de 2 m et située à 78 m dans le 197° du seuil de piste 09.",
+      "Circuit basse hauteur réservé aux ACFT basés.",
+      "QFU 094° préférentiel cause environnement.",
+      "Pour des raisons de nuisances sonores, il est recommandé aux pilotes extérieurs de limiter les tours de piste d'entraînement avion/ULM ou le travail au sol hélicoptère.",
+      "DEP 27 : alignement obligatoire à l 'extrémité physique de piste.",
+      "Après décollage, montée dans l'axe.",
+      "Aprés traversée de la rivière \"Le Dadou\", effectuer un virage à droite RM 300° pour rester sur la zone industrielle et éviter le survol des habitations de part et d'autre.",
+      "Pendant les périodes de treuillage, ne pas effectuer la reconnaissance de site à une hauteur < 2000 ft ASFC.",
+      "Respecter le silence radio durant les périodes de treuillage.",
+      "Taxiway SUD : Largeur 4 m ; Clôture située à 10 m de l'axe ; Circulation interdite aux avions de masse supérieure à 1,5 t ; Circulation réservée aux usagers basés.",
+      "Utilisable par les extérieurs ayant pris connaissance des consignes locales publiées sur le site https://www.aeroclubgraulhet.com/ informations-generaleslfcq/ et qui s'y sont inscrits. L'inscription est valable 12 mois et doit être renouvelée en cas de modification de ces consignes.",
+      "Taxiway NORD : Largeur 7 m ; Clôture située à 14 m de l'axe.",
+      "Activité AEM (N° 9071), 330 ft ASFC : 1300-SS, ETE : - 1HR Activité de treuillage planeurs sur AD (N° 1017) : SFC-"
+    ]
+  }
+}

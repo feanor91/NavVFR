@@ -1,0 +1,77 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFAW (AIP France, chart dated 2018-05-24): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFAW",
+  "name": "Villerupt",
+  "source": {
+    "publication": "AIP France AD 2 LFAW",
+    "chartDate": "2018-05-24",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.41056,
+    "longitude": 5.88917
+  },
+  "elevationFeet": 1303,
+  "service": {
+    "kind": "None",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        65,
+        245
+      ]
+    }
+  ],
+  "preferredQfu": 65,
+  "preferredQfuReason": "preferred QFU 65, due to RWY slope",
+  "notes": [
+    "AD reserved for home-based ACFT and ULM, and those based on neighbouring AD (1) AD reserved for radio-equipped ACFT.",
+    "Frequent PJE on AD announced by NOTAM.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU 065° due to RWY slope.",
+    "Training patterns reserved to home-based and/or authorized pilots.",
+    "ULM: Training patterns northbound only, with instructor on board and reserved to home-based ULM.; DEP perpendicular to the RWY and bound to South-.",
+    "AEM activity (NR 8227), limited to 500 ft ASFC, SR-SS (1) AD voisins/ Neighbouring AD: CHARLEVILLE, CHAMBLEY, DONCOURT, LONGUYON, NANCY E, REIMS Horaires sauf indication contraire / Timetables unless otherwise specified UTC HIV; HOR ETE: -1HR / UTC WIN;SUM SKED: -1HR Situation / Location: VFR de nuit / Night VFR: Non agréé / Not approved.",
+    "Exploitant d'aérodrome / AD operator: DSAC NE (voir / see GEN).",
+    "LE BOURGET (voir / see GEN).",
+    "Préparation du vol / Flight preparation: Acheminement FPL VFR / Addressing VFR FPL: voir / see GEN12.",
+    "VFR: voir / see GEN VAC; IFR: voir / see AIP GEN 3.5; Station: NIL.",
+    "Douanes, Police / Customs, Police: Carburants / Fuel: 100/130 - Lubrifiant / Lubricant: 100/120 (CIV).",
+    "Réservé aux aéronefs basés / Reserved for home-based ACFT.",
+    "Niveau 1 / Level 1.",
+    "Péril animalier / Wildlife strike hazard:"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT et ULM basés et ceux basés sur les AD voisins. (1) AD réservé aux ACFT munis de radio.",
+      "Parachutage fréquent sur AD annoncé par NOTAM.",
+      "Roulage interdit hors RWY et TWY.",
+      "QFU 065° préférentiel cause pente de la piste.",
+      "Entraînements tours de piste réservés aux pilotes basés et/ou autorisés.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+}

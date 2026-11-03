@@ -1,0 +1,87 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHY (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFHY",
+  "name": "Moulins - Montbeugny",
+  "source": {
+    "publication": "AIP France AD 2 LFHY",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.53444,
+    "longitude": 3.42167
+  },
+  "elevationFeet": 915,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : MAR-VEN sauf JF / TUE-FRI except public HOL : 0800-1100, 1230-1630 En dehors de ces HOR ouverture possible pour vols IFR ou commerciaux avec préavis le dernier jour ouvrable avant 1500 auprès de l'AFIS. Outside these SKED , possible opening for IFR or commercial flights on request from AFIS on the last working day before 1500 (UTC HIV ; HOR ETE : -1HR)",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 123.405,
+    "afis": 125.205
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        81,
+        261
+      ]
+    },
+    {
+      "id": "08R/26L",
+      "qfu": [
+        81,
+        261
+      ]
+    }
+  ],
+  "preferredQfu": 261,
+  "preferredQfuReason": "preferred QFU 261, due to IFR procedures and Taxiing prohibited except on RWY and TWY",
+  "notes": [
+    "Possible IFR operations.",
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of RWYs prohibited.",
+    "Unpaved RWY reserved for home-based aircraft.",
+    "THR 08: down-draft with North wind.",
+    "When proceeding to downwind, gliders can spiral in the descending area.",
+    "Grass RWY is likely to be closed after severe rainfalls.",
+    "Information given on AFIS.",
+    "Preferred QFU 261° due to IFR procedures and Taxiing prohibited except on RWY and TWY.",
+    "Any ACFT TKOF or LDG is delayed if a glider is grounded on the grass RWY within 75 m from paved RWY centerline.",
+    "Southern circuit at 1000 ft.",
+    "AD training patterns authorized for home-based ACFT.",
+    "PCL operation 3-7: 3 = ignition for 15 minutes; 7 = extinction.",
+    "AEM NR 9795: see AIP ENR 5.5.",
+    "Aerobatics NR 6750: see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des pistes interdite.",
+      "Piste en herbe au sud réservée aux appareils basés.",
+      "",
+      "Durant leur intégration en branche vent arrière, les planeurs peuvent effectuer des spirales en zone de perte d'altitude.",
+      "",
+      "",
+      "QFU 261° préférentiel cause procédures IFR et Roulage interdit hors piste et TWY.",
+      "Tout TKOF ou LDG ACFT est suspendu si un planeur est immobilisé sur la piste non revêtue à moins de 75 m de l'axe de la piste revêtue.",
+      "Circuit au sud à 1000 ft.",
+      "Entraînements tours de piste autorisés pour les aéronefs basés.",
+      "Fonctionnement PCL 3-7 : 3 = allumage pendant 15 minutes ; 7 = extinction.",
+      "AEM N°9795 : voir AIP ENR 5.5.",
+      "Activité de voltige N°6750 : voir AIP ENR 5.5."
+    ]
+  }
+}

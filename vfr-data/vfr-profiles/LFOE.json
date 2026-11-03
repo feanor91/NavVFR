@@ -1,0 +1,90 @@
+{
+  "$comment": [
+    "EXTRACTED AUTOMATICALLY from the SIA eAIP page AD 2 LFOE (AIP France, valid from 2026-08-06), not read by hand.",
+    "This is a military air base (CAM regimes). Only what the page prints as text is recorded: position, elevation,",
+    "magnetic variation, runways and the VHF frequencies. Circuit rules and reporting points are NOT extracted.",
+    "MSFS exposes only VHF radios: the UHF frequencies of the base are not usable and are not listed.",
+    "Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFOE",
+  "name": "Évreux-Fauville",
+  "source": {
+    "publication": "AIP France AD 2 LFOE",
+    "chartDate": "2026-08-06",
+    "extraction": "automatic"
+  },
+  "referencePosition": {
+    "latitude": 49.02861,
+    "longitude": 1.22
+  },
+  "elevationFeet": 465,
+  "service": {
+    "kind": "MilitaryTower",
+    "regimes": [
+      "CAM V",
+      "CAM I"
+    ]
+  },
+  "frequencies": {
+    "app": [
+      {
+        "mhz": 118.125,
+        "remark": "Particulière APP ou RAI - Zones non actives (inactive areas)"
+      },
+      {
+        "mhz": 121.5,
+        "remark": "APP"
+      }
+    ],
+    "twr": [
+      {
+        "mhz": 119.7,
+        "remark": "Fréq. veillée TWR"
+      },
+      {
+        "mhz": 122.1,
+        "remark": "TWR"
+      },
+      {
+        "mhz": 125.375,
+        "remark": "TWR"
+      },
+      {
+        "mhz": 118.125,
+        "remark": "VDF"
+      },
+      {
+        "mhz": 119.7,
+        "remark": "VDF"
+      },
+      {
+        "mhz": 121.5,
+        "remark": "VDF"
+      },
+      {
+        "mhz": 122.1,
+        "remark": "VDF"
+      },
+      {
+        "mhz": 125.375,
+        "remark": "VDF"
+      }
+    ]
+  },
+  "magneticVariationDegrees": 1.5,
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        38,
+        218
+      ],
+      "surface": "paved",
+      "lengthMetres": 3001,
+      "widthMetres": 45
+    }
+  ],
+  "notes": [
+    "The base also publishes 18 UHF frequencies that MSFS cannot tune."
+  ]
+}

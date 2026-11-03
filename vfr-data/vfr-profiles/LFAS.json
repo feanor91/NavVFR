@@ -1,0 +1,69 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFAS (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFAS",
+  "name": "Falaise-Mont d'Eraines",
+  "source": {
+    "publication": "AIP France AD 2 LFAS",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.92694,
+    "longitude": -0.14472
+  },
+  "elevationFeet": 513,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.18",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 123.18
+  },
+  "runways": [
+    {
+      "id": "06/24",
+      "qfu": [
+        61,
+        241
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD reserved for home-based ACFT and for ACFT based at neighbouring AD (1) or autorized by the operator.",
+    "ULM activity reserved for home-based and those of classes 3, 4 and 6.",
+    "Caution: from May to June, possibility of RWY mowing by a tractor with rotating light.",
+    "The opposite threshold is not visible from the holding points, special attention is recommended before entering the RWY.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Taking into account the environment and noise pollution, avoid overflying sensitive urban areas (Damblainville, Eraines, Versainville).",
+    "AEM (NR 8399) on AD: See AIP ENR 5.5.",
+    "Aerobatics on AD (NR 6293): See AIP ENR 5.5.",
+    "From March to October: intense gliding activity from late morning to SS.",
+    "AEM (N° 8463): See AIP ENR 5.5 (1) AD voisins / neighbouring AD: ALENÇON - ARGENTAN - AVRANCHES - BAGNOLES- BERNAY- CAEN -"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD réservé aux ACFT basés et à ceux basés sur les AD voisins (1) ou autorisés par l'exploitant.",
+      "Activité ULM réservée aux ULM basés et à ceux des classes 3, 4 et 6.",
+      "Attention : de mai à juin, fauchage de RWY possible par un tracteur avec gyrophare.",
+      "Le seuil opposé n'étant pas visible depuis les points d'attente une attention particulière est recommandée avant de pénétrer sur la piste.",
+      "Roulage interdit hors RWY et TWY.",
+      "Compte tenu de l'environnement et des nuisances sonores, éviter le survol des zones urbaines sensibles (Damblainville, Eraines, Versainville).",
+      "AEM (N° 8399) sur AD : Voir AIP ENR 5.5.",
+      "Activité voltige (N° 6293) sur AD : Voir AIP ENR 5.5.",
+      "De mars à octobre : activité vélivole intense de la fin de matinée au SS.",
+      "AEM (N° 8463) : Voir AIP ENR 5.5. CHERBOURG - DEAUVILLE - DREUX - FLERS - GRANVILLE- L'AIGLE - LE HAVRE OCTEVILLE - LE HAVRE ST ROMAIN - LESSAY - MORTAGNE - ST ANDRE"
+    ]
+  }
+}

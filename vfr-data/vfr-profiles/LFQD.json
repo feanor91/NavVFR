@@ -1,0 +1,65 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQD (AIP France, chart dated 2026-01-22): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFQD",
+  "name": "Arras - Roclincourt",
+  "source": {
+    "publication": "AIP France AD 2 LFQD",
+    "chartDate": "2026-01-22",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 50.32389,
+    "longitude": 2.80278
+  },
+  "elevationFeet": 338,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5"
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        42,
+        222
+      ]
+    }
+  ],
+  "preferredQfu": 42,
+  "preferredQfuReason": "preferred QFU 42, for TKOF due to proximity of residential areas southwest of the AD",
+  "notes": [
+    "Caution advised after heavy rainfalls or thaw.",
+    "LDG and TKOF prohibited when ACFT taxiing on TWY adjacent to RWY between DTHR.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Mowing: Presence of frequent off-runway mowing machines between 0800 and 1900.",
+    "Mowing on RWY: AD reserved for based aircraft and information by NOTAM.",
+    "Preferred QFU 042° for TKOF due to proximity of residential areas southwest of the AD.",
+    "Aerobatics (NR 6020): See AIP ENR 5.5.",
+    "AEM (NR 8334): See AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "AD utilisable avec précaution après fortes pluies ou dégel.",
+      "LDG et TKOF interdits tant qu'un aéronef se trouve sur le TWY accolé à la piste entre les deux seuils décalés.",
+      "Roulage interdit hors RWY et TWY.",
+      "Fauchage : Présence d'engins de fauchage fréquente hors-piste entre 0800 et 1900.",
+      "Fauchage sur RWY : AD réservé aux aéronefs basés et information par NOTAM.",
+      "QFU 042° préférentiel au décollage cause proximité de zones habitées au Sud-Ouest de l'AD.",
+      "Voltige (N° 6020) : Voir AIP ENR 5.5.",
+      "AEM (N° 8334) : Voir AIP ENR 5.5."
+    ]
+  }
+}

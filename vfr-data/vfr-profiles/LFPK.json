@@ -1,0 +1,132 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFPK (AIP France, chart dated 2024-10-31): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFPK",
+  "name": "Coulommiers - Voisins",
+  "source": {
+    "publication": "AIP France AD 2 LFPK",
+    "chartDate": "2024-10-31",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.8375,
+    "longitude": 3.01444
+  },
+  "elevationFeet": 470,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 122.205",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 122.205
+  },
+  "runways": [
+    {
+      "id": "09C/27C",
+      "qfu": [
+        90,
+        270
+      ]
+    },
+    {
+      "id": "09R/27L",
+      "qfu": [
+        90,
+        270
+      ]
+    },
+    {
+      "id": "09L/27R",
+      "qfu": [
+        90,
+        270
+      ]
+    }
+  ],
+  "notes": [
+    "ULM and Powered Paragliding authorized for based users with prior agreement from AD operator.",
+    "AD reserved for radio equipped ACFT.",
+    "AD prohibited to ACFT whose maximum TKOF weight (MTOW) is higher than 5,7t.",
+    "Unpaved RWY 09R-27L reserved only for gliders and service ACFT, giving way to gliders LDG.",
+    "Aerobatics (NR 6292, Aulnoy) reserved for based gliders, 1500 ft ASFC - 2500 ft AMSL, SR-SS.",
+    "Hot spots: ACFT positioned at these points cannot see ACFT taxiing beyond ARP, especially those crossing or clearing between B1 and B, and those at THR 09C.",
+    "See GMC 01.",
+    "AD unusable outside RWY and TWY.",
+    "Use of TWY is restricted to ACFT with wingspan 15 m MAX.",
+    "TWY A1 is reserved for ULM.",
+    "HEL school and training flights prohibited.",
+    "LDG RWY 09C compulsory vacating at the end of the RWY Except in case of immediate safety, AD users must strictly comply with the published circuits.",
+    "Except safety communications matters, pilots joining AD circuits are meant to monitor A/A frequency at least 2 minutes in order to be sure that no winching activity is in progress, regarding that using frequency may disturb communications between the glider's pilot and it's assistant.",
+    "TKOF RWY 27L and ULM area QFU 270°: Maintain TKOF heading to the end of the RWY because of fences at the end on the left side of RWY 09R and at the end on the left of the ULM area. activity Gliders winching activity notified on A/A frequency.",
+    "Avoid overhead AD below 2200 ft AMSL Mandatory use of the QFU used for winching activity.",
+    "In the event of a go-around RWY 09C/27C maintain RWY heading During winching activity",
+    "Engine failure exercices prohibited.",
+    "LDG/TKOF RWY 09C, 27C, 09R, and 27L prohibited.",
+    "Low height training circuits RWY 09C/27C prohibited.",
+    "East configuration: LDG/TKOF on ULM area prohibited.",
+    "Ground taxiing: TWY B closed West configuration: ACFT:.",
+    "On DEP taxi via S.",
+    "On ARR taxi via A then S.",
+    "S2 available in case of crossing on S when taxiing.",
+    "Gliders: towing via S2.",
+    "East configuration: ACFT:.",
+    "On DEP taxi via S then A.",
+    "On ARR taxi via S.",
+    "S2 available in case of crossing on S when taxiing.",
+    "Hot spots: see GMC 01.",
+    "Speclal radiocommunication Instructions Users must be aware of the presence of home-based ULM operated by Aeroclub des Sourds de France (French aeroclub for deaf people) and flying without any radio equipment within ULM patterns according to conditions defined by CAA (DSAC Nord).",
+    "Gliders winching (NR 939): 2200 ft AMSL, SR-30 - SS+30.Winch fitted with flashing lights.",
+    "Activity reserved for AACM members according to local instructions.",
+    "Unmarked cable.",
+    "Activity AEM NR 8690, NW of the airfield, SR-SS, SFC300 ft ASFC."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux aéronefs dont la masse maximale au décollage (MTOW) est supérieure à 5,7t.",
+      "Piste non revêtue 09R-27L réservée uniquement aux planeurs et aux aéronefs de servitude, avec priorité aux planeurs à l'atterrissage.",
+      "Axe de voltige (N° 6292, Aulnoy) réservé aux planeurs basés, 1500 ft ASFC - 2500 ft AMSL, SR-SS.",
+      "Hot spots : les ACFT positionnés à ces points ne peuvent apercevoir les appareils circulant au-delà de l'ARP, notamment ceux qui croisent ou qui dégagent entre B1 et B, ainsi que ceux au seuil RWY 09C.",
+      "Voir GMC 01.",
+      "AD inutilisable hors RWY et TWY.",
+      "L'utilisation des TWY est limitée aux ACFT d'envergure 15 m MAX.",
+      "Voie de circulation A1 réservée aux ULM.",
+      "Vols d'école et d'entraînement HEL interdits.",
+      "LDG RWY 09C dégagement obligatoire en bout de piste. Hors cas de sécurité immédiate, il est demandé aux usagers de l'aérodrome de respecter strictement les circuits publiés.",
+      "Hors communications liées à des impératifs de sécurité, il est demandé aux aéronefs entrant dans les circuits d'aérodrome, d'effectuer une écoute d'au moins deux minutes de la fréquence A/A afin de s'assurer qu'il n'y a pas d'opération de treuillage en cours, l'utilisation de la fréquence pouvant gêner la communication entre l'opérateur et le pilote planeur.",
+      "Décollage RWY 27L et aire ULM QFU 270° : Maintenir l'axe au décollage jusqu'à l'extrémité de piste cause présence de clôtures à l'extrémité gauche de la RWY 09R et à l'extrémité gauche de l'aire ULM.",
+      "",
+      "",
+      "Exercices d'encadrements interdits.",
+      "LDG/TKOF RWY 09C, 27C, 09R et 27L interdits.",
+      "Maintien de l'axe de piste en cas de remise de gaz sur RWY 09C/27C.",
+      "En configuration E, LDG/TKOF sur aire ULM interdits.",
+      "",
+      "Roulage au départ via S.",
+      "Roulage à l'arrivée via A puis S.",
+      "Si croisement au roulage sur S possibilité d'utiliser S2.",
+      "Planeurs : tractage via S2.",
+      "",
+      "Roulage au départ via S puis A.",
+      "Roulage à l'arrivée via S.",
+      "Si croisement au roulage sur S possibilité d'utiliser S2.",
+      "Hot spots : voir GMC 01.",
+      "Conditions particulières de radiocommunication L'attention des usagers est attirée sur la présence d'ULM basés, exploités par l'Aéroclub des Sourds de France, évoluant sans équipement radio dans les circuits ULM selon les conditions définies par la DSAC Nord.",
+      "Treuillage planeurs (N° 939) : 2200 ft AMSL, SR-30 - SS+30.",
+      "",
+      "",
+      "Activité AEM N° 8690 dans la partie NW de l'AD, SRSS, SFC-300 ft ASFC."
+    ]
+  }
+}

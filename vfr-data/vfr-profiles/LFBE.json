@@ -1,0 +1,139 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBE (AIP France, chart dated 2026-06-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFBE",
+  "name": "Bergerac Dordogne Périgord",
+  "source": {
+    "publication": "AIP France AD 2 LFBE",
+    "chartDate": "2026-06-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.82444,
+    "longitude": 0.52056
+  },
+  "elevationFeet": 172,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "0700-1900. Extension possible pour tout vol régulier programmé, vols sanitaires (transfert d'organes) et pour tout trafic avec PN 48 HR, PPR à EGC AERO pendant les heures de bureau. Extension des horaires ATS au bénéfice des vols commerciaux programmés annoncée sur ATIS. Possible extension for any planned scheduled flight, air ambulances (organ transfer), and for any traffic with PN 48 HR, PPR from EGC AERO during of (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 127.48,
+    "approach": 119.275,
+    "tower": 119.805,
+    "airAir": 119.805
+  },
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        93,
+        273
+      ]
+    },
+    {
+      "id": "09R/27L",
+      "qfu": [
+        93,
+        273
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 44.87544,
+      "longitude": 0.54867,
+      "location": "Village Pélissous (Château d'eau)"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 44.91942,
+      "longitude": 0.56075,
+      "location": "Route N21 - Ligne HT (Croisement)"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 44.93125,
+      "longitude": 0.43036,
+      "location": "Route D709 - Ligne HT (Croisement)"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 44.77519,
+      "longitude": 0.52186,
+      "location": "Village Colombier (Château d'eau)"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 44.73031,
+      "longitude": 0.60719,
+      "location": "Village Issigeac (Église)"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 44.66769,
+      "longitude": 0.39642,
+      "location": "Village Eymet (Église)"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Unpaved RWY reserved for home-based ACFT.",
+    "AEM SAINT AUBIN DE LANQUAIS (NR 9445): See AIP ENR 5.5 AEM SAINT JULIEN D'EYMET (NR 9417): See AIP ENR 5.5 Taxiing prohibited except on RWY and TWY.",
+    "No U-turn on the runway.",
+    "Vigilance is recommended when taxiing to stand because of reduced visibility for some stands from the tower.",
+    "TWY Air CD is private, for the exclusive use of the company Air CD.",
+    "Vigilance is required, due to the possible jet blast on stand D3, D31 and D4.",
+    "Route Height Without IFR traffic within the CTR: ACFT: VIS 1500 m - HEL: VIS 800 m.",
+    "Possible SW1 unusable if AEM 9417 active Divers / Miscellaneous: Assistance aviation générale / General aviation handling TRAFIC BERGERAC: GRF (service d'évaluation et de report de l'état de surface de piste) / GRF (global reporting format): HOR RFFS / RFFS SKED."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Piste non revêtue réservée aux aéronefs basés.",
+      "AEM SAINT AUBIN DE LANQUAIS (N° 9445) : Voir AIP AEM SAINT JULIEN D'EYMET (N° 9417) : Voir AIP Roulage interdit hors RWY et TWY.",
+      "Demi-tour sur la piste interdit.",
+      "Vigilance recommandée au roulage vers les postes de stationnement en raison d'une visibilité réduite depuis la tour sur certains postes.",
+      "Voie de relation Air CD privée, à l'usage exclusif de la société Air CD.",
+      "Vigilance requise en raison de la possibilité de souffle réacteur en poste D3, D31 et D4.",
+      "Itinéraires NE1 NE-NA 1500 m (HEL 1000 m) NW1 NW-NA SE1 SE-SA SW1 SW-SA En l'absence de TFC IFR dans la CTR : Avions : VIS 1500 m - HEL : VIS 800 m.",
+      ""
+    ]
+  }
+}

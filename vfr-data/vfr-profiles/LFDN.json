@@ -1,0 +1,76 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDN (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFDN",
+  "name": "Rochefort - Charente-Maritime",
+  "source": {
+    "publication": "AIP France AD 2 LFDN",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.88944,
+    "longitude": -0.98222
+  },
+  "elevationFeet": 60,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS LUN-VEN / MON-FRI : 0800-1100 et / and 1200-1600. En dehors de ces horaires, extension possible, PPR la veille ou dernier jour ouvrable avant 1100 / Outside these SKED, possible extension, PPR on the day before or on the last working day before 1100 (UTC HIV ; HOR ETE : - 1 HR)",
+    "outsideAtsHours": "air-air frequency 119.305",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 124.205,
+    "afis": 119.305
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        122,
+        302
+      ]
+    }
+  ],
+  "preferredQfu": 302,
+  "preferredQfuReason": "preferred QFU 302, due to IFR procedure",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited for paramotors and lights aerostats (Classes 1 and 5 ULM).",
+    "Possible IFR operations.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Axial line of the RWY turn-pad, TWY A and B are designed for ACFT whose wingspan is smaller than 36 m and main gear overall width is smaller than 9 m.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU: 302° due to IFR procedure.",
+    "Aerodrome circuit below 500 ft AAL authorized only with an instructor pilot.",
+    "Military school flights during opening days.",
+    "TWY A and E not usable.",
+    "Parachuting on AD (NR 354): see AIP ENR 5.5.",
+    "Aerobatics over AD (NR 6502): see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux paramoteurs et aérostats légers (ULM Classes 1 et 5).",
+      "Activité IFR possible.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Ligne axiale d'aire de demi-tour, sur piste ainsi que les TWY A et B conçus pour des aéronefs disposant d'une envergure de moins de 36 m et d'une largeur hors tout du train principal de moins de 9 m.",
+      "Roulage interdit hors RWY et TWY.",
+      "QFU 302° préférentiel cause procédure IFR.",
+      "Circuits en dessous de 500 ft AAL autorisés avec un instructeur uniquement.",
+      "Vols école MIL, jours ouvrables.",
+      "Voies de circulation A et E non utilisables.",
+      "Parachutage sur AD (N° 354) : voir AIP ENR 5.5.",
+      "Activité voltige sur AD (N° 6502) : voir AIP ENR 5.5."
+    ]
+  }
+}

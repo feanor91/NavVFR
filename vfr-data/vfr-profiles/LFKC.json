@@ -1,0 +1,197 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFKC (AIP France, chart dated 2026-03-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFKC",
+  "name": "Calvi-Sainte-Catherine",
+  "source": {
+    "publication": "AIP France AD 2 LFKC",
+    "chartDate": "2026-03-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 42.52444,
+    "longitude": 8.79306
+  },
+  "elevationFeet": 210,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "ETE / SUM : 0445 - SS+30 HIV / WIN : 0545 - SS+30 Extension possible annoncée sur FREQ TWR ou ATIS. Possible extension announced on FREQ TWR or ATIS. Aérodrome de CALVI Sainte-Catherine, 20260 Calvi (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 131.18,
+    "approach": 123.825,
+    "tower": 123.2,
+    "airAir": 123.2
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        177,
+        357
+      ]
+    }
+  ],
+  "preferredQfu": 177,
+  "preferredQfuReason": "preferred QFU 177, due to IFR procedure",
+  "reportingPoints": [
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 42.61222,
+      "longitude": 8.85222,
+      "location": "Punta San Damiano"
+    },
+    {
+      "name": "EA",
+      "spoken": {
+        "fr": "Écho Alpha",
+        "en": "Echo Alpha"
+      },
+      "latitude": 42.54111,
+      "longitude": 8.79917,
+      "location": "Cantone"
+    },
+    {
+      "name": "IR",
+      "spoken": {
+        "fr": "India Roméo",
+        "en": "India Romeo"
+      },
+      "latitude": 42.64444,
+      "longitude": 8.93167,
+      "location": "L'Ile Rousse"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 42.58306,
+      "longitude": 8.72444,
+      "location": "La Revellata"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 42.57528,
+      "longitude": 8.69083,
+      "location": "En mer"
+    },
+    {
+      "name": "PB",
+      "spoken": {
+        "fr": "Papa Bravo",
+        "en": "Papa Bravo"
+      },
+      "latitude": 42.56944,
+      "longitude": 8.665,
+      "location": "En mer"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 42.5125,
+      "longitude": 8.665,
+      "location": "Travers Sémaphore Cavallo sur la côte"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 42.56056,
+      "longitude": 8.71667,
+      "location": "Punta Ricci"
+    },
+    {
+      "name": "WC",
+      "spoken": {
+        "fr": "Whisky Charlie",
+        "en": "Whiskey Charlie"
+      },
+      "latitude": 42.61917,
+      "longitude": 8.61361,
+      "location": "En mer"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "RWY 18/36 isn't operated with crosswinds greater than or equal to 20 kt if the RWY is wet.",
+    "ULM activity: AD authorized for class 2, 3, 4 et 6 ULMs equipped with radio and mode C transponder:; use of AD may be subject to pilot's ability to integrate into aerodrome traffic.",
+    "Use of helistop within a 8 km radius from ARP: PPR from ATS for agreement request form (see ATS).",
+    "Caution to pilots: on approach RWY 36, roadway nearby.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "With severe winds: Arrivals and departures via pass of MARSOLINU are not advised (possible presence of severe down draughts).; Risk of turbulences in the vicinity of aerodrome when proceeding the approach.; Rocky obstacle located West of threshold 18 lighted along 380 meters.",
+    "Possibility of turbulence due to this obstacle.",
+    "Low height circuits: reserved for instruction needs. l'instruction.",
+    "Circuits à l'Est de la RWY 500ft (300 ft).",
+    "Circuits on the East of the RWY 500 ft (300 ft).",
+    "Avoid overflight of the industrial area.",
+    "Preferred QFU 177° due to IFR procedure.",
+    "RWY with descending slope 2 % after THR 36.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "TWY A (width 13.5 m) limited to code B ACFT whose tail fin height < 11 m.",
+    "TWY B (width 23 m) limited to code D ACFT whose main gear overall width < 9 m.",
+    "TWY C (width 11 m) limited to code A ACFT (wing-span < 12 m).",
+    "D APRON: ACFT operating on D apron are under the responsibility of the Coordinating Ground Handling Agent.",
+    "ACFT movements on D apron are done clockwise.",
+    "Access to pedestrian paths are prohibited, ground mouvements provided by the Ground Handling Agents vehicle only.",
+    "S arrival: Preferential altitude before radio contact 1500 ft AMSL minimum.",
+    "Unpredictable radio contact below 1500 ft AMSL.",
+    "Report on E, W at 1200 ft AMSL (1000 ft ASFC).",
+    "OVERSEAS FLIGHTS: CALVI / CONTINENT / CALVI: see AIP FRANCE and additional book to aeronautical charts.",
+    "Traffic surveillance equipment: AD equipped with a radar display (see AD 1.0)."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "La piste 18/36 n'est pas exploitable par vents traversiers supérieurs ou égaux à 20 kt si la piste est mouillée.",
+      "Activité ULM : ULM de classe 2, 3, 4 et 6 muni de radio et transpondeur mode C : utilisation de l'aérodrome subordonnée à la justification par le pilote de son aptitude à s'intégrer dans la circulation d'aérodrome.",
+      "Utilisation d'une hélisurface dans un rayon de 8 km / ARP AD : PPR ATS pour obtention du formulaire de demande d'accord (voir ATS).",
+      "Point de vigilance pilote : en approche RWY 36, proximité d'une voie routière.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Par vents forts : Arrivées et départs par le col de MARSOLINU déconseillés (rencontre possible de violents rabattants). Risque de turbulences aux abords de l'aérodrome en approche. Obstacle rocheux balisé de 380 m de longueur situé.",
+      "",
+      "",
+      "",
+      "",
+      "Éviter le survol de la zone industrielle.",
+      "QFU 177° préférentiel cause procédure IFR.",
+      "Piste déscendante 2 % à partir du THR 36.",
+      "Roulage interdit hors RWY et TWY.",
+      "TWY A (largeur 13,5 m) limité aux appareils de code B dont la hauteur de dérive est inférieure à 11 m.",
+      "TWY B (largeur 23 m) limité aux appareils de code D dont la largeur hors tout du train principal est inférieure à 9 m.",
+      "TWY C (largeur 11 m) limité aux appareils de code A (envergure < 12 m).",
+      "CALVI SAINTE CATHERINE PRKG D : Les aéronefs évoluant sur le parking D sont placés sous la responsabilité de l'Assistant en escale.",
+      "La circulation sur le parking D s'effectue dans le sens horaire.",
+      "Les cheminements piétons sont interdits, les déplacements sont assurés uniquement avec le véhicule de l'Assistant en escale. des points d'entrée.",
+      "Arrivée S : Altitude préférentielle avant contact radio 1500 ft AMSL minimum.",
+      "Qualité du contact radio aléatoire en dessous de 1500 ft AMSL.",
+      "Présentation aux points E, W à 1200 ft AMSL (1000 ft ASFC).",
+      "TRAVERSEES MARITIMES : CALVI / CONTINENT / CALVI : voir AIP FRANCE et complément aux cartes aéronautiques.",
+      "AD Équipement Équipement de surveillance du trafic : AD équipé d'une visualisation radar (voir AD 1.0)."
+    ]
+  }
+}

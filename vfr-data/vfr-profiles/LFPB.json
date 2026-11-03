@@ -1,0 +1,221 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFPB (AIP France, chart dated 2024-10-31): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFPB",
+  "name": "Paris-Le Bourget",
+  "source": {
+    "publication": "AIP France AD 2 LFPB",
+    "chartDate": "2024-10-31",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.96944,
+    "longitude": 2.44139
+  },
+  "elevationFeet": 220,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "H24 Aéroport du Bourget, SNA - RP/CDG/LB - 93350 Le Bourget (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "atis": 120.005,
+    "approach": 121.155,
+    "tower": 118.93,
+    "ground": 121.905
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        67,
+        247
+      ]
+    },
+    {
+      "id": "03/21",
+      "qfu": [
+        24,
+        204
+      ]
+    },
+    {
+      "id": "09/27",
+      "qfu": [
+        84,
+        264
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "E1",
+      "spoken": {
+        "fr": "Écho un",
+        "en": "Echo one"
+      },
+      "latitude": 48.89861,
+      "longitude": 2.55722,
+      "location": "Château d'eau"
+    },
+    {
+      "name": "E2",
+      "spoken": {
+        "fr": "Écho deux",
+        "en": "Echo two"
+      },
+      "latitude": 48.93222,
+      "longitude": 2.48083,
+      "location": "Intersection A3/voie ferrée"
+    },
+    {
+      "name": "W2",
+      "spoken": {
+        "fr": "Whisky deux",
+        "en": "Whiskey two"
+      },
+      "latitude": 48.97417,
+      "longitude": 2.36583,
+      "location": "Jonction N1/N16"
+    },
+    {
+      "name": "W1",
+      "spoken": {
+        "fr": "Whisky un",
+        "en": "Whiskey one"
+      },
+      "latitude": 49.00139,
+      "longitude": 2.185,
+      "location": "Patte d'oie d'Herblay"
+    }
+  ],
+  "notes": [
+    "Caution advised due to risk of confusions between QFU 247°, 264° and closed strip 26 located between both.",
+    "RWY 27 which can be used exclusively for the landing of aircraft with a wingspan of less than 52 m.",
+    "RWY 09 which can be used exclusively for the take-off of aircraft with a wingspan of less than 52 m.",
+    "The AD is prohibited to regular commercial traffic and charter, reserved to ACFT necessarily equipped with FREQ ‘'DE GAULLE APP'' (IFR) and ‘'LE BOURGET TWR''.",
+    "No local training flight authorized for any type of ACFT by day or by night (exceptionnally and with PPR for propeller driven ACFT).",
+    "No jet engined ACFT may leave parking point for TKOF from 2115 to 0500, UTC WIN time, of departure from Obstacles Trees ALT 328 ft (108 ft) located at 1700 m from THR 25 projecting within approach funnel.",
+    "Only ATC may give clearance to cross or enter any RWY.",
+    "It is mandatory to read back any instruction before crossing a RWY.",
+    "HS 1: TWY crossing RWY with ACFT flaring out.",
+    "HS 2: The holding point is located far enough from RWY threshold.",
+    "HS 3: Confusion risk between thresholds 07 and 09.",
+    "HS 4: Crossing of RWY 03-21.",
+    "This RWY is very weakly used but remains active.",
+    "HS 5: Important knot of traffic (ACFT and vehicles) with poor visibility due to buildings.",
+    "HS 6: Confusion risk between taxiways B1 and B.",
+    "Mandatory assistance from approved based societies.",
+    "The name of the assistant society must be compulsory stated in field 18 of the flight plan as a remark (RMK).",
+    "For special flights (photo, aerial work, drones) PPR PN 10 working days minimum addressed to SNA/RP/CDG/SE/Subdivision contrôle.",
+    "FAX: 01 74 37 86 19.",
+    "E-mail: lfpg-ctl@aviation-civile.gouv.fr Taxiing Taxiing prohibited except on RWY and TWY.",
+    "In order to prevent any mishap between mobile vehicles on manoeuvering area, ACFT speed on TWY W1, W2 and C22 is limited to 35 km/h (20 kt).",
+    "On TWY, taxi lights must be switched on regardless of visibility conditions, 24 hours a day.",
+    "V1 apron may be classified as a manoeuvring area TWY V1, via NOTAM.",
+    "VFR flights VFR: VMC conditions within class D airspace.",
+    "The PARIS LE BOURGET aerodrome service in VFR rules is prohibited, as well in arrival or at departure to aircraft which are classified \"heavy lift\" on wake turbulence purpose with MAX take-off weight above or equal to 100 000 kg.",
+    "Maximum speed 150 kt on VFR arrival and departure routes.",
+    "VFR transit is prohibited between E1 and W1.",
+    "Route reserved for le Bourget arrivals and departures.",
+    "Arrival procedures Enter PARIS CTR.",
+    "The authorization of entering PARIS CTR will be asked on LE BOURGET TWR before reaching its limits.",
+    "It will also mention: Aircraft type designator, type of aircraft, origin, position, altitude.",
+    "Except particular authorization from control the entrance in PARIS CTR will be operated over one of the following points: North/West entry: W1 (RDL 133° /PON);; South/East entry: E1 (RDL 119° /PON).",
+    "Routes inside PARIS CTR Except otherwise instructed by TWR, ACFT in sight of the ground will follow the magnetic roads described there after.",
+    "North/West entry: W1 RM 133° (RDL 133° /PON) then RM 089° (RDL 269° /BT) up to W2.",
+    "South/East entry: E1 RM 303° (RDL 119° /PON) up to E2.",
+    "They will report when arriving overhead W2 for North/West entry and overhead E2 for South/East entry.",
+    "Holding Except otherwise authorized by TWR, the initial holding will be operated in circular flight overhead W1 at the altitude of 1500 ft or overhead E1 at the altitude of 1300 ft.",
+    "Altitude in flight The maximum flight altitude inside PARIS CTR is limited to 1500 ft.",
+    "Radiocommunication failure in case of radiocommunication failure occuring before entry point W1 or E1: do not enter; between W1 and W2 or between E1 or E2, go about and advise LE BOURGET TWR as soon as possible.",
+    "Set transponder A 7600. after W2 or after E2: comply with clearances.",
+    "In case of no specific clearance fly to 03 threshold and land on runway 03 without interfering with runway 09/27.",
+    "Departure procedures Exit from PARIS CTR: except particular authorization from control, the departing ACFT will have to report at one of the following points: North/West Exit: W1 (via W2);; South/East Exit: E1 (via E2).",
+    "While asking for take off authorization, the pilot will mention the exit routeing he wishes to use.",
+    "After agreement with TWR, the ACFT will take off and take its heading while maintaining ground in sight.The ACFT will report to the control when leaving PARIS CTR.",
+    "Flight altitude Except particular authorization from TWR, the flight altitude inside PARIS CTR will be 1500 ft from W1 to E1 and 1300 ft from E1 to W1.",
+    "Radioommunication failure if a radiocommunication failure occurs before take off, the pilots won't be allowed to take off if a communication failure occurs after take off, the ACFT will continue its flight according to the received authorization.",
+    "Meteorological conditions: VFR: VMC conditions within D class; Special VFR: Meteorological minimum VFR Special in presence of IFR.",
+    "Arrival procedures in Special VFR flight: Local minimums: VH 3500 m - Ceiling 1500 ft.",
+    "The arrival procedures in special VFR flight and normal VFR are similar Departure procedures in special VFR flight Local minimums: VH 3500 m - Ceiling 1500 ft.",
+    "The departure procedures in special VFR flight and normal VFR are similar.",
+    "1500 AMSL.",
+    "Route reserved for propeller ACFT of less than 5,7 t equipped with a transponder (A and C mode) inbound or outbound LFPB.",
+    "Radiocommunication procedure On arrival apply the following procedure to join the route: listen to the ATIS; contact LE BOURGET 3 mn before VAIRES railway station to get the clearance.; hold watch listening.",
+    "Landing RWY 03 at night PAPI compulsory.",
+    "Radiocommunication failure Arrival: before VAIRES railway station, divert to previous alternate airfield.; after VAIRES railway station, continue the flight according to the last instructions received.",
+    "Departure: before VAIRES railway station turn back to LFPB; after VAIRES railway station continue the fly according to general rules.",
+    "Traffic surveillance equipment: AD equipped with secondary surveillance radar (see AD 1.0)."
+  ],
+  "fr": {
+    "notes": [
+      "Attention danger de confusion entre les QFU 247°, 264° et la bande désaffectée située entre ces QFU.",
+      "RWY 27 utilisable exclusivement à l'atterrissage des aéronefs d'envergure inférieure à 52 m.",
+      "RWY 09 utilisable exclusivement au décollage des aéronefs d'envergure inférieure à 52 m.",
+      "L'AD est interdit au trafic commercial régulier et charter, réservé aux ACFT obligatoirement munis des FREQ de \"DE GAULLE APP'' (IFR) et \"LE BOURGET TOUR''.",
+      "ACFT tous types aucun vol local d'entraînement n'est admis de jour comme de nuit (Exceptionnel et sur PPR pour ACFT à hélice).",
+      "",
+      "La traversée de piste ne s'effectue que sur clairance explicite du contrôle.",
+      "Le collationnement de toute instruction avant une traversée de piste est exigé.",
+      "HS 1 : TWY traversant une piste avec ACFT à l'arrondi.",
+      "HS 2 : Le point d'attente est situé assez loin du seuil de piste.",
+      "HS 3 : Risque de confusion entre les deux seuils 07 et 09.",
+      "HS 4 : Traversée de piste 03-21.",
+      "Cette piste est très faiblement utilisée mais reste active.",
+      "HS 5 : Noeud de circulation important (appareils et véhicules) avec mauvaise visibilité due à la présence de bâtiments.",
+      "HS 6 : Risque de confusion entre les voies B1 et B.",
+      "Assistance obligatoire par Sociétés basées agréées.",
+      "Le nom de la société assistante doit être obligatoirement mentionné en case 18 du plan de vol en remarque (RMK).",
+      "Pour les vols spéciaux (missions, photo, travail aérien, drones) sur demande adressée avec un préavis minimum de 10 jours ouvrés au SNA/RP/CDG/SE/Subdivision contrôle.",
+      "",
+      "E-mail : lfpg-ctl@aviation-civile.gouv.fr Roulage Roulage interdit hors RWY et TWY.",
+      "Dans le cadre de la prévention des rapprochements dangereux entre mobiles sur l'aire de manoeuvre, la vitesse des aéronefs sur les TWY W1, W2 et C22 est limitée à 35 km/h (20 kt).",
+      "Sur les TWY, les phares de roulage doivent être allumés quelles que soient les conditions de visibilité, H24.",
+      "L'aire de trafic V1 peut être reclassée par NOTAM, en aire de manoeuvre TWY V1.",
+      "Vols VFR VFR : conditions VMC en classe D.",
+      "PARIS LE BOURGET La desserte de l'aéroport de PARIS LE BOURGET en régime de vol VFR est interdite aussi bien à l'arrivée qu'au départ, aux aéronefs classés en fonction de la turbulence de sillage \"gros porteurs\" de masse maximale certifiée au décollage supérieure ou égale à 100 000 kg.",
+      "La vitesse maximale est de 150 kt sur les itinéraires d'arrivée et de départ en VFR.",
+      "Transit VFR interdit entre E1 et W1.",
+      "Itinéraire réservé aux arrivées et départs le Bourget.",
+      "Procédure d'arrivée Entrée dans la CTR PARIS.",
+      "L'autorisation d'entrée dans la CTR PARIS sera demandée sur FREQ LE BOURGET Tour avant d'atteindre ses limites.",
+      "Elle comportera de plus : indicatif, type d'appareil, provenance, position, altitude.",
+      "Sauf autorisation particulière du contrôle, l'entrée dans la CTR PARIS s'effectuera à l'un des points suivants : Entrée Nord/Ouest : W1 (RDL 133° /PON) ; ; Entrée Sud/Est : E1 (RDL 119° /PON).",
+      "Itinéraire à l'intérieur de la CTR PARIS Sauf autorisation contraire de la TWR, les ACFT en vue du sol suivront les routes magnétiques ci-après.",
+      "Entrée Nord/Ouest :W1 RM 133° (RDL 133° /PON) puis RM 089° (RDL 269° /BT) jusqu'à W2.",
+      "",
+      "E2 Ils rendront compte de leur arrivée à la verticale de W2 pour les entrées Nord/Ouest et verticale de E2 pour les entrées Sud/Est.",
+      "Attente Sauf autorisation contraire de la TWR, l'attente initiale éventuelle sera effectuée en vol circulaire à la verticale de W1 à l'altitude de 1500 ft ou à la verticale de E1 à l'altitude de 1300 ft Altitude en vol L'altitude MAX de vol à l'intérieur de la CTR PARIS est limitée à 1500 ft.",
+      "Altitude en vol L'altitude MAX de vol à l'intérieur de la CTR PARIS est limitée à 1500 ft.",
+      "",
+      "",
+      "Dans le cas contraire se diriger vers le seuil 03 pour effectuer un atterrissage sur la piste 03 sans interférer avec la piste 09/27.",
+      "Sortie de la CTR PARIS : sauf autorisation particulière du contrôle, les ACFT au départ devront se reporter à l'un des points suivants : sortie Nord/Ouest : W1 (via W2) ; ; sortie Sud/Est : E1 (via E2).",
+      "",
+      "",
+      "Altitude de vol Sauf autorisation particulière de la TWR, l'altitude de vol à l'intérieur de la CTR PARIS sera de 1500 ft de W1 vers E1 et de 1300 ft de E1 vers W1.",
+      "",
+      "Conditions Météorologiques : VFR : conditions VMC en classe D ; VFR Spécial : Minimum météo VFR Spécial en présence d'IFR.",
+      "Minimums locaux : VIS 3500 m. Plafond 1500 ft.",
+      "Les procédures d'arrivée en vol VFR spécial et d'arrivée en vol VFR normal sont identiques Minimums locaux : VIS 3500 m. Plafond 1500 ft.",
+      "Les procédures de départ en vol VFR spécial et de départ en vol VFR normal sont identiques.",
+      "Plafond 1500 ft.",
+      "Cet itinéraire est exclusivement réservé aux ACFT à hélices de moins de 5,7 t équipés d'un transpondeur (mode A et C) à destination ou au départ de LFPB.",
+      "PARIS LE BOURGET Procédure de radiocommunication A l'arrivée, pour pénétrer sur l'itinéraire : écouter l'ATIS du BOURGET ; contacter LE BOURGET 3 mn au moins avant la gare de VAIRES pour obtenir la clairance. maintenir ensuite la veille radio.",
+      "Atterrissage de nuit RWY 03 PAPI obligatoire.",
+      "Panne de radiocommunication A l'arrivée : avant la gare de VAIRES se dérouter sur l'AD de dégagement prévu. après la gare de VAIRES, suivre les dernières instructions reçues.",
+      "Au Départ : avant la gare de VAIRES, faire demi tour ; après la gare de VAIRES poursuivre le vol et appliquer la règlementation générale.",
+      "Équipement de surveillance de trafic : AD équipé d'un radar secondaire (voir AD 1.0)."
+    ]
+  }
+}

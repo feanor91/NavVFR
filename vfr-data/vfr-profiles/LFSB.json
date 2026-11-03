@@ -1,0 +1,256 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFSB (AIP France, chart dated 2026-08-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFSB",
+  "name": "Européen de Bâle-Mulhouse-Fribourg (EuroAirPort)",
+  "source": {
+    "publication": "AIP France AD 2 LFSB",
+    "chartDate": "2026-08-06",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.59,
+    "longitude": 7.52917
+  },
+  "elevationFeet": 885,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "H24 - FRANCE : Aéroport de BALE MULHOUSE, BP 120, 68304 Saint-Louis (UTC HIV ; HOR ETE : - 1 HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 130.905,
+    "approach": 133.51,
+    "tower": 118.305,
+    "ground": 121.605
+  },
+  "runways": [
+    {
+      "id": "15/33",
+      "qfu": [
+        152,
+        332
+      ]
+    },
+    {
+      "id": "07/25",
+      "qfu": [
+        74,
+        254
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 47.61917,
+      "longitude": 7.5725,
+      "location": "Barrage (pointe Sud îlot sur le Rhin) N de Huningue"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 47.815,
+      "longitude": 7.54278,
+      "location": "Pont de Chalampé sur le Rhin"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 47.7075,
+      "longitude": 7.58083,
+      "location": "Intersection routes nationales N3 et K 6345"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 47.52667,
+      "longitude": 7.71472,
+      "location": "Pont sur autoroute au NE de Pratteln"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 47.6325,
+      "longitude": 7.23583,
+      "location": "Cimenterie N d'Altkirch"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 47.6,
+      "longitude": 7.38139,
+      "location": "Entre les 2 lignes HT sur la route de crête"
+    },
+    {
+      "name": "WB",
+      "spoken": {
+        "fr": "Whisky Bravo",
+        "en": "Whiskey Bravo"
+      },
+      "latitude": 47.58889,
+      "longitude": 7.49528,
+      "location": "Radar"
+    }
+  ],
+  "notes": [
+    "Mandatory general aviation handling service: see TXT 06.",
+    "RWY 07: available only for VFR TKOF in daylight and for home based ACFT.",
+    "RWY prohibited for landing.",
+    "RWY 25: approach prohibited when PAPI or RWY identification lights are out of order.",
+    "Airport prohibited to gliders.",
+    "Airport prohibited to ULM, except home based ULM.",
+    "HEL: see AD 3 LFSB TXT.",
+    "RWY 33 in use: routing NR 3 W-WA-WB have to comply with use restrictions.",
+    "ARRIVAL, DEPARTURE AND TRANSIT FOR VFR 1 - REPORTING POINTS ARR/DEP AND TRANSIT 2 - ARRIVAL PROCEDURES Radio contact to enter the CTR will be established with BALE TWR 3 min before overflying the points N, S, W.",
+    "Except special ATC clearance, ACFT will use the following routings: Routing NR 1: N - NE - E,; Routing NR 2: S - E, 3 - DEPARTURE PROCEDURES.",
+    "At first contact, say number of persons on board.",
+    "Except special ATC clearances, aéroplanes will use the following routings: exit N: routing NR 1: E - NE - N,; exit S: routing NR 2: E - S,; exit W: routing NR 3: WB - WA - W.",
+    "After TKOF RWY 25, report over point WB, except otherwise ATC instructions.",
+    "4 - TRANSIT PROCEDURES First radio contact with BALE TWR 3 min before the first report point.",
+    "5 - MISCELLANEOUS INSTRUCTIONS Circuits en vol: 1900 ft AMSL, circuit préferentiel RWY Circuits flight: 1900 ft AMSL, preferential pattern RWY 07/25 by the N.",
+    "Overflying \"petite Camargue Alsacienne\" minimum 1900 ft AMSL. altitude: 1900 ft AMSL.",
+    "To diminue noise nuisance, low altitude traffic patterns are prohibited (below 1000 ft AAL).",
+    "Taxiing prohibited except on RWY and TWY.",
+    "U-turns forbidden on the platform (taxiways and runways) for all aircraft.",
+    "Single or multiengines ACFT in VFR with weight less than or equal to 5.7 t: RWY 15: LDG and TKOF abeam TWY G:.",
+    "LDA / TORA / ASDA: 2370 m, TODA: 2470 m.",
+    "RWY 33: LDG DTHR 33: LDA: 2780 m.",
+    "TKOF abeam TWY E: TORA / ASDA: 2400 m, TODA: 2500 m.",
+    "6 - BALE TMA SECTORS T1-T2-T3 TMA sectors T1-T2-T3 have HX status.",
+    "Refer to Swiss AIP ENR 1.4 and French AIP ENR 2.1.",
+    "Activation possible H24.",
+    "Airspace status check mandatory before penetration.",
+    "Activation/deactivation announced by: RAI 134.",
+    "680 - Constant listening mandatory.",
+    "TEL: 00 33 (0)3 89 90 34 67 from France.",
+    "00 41 (0)61 325 34 67 from Switzerland.",
+    "7 - OPERATIONS RESTRICTIONS (Order of 06/08/2021).",
+    "See AD 2 LFSB 21.",
+    "Departure times: apron stand.",
+    "Arrival times: touchdown time on the RWY. a) Commercial traffic Scheduled flights: TFC prohibited between 2300 and 0400 (LDG) or 0500 (TKOF) (SUM: - 1 HR). b) General aviation LDG and TKOF forbidden between 2100 and 0500 (SUM: - 1 HR). c) Exemptions and derogations These restrictions do not prevent the following ACFT from LDG and TKOF, exceptionally: ACFT performing ambulance or humanitarian missions; ACFT in emergency situation due to flight safety reasons.; Military aircraft and state aircraft and exclusively performing public service missions.; ACFT operating for gouvernment missions.",
+    "Exceptions to these restrictions may be exceptionally granted by the French Minister for Civil Aviation.",
+    "Forms to apply for an exception may be obtained by calling 00 33 (0)3 89 90 33 33. d) Training flights require a prior telephonic clearance of the TWR supervisor.",
+    "They are prohibited for IFR ACFT and VFR ACFT with more than 5.7 t weight: every day: 1900 - 0700 (SUM: - 1 HR); SUN and french public HOL (including Good Friday and December 26th) and SUN and swiss public HOL.; SAT: 1100 - 1900 (SUM: - 1 HR) 8 - OPERATION OF TWY C-C1-J AND SOUTH-WEST.",
+    "MAINTENANCE AREA (HS 1-2-3) HS: Hot spot.",
+    "Particular attention shall be paid to the crossing, lining up and taxiing clearances.",
+    "For crossing or alignment with runway as well as taxiing on TWYs, an explicit control clearance must be obtained.",
+    "Readback is required for any instruction.",
+    "HS1: The use of the South-West area is subject to a protocol that defines the conditions for managing the entries / exits in / from this maintenance area.",
+    "Before joining this area, come into contact with JetAviation, AMAC or ASB.",
+    "HS2: Due to lack of visibility, despite video means utilisation, monitors of the access and exit of / from JetAviation / Swiss services stands difficult.",
+    "Same remark for access and exit RWY 07/25 via TWY C1.",
+    "HS3: Due to lack of visibility, despite video means utilisation, monitor of line-up or vacation of RWY 07/25 via TWY C or J, stands difficult.",
+    "Same remark for crossings of RWY via these two TWY.",
+    "9 - ARRIVALS / DEPARTURES HELICOPTER BASE REGA (EC145 of Swiss rescue ) The emergency medical aid provided by the helicopter of the REGA may cause counter-QFU movements on this platform.",
+    "The control unit ensures spacing between this helicopter and the aircraft taxiing on TWY B, or present at the different holding points.",
+    "A traffic information will be given to the crews as regards any movement on this platform.",
+    "With IFR traffic: VIS: 3000 m - Ceiling 1000 ft.",
+    "Without IFR traffic: VIS: 1500 m - Ceiling: 600 ft.",
+    "Traffic surveillance equipment: AD equipped with a secondary surveillance radar (see AD 1.0).",
+    "Radiocommunication failure: If possible, use mobile phone to contact TWR TEL: 00 33 (0)3 89 90 26 41 / 78 31.",
+    "On arrival: a) Before reception of the entry clearance in the circuit, leave the CTR via the most appropriate VFR routings. b) After reception of the entry clearance in the circuit, continue the landing on the RWY in use.",
+    "On departure: a) Before reception of TKOF clearance: do not take-off. b) After reception of TKOF clearance: take off and leave the CTR according to received clearances.",
+    "Divers / Miscellaneous: Service d'assistance aviation générale / General aviation handling service: Every non-based VFR flight wishing to park at Bale-Mulhouse airport is subject to a PPR request and to FPL filing.",
+    "The PPR (available on the website) must be adressed to Apron Control service between 0700 and 1600 (SUM: - 1 HR) 24 hours before the flight schedule (1).",
+    "For safety and security reasons, handling is compulsory for all non-based general aviation flights.",
+    "It is mandatory to contact the airport operator (EuroAirport 00 33 (0)3 89 90 33 33) before the departure from the origin airport for prior agreement (See AD 2 LFSB 4).",
+    "Pilots and passengers have to be transported to remote aircraft positions by the airport operator's bussing department (1) website: www.euroairport.com E-mail: ppr-lfsb@euroairport.com TEL: 00 33 (0)3 89 90 33 33 (France) - 00 41 (0)61 325 33 33 (Swiss).",
+    "GRF (service d'évaluation et de report de l'état de surface de piste / Global reporting format): H24."
+  ],
+  "fr": {
+    "notes": [
+      "Service assistance aéroportuaire obligatoire : voir TXT 06.",
+      "RWY 07 : utilisable uniquement au décollage en VFR de jour et réservée aux avions basés.",
+      "Piste interdite à l'atterrissage.",
+      "RWY 25 : approche interdite en cas de panne du PAPI ou des feux d'identification de seuil de piste.",
+      "Aéroport interdit aux planeurs.",
+      "Aéroport interdit aux ULM, sauf aux ULM basés.",
+      "HEL : voir AD 3 LFSB TXT.",
+      "Piste 33 en service : l'itinéraire N° 3 W-WA-WB est soumis à restrictions d'utilisation.",
+      "",
+      "Sauf clairance particulière du contrôle, les avions suivront les itinéraires suivants : Itinéraire N° 1 : N - NE - E ; Itinéraire N° 2 : S - E ; Itinéraire N° 3 : W - WA - WB ; Routing NR 3 : W - WA - WB 3 - PROCEDURES DE DEPART.",
+      "Au premier contact, indiquer le nombre de personnes à bord.",
+      "Sauf clairance particulière du contrôle, les avions suivront les itinéraires suivants : sortie N : itinéraire N° 1 : E - NE - N ; sortie S : itinéraire N° 2 : E - S ; sortie W : itinéraire N° 3 : WB - WA - W.",
+      "Après décollage en piste 25, se reporter sur le point WB, sauf instruction contraire du contrôle.",
+      "4 - PROCEDURES DE TRANSIT Premier contact sur la fréquence de BALE TWR 3 min avant le premier point de report.",
+      "5 - CONSIGNES DIVERSES 07/25 par le N.",
+      "Survol petite Camargue Alsacienne altitude minimale : Afin de diminuer les nuisances sonores, les circuits basse hauteur sont interdits (inférieurs à 1000 ft AAL).",
+      "Afin de diminuer les nuisances sonores, les circuits basse hauteur sont interdits (inférieurs à 1000 ft AAL).",
+      "Roulage interdit hors RWY et TWY.",
+      "Demi-tours interdits sur la plateforme (taxiways et pistes) à tous les appareils.",
+      "",
+      "LDA / TORA / ASDA : 2370 m, TODA : 2470 m.",
+      "Piste 33 : LDG DTHR 33 : LDA : 2780 m.",
+      "TKOF travers TWY E : TORA / ASDA : 2400 m, TODA : 2500 m.",
+      "6 - SECTEURS TMA BALE T1-T2-T3 Les secteurs T1-T2-T3 ont un statut HX.",
+      "Se référer à AIP Suisse ENR 1.4 et AIP France ENR 2.1.",
+      "Activables H24.",
+      "Vérification du statut de l'espace obligatoire avant pénétration.",
+      "Activation/désactivation annoncée par : RAI 134.",
+      "680 - Veille permanente obligatoire.",
+      "BALE MULHOUSE TEL : 00 33 (0)3 89 90 34 67 depuis la France.",
+      "00 41 (0)61 325 34 67 depuis la Suisse.",
+      "7 - RESTRICTIONS D'EXPLOITATION (Arrêté du 06/08/2021).",
+      "Voir AD 2 LFSB 21.",
+      "Heures de départ : poste de stationnement.",
+      "Heures d'arrivée : heure de toucher des roues. a) Trafic commercial Vols de lignes régulières : TFC interdit entre 2300 et 0400 (LDG) ou 0500 (TKOF) (ETE : - 1 HR). b) Aviation générale b) Aviation générale LDG et TKOF interdits entre 2100 c) Exemptions et dérogations Ces restrictions ne font pas obstacles à l'atterrissage ou au décollage, à titre exceptionnel des aéronefs suivants : Aéronefs effectuant des missions à caractère sanitaire ou humanitaire. Aéronefs en situation d'urgence tenant à des raisons de sécurité de vol. Aéronefs militaires et aéronefs appartenant à l'État et exclusivement affectés à un service public. Aéronefs effectuant des vols gouvernementaux.",
+      "Des dérogations à ces restrictions peuvent être accordées à titre exceptionnel par le Ministre chargé de l'Aviation Civile.",
+      "Les formulaires de demande de dérogation peuvent être demandés au 00 33 (0)3 89 90 33 33. d) Vols d'entraînement soumis à autorisation téléphonique préalable du Chef de quart.",
+      "Ils sont interdits aux ACFT IFR ainsi qu'aux ACFT en VFR d'un poids supérieur à 5,7 t : tous les jours : 1900 - 0700 (ETE : - 1 HR) ; DIM et JF français (y compris Vendredi Saint et 26 décembre) et DIM et JF suisses. SAM : 1100 - 1900 (ETE : - 1 HR) 8 - EXPLOITATION TWY C-C1-J ET AIRE DE.",
+      "MAINTENANCE SUD-OUEST (HS 1-2-3) HS : Hot spot (point chaud).",
+      "Être très attentif aux clairances de traversée, alignement et roulage.",
+      "La traversée ou l'alignement piste, ainsi que le roulage sur les TWY ne s'effectuent que sur clairance explicite de contrôle.",
+      "Le collationnement de toute instruction est exigé.",
+      "HS1 : L'exploitation de l'aire Sud-Ouest fait l'objet d'un protocole définissant les conditions de gestion des entrées et sorties de cette aire de maintenance.",
+      "Prendre contact préalablement avec Jet-Aviation, AMAC ou ASB avant de rejoindre cette aire.",
+      "BALE MULHOUSE HS2 : En raison du manque de visibilité, et malgré l'utilisation de moyens vidéo la surveillance de l'accès et de la sortie de l'aire d'entretien Jet-Aviation / Swiss reste difficile.",
+      "Même remarque pour l'accès et la sortie de la piste 07/25, via le TWY C1.",
+      "HS3 : En raison du manque de visibilité, et malgré l'utilisation de moyens vidéo, la surveillance de l'alignement ou de la sortie de la piste 07/25, via les TWY C et J, reste difficile.",
+      "Même remarque pour les traversées de piste via ces deux TWY.",
+      "9 - ARRIVEES / DEPARTS BASE HELICOPTERE REGA (EC145 de la garde aérienne Suisse de sauvetage) L'aide médicale d'urgence apportée par l'hélicoptère de la REGA peut entraîner des mouvements à contre QFU sur cette plateforme.",
+      "Le service de contrôle de BALE MULHOUSE assure les espacements entre cet hélicoptère et les avions au roulage sur le TWY B, ou présents aux divers points d'attente.",
+      "Une information de trafic sera faite aux équipages sur tous mouvements sur cette plateforme.",
+      "En l'absence de trafic IFR : VIS : 1500 m - Plafond : 600 ft.",
+      "En l'absence de trafic IFR : VIS : 1500 m - Plafond : 600 ft.",
+      "Équipement de surveillance du trafic : aérodrome équipé d'un radar secondaire (voir AD 1.0).",
+      "",
+      "A l'arrivée : a) Avant réception de la clairance d'entrée dans le circuit de piste, sortir de la CTR par l'itinéraire VFR le plus approprié. b) Après réception de la clairance d'entrée dans le circuit de piste, poursuivre son atterrissage sur la piste en service.",
+      "Au départ : a) Avant la réception de la clairance de décollage : ne pas décoller. b) Après la réception de la clairance de décollage : décoller et sortir de la CTR suivant les autorisations reçues.",
+      "BALE MULHOUSE 18 - Tout vol VFR non basé et souhaitant stationner à l'Aéroport de Bâle-Mulhouse est subordonné à une demande de PPR et au dépôt d'un plan de vol.",
+      "Le PPR (disponible sur le site web) doit être adressé au service Apron Control entre 0700 et 1600 (ETE : - 1 HR) 24 heures avant l'horaire du vol (1).",
+      "Pour des raisons de sûreté et de sécurité, l'assistance est obligatoire pour l'aviation générale non basée.",
+      "Il est impératif de prendre contact avec le gestionnaire aéroportuaire (EuroAirport 00 33 (0)3 89 90 33 33) avant le départ de l'aéroport d'origine pour accord préalable.",
+      "",
+      ""
+    ]
+  }
+}

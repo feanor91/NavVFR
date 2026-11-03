@@ -1,0 +1,73 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHD (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFHD",
+  "name": "Pierrelatte",
+  "source": {
+    "publication": "AIP France AD 2 LFHD",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.39778,
+    "longitude": 4.71694
+  },
+  "elevationFeet": 195,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.98",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.98
+  },
+  "runways": [
+    {
+      "id": "18R/36L",
+      "qfu": [
+        181,
+        1
+      ]
+    },
+    {
+      "id": "18L/36R",
+      "qfu": [
+        181,
+        1
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of airplanes RWY and gliders RWY prohibited.",
+    "After heavy rains, unusable outside RWY for taxiing and strength inadequate for ACFT whose weight is more than 2 t.",
+    "Power line within RWT 18L take-off funnel.",
+    "Road within RWY 18L and 18R funnels.",
+    "Preferred QFU: 001° due to environment.",
+    "Non home based ACFT limited to one pattern.",
+    "Non home-based ULM shall use airplanes RWY.",
+    "PJE (NR 438): see AIP ENR 5.5 Aerobatics activity (NR 6803): see AIP ENR 5.5 AEM (NR 9815): see AIP ENR 5.5 Unmanned ACFT activity (LF-R 329 area): see AIP ENR 5.1 Gliders winching activity (NR 1004): see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux appareils munis de radio.",
+      "Utilisation simultanée des pistes avions et planeurs interdite.",
+      "Après pluies prolongées, inutilisable hors piste pour le roulage et résistance insuffisante de la piste pour avion > 2 t.",
+      "Ligne électrique perçant la trouée de décollage 18L.",
+      "",
+      "QFU 001° préférentiel cause environnement.",
+      "ACFT non basés limités à un tour de piste.",
+      "Les ULM non basés doivent utiliser la piste avions.",
+      "Activité parachutage (N° 438) : voir AIP ENR 5.5 Voltige (N° 6803) : voir AIP ENR 5.5 AEM (N° 9815) : voir AIP ENR 5.5 Activité de drones (zone LF-R 329) : voir AIP ENR 5.1 Activité treuillage planeurs (N° 1004) : voir AIP ENR 5.5"
+    ]
+  }
+}

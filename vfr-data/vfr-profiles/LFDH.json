@@ -1,0 +1,84 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDH (AIP France, chart dated 2024-07-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFDH",
+  "name": "Auch - Gers",
+  "source": {
+    "publication": "AIP France AD 2 LFDH",
+    "chartDate": "2024-07-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.68694,
+    "longitude": 0.6
+  },
+  "elevationFeet": 411,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS - LUN-VEN / MON-FRI : 0830-1100, 1300-1630 sauf JF / except public HOL. En dehors de ces HOR / Outside these SKED : PPR PN 24HR AFIS. SAM, DIM et JF : assuré uniquement avec PPR le jour ouvrable précédent avant 1500. SAT, SUN and public HOL : provided only with PPR on previous working day before 1500 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 128.8,
+    "afis": 123.005
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        183,
+        3
+      ]
+    },
+    {
+      "id": "18L/36R",
+      "qfu": [
+        184,
+        4
+      ]
+    }
+  ],
+  "preferredQfu": 183,
+  "preferredQfuReason": "preferred QFU 183, due to IFR procedure",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of both RWY prohibited.",
+    "Possible IFR operations.",
+    "ULM activities on the grass strip.",
+    "Sloping apron: wheel chocks recommended.",
+    "Grass strip cannot be used after heavy rains.",
+    "LDG for gliders towing ACFT on grass strip and only QFU 004° announced by pilot on A/A FREQ.",
+    "Preferred QFU 183° due to IFR procedure.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Entry points ULM: NE cross-road La Bordeneuve (N21/D515), SE crossroad Montégut (N124/D514).",
+    "Noise nuisance limitations: MAX number of 3 consecutive low height traffic patterns allowed,; after TKOF RWY 36, turn right as soon as possible or follow Gers river.",
+    "Night flights: AD available at night on PPR PN 24HR before the last working day.; AD circuit 1500 ft AAL; VFR approach prohibited if PAPI U/S; Preferred QFU 003° due to environment.",
+    "AEM (N° 9064): 330 ft ASFC - HJ."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux pistes interdites.",
+      "Activité IFR possible.",
+      "Activités ULM sur RWY non revêtue.",
+      "PRKG en pente : cales recommandées.",
+      "Piste non revêtue inutilisable après fortes pluies.",
+      "LDG remorqueurs planeurs sur RWY non revêtue et au QFU 004° uniquement annoncé par pilote sur FREQ A/A.",
+      "QFU 183° préférentiel cause procédure IFR.",
+      "Roulage interdit hors piste et TWY.",
+      "Points d'entrée ULM : NE carrefour La Bordeneuve (N21/D515), SE carrefour Montégut (N124/D514).",
+      "Limitation des nuisances : circuits basse hauteur limités au nombre MAX de 3 consécutivement ; après TKOF RWY 36, tourner à droite dès que possible ou suivre le cours du Gers.",
+      "Vols de nuit : AD utilisable de nuit sur PPR PN 24HR avant dernier jour ouvrable. Tour de piste à 1500 ft AAL ; Approche interdite si PAPI hors service ; QFU 003° préférentiel cause environnement.",
+      "AEM (N° 9064) : 330 ft ASFC - HJ."
+    ]
+  }
+}

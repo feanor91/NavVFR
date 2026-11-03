@@ -1,0 +1,99 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDB (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFDB",
+  "name": "Montauban",
+  "source": {
+    "publication": "AIP France AD 2 LFDB",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.02667,
+    "longitude": 1.37694
+  },
+  "elevationFeet": 353,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.605",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.605
+  },
+  "runways": [
+    {
+      "id": "13/31",
+      "qfu": [
+        134,
+        314
+      ]
+    }
+  ],
+  "preferredQfu": 134,
+  "preferredQfuReason": "preferred QFU 134, due to environment",
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "AD reserved for radio-equipped ACFT.",
+    "AD located into urban area.",
+    "ACFT meeting submit to PPR PN 1 week from AD operator.",
+    "Engine startup prohibited when paradropping activity in progress.",
+    "Reduced TODA RWY 31 due to presence of obstacles within the departure funnel 31.",
+    "ACFT: possible wake turbulence in areas and tracks used by HEL.",
+    "Presence of numerous trees within the RWY 13 takingoff funnel / RWY 31 landing funnel, located on the relief near RWY axis, between RDL 110° and RDL 123° / 0.7NM THR 31.",
+    "Preferred QFU: 134° due to environment.",
+    "Low traffic patterns prohibited.",
+    "Touch and go prohibited QFU 314°.",
+    "LDG QFU 134°: maintain strictly the descent slope of 7.1% till D 820.",
+    "LDG QFU 314°: do not intercept the final approach axis below 900ft AMSL and maintain the axis till motorway A20.",
+    "TKOF QFU 134°: pilots must be focused on checking that the performances of their device allow to have a secure overflight of obstacles, especially trees.",
+    "Moreover, it is imperative to maintain the axis till 900ft AMSL, before turning and continuing the climb.",
+    "TKOF QFU 314°: compulsory line up at the end of the RWY, maintain the axis till the end of the RWY, then turn MAG 330° as soon as possible.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Helicopters: translation to CIV or MIL aprons.",
+    "Taxiing instruction: priority to HEL in translation to cross over TWY B and join MIL apron.",
+    "CIV HEL: translation to HEL CIV apron, preferably over grass strip NW of CIV apron.",
+    "MIL ACFT/Heavy HEL apron: only 3 beacons are usable.",
+    "Refer to 9th RSAM special instructions of use or contact MIL OPS.",
+    "Noise-sensitive AD.",
+    "PPR PN 24 HR OPS MIL: mandatory for non based ACFT going to 9eme RSAM."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "AD réservé aux ACFT munis de radio.",
+      "AD enclavé dans l'agglomération.",
+      "Rassemblement d'ACFT uniquement sur PPR PN 1 semaine exploitant.",
+      "Mise en marche moteur interdite si parachutage en cours.",
+      "TODA RWY 31 réduite cause présence d'obstacles dans la trouée d'envol 31.",
+      "ACFT : turbulence de sillage possible dans les zones et sur les axes fréquentés par les HEL.",
+      "Présence de nombreux arbres dans la trouée d'envol 13 / trouée d'atterrissage 31, situés sur le relief proche de l'axe de piste, entre RDL 110° et RDL 123° / 0.7NM THR 31.",
+      "QFU 134° préférentiel cause environnement.",
+      "Tours de piste basse hauteur interdits.",
+      "Touch and go interdits au QFU 314°.",
+      "Atterrissage QFU 134° : maintenir strictement le plan de descente de 7.1% jusqu'à la D 820.",
+      "Atterrissage QFU 314° : ne pas intercepter l'axe d'approche finale en dessous de 900ft AMSL et maintien de l'axe jusqu'au passage de la rocade A20.",
+      "Décollage QFU 134° : l'attention des pilotes est attirée sur la nécessité de vérifier que les performances de leur appareil garantissent le survol en sécurité des obstacles, et notamment des arbres.",
+      "De plus, le maintien de l'axe jusqu'à 900ft AMSL, avant de virer et de continuer la montée est impératif.",
+      "Décollage QFU 314° : alignement impératif à l'extrémité de piste, maintenir l'axe jusqu'au bout de piste, puis RM 330° dès que possible.",
+      "Roulage interdit hors RWY et TWY.",
+      "Hélicoptères : translation jusqu'aux parkings CIV ou MIL.",
+      "Roulage sur le TWY : HEL en translation prioritaire pour couper le TWY B et rejoindre le parking MIL.",
+      "HEL CIV : translation jusqu'au parking HEL CIV, de préférence zone herbeuse au NW du parking CIV.",
+      "PRKG MIL AVION/HEL lourds : seuls 3 plots sont utilisables.",
+      "Se référer aux conditions particulières d'utilisation du 9ème RSAM ou contacter les OPS MIL.",
+      "AD très sensible au bruit.",
+      "PPR obligatoire PN 24 HR OPS MIL pour les ACFT non basés à destination du 9ème RSAM (Régiment de soutien aéromobile)."
+    ]
+  }
+}

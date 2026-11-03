@@ -1,0 +1,193 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQQ (AIP France, chart dated 2026-02-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFQQ",
+  "name": "Lille - Lesquin",
+  "source": {
+    "publication": "AIP France AD 2 LFQQ",
+    "chartDate": "2026-02-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 50.56333,
+    "longitude": 3.08694
+  },
+  "elevationFeet": 157,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Approach",
+    "atsHours": "H 24 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 126.48,
+    "ground": 121.855,
+    "approach": 126.48
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        75,
+        255
+      ]
+    },
+    {
+      "id": "01/19",
+      "qfu": [
+        13,
+        193
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "NG",
+      "spoken": {
+        "fr": "Novembre Golf",
+        "en": "November Golf"
+      },
+      "latitude": 50.60306,
+      "longitude": 3.11333,
+      "location": "Vertical le golf de Lille Métropole",
+      "purpose": "point d'attente VFR, à utiliser uniquement sur instruction de l'ATC"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 50.64528,
+      "longitude": 2.92917
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 50.52278,
+      "longitude": 2.79306,
+      "location": "Intersection voie SNCF et canal au Sud de LA BASSEE"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 50.47111,
+      "longitude": 3.22778,
+      "location": "Échangeur autoroute A23 avec route D938"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 50.51833,
+      "longitude": 3.13361,
+      "location": "Rond-point à l'Est de PONT A MARCQ, et au Nord du golf"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 50.45722,
+      "longitude": 2.97139,
+      "location": "Pont de l'autoroute A1 et pont ligne TGV sur le canal de la DEULE"
+    }
+  ],
+  "notes": [
+    "Prohibited to gliders and non home-based ULM.",
+    "Usable declared distances: TORA, TODA, ASDA and LDA RWY 08 reduced due to a road located at the end of RWY.",
+    "Bird presence Hot spots: HS2: TWY leading to a RWY; risk of runway incursion in RWY 01/19 if compliance with holding point P5 not followed.",
+    "HS1 and HS3: Turn around areas: Not following the ACFT path can lead to a wrong alignment.",
+    "The first contact must be established 5 minutes at least before entry within CTR and wait for an entry clearance.",
+    "A special attention is requested for the entries via W, the inbound route to AD is in conflict with the IFR final approach RWY 08.",
+    "Runways: TKOF RWY 01: due to obstacles North of the RWY, it is recommended to take off from the end of the RWY.",
+    "Taxiways: TWY T3 available daytime only and when RVR > 800 m - restricted to ACFT under 2.5 t and whose is wingspan less than 15 m - restricted to helicopters with an overall width less than or equal to 15.50 m.",
+    "TWY V6 and V7 limited to ACFT with a wing-span less than 24 m.",
+    "TWY V7 used in the opposite way exclusively by Gendarmerie HEL to clear RWY 01/19 for return to its base.",
+    "Air taxiway H strictly reserved for Police helicopters.",
+    "Use of RWY 01/19 in night VFR is reserved for pilots the companies or organizations of which are authorized, by the aerodrome operator, to occupy or use the North area of home-based aircraft, except student pilots alone onboard.",
+    "Traffic surveillance equipment: AD equipped with secondary radar display (see AD 1.0).",
+    "Radiocommunication special instructions RADIOCOMMUNICATION FAILURE: Inoperative pyrotechnics means.",
+    "As soon as possible, phone to the control TWR chief to report.",
+    "On arrival: Switch landing lights on.",
+    "If the failure occurs before having received CTR entering clearance, the ACFT doesn't enter.",
+    "Visual signals available.",
+    "If the failure occurs inside the CTR: Before having received traffic pattern integration clearance, the ACFT has to leave the CTR by the most appropriate VFR route without crossing RWY axis.",
+    "Land on the nearest adapted aerodrome.",
+    "Phone to the control.",
+    "TWR chief to report.",
+    "After having received traffic pattern integration clearance, the ACFT continues landing on the RWY in use (08 or 26).",
+    "After landing, the ACFT has to turn facing TWR, landing lights switched on, and wait on the TWY (T3 or P5) for the \"FOLLOW ME\" vehicle.",
+    "If the clearance planned a landing on RWY 01, the ACFT has to clear this RWY on PRKG/E.",
+    "Phone to the TWR to report.",
+    "If the clearance planned a landing on RWY 19, the pilot's attention is drawn to the need to control the speed before the intersection with the TWY P5.The ACFT has to clear quickly the RWY, backtracking to the PRKG/E.",
+    "Phone to the TWR to report.",
+    "On departure: Before TKOF: do not TKOF.",
+    "After TKOF: switch landing lights on.",
+    "Leave the CTR according to the last clearance (route and altitude).",
+    "As soon as possible, phone to the TWR to report.",
+    "Transit Before having received CTR entering clearance: do not enter.",
+    "Inside CTR: switch landing lights on.",
+    "Leave CTR without crossing RWY axis.",
+    "Land on the nearest adapted aerodrome.",
+    "Phone to the TWR to report."
+  ],
+  "fr": {
+    "notes": [
+      "Interdit au VAV et aux ULM non-basés.",
+      "Distances déclarées utilisables : TORA, TODA, ASDA et LDA RWY 08 réduites, cause route située à l'extrémité de piste.",
+      "Points chauds : HS2 : TWY aboutissant à une piste ; risque d'incursion en RWY 01/19 si non respect du point d 'attente en P5.",
+      "HS1 et HS3 : Aires de retournement : Ne pas suivre le marquage peut conduire à une erreur d'alignement.",
+      "Le premier contact doit être établi au moins 5 minutes avant l'entrée en CTR en attente d'une clairance de pénétration.",
+      "Une attention particulière est demandée pour les entrées via le point W, la trajectoire de rejointe vers l'AD étant conflictuelle avec la finale IFR RWY 08.",
+      "Pistes : TKOF piste 01 : en raison de la présence d'obstacles au Nord de la piste, il est recommandé de décoller depuis l'extrémité de piste.",
+      "Taxiways : TWY T3 utilisable uniquement de jour et par RVR > 800 m – limité aux aéronefs de moins de 2.5 t et d'envergure inférieure à 15 m - limité aux hélicoptères de largeur horstout inférieure ou égale à 15.50 m.",
+      "TWY V6 et V7 limités aux aéronefs d'envergure inférieure à 24 m.",
+      "TWY V7 utilisé à contre-sens exclusivement par HEL Gendarmerie pour dégager piste 01/19 vers retour à sa base.",
+      "Air taxiway H exclusivement réservé aux hélicoptères de la gendarmerie.",
+      "VFR de nuit Utilisation RWY 01/19 en VFR de nuit réservée aux pilotes dont les entreprises ou organismes sont autorisés, par l'exploitant d'aérodrome, à occuper ou utiliser la zone Nord des aéronefs basés, à l'exception des élèves pilotes seuls à bord.",
+      "Équipement de surveillance du trafic : AD équipé d'un radar secondaire (voir AD 1.0).",
+      "PANNE DE RADIOCOMMUNICATION : Moyens pyrotechniques inopérants.",
+      "Dès que possible, téléphoner au chef de Quart de la Tour de Contrôle pour rendre compte.",
+      "LILLE LESQUIN A l'arrivée : Allumer les phares.",
+      "Si la panne survient avant d'avoir reçu l'autorisation de pénétrer en CTR, l'aéronef ne doit pas y pénétrer.",
+      "Signaux visuels disponibles.",
+      "Si la panne survient à l'intérieur de la CTR : avant d'avoir reçu la clairance d'entrée dans le circuit de piste, l'aéronef doit sortir de la CTR par l'itinéraire.",
+      "VFR le plus approprié sans couper les axes de piste.",
+      "Atterrir sur l'aérodrome approprié le plus proche.",
+      "Téléphoner à la TWR pour rendre compte.",
+      "",
+      "Après atterrissage, l'aéronef doit s'orienter face à la TWR, phares allumés et attend sur un taxiway (T3 ou P5) l'arrivée d'un véhicule FOLLOW-ME.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Après décollage : allumer les phares.",
+      "",
+      "",
+      "",
+      "Dans la CTR : allumer les phares.",
+      "",
+      "VFR le plus approprié sans couper les axes de piste.",
+      ""
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHO (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFHO",
+  "name": "Aubenas Ardèche méridionale",
+  "source": {
+    "publication": "AIP France AD 2 LFHO",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.53944,
+    "longitude": 4.37167
+  },
+  "elevationFeet": 923,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.855",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.855
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        182,
+        2
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio equipped ACFT Preferred QFU 002° due to environment.",
+    "LDG RWY 18: do not descend below 1000 ft AAL until lining up on final APCH.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Caution advised when taxiing due to presence of civil safety equipment close to the TWY.",
+    "TWY civil protection is unusable when pelicandrome is active.",
+    "Parallel TWY reserved as a priority for Civil Safety ACFT.",
+    "South hangars service way: maximum wingspan of 12 meters, maximum landing gear width of 4 meters.",
+    "Avoid overflying Balazuc located south of AD.",
+    "PAPI mandatory by night.",
+    "LDG RWY 18 prohibited by night.",
+    "PCL: 3 clicks on mic: edge lighting, windsock, signs, PAPI,; 5 clicks on mic: edge lighting, windsock, signs, flashing lights,; 7 clicks on mic: shutdown.",
+    "PJE on AD (NR 412): FL 135; SAT, SUN and public HOL; Daytime except when LF-R 55 C or D are active.",
+    "Aerobatics over AD (NR 6810): when LF-R 55 D is inactive: 2600 ft AMSL / FL 060; HJ on SAT, SUN and public HOL, PPR from ORANGE APP 118.925.",
+    "AEM on AD (NR 9635): 500 ft ASFC, SR-SS.",
+    "As per protocol."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio. QFU 002° préférentiel cause environnement.",
+      "LDG RWY 18 : ne descendre au-dessous de 1000 ft AAL qu'après alignement sur l'axe de piste.",
+      "Roulage interdit hors RWY et TWY.",
+      "Prudence au roulage en raison de la présence d'équipements sécurité civile en bordure du TWY.",
+      "Le TWY protection civile est inutilisable si le pélicandrome est activé.",
+      "Le TWY parallèle à la piste est réservé en priorité aux avions de la Sécurité Civile.",
+      "Voie de desserte hangars Sud : envergure maximale 12 mètres, largeur de train maximale 4 mètres.",
+      "Éviter le survol de Balazuc situé au sud.",
+      "PAPI obligatoire de nuit.",
+      "Atterrissage RWY 18 interdit de nuit.",
+      "PCL : 3 coups d'alternat : balisage latéral, manche à air, panneaux, PAPI ; 5 coups d'alternat : balisage latéral, manche à air, panneaux, feux à éclats ; 7 coups d'alternat : extinction.",
+      "Parachutage sur AD (N° 412) : FL 135 ; SAM, DIM et JF ; HJ sauf si LF-R 55 C ou D actives.",
+      "Voltige sur AD (N° 6810) : lorsque LF-R 55 D inactive : 2600 ft AMSL / FL 060 ; HJ les SAM, DIM et JF et sur autorisation de ORANGE APP 118.925.",
+      "AEM sur AD (N° 9635) : 500 ft ASFC, SR-SS.",
+      "Selon protocole."
+    ]
+  }
+}

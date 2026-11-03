@@ -1,0 +1,74 @@
+{
+  "$comment": [
+    "EXTRACTED AUTOMATICALLY from the SIA eAIP page AD 2 LFSO (AIP France, valid from 2026-08-06), not read by hand.",
+    "This is a military air base (CAM regimes). Only what the page prints as text is recorded: position, elevation,",
+    "magnetic variation, runways and the VHF frequencies. Circuit rules and reporting points are NOT extracted.",
+    "MSFS exposes only VHF radios: the UHF frequencies of the base are not usable and are not listed.",
+    "Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFSO",
+  "name": "Nancy-Ochey",
+  "source": {
+    "publication": "AIP France AD 2 LFSO",
+    "chartDate": "2026-08-06",
+    "extraction": "automatic"
+  },
+  "referencePosition": {
+    "latitude": 48.58306,
+    "longitude": 5.95444
+  },
+  "elevationFeet": 1106,
+  "service": {
+    "kind": "MilitaryTower",
+    "regimes": [
+      "CAM V",
+      "CAM I"
+    ]
+  },
+  "frequencies": {
+    "app": [
+      {
+        "mhz": 123.3,
+        "remark": "APP"
+      },
+      {
+        "mhz": 127.25,
+        "remark": "fréquence approche CAG"
+      }
+    ],
+    "twr": [
+      {
+        "mhz": 122.1,
+        "remark": "TWR"
+      },
+      {
+        "mhz": 130.275,
+        "remark": "TWR"
+      },
+      {
+        "mhz": 127.25,
+        "remark": "VDF"
+      },
+      {
+        "mhz": 130.275,
+        "remark": "VDF"
+      }
+    ]
+  },
+  "magneticVariationDegrees": 2.8,
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        17,
+        197
+      ],
+      "surface": "concrete",
+      "lengthMetres": 2400,
+      "widthMetres": 45
+    }
+  ],
+  "notes": [
+    "The base also publishes 11 UHF frequencies that MSFS cannot tune."
+  ]
+}

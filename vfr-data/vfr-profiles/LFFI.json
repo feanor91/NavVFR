@@ -1,0 +1,67 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFFI (AIP France, chart dated 2020-12-31): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFFI",
+  "name": "Ancenis",
+  "source": {
+    "publication": "AIP France AD 2 LFFI",
+    "chartDate": "2020-12-31",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.40722,
+    "longitude": -1.17889
+  },
+  "elevationFeet": 109,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.205",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.205
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        72,
+        252
+      ]
+    }
+  ],
+  "preferredQfu": 72,
+  "preferredQfuReason": "preferred QFU 72, due to environment (noise abatement procedure)",
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "Reserved for radio equipped ACFT.",
+    "Patterns West of LF-R 149 E during activity.",
+    "RWY patterns training: prohibited: 1900-0700 (SUM: - 1 HR),; prohibited: 01/04-30/09: 1130-1330 on SUN and HOL (SUM: - 1 HR),; reserved for home-based ACFT on SUN and HOL.",
+    "Preferred QFU 072° due to environment (noise abatement procedure).",
+    "PPR PN 48 HR (working day) from AD operator.",
+    "Paragliding winching activity on AD (N° 902), SFC / 1400 ft ASFC (1500 ft AMSL) - SR-SS.",
+    "Paragliding winching according to protocol.",
+    "Winch equipped with a flashing light."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Réservé aux ACFT munis de radio.",
+      "Tours de piste à l'Ouest de la LF-R 149 E pendant l'activité.",
+      "Entraînement tours de piste : interdit : 1900-0700 (ETE : - 1 HR) ; interdit : 01/04-30/09 : 1130-1330 les DIM et JF (ETE : - 1 HR) ; réservé aux aéronefs basés les DIM et JF.",
+      "QFU 072° préférentiel cause environnement (procédure moindre bruit).",
+      "Existence d'un circuit nord réservé aux ULM Existence of a north circuit pattern reserved for classe 4 basés (Autogyres) home-based ULM class 4 (Gyro) VFR de nuit PPR PN 48 HR (jour ouvrable) auprès de l'exploitant.",
+      "Activités particulières Activité de treuillage parapentes sur AD (N° 902), SFC / 1400 ft ASFC (1500 ft AMSL) - SR-SS.",
+      "Treuillage parapente selon protocole.",
+      "Treuil équipé d'un feu à éclats."
+    ]
+  }
+}

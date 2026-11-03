@@ -1,0 +1,144 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOK (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFOK",
+  "name": "Paris Châlons Vatry",
+  "source": {
+    "publication": "AIP France AD 2 LFOK",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.77333,
+    "longitude": 4.20611
+  },
+  "elevationFeet": 586,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "TWR : LUN-VEN / MON-FRI : 0600-1800 SAM-DIM / SAT-SUN : 0830-1145, 1300-1800 Info activité temps réel / Actual activity provided by : VATRY TOUR, ATIS VATRY Autres HOR pour vols commerciaux et sanitaires PPR auprès de VATRY SERVICE TRAFIC 03 26 64 82 30 le dernier jour ouvrable avant 1500 / Other SKED for commercial and sanitary flights PPR from VATRY TRAFFIC DEPARTMENT +33(0)326648230 on the last working day before  (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "atis": 136.38,
+    "approach": 118.89,
+    "tower": 129.405,
+    "afis": 129.405
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        99,
+        279
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 48.91194,
+      "longitude": 4.28611,
+      "location": "Échangeur autoroutier A26 et D5"
+    },
+    {
+      "name": "N1",
+      "spoken": {
+        "fr": "Novembre un",
+        "en": "November one"
+      },
+      "latitude": 48.82389,
+      "longitude": 4.22417,
+      "location": "Usine à l'ouest de Vatry"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 48.67083,
+      "longitude": 4.17333,
+      "location": "Intersection autoroute A26 avec D98 et voie de chemin de fer"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 48.735,
+      "longitude": 4.19222,
+      "location": "Silo de stokage à l'ouest de Sommesous"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 48.72722,
+      "longitude": 3.9,
+      "location": "Sucrerie de Connantre"
+    },
+    {
+      "name": "WA",
+      "spoken": {
+        "fr": "Whisky Alpha",
+        "en": "Whiskey Alpha"
+      },
+      "latitude": 48.7475,
+      "longitude": 4.06222,
+      "location": "Ville de Connantray - Vaurefroy"
+    }
+  ],
+  "notes": [
+    "AD prohibited for gliders, ULM and aerostats.",
+    "AD reserved for radio-equipped ACFT.",
+    "Assistance mandatory for all ACFT.",
+    "Access to apron PPR 2 HR from Traffic Department: TEL: +33 (0)3 26 64 82 30 Email: ops@xcr-airport.com Hot spot: RWY access prohibited via A3.",
+    "Entrance within LF-R 6A is prohibited during activities HOR.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Line up and TKOF prohibited from A3.",
+    "VFR flights training: ACFT with MTOW 20 t and ACFT equipped with turbojets, must perform VFR flight circuits as specified below: standard circuit altitude: 2100 ft AMSL; climb 1000 ft AMSL minimum on course, before turning north or south downwind.; minimum altitude to perform \"low height\" circuit: 1300 ft AMSL.",
+    "Aerobatics (NR 6105) on AD: see AIP ENR 5.5 Without IFR flights in the CTR, VH 1500 metres.",
+    "With IFR flights in the CTR, VH 3500 metres, stay south of RN 4.",
+    "At night, PRKG W is only accessible: Following LDG RWY 10, after RWY clearance via TWY A4 or A5.",
+    "Following LDG RWY 28, after RWY clearance via TWY A2.",
+    "Traffic surveillance equipment: AD equipped with a radar display (see AD 1.0).",
+    "Réparations / Repairs: Restaurants and hotels in the vicinity.",
+    "Divers / Miscellaneous: Fréquence OPS / OPS FREQ:"
+  ],
+  "fr": {
+    "notes": [
+      "AD interdit aux planeurs, ULM et aérostats.",
+      "AD réservé aux ACFT munis de radio.",
+      "Assistance obligatoire pour tout ACFT.",
+      "Accès parkings PPR 2 HR auprès du Service Trafic : TEL : 03 26 64 82 30 Email : ops@xcr-airport.com Dangers à la navigation aérienne Hot spot : accès interdit à la piste via A3.",
+      "La pénétration de la LF-R 6A est interdite pendant les heures d'activité.",
+      "Roulage interdit hors RWY et TWY.",
+      "Alignement et décollage interdits depuis A3.",
+      "Entraînement vol à vue : Tous les avions dont la MTOW ≥ 20 t, et tout avion équipé de turboréacteurs devra effectuer les circuits de vol à vue dans les conditions suivantes : altitude du circuit standard : 2100 ft AMSL ; monter 1000 ft AMSL minimum dans l'axe avant de virer en vent arrière Nord ou Sud. Altitude minimale pour effectuer un circuit \"basse hauteur\" : 1300 ft AMSL.",
+      "",
+      "En présence de vol IFR dans la CTR, VH ≥ 3500",
+      "De nuit, le parking W est accessible uniquement : Suite à un atterrissage en piste 10, après un dégagement de piste via les bretelles A4 ou A5.",
+      "Suite à un atterrissage en piste 28, après un dégagement de piste via la bretelle A2.",
+      "Équipement de surveillance du trafic : AD équipé d'une visualisation radar (voir AD 1.0).",
+      "",
+      ""
+    ]
+  }
+}

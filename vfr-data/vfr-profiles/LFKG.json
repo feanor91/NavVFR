@@ -1,0 +1,74 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFKG (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFKG",
+  "name": "Ghisonaccia Alzitone",
+  "source": {
+    "publication": "AIP France AD 2 LFKG",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 42.05444,
+    "longitude": 9.40028
+  },
+  "elevationFeet": 177,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.350",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 118.35
+  },
+  "runways": [
+    {
+      "id": "18/36",
+      "qfu": [
+        181,
+        1
+      ]
+    }
+  ],
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "Restricted use AD to Corsica based ACFT and to Administration ACFT.",
+    "Otherwise, stopover possible with PPR 72 HR open time sent to AD operator by email: ppr@aerodromedeghisonaccia.com AD prohibited to aircraft of mass exceeding 5.7 t without a formal prior approval from the AD operator, including for state ACFT.",
+    "AD prohibited at night including for State aircraft; AD is available at night in case of emergency.",
+    "Simultaneous use of RWY 18/36 and of the drop zone is prohibited except for ACFT based at LFKG and restricted to precision parachuting activities.",
+    "Flight plans and flight authorization submitted to the duty officer of the Military Control Center of Air Base 126 TEL: 04 95 56 85 96 - 06 22 01 23 87 TWY A available for code A ACFT TWY B available for code B ACFT.",
+    "Helicopter activity in or out of ground effect prohibited outside of paved RWY.",
+    "HEL approach prohibited on apron and hangar vicinity.",
+    "Helicopters must translate via TWY B.",
+    "Helicopters must park on the HEL apron except specific authorization from AD operator.",
+    "Parachuting (NR 406): see AIP ENR 5.5.",
+    "Aerobatics (NR 7002), RWY center line centered on ARP on 1,5 NM long, 1650 ft AMSL / 3500 ft AMSL, SRSS outside LF-R 65 activation, or prior permission of LF-R 65 operating authority.",
+    "Aerobatics activity reserved for pilots with \"aerobatics\" authorization on their pilot license and with authorization from PEGAASUS (managing authority) (ENR 5.5)."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "",
+      "Autre cas, escale possible avec PPR 72 heures ouvrées à l'exploitant AD par courriel : ppr@aerodromedeghisonaccia.com AD interdit à tout aéronef de masse supérieure à 5,7 t sans autorisation préalable formelle de l'exploitant y compris les ACFT d'état.",
+      "AD interdit de nuit y compris les ACFT d'État sauf urgence.",
+      "L'utilisation simultanée de la piste 18/36 et de la zone de sauts est interdite sauf pour les aéronefs basés LFKG et limitée à des activités de parachutages de précision.",
+      "Prévol et autorisation de vol soumises au chef de quart du Centre militaire de contrôle de la Base aérienne 126 TEL : 04 95 56 85 96 - 06 22 01 23 87 Procédures et consignes particulières TWY A utilisable pour ACFT code A.",
+      "Activité hélicoptère en travail sol et hors effet de sol interdite en dehors de la piste revêtue.",
+      "Approches hélicoptères interdites sur parking et proximité hangar.",
+      "Translations hélicoptères impératives par le TWY B.",
+      "Stationnement hélicoptères obligatoire sur PRKG hélicoptère sauf autorisation particulière de l'exploitant.",
+      "Parachutage (N° 406) : voir AIP ENR 5.5.",
+      "Voltige (N° 7002), axe de la piste de longueur 1,5 NM centré sur ARP, 1650 ft AMSL/3500 ft AMSL, SR-SS hors activation LF-R 65, ou accord préalable du gestionnaire de LF-R65.",
+      "Voltige réservée aux pilotes titulaires d'une autorisation \"voltige\" inscrite sur la licence de navigant et autorisée par le gestionnaire PEGAASUS (ENR 5.5)."
+    ]
+  }
+}

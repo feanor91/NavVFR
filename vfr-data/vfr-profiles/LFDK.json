@@ -1,0 +1,62 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDK (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFDK",
+  "name": "Soulac-sur-Mer",
+  "source": {
+    "publication": "AIP France AD 2 LFDK",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.49389,
+    "longitude": -1.08389
+  },
+  "elevationFeet": 11,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.455"
+  },
+  "frequencies": {
+    "airAir": 118.455
+  },
+  "runways": [
+    {
+      "id": "14/32",
+      "qfu": [
+        135,
+        315
+      ]
+    }
+  ],
+  "notes": [
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Frequent overflights of paramotors and balloons outside AD operations.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "TKOF 32: if possible avoid flight over Jeune Soulac.",
+    "Parachute jumping activity (NR 371): FL 135.",
+    "For ALT > 2500 ft, PPR from AQUITAINE APP.",
+    "Information on A/A SOULAC.",
+    "Actual activity known on AQUITAINE INFO."
+  ],
+  "fr": {
+    "notes": [
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Fréquents survols de paramoteurs et de montgolfières en marge des activités de l'aérodrome.",
+      "Roulage interdit hors RWY et TWY.",
+      "TKOF 32 : éviter si possible le survol de Jeune Soulac.",
+      "",
+      "Pour ALT > 2500 ft, PPR AQUITAINE APP.",
+      "Info des usagers sur A/A SOULAC.",
+      "Activité réelle connue d'AQUITAINE INFO."
+    ]
+  }
+}

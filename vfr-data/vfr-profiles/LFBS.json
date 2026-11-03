@@ -1,0 +1,127 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBS (AIP France, chart dated 2026-02-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFBS",
+  "name": "Grands Lacs",
+  "source": {
+    "publication": "AIP France AD 2 LFBS",
+    "chartDate": "2026-02-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.36806,
+    "longitude": -1.13222
+  },
+  "elevationFeet": 100,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "LUN-VEN sauf JF / MON-FRI except public HOL : - du / from 15/02 au / to 31/10 : 0800-1900 heure locale / local time , - du / from 01/11 au / to 14/02 : 0830-1800 heure locale / local time (UTC HIV ; HOR ETE : - 1 HR)",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "tower": 118.04,
+    "airAir": 118.04
+  },
+  "runways": [
+    {
+      "id": "09/27",
+      "qfu": [
+        90,
+        270
+      ]
+    },
+    {
+      "id": "09R/27L",
+      "qfu": [
+        90,
+        270
+      ]
+    },
+    {
+      "id": "13/31",
+      "qfu": [
+        134,
+        314
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "O2",
+      "spoken": {
+        "fr": "Oscar deux",
+        "en": "Oscar two"
+      },
+      "latitude": 44.45,
+      "longitude": -1.225,
+      "location": "Est de Biscarrosse Plage"
+    },
+    {
+      "name": "OS",
+      "spoken": {
+        "fr": "Oscar Sierra",
+        "en": "Oscar Sierra"
+      },
+      "latitude": 44.41667,
+      "longitude": -1.15,
+      "location": "Nord de Biscarrosse sur D652"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of RWY prohibited.",
+    "Unpaved RWY 13/31 reserved for home-based ACFT or authorized by AD operator.",
+    "Aerobatics (NR 6698): see AIP ENR 5.5 Recommended caution in the vicinity of the hydrobase: presence of seaplanes under 500 ft AMSL on dedicated frequency.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Caution: gliders winch cable length (1700 m).",
+    "Activity announced by turning light installed on the winch and on TWR FREQ Taxiing prohibited except on RWY and TWY.",
+    "Overflight of AD is forbidden during winch launching activity.",
+    "ARR/DEP: 900 ft AMSL MAX during LF-R 31 SKED.",
+    "North patterns prohibited outside ATS SKED.",
+    "Low height circuits 500 ft MNM South of RWY 09/27 and only for training purposes with flight instructor on board.",
+    "TKOF and LDG forbidden during winching operations.",
+    "TKOF paved RWY 09: heading 070° 300 m after THR 27 to avoid flying over built-up areas.",
+    "TKOF grass RWY 09: heading 070° passing THR 27 to avoid flying over built-up areas.",
+    "TKOF RWY 27: overflight of hydrobase forbidden during engine failure exercises.",
+    "Heading 250° passing THR 09 to avoid flying over built-up areas.",
+    "Procedures DEP seaplanes to hydrobase (LFHB): TKOF RWY 09: after heading alteration, crosswind at minimum 500 ft AMSL then join hydrobase by eastern tip of the lake.",
+    "TKOF RWY 27: after heading alteration, join directly the hydrobase at 500ft AMSL.",
+    "Procedures DEP microlight seaplanes to hydrobase (LFHB): After take-off, directly join the hydrobase by south turn, avoiding built-up areas.",
+    "Traffic monitoring equipment: aerodrome equipped with a radar display (see AD 1.0).",
+    "Gliders winching (NR 978): see AIP ENR 5.5 Aerobatics (NR 6610): see AIP ENR 5.5 AEM (NR 9137): see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des pistes interdite.",
+      "Piste non revêtue 13/31 réservée aux usagers basés ou autorisés par l'exploitant.",
+      "Voltige (N° 6698) : voir AIP ENR 5.5 Prudence recommandée aux abords de l'hydrobase : présence d'hydravions sous 500 ft AMSL sur fréquence dédiée.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "L'attention des usagers est attirée sur la longueur du câble de treuillage planeurs (1700 m).",
+      "",
+      "Contournement obligatoire de l'AD pendant l'activité de treuillage.",
+      "ARR/DEP : 900 ft AMSL MAX pendant HOR LF-R 31.",
+      "Tours de piste au Nord interdits hors HOR ATS.",
+      "Circuits basse hauteur 500 ft MNM, au Sud de la piste 09/27 et uniquement pour des besoins de formation avec instructeur à bord.",
+      "TKOF et LDG interdits pendant les opérations de treuillage.",
+      "BISCARROSSE PARENTIS TKOF piste 09 revêtue : prendre le cap 070° 300 m après le THR 27 pour éviter le survol des zones habitées.",
+      "TKOF piste 09 herbe : prendre le cap 070° au passage du THR 27 pour éviter le survol des zones habitées.",
+      "TKOF piste 27 : Survol de l'hydrobase interdit pendant les exercices de pannes moteur.",
+      "Prendre le cap 250° au passage du THR 09 pour éviter le survol des zones habitées.",
+      "Procédure DEP hydravions vers hydrobase (LFHB) : TKOF piste 09 : après altération de cap, vent traversier 500 ft AMSL minimum puis rejointe de l'hydrobase par la pointe Est du lac.",
+      "TKOF piste 27 : après altération de cap, rejointe directe de l'hydrobase à 500 ft AMSL.",
+      "Procédure DEP ULM « hydro » vers hydrobase (LFHB) : Après décollage, rejointe directe de l'hydrobase par virage Sud en évitant le survol des habitations.",
+      "Équipement de surveillance du trafic : aérodrome équipé d'une visualisation radar (voir AD 1.0).",
+      "Treuillage planeurs (N° 978) : voir AIP ENR 5.5 Voltige (N° 6610) : voir AIP ENR 5.5 AEM (N° 9137) : voir AIP ENR 5.5"
+    ]
+  }
+}

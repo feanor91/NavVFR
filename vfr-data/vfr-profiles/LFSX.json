@@ -1,0 +1,70 @@
+{
+  "$comment": [
+    "EXTRACTED AUTOMATICALLY from the SIA eAIP page AD 2 LFSX (AIP France, valid from 2026-08-06), not read by hand.",
+    "This is a military air base (CAM regimes). Only what the page prints as text is recorded: position, elevation,",
+    "magnetic variation, runways and the VHF frequencies. Circuit rules and reporting points are NOT extracted.",
+    "MSFS exposes only VHF radios: the UHF frequencies of the base are not usable and are not listed.",
+    "Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFSX",
+  "name": "Luxeuil-Saint Sauveur",
+  "source": {
+    "publication": "AIP France AD 2 LFSX",
+    "chartDate": "2026-08-06",
+    "extraction": "automatic"
+  },
+  "referencePosition": {
+    "latitude": 47.78722,
+    "longitude": 6.365
+  },
+  "elevationFeet": 885,
+  "service": {
+    "kind": "MilitaryTower",
+    "regimes": [
+      "CAM V",
+      "CAM I"
+    ]
+  },
+  "frequencies": {
+    "app": [
+      {
+        "mhz": 121.5,
+        "remark": "Veillée"
+      },
+      {
+        "mhz": 129.925,
+        "remark": "Particulière transit"
+      }
+    ],
+    "twr": [
+      {
+        "mhz": 121.5,
+        "remark": "Veillée"
+      },
+      {
+        "mhz": 122.1,
+        "remark": "Veillée"
+      },
+      {
+        "mhz": 123.3,
+        "remark": "TWR"
+      }
+    ]
+  },
+  "magneticVariationDegrees": 2.9,
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        111,
+        291
+      ],
+      "surface": "concrete",
+      "lengthMetres": 2433,
+      "widthMetres": 45
+    }
+  ],
+  "notes": [
+    "The base also publishes 12 UHF frequencies that MSFS cannot tune."
+  ]
+}

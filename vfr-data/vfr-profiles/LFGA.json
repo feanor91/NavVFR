@@ -1,0 +1,95 @@
+{
+  "$comment": [
+    "Transcribed by hand from the SIA chart set AD 2 LFGA (AIP France, chart dated 2026-08-06): the text pages checked against the images of the pages.",
+    "Only what the chart states is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text; the reporting points, rules and notes were added by hand.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "No reporting points, circuit height or circuit side are printed on this chart, so none is recorded.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded.",
+    "The French of \"circuit\", \"withAts\" and \"withoutAts\" is in \"fr\": same tree as the English, text values only, written by hand from the French column of the chart where it was read, and translated from the English text otherwise; point and runway identifiers are repeated unchanged."
+  ],
+  "icao": "LFGA",
+  "name": "Colmar - Houssen",
+  "source": {
+    "publication": "AIP France AD 2 LFGA",
+    "chartDate": "2026-08-06",
+    "extraction": "manual, from the chart text and images",
+    "frenchExtraction": "French column of the chart text read by script for the notes; procedures written in French by hand"
+  },
+  "referencePosition": {
+    "latitude": 48.11028,
+    "longitude": 7.35917
+  },
+  "elevationFeet": 627,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "TWR: November to March, Monday to Friday 0630 to 1900, Saturdays, Sundays and public holidays 0730 to sunset + 30 min (1830 at most); April to October, Monday to Friday 0630 to 2000, Saturdays, Sundays and public holidays 0730 to sunset + 30 min (1730 at most) (UTC in winter, local time minus 1 h in summer)",
+    "outsideAtsHours": "AFIS 119.000 on PPR 18 HR to the aerodrome operator, available only between sunset + 30 min and sunrise - 30 min; otherwise air-air 119.000, French only",
+    "radioMandatory": true,
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "atis": 126.135,
+    "tower": 119.0,
+    "ground": 121.88,
+    "afis": 119.0,
+    "airAir": 119.0
+  },
+  "runways": [
+    {
+      "id": "01/19",
+      "qfu": [
+        9,
+        189
+      ]
+    },
+    {
+      "id": "01L/19R",
+      "qfu": [
+        9,
+        189
+      ]
+    }
+  ],
+  "circuit": {
+    "lowHeight": "low-height traffic circuits on PPR with COLMAR TWR: west circuits minimum 300 ft AAL, east circuits minimum 500 ft AAL"
+  },
+  "notes": [
+    "Aerodrome reserved for radio-equipped aircraft. Prohibited to PUL. ULM activity: multi-axis ULM only. IFR operations at both QFU.",
+    "Simultaneous use of both runways is prohibited. The unpaved runway is reserved (except for safety reasons) for gliders, tow planes and based aircraft of the CICVVA fleet; outside gliding activity it is usable only by aircraft authorised by the aerodrome operator.",
+    "Take-off from an intermediate part of runway 01/19 is prohibited (not applicable to based aircraft whose reference take-off distance is under 800 m for a runway 19 take-off from the intersection with taxiway EN). TORA available from the taxiway EN intersection: 1350 m.",
+    "Heavy turbulence with a west wind abeam the hangars west of the aerodrome.",
+    "Obstacles in the strip: runway 19, bushes and vines in the runway strip and a frangible fence, lit by day and night, in the cleared strip 45 m north of the threshold 19; runway 01, a section of street along the west of the aerodrome lies in the runway strip.",
+    "Heavy helicopter activity at the Pasteur hospital, 2 NM south of the runway, within the Colmar aerodrome traffic.",
+    "IFR training is prohibited outside ATS hours; night training is prohibited outside ATS hours.",
+    "The surroundings are very noise-sensitive: noise abatement measures are detailed in the environment charter on the aerodrome operator website.",
+    "The north-east parking is reserved for based aircraft; radio contact with COLMAR TWR is mandatory at points E1, E2 and E3. Taxiing prohibited except on runways and taxiways; taxiway E3 is reserved for aircraft parked at hangars H14-H15; taxiways E4/E5 are reserved for gliders.",
+    "By night and with RVR below 800 m, aircraft whose take-off reference distance is 1200 m or more must use taxiway EC (arrivals and departures).",
+    "Non-8.33 kHz aircraft contact the ATS on the COLMAR Tower frequency, on departure and, unless otherwise instructed, on arrival.",
+    "Radio failure: apply the national regulation and, if possible, use a mobile phone to contact the TWR.",
+    "Pilot-controlled lighting and STAP are available on PPR to the aerodrome operator by e-mail before 1500: 3 clicks within 5 seconds, information and low-intensity lighting; 5 clicks within 5 seconds, information and high-intensity lighting; 7 clicks within 5 seconds, lights off.",
+    "Aerobatics out of the aerodrome no. 6160 and paradropping no. 221: see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Panne de radiocommunication Appliquer la règlementation nationale et si possible, utiliser le téléphone portable pour contacter la TWR.",
+      "",
+      ""
+    ],
+    "circuit": {
+      "lowHeight": "circuits basse hauteur sur PPR auprès de COLMAR TWR : circuits ouest 300 ft AAL minimum, circuits est 500 ft AAL minimum"
+    }
+  }
+}

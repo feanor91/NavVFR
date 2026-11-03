@@ -1,0 +1,179 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFMY (AIP France, chart dated 2026-09-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFMY",
+  "name": "Salon-de-Provence",
+  "source": {
+    "publication": "AIP France AD 2 LFMY",
+    "chartDate": "2026-09-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.60306,
+    "longitude": 5.10833
+  },
+  "elevationFeet": 197,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "LUN-JEU / MON-THU : 0700-1600 VEN / FRI : 0700-1400 SAM, DIM, JF / SAT, SUN, HOL : Activité réelle connue de / Real activity known by : SALON APP ou / or RAI 135.150 MHz (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "approach": 135.15,
+    "tower": 122.1
+  },
+  "runways": [
+    {
+      "id": "16/34",
+      "qfu": [
+        157,
+        337
+      ]
+    },
+    {
+      "id": "09/27",
+      "qfu": [
+        89,
+        269
+      ]
+    },
+    {
+      "id": "16L",
+      "qfu": [
+        341
+      ]
+    },
+    {
+      "id": "16R/34L",
+      "qfu": [
+        162,
+        342
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "LA",
+      "spoken": {
+        "fr": "Lima Alpha",
+        "en": "Lima Alpha"
+      },
+      "latitude": 43.70056,
+      "longitude": 5.10167,
+      "location": "Lamanon"
+    },
+    {
+      "name": "LP",
+      "spoken": {
+        "fr": "Lima Papa",
+        "en": "Lima Papa"
+      },
+      "latitude": 43.61639,
+      "longitude": 5.315,
+      "location": "Saint Cannat - La Pile"
+    },
+    {
+      "name": "EG",
+      "spoken": {
+        "fr": "Écho Golf",
+        "en": "Echo Golf"
+      },
+      "latitude": 43.71972,
+      "longitude": 5.02444,
+      "location": "Eyguières"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 43.62861,
+      "longitude": 5.00722,
+      "location": "Circuit Michelin"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 43.59389,
+      "longitude": 5.19472,
+      "location": "Lançon de Provence Péage autoroute"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 43.555,
+      "longitude": 5.08833,
+      "location": "Cornillon"
+    },
+    {
+      "name": "CV",
+      "spoken": {
+        "fr": "Charlie Victor",
+        "en": "Charlie Victor"
+      },
+      "latitude": 43.81083,
+      "longitude": 5.04222,
+      "location": "Pont TGV Cavaillon"
+    },
+    {
+      "name": "PS",
+      "spoken": {
+        "fr": "Papa Sierra",
+        "en": "Papa Sierra"
+      },
+      "latitude": 43.74056,
+      "longitude": 5.09111,
+      "location": "Senas Péage autoroute"
+    },
+    {
+      "name": "ME",
+      "spoken": {
+        "fr": "Mike Écho",
+        "en": "Mike Echo"
+      },
+      "latitude": 43.73972,
+      "longitude": 5.20111,
+      "location": "Barrage 1,8 km NE Mallemort"
+    },
+    {
+      "name": "LR",
+      "spoken": {
+        "fr": "Lima Roméo",
+        "en": "Lima Romeo"
+      },
+      "latitude": 43.72222,
+      "longitude": 5.27528,
+      "location": "La Roque Croisement RD 561 / RD 67 D"
+    }
+  ],
+  "notes": [
+    "Overflight of AD prohibited H24 below 300 m (1000 ft) ASFC AD only usable by day AD prohibited to armed ACFT AD prohibited to ACFT without radio AD unusable outside TWY and RWY AD with restricted use: 1- mainly to State and MIL ACFT 2- to particular authorized activities 3- to based ACFT LDG subject to PPR sent to the DV/head of the OPS division.",
+    "The agreement NR has to be mentioned in FPL 18 field Outside activation times of CTR and CTA SALON: auto-information FREQ RWY 16/34: slippery during rainy conditions BAR AERAZUR F30 type 5 at each end of the RWY, height: 1.5 m For TORA, ASDA and LDA the actual distances are available 50 m before RWY end lighting VFR Spécial Jets: VIS: 5 km Ceiling: 1000 ft Conventionals: VIS: 3 km Ceiling: 1000 ft HEL: VIS: 800 m Ceiling: 600 ft Eastern part of AD reserved to GLD, unmanned aerial remote piloted vehicles, engine \"school\" flights and acrobatic training LF-R 276 Patrouille de France active requires mandatory bypass except for authorized ACFT Taxiing plan TWY and PRKG limitations: TWY C: Closed; C130:; VIP PRKG only; TWY A1, A2 et B1 are prohibited; A400M: PRKG et TWY are prohibited.",
+    "Other ceiling usable 1400 m AMSL MON-FRI: 0600-0800, 1045-1145, 1630-1800 / SAT, SUN, HOL: SR-SS Real activity known by SALON APP and above 4500 AMSL by Provence APP/AFIS.",
+    "Others HOR and level of activity announced by NOTAM AEM (NR 9915): SFC - 820 ft ASFC / SR-SS Remote controlled flights in accordance with protocol Special activity (NR 13-001): SFC - 490 ft ASFC / Day time Visual line of sight use of unmanned remotely piloted aircraft, as per protocol"
+  ],
+  "fr": {
+    "notes": [
+      "SALON DE PROVENCE Consignes particulières Conditions d'utilisation de l'AD Survol AD interdit H24 en-dessous de 300 m (1000 ft) ASFC AD utilisable de jour uniquement AD interdit aux ACFT armés AD interdit aux ACFT sans radio AD inutilisable hors TWY et RWY AD à usage restreint : 1- prioritairement à l'accueil du trafic aérien MIL et d'État 2- aux activités particulières qui y sont autorisées 3- aux ACFT basés sur l'AD LDG soumis à PPR adressé au DV/chef du pôle OPS.",
+      "Le NR d'accord doit être porté en case 18 du FPL En dehors des HOR d'activation des CTR et CTA SALON : FREQ d'auto-information RWY 16/34 : glissante par temps de pluie BAR AERAZUR F30 type 5 à chaque extrémité de RWY, hauteur : 1,5 m Pour les TORA, ASDA et LDA, les distances réelles sont disponibles 50 m avant le balisage de fin de RWY Réacteurs : VIS : 5 km Plafond : 1000 ft Conventionnels : VIS : 3 km Plafond : 1000 ft HEL : VIS : 800 m Plafond : 600 ft Procédures et consignes particulières Partie Est de l'AD réservée aux GLD, aux vols télépilotés sans personne à bord, aux vols moteur «école» et entraînement acrobatique La LF-R 276 Patrouille de France active exige un contournement obligatoire sauf ACFT autorisés Plan de roulage Limitations TWY et PRKG : TWY C : Fermé ; C130 : PRKG VIP uniquement ; TWY A1, A2 et B1 sont interdits ; A400M : PRKG et TWY sont interdits.",
+      "SALON DE PROVENCE Autre plafond utilisable 1400 m AMSL LUN-VEN : 0600-0800, 1045-1145, 1630-1800 / SAM, DIM, JF : SR-SS Activité réelle connue de SALON APP et au-dessus de 4500 ft AMSL de Provence APP/AFIS.",
+      "Autres HOR et niveaux d'activité annoncés par NOTAM AEM (NR 9915) : SFC - 820 ft ASFC / SR-SS Vols radiocommandés selon protocole Activité particulière (NR 13-001) : SFC - 490 ft ASFC / HJ Aéronefs télépilotés en vue non habités, selon protocole"
+    ]
+  }
+}

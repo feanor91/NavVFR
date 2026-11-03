@@ -1,0 +1,76 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGX (AIP France, chart dated 2022-12-29): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGX",
+  "name": "Champagnole - Crotenay",
+  "source": {
+    "publication": "AIP France AD 2 LFGX",
+    "chartDate": "2022-12-29",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.76333,
+    "longitude": 5.81972
+  },
+  "elevationFeet": 1745,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5"
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        18,
+        198
+      ]
+    }
+  ],
+  "preferredQfu": 198,
+  "preferredQfuReason": "preferred QFU 198, due to terrain to the North",
+  "notes": [
+    "AD with special characteristics reserved for: home-based pilots; pilots holding a mountain rating; pilots with more than 250 hours of flight time who requested prior permission from the AD operator and who have recognized the platform with an instructor entitled by the AD operator.",
+    "The permission will be maintained during 1 year and renewed under conditions by the AD operator.; helicopters.",
+    "AD subject to turbulence in strong winds.",
+    "Take-off from threshold is mandatory (backtrack is mandatory).",
+    "In both QFU the end of the take-off distance is identified by red lateral cones.",
+    "Touch and go practice prohibited.",
+    "Preferred QFU 198° due to terrain to the North.",
+    "DEP 20: after take-off, fly heading 218° to avoid the electric line and the village.",
+    "ARR 20: forest to the North in the landing funnel requiring an adapted descent to the DTHR.; check the performance of the aircraft.",
+    "DEP 02: forest to the North in the take-off funnel constituting an obstacle that could reach 20 m.; use Max climb slope; check the performance of the aircraft according to published obstacles.; short field take-off procedure recommended.",
+    "ARR 02: comply with the approach slope to DTHR due to belfry and electric line on final.",
+    "AEM on AD (NR 8049): SFC - 800 ASFC/2600 AMSL.",
+    "SUM: 0700-1700, WIN: 0800-SS.",
+    "As per protocol."
+  ],
+  "fr": {
+    "notes": [
+      "AD à caractéristiques spéciales réservé : aux pilotes basés ; aux pilotes possédant la qualification montagne ; aux pilotes ayant plus de 250 h de CDB qui auront demandé une permission à l'exploitant et qui auront reconnu la plateforme avec un instructeur habilité par.",
+      "",
+      "Aérodrome sujet aux turbulences par fort vent.",
+      "Décollage obligatoire depuis l'extrémité de piste (remontée obligatoire).",
+      "Dans les 2 QFU, la fin de la TODA se situe au seuil décalé opposé, matérialisé par des cônes latéraux rouges.",
+      "Exercice de toucher-décoller interdit.",
+      "QFU 198° préférentiel cause relief au Nord.",
+      "DEP 20 : après décollage, prendre cap 218° pour éviter la ligne électrique et le village.",
+      "ARR 20 : forêt au Nord dans la trouée d'atterrissage conduisant à un plan de descente aménagé vers le seuil décalé. vérifier les performances de l'aéronef.",
+      "DEP 02 : forêt au Nord dans la trouée de décollage constituant un obstacle perçant pouvant atteindre 20 m. montée pente Max ; vérifier les performances de l'aéronef en fonction des obstacles publiés. procédure départ court recommandée.",
+      "ARR 02 : respecter le plan de descente vers le seuil décalé cause clocher de l'église et ligne électrique en finale.",
+      "AEM (N° 8049) sur AD : SFC - 800 ASFC/2600 AMSL.",
+      "ETE : 0700-1700, HIV : 0800-SS.",
+      "Selon protocole."
+    ]
+  }
+}

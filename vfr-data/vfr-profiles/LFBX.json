@@ -1,0 +1,102 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFBX (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFBX",
+  "name": "Périgueux-Bassillac",
+  "source": {
+    "publication": "AIP France AD 2 LFBX",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.1975,
+    "longitude": 0.81528
+  },
+  "elevationFeet": 328,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "LUN-VEN sauf JF / MON-FRI except public HOL : 0700-1100, 1200-1600. En dehors de ces HOR : PPR 48 HR par (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 119.275,
+    "afis": 118.78
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        112,
+        292
+      ]
+    },
+    {
+      "id": "11L/29R",
+      "qfu": [
+        112,
+        292
+      ]
+    }
+  ],
+  "preferredQfu": 112,
+  "preferredQfuReason": "preferred QFU 112, due to noise pollution",
+  "notes": [
+    "Possible IFR operations.",
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of RWY prohibited.",
+    "TORA, ASDA and LDA RWY 29 reduced due to RESA.",
+    "Unpaved RWY reserved for home-based ACFT and authorized gliders pilots.",
+    "During ATS SKED, fees are payable at the TWR.",
+    "Convex runway: from BRAVO holding point, THR 29 is invisible.",
+    "When strong crosswind, light to severe turbulence THR 11 and 29.",
+    "Due to reliefs, the airfield is in darkness at SS+15 MIN.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Preferred QFU: 112° due to noise pollution.",
+    "TKOF from TWY A: only permitted during the day and on RWY 11.",
+    "TKOF from TWY B: prohibited day and night, RWY backtrack is mandatory.",
+    "North circuit available only for authorized home based aircraft using the unpaved runway.",
+    "The commercial apron in front of the TWR must remain cleared.",
+    "Overhead AD arrival at 1800 ft AMSL for all ACFT before entering the traffic circuit.",
+    "Low altitude circuit at 500 ft MNM with instructor on board.",
+    "TWY and apron strength: 26 F/C/W/T.",
+    "TKOF on paved RWY29: by night, due to curved funnel, overhead end of RWY take 242°.",
+    "VFR MTOW < 1.9 t: PPR 48HR.",
+    "IFR and VFR MTOW > 1.9 t: PPR 48HR and ATS presence mandatory and handling assistance mandatory request on portal MyHandling (https://cy.myhandlingsoftware.com).",
+    "FBO EDEIS: perigueux.afis@edeis.com PCL: PPR 48HR, instructions provided by AD operator during the request."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des pistes interdite.",
+      "TORA, ASDA et LDA RWY 29 réduites cause RESA.",
+      "RWY non revêtue réservée aux ACFT basés et aux pilotes de planeurs autorisés.",
+      "En HOR ATS, les redevances sont payables à la tour.",
+      "Piste bombée : du point d'attente BRAVO, le THR 29 est invisible.",
+      "Par fort vent de travers, turbulences modérées à fortes aux seuils 11 et 29.",
+      "Cause relief, le terrain se trouve dans la pénombre à CS+15 MIN.",
+      "Roulage interdit hors RWY et TWY.",
+      "QFU 112° préférentiel cause nuisances.",
+      "Décollage depuis TWY A : autorisé uniquement de jour et en piste 11.",
+      "Décollage depuis TWY B : interdit jour et nuit, remontée de piste obligatoire.",
+      "",
+      "Le parking commercial au pied de la TWR doit rester libre.",
+      "Arrivée verticale AD à 1800 ft AMSL pour tout aéronef avant intégration dans le circuit de piste.",
+      "Circuit basse hauteur à 500 ft MNM possible avec instructeur à bord.",
+      "Résistance TWY et PRKG : 26 F/C/W/T.",
+      "Décollage piste 29 revêtue : de nuit, en raison de la trouée courbe, passant l'extrémité de piste, prendre 242°.",
+      "Vols VFR MTOW < 1.9 t : PPR 48HR.",
+      "Vols IFR et VFR MTOW > 1.9 t : PPR 48HR et présence ATS obligatoire et demande d'assistance obligatoire sur le portail MyHandling (https://cy.myhandlingsoftware.com).",
+      "FBO EDEIS : perigueux.afis@edeis.com PCL : PPR 48HR, consignes fournies par l'exploitant lors de la demande."
+    ]
+  }
+}

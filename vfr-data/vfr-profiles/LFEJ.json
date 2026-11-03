@@ -1,0 +1,70 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFEJ (AIP France, chart dated 2026-01-22): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFEJ",
+  "name": "Châteauroux - Villers",
+  "source": {
+    "publication": "AIP France AD 2 LFEJ",
+    "chartDate": "2026-01-22",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.84083,
+    "longitude": 1.62
+  },
+  "elevationFeet": 542,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 122.73",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 122.73
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        39,
+        219
+      ]
+    }
+  ],
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "WDI: possible wrong indications when SE wind.",
+    "Pilots' attention is drawn towards the implementation of IFR and training procedures for wide bodied aircraft in the vicinity of CHATEAUROUX-DEOLS.",
+    "Lack of visibility between the two THR, extreme caution is required.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Instructions when the CTR CHATEAUROUX is activated: Aerodrome-circuits: regarding Villers circuits, squawk 7057 and contact CHATEAUROUX TWR as soon as possible.",
+    "Inform systematically CHATEAUROUX TWR at the end of session.; Arrivals: before entering CTR, get imperatively a clearance from CHATEAUROUX TWR.",
+    "To join Villiers aerodrome circuit, proceed to a Villers overhead at 1500 ft without overshooting east from Villers runway centerline.; Departures: contact CHATEAUROUX TWR as soon as possible to get a clearance.",
+    "As long as a radio contact has not been established, keep west from Villers runway centerline at 1500 ft QNR maximum waiting for clearance getting; possible exit to the west at 1500 ft.",
+    "QNR maximum.",
+    "Others sectors: compulsory clearance of CHATEAUROUX TWR."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "Manche à vent : possibilités d'indications erronées par vent de SE.",
+      "L'attention des pilotes est attirée sur l'existence de procédures IFR et d'entraînement gros porteurs sur l'aérodrome voisin de CHATEAUROUX-DEOLS.",
+      "Absence de visibilité entre les deux seuils de piste, une extrême prudence est recommandée.",
+      "Roulage interdit hors piste et TWY.",
+      "Consignes applicables lorsque la CTR de CHATEAUROUX est active : Tours de piste : pour des tours de piste à Villers, afficher 7057 au transpondeur et contacter.",
+      "",
+      "Pour l'intégration dans le circuit d'aérodrome de Villers, effectuer une verticale de Villers à 1500 pieds QNH sans déborder à l'est de l'axe de piste de Villers.",
+      "Tant que le contact radio n'a pas été établi, rester à l'ouest de l'axe de piste de Villers à 1500 pieds QNH maximum en attente de l'obtension de la clairance ; sortie possible par l'ouest à 1500 pieds QNH maximum Autres secteurs : clairance obligatoire auprès de CHATEAUROUX TWR.",
+      "",
+      ""
+    ]
+  }
+}

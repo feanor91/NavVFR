@@ -1,0 +1,83 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFIR (AIP France, chart dated 2022-11-03): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFIR",
+  "name": "Revel - Montgey",
+  "source": {
+    "publication": "AIP France AD 2 LFIR",
+    "chartDate": "2022-11-03",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.48028,
+    "longitude": 1.97889
+  },
+  "elevationFeet": 643,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.58",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 119.58
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        125,
+        305
+      ]
+    }
+  ],
+  "preferredQfu": 305,
+  "preferredQfuReason": "preferred QFU 305",
+  "notes": [
+    "AD reserved for home-based ACFT and ACFT based on neighbouring AD (1).",
+    "AD can be used by HEL.",
+    "AD reserved for radio-equipped ACFT.",
+    "If South-East wind over 30 kt, strong turbulences in the vicinity of the AD.",
+    "Major bird risk.",
+    "Preferred QFU 305°.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Presence of yellow day-lighting for half-turn at THR RWY 30.",
+    "Traffic patterns for training and touch and go prohibited for non-home-based ACFT.",
+    "The South hangar is intended for private use.",
+    "Only authorized ACFT can take the mandatory towing route between the hangar and the continuous white line marking the start of the TWY.",
+    "Warning the distance between the towing line and: the refuelling station: 11.60 m the new hangar: 7.20 m Aerobatics (NR 6710) 500 m wide on each side of the RWY axis, 2500 m long from ARP to NW.",
+    "1300/3300 ft AAL on daytime; compulsory radio contact A/A.",
+    "Usable only with the AD operator agreement.",
+    "AEM NR 9038, activity only South of the installations only.",
+    "660 AAL MAX (1) AD voisins/ Neighbouring AD: ALBI - CAHORS - CARCASSONNE - CASSAGNES - CASTELNAUDARY -"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT basés et à ceux basés sur les AD voisins (1).",
+      "AD utilisable par HEL.",
+      "AD réservé aux ACFT munis de radio.",
+      "Par vent du Sud-Est supérieur à 30 kt, fortes turbulences aux abords de l'AD.",
+      "Risque aviaire important.",
+      "QFU 305° préférentiel.",
+      "Roulage interdit hors piste et TWY.",
+      "Balisage diurne jaune de demi-tour seuil de piste 30.",
+      "Les tours de piste pour entraînement ainsi que les touch and go sont interdits aux aéronefs non basés.",
+      "Le hangar Sud est destiné à un usage privatif.",
+      "Seuls les ACFT autorisés peuvent emprunter le cheminement par tractage obligatoire entre le hangar et la ligne blanche continue matérialisant le début du TWY.",
+      "Attention la distance entre la ligne de tractage et : la station d'avitaillement : 11,60 m le nouveau hangar : 7.20 m Activités particulières Activité voltige (N° 6710) : largeur 500 m de part et d'autre de l'axe de piste, longueur 2500 m vers NW à partir de l'ARP.",
+      "1300/3300 ft AAL HJ ; contact obligatoire A/A.",
+      "Utilisable seulement sur autorisation exploitant AD.",
+      "Activité AEM (N° 9038) au Sud des installations uniquement.",
+      "CASTELSARRASIN - CASTRES - FIGEAC - GAILLAC - GRAULHET - LEZIGNAN - MONTAGNE NOIRE - MONTAUBAN - MURET - PAMIERS - RODEZ - SAINT-AFFRIQUE - SAINT-GIRONS - TOULOUSE BLAGNAC - TOULOUSE LASBORDES - VILLEFRANCHE."
+    ]
+  }
+}

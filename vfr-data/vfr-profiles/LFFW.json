@@ -1,0 +1,78 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFFW (AIP France, chart dated 2022-08-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFFW",
+  "name": "Montaigu - Saint-Georges",
+  "source": {
+    "publication": "AIP France AD 2 LFFW",
+    "chartDate": "2022-08-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.93222,
+    "longitude": -1.32722
+  },
+  "elevationFeet": 186,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "07L/25R",
+      "qfu": [
+        66,
+        246
+      ]
+    },
+    {
+      "id": "07R/25L",
+      "qfu": [
+        66,
+        246
+      ]
+    }
+  ],
+  "preferredQfu": 66,
+  "preferredQfuReason": "preferred QFU 66, due to noise pollution",
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "Paramotor activity is carried out exclusively from the circular area dedicated to this activity.",
+    "Simultaneous use of the RWYs is prohibited (only one movement on all 3 RWYs at a time).",
+    "TKOF or LDG is forbidden on RWY 07R-25L in case of: Presence of a person on the circular area; Presence of a glider on the glider RWY found less than a half width of the common limit.; Presence of an ACFT or a vehicle on the parallel TWY.",
+    "From NOV 1st to MAR 31st, possible operating restrictions after heavy rainfalls.",
+    "Situation announced via NOTAM.",
+    "Usable declared distances:TODA RWY 25 reduced due to a road located at 25 m from the end of the RWY.",
+    "Preferred QFU: 066°, due to noise pollution.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Important paramotor activity.",
+    "AEM on AD(NR 8319): SR-SS, SFC-1000 ft ASFC/1200 ft AMSL, as per protocol."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "L'activité paramoteur est exclusivement effectuée à partir de l'aire circulaire qui lui est dédiée.",
+      "L'utilisation simultanée des pistes est strictement interdite (un seul mouvement à la fois sur l'ensemble des 3 pistes).",
+      "Tout décollage ou atterrissage est interdit sur la piste 07R-25L en cas de : Présence d'au moins une personne sur l'aire circulaire ; Présence d'un planeur sur la piste planeur à moins d'une demi-largeur de la limite commune. Présence d'un aéronef ou de véhicule sur le TWY parallèle.",
+      "Du 01/11 au 31/03, restrictions possibles après fortes pluies.",
+      "Situation annoncée par NOTAM.",
+      "Distances déclarées utilisables : TODA RWY 25 réduite en raison d'une route située à 25 m de l'extrémité de piste.",
+      "QFU 066° préférentiel cause nuisances sonores.",
+      "Roulage interdit hors RWY et TWY.",
+      "Activité paramoteur importante.",
+      "AEM sur AD (N°8319) : SR-SS, SFC-1000 ft ASFC/1200 ft AMSL, selon protocole."
+    ]
+  }
+}

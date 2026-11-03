@@ -1,0 +1,110 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFMQ (AIP France, chart dated 2026-03-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFMQ",
+  "name": "Castellet",
+  "source": {
+    "publication": "AIP France AD 2 LFMQ",
+    "chartDate": "2026-03-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.25222,
+    "longitude": 5.78611
+  },
+  "elevationFeet": 1391,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "ETE / SUM : 0700-1600. HIV / WIN : 0800-1600. +33 4 94 98 39 35 afis@aeroportducastellet.com (UTC HIV ; HOR ETE : - 1 HR)",
+    "outsideAtsHours": "air-air frequency 119.005",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 124.35,
+    "afis": 119.005
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        125,
+        305
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited to gliders.",
+    "AD prohibited to ACFT (except HEL) if crosswind higher than 15 kt.",
+    "Possible IFR operations.",
+    "Except for based ACFT authorized by AD operator, use of RWY 12/30 prohibited outside AFIS SKED.",
+    "High-visibility vest mandatory on runway side.",
+    "Runway inspection during ATS SKED only.",
+    "Possible restrictions of aerial activities during events on Paul Ricard circuit.",
+    "Flight intentions for ACFT with mandatory flight plans via: business aviation flights: https://cy.myhandlingsoftware.com; general aviation flights: https://www.touchngo.fr.",
+    "If strong wind from NW, possibility of turbulences on final APCH.",
+    "By sea breeze (wind from SSW) and in case of uncertainly about wind direction indication, use RWY 30.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Possible brown out due to propeller and blade blast (possible presence of dust on the airfield).",
+    "Possible bird hazard on the airfield and its immediate vicinity.",
+    "Aerobatics (NR 6965): see AIP ENR 5.5 Radio contact mandatory even before engine run up or engine tests.",
+    "Circling training on request by TEL: +33 4 94 98 39 35.",
+    "Training, go-around, touch and go, traffic pattern prohibited outside ATS SKED and between 1100-1200 (SUM: -1HR).",
+    "For IFR training: see eAIP.",
+    "Overflying of race course prohibited, below 1500 ft AAL.",
+    "Protection against obstacles limited at 7 km for PAPI RWY 12 and 30.",
+    "Day and night, compulsory use of PAPI on RWY 30.",
+    "PAPI 30 in use during AFIS SKED only.",
+    "RWY 12 and 30: TKOF compulsory from THR.",
+    "H24 JET A1-AVGAS 100LL automated fuel dispenser payment by operator badge or credit card only.",
+    "Refueling truck JET A1 ATS SKED: payment by credit card or cash.",
+    "Lubrifiants / Lubricants: NIL.",
+    "Niveau 5 / Level 5 pendant HOR ATS / during ATS SKED.",
+    "Niveau 1 / Level 1 hors HOR ATS / outside ATS SKED.",
+    "Lake rescue 1 boat + 2 lifeboats (60 seats).",
+    "Péril animalier / Wildlife strike hazard: Occasionnel / Random."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux planeurs.",
+      "AD interdit aux aéronefs (hors hélicoptères) par composante traversière supérieure à 15 kt.",
+      "Activité IFR possible.",
+      "Sauf ACFT basés autorisés par l'exploitant AD, utilisation de la piste 12/30 interdite hors HOR AFIS.",
+      "Port d'un gilet haute visibilité obligatoire côté piste.",
+      "Inspection de piste uniquement pendant les HOR ATS.",
+      "Possibles restrictions des activités aériennes à prévoir lors des évènements prévus sur le circuit Paul Ricard.",
+      "Déclaration de vol pour les ACFT sous plan de vol obligatoire via : vols d'aviation d'affaires : https://cy.myhandlingsoftware.com ; vols d'aviation générale : https://www.touchngo.fr.",
+      "",
+      "Par régime de brise de mer (vent du SSW) et en cas d'indication douteuse de la manche à vent utiliser RWY 30.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Risque d'effet de voile brun dû au souffle des hélices et pales (présence possible de poussières sur l'ensemble de la plateforme).",
+      "Présence possible d'oiseaux sur la plateforme et aux abords immédiats de celle-ci.",
+      "Voltige (N°6965) : voir AIP ENR 5.5 Contact radio obligatoire même avant point fixe ou essais moteurs.",
+      "Tours de piste sur demande préalable par TEL : +33 4 94 98 39 35.",
+      "Entraînements, remises des gaz, touch and go et tours de piste interdits hors HOR ATS et entre 1100-1200 (ETE : - 1 HR).",
+      "Entraînement IFR : se référer à l'eAIP.",
+      "Survol du circuit automobile interdit en dessous de 1500 ft AAL.",
+      "La protection contre les obstacles est limitée à 7 km pour les PAPI des RWY 12 et 30.",
+      "Pour toute procédure en piste 30, utilisation obligatoire du PAPI 30.",
+      "PAPI 30 en service uniquement en présence agent AFIS.",
+      "RWY 12 et 30 : Décollage à partir du seuil obligatoire.",
+      "LE CASTELLET 10 - AVT : Automate H24 JET A1-AVGAS 100LL : paiement par badge exploitant ou CB uniquement.",
+      "Camion avitailleur JET A1 HOR ATS : paiement par CB ou espèces.",
+      "",
+      "",
+      "Sauvetage sur lac 1 embarcation + 2 canots de sauvetage (60 places).",
+      "11 - RFFS : Sauvetage sur lac 1 embarcation + 2 canots de sauvetage (60 places).",
+      ""
+    ]
+  }
+}

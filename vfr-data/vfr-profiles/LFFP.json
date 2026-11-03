@@ -1,0 +1,64 @@
+{
+  "$comment": [
+    "REAL DATA, transcribed by hand from the SIA chart set AD 2 LFFP (AIP France, AMDT 12/22, chart dated 2022-11-03).",
+    "Only facts are recorded here; the charts themselves are (c) SIA and are not redistributed.",
+    "Runway geometry, taxiways, parking and frequencies also come from the simulator at run time; this file holds",
+    "what the simulator does not know: services, circuit rules and reporting points.",
+    "Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFFP",
+  "name": "Pithiviers",
+  "source": {
+    "publication": "AIP France AD 2 LFFP",
+    "amendment": "AMDT 12/22",
+    "chartDate": "2022-11-03",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.15639,
+    "longitude": 2.19111
+  },
+  "elevationFeet": 391,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "ats": "NIL",
+    "radioMandatory": false,
+    "restrictedUse": true,
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "07/25",
+      "qfu": [
+        68,
+        248
+      ],
+      "surface": "unpaved",
+      "lengthMetres": 1020,
+      "widthMetres": 50
+    }
+  ],
+  "notes": [
+    "Restricted use: home-based aircraft and aircraft based on neighbouring aerodromes only.",
+    "Traffic-pattern training reserved for home-based aircraft.",
+    "Take-off runway 07: turn left as soon as possible to avoid overflying the village.",
+    "No holding-point signs or marks before the runway; taxiing prohibited except on runway and taxiway.",
+    "With north or south crosswind, turbulence possible on approach and on the runway.",
+    "Aerobatics (NR 6403) overhead the runway, 1700-3500 ft AMSL, prohibited if QNH is below 1009 hPa."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "",
+      "Décollage en 07 : prendre dès que possible un cap sur la gauche pour éviter le survol du village.",
+      "",
+      "",
+      ""
+    ]
+  }
+}

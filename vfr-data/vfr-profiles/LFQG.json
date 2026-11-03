@@ -1,0 +1,139 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFQG (AIP France, chart dated 2024-07-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFQG",
+  "name": "Nevers-Fourchambault",
+  "source": {
+    "publication": "AIP France AD 2 LFQG",
+    "chartDate": "2024-07-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.00361,
+    "longitude": 3.11083
+  },
+  "elevationFeet": 602,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "ETE (01/04-31/10) : LUN-VEN : 0630-1030, 1130-1530. HIV (01/11-31/03) : LUN-VEN : 0730-1130, 1230-1630. Extensions : - LUN-VEN : PPR PN 24HR - SAM-DIM : PPR PN avant VEN 1400 locale - JF : PPR le dernier jour ouvrable avant 1400 locale SUM (01/04-31/10) : MON-FRI : 0630-1030, 1130-1530. WIN (01/11-31/03) : MON-FRI : 0730-1130, 1230-1630. Extensions : - MON-FRI : PPR PN 24HR - SAT-SUN : PPR PN before FRI 1400 local ti (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 120.605",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 119.7,
+    "afis": 120.605
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        121,
+        301
+      ]
+    },
+    {
+      "id": "12L/30R",
+      "qfu": [
+        121,
+        301
+      ]
+    }
+  ],
+  "preferredQfu": 301,
+  "preferredQfuReason": "preferred QFU 301, due to IFR procedure",
+  "notes": [
+    "Possible IFR operations.",
+    "AD reserved for radio-equipped ACFT.",
+    "Simultaneous use of both RWY prohibited.",
+    "In case of glider activity: Two glider line-up areas are defined as a rectangle on each end of the unpaved RWY.",
+    "South boundaries of these areas are located at 75 m from the paved RWY axis.",
+    "They extend over 30 m from RWY THR.",
+    "The paved RWY can be used for TKOF and LDG if some ACFT are located in the line-up area or in the gliders vacating area.",
+    "TKOF and LDG prohibited if there is an ACFT on grass strip.",
+    "Restrictions paved RWY 12/30: prohibited for ACFT whose reference TKOF distance is greater than 1200 m.; mandatory TKOF from RWY ends.",
+    "The grass strip can be used: at TKOF if some gliders are located in the vacating area or in line-up area.; at LDG if some gliders are located in the vacating area or in line-up area maintaining the RWY THR crossing at a minimum altitude of 15 m.",
+    "As soon as the tow plane declares he's lining up ahead of a glider, paved and unpaved RWY are unusable.",
+    "Grass strip 12/30 reserved for authorized ACFT, not available after rain.",
+    "TWY A width: 10,00 m.",
+    "TWY B width: 10,50 m.",
+    "THR 30 strength: 17 F/C/W/T.",
+    "Preferred QFU: 301° due to IFR procedure.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Do not use PAPI if eye-to-wheel height exceeds 3 m.",
+    "Hospital overflight prohibited, except SAMU helicopter.",
+    "Base leg direct joining from the South is prohibited to ACFT.",
+    "Only are allowed medical flights between the airport and the hospital.",
+    "PCL: SS+30 - SR-30 The PCL turns on after 3 microphone switch action and activates RWY, TWY and the PAPI RWY 30.",
+    "The PCL turns off automatically after 15 minutes.",
+    "Aerobatics activity (NR 6456) with PPR from AD operator.",
+    "Paved RWY axis, 1000 m each side of ARP, 1500 ft AAL/FL 055, AFIS SKED, unusable during IFR and gliders activities, PPR AVORD APP.",
+    "Users information on NEVERS INFO.",
+    "AEM (NR 8232): SUM: 0600-SS, WIN: 0700-SS, 500 ft ASFC.",
+    "Upper limit raised to 1200 ft ASFC announced by NOTAM.",
+    "According to conditions set by protocol.",
+    "Parachuting on AD (NR 234): SFC - FL 145.",
+    "SR - SS+30.",
+    "According to conditions set by protocol.",
+    "Activity reserved for users designated by protocol.",
+    "Actual activity known by: NEVERS INFO, AVORD APP, PARIS INFO, PARIS ACC.",
+    "Gliding on the grass strip: SFC – FL 115, SR-SS+30.",
+    "According to conditions set by protocol.",
+    "Activity reserved for users designated by protocol.",
+    "Actual activity known by NEVERS INFO.",
+    "Informations diverses / Miscellaneous Réparations / Repairs: Hotels in town, restaurants in the vicinity.",
+    "Divers / Miscellaneous: GRF (service d'évaluation et de report de l'état de surface de piste / Global Reporting Format ): HOR AFIS / AFIS SKED."
+  ],
+  "fr": {
+    "notes": [
+      "Activité IFR possible.",
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée des deux pistes interdite.",
+      "En cas d'activité planeur : Deux zones d'alignement planeurs sont définies comme un rectangle à chaque extrémité de la piste gazonnée.",
+      "Les limites sud de ces zones se situent à 75m de l'axe de la piste revêtue.",
+      "Elles s'étendent du seuil de piste sur 30m.",
+      "La piste revêtue peut être utilisé pour le DEC et ATT si des aéronefs se situent dans la zone d'alignement ou dans la zone de dégagement des planeurs.",
+      "DEC et ATT interdits en cas de présence d'appareil sur la piste en herbe.",
+      "Restrictions piste revêtue 12/30 : interdite aux aéronefs dont la distance de référence au décollage est supérieure à 1200 m. décollage obligatoire depuis les extrémités de piste.",
+      "La piste non revêtue peut être utilisée : au DEC si des planeurs se trouvent en zone de dégagement ou en zone d'alignement. à l'ATT si des planeurs se trouvent en zone de dégagement ou en zone d'alignement en respectant le franchissement du seuil de piste à une altitude minimum de 15 m.",
+      "Dès lors que l'avion remorqueur annonce s'aligner devant un planeur, les pistes revêtue et non revêtue sont inutilisables.",
+      "Bande gazonnée 12/30 réservée aux ACFT autorisés, inutilisable après pluie.",
+      "Largeur du TWY A : 10,00 m.",
+      "Largeur du TWY B : 10,50 m.",
+      "Résistance THR 30 : 17 F/C/W/T.",
+      "QFU 301° préférentiel cause procédure IFR.",
+      "Roulage interdit hors RWY et TWY.",
+      "Ne pas utiliser le PAPI si hauteur oeil-roue supérieure à 3 m.",
+      "Survol de l'hôpital interdit, sauf hélicoptère SAMU.",
+      "",
+      "",
+      "Seuls sont autorisés les vols médicaux entre l'aéroport et le centre hospitalier Équipement AD PCL : SS+30 - SR-30 La PCL s'allume avec 3 coups d'alternats, et met en service RWY, TWY et le PAPI RWY 30.",
+      "La PCL s'éteint automatiquement après 15 minutes.",
+      "",
+      "Axe RWY 12/30 revêtue, 1000 m de part et d'autre de l'ARP, 1500 ft AAL/FL 055, HOR AFIS, hors activités IFR et VAV, PPR AVORD APP.",
+      "Information des usagers NEVERS INFO.",
+      "AEM (N° 8232) : ETE : 0600-SS, HIV : 0700-SS, 500 ft ASFC.",
+      "Rehaussement du plafond jusqu'à 1200 ft ASFC annoncé par NOTAM.",
+      "Selon conditions fixées par le protocole.",
+      "Parachutage sur AD (N° 234) : SFC - FL 145.",
+      "SR - SS+30.",
+      "Selon conditions fixées par le protocole.",
+      "Activité réservée aux usagers désignés par protocole.",
+      "Activité réelle connue de : NEVERS INFO, AVORD APP, PARIS INFO, PARIS ACC.",
+      "Vol à voile sur la bande gazonnée : SFC – FL 115, SR-SS+30.",
+      "Selon conditions fixées par le protocole.",
+      "Activité réservée aux usagers désignés par protocole.",
+      "Activité réelle connue de NEVERS INFO.",
+      "",
+      ""
+    ]
+  }
+}

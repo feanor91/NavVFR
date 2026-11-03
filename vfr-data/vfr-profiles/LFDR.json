@@ -1,0 +1,38 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDR (AIP France, chart dated 2022-07-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFDR",
+  "name": "Réole - Floudès",
+  "source": {
+    "publication": "AIP France AD 2 LFDR",
+    "chartDate": "2022-07-14",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 44.56694,
+    "longitude": -0.05722
+  },
+  "elevationFeet": 44,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.355"
+  },
+  "frequencies": {
+    "airAir": 123.355
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        77,
+        257
+      ]
+    }
+  ]
+}

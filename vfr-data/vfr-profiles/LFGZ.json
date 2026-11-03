@@ -1,0 +1,40 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGZ (AIP France, chart dated 2025-12-25): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFGZ",
+  "name": "Nuits-Saint-Georges",
+  "source": {
+    "publication": "AIP France AD 2 LFGZ",
+    "chartDate": "2025-12-25",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 47.14222,
+    "longitude": 4.96833
+  },
+  "elevationFeet": 794,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        112,
+        292
+      ]
+    }
+  ]
+}

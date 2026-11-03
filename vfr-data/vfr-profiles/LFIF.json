@@ -1,0 +1,74 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFIF (AIP France, chart dated 2020-06-18): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFIF",
+  "name": "Saint-Affrique - Belmont",
+  "source": {
+    "publication": "AIP France AD 2 LFIF",
+    "chartDate": "2020-06-18",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 43.82278,
+    "longitude": 2.74722
+  },
+  "elevationFeet": 1686,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5"
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "12/30",
+      "qfu": [
+        117,
+        297
+      ]
+    },
+    {
+      "id": "12R/30L",
+      "qfu": [
+        117,
+        297
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for home-based ACFT, ACFT based on neighbouring AD (1), helicopters and ACFT authorized by AD operator.",
+    "AD reserved for ACFT with radio equipment.",
+    "Unusable out of RWY and TWY.",
+    "Cambered RWY: no visible contact from one threshold to the other.",
+    "Simultaneous use of both RWYs prohibited.",
+    "Turbulence near both thresholds, by South wind or South-East wind.",
+    "TKOF RWY 12: 2 high tension lines within the TKOF funnel; Be aware of a high tension line, perpendicular to the approach RWY 30, 1800 m from the DTHR 30; altitude at the top of the pylons: 1920 ft; day marking on the pylons, but not on the electric line.; Winching prohibited with cross winds; Left turn as soon as possible.",
+    "Launching gliders activity on unpaved RWY announced on A/A frequency.",
+    "During the activity, site examination at 3700 AMSL MNM.",
+    "AEM over AD (NR 9019): 500 ft ASFC, HJ (1) AD voisins / Neighbouring AD: ALBI, ALES, BEDARIEUX, BEZIERS, CARCASSONNE, CASSAGNES,"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT basés, à ceux basés sur les AD voisins (1), aux hélicoptères et aux aéronefs autorisés par l'exploitant d'aérodrome.",
+      "AD réservé aux ACFT munis de radio.",
+      "Inutilisable hors piste et TWY.",
+      "RWY bombée : pas de visibilité d'un seuil à l'autre.",
+      "",
+      "Par vent de secteur Sud ou Sud-Est, présence de turbulences aux deux seuils de piste.",
+      "Décollage RWY 12 : Présence de deux lignes HT dans la trouée de décollage. Présence d'une ligne haute tension, perpendiculaire à l'approche RWY 30, à 1800 m du SDE 30, côte au sommet des pylônes : 1920 ft ; balisage diurne des pylônes mais pas de la ligne électrique. Treuillages interdits par vents traversiers ; Virage à gauche dès que possible.",
+      "",
+      "Pendant l'activité réelle, reconnaissance du site à 3700 AMSL MNM.",
+      "AEM sur AD (N° 9019) : 500 ft ASFC, HJ. CASTELNAUDARY, CASTELSARRASIN, CASTRES, CAZERES, FIGEAC, FLORAC, GAILLAC, GRAULHET, MENDE, MILLAU, MONTAUBAN, MONTPELLIER, MURET, PERPIGNAN, REVEL, RODEZ, TOULOUSE, UZES, VILLEFRANCHE DE ROUERGUE."
+    ]
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLY (AIP France, chart dated 2026-03-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFLY",
+  "name": "Lyon-Bron",
+  "source": {
+    "publication": "AIP France AD 2 LFLY",
+    "chartDate": "2026-03-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.72944,
+    "longitude": 4.93889
+  },
+  "elevationFeet": 659,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "TWR : LUN-VEN / MON-FRI: 0530-2130, SAM / SAT: 0700-2130. DIM et JF / SUN and public HOL: 0700-2000 (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "fis": 135.2,
+    "atis": 128.13,
+    "approach": 136.075,
+    "tower": 118.1,
+    "airAir": 118.1
+  },
+  "runways": [
+    {
+      "id": "16/34",
+      "qfu": [
+        162,
+        342
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 45.89194,
+      "longitude": 4.80111,
+      "location": "Gare de triage de SAINT GERMAIN AU MONT D'OR"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 45.58972,
+      "longitude": 4.79667,
+      "location": "Échangeur routier de CHASSE SUR RHONE"
+    },
+    {
+      "name": "MS",
+      "spoken": {
+        "fr": "Mike Sierra",
+        "en": "Mike Sierra"
+      },
+      "latitude": 45.72333,
+      "longitude": 5.02333,
+      "location": "Rond point routier Sud-Est de GENAS"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 45.85694,
+      "longitude": 4.91333,
+      "location": "Intersection A46 / TGV / D1083"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 45.64972,
+      "longitude": 4.84056,
+      "location": "Gare de triage de FEYZIN"
+    },
+    {
+      "name": "NW",
+      "spoken": {
+        "fr": "Novembre Whisky",
+        "en": "November Whiskey"
+      },
+      "latitude": 45.845,
+      "longitude": 4.83333,
+      "location": "Barrage de COUZON"
+    },
+    {
+      "name": "TW",
+      "spoken": {
+        "fr": "Tango Whisky",
+        "en": "Tango Whiskey"
+      },
+      "latitude": 45.71694,
+      "longitude": 5.07056,
+      "location": "Rond point de l'EUROPE"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio and transponder-equipped ACFT.",
+    "AD prohibited for gliders.",
+    "Taxi-strip A5: available only with ATC clearance.",
+    "Helicopters work area: unpaved and marked, reserved for home based helicopters, usable in the daytime only, during ATC SKED.",
+    "Presence of instructor on board required to cross the main RWY.",
+    "SA reporting point: pilots' attention is drawn to the proximity with the P15 area in the north and with the glider altitude loss area of Lyon-Corbas in the East.",
+    "Take-off RWY 16 via A1: need to backtrack RWY to the end to respect TORA (1820 m).",
+    "Engine tests prohibited from 1900-0700 (SUM - 1 HR).",
+    "TA TWY: radio contact with TWR compulsory.",
+    "Departure instructions",
+    "Exit via MS to CTR Saint Exupery: Explicit clearance from SAINT EX Tower must be obtained to transit within the CTR Saint Exupéry.",
+    "Otherwise, a holding pattern is performed over MS which is a clearance limit point.",
+    "If no contact with SAINT EX Tower, the pilot contacts again BRON Tower for instructions.",
+    "When holding, VFR flights or special VFR flights must ensure their own separation from possible other holding VFR ACFT.",
+    "To MS: for all QFU, join down wind leg then turn to MS abeam threshold 34, climbing to 2000 ft QNH MAX.",
+    "For RWY circuit or departure with a reporting vertical tower: except ATC instructions, climb on RWY axis up to 1300 (600) and turn to cross wind leg.",
+    "Traffic pattern training reserved for based ACFT limited to 3 ACFT simultaneously only authorized (SUM - 1 HR): WIN period (from November 1st to March 31st): MON-FRI 0700-1800; SAT 0800-1700; SUN and HOL 0800-1100.",
+    "SUM period (from April 1st to October 31st): MON-FRI 0700-1100, 1300-1800; SAT 0800-1100; prohibited SUN and HOL electric ACFT authorized without SKED restriction.",
+    "Low-altitude circuits: Prohibited during EUREXPO shows.",
+    "Taxiway TA: radio contact with TWR compulsory.",
+    "The altitude of 2000 ft may be required for all published VFR routes within BRON CTR and SAINT EXUPERY CTR.",
+    "It is recommended for all aircraft to fly with landing lights switched on.",
+    "Departures: climb overhead airfield at expected segment minimum altitude.",
+    "Frans exit outside ATS SKED: ask for TMA 1 penetration clearance at LYON INFO.",
+    "Arrivals: latest used segment altitude will be maintained until being in sight of airfield within 5 NM, then join traffic pattern.",
+    "PAPI RWY 16 compulsory at night.",
+    "Outside ATS SKED: PAPI in permanent operating.",
+    "Traffic surveillance equipment: AD equipped with radar display (see AD 1.0).",
+    "Lighting remote control activation (PCL): 5 hits on mic = brightness 3 on 4.",
+    "Douanes, Police / Customs, Police: French customs: FLIGHT WITHIN SCHENGEN AND EU, or FLIGHT OUTSIDE SCHENGEN AND WITHIN EU: (Ireland, Cyprus) authorized under conditions of franchises (funds and merchandises), refer to: www.douane.gouv.fr; FLIGHT OUTSIDE SCHENGEN AND EU, or FLIGHT WITHIN SCHENGEN AND OUTSIDE EU: (Swiss, Liechtenstein, Island, Norway).",
+    "MON - FRI: HX O/R PN 24 HR.",
+    "SAT, SUN and public HOL: the last previous opening day before 1700.",
+    "TEL: 09 70 27 30 28 E-mail: codt-lyon@douane.finances.gouv.fr Boundary police (PAF) (Immigration and Schengen): See with PAF service of Lyon Saint-Exupéry.",
+    "TEL: 04 81 18 49 50.",
+    "Carburants / Fuel: UL AERO SUPER+ - 100 LL - JET A1 (TOTAL Energies et / and Air BP).",
+    "0630-2230, credit card, Eurocheques or cash payment.",
+    "SCAL company: outside opening SKED, TEL: 06 34 53 30 58 TOTAL Card for 100LL: H24.",
+    "JET A1: TOTAL or BP (TOTAL card or Sterling card).",
+    "Contact ADL desk counter inside terminal or contact OPS FREQ.",
+    "Niveau 5 / Level 5: H24.",
+    "Niveau 6 ou 7 / Level 6 or 7: PPR 72 HR - TEL: 04 78 26 81 09.",
+    "Péril animalier / Wildlife strike hazard: Occasionnel / Random."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "AD interdit aux planeurs.",
+      "Bretelle A5 : utilisable uniquement sur autorisation du contrôle.",
+      "Zone de travail hélicoptères : non revêtue et balisée, réservée aux hélicoptères basés, utilisable uniquement de jour, pendant HOR ATC.",
+      "Présence instructeur à bord requise pour la traversée de la piste principale.",
+      "Point de report SA : l'attention des pilotes est attirée sur la proximité avec la zone P15 au nord et avec la zone de perte d'altitude des planeurs de Lyon-Corbas à l'est.",
+      "Décollage RWY 16 via A1 : nécessité de remonter la piste jusqu'à son extrémité pour respecter la TORA (1820 m).",
+      "Essais moteurs interdits de 1900 à 0700 (ETE - 1 HR).",
+      "Voie de circulation TA : contact radio avec la TWR obligatoire.",
+      "Consignes départs",
+      "Sorties par MS vers la CTR Saint Exupéry : Une autorisation explicite de SAINT EX Tour doit être obtenue pour transiter dans la CTR Saint Exupéry.",
+      "A défaut, une attente est effectuée sur MS qui constitue un point de clairance limite.",
+      "Si le contact ne peut être établi avec SAINT EX Tour, le pilote contacte à nouveau BRON Tour pour instructions.",
+      "En cas de mise en attente, les pilotes, en VFR ou VFR spécial, veillent à assurer leur propre espacement visà-vis de la présence éventuelle d'autres aéronefs VFR qui seraient amenés à effectuer la même manoeuvre.",
+      "Vers MS : pour tout QFU, rejoindre la vent arrière puis virer vers MS au travers du seuil 34, en montée vers 2000 ft QNH maximum.",
+      "Pour tour de piste ou départ avec report vertical tour : sauf instructions ATC, monter dans l'axe à 1300 (600) puis virer en branche traversière.",
+      "",
+      "",
+      "",
+      "Voie de circulation TA : contact radio avec la TWR obligatoire.",
+      "L'altitude de 2000 ft est susceptible d'être imposée sur BRON et SAINT EXUPERY.",
+      "II est recommandé à tous les aéronefs de transiter phares allumés.",
+      "Départ : monter verticale aérodrome à l'altitude minimale du tronçon à emprunter.",
+      "Sortie par Frans hors HOR ATS : obtenir la clairance de pénétration en TMA 1 auprès de LYON INFO.",
+      "Arrivée : l'altitude du dernier segment utilisé sera maintenue jusqu'à être en vue et dans les 5 NM de l'aérodrome, puis rejoindre le circuit.",
+      "PAPI RWY 16 obligatoire de nuit.",
+      "En dehors des HOR ATS : PAPI en fonctionnement permanent.",
+      "Équipement de surveillance du trafic : aérodrome équipé d'une visualisation radar (voir AD 1.0).",
+      "Activation de la télécommande balisage (PCL) : 5 coups d'alternat = brillance 3 sur 4.",
+      "LYON BRON 9 - Douanes françaises (PPR 24HR) : VOL INTRA SCHENGEN ET UE, ou VOL HORS SCHENGEN ET INTRA UE : (Irlande, Chypre) autorisé sous conditions de franchises (capitaux et marchandises), se référer : www.douane.gouv.fr ; VOL HORS SCHENGEN ET HORS UE, ou VOL INTRA SCHENGEN ET HORS UE: (Suisse, Liechtenstein, Islande, Norvège).",
+      "LUN - VEN : HX O/R PN 24 HR.",
+      "SAM, DIM et JF : le dernier jour ouvrable avant 1700.",
+      "TEL : 09 70 27 30 28 E-mail : codt-lyon@douane.finances.gouv.fr Police aux Frontières (Immigration et Schengen) : Voir avec le service PAF de Lyon Saint-Exupéry.",
+      "",
+      "",
+      "10 - AVT : 0630-2230, carte crédit, Eurochèques ou paiement comptant.",
+      "Société SCAL : Hors HOR ouverture, TEL : 06 34 53 30 58 Carte TOTAL à la station 100LL : H24.",
+      "JET A1 : TOTAL ou BP (Carte TOTAL ou Carte Sterling).",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+}

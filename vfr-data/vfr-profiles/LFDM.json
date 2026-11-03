@@ -1,0 +1,94 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDM (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFDM",
+  "name": "Marmande - Virazeil",
+  "source": {
+    "publication": "AIP France AD 2 LFDM",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.49917,
+    "longitude": 0.20028
+  },
+  "elevationFeet": 110,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.055",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.055
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        107,
+        287
+      ]
+    },
+    {
+      "id": "11L/29R",
+      "qfu": [
+        107,
+        287
+      ]
+    }
+  ],
+  "preferredQfu": 107,
+  "preferredQfuReason": "preferred QFU 107, due to noise pollution",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Unpaved RWY reserved for gliders and home-based ACFT.",
+    "Simultaneous use of RWY prohibited.",
+    "ULM base located in the 222°, 2.5 NM of ARP.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "ACFT code B: use TWY B and park on West apron Preferred QFU: 107°, due to noise pollution.",
+    "Take off QFU: 107°.",
+    "Landing QFU: 287°, left hand circuit (South).",
+    "Approved with limitations because the power supply is not backed up.",
+    "1 - Home-based ACFT pilots: Have passed a practical assessment of night flying aptitude on site with a qualified instructor.",
+    "2 - Non-based ACFT pilots: Have a minimum of a 200 HR experience including 20 HR of night VFR; a recent practice (3 LDG and 3 TKOF within the last 3 months) is required, or have passed a practical assessment of aptitude for night flying on site with a qualified instructor.",
+    "Pilots must keep themselves advised with the special conditions of use of the aerodrome by means decided by the aerodrome operator and brought to user attention in aeronautical information publications TWY C and turning areas can't be used.",
+    "Aerobatics activity (NR 6696) on AD: RWY 11/29 axis.",
+    "2500ft AMSL-FL 050.",
+    "TUE, THU, SUN: 0830-1130, 1300-2000 (SUM: - 1 HR).",
+    "Activiy known by AQUITAINE INFO / APP and MARMANDE A/A.",
+    "AEM (NR 9131) on AD: 330 ft ASFC - SR-SS.",
+    "Radio controlled model flying according to protocol."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Piste non revêtue réservée aux planeurs et ACFT basés.",
+      "Utilisation simultanée des pistes interdite.",
+      "Présence d'une base ULM dans le 222°, 2.5 NM de l'ARP.",
+      "Roulage interdit hors RWY et TWY.",
+      "Aéronefs code B : utiliser TWY B et stationner sur PRKG Ouest.",
+      "QFU décollage : 107°.",
+      "QFU atterrissage : 287° et circuit main gauche (Sud).",
+      "Agréé avec limitations car l'alimentation électrique n'est pas secourue.",
+      "1 - Pilotes des ACFT basés: Avoir satisfait à une évaluation pratique d'aptitude en vol de nuit sur site par un instructeur qualifié.",
+      "2 - Pilotes des ACFT non basés: Avoir une expérience de 200 HR de vol dont 20 HR de nuit. Une pratique récente (3 atterrissages et 3 décollages dans les 3 derniers mois) est exigée, ou avoir satisfait à une évaluation pratique d'aptitude en vol de nuit sur site par un instructeur qualifié.",
+      "Les pilotes doivent prendre connaissance des conditions particulières d'utilisation de l'aérodrome par l'intermédiaire du moyen décidé par l'exploitant d'aérodrome et porté à la connaissance des usagers par la voie de l'information aéronautique. TWY C et aires de retournement inutilisables.",
+      "Activité de voltige (N° 6696) sur AD : Axe RWY 11/29.",
+      "2500ft AMSL-FL 050.",
+      "MAR, JEU, DIM : 0830-1130, 1300-2000 (ETE : - 1 HR).",
+      "Activité connue de AQUITAINE INFO / APP et MARMANDE A/A.",
+      "AEM (N° 9131) sur AD : 330 ft ASFC - SR-SS.",
+      "Vols radiocommandés selon protocole."
+    ]
+  }
+}

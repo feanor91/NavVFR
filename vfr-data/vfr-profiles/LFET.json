@@ -1,0 +1,45 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFET (AIP France, chart dated 2022-10-06): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFET",
+  "name": "Til-Châtel",
+  "source": {
+    "publication": "AIP France AD 2 LFET",
+    "chartDate": "2022-10-06",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 47.54639,
+    "longitude": 5.21083
+  },
+  "elevationFeet": 939,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.06"
+  },
+  "frequencies": {
+    "airAir": 120.06
+  },
+  "runways": [
+    {
+      "id": "01/19",
+      "qfu": [
+        13,
+        193
+      ]
+    },
+    {
+      "id": "11/29",
+      "qfu": [
+        107,
+        287
+      ]
+    }
+  ]
+}

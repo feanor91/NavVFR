@@ -1,0 +1,128 @@
+{
+  "$comment": [
+    "Transcribed by hand from the SIA chart set AD 2 LFCR (AIP France, chart dated 2026-10-01): the text pages checked against the images of the pages.",
+    "Only what the chart states is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text; the reporting points, rules and notes were added by hand.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "No circuit height or circuit side is printed on this chart, so none is recorded.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFCR",
+  "name": "Rodez-Aveyron",
+  "source": {
+    "publication": "AIP France AD 2 LFCR",
+    "chartDate": "2026-10-01",
+    "extraction": "manual, from the chart text and images",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.4075,
+    "longitude": 2.48333
+  },
+  "elevationFeet": 1910,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "see NOTAM; an extension or change of the ATS hours for commercial or medical flights only is announced on request on the frequency (UTC in winter, local time minus 1 h in summer)",
+    "radioMandatory": true,
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 133.725,
+    "atis": 129.78,
+    "approach": 133.725,
+    "tower": 118.13,
+    "airAir": 118.13
+  },
+  "preferredQfu": 307,
+  "preferredQfuReason": "preferred QFU 307, due to the IFR procedure",
+  "reportingPoints": [
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 44.27778,
+      "longitude": 2.42778,
+      "location": "Baraqueville"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 44.37611,
+      "longitude": 2.23611,
+      "location": "Travers Nord de Prévinquières"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 44.34444,
+      "longitude": 2.44111,
+      "location": "Moyrazès"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 44.47167,
+      "longitude": 2.72278,
+      "location": "Bozouls"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 44.4075,
+      "longitude": 2.74194,
+      "location": "Montrozier"
+    },
+    {
+      "name": "EA",
+      "spoken": {
+        "fr": "Écho Alpha",
+        "en": "Echo Alpha"
+      },
+      "latitude": 44.40806,
+      "longitude": 2.60417,
+      "location": "Sébazac"
+    }
+  ],
+  "notes": [
+    "Aerodrome reserved for radio-equipped aircraft.",
+    "Preferred QFU 307, due to the IFR procedure.",
+    "Heavy turbulence or windshear at the runway 13 threshold with a wind from 100 to 180 degrees above 10 kt.",
+    "Free flight (hang gliding) sites: Cassagnes, 3.42 NM from the runway 13 threshold on azimuth 289, floor 577 m (NGF), vertical limits surface to 167 ft ASFC, active every day from sunrise to sunset + 30 min, used with south or south-east winds; Balsac, 1.54 NM from the runway 13 threshold on azimuth 274, floor 580 m (NGF), vertical limits surface to 167 ft ASFC, active every day from sunrise to sunset + 30 min.",
+    "Meteorological conditions with IFR traffic, visibility on the routes: S-SA-LFCR 1600 m; W-SA-LFCR 3400 m, following the Aveyron gorges until SA; E-EA-LFCR 2200 m; N-EA-LFCR 2400 m.",
+    "Aircraft with MTOW of 5.7 t or more may not line up from taxiway C. Aircraft with MTOW of 45 t or more must make the half-turn on the turn-around areas at the runway 13 and 31 ends.",
+    "Three intermediate holding points A1, A2 and A3 exist on the taxiway; a yellow taxiway is marked between A1 and A3.",
+    "Outside ATS hours the pilot-controlled lighting is available on the TWR frequency on PPR 48 HR: 3 clicks within 5 seconds broadcast the weather data and switch on low-intensity lighting and the PAPI; 5 clicks within 5 seconds, high-intensity lighting and the PAPI; lighting and PAPI switch off after 15 minutes.",
+    "Radio failure: squawk 7600, continue in visual meteorological conditions, land at the nearest suitable aerodrome and report the arrival to the ATS unit concerned by the quickest means.",
+    "AEM no. 9040: see AIP ENR 5.5."
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "AEM N°9040 : voir AIP ENR 5.5."
+    ]
+  }
+}

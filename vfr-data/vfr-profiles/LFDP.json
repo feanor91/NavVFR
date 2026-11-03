@@ -1,0 +1,73 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDP (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFDP",
+  "name": "Saint-Pierre-d'Oléron",
+  "source": {
+    "publication": "AIP France AD 2 LFDP",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.95778,
+    "longitude": -1.31139
+  },
+  "elevationFeet": 22,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 120.205",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 120.205
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        96,
+        276
+      ]
+    }
+  ],
+  "preferredQfu": 96,
+  "preferredQfuReason": "preferred QFU 96, for environmental reasons",
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Taxiing prohibited except on RWY, TWY and marked AD likely to be covered by sea haze within a few minutes.",
+    "Important bird hazard on and in the vicinity of the AD.",
+    "ULM circuit and ULM strip reserved for class 2 and 4 home-based and non based ULMs, subject to speed lower than 120km/h.",
+    "Crews leaving the main TWY to join the parking must pay particular attention to the trafic in progress on ULM strip before crossing the axis.",
+    "Comply with circuit due to noise for all ACFT.",
+    "Preferred QFU 096° for environmental reasons.",
+    "The traffic circuit at 700 ft is reserved for ULM whose speed is less or equal to 120 km/h.",
+    "Low height circuits (500 ft ASFC) reserved only for home-based ACFT with an instructor pilot on board.",
+    "They must be carried out North of the facilities.",
+    "AEM (NR 9205): see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "",
+      "Risque aviaire de grande envergure sur et autour de l'aérodrome.",
+      "Circuit ULM et bande ULM autorisés aux ULM basés et aux ULM extérieurs de classe 2 et 4, sous réserve d'une vitesse inférieure à 120 km/h.",
+      "Les équipages quittant le TWY principal pour rejoindre le parking doivent porter une attention particulière au trafic en cours sur la bande ULM avant d'en couper l'axe.",
+      "Respect du circuit cause nuisances pour tous les ACFT.",
+      "QFU préférentiel 096° pour raisons environnementales.",
+      "Le tour de piste à 700 ft est réservé aux ULM dont la vitesse est inférieure ou égale à 120 km/h.",
+      "Les tours de piste basse hauteur (500 ft ASFC) sont réservés aux aéronefs basés sur le terrain avec instructeur à bord.",
+      "Ils s'effectuent obligatoirement au nord des installations.",
+      "AEM (N° 9205) : voir AIP ENR 5.5"
+    ]
+  }
+}

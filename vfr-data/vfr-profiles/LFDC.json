@@ -1,0 +1,39 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFDC (AIP France, chart dated 2026-07-09): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFDC",
+  "name": "Montendre - Marcillac",
+  "source": {
+    "publication": "AIP France AD 2 LFDC",
+    "chartDate": "2026-07-09",
+    "extraction": "chart text, table and English column read by script, checked"
+  },
+  "referencePosition": {
+    "latitude": 45.27361,
+    "longitude": -0.45333
+  },
+  "elevationFeet": 145,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 119.785"
+  },
+  "frequencies": {
+    "airAir": 119.785
+  },
+  "runways": [
+    {
+      "id": "15/33",
+      "qfu": [
+        152,
+        332
+      ]
+    }
+  ]
+}

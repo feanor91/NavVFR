@@ -1,0 +1,165 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLJ (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFLJ",
+  "name": "Courchevel",
+  "source": {
+    "publication": "AIP France AD 2 LFLJ",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.39583,
+    "longitude": 6.6325
+  },
+  "elevationFeet": 6583,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "HOR AFIS : Du 1er lundi de décembre jusqu'au 1er dimanche de février : 0800-1545. Du 1er lundi de février jusqu'au dernier samedi de mars : 0800-1615. Du dernier dimanche de mars jusqu'au 3ème vendredi d'avril : 0700-1030 / 1130-1515. Le reste de l'année : HOR annoncés par NOTAM. AFIS SKED : From the 1st Monday in December until the 1st Sunday in February : 0800-1545. From the 1st Monday in February until the last Sa (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 120.080",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 120.08
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        42,
+        222
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 45.48472,
+      "longitude": 6.52861,
+      "location": "Moutiers"
+    },
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 45.44306,
+      "longitude": 6.64722,
+      "location": "Bozel"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 45.42,
+      "longitude": 6.67611,
+      "location": "Croix sur la Dent du Villard"
+    },
+    {
+      "name": "C",
+      "spoken": {
+        "fr": "Charlie",
+        "en": "Charlie"
+      },
+      "latitude": 45.40111,
+      "longitude": 6.64778,
+      "location": "Carrière"
+    },
+    {
+      "name": "L",
+      "spoken": {
+        "fr": "Lima",
+        "en": "Lima"
+      },
+      "latitude": 45.40861,
+      "longitude": 6.61472,
+      "location": "Pylône\"7450\" arrivée des remontées mécaniques"
+    }
+  ],
+  "notes": [
+    "AD open from 0800 to 1800 (SUM: - 1 HR), except manager agreement.",
+    "AD reserved for radio-equipped ACFT.",
+    "AD with special characteristics reserved for propeller ACFT with a MTOW not exceeding 5.7 tons and HEL.",
+    "AD usable by HEL without any restriction.",
+    "Airplanes and motorgliders pilots are to comply with the following specific instructions: Airplanes and motorgliders pilots must own a mountain wheel licence or the valid authorization to access the altiport.",
+    "For ULM pilots, it is strongly recommended to take mountains course organized by FFPLUM.",
+    "Use of single-engined airplanes with a MTOW exceeding 2.5 tons and twin-engined airplanes require to submit a case file containing information related to the pilot, operating instructions, operational limitations, TKOF and LDG procedures and engine failure procedures at TKOF, to the DSAC Centre-Est.",
+    "Public transport operations with airplanes is subject to: obtaining necessary approvals issued by the civil aviation authority in charge of monitoring the operator and,; obtaining an authorization issued by the DSAC Centre-.",
+    "Est based on a case file including approvals as referred above, operating instructions, operational limitations, TKOF and LDG procedures and engine failure procedures at TKOF related to each type of airplane concerned with the operations on this altiport.",
+    "Users are asked to join the DSAC Centre-Est to obtain any other information enabling them to set their operating instructions for this altiport and associated limitations, and submit their requests and case files: AD unusable except on RWY and PRKG area.",
+    "Very high snowdrifts located on the edges of the RWY.",
+    "Snow clearing: confirmation from AD operator.",
+    "Snow covering visible via webcam: https://www.courchevel.com On winter season low sun on final approach 22.",
+    "Possible dust all over movement area: possible brown out effect due to propellers and blades movement.",
+    "High paragliding activity overhead \"L \"reporting point and in the valley.",
+    "Every AD circuit training is subject to a request from AD operator by e-mail with a 48 HR prior notice.",
+    "Training patterns prohibited between 1130 and 1330 (SUM: -1 HR).",
+    "Only two training patterns for one ACFT, every half a day, except if specific agreement from operator.",
+    "ALTIMETRIC REFERENCE: AFIS open: QNH provided by COURCHEVEL Information.",
+    "AFIS closed: Altimeter reference setting, fly North abeam waypoint LIMA (7450 ft).",
+    "NOISE POLLUTION LIMITATION: Avoid overflying of ski stations COURCHEVEL 1850 and COURCHEVEL 1650 (MORIOND).",
+    "AIRPLANE ARRIVAL: ARR RWY 22 mandatory.",
+    "AFIS open: possible ARR via N point.",
+    "Due to noise pollution, please avoid passing overhead on ARR.",
+    "AFIS closed: routeing from W, fly North-abeam L point to set altimeter reference, fly overhead AD (7100 ft MNM), base leg, last turn, then final.",
+    "AIRPLANE DEPARTURE: DEP RWY 04 mandatory.",
+    "Airplane pilot assistance: reference by a guidance yellow coloured line on ground defined by a plane whose wingspan is 16 m or half wingspan is 8 m.",
+    "An airplane will not take off if another aircraft is reporting base leg.",
+    "Pilot's attention is drawn towards departure RWY 04 when another traffic overflies the airfield and proceeds outbound leg.",
+    "HEL ARRIVAL: Entry points: N, E and L.",
+    "An HEL will not land track 147° from helistation when an airplane is taking off or landing on RWY 04/22.",
+    "HEL DEPARTURE: An HEL will not take off track 327° from helistation when an airplane is taking off or on final leg for landing."
+  ],
+  "fr": {
+    "notes": [
+      "AD ouvert de 0800 à 1800 (ETE : - 1 HR), sauf accord de l'exploitant.",
+      "AD réservé aux ACFT munis de radio.",
+      "",
+      "L'AD est utilisable sans restriction par les HEL.",
+      "Les pilotes d'avions et de planeurs à dispositifs d'envols incorporés doivent être titulaires de la qualification montagne roue ou de l'autorisation d'accès à l'altiport en état de validité.",
+      "Pour les pilotes d'ULM il est fortement conseillé d'avoir suivi le cursus montagne organisé par la FFPLUM.",
+      "L'utilisation d'avions monomoteurs dont la masse maximale certifiée au décollage excède 2,5 tonnes et d'avions bimoteurs est conditionnée au dépôt auprès de la DSAC Centre-Est d'un dossier qui comprendra les renseignements relatifs au pilote, les consignes d'utilisation, les limitations opérationnelles, les procédures de DEP et ARR ainsi que les procédures en cas de panne moteur au décollage.",
+      "La réalisation d'opérations de transport public au moyen d'avions est conditionnée : à l'obtention des agréments nécessaires délivrés par l'autorité de l'aviation civile en charge de la surveillance de l'exploitant et ; à l'obtention d'une autorisation délivrée par la DSAC.",
+      "Centre-Est au vu d'un dossier comprenant les agréments évoqués ci-dessus, les consignes d'utilisation, les limitations opérationnelles, les procédures de DEP et ARR ainsi que les procédures en cas de panne moteur au DEC propres à chaque type d'avion concerné par les opérations sur cet altiport.",
+      "L'utilisation d'avions monomoteurs dont la masse maximale certifiée au décollage excède 2,5 tonnes et d'avions bimoteurs est conditionnée au dépôt auprès de la DSAC Centre-Est d'un dossier qui comprendra les renseignements relatifs au pilote, les consignes d'utilisation, les limitations opérationnelles, les procédures de DEP et ARR ainsi que les procédures en cas de panne moteur au décollage.",
+      "Présence de talus de neige, de hauteur importante, en bordure de piste.",
+      "Déneigement : confirmation auprès de l'exploitant d'aérodrome.",
+      "Enneigement visible par webcam : https://www.courchevel.com En période hivernale soleil rasant en finale 22.",
+      "Présence possible de poussière sur l'ensemble de la plateforme : risque d'effet de brown out (ou voile brun) du aux souffles des hélices et pales.",
+      "Forte activité parapente et planeur en point de compterendu \"L\" et en vallée.",
+      "Tout entraînement aux tours de piste doit faire l'objet d'une demande d'autorisation par e-mail auprès de l'exploitant de l'altiport avec un préavis de 48 HR.",
+      "Tours de piste interdits entre 1130 et 1330 (ÉTÉ : -1 HR).",
+      "Limitation des tours de piste à deux par appareil et par demi-journée, sauf accord spécifique de l'exploitant.",
+      "REFERENCE ALTIMETRIQUE : AFIS ouvert : QNH fourni par COURCHEVEL Information.",
+      "AFIS fermé : Prise de référence altimétrique, passage travers Nord du point LIMA (7450 ft).",
+      "LIMITATION DES NUISANCES SONORES : Éviter le survol de la station COURCHEVEL 1850 et de COURCHEVEL 1650 (MORIOND).",
+      "ARRIVEE AVION : ARR piste 22 obligatoire.",
+      "AFIS ouvert : ARR possible par le point N.",
+      "En raison de nuisances sonores, il est souhaitable de limiter les verticales à l'ARR.",
+      "AFIS fermé : cheminement depuis W, passage travers Nord point L pour prise de référence altimétrique, passage verticale AD (7100 ft MNM), base, dernier virage, puis finale.",
+      "DÉPART AVION : DEP piste 04 obligatoire.",
+      "Aide aux pilotes d'avions : référence de trait de guidage de couleur jaune au sol depuis point d'attente gauche vers seuil de piste 04 pris sur avion dont l'envergure est de 16 m ou la demi-envergure est de 8 m.",
+      "Un avion ne décollera pas si un autre aéronef s'est annoncé en étape de base.",
+      "COURCHEVEL L'attention des pilotes est attirée lors d'un décollage piste 04 en cas de survol de l'aérodrome par un autre trafic pour l'éloignement.",
+      "ARRIVEE HEL : Point d'entrée : N, E et L.",
+      "Un HEL n'atterrirra pas sur l'axe 147° de l'hélistation, lorsqu'un avion est au décollage ou à l'atterrissage sur la piste 04/22.",
+      "DEPART HEL : Un HEL ne décollera pas route 327° depuis l'hélistation, lorsqu'un avion est au décollage ou aligné en finale pour l'atterrissage."
+    ]
+  }
+}

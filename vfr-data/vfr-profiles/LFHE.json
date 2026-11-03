@@ -1,0 +1,107 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFHE (AIP France, chart dated 2024-08-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFHE",
+  "name": "Romans - Saint-Paul",
+  "source": {
+    "publication": "AIP France AD 2 LFHE",
+    "chartDate": "2024-08-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.06472,
+    "longitude": 5.10139
+  },
+  "elevationFeet": 595,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.805",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.805
+  },
+  "runways": [
+    {
+      "id": "05",
+      "qfu": [
+        5
+      ]
+    },
+    {
+      "id": "06",
+      "qfu": [
+        5
+      ]
+    },
+    {
+      "id": "24R",
+      "qfu": [
+        240
+      ]
+    },
+    {
+      "id": "02/20",
+      "qfu": [
+        19,
+        199
+      ]
+    }
+  ],
+  "preferredQfu": 60,
+  "preferredQfuReason": "preferred QFU 60, due to environment",
+  "notes": [
+    "AD reserved for radio equipped ACFT.",
+    "Simultaneous use of both ACFT and gliders RWY prohibited.",
+    "Usable declared distances: TODA RWY 24L and 24R are reduced due to road gauge.",
+    "Air navigation hazard AEM activity in Bourg-de-Péage (NR 9525): 160 ft ASFC, SR-SS.",
+    "Unmanned aircraft race.",
+    "RWY 24R (airplane) not available on first 200 meters after heavy rain (to the east of RWY 02/20).",
+    "Procedure and special instructions RWY 02/20 available only for a full stop landing with strong wind condition not allowing a safe landing RWY 06/24.",
+    "Check on radio that the activity RWY 06/24 is stopped before beginning a traffic pattern in order to land RWY 02/20.",
+    "All TKOF or LDG on ACFT RWY is suspended if a glider is immobilized on the glider RWY at less than a half width of RWY of the common limit.",
+    "Preferred QFU: 060° due to environment.",
+    "RWY 24: Holding point at sign A1, then backtrack runway 24 until THR.",
+    "Arrivals and departures: overflight of FRAMATOME factory in the south of the airfield prohibited.",
+    "Special activity Aerobatics on AD (NR 6834): Activity reserved for home-based pilots and pilots authorized by AD operator.",
+    "2000 ft AMSL - FL 060, SR-SS, PPR LYON INFO.",
+    "Glider winching activity on AD (NR 991): SFC-2100 ft AMSL, HJ.",
+    "Non-marked cable.",
+    "Rotating flashing light on the winch.",
+    "Users information on ROMANS A/A.",
+    "AEM on AD (N° 9835).",
+    "500 ft ASFC."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Utilisation simultanée piste avions et piste planeurs interdite.",
+      "Distances déclarées utilisables : TODA RWY 24L et 24R réduites cause gabarit routier.",
+      "Dangers à la navigation aérienne Activité AEM à Bourg-de-Péage (N° 9525) : 160 ft ASFC, SR-SS.",
+      "Courses d'aéronefs sans équipage à bord.",
+      "En période de fortes pluies, RWY 24R inutilisable sur les 200 premiers mètres (à l'est de la piste 02/20).",
+      "Procédures et consignes particulières RWY 02/20 utilisable uniquement pour un atterrissage complet par condition de vent fort ne permettant pas un atterrissage en sécurité sur la RWY 06/24.",
+      "S'assurer par radio que l'activité est interrompue sur la RWY 06/24 avant d'entamer le tour de piste en vue de l'atterrissage en RWY 02/20.",
+      "Tout TKOF ou LDG sur la piste avions est suspendu si un planeur est immobilisé sur la piste planeurs à moins d'une demi-largeur de piste de la limite commune.",
+      "QFU 060° préférentiel cause environnement.",
+      "RWY 24 : Point d'attente au panneau A1, puis remonter la piste 24 jusqu'au seuil.",
+      "Arrivées et départs : survol de l'usine FRAMATOME au sud de l'AD interdit.",
+      "Voltige sur AD (N° 6834) : Activité réservée aux pilotes basés et à ceux autorisés par l'exploitant AD.",
+      "2000 ft AMSL - FL 060, SR-SS, PPR LYON INFO.",
+      "Activité de treuillage planeurs sur AD (N° 991) : SFC2100 ft AMSL, HJ.",
+      "Câble non balisé.",
+      "Treuil équipé de gyrophare.",
+      "Information des usagers sur ROMANS A/A.",
+      "AEM sur AD (N° 9835).",
+      ""
+    ]
+  }
+}

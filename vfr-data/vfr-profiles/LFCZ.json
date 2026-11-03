@@ -1,0 +1,66 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFCZ (AIP France, chart dated 2025-09-04): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFCZ",
+  "name": "Mimizan",
+  "source": {
+    "publication": "AIP France AD 2 LFCZ",
+    "chartDate": "2025-09-04",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 44.14583,
+    "longitude": -1.16472
+  },
+  "elevationFeet": 165,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 118.905",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 118.905
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        81,
+        261
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD likely to be covered by sea haze in a few minutes.",
+    "Arrivals from North, 01/07-31/08: reserved for the Police rescue helicopter.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Access way in front of hangars reserved for home-based ACFT.",
+    "TWY B unavailable during paradropping.",
+    "Access runways 08 and 26 via TWY A only.",
+    "TWY B unavailable at night.",
+    "PCL: 3 times: LIL; 5 times: LIL II; Lighting extinction by operationg the trigger 7 times in less than 5 seconds."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Site susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Arrivées par le Nord, 01/07-31/08 : réservées à l'hélicoptère secours de la Gendarmerie.",
+      "Roulage interdit hors RWY et TWY.",
+      "Voie de desserte devant hangars réservée aux appareils basés.",
+      "TWY B inutilisable pendant les largages PARA.",
+      "Accès pistes 08 et 26 par le TWY A uniquement.",
+      "TWY B inutilisable de nuit.",
+      "PCL : 3 coups : BI ; 5 coups : BI II ; Extinction du balisage en donnant 7 coups d'alternat en moins de 5 secondes."
+    ]
+  }
+}

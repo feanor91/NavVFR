@@ -1,0 +1,66 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFKD (AIP France, chart dated 2025-09-04): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFKD",
+  "name": "Sollières-Sardières",
+  "source": {
+    "publication": "AIP France AD 2 LFKD",
+    "chartDate": "2025-09-04",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.25389,
+    "longitude": 6.80111
+  },
+  "elevationFeet": 4255,
+  "magneticVariationDegrees": 3.0,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "01/19",
+      "qfu": [
+        13,
+        193
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for pilots complying with one of the following conditions: based or based on neighbouring AD (see 1) and authorized by an instructor (or holding an instructor's licence),; holding a licence for mountain flights.",
+    "AD available for HEL and ULM.",
+    "For ULM pilots, it is advised to have followed the mountain course organized by the FFPLUM.",
+    "Particular aerological conditions, especially in case of wind from East / South-East sector (Lombarde) causing strong downdrafts.The use of the airfield is strongly not recommended with these wind conditions.",
+    "Entering in the circuit after overhead AD at 5700 ft AMSL (1400 ft AAL).",
+    "In light winds, prefer RWY 19 for TKOF and RWY 01 for LDG given the environment and the RWY slope.",
+    "TKOF RWY 19: as soon as possible, turn 30° to the right to go along the relief and avoid flying over hamlet of Chatel and Bramans and Verney villages.",
+    "TKOF RWY 01: as soon as possible, turn 25° to the right to avoid flying of Sollières village.",
+    "AEM (NR 9875): see AIP ENR 5.5 (1) AD voisins / Neighbouring AD:"
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux pilotes répondant à l'une des conditions suivantes : basés ou basés sur les AD voisins (voir 1) et autorisés par un instructeur (ou possédant la qualification instructeur) ; titulaire de la qualification montagne.",
+      "AD utilisable par HEL et ULM.",
+      "Pour les pilotes d'ULM, il est conseillé d'avoir suivi le cursus montagne organisé par la FFPULM.",
+      "Conditions aérologiques très particulières, notamment en cas de vent de secteur Est / Sud-Est (Lombarde) entraînant de forts rabattants. L'utilisation de la plateforme est vivement déconseillée dans ces conditions de vent.",
+      "Entrée dans le circuit après verticale AD à 5700 ft AMSL (1400 ft AAL).",
+      "Par vent faible, préférer un décollage en RWY 19 et un atterrissage en RWY 01 compte tenu de l'environnement et de la pente de la piste.",
+      "Décollage RWY 19 : dès que possible, altérer sa route de 30° vers la droite pour longer le relief et éviter le survol du hameau du Chatel et des villages de Bramans et du Verney.",
+      "Décollage RWY 01 : dès que possible, altérer sa route de 25° vers la droite pour éviter le survol du village de Sollières.",
+      ""
+    ]
+  }
+}

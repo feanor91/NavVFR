@@ -1,16 +1,16 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
-using VFRNav.Core.StormAtc;
+using VFRNav.Core.Aerodromes;
 using VFRNav.Core.Weather;
 
 namespace VFRNav.App;
 
-/// <summary>Un terrain de la route avec ses infos StormATC et sa météo décodée.</summary>
-public sealed record AirportBrief(Waypoint Waypoint, StormAtcAerodrome? Info, DecodedReport? Metar, DecodedReport? Taf);
+/// <summary>Un terrain de la route avec ses infos d'aérodrome et sa météo décodée.</summary>
+public sealed record AirportBrief(Waypoint Waypoint, AerodromeInfo? Info, DecodedReport? Metar, DecodedReport? Taf);
 
 public sealed record FlightSheetInput(
     IReadOnlyList<Waypoint> Route,
@@ -152,7 +152,7 @@ public static class FlightSheetBuilder
             + (codes.Length > 0 ? $" pour : {codes}." : ".")));
 
         doc.Blocks.Add(Section("Sources"));
-        doc.Blocks.Add(Small("Terrains et balises : OurAirports (domaine public). Aérodromes, profils et cartes VAC : StormATC (cartes © SIA). "
+        doc.Blocks.Add(Small("Terrains et balises : OurAirports (domaine public). Aérodromes et profils VFR : base de MSFS Rhumb ; cartes VAC : © SIA. "
             + "Espaces aériens : OpenAIP. Météo : aviationweather.gov. " + TerrainService.Attribution + " " + ObstacleService.Attribution));
         var note = Small(Disclaimer);
         note.FontStyle = FontStyles.Italic;
@@ -265,14 +265,14 @@ public static class FlightSheetBuilder
         }
         if (info?.Procedures is { Any: true } procedures) AddProcedures(doc, procedures);
 
-        if (info is null && wp.ElevationFt > 0) doc.Blocks.Add(Plain($"Élévation {wp.ElevationFt.ToString("N0", Fr)} ft (aucune fiche StormATC pour ce terrain)"));
+        if (info is null && wp.ElevationFt > 0) doc.Blocks.Add(Plain($"Élévation {wp.ElevationFt.ToString("N0", Fr)} ft (aucune fiche d'aérodrome pour ce terrain)"));
 
         AddReport(doc, b.Metar, "METAR (observation)");
         AddReport(doc, b.Taf, "TAF (prévision)");
         if (b.Metar is null && b.Taf is null) doc.Blocks.Add(Small("Aucun METAR ni TAF pour ce terrain."));
     }
 
-    /// <summary>Points de report, circuit et consignes d'arrivée et de départ (texte du profil StormATC).</summary>
+    /// <summary>Points de report, circuit et consignes d'arrivée et de départ (texte du profil VFR).</summary>
     private static void AddProcedures(FlowDocument doc, VfrProcedures procedures)
     {
         doc.Blocks.Add(new Paragraph(new Run("Procédures VFR du terrain") { FontWeight = FontWeights.SemiBold }) { Margin = new Thickness(0, 4, 0, 1) });

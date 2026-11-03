@@ -1,0 +1,183 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFLC (AIP France, chart dated 2026-03-19): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFLC",
+  "name": "Clermont-Ferrand Auvergne",
+  "source": {
+    "publication": "AIP France AD 2 LFLC",
+    "chartDate": "2026-03-19",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 45.78611,
+    "longitude": 3.1625
+  },
+  "elevationFeet": 1092,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "TowerAndGround",
+    "atsHours": "H24. SNA Centre-Est - Organisme de contrôle de Clermont-Ferrand Auvergne 63510 AULNAT (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true
+  },
+  "frequencies": {
+    "fis": 122.225,
+    "approach": 122.225,
+    "tower": 118.625,
+    "ground": 121.95
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        81,
+        261
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "NB",
+      "spoken": {
+        "fr": "Novembre Bravo",
+        "en": "November Bravo"
+      },
+      "latitude": 45.91417,
+      "longitude": 3.21694,
+      "location": "Ennezat (silos)"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 45.95972,
+      "longitude": 3.47417,
+      "location": "Puy Guillaume"
+    },
+    {
+      "name": "NA",
+      "spoken": {
+        "fr": "Novembre Alpha",
+        "en": "November Alpha"
+      },
+      "latitude": 45.84139,
+      "longitude": 3.16028,
+      "location": "Péage de Gerzat"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 45.65333,
+      "longitude": 3.16861,
+      "location": "Échangeur de Champeix"
+    },
+    {
+      "name": "SE",
+      "spoken": {
+        "fr": "Sierra Écho",
+        "en": "Sierra Echo"
+      },
+      "latitude": 45.75472,
+      "longitude": 3.53833,
+      "location": "Courpière"
+    },
+    {
+      "name": "SB",
+      "spoken": {
+        "fr": "Sierra Bravo",
+        "en": "Sierra Bravo"
+      },
+      "latitude": 45.7225,
+      "longitude": 3.33722,
+      "location": "Billom"
+    },
+    {
+      "name": "SA",
+      "spoken": {
+        "fr": "Sierra Alpha",
+        "en": "Sierra Alpha"
+      },
+      "latitude": 45.73444,
+      "longitude": 3.15306,
+      "location": "Pont travers Cournon sur A 75"
+    }
+  ],
+  "notes": [
+    "Prohibited to gliders, motor gliders authorized on unpaved runways.",
+    "Airport handling service is mandatory on all parking stands: Wait for the specialized service at the foot of the plane.",
+    "Payment of taxes directly to the agent if customer not in account.",
+    "By heavy south wind: wind shears and heavy turbulence Arrivals-departures: Routes may be imposed at arrival for ACFT in CAG.",
+    "Routes Reporting points S'intégrer ensuite dans les circuits Then integrate the circuits.",
+    "AD overfly at 3100 (2000) MNM, then outbound to the North beyond circuits before descending or return and integration in the circuits.",
+    "Then follow route S1.",
+    "Then follow route N1.",
+    "Transit with ATC clearance.",
+    "Transit with ATC clearance.",
+    "HEL: Same procedure as ACFT in CAG, then report HS or HN to obtain clearance to cross RWY at 150 ft ASFC.",
+    "Trainings: VFR/IFR training flights forbidden every day from 2200 to 0700 (SUM: - 1HR).",
+    "Except these periods: IFR training: PPR ATS.",
+    "Only 3 consecutive VFR circuits for ACFT of max take off weight > 2 tons on SAT, SUN and HOL.",
+    "Low height circuit in the North of the RWY (300 ft ASFC MNM) for home based ACFT with instructor on board.",
+    "Meteorological minimum: Without IFR traffic in progress, VIS 1500 m.",
+    "With IFR traffic in progress, VIS 3000 m.",
+    "Route S1: S - SA - 1000 ft ASFC MNM to integrate circuit.",
+    "Pattern at 1500 ft ASFC.",
+    "Radio failure: join the vertical of AD at 3000 ft AMSL, headlights switched on, then overflight the RWY 26 axis at 1700 ft AMSL flashing of landing headlights.",
+    "Traffic surveillance equipment AD equipped with secondary surveillance radar (see AD 1.",
+    "Radio contact compulsory 3 min before overflying the entry points of the CTR.",
+    "FREQ CLERMONT TWR below 3500 ft AMSL.",
+    "Technical assistance SEACFA CLERMONT Operations 131.450 MHz.",
+    "Radiocommunication failure on arrival: Squawk 7600; Follow the last clearance given by the control and continue with lights on until landing.; If no instructions from ATC, join vertical field at 3100 ft AMSL following path N1 via North or S1 via South.",
+    "In case there is no determining factor, use QFU 261° and join beginning of downwind with lights on ensuring visual separation with others ACFT and then land.",
+    "Visual signals and pyrotechnics inoperative.",
+    "Taxis sur AD, bus et train à proximité / Taxis on AD, bus and train in the vicinity.",
+    "Sur / On AD.",
+    "Service d'évaluation et de report de l'état de surface de piste / Global Reporting Format: 0600-2330"
+  ],
+  "fr": {
+    "notes": [
+      "Interdit au VAV, motoplaneurs autorisés sur les pistes non revêtues.",
+      "Service assistance aéroportuaire obligatoire sur tous les postes de stationnement : Attendre prise en charge par service spécialisé au pied de l'aéronef.",
+      "Paiement des taxes directement à l'agent, si client non en compte.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "HEL : Même procédure que pour les avions en CAG, puis se reporter aux points HS ou HN pour obtenir l'autorisation de traverser la piste à 150 ft ASFC.",
+      "Entraînements : Entraînements VFR/IFR interdits tous les jours de 2200 à 0700 (ETE : - 1HR).",
+      "En dehors de ces périodes, entraînements IFR soumis à l'autorisation préalable des services ATS.",
+      "Tours de piste à vue limités à 3 consécutifs pour les aéronefs de masse maximale autorisée au décollage > 2 tonnes les SAM, DIM et JF.",
+      "Circuits basse hauteur au Nord de la piste (300 ft ASFC MNM) pour les aéronefs basés avec instructeur à bord.",
+      "CLERMONT FERRAND AUVERGNE VFR spécial Minimums météorologiques : En l'absence d'IFR, VIS 1500 m.",
+      "En présence d'IFR, VIS 3000 m.",
+      "Itinéraires : S1 : S - SA - 1000 ft ASFC MNM, puis intégration dans les circuits.",
+      "Circuit à 1500 ft ASFC.",
+      "Panne radio : rejoindre la verticale de l'AD à 3000 ft AMSL, phares allumés, effectuer ensuite un passage dans l'axe de la piste 26 à 1700 ft AMSL avec appels au phare d'atterrissage.",
+      "Équipement de surveillance de trafic : AD équipé d'un radar secondaire (voir AD 1.",
+      "",
+      "",
+      "",
+      "Panne de radiocommunications à l'arrivée : Afficher le code transpondeur 7600 ; Suivre la dernière clairance délivrée par le contrôle et poursuivre jusqu'à l'atterrissage phares allumés. En l'absence d'instructions du contrôle rejoindre la.",
+      "Si aucun élément déterminant, utiliser le QFU 261° et s'intégrer phares allumés en début de vent arrière en assurant une séparation visuelle avec les autres appareils puis atterrir.",
+      "Signaux visuels et moyens pyrotechniques inopérants.",
+      "",
+      "",
+      ""
+    ]
+  }
+}

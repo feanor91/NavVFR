@@ -1,4 +1,4 @@
-﻿<Window x:Class="VFRNav.App.MainWindow"
+<Window x:Class="VFRNav.App.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mapsui="clr-namespace:Mapsui.UI.Wpf;assembly=Mapsui.UI.Wpf"
@@ -101,7 +101,7 @@
                 <CheckBox x:Name="NavVorCheck" Content="VOR (losange violet)" Foreground="#E8EEFC" Click="NavFilter_Click"/>
                 <CheckBox x:Name="NavNdbCheck" Content="NDB / ADF (rond orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="NavFilter_Click"/>
                 <CheckBox x:Name="ReportCheck" Content="Points de report VFR (triangle jaune)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="ReportFilter_Click"
-                          ToolTip="Points de report des aérodromes, lus sur leurs cartes VAC (StormATC). Un clic sur un triangle l'ajoute à la route."/>
+                          ToolTip="Points de report des aérodromes, lus sur leurs cartes VAC . Un clic sur un triangle l'ajoute à la route."/>
                 <TextBlock x:Name="NavCount" Style="{StaticResource Label}"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Un clic sur une balise l'ajoute à la route."/>
 
@@ -127,10 +127,10 @@
                     <Button x:Name="NotamEditButton" DockPanel.Dock="Right" Content="Valider" Click="NotamEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
                     <PasswordBox x:Name="NotamKeyBox"/>
                 </DockPanel>
-                <TextBlock Style="{StaticResource Label}" Text="Dossier StormATC (vide = détection automatique)"/>
+                <TextBlock Style="{StaticResource Label}" Text="Dossier des cartes VAC (PDF du SIA, AD-2.LFxx.pdf)"/>
                 <DockPanel>
-                    <Button DockPanel.Dock="Right" Content="…" Click="BrowseStorm_Click" Margin="6,0,0,0"/>
-                    <TextBox x:Name="StormBox"/>
+                    <Button DockPanel.Dock="Right" Content="…" Click="BrowseVac_Click" Margin="6,0,0,0"/>
+                    <TextBox x:Name="VacBox"/>
                 </DockPanel>
                 <Button Content="Recharger" Click="Reload_Click" Margin="0,8,0,0"/>
                 <TextBlock x:Name="StatusText" Style="{StaticResource Label}" TextWrapping="Wrap"/>

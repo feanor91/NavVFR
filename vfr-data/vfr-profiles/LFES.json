@@ -1,0 +1,78 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFES (AIP France, chart dated 2025-08-07): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFES",
+  "name": "Guiscriff - Scaër",
+  "source": {
+    "publication": "AIP France AD 2 LFES",
+    "chartDate": "2025-08-07",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.05361,
+    "longitude": -3.66417
+  },
+  "elevationFeet": 574,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 129.805",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 129.805
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        23,
+        203
+      ]
+    },
+    {
+      "id": "02R/20L",
+      "qfu": [
+        23,
+        203
+      ]
+    }
+  ],
+  "preferredQfu": 203,
+  "preferredQfuReason": "preferred QFU 203, due to local purposes",
+  "notes": [
+    "ATS: NIL. The chart header prints these units to call, which are not services of this aerodrome (its air-air frequency apart): .",
+    "AD reserved for radio-equipped ACFT.",
+    "Unpaved RWY reserved for ULM.",
+    "Simultaneous use of RWY prohibited.",
+    "Possible operating restrictions after heavy rainfalls.",
+    "Presence of a marked high power line perpendicular to RWY axis located at 1108 m from THR RWY 02, ALT 614 ft.",
+    "Preferred QFU: 203° due to local purposes.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "\"Low height\" circuits during training flights, with instructor on board only: 500 ft AAL MNM.",
+    "TWY B usable only by ACFT whose main landing gear overall length is lower than 5.10 m.",
+    "PJE (NR 560): see AIP ENR 5.5 Parachutes winching (NR 928): see AIP ENR 5.5 Aerobatics (NR 6386): see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "",
+      "AD réservé aux ACFT munis de radio.",
+      "Piste non revêtue réservée aux ULM.",
+      "Utilisation simultanée des pistes interdite.",
+      "Restrictions possibles après fortes précipitations.",
+      "Présence d'une ligne HT balisée, perpendiculaire à l'axe de piste à 1108 m au sud du seuil RWY 02, ALT 614 ft.",
+      "QFU 203° préférentiel cause environnement.",
+      "Roulage interdit hors RWY et TWY.",
+      "Circuits \"basse hauteur\" autorisés dans le cadre des vols d'entraînement avec instructeur uniquement : 500 ft AAL MNM.",
+      "TWY B utilisable uniquement par les ACFT dont la longueur hors tout du train principal est inférieure à 5,10 m.",
+      "Parachutage (N° 560) : voir AIP ENR 5.5 Treuillage parachutes (N° 928) : voir AIP ENR 5.5 Voltige (N° 6386) : voir AIP ENR 5.5"
+    ]
+  }
+}

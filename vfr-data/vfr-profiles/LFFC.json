@@ -1,0 +1,93 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFFC (AIP France, chart dated 2022-08-11): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFFC",
+  "name": "Mantes - Chérence",
+  "source": {
+    "publication": "AIP France AD 2 LFFC",
+    "chartDate": "2022-08-11",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 49.07806,
+    "longitude": 1.68833
+  },
+  "elevationFeet": 485,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 134.155",
+    "nightVfrApproved": false,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "airAir": 134.155
+  },
+  "runways": [
+    {
+      "id": "04/22",
+      "qfu": [
+        35,
+        215
+      ]
+    },
+    {
+      "id": "12/30",
+      "qfu": [
+        120,
+        300
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for gliders and service ACFT.",
+    "AD reserved for radio-equipped ACFT.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "Take-off RWY 04: after TKOF route alteration of 20° right to avoid trees in the funnel.",
+    "Overflight of surrounding towns at low altitude is prohibited to tug ACFT.",
+    "Aerobatics (NR 6205): 1500 m long axis centered on ARP and orientated RWY 04/22 or 12/30.",
+    "1200 ft AMSL / FL 065.",
+    "0900-SS (SUM - 1 HR).",
+    "Activity reserved for gliders of the AAVO and according to protocol.",
+    "Ceiling limited to 3500 ft AMSL if LF-R 3104V not activated.",
+    "Users' information on MANTES A/A FREQ.",
+    "AEM (NR 8419) SFC - 500 ASFC.",
+    "0730 - 2000 (SUM - 1HR) Daylight only.",
+    "Gliders winching on AD (NR 895) SFC- 2000 ft AMSL.",
+    "Non marked cable.",
+    "Winch activity indicated by flashing lights and radio message on A/A frequency.",
+    "Activity reserved for pilots authorized by CAA, contact: AAVO.",
+    "Aerobatics suspended during winch launching.",
+    "Users' information on A/A MANTES."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé au vol à voile et aux avions de servitude.",
+      "AD réservé aux ACFT munis de radio.",
+      "Roulage interdit hors RWY et TWY.",
+      "Décollage RWY 04 : après décollage, altération de route de 20° à droite pour éviter les arbres dans la trouée.",
+      "Interdiction aux avions remorqueurs de survoler les communes riveraines à basse altitude.",
+      "Voltige (N°6205) : Axe de 1500 m de longueur centré sur l'ARP et orienté RWY 04/22 ou 12/30.",
+      "",
+      "0900-SS (ETE - 1 HR).",
+      "Activité réservée aux planeurs de l'AAVO et selon protocole.",
+      "Plafond limité à 3500 ft AMSL si la LF-R 3104V n'est pas active.",
+      "Information des usagers sur FREQ A/A MANTES.",
+      "AEM (N° 8419) SFC - 500 ASFC.",
+      "0730-2000 (ETE - 1HR) HJ seulement.",
+      "Treuillage planeurs sur AD (N° 895) SFC-2000 ft AMSL.",
+      "Câble non balisé.",
+      "L'activité treuil est signalée par un feu à éclats et par messages radio sur la FREQ A/A.",
+      "Activité réservée aux pratiquants autorisés par CAA, contact : AAVO.",
+      "Pendant l'activité treuil, voltige sur AD suspendue.",
+      "Information des usagers sur A/A MANTES."
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFOT (AIP France, chart dated 2024-10-31): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart for the notes, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty.",
+    "The reporting points are in French: \"location\" is the name printed in the French column of the chart, copied and not translated, and \"purpose\" is written in French; a point whose French name could not be read has no \"location\". Only \"spoken.en\" is English: the name the English phraseology says over the radio."
+  ],
+  "icao": "LFOT",
+  "name": "Tours Val de Loire",
+  "source": {
+    "publication": "AIP France AD 2 LFOT",
+    "chartDate": "2024-10-31",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.43194,
+    "longitude": 0.72306
+  },
+  "elevationFeet": 357,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "Tower",
+    "atsHours": "HOR ATS publiés par NOTAM / ATS SKED published by NOTAM (UTC HIV ; HOR ETE : -1HR)",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 134.875,
+    "tower": 124.4,
+    "afis": 124.4
+  },
+  "runways": [
+    {
+      "id": "02/20",
+      "qfu": [
+        15,
+        195
+      ]
+    }
+  ],
+  "reportingPoints": [
+    {
+      "name": "N",
+      "spoken": {
+        "fr": "Novembre",
+        "en": "November"
+      },
+      "latitude": 47.57083,
+      "longitude": 0.67,
+      "location": "Beaumont la ronce"
+    },
+    {
+      "name": "NE",
+      "spoken": {
+        "fr": "Novembre Écho",
+        "en": "November Echo"
+      },
+      "latitude": 47.59028,
+      "longitude": 0.89972,
+      "location": "Château Renault - Intersection N10-D766"
+    },
+    {
+      "name": "E",
+      "spoken": {
+        "fr": "Écho",
+        "en": "Echo"
+      },
+      "latitude": 47.42444,
+      "longitude": 0.83667,
+      "location": "Vernou / Brenne - Tunnel TGV"
+    },
+    {
+      "name": "W",
+      "spoken": {
+        "fr": "Whisky",
+        "en": "Whiskey"
+      },
+      "latitude": 47.44028,
+      "longitude": 0.63861,
+      "location": "La Membrole - Intersection N138-D959"
+    },
+    {
+      "name": "SW",
+      "spoken": {
+        "fr": "Sierra Whisky",
+        "en": "Sierra Whiskey"
+      },
+      "latitude": 47.30361,
+      "longitude": 0.55833,
+      "location": "Échangeur A85 - D751 Sud-Est Tours"
+    },
+    {
+      "name": "S1",
+      "spoken": {
+        "fr": "Sierra un",
+        "en": "Sierra one"
+      },
+      "latitude": 47.32972,
+      "longitude": 0.69333,
+      "location": "Échangeur A10 sud Tours"
+    },
+    {
+      "name": "S",
+      "spoken": {
+        "fr": "Sierra",
+        "en": "Sierra"
+      },
+      "latitude": 47.28194,
+      "longitude": 0.78472,
+      "location": "Esvres - Pont voir ferrée sur Indre"
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "AD prohibited for gliders and ULM class 1, 2, 4, 5, 6.",
+    "Auto-information reserved for based ACFT.",
+    "Radio-Communication failure Airfield accessible according to local instructions.",
+    "For all QFU: crosswind limitations (based on average wind): 25kt with dry RWY / 20kt with wet RWY.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "TWY B restricted to ACFT with a wingspan less than 24 m.",
+    "Use of TWY C prohibited if this TWY is used by an ACFT with a wingspan 24 m.",
+    "Take off from taxiway B is prohibited on runway 02.",
+    "TWY C1 restricted to ACFT with a wingspan less than 15 m.",
+    "RWY penetration via TWY C is prohibited day and night.",
+    "Jets: VIS 5 km, ceiling 1000 ft.",
+    "HEL: VIS 800 m, ceiling 600 ft on PPR PN 24HR from AD operator.",
+    "Reserved for home-based ACFT.",
+    "RWY 02 approach prohibited if PAPI 02 U/S.",
+    "RWY 20 approach prohibited if PAPI 20 U/S.",
+    "Night IFR Night IFR flight authorized with following restrictions: With AD operator's authorization; IFR approach RWY 02 prohibited if PAPI 02 U/S; IFR approach RWY 20 prohibited if PAPI 20 U/S."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "AD interdit aux planeurs et aux ULM (Classe 1, 2, 4, 5 et 6).",
+      "Auto-information réservée aux ACFT basés.",
+      "Panne de radiocommunication Aérodrome accessible selon les consignes locales.",
+      "Tous QFU : limitation vent traversier maximum (calculée sur le vent moyen) : 25kt piste sèche / 20kt piste mouillée.",
+      "Roulage interdit hors RWY et TWY.",
+      "Utilisation du TWY B limitée aux appareils dont l'envergure est inférieure à 24 m.",
+      "Utilisation du TWY C interdite si celui-ci est déjà utilisé ≥ par un aéronef d'envergure 24 m.",
+      "Décollage depuis bretelle B interdit en piste 02.",
+      "Utilisation du TWY C1 limitée aux appareils dont l'envergure est inférieure à 15 m.",
+      "Toute pénétration RWY via le TWY C est interdite de jour comme de nuit.",
+      "Réacteurs Avions : VIS 5 km, plafond 1000 ft.",
+      "HEL : VIS 800 m, plafond 600 ft. PPR PN 24HR auprès de l'exploitant.",
+      "Réservé aux ACFT basés.",
+      "Approche piste 02 interdite si PAPI 02 H/S.",
+      "Approche piste 20 interdite si PAPI 20 H/S.",
+      "IFR de nuit IFR de nuit autorisé avec les restrictions suivantes : Sur autorisation de l'exploitant ; Procédure IFR RWY 02 interdite si PAPI 02 H/S ; Procédure IFR RWY 20 interdite si PAPI 20 H/S."
+    ]
+  }
+}

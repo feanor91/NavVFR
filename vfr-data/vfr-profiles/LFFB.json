@@ -1,0 +1,63 @@
+{
+  "$comment": [
+    "REAL DATA, transcribed by hand from the SIA chart set AD 2 LFFB (AIP France, AMDT 09/24, chart dated 2024-08-08).",
+    "Only facts are recorded here; the charts themselves are (c) SIA and are not redistributed.",
+    "Runway geometry, taxiways, parking and frequencies also come from the simulator at run time; this file holds",
+    "what the simulator does not know: services, circuit rules and reporting points.",
+    "Flight simulation only: never use for real navigation."
+  ],
+  "icao": "LFFB",
+  "name": "Buno-Bonnevaux",
+  "source": {
+    "publication": "AIP France AD 2 LFFB",
+    "amendment": "AMDT 09/24",
+    "chartDate": "2024-08-08"
+  },
+  "referencePosition": {
+    "latitude": 48.35028,
+    "longitude": 2.42444
+  },
+  "elevationFeet": 419,
+  "magneticVariationDegrees": 1.0,
+  "service": {
+    "kind": "None",
+    "ats": "NIL",
+    "radioMandatory": true,
+    "restrictedUse": true,
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.155
+  },
+  "runways": [
+    {
+      "id": "10/28",
+      "qfu": [
+        97,
+        277
+      ],
+      "surface": "unpaved",
+      "lengthMetres": 790,
+      "widthMetres": 100
+    },
+    {
+      "id": "01/19",
+      "qfu": [
+        11,
+        191
+      ],
+      "surface": "unpaved",
+      "lengthMetres": 620,
+      "widthMetres": 80
+    }
+  ],
+  "preferredQfu": 277,
+  "preferredQfuReason": "to avoid the Essonne valley",
+  "notes": [
+    "Restricted use: reserved for gliders and service aircraft, radio equipped; ULM class 3 only if based.",
+    "Runway in use is set by the current ULM and gliding activity. Very noise-sensitive aerodrome.",
+    "Heavy gliding in season: avoid transiting overhead (3 NM circle), activity known by SEINE INFO.",
+    "Reduced TODA runway 28 (trees in the departure funnel).",
+    "Aerobatics (gliders) 3 km circle at ARP, 1500 ft AMSL / FL055; winch launches SFC-2300 ASFC."
+  ]
+}

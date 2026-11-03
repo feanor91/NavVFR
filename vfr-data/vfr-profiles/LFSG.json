@@ -1,0 +1,79 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFSG (AIP France, chart dated 2026-05-14): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFSG",
+  "name": "Épinal-Mirecourt",
+  "source": {
+    "publication": "AIP France AD 2 LFSG",
+    "chartDate": "2026-05-14",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 48.325,
+    "longitude": 6.06667
+  },
+  "elevationFeet": 1084,
+  "magneticVariationDegrees": 2.0,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS : De Novembre à Mars : - LUN-VEN sauf JF : 0800-1600. D'Avril à Octobre : - LUN-VEN sauf JF : 0700-1600 En dehors de ces HOR, O/R à LFSGZTZX : - MAR-SAM la veille avant 1500, - DIM, LUN et JF avant : le dernier jour ouvrable précédent avant 1500. AFIS : From November to March : - MON-FRI except public HOL : 0800-1600. From April to October - MON-FRI except public HOL : 0700-1600 Outside these SKED, O/R LFSGZTZX  (UTC HIV ; HOR ETE : - 1 HR)",
+    "outsideAtsHours": "air-air frequency 120.205",
+    "nightVfrApproved": true,
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "approach": 127.25,
+    "afis": 120.205,
+    "airAir": 120.205
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        83,
+        263
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Possible IFR operations.",
+    "TWY A, B, D, E, F, T1, T2 and T3 not available for fixed wings aircraft with wheelbase equal or more than 18 m and main landing gear width equal or more than 9 m.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "AD located in the LF-R87 area: circuits and AD procedure: radio contact compulsory with EPINAL INFO or A/A when AFIS unavailable.",
+    "TWY E not available for fixed wings aircraft with wingspan equal or more than 26 m.",
+    "TWY F reserved for aircraft authorized by the operator.",
+    "PCL: O/R PN 24HR from AD operator; 3 pulses in less than 5 seconds to turn on the lighting in low intensity.; 5 pulses in less than 5 seconds to turn on the lighting in high intensity.; Lighting can be turn off with 7 microphone switch actions in less than 5 seconds.",
+    "Aerobatics activity NR 6161: see AIP ENR 5.5 Special activity of unmanned remotely piloted ACFT NR 88-001: see AIP ENR 5.5 Level 1: outside AFIS SKED.",
+    "Level 5: AFIS SKED.",
+    "Level 6: possible PPR 48HR from AD operator for class 6 ACFT or superior with PAX.",
+    "Outside AFIS SKED, possible opening PPR AD operator.",
+    "Level 5 for all ACFT class 4 or higher with PAX.",
+    "Péril animalier / Wildlife strike hazard: Occasionnel / Random - HOR / SKED AFIS (HJ uniquement / by day only)."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "Activité IFR possible.",
+      "TWY A, B, D, E, F, T1, T2 et T3 non utilisables par les aéronefs à voilure fixe d'empattement supérieur ou égal à 18 m et de largeur hors tout du train principal supérieure ou égale à 9 m.",
+      "Roulage interdit hors RWY et TWY.",
+      "Aérodrome situé dans la zone LF-R87 : circulation et procédures d'aérodrome : contact radio obligatoire avec EPINAL INFO ou A/A en l'absence AFIS.",
+      "TWY E non utilisable par les aéronefs à voilure fixe d'envergure supérieure ou égale à 26 m.",
+      "Restriction utilisation TWY F réservé aux aéronefs autorisés par le gestionnaire.",
+      "PCL : O/R PN 24HR auprès de l'exploitant d'aérodrome ; 3 impulsions en moins de 5 secondes pour allumer le balisage en basse intensité. 5 impulsions en moins de 5 secondes pour allumer le balisage en haute intensité. Possibilité d'éteindre le balisage en effectuant 7 coups d'alternat en moins de 5 secondes.",
+      "",
+      "Niveau 5 : HOR AFIS.",
+      "Niveau 6 : possible PPR 48HR auprès de l'exploitant pour tout ACFT de classe 6 et supérieure transportant des passagers.",
+      "En dehors HOR AFIS, ouverture possible PPR exploitant.",
+      "Niveau 5 pour tout ACFT de classe 4 et supérieure transportant des passagers.",
+      ""
+    ]
+  }
+}

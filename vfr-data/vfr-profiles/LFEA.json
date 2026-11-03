@@ -1,0 +1,66 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFEA (AIP France, chart dated 2022-09-08): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFEA",
+  "name": "Belle-Île-en-Mer",
+  "source": {
+    "publication": "AIP France AD 2 LFEA",
+    "chartDate": "2022-09-08",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.32611,
+    "longitude": -3.19889
+  },
+  "elevationFeet": 177,
+  "magneticVariationDegrees": -1.0,
+  "service": {
+    "kind": "Afis",
+    "outsideAtsHours": "air-air frequency 118.755",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 118.755,
+    "airAir": 118.755
+  },
+  "runways": [
+    {
+      "id": "06/24",
+      "qfu": [
+        61,
+        241
+      ]
+    }
+  ],
+  "notes": [
+    "AD reserved for radio-equipped ACFT.",
+    "Take-off QFU 241°: line-up at threshold due to noise pollution.",
+    "After take-off continue on RWY axis to the coastline.",
+    "Take-off QFU 061°: avoid flying over Le Palais.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "TWY width: 8.2 m.",
+    "Information relating to dangerous activities in the vicinity of \"BELLE ILE\" is available on LORIENT APP 123.000 MHz and NANTES INFO 122.800 MHz (area R13) or CCMAR Atlantique, call sign \"ARMOR\", 124.725 MHz and NANTES INFO 122.800 MHz (area D18).",
+    "RWY circuit training prohibited 1100-1300 and after 1800 (SUM: - 1 HR).",
+    "No movement area inspection outside AFIS SKED."
+  ],
+  "fr": {
+    "notes": [
+      "AD réservé aux ACFT munis de radio.",
+      "",
+      "Après décollage poursuivre dans l'axe jusqu'au trait de côte.",
+      "Décollage QFU 061° : éviter le survol de Le Palais.",
+      "Roulage interdit hors RWY et TWY.",
+      "Largeur du TWY : 8,2 m.",
+      "Les informations concernant les activités dangereuses aux abords de \"BELLE ILE\" sont disponibles auprès de LORIENT APP 123.000 MHz et NANTES INFO 122.800 MHz (pour zone R13), du CCMAR Atlantique indicatif \"ARMOR\" 124.725 MHz et NANTES INFO 122.800 MHz (pour zone D18).",
+      "Entraînement au tour de piste interdit 1100-1300 et après 1800 (ETE : - 1 HR).",
+      "Inspection de l'aire de mouvements non effectuée hors HOR AFIS."
+    ]
+  }
+}

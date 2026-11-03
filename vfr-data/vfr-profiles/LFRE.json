@@ -1,0 +1,83 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFRE (AIP France, chart dated 2025-07-10): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFRE",
+  "name": "Baule-Escoublac",
+  "source": {
+    "publication": "AIP France AD 2 LFRE",
+    "chartDate": "2025-07-10",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 47.28833,
+    "longitude": -2.34694
+  },
+  "elevationFeet": 106,
+  "service": {
+    "kind": "Afis",
+    "atsHours": "AFIS du 15 au 30 juin et du 1er au 15 septembre : 0900-1100 et 1400-1700 du 1er juillet au 31 août : 0900-1130 et 1400-1800. from 15th to 30th june and from 01st to 15th september: 0900-1100 and 1400-1700 from 01st july to 31th august: 0900-1130 and 1400-1800. Aérodrome de la Baule Escoublac, 44500 la Baule (UTC HIV ; HOR ETE : -1HR)",
+    "outsideAtsHours": "air-air frequency 121.405",
+    "radioMandatory": true
+  },
+  "frequencies": {
+    "afis": 121.405
+  },
+  "runways": [
+    {
+      "id": "11/29",
+      "qfu": [
+        106,
+        286
+      ]
+    }
+  ],
+  "notes": [
+    "AD forbidden to paramotors.",
+    "AD reserved for radio-equipped ACFT.",
+    "Air navigation hazard The attention of pilots is drawn to the proximity of CTR SAINT NAZAIRE in order to avoid any entry in class D airspace without clearance.",
+    "AD likely to be covered by sea haze in few minutes.",
+    "Presence of an obstacle (weather mast) H24 lighting 140 ft AMSL, R 090 / 210 m of the tower.",
+    "Radio contact is mandatory in the AFIS volume 3 NM / 2000 ft.",
+    "Taxiing prohibited except on RWY and TWY.",
+    "CAT B ACFT taxiing is restricted beyond AVT stands.",
+    "Stands with parking cables, numbers 1 to 14 on P1 reserved for CAT A ACFT.",
+    "From P1 to hangars, TXL reserved only for home-based ACFT.",
+    "P2 reserved for CAT B ACFT and helicopters.",
+    "It's recommended to overfly regional park of Brière above 1000 ft.",
+    "Noise sensitive AD.",
+    "Noise abatment procedure: to minimise nuisances, take-off RWY 11 and landing RWY 29 is preferred according to weather conditions and traffics.",
+    "Traffic pattern: in QFU 106° and 286°, flown only North of the RWY; prohibited from 1100 to 1300 and after 1800 (SUM: - 1 HR).; prohibited on SUN and public HOL for non-based.",
+    "For helicopters, mandatory radio messages before startup.",
+    "TWY B1 only usable to vacate RWY.",
+    "PJE on AD (NR 277): see AIP ENR 5.5"
+  ],
+  "fr": {
+    "notes": [
+      "AD interdit aux paramoteurs.",
+      "AD réservé aux ACFT munis de radio.",
+      "Dangers à la navigation aérienne L'attention des pilotes est attirée sur la proximité des CTR SAINT NAZAIRE afin d'éviter toute pénétration en espace D sans clairance.",
+      "AD susceptible d'être envahi en quelques minutes par la brume de mer.",
+      "Présence obstacle (mât météo) balisé H24, 140 ft AMSL, R 090 / 210 m de la tour.",
+      "Contact radio obligatoire dans le volume AFIS 3 NM / 2000 ft.",
+      "Roulage interdit hors piste et TWY.",
+      "Circulation des ACFT de CAT B restreinte au-delà des postes d'AVT.",
+      "Postes de stationnement avec câbles, numérotés de 1 à 14 sur P1 réservés aux ACFT de CAT A.",
+      "De P1 vers les hangars, TXL réservée uniquement aux ACFT basés.",
+      "P2 est réservé aux ACFT de CAT B et hélicoptères.",
+      "Survol du parc régional de Brière déconseillé à moins de 1000 ft.",
+      "AD sensible au bruit.",
+      "Procédure moindre bruit : afin de limiter les nuisances, décollage QFU 106° et atterrissage QFU 286° préféré si conditions météo et trafic compatibles.",
+      "Tour de piste : en QFU 106° et 286° se font uniquement au Nord de la piste. interdit de 1100 à 1300 et après 1800 (ETE : - 1 HR) ; Interdit le DIM et JF pour ACFT non basés.",
+      "Pour les hélicoptères, messages radio obligatoires avant la mise en route.",
+      "TWY B1 utilisable uniquement en sortie de piste.",
+      "Parachutage sur AD (N° 277) : voir AIP ENR 5.5"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$comment": [
+    "Read from the SIA chart set AD 2 LFGL (AIP France, chart dated 2023-12-28): the reporting points come from the coordinates table of the chart,",
+    "the notes from the English column of its text pages, both read by a script and checked (each point lies within 80 NM of the aerodrome).",
+    "Only what the chart prints is recorded; nothing is deduced. Services, frequencies, elevation, position, magnetic variation and runways",
+    "were first extracted automatically from the chart text. Drawings (circuit, routes, radials) are not read.",
+    "The charts themselves are (c) SIA and are not redistributed. Flight simulation only: never use for real navigation.",
+    "A \"fr\" object holds the French column of the same chart, copied as printed and never translated: a French note sits at the index of its English twin and is left empty when the twin could not be paired with certainty; the French of the procedures and of the points' purposes is not recorded."
+  ],
+  "icao": "LFGL",
+  "name": "Lons-le-Saunier - Courlaoux",
+  "source": {
+    "publication": "AIP France AD 2 LFGL",
+    "chartDate": "2023-12-28",
+    "extraction": "chart text, table and English column read by script, checked",
+    "frenchExtraction": "French column of the chart text, read by script and paired with the English sentences"
+  },
+  "referencePosition": {
+    "latitude": 46.675,
+    "longitude": 5.46917
+  },
+  "elevationFeet": 762,
+  "service": {
+    "kind": "None",
+    "atsHours": "none (ATS: NIL)",
+    "outsideAtsHours": "air-air frequency 123.5",
+    "nightVfrApproved": false
+  },
+  "frequencies": {
+    "airAir": 123.5
+  },
+  "runways": [
+    {
+      "id": "08/26",
+      "qfu": [
+        79,
+        259
+      ]
+    }
+  ],
+  "preferredQfu": 259,
+  "preferredQfuReason": "preferred QFU 259, due to noise pollution",
+  "notes": [
+    "RWY not available after heavy rain.",
+    "Usable declared distances RWY 08 and 26 are reduced due to roads located near each RWY end (1) On both QFU, the end of the TODA is identified by red lateral cones near the opposite THR.",
+    "Takeoff from runway end mandatory (backtrack mandatory).",
+    "Training patterns reserved for home-based ACFT.",
+    "Noise-sensitive environment.",
+    "Preferred QFU 259° due to noise pollution."
+  ],
+  "fr": {
+    "notes": [
+      "RWY inutilisable après forte pluie.",
+      "Les distances déclarées utilisables en RWY 08 et 26 sont réduites en raison de la présence de routes situées à proximité de chaque extrémité de piste. (1) Dans les 2 QFU, la fin de la TODA est matérialisée par des cônes latéraux rouges proches du seuil opposé.",
+      "Décollage obligatoire depuis l'extrémité de piste (remontée obligatoire).",
+      "",
+      "Environnement sensible au bruit.",
+      "QFU 259° préférentiel cause nuisances sonores."
+    ]
+  }
+}
