@@ -63,6 +63,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        Title = AppVersion.Title;
         _http.DefaultRequestHeaders.UserAgent.ParseAdd("VFRNav/0.1");
 
         _loadingParams = true;

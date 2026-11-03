@@ -1,4 +1,4 @@
-# NavVFR (VFRNav)
+﻿# NavVFR (VFRNav)
 
 Outil de préparation de navigation VFR pour la simulation de vol (Microsoft Flight Simulator).
 Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
@@ -20,7 +20,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 - **METAR / TAF traduits en français**, catégorie de vol (VFR, MVFR, IFR, LIFR) et pastilles météo sur la carte.
 - **Aide pour débutants** : explication des zones (type, classe, limites) au survol de leur contour.
 - **Lecteur de cartes VAC** (PDF) via le projet compagnon StormATC : base d'aérodromes et cartes lues sur place, jamais copiées.
-- **Route IFR** (bêta) : départ/arrivée, calcul du plus court chemin sur les routes ATS de l'export AIXM 4.5 gratuit du SIA (bouton « Charger les données AIRAC »), niveau de vol, route libre à partir du FL195. L'export du SIA ne contient pas les SID/STAR : sans eux, les terrains se raccordent directement au réseau. Données de test fictives tant qu'aucun fichier n'est chargé. Le fichier du SIA est sous licence : il n'est pas inclus dans le dépôt.
+- **Route IFR** (bêta) : départ/arrivée, calcul du plus court chemin sur les routes ATS de l'export AIXM 4.5 gratuit du SIA (bouton « Charger les données AIRAC »), niveau de vol, route libre à partir du FL195. L'export du SIA ne contient pas les SID/STAR : sans eux, les terrains se raccordent directement au réseau. Données de test fictives tant qu'aucun fichier n'est chargé. Le fichier du SIA est sous licence : il n'est pas inclus dans le dépôt. Les SID et STAR du monde entier se lisent une fois dans MSFS (SimConnect, bouton « Enregistrer / mettre à jour les SID/STAR du monde », environ 75 s) et sont enregistrées dans les données de VFRNav, un fichier compressé par terrain (environ 4 Mo) : le calcul de route n'a plus besoin du simulateur. La mise à jour est manuelle, à refaire quand MSFS met à jour ses données ; seuls les terrains modifiés sont réécrits.
 - **Suivi de l'avion en direct** dans MSFS (SimConnect).
 
 ## Compiler et lancer

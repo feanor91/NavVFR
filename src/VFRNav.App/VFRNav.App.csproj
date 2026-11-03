@@ -8,6 +8,12 @@
     <Resource Include="Assets\VFRNav.ico" />
   </ItemGroup>
 
+  <!-- SID/STAR lues dans MSFS : livrées avec l'application seulement si le dossier data\procedures existe à la racine du dépôt
+       (un fichier compressé par terrain). Elles viennent de la base de navigation de MSFS : elles ne sont pas versionnées (voir .gitignore). -->
+  <ItemGroup>
+    <Content Include="..\..\data\procedures\**\*" Link="data\procedures\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Mapsui.Wpf" Version="5.1.0" />
   </ItemGroup>
@@ -20,6 +26,8 @@
     <UseWPF>true</UseWPF>
     <PlatformTarget>x64</PlatformTarget>
     <ApplicationIcon>Assets\VFRNav.ico</ApplicationIcon>
+    <!-- La version publiée vient du tag (workflow release.yml : -p:Version et -p:InformationalVersion) ; sans cela : compilation de développement. -->
+    <Version>0.0.0</Version>
   </PropertyGroup>
 
   <!-- SimConnect : VFRNav appelle la DLL native SimConnect.dll, sans référence au SDK à la compilation. Si le SDK de MSFS

@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using Microsoft.Win32;
 using System.Windows.Controls;
@@ -29,7 +29,7 @@ public partial class MainWindow
     {
         if (_ifrData.AiracCycle == "TEST")
         {
-            IfrDataLabel.Text = IfrSampleData.Label + " : ne pas utiliser pour naviguer. Chargez l'export AIXM du SIA.";
+            IfrDataLabel.Text = IfrSampleData.Label + " : ne pas utiliser pour naviguer. Chargez l'export AIXM du SIA." + ProceduresNote();
             return;
         }
         bool expired = _ifrData.IsExpired(DateTime.UtcNow);
@@ -38,7 +38,8 @@ public partial class MainWindow
             ? " Pas de SID/STAR dans ces données : les terrains se raccordent directement aux routes ATS."
             : "";
         IfrDataLabel.Text = $"AIRAC {_ifrData.AiracCycle}" + (expired ? " : PÉRIMÉ, à mettre à jour." : ".") +
-                            $" {_ifrData.Fixes.Count} points, {_ifrData.Segments.Select(s => s.Airway).Distinct().Count()} routes ATS." + procedures;
+                            $" {_ifrData.Fixes.Count} points, {_ifrData.Segments.Select(s => s.Airway).Distinct().Count()} routes ATS." + procedures +
+                            ProceduresNote();
     }
 
     private async void IfrLoad_Click(object sender, RoutedEventArgs e)
@@ -61,6 +62,8 @@ public partial class MainWindow
         {
             var loaded = await Task.Run(() => AixmReader.LoadFile(path, GeoArea.MetropolitanFrance));
             _ifrData = loaded.Data;
+            ResetAppliedProcedures();
+            EnsureProceduresForRoute();
             ShowIfrDataLabel();
             return true;
         }
@@ -81,6 +84,7 @@ public partial class MainWindow
     /// <summary>Remplit les listes de SID, STAR et pistes avec ce que la base propose pour les deux terrains.</summary>
     private void RefreshIfrChoices()
     {
+        EnsureProceduresForRoute();
         Fill(IfrSidBox, IfrDepRunwayBox, IfrDepBox.Text, ProcedureKind.Sid);
         Fill(IfrStarBox, IfrArrRunwayBox, IfrArrBox.Text, ProcedureKind.Star);
 
@@ -119,6 +123,7 @@ public partial class MainWindow
             fl = value;
         }
 
+        EnsureProcedures(dep, arr);
         var result = IfrRouter.Plan(_ifrData, dep, arr, new IfrPlanOptions
         {
             Sid = Chosen(IfrSidBox),

@@ -81,6 +81,10 @@
                 </UniformGrid>
                 <Button Content="Charger les données AIRAC (SIA)…" Click="IfrLoad_Click" Margin="0,8,0,0"
                         ToolTip="Export AIXM 4.5 gratuit de la boutique du SIA : export_xml_bd_SIA_aaaa-mm-jj.zip. Il contient les routes ATS mais pas les SID/STAR."/>
+                <Button x:Name="IfrSimButton" Content="Relire le départ et l'arrivée dans MSFS" Click="IfrSim_Click" Margin="0,0,0,0"
+                        ToolTip="Demande à MSFS (lancé) les SID et STAR du départ et de l'arrivée saisis et les enregistre dans les données de VFRNav."/>
+                <Button x:Name="IfrSimAllButton" Content="Enregistrer / mettre à jour les SID/STAR du monde (MSFS)" Click="IfrSimAll_Click" Margin="0,0,0,0"
+                        ToolTip="MSFS lancé : lit les SID et STAR de tous les terrains du simulateur et les enregistre dans les données de VFRNav (quelques minutes). Ensuite le calcul de route n'a plus besoin du simulateur. À refaire à la main quand MSFS met à jour ses données : seuls les terrains qui ont changé sont réécrits. Un second clic arrête la lecture."/>
                 <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,0,0,4"
                         ToolTip="Cherche le plus court chemin SID, routes ATS, STAR et remplace la route par le résultat."/>
                 <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>
