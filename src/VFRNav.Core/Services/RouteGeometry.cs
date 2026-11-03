@@ -25,6 +25,50 @@ public static class RouteGeometry
         return (Deg(Math.Atan2(z, Math.Sqrt(x * x + y * y))), Deg(Math.Atan2(y, x)));
     }
 
+    private const double EarthRadiusNm = 3440.065;
+
+    /// <summary>Point atteint en partant de (lat, lon) sur le cap vrai donné, après la distance donnée (grand cercle).</summary>
+    public static (double Lat, double Lon) Destination(double lat, double lon, double bearingDeg, double distanceNm)
+    {
+        double p1 = Rad(lat), l1 = Rad(lon), brg = Rad(bearingDeg), d = distanceNm / EarthRadiusNm;
+        double p2 = Math.Asin(Math.Sin(p1) * Math.Cos(d) + Math.Cos(p1) * Math.Sin(d) * Math.Cos(brg));
+        double l2 = l1 + Math.Atan2(Math.Sin(brg) * Math.Sin(d) * Math.Cos(p1), Math.Cos(d) - Math.Sin(p1) * Math.Sin(p2));
+        return (Deg(p2), ((Deg(l2) + 540) % 360) - 180);
+    }
+
+    /// <summary>
+    /// Cercle de rayon <paramref name="radiusNm"/> autour d'un point, en lignes prêtes à dessiner sur une carte Mercator.
+    /// La ligne est coupée là où elle franchit la ligne de changement de date ou dépasse la latitude affichable
+    /// (<paramref name="maxLat"/>) : un très grand cercle donne alors plusieurs arcs, un petit cercle une seule boucle fermée.
+    /// </summary>
+    public static IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> CircleLines(
+        double lat, double lon, double radiusNm, int points = 180, double maxLat = 84)
+    {
+        var lines = new List<IReadOnlyList<(double, double)>>();
+        if (!(radiusNm > 0) || points < 8) return lines;
+
+        var ring = new List<(double Lat, double Lon)>();
+        for (int i = 0; i <= points; i++) ring.Add(Destination(lat, lon, 360.0 * i / points, radiusNm));
+
+        var current = new List<(double, double)>();
+        for (int i = 0; i < ring.Count; i++)
+        {
+            bool visible = Math.Abs(ring[i].Lat) <= maxLat;
+            bool jump = current.Count > 0 && Math.Abs(ring[i].Lon - current[^1].Item2) > 180;
+            if (!visible || jump)
+            {
+                if (current.Count > 1) lines.Add(current);
+                current = [];
+                if (!visible) continue;
+            }
+            current.Add(ring[i]);
+        }
+        if (current.Count > 1) lines.Add(current);
+
+        // Boucle entière sans coupure : la dernière ligne rejoint déjà la première, rien à recoller.
+        return lines;
+    }
+
     /// <summary>
     /// Points régulièrement espacés le long de la route, extrémités des tronçons comprises.
     /// Le pas est agrandi si besoin pour ne pas dépasser <paramref name="maxPoints"/> points.

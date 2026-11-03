@@ -71,16 +71,16 @@
                 <TextBlock x:Name="LiveInfo" Foreground="#E8EEFC" FontSize="11.5" TextWrapping="Wrap"
                            Text="Pose un point sur la carte : ses informations s'affichent ici."/>
 
-                <TextBlock Style="{StaticResource Header}" Text="APPAREIL ET CONDITIONS"/>
+                <TextBlock Style="{StaticResource Header}" Text="CONDITIONS"/>
                 <UniformGrid Columns="2">
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="TAS (kt)"/><TextBox x:Name="TasBox" TextChanged="Param_Changed"/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Conso (L/h)"/><TextBox x:Name="BurnBox" TextChanged="Param_Changed"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Croisière (ft)" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/><TextBox x:Name="AltBox" TextChanged="Param_Changed" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Déclinaison (°E +)"/><TextBox x:Name="VarBox" TextChanged="Param_Changed"/>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Déclinaison (°E +)"/><TextBox x:Name="VarBox" TextChanged="Param_Changed"/>
                         <CheckBox x:Name="AutoVarCheck" Content="auto (départ)" Foreground="#A9C4EE" FontSize="10" Margin="0,2,0,0" IsChecked="True" Click="AutoVar_Click"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Vent dir (°)"/><TextBox x:Name="WdirBox" TextChanged="Param_Changed"/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Vent (kt)"/><TextBox x:Name="WspdBox" TextChanged="Param_Changed"/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Vent dir (°)"/><TextBox x:Name="WdirBox" TextChanged="Param_Changed"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Vent (kt)"/><TextBox x:Name="WspdBox" TextChanged="Param_Changed"/></StackPanel>
                 </UniformGrid>
+                <CheckBox x:Name="RangeCheck" Content="Cercle de portée autour du départ" Foreground="#E8EEFC" Margin="0,8,0,0" IsChecked="True" Click="Range_Click"
+                          ToolTip="Distance que l'appareil actif peut parcourir avec tout son carburant à sa vitesse de croisière, sans vent et sans réserve."/>
+                <TextBlock x:Name="RangeInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
 
                 <TextBlock Style="{StaticResource Header}" Text="SIMULATEUR"/>
                 <TextBlock x:Name="SimStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Text="Suivi de l'avion : démarrage..."/>
@@ -141,6 +141,15 @@
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel Margin="4,2,0,0">
+                <TextBlock Style="{StaticResource Header}" Text="APPAREIL VFR"/>
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Content="Gérer…" Click="VfrManage_Click" Margin="6,0,0,0" ToolTip="Créer, modifier, dupliquer ou supprimer des appareils"/>
+                    <ComboBox x:Name="VfrAircraftBox" DisplayMemberPath="Name" SelectionChanged="VfrAircraft_Changed" VerticalAlignment="Top"/>
+                </DockPanel>
+                <TextBlock x:Name="VfrAircraftInfo" Foreground="#E8EEFC" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                <TextBlock Style="{StaticResource Label}" Text="Croisière (ft)" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
+                <TextBox x:Name="VfrAltBox" TextChanged="Param_Changed" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
+
                 <Button x:Name="PlanButton" Content="Calculer le plan de vol et la feuille de route" Click="CalculatePlan_Click"
                         Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
                 <TextBlock x:Name="PlanStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,8"/>
@@ -182,6 +191,12 @@
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel Margin="4,2,0,0">
+                <TextBlock Style="{StaticResource Header}" Text="APPAREIL IFR"/>
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Content="Gérer…" Click="IfrManage_Click" Margin="6,0,0,0" ToolTip="Créer, modifier, dupliquer ou supprimer des appareils"/>
+                    <ComboBox x:Name="IfrAircraftBox" DisplayMemberPath="Name" SelectionChanged="IfrAircraft_Changed" VerticalAlignment="Top"/>
+                </DockPanel>
+                <TextBlock x:Name="IfrAircraftInfo" Foreground="#E8EEFC" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,8"/>
                 <TextBlock x:Name="IfrDataLabel" Foreground="#FFD479" FontSize="10.5" TextWrapping="Wrap" Margin="0,0,0,2"/>
                 <UniformGrid Columns="2">
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Départ (OACI)"/>
@@ -196,8 +211,8 @@
                         <ComboBox x:Name="IfrSidBox"/></StackPanel>
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="STAR"/>
                         <ComboBox x:Name="IfrStarBox"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Niveau (FL)" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau. À partir du FL195, la route libre (tronçons directs) est autorisée."/>
-                        <TextBox x:Name="IfrFlBox" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Croisière (FL)" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau. À partir du FL195, la route libre (tronçons directs) est autorisée."/>
+                        <TextBox x:Name="IfrFlBox" TextChanged="Param_Changed" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/></StackPanel>
                 </UniformGrid>
                 <Button Content="Charger les données AIRAC (SIA)…" Click="IfrLoad_Click" Margin="0,8,0,0"
                         ToolTip="Export AIXM 4.5 gratuit de la boutique du SIA : export_xml_bd_SIA_aaaa-mm-jj.zip. Il contient les routes ATS mais pas les SID/STAR."/>
