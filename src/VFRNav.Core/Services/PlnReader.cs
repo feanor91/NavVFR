@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
@@ -12,8 +12,8 @@ namespace VFRNav.Core.Services;
 public sealed record PlnPlan(IReadOnlyList<Waypoint> Route, double? CruiseAltFt, string? Title);
 
 /// <summary>
-/// Lit un plan de vol .PLN (AceXML) de Microsoft Flight Simulator : ceux que VFRNav écrit comme ceux d'autres outils ou du simulateur.
-/// Les notes et altitudes par point de VFRNav, qu'un .PLN ne peut pas porter, sont relues dans le commentaire XML que
+/// Lit un plan de vol .PLN (AceXML) de Microsoft Flight Simulator : ceux que MSFS Rhumb écrit comme ceux d'autres outils ou du simulateur.
+/// Les notes et altitudes par point de MSFS Rhumb, qu'un .PLN ne peut pas porter, sont relues dans le commentaire XML que
 /// <see cref="PlnWriter"/> y ajoute ; un plan venu d'ailleurs s'ouvre sans elles.
 /// </summary>
 public static partial class PlnReader
@@ -64,7 +64,7 @@ public static partial class PlnReader
         return new PlnPlan(route, cruise, plan.Element("Title")?.Value);
     }
 
-    // ---------- informations propres à VFRNav (notes, altitudes, nom complet) ----------
+    // ---------- informations propres à MSFS Rhumb (notes, altitudes, nom complet) ----------
 
     internal sealed record Extra(string? Notes, string? FullName, double? AltitudeFt);
 

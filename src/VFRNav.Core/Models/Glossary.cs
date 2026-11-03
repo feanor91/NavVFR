@@ -9,7 +9,7 @@ namespace VFRNav.Core.Models;
 public sealed record GlossaryEntry(string Category, string Term, string Meaning, string Explanation);
 
 /// <summary>
-/// Sigles des cartes aéronautiques (VAC, OACI), des zones, des messages météo et de VFRNav, expliqués en français.
+/// Sigles des cartes aéronautiques (VAC, OACI), des zones, des messages météo et de MSFS Rhumb, expliqués en français.
 /// Texte général pour la simulation : il ne remplace pas l'AIP ni les publications du SIA.
 /// </summary>
 public static class Glossary
@@ -21,7 +21,7 @@ public static class Glossary
     public const string Aerodrome = "Aérodrome et cartes VAC";
     public const string Weather = "Météo";
     public const string Rules = "Règles de vol";
-    public const string Symbols = "Symboles de la carte VFRNav";
+    public const string Symbols = "Symboles de la carte";
 
     public static readonly IReadOnlyList<string> Categories = [Zones, Limits, Services, Navigation, Aerodrome, Weather, Rules, Symbols];
 
@@ -123,7 +123,7 @@ public static class Glossary
 
         // ---- météo
         new(Weather, "METAR", "Observation météo d'aérodrome", "Message codé qui donne le vent, la visibilité, les nuages, la température et le QNH au moment de l'observation."),
-        new(Weather, "TAF", "Prévision d'aérodrome", "Prévision de la météo sur un aérodrome pour les heures à venir. VFRNav la traduit en clair."),
+        new(Weather, "TAF", "Prévision d'aérodrome", "Prévision de la météo sur un aérodrome pour les heures à venir. MSFS Rhumb la traduit en clair."),
         new(Weather, "SPECI", "Observation spéciale", "METAR émis en dehors de l'heure normale parce que la météo change vite."),
         new(Weather, "CAVOK", "Ceiling and Visibility OK", "Visibilité de 10 km ou plus, pas de nuage significatif sous 5 000 ft, pas de phénomène notable : conditions très bonnes."),
         new(Weather, "FEW / SCT / BKN / OVC", "Quantité de nuages", "FEW : 1 à 2 huitièmes, SCT : 3 à 4, BKN : 5 à 7 (fragmenté), OVC : 8 (couvert). Le nombre qui suit est la hauteur de la base en centaines de pieds."),
@@ -131,7 +131,7 @@ public static class Glossary
         new(Weather, "NOSIG", "Pas de changement significatif", "Aucune évolution notable prévue dans les deux heures qui suivent."),
         new(Weather, "Visibilité", "Visibilité horizontale", "Donnée en mètres (9999 = 10 km ou plus) ou en kilomètres."),
         new(Weather, "VMC / IMC", "Conditions météorologiques de vol à vue / aux instruments", "Les conditions minimales de visibilité et de distance aux nuages permettent, ou non, le vol à vue."),
-        new(Weather, "VFR / MVFR / IFR / LIFR", "Catégories de vol d'après le METAR", "VFR : bonnes conditions. MVFR : marginales. IFR : mauvaises, le vol à vue est difficile. LIFR : très mauvaises. VFRNav les montre par la couleur d'un terrain."),
+        new(Weather, "VFR / MVFR / IFR / LIFR", "Catégories de vol d'après le METAR", "VFR : bonnes conditions. MVFR : marginales. IFR : mauvaises, le vol à vue est difficile. LIFR : très mauvaises. MSFS Rhumb les montre par la couleur d'un terrain."),
 
         // ---- règles de vol
         new(Rules, "VFR", "Règles de vol à vue", "On pilote en s'aidant de ce que l'on voit dehors : sol, horizon, autres avions."),
@@ -140,7 +140,7 @@ public static class Glossary
         new(Rules, "Clairance", "Autorisation du contrôle", "Accord du contrôle pour entrer dans une zone ou faire une manœuvre. Sans clairance, on n'entre pas."),
         new(Rules, "Transit", "Traversée d'une zone", "Passage dans un espace contrôlé sans y atterrir, avec clairance si la classe l'exige."),
 
-        // ---- symboles de la carte VFRNav
+        // ---- symboles de la carte
         new(Symbols, "Pastille de terrain", "Terrain et météo", "Rond sur un terrain : sa couleur donne la catégorie de la météo (vert VFR, bleu MVFR, rouge IFR, violet LIFR, gris : pas de METAR)."),
         new(Symbols, "Triangle jaune", "Point de report VFR", "Point de report d'un aérodrome (lu sur sa carte VAC). Un clic l'ajoute à la route sous le nom « ICAO-point »."),
         new(Symbols, "Losange violet", "VOR", "Balise VOR avec sa fréquence en MHz."),

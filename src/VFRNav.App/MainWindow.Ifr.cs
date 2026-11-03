@@ -113,7 +113,7 @@ public partial class MainWindow
         finally { _programmatic = outer; }
     }
 
-    /// <summary>Ce que VFRNav sait des deux terrains saisis, avec le vent et la piste conseillée quand on les connaît.</summary>
+    /// <summary>Ce que MSFS Rhumb sait des deux terrains saisis, avec le vent et la piste conseillée quand on les connaît.</summary>
     private string BuildAirportInfo()
     {
         var lines = new List<string>();

@@ -71,7 +71,7 @@ public partial class MainWindow
 
     private readonly Dictionary<string, (byte[] Bytes, string ContentType)> _tileCache = [];
 
-    /// <summary>Tuile du fond de carte courant, téléchargée une fois puis gardée (le fond est celui de la carte de NavVFR).</summary>
+    /// <summary>Tuile du fond de carte courant, téléchargée une fois puis gardée (le fond est celui de la carte de MSFS Rhumb).</summary>
     private async Task<(byte[] Bytes, string ContentType)?> FetchTileAsync(int layer, int z, int x, int y, CancellationToken ct)
     {
         string key = _settings.BaseMap, carto = _settings.CartoKey;
@@ -82,7 +82,7 @@ public partial class MainWindow
         try
         {
             using var request = new HttpRequestMessage(HttpMethod.Get, url);
-            request.Headers.UserAgent.ParseAdd("VFRNav (flight simulation)");
+            request.Headers.UserAgent.ParseAdd("MSFS-Rhumb (flight simulation)");
             using var response = await _http.SendAsync(request, ct);
             if (!response.IsSuccessStatusCode) return null;
             var tile = (await response.Content.ReadAsByteArrayAsync(ct), response.Content.Headers.ContentType?.MediaType ?? "image/png");

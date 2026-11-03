@@ -1,11 +1,11 @@
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using VFRNav.Core.Models;
 
 namespace VFRNav.App;
 
-/// <summary>Glossaire des sigles des cartes et de VFRNav, avec recherche. Reste ouverte à côté de la carte.</summary>
+/// <summary>Glossaire des sigles des cartes et de MSFS Rhumb, avec recherche. Reste ouverte à côté de la carte.</summary>
 public sealed class GlossaryWindow : Window
 {
     private static readonly Brush Accent = new SolidColorBrush(Color.FromRgb(11, 42, 85));

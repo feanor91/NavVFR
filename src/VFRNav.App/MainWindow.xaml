@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mapsui="clr-namespace:Mapsui.UI.Wpf;assembly=Mapsui.UI.Wpf"
         xmlns:local="clr-namespace:VFRNav.App"
-        Title="VFRNav" Icon="Assets/VFRNav.ico" Width="1500" Height="950" Background="#0B2A55" Loaded="Ifr_Loaded">
+        Title="MSFS Rhumb" Icon="Assets/VFRNav.ico" Width="1500" Height="950" Background="#0B2A55" Loaded="Ifr_Loaded">
     <Window.Resources>
         <Style TargetType="TextBlock" x:Key="Label">
             <Setter Property="Foreground" Value="#A9C4EE"/>
@@ -56,7 +56,7 @@
                     <Button Content="Supprimer" Click="Remove_Click"/>
                     <Button Content="Inverser" Click="Reverse_Click"/>
                     <Button Content="Effacer" Click="Clear_Click"/>
-                    <Button Content="Ouvrir .pln" Click="Open_Click" ToolTip="Ouvre un plan de vol MSFS (.pln), de VFRNav ou d'un autre outil"/>
+                    <Button Content="Ouvrir .pln" Click="Open_Click" ToolTip="Ouvre un plan de vol MSFS (.pln), de MSFS Rhumb ou d'un autre outil"/>
                     <Button Content="Enregistrer .pln" Click="Save_Click" ToolTip="Enregistre la route en plan de vol MSFS (.pln), avec les altitudes et les notes"/>
                 </WrapPanel>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
@@ -137,7 +137,7 @@
             <Expander x:Name="VfrPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="VFRNav" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="VFR" Foreground="White" FontSize="18" FontWeight="Bold"/>
                         <TextBlock Text="vol à vue" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
                     </StackPanel>
                 </Expander.Header>
@@ -183,7 +183,7 @@
             <Expander x:Name="IfrPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="IFRNav" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="IFR" Foreground="White" FontSize="18" FontWeight="Bold"/>
                         <TextBlock Text="vol aux instruments" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
                     </StackPanel>
                 </Expander.Header>
@@ -217,9 +217,9 @@
                 <Button x:Name="IfrSimButton" Content="Relire ces deux terrains dans MSFS (facultatif)" Click="IfrSim_Click" Margin="0,0,0,0"
                         ToolTip="Facultatif : les SID et STAR de tous les terrains sont déjà enregistrées, il suffit de saisir un autre code OACI. Ce bouton remet à jour tout de suite le départ et l'arrivée saisis, MSFS lancé."/>
                 <Button x:Name="IfrSimAllButton" Content="Enregistrer / mettre à jour les SID/STAR du monde (MSFS)" Click="IfrSimAll_Click" Margin="0,0,0,0"
-                        ToolTip="MSFS lancé : lit les SID et STAR de tous les terrains du simulateur et les enregistre dans les données de VFRNav (quelques minutes). Ensuite le calcul de route n'a plus besoin du simulateur. À refaire à la main quand MSFS met à jour ses données : seuls les terrains qui ont changé sont réécrits. Un second clic arrête la lecture."/>
+                        ToolTip="MSFS lancé : lit les SID et STAR de tous les terrains du simulateur et les enregistre dans les données de MSFS Rhumb (quelques minutes). Ensuite le calcul de route n'a plus besoin du simulateur. À refaire à la main quand MSFS met à jour ses données : seuls les terrains qui ont changé sont réécrits. Un second clic arrête la lecture."/>
                 <Button x:Name="IfrNetworkButton" Content="Enregistrer / mettre à jour les routes ATS hors de France (MSFS)" Click="IfrNetwork_Click" Margin="0,0,0,0"
-                        ToolTip="MSFS lancé : explore les routes ATS du monde de proche en proche, à partir des points des SID/STAR enregistrées, et les enregistre dans les données de VFRNav. La France reste celle du SIA. Long (jusqu'à une heure). Un second clic arrête la lecture sans rien enregistrer."/>
+                        ToolTip="MSFS lancé : explore les routes ATS du monde de proche en proche, à partir des points des SID/STAR enregistrées, et les enregistre dans les données de MSFS Rhumb. La France reste celle du SIA. Long (jusqu'à une heure). Un second clic arrête la lecture sans rien enregistrer."/>
                 <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,0,0,4"
                         ToolTip="Cherche le plus court chemin SID, routes ATS, STAR et remplace la route par le résultat."/>
                 <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>

@@ -39,7 +39,7 @@ public sealed class FacilityProcedure
 /// <summary>Résultat de la conversion : les procédures du modèle IFR et les points qu'elles utilisent (avec leurs coordonnées).</summary>
 public sealed record SimProcedureImport(IReadOnlyList<IfrProcedure> Procedures, IReadOnlyList<IfrFix> Fixes);
 
-/// <summary>Convertit les procédures lues dans MSFS en procédures du modèle IFR de VFRNav.</summary>
+/// <summary>Convertit les procédures lues dans MSFS en procédures du modèle IFR de MSFS Rhumb.</summary>
 public static class SimProcedures
 {
     private const double MetersToFeet = 3.28084;

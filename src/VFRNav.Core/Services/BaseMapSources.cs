@@ -1,6 +1,6 @@
-namespace VFRNav.Core.Services;
+﻿namespace VFRNav.Core.Services;
 
-/// <summary>Adresses des tuiles des fonds de carte (les mêmes que ceux de la carte de NavVFR), pour les partager avec StormATC.</summary>
+/// <summary>Adresses des tuiles des fonds de carte (les mêmes que ceux de la carte de MSFS Rhumb), pour les partager avec StormATC.</summary>
 public static class BaseMapSources
 {
     private const string EsriGray = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas";

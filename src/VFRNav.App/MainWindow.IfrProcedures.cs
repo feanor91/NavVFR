@@ -5,7 +5,7 @@ using VFRNav.Core.Ifr;
 
 namespace VFRNav.App;
 
-// ---------- SID/STAR du monde : lues dans MSFS une fois, enregistrées dans les données de VFRNav, utilisées sans MSFS ----------
+// ---------- SID/STAR du monde : lues dans MSFS une fois, enregistrées dans les données de MSFS Rhumb, utilisées sans MSFS ----------
 public partial class MainWindow
 {
     private const int ReadWindow = 128;
@@ -40,7 +40,7 @@ public partial class MainWindow
         }
     }
 
-    /// <summary>Ce que VFRNav sait déjà du terrain saisi : de quoi partir ou arriver d'ailleurs sans MSFS.</summary>
+    /// <summary>Ce que MSFS Rhumb sait déjà du terrain saisi : de quoi partir ou arriver d'ailleurs sans MSFS.</summary>
     private string AirportProcedureInfo(string role, string text, ProcedureKind kind)
     {
         string icao = text.Trim().ToUpperInvariant();
@@ -129,7 +129,7 @@ public partial class MainWindow
     // ---------- lecture du monde entier, et mise à jour ----------
 
     /// <summary>
-    /// Lit dans MSFS les SID et STAR de tous les terrains du simulateur et les enregistre dans les données de VFRNav.
+    /// Lit dans MSFS les SID et STAR de tous les terrains du simulateur et les enregistre dans les données de MSFS Rhumb.
     /// À faire une fois, puis à la main quand MSFS a mis à jour sa base : la même commande sert aux deux, et dit ce qui a changé.
     /// Un second clic pendant la lecture l'arrête (ce qui a déjà été lu reste enregistré).
     /// </summary>
@@ -181,7 +181,7 @@ public partial class MainWindow
         var origin = _procedures.Origin;
         if (_procedures.AirportCount == 0 || origin is null)
             return $"Lire dans {simVersion} les SID et STAR de tous les terrains du monde ?\n\nCela prend plusieurs minutes ; MSFS doit rester lancé. " +
-                   "Les données sont enregistrées dans VFRNav : ensuite le simulateur n'est plus nécessaire.";
+                   "Les données sont enregistrées dans MSFS Rhumb : ensuite le simulateur n'est plus nécessaire.";
 
         string stored = origin.Value.SimVersion.Length > 0 ? origin.Value.SimVersion : "une version inconnue de MSFS";
         string head = origin.Value.SimVersion == simVersion

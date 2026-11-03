@@ -56,8 +56,8 @@ public sealed partial class SimFacilitySession : IDisposable
     public static SimFacilitySession Open()
     {
         if (!SimConnectTracker.Available)
-            throw new SimUnavailableException("SimConnect.dll introuvable : copiez-la à côté de VFRNav.App.exe ou installez le SDK de MSFS.");
-        if (SimConnect_Open(out var handle, "VFRNav facilities", IntPtr.Zero, 0, IntPtr.Zero, 0) != 0 || handle == IntPtr.Zero)
+            throw new SimUnavailableException("SimConnect.dll introuvable : copiez-la à côté de MSFSRhumb.exe ou installez le SDK de MSFS.");
+        if (SimConnect_Open(out var handle, "MSFS Rhumb facilities", IntPtr.Zero, 0, IntPtr.Zero, 0) != 0 || handle == IntPtr.Zero)
             throw new SimUnavailableException("MSFS n'est pas lancé (ou SimConnect est indisponible).");
 
         try

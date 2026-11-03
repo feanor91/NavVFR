@@ -1,4 +1,4 @@
-namespace VFRNav.Core.Models;
+﻿namespace VFRNav.Core.Models;
 
 /// <summary>Type de navigation : à vue ou aux instruments.</summary>
 public enum FlightMode { Vfr, Ifr }
@@ -15,7 +15,7 @@ public sealed class Aircraft
     public string Name { get; set; } = "";
     public AircraftCategory Category { get; set; } = AircraftCategory.Piston;
 
-    /// <summary>Capacités : l'appareil est proposé dans les panneaux VFRNav et/ou IFRNav.</summary>
+    /// <summary>Capacités : l'appareil est proposé dans les panneaux VFR et/ou IFR.</summary>
     public bool Vfr { get; set; } = true;
     public bool Ifr { get; set; }
 

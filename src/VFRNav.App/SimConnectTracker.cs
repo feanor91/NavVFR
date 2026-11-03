@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Threading;
@@ -12,7 +12,7 @@ public sealed record AircraftState(double Lat, double Lon, double AltitudeFt, do
 /// Suit l'avion du joueur par SimConnect, en appelant directement la DLL native <c>SimConnect.dll</c> : aucune référence
 /// au SDK n'est nécessaire à la compilation. La DLL est cherchée à côté de l'application, puis dans le SDK de MSFS
 /// (variable MSFS_SIMCONNECT_PATH, MSFS_SDK, C:\MSFS 2024 SDK, C:\MSFS SDK). MSFS peut être lancé avant ou après
-/// VFRNav : la connexion est retentée toutes les 5 secondes.
+/// MSFS Rhumb : la connexion est retentée toutes les 5 secondes.
 /// </summary>
 public sealed class SimConnectTracker : IDisposable
 {
@@ -59,12 +59,12 @@ public sealed class SimConnectTracker : IDisposable
         if (!Available)
         {
             if (!_libraryMissingReported)
-                StatusChanged?.Invoke("Suivi indisponible : SimConnect.dll introuvable. Copiez-la à côté de VFRNav.App.exe ou installez le SDK de MSFS.");
+                StatusChanged?.Invoke("Suivi indisponible : SimConnect.dll introuvable. Copiez-la à côté de MSFSRhumb.exe ou installez le SDK de MSFS.");
             _libraryMissingReported = true;
             return;
         }
 
-        if (SimConnect_Open(out var handle, "VFRNav", IntPtr.Zero, 0, IntPtr.Zero, 0) != 0 || handle == IntPtr.Zero)
+        if (SimConnect_Open(out var handle, "MSFS Rhumb", IntPtr.Zero, 0, IntPtr.Zero, 0) != 0 || handle == IntPtr.Zero)
         {
             StatusChanged?.Invoke("MSFS n'est pas lancé : nouvelle tentative toutes les 5 s.");
             return;

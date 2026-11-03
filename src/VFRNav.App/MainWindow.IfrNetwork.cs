@@ -1,11 +1,11 @@
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using VFRNav.Core.Ifr;
 
 namespace VFRNav.App;
 
-// ---------- Routes ATS hors de France : lues dans MSFS, enregistrées dans les données de VFRNav, ajoutées à celles du SIA ----------
+// ---------- Routes ATS hors de France : lues dans MSFS, enregistrées dans les données de MSFS Rhumb, ajoutées à celles du SIA ----------
 public partial class MainWindow
 {
     private const string NetworkButtonText = "Enregistrer / mettre à jour les routes ATS hors de France (MSFS)";

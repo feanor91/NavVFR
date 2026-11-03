@@ -1,28 +1,81 @@
-﻿# NavVFR (VFRNav)
+﻿# MSFS Rhumb
 
-Outil de préparation de navigation VFR pour la simulation de vol (Microsoft Flight Simulator).
+Outil de préparation de navigation **VFR et IFR** pour la simulation de vol (Microsoft Flight Simulator).
 Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
+
+> Anciens noms : l'application s'appelait VFRNav. Le dépôt GitHub garde le nom `NavVFR`, les projets et les espaces de noms `VFRNav.*`, et les données de l'utilisateur restent dans `%AppData%\VFRNav`.
 
 > **Pour la simulation uniquement.** Ce logiciel ne remplace ni l'AIP, ni les NOTAM, ni la météo officielle.
 > Ne l'utilise pas pour un vol réel.
 
-## Fonctions
+## Ce que fait l'application
 
-- **Carte** avec terrains (OurAirports), espaces aériens (OpenAIP), balises **VOR** et **NDB/ADF**, fonds de carte au choix.
-- **Route** : clic pour poser un point, glisser pour le déplacer, clic sur un point pour le retirer.
-- **Log de navigation** : routes vraie et magnétique, dérive, cap à tenir, vitesse sol, temps, carburant (vent supposé constant).
-- **Plan de vol `.PLN`** : la route s'enregistre et s'ouvre directement en `.pln` (le fichier de MSFS), avec les altitudes et les notes par point.
-- **Étiquette de chaque branche** sur la carte : route magnétique et longueur (masquée quand la branche est trop courte à l'écran).
-- **Altitude par point** : colonne « Alt (ft) » ou glisser-déposer dans le profil (un point ; double-clic pour revenir à la croisière), ou le trait de croisière pour toute la route.
-- **Feuille de route imprimable** (aperçu, impression, PDF) : navigation, relief, profil vertical, terrains, météo en clair,
-  espaces aériens traversés, balises proches, obstacles.
-- **Profil du relief** sous la route (Open-Meteo) et **obstacles** (mâts, tours, cheminées, éoliennes d'OpenStreetMap).
-- **METAR / TAF traduits en français**, catégorie de vol (VFR, MVFR, IFR, LIFR) et pastilles météo sur la carte.
-- **Aide pour débutants** : explication des zones (type, classe, limites) au survol de leur contour.
-- **Lecteur de cartes VAC** (PDF) via le projet compagnon StormATC : base d'aérodromes et cartes lues sur place, jamais copiées.
-- **Route IFR** (bêta) : départ/arrivée, calcul du plus court chemin sur les routes ATS de l'export AIXM 4.5 gratuit du SIA (bouton « Charger les données AIRAC »), niveau de vol, route libre à partir du FL195. L'export du SIA ne contient pas les SID/STAR : sans eux, les terrains se raccordent directement au réseau. Données de test fictives tant qu'aucun fichier n'est chargé. Le fichier du SIA est sous licence : il n'est pas inclus dans le dépôt. Les SID et STAR du monde entier se lisent une fois dans MSFS (SimConnect, bouton « Enregistrer / mettre à jour les SID/STAR du monde », environ 75 s) et sont enregistrées dans les données de VFRNav, un fichier compressé par terrain (environ 4 Mo) : le calcul de route n'a plus besoin du simulateur. La mise à jour est manuelle, à refaire quand MSFS met à jour ses données ; seuls les terrains modifiés sont réécrits. Hors de France, le réseau de routes ATS vient aussi de MSFS (bouton « Enregistrer / mettre à jour les routes ATS hors de France », exploration de proche en proche à partir des points des SID/STAR, de quelques minutes à une heure) ; la France reste celle du SIA. Les points sont repérés par leur nom et leur région pour ne pas confondre deux points de même nom dans deux pays. Sens uniques et niveaux sont ceux que donne MSFS, à vérifier. La piste est conseillée d'après le vent du METAR du terrain (repli : le vent supposé du formulaire) : elle est sélectionnée, et les listes de SID et de STAR ne montrent que celles qui la desservent ; « Auto » reprend le trajet le plus court toutes pistes confondues.
-- **Appareils** : liste d'appareils modifiable (nom, VFR et/ou IFR, vitesse de croisière et maximale, consommation en L/h, carburant utilisable, plafond), un choix par type de navigation (panneaux VFRNav et IFRNav). Le Cessna 172, le DR400 et l'Airbus A320neo sont créés au premier lancement. Le log de navigation prévient quand le carburant dépasse la capacité, et un cercle de portée (autonomie × vitesse de croisière, sans vent ni réserve) est tracé autour du point de départ.
-- **Suivi de l'avion en direct** dans MSFS (SimConnect).
+### Carte, zones et aide
+
+- **Carte** avec terrains (OurAirports), espaces aériens (OpenAIP, contours avec nom et limites le long du trait), balises **VOR** et **NDB/ADF**, fonds de carte au choix, points de report VFR.
+- **Zones** : au survol d'un contour, la fiche de la zone concernée (type, classe, limites, fréquences) et une explication pour débutants.
+- **Glossaire** de 110 sigles des cartes, de la météo et de l'application, avec recherche.
+- **Terrains** : fiche au survol (météo en clair, procédures VFR), pastilles météo (VFR, MVFR, IFR, LIFR), METAR et TAF traduits en français.
+
+### Préparer une route
+
+- **Route** : clic pour poser un point, glisser pour le déplacer, clic sur un point pour le retirer. Étiquette de chaque branche sur la carte : route magnétique et longueur.
+- **Log de navigation** : routes vraie et magnétique, dérive, cap, vitesse sol, temps, carburant (vent supposé constant).
+- **Altitude par point** : colonne « Alt (ft) », ou glisser-déposer dans le profil (un point ; double-clic pour revenir à la croisière) ou du trait de croisière pour toute la route.
+- **Briefing de chaque point** : zones traversées à l'altitude du point, ce que chacune implique (survol, radio, clairance) et fréquences à contacter.
+- **Profil vertical** : relief (Open-Meteo), zones, obstacles (mâts, tours, cheminées, éoliennes d'OpenStreetMap), altitudes saisies.
+- **Notes** par point de route, **infos en direct** dans une fenêtre séparée.
+- **Plan de vol `.pln`** : la route s'enregistre et s'ouvre directement dans le fichier de MSFS, avec les altitudes et les notes par point.
+- **Feuille de route imprimable** (aperçu, impression, PDF) : navigation, briefing par point, relief, profil, terrains, météo, zones, balises, obstacles.
+- **Appareils** : liste modifiable (nom, VFR et/ou IFR, vitesses de croisière et maximale, consommation, carburant utilisable, plafond), un choix par type de navigation. Le log prévient quand le carburant dépasse la capacité ; un cercle de portée est tracé autour du départ.
+
+### Cartes VAC et procédures VFR
+
+- **Lecteur de cartes VAC** (PDF) et base d'aérodromes via le projet compagnon StormATC : les cartes sont lues sur place, jamais copiées.
+- **Procédures VFR** (points de report, circuit, arrivées et départs, notes) lues dans les profils de StormATC, en français quand ils le fournissent.
+
+### Route IFR
+
+- **Calcul de route** : départ, arrivée, niveau de vol, SID, STAR et pistes au choix ; plus court chemin (A*) sur les routes ATS ; route libre à partir du FL195 (quel que soit le pays pour l'instant).
+- **France** : routes ATS de l'export AIXM 4.5 gratuit du SIA (bouton « Charger les données AIRAC »). Cet export ne contient pas les SID/STAR.
+- **Monde, lu dans MSFS** (SimConnect), une fois, puis utilisable **sans simulateur** :
+  - les **SID et STAR** de tous les terrains (environ 2 800 terrains, 59 000 procédures, 4 Mo, lecture d'environ 75 s) ;
+  - les **routes ATS hors de France** (environ 91 000 tronçons sur 9 600 routes et 28 000 terrains, 2,4 Mo, lecture de quelques minutes), explorées de proche en proche à partir des points des SID/STAR. La France reste celle du SIA.
+- **Mise à jour manuelle** : relancer les boutons de lecture quand MSFS a mis à jour ses données. La fenêtre compare la version enregistrée à celle du simulateur ; seuls les terrains modifiés sont réécrits. Un second clic arrête la lecture.
+- **Piste conseillée** d'après le vent du METAR (repli : le vent supposé du formulaire) : elle est sélectionnée, et les listes de SID et de STAR ne montrent que celles qui la desservent. « Auto » reprend le trajet le plus court toutes pistes confondues.
+- Hors de France, les points sont repérés par leur nom et leur région, pour ne pas confondre deux points de même nom dans deux pays.
+
+### Avec MSFS et StormATC
+
+- **Suivi de l'avion en direct** (SimConnect) : un avion dessiné sur la carte, qui suit le cap.
+- **Partage avec StormATC** : serveur local en lecture seule sur `127.0.0.1:47731` (route, avion, zones, fond de carte), pour son panneau dans le simulateur.
+
+## Où sont les données
+
+| Quoi | Où |
+| --- | --- |
+| Réglages, clés, route (jamais dans le dépôt) | `%AppData%\VFRNav\settings.json` |
+| SID/STAR du monde | `%AppData%\VFRNav\procedures\` : un fichier `.json.gz` par terrain et un `index.json` |
+| Routes ATS hors de France | `%AppData%\VFRNav\network\world-network.bin.gz` |
+| Données du SIA | ton propre fichier `export_xml_bd_SIA_….zip` : MSFS Rhumb n'en garde que le chemin |
+
+Les données lues dans MSFS viennent de sa base de navigation : elles ne sont **pas dans le dépôt** (`data/` est ignoré) ni dans les releases. MSFS Rhumb les cherche aussi à côté de son exécutable (`data\procedures`, `data\network`) : un installeur construit sur une machine qui les a les emporte. Sur un autre PC, copier les dossiers ci-dessus ou relancer les lectures, MSFS lancé. Le fichier du SIA et les cartes VAC (© SIA) sont sous licence et ne sont pas inclus.
+
+## Installer
+
+Télécharger `MSFS-Rhumb-Setup-x.y.z.exe` depuis les [releases](https://github.com/feanor91/NavVFR/releases) (aucun .NET à installer), ou l'archive `.zip` portable. Le numéro de version s'affiche dans la barre de titre.
+
+`SimConnect.dll` appartient à Microsoft : l'installeur GitHub ne l'embarque pas. MSFS Rhumb la cherche au lancement, dans cet ordre : à côté de `MSFSRhumb.exe`, puis dans le SDK de MSFS (`MSFS_SIMCONNECT_PATH`, `MSFS_SDK`, `C:\MSFS 2024 SDK`, `C:\MSFS SDK`). Copier la DLL à côté de l'exécutable si le SDK n'est pas installé : sans elle, ni le suivi de l'avion ni les lectures dans MSFS ne fonctionnent.
+
+### Clés (optionnel)
+
+Les clés se saisissent dans le panneau « Données ».
+
+| Clé | Rôle |
+| --- | --- |
+| OpenAIP | espaces aériens |
+| CARTO | fonds de carte CARTO (le fond « Clair » Esri n'en demande pas) |
+| ICAO API Data Service | NOTAM affichés dans l'application (sinon : bouton vers SOFIA-Briefing du SIA) |
 
 ## Compiler et lancer
 
@@ -34,50 +87,31 @@ dotnet test
 dotnet run --project src/VFRNav.App
 ```
 
-### SimConnect (optionnel)
-
-Le suivi de l'avion appelle la DLL native `SimConnect.dll` : aucune référence au SDK n'est nécessaire pour compiler.
-Si le SDK de MSFS est installé (`C:\MSFS 2024 SDK` ou `MSFS_SIMCONNECT_PATH`), la DLL est copiée à côté de l'exécutable
-à la compilation. Sinon, VFRNav la cherche au lancement, et le suivi est simplement indisponible tant qu'elle manque.
-
-### Clés et données (optionnel)
-
-Les clés se saisissent dans le panneau « Données » et sont enregistrées dans `%AppData%\VFRNav\settings.json`
-(jamais dans le dépôt) :
-
-| Clé | Rôle |
-| --- | --- |
-| OpenAIP | espaces aériens |
-| CARTO | fonds de carte CARTO (le fond « Clair » Esri n'en demande pas) |
-| ICAO API Data Service | NOTAM affichés dans l'application (sinon : bouton vers SOFIA-Briefing du SIA) |
-
-Les cartes VAC (© SIA) ne sont pas incluses : elles viennent de ton propre dossier StormATC.
-
-## Sources de données
-
-OurAirports (domaine public) · OpenAIP · aviationweather.gov · Open-Meteo (modèle numérique de terrain, usage non commercial) ·
-© contributeurs OpenStreetMap (ODbL) via Overpass · Esri / CARTO (fonds de carte) · StormATC (aérodromes, profils VFR).
-
-## Limites connues
-
-- Le vent est unique pour toute la route, la déclinaison magnétique est celle du terrain de départ.
-- Le relief vient d'un modèle d'environ 90 m ; les obstacles d'OpenStreetMap sont incomplets (lignes électriques absentes, hauteurs parfois manquantes).
-- Les textes d'aide et les seuils (marges de 1 000 ft, catégories de vol) sont indicatifs.
-
-## Licence
-
-Aucune licence n'est définie pour l'instant : tous droits réservés par défaut.
-
-## Installation
-
-Téléchargez `VFRNav-Setup-x.y.z.exe` depuis les [releases](https://github.com/feanor91/NavVFR/releases) (aucun .NET à installer), ou l'archive `.zip` portable.
-
-Le suivi de l'avion en direct appelle directement la DLL native `SimConnect.dll`. Elle appartient à Microsoft : l'installeur GitHub ne l'embarque pas. VFRNav la cherche au lancement, dans cet ordre : à côté de `VFRNav.App.exe`, puis dans le SDK de MSFS (`MSFS_SIMCONNECT_PATH`, `MSFS_SDK`, `C:\MSFS 2024 SDK`, `C:\MSFS SDK`). Copiez-la à côté de l'exécutable si vous n'avez pas le SDK. Un installeur construit sur une machine où le SDK est installé l'inclut automatiquement.
+Si le SDK de MSFS est installé (`C:\MSFS 2024 SDK` ou `MSFS_SIMCONNECT_PATH`), `SimConnect.dll` est copiée à côté de l'exécutable à la compilation. Aucune référence au SDK n'est nécessaire pour compiler.
 
 ## Publier une version
 
 ```bash
-git tag v0.2.0 && git push origin v0.2.0
+git tag v0.12.0 && git push origin v0.12.0
 ```
 
-Le workflow `release.yml` teste, publie l'application, compile l'installeur (Inno Setup) et crée la release GitHub. Le workflow `ci.yml` construit et teste chaque push.
+Le workflow `release.yml` teste, publie l'application, compile l'installeur (Inno Setup) et crée la release GitHub ; le numéro du tag devient la version affichée. Le workflow `ci.yml` construit et teste chaque push. Avant de poser un tag, vérifier que le dernier push est bien passé : un tag sur un commit absent de `main` publie une version sans le travail des autres.
+
+## Sources de données
+
+OurAirports (domaine public) · OpenAIP · aviationweather.gov · Open-Meteo (modèle numérique de terrain, usage non commercial) · © contributeurs OpenStreetMap (ODbL) via Overpass · Esri / CARTO (fonds de carte) · SIA (routes ATS de France, AIXM 4.5, sous licence) · Microsoft Flight Simulator (SID/STAR et routes du monde, par SimConnect) · StormATC (aérodromes, profils VFR, cartes VAC).
+
+## Limites connues
+
+- **Vent et déclinaison** : le vent du log de navigation est unique pour toute la route, la déclinaison est celle du terrain de départ.
+- **Carburant** : calculé avec la vitesse et la consommation de l'appareil choisi, sans roulage, montée, tours de piste ni approche. La réserve est indicative.
+- **Routes ATS hors de France** : sens uniques et niveaux sont ceux que donne MSFS (traitées dans les deux sens ; routes basses limitées au FL180), à vérifier. Non comparées à des cartes réelles. Les fréquences et noms des VOR/NDB hors de France ne sont pas lus.
+- **Route libre** : au-dessus du FL195, elle est supposée partout, alors qu'elle n'existe que dans certains pays.
+- **SID/STAR de MSFS** : leur cycle AIRAC est celui du simulateur, qui peut différer du SIA ; beaucoup de STAR ne sont pas liées à une piste.
+- **Piste conseillée** : le METAR donne le vent en nord vrai ; la variation magnétique n'est connue que pour la France (StormATC). Ni longueur de piste, ni minima, ni restrictions de bruit.
+- **Relief et obstacles** : modèle d'environ 90 m ; les obstacles d'OpenStreetMap sont incomplets (lignes électriques absentes, hauteurs parfois manquantes).
+- Les textes d'aide, le glossaire et les seuils (marges de 1 000 ft, catégories de vol) sont indicatifs.
+
+## Licence
+
+Aucune licence n'est définie pour l'instant : tous droits réservés par défaut.

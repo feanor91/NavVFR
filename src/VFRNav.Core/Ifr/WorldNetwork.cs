@@ -200,7 +200,7 @@ public static class WorldNetworkStore
             using var file = File.OpenRead(path);
             using var gzip = new GZipStream(file, CompressionMode.Decompress);
             using var r = new BinaryReader(gzip, Encoding.UTF8);
-            if (r.ReadString() != Magic) { problem = "ce n'est pas un fichier de réseau VFRNav"; return null; }
+            if (r.ReadString() != Magic) { problem = "ce n'est pas un fichier de réseau MSFS Rhumb"; return null; }
             int version = r.ReadInt32();
             if (version != Version) { problem = $"version {version} non prise en charge"; return null; }
             string simVersion = r.ReadString();

@@ -2,7 +2,7 @@
 
 namespace VFRNav.Core.Services;
 
-/// <summary>Position de l'avion du joueur telle que NavVFR la partage.</summary>
+/// <summary>Position de l'avion du joueur telle que MSFS Rhumb la partage.</summary>
 public sealed record FeedAircraft(double Lat, double Lon, double AltitudeFt, double HeadingTrue, double GroundSpeedKt, bool OnGround);
 
 public sealed record FeedWaypoint(string Name, string? Icao, double Lat, double Lon, string? Notes, double? AltitudeFt = null);
@@ -12,8 +12,8 @@ public sealed record FeedAirspace(string Name, string IcaoClass, string Type, st
 
 public sealed record FeedAirport(string Ident, string Name, double Lat, double Lon);
 
-/// <summary>Ce que NavVFR partage : la route, l'avion, les réglages de vol.</summary>
-/// <param name="BaseMap">Fond de carte de NavVFR : le panneau de StormATC dessine le même, tuile par tuile, par <c>/api/tile</c>.</param>
+/// <summary>Ce que MSFS Rhumb partage : la route, l'avion, les réglages de vol.</summary>
+/// <param name="BaseMap">Fond de carte de MSFS Rhumb : le panneau de StormATC dessine le même, tuile par tuile, par <c>/api/tile</c>.</param>
 public sealed record LiveFeedState(int Version, IReadOnlyList<FeedWaypoint> Route, FeedAircraft? Aircraft, double CruiseAltFt, long AircraftAgeMs, FeedBaseMap? BaseMap = null);
 
 public sealed record FeedBaseMap(string Key, int Layers, int MaxZoom);

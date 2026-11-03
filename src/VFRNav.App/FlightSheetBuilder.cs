@@ -77,7 +77,7 @@ public static class FlightSheetBuilder
             ("Vent supposé", $"{p.WindDir:000}° / {p.WindKt:0} kt"),
             ("Déclinaison magnétique", $"{p.VariationEast.ToString("0.#", Fr)}° E")));
 
-        doc.Blocks.Add(Small("Le carburant est calculé avec la vitesse propre et la consommation saisies dans VFRNav, pas avec celles de ton avion : "
+        doc.Blocks.Add(Small("Le carburant est calculé avec la vitesse propre et la consommation saisies dans MSFS Rhumb, pas avec celles de ton avion : "
             + "vérifie-les dans son manuel de vol. Il ne comprend ni roulage, ni montée, ni tours de piste, ni approche : prévois une marge."));
 
         // --- Tableau de navigation

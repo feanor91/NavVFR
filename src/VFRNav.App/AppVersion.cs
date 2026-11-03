@@ -1,4 +1,4 @@
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace VFRNav.App;
 
@@ -8,8 +8,8 @@ public static class AppVersion
     /// <summary>« 0.5.0 », ou « développement » quand l'application n'est pas une version publiée.</summary>
     public static string Text { get; } = Read(typeof(AppVersion).Assembly);
 
-    /// <summary>Titre de la fenêtre principale : « VFRNav 0.5.0 ».</summary>
-    public static string Title => Text == Development ? "VFRNav (développement)" : $"VFRNav {Text}";
+    /// <summary>Titre de la fenêtre principale : « MSFS Rhumb 0.11.0 ».</summary>
+    public static string Title => Text == Development ? "MSFS Rhumb (développement)" : $"MSFS Rhumb {Text}";
 
     private const string Development = "développement";
 

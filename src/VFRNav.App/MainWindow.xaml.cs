@@ -64,7 +64,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         Title = AppVersion.Title;
-        _http.DefaultRequestHeaders.UserAgent.ParseAdd("VFRNav/0.1");
+        _http.DefaultRequestHeaders.UserAgent.ParseAdd("MSFS-Rhumb");
 
         _loadingParams = true;
         InitAircraft();
@@ -459,7 +459,7 @@ public partial class MainWindow : Window
         StatusText.Text = "Plan enregistré : " + dlg.FileName;
     }
 
-    /// <summary>Ouvre un plan de vol .PLN (de VFRNav, du simulateur ou d'un autre outil).</summary>
+    /// <summary>Ouvre un plan de vol .PLN (de MSFS Rhumb, du simulateur ou d'un autre outil).</summary>
     private void Open_Click(object sender, RoutedEventArgs e)
     {
         var dlg = new OpenFileDialog { Filter = "Plan de vol MSFS (*.pln)|*.pln" };
