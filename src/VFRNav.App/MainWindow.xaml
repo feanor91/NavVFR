@@ -85,6 +85,8 @@
                         ToolTip="Demande à MSFS (lancé) les SID et STAR du départ et de l'arrivée saisis et les enregistre dans les données de VFRNav."/>
                 <Button x:Name="IfrSimAllButton" Content="Enregistrer / mettre à jour les SID/STAR du monde (MSFS)" Click="IfrSimAll_Click" Margin="0,0,0,0"
                         ToolTip="MSFS lancé : lit les SID et STAR de tous les terrains du simulateur et les enregistre dans les données de VFRNav (quelques minutes). Ensuite le calcul de route n'a plus besoin du simulateur. À refaire à la main quand MSFS met à jour ses données : seuls les terrains qui ont changé sont réécrits. Un second clic arrête la lecture."/>
+                <Button x:Name="IfrNetworkButton" Content="Enregistrer / mettre à jour les routes ATS hors de France (MSFS)" Click="IfrNetwork_Click" Margin="0,0,0,0"
+                        ToolTip="MSFS lancé : explore les routes ATS du monde de proche en proche, à partir des points des SID/STAR enregistrées, et les enregistre dans les données de VFRNav. La France reste celle du SIA. Long (jusqu'à une heure). Un second clic arrête la lecture sans rien enregistrer."/>
                 <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,0,0,4"
                         ToolTip="Cherche le plus court chemin SID, routes ATS, STAR et remplace la route par le résultat."/>
                 <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>

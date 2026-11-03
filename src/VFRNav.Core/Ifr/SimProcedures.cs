@@ -6,7 +6,14 @@ namespace VFRNav.Core.Ifr;
 /// Un point d'une procédure tel que MSFS le donne (données d'installation SimConnect). Les altitudes sont en mètres,
 /// comme dans le simulateur ; <see cref="AltDesc"/> dit comment les lire : 0 aucune, 1 « à », 2 « au moins », 3 « au plus », 4 « entre ».
 /// </summary>
-public sealed record FacilityLeg(int LegType, string Fix, double Lat, double Lon, int AltDesc, double Alt1Meters, double Alt2Meters, double SpeedKt);
+public sealed record FacilityLeg(int LegType, string Fix, double Lat, double Lon, int AltDesc, double Alt1Meters, double Alt2Meters, double SpeedKt,
+    string Region = "", char FixType = 'W')
+{
+    /// <summary>Clé du point dans la base IFR : le nom seul en France, « NOM/RÉGION » ailleurs.</summary>
+    public string Key => Fix.Length == 0 ? "" : FixKey.Make(Fix, Region);
+
+    public FixKind Kind => FixType switch { 'V' => FixKind.Vor, 'N' => FixKind.Ndb, 'A' => FixKind.Airport, _ => FixKind.Waypoint };
+}
 
 /// <summary>Une transition d'une procédure : par piste (numéro et lettre) ou en route (nom du point d'entrée ou de sortie).</summary>
 public sealed class FacilityTransition
@@ -56,7 +63,7 @@ public static class SimProcedures
             if (variants.Count == 0) continue;
             result.Add(new IfrProcedure(p.Kind, airport.ToUpperInvariant(), p.Name, variants));
             foreach (var leg in AllLegs(p).Where(l => l.Fix.Length > 0 && HasPosition(l)))
-                fixes.TryAdd(leg.Fix, new IfrFix(leg.Fix, leg.Lat, leg.Lon));
+                fixes.TryAdd(leg.Key, new IfrFix(leg.Key, leg.Lat, leg.Lon, leg.Kind));
         }
         return new SimProcedureImport(result, [.. fixes.Values]);
     }
@@ -100,7 +107,7 @@ public static class SimProcedures
         {
             // Un point sans nom (montée au cap, interception…) ne peut pas servir de repère sur la carte : on l'ignore.
             if (leg.Fix.Length == 0 || !HasPosition(leg)) continue;
-            if (points.Count > 0 && points[^1].Fix.Equals(leg.Fix, StringComparison.OrdinalIgnoreCase))
+            if (points.Count > 0 && points[^1].Fix.Equals(leg.Key, StringComparison.OrdinalIgnoreCase))
             {
                 points[^1] = Merge(points[^1], leg); // le point de raccord figure souvent à la fin d'un tronçon et au début du suivant
                 continue;
@@ -122,7 +129,7 @@ public static class SimProcedures
             case 4: min = Math.Min(alt1, alt2); max = Math.Max(alt1, alt2); break;
         }
         int? speed = leg.SpeedKt >= 1 ? (int)Math.Round(leg.SpeedKt) : null;
-        return new ProcedureLeg(leg.Fix, min, max, speed);
+        return new ProcedureLeg(leg.Key, min, max, speed);
     }
 
     private static ProcedureLeg Merge(ProcedureLeg previous, FacilityLeg next)
@@ -156,10 +163,6 @@ public static class SimProcedures
             .Where(p => !airports.Contains(p.Airport))
             .Concat(imports.Values.SelectMany(i => i.Procedures)).ToList();
 
-        var fixes = data.Fixes.Values.ToList();
-        var known = new HashSet<string>(data.Fixes.Keys, StringComparer.OrdinalIgnoreCase);
-        foreach (var fix in imports.Values.SelectMany(i => i.Fixes))
-            if (known.Add(fix.Ident)) fixes.Add(fix);
-        return new IfrNavData(fixes, data.Segments, procedures, data.AiracCycle, data.EffectiveFrom);
+        return data.WithProcedures(imports.Values.SelectMany(i => i.Fixes), procedures);
     }
 }

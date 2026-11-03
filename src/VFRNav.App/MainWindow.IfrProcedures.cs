@@ -234,6 +234,7 @@ public partial class MainWindow
     {
         _readingProcedures = reading;
         IfrSimButton.IsEnabled = !reading;
+        IfrNetworkButton.IsEnabled = !reading;
         if (!reading) IfrSimAllButton.Content = WorldButtonText;
     }
 }

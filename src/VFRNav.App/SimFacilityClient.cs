@@ -8,17 +8,6 @@ namespace VFRNav.App;
 /// <summary>MSFS ne répond pas : simulateur éteint, SimConnect.dll absente ou demande refusée. Inutile d'insister sur les autres terrains.</summary>
 public sealed class SimUnavailableException(string message) : InvalidOperationException(message);
 
-/// <summary>Famille de points de navigation : point, balise NDB ou VOR.</summary>
-public enum SimPointKind { Waypoint, Ndb, Vor }
-
-/// <summary>Un point de navigation de MSFS : identifiant, région (deux lettres, qui distingue deux points de même nom), position et fréquence.</summary>
-/// <param name="FrequencyHz">Fréquence en Hz pour une balise (0 pour un point simple).</param>
-public sealed record SimPoint(SimPointKind Kind, string Ident, string Region, double Lat, double Lon, double AltitudeM, double FrequencyHz);
-
-/// <summary>Un tronçon de route ATS vu depuis l'un de ses points : le point précédent et le suivant sur la route.</summary>
-public sealed record SimRouteLink(string Airway, int Type, string PrevIdent, string PrevRegion, double PrevLat, double PrevLon, double PrevAltitudeM,
-    string NextIdent, string NextRegion, double NextLat, double NextLon, double NextAltitudeM);
-
 /// <summary>
 /// Session avec MSFS pour lire les données d'installation de SimConnect (« facility data ») : la liste des terrains du monde et les SID
 /// et STAR de chacun. La connexion reste ouverte pour toute la lecture. Elle est indépendante du suivi de l'avion. MSFS doit être lancé.
@@ -39,7 +28,7 @@ public sealed partial class SimFacilitySession : IDisposable
     private static readonly string[] RunwayTransitionFields = ["RUNWAY_NUMBER", "RUNWAY_DESIGNATOR", "N_APPROACH_LEGS"];
     private static readonly string[] EnrouteTransitionFields = ["NAME", "N_APPROACH_LEGS"];
     private static readonly string[] LegFields =
-        ["TYPE", "FIX_ICAO", "FIX_LATITUDE", "FIX_LONGITUDE", "APPROACH_ALT_DESC", "ALTITUDE1", "ALTITUDE2", "SPEED_LIMIT"];
+        ["TYPE", "FIX_ICAO", "FIX_REGION", "FIX_TYPE", "FIX_LATITUDE", "FIX_LONGITUDE", "APPROACH_ALT_DESC", "ALTITUDE1", "ALTITUDE2", "SPEED_LIMIT"];
 
     private sealed class Node
     {
@@ -111,14 +100,21 @@ public sealed partial class SimFacilitySession : IDisposable
 
     // ---------- liste des terrains ----------
 
+    /// <summary>Un terrain de MSFS : code OACI, région et position.</summary>
+    public sealed record SimAirport(string Icao, string Region, double Lat, double Lon);
+
     /// <summary>Codes OACI de quatre lettres de tous les terrains du simulateur (les terrains à code local, comme « K5T6 » ou « FR-0123 », sont écartés : ils n'ont pas de procédures publiées).</summary>
-    public IReadOnlyList<string> ListAirports(CancellationToken ct = default)
+    public IReadOnlyList<string> ListAirports(CancellationToken ct = default) =>
+        [.. ListAirportPoints(ct).Select(a => a.Icao)];
+
+    /// <summary>Les mêmes terrains avec leur position : ils servent de départs et d'arrivées pour les routes hors de France.</summary>
+    public IReadOnlyList<SimAirport> ListAirportPoints(CancellationToken ct = default)
     {
         uint request = ListRequestId;
         if (SimConnect_RequestFacilitiesList(_handle, 0 /* AIRPORT */, request) != 0)
             throw new SimUnavailableException("MSFS a refusé la demande de la liste des terrains.");
 
-        var codes = new HashSet<string>(StringComparer.Ordinal);
+        var airports = new Dictionary<string, SimAirport>(StringComparer.Ordinal);
         int received = 0, expected = int.MaxValue;
         var deadline = DateTime.UtcNow + AirportTimeout;
         while (received < expected && DateTime.UtcNow < deadline)
@@ -132,12 +128,15 @@ public sealed partial class SimFacilitySession : IDisposable
             received++;
             for (int i = 0; i < count && AirportListOffset + (i + 1) * AirportEntrySize <= size; i++)
             {
-                string ident = AsciiZ(data, AirportListOffset + i * AirportEntrySize, 9);
-                if (IcaoRx().IsMatch(ident)) codes.Add(ident);
+                var e = data + AirportListOffset + i * AirportEntrySize;
+                string ident = AsciiZ(e, 0, 9);
+                if (IcaoRx().IsMatch(ident))
+                    airports[ident] = new SimAirport(ident, AsciiZ(e, 9, 3),
+                        BitConverter.Int64BitsToDouble(Marshal.ReadInt64(e, 12)), BitConverter.Int64BitsToDouble(Marshal.ReadInt64(e, 20)));
             }
         }
         if (received == 0) throw new SimUnavailableException("MSFS n'a pas envoyé la liste des terrains.");
-        return [.. codes.Order(StringComparer.Ordinal)];
+        return [.. airports.Values.OrderBy(a => a.Icao, StringComparer.Ordinal)];
     }
 
     [GeneratedRegex("^[A-Z]{4}$")]
@@ -230,19 +229,37 @@ public sealed partial class SimFacilitySession : IDisposable
     /// ses tronçons (vide si aucune route n'y passe).
     /// </summary>
     public void ReadRoutesBatch(IReadOnlyList<SimPoint> points, int window, Action<SimPoint, IReadOnlyList<SimRouteLink>> onResult,
-        CancellationToken ct = default, TimeSpan? timeout = null)
+        CancellationToken ct = default, TimeSpan? timeout = null) =>
+        CrawlRoutes(points, (point, links) => { onResult(point, links); return []; }, window, ct, timeout);
+
+    /// <summary>
+    /// Explore le réseau de routes ATS de proche en proche : <paramref name="onResult"/> reçoit les tronçons de chaque point lu et rend les
+    /// points voisins à lire à leur tour (c'est à lui d'écarter ceux déjà vus). Plusieurs demandes en même temps.
+    /// <paramref name="progress"/> reçoit le nombre de points lus et le nombre encore à lire.
+    /// </summary>
+    public void CrawlRoutes(IEnumerable<SimPoint> seeds, Func<SimPoint, IReadOnlyList<SimRouteLink>, IEnumerable<SimPoint>> onResult, int window,
+        CancellationToken ct = default, TimeSpan? timeout = null, Action<int, int>? progress = null)
     {
         DefineRoutes();
+        var queue = new Queue<SimPoint>(seeds);
         var pending = new Dictionary<uint, (SimPoint Point, List<SimRouteLink> Links, DateTime Deadline)>();
         var limit = timeout ?? TimeSpan.FromSeconds(10);
-        int next = 0;
+        int done = 0;
 
-        while (next < points.Count || pending.Count > 0)
+        void Finish(uint id)
+        {
+            var (point, links, _) = pending[id];
+            pending.Remove(id);
+            foreach (var found in onResult(point, links)) queue.Enqueue(found);
+            if (++done % 500 == 0) progress?.Invoke(done, queue.Count + pending.Count);
+        }
+
+        while (queue.Count > 0 || pending.Count > 0)
         {
             ct.ThrowIfCancellationRequested();
-            while (next < points.Count && pending.Count < window)
+            while (queue.Count > 0 && pending.Count < window)
             {
-                var point = points[next++];
+                var point = queue.Dequeue();
                 uint request = _nextRequest++;
                 char type = point.Kind switch { SimPointKind.Vor => 'V', SimPointKind.Ndb => 'N', _ => 'W' };
                 if (SimConnect_RequestFacilityData_EX1(_handle, RouteDefineId, request, point.Ident, point.Region, (byte)type) != 0)
@@ -252,15 +269,15 @@ public sealed partial class SimFacilitySession : IDisposable
 
             if (SimConnect_GetNextDispatch(_handle, out var data, out _) != 0 || data == IntPtr.Zero)
             {
-                foreach (uint id in pending.Where(p => p.Value.Deadline < DateTime.UtcNow).Select(p => p.Key).ToList())
-                { onResult(pending[id].Point, []); pending.Remove(id); }
+                foreach (uint id in pending.Where(p => p.Value.Deadline < DateTime.UtcNow).Select(p => p.Key).ToList()) Finish(id); // sans réponse : point sans route
                 Thread.Sleep(1);
                 continue;
             }
 
             uint kind = (uint)Marshal.ReadInt32(data, 8);
             if (kind is not (RecvFacilityData or RecvFacilityDataEnd)) continue;
-            if (!pending.TryGetValue((uint)Marshal.ReadInt32(data, 12), out var state)) continue;
+            uint id2 = (uint)Marshal.ReadInt32(data, 12);
+            if (!pending.TryGetValue(id2, out var state)) continue;
 
             if (kind == RecvFacilityData)
             {
@@ -271,14 +288,19 @@ public sealed partial class SimFacilitySession : IDisposable
                     AsciiZ(p, 76, 8), AsciiZ(p, 84, 8), BitConverter.Int64BitsToDouble(Marshal.ReadInt64(p, 96)), BitConverter.Int64BitsToDouble(Marshal.ReadInt64(p, 104)),
                     BitConverter.Int32BitsToSingle(Marshal.ReadInt32(p, 112)),
                     AsciiZ(p, 36, 8), AsciiZ(p, 44, 8), BitConverter.Int64BitsToDouble(Marshal.ReadInt64(p, 56)), BitConverter.Int64BitsToDouble(Marshal.ReadInt64(p, 64)),
-                    BitConverter.Int32BitsToSingle(Marshal.ReadInt32(p, 72))));
+                    BitConverter.Int32BitsToSingle(Marshal.ReadInt32(p, 72)),
+                    ReadType(p, 92), ReadType(p, 52)));
             }
-            else
-            {
-                pending.Remove((uint)Marshal.ReadInt32(data, 12));
-                onResult(state.Point, state.Links);
-            }
+            else Finish(id2);
         }
+        progress?.Invoke(done, 0);
+    }
+
+    /// <summary>Le type d'un point voisin sur la route : 86 « V » VOR, 78 « N » NDB, 87 « W » point.</summary>
+    private static char ReadType(IntPtr p, int offset)
+    {
+        int code = Marshal.ReadInt32(p, offset);
+        return code is > 32 and < 127 ? (char)code : 'W';
     }
 
     private void DefineRoutes()
@@ -341,13 +363,15 @@ public sealed partial class SimFacilitySession : IDisposable
                 node.Name = AsciiZ(p, 0, 8);
                 break;
             case TypeApproachLeg:
-                // Les champs se suivent sans alignement : TYPE(4) FIX_ICAO(8) LAT(8) LON(8) ALT_DESC(4) ALT1(4) ALT2(4) SPEED(4).
+                // Les champs se suivent sans alignement : TYPE(4) FIX_ICAO(8) FIX_REGION(8) FIX_TYPE(4) LAT(8) LON(8) ALT_DESC(4) ALT1(4) ALT2(4) SPEED(4).
+                int fixType = Marshal.ReadInt32(p, 20);
                 node.Leg = new FacilityLeg(
                     Marshal.ReadInt32(p, 0), AsciiZ(p, 4, 8),
-                    BitConverter.Int64BitsToDouble(Marshal.ReadInt64(p, 12)), BitConverter.Int64BitsToDouble(Marshal.ReadInt64(p, 20)),
-                    Marshal.ReadInt32(p, 28),
-                    BitConverter.Int32BitsToSingle(Marshal.ReadInt32(p, 32)), BitConverter.Int32BitsToSingle(Marshal.ReadInt32(p, 36)),
-                    BitConverter.Int32BitsToSingle(Marshal.ReadInt32(p, 40)));
+                    BitConverter.Int64BitsToDouble(Marshal.ReadInt64(p, 24)), BitConverter.Int64BitsToDouble(Marshal.ReadInt64(p, 32)),
+                    Marshal.ReadInt32(p, 40),
+                    BitConverter.Int32BitsToSingle(Marshal.ReadInt32(p, 44)), BitConverter.Int32BitsToSingle(Marshal.ReadInt32(p, 48)),
+                    BitConverter.Int32BitsToSingle(Marshal.ReadInt32(p, 52)),
+                    AsciiZ(p, 12, 8), fixType is > 32 and < 127 ? (char)fixType : 'W');
                 break;
             case TypeAirport:
             default:

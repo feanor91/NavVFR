@@ -1,4 +1,4 @@
-namespace VFRNav.Core.Ifr;
+﻿namespace VFRNav.Core.Ifr;
 
 /// <summary>Une arête du graphe d'airways : on peut aller de l'origine à <see cref="To"/> par ce tronçon.</summary>
 public sealed record AirwayEdge(string To, AirwaySegment Segment);
@@ -9,7 +9,7 @@ public sealed record AirwayEdge(string To, AirwaySegment Segment);
 /// </summary>
 public sealed class IfrNavData
 {
-    private readonly Dictionary<string, List<AirwayEdge>> _edges = new(StringComparer.OrdinalIgnoreCase);
+    private readonly Dictionary<string, List<AirwayEdge>> _edges;
 
     public IfrNavData(
         IEnumerable<IfrFix> fixes,
@@ -18,6 +18,7 @@ public sealed class IfrNavData
         string? airacCycle = null,
         DateTime? effectiveFrom = null)
     {
+        _edges = new(StringComparer.OrdinalIgnoreCase);
         AiracCycle = airacCycle;
         EffectiveFrom = effectiveFrom;
 
@@ -36,6 +37,28 @@ public sealed class IfrNavData
         }
         Segments = segs;
         Procedures = procedures.ToList();
+    }
+
+    /// <summary>Copie qui partage les routes ATS (immuables) de <paramref name="source"/> : seuls les points et les procédures changent.</summary>
+    private IfrNavData(IfrNavData source, IReadOnlyDictionary<string, IfrFix> fixes, IReadOnlyList<IfrProcedure> procedures)
+    {
+        _edges = source._edges;
+        AiracCycle = source.AiracCycle;
+        EffectiveFrom = source.EffectiveFrom;
+        Fixes = fixes;
+        Segments = source.Segments;
+        Procedures = procedures;
+    }
+
+    /// <summary>
+    /// Même base avec d'autres procédures et des points en plus (ceux qui manquent). Les routes ATS ne sont pas reconstruites : c'est
+    /// rapide même avec le réseau du monde entier. Les points ajoutés ne sont reliés à aucune route ATS.
+    /// </summary>
+    public IfrNavData WithProcedures(IEnumerable<IfrFix> extraFixes, IReadOnlyList<IfrProcedure> procedures)
+    {
+        var map = new Dictionary<string, IfrFix>(Fixes, StringComparer.OrdinalIgnoreCase);
+        foreach (var f in extraFixes) map.TryAdd(f.Ident, f);
+        return new IfrNavData(this, map, procedures);
     }
 
     /// <summary>Cycle AIRAC, ex. « 2611 » (onzième cycle de 2026).</summary>

@@ -1,4 +1,4 @@
-using VFRNav.Core.Models;
+﻿using VFRNav.Core.Models;
 using VFRNav.Core.Services;
 
 namespace VFRNav.Core.Ifr;
@@ -16,8 +16,8 @@ public sealed record IfrRoute(
     /// <summary>Points sous la forme utilisée par le reste de l'application (log de navigation, .pln, carte).</summary>
     public IReadOnlyList<Waypoint> ToWaypoints() => Points.Select(p => new Waypoint
     {
-        Name = p.Ident,
-        Icao = p.Source == IfrLegSource.Airport ? p.Ident : null,
+        Name = FixKey.Display(p.Ident),
+        Icao = p.Source == IfrLegSource.Airport ? FixKey.Display(p.Ident) : null,
         Lat = p.Lat,
         Lon = p.Lon,
         // Une contrainte « au moins / au plus » devient une altitude de passage quand une seule borne existe.
@@ -86,7 +86,7 @@ public static class IfrRouter
         if (starts.Count == 0) return Fail($"Aucun point du réseau IFR à moins de {options.DirectRadiusNm:0} NM de {departure}.");
         if (ends.Count == 0) return Fail($"Aucun point du réseau IFR à moins de {options.DirectRadiusNm:0} NM de {arrival}.");
 
-        var (dist, prev, root) = Dijkstra(data, starts, options);
+        var (dist, prev, root) = Dijkstra(data, starts, ends, arr, options);
 
         Anchor? bestStart = null, bestEnd = null;
         List<(string Node, AirwaySegment? Segment)> path = [];
@@ -224,8 +224,13 @@ public static class IfrRouter
         return total;
     }
 
+    /// <summary>
+    /// Plus court chemin (A*) : la distance à l'arrivée sert d'estimation, ce qui reste exact (jamais trop grande : une procédure et un trajet
+    /// ne sont pas plus courts qu'une ligne droite) et évite d'explorer tout le réseau du monde. La recherche s'arrête quand aucun chemin
+    /// restant ne peut battre le meilleur trouvé jusqu'à un point d'arrivée.
+    /// </summary>
     private static (Dictionary<string, double> Dist, Dictionary<string, (string From, AirwaySegment? Segment)> Prev, Dictionary<string, Anchor> Root)
-        Dijkstra(IfrNavData data, List<Anchor> starts, IfrPlanOptions options)
+        Dijkstra(IfrNavData data, List<Anchor> starts, List<Anchor> ends, IfrFix arrival, IfrPlanOptions options)
     {
         int? flightLevel = options.FlightLevel;
         bool freeRoute = FreeRoute(options);
@@ -236,17 +241,37 @@ public static class IfrRouter
         var root = new Dictionary<string, Anchor>(cmp);
         var queue = new PriorityQueue<string, double>();
 
+        var endCost = new Dictionary<string, double>(cmp);
+        foreach (var e in ends)
+            if (!endCost.TryGetValue(e.Node, out double c) || e.Cost < c) endCost[e.Node] = e.Cost;
+        double best = double.MaxValue;
+
+        double Estimate(string node)
+        {
+            var f = data.Fixes[node];
+            return NavMath.DistanceNm(f.Lat, f.Lon, arrival.Lat, arrival.Lon);
+        }
+
+        void Reached(string node, double cost)
+        {
+            if (endCost.TryGetValue(node, out double ec)) best = Math.Min(best, cost + ec);
+        }
+
         foreach (var s in starts)
         {
             if (dist.TryGetValue(s.Node, out double known) && known <= s.Cost) continue;
             dist[s.Node] = s.Cost;
             root[s.Node] = s;
-            queue.Enqueue(s.Node, s.Cost);
+            queue.Enqueue(s.Node, s.Cost + Estimate(s.Node));
+            Reached(s.Node, s.Cost);
         }
 
-        while (queue.TryDequeue(out var u, out double du))
+        while (queue.TryDequeue(out var u, out double priority))
         {
-            if (du > dist[u]) continue;
+            double du = dist[u];
+            if (priority > du + Estimate(u) + 1e-9) continue; // entrée périmée : ce point a été atteint plus court depuis
+            if (priority >= best) break;                      // plus aucun chemin ne peut battre le meilleur trouvé
+
             foreach (var edge in data.EdgesFrom(u))
             {
                 if (!edge.Segment.AllowsFlightLevel(flightLevel)) continue;
@@ -254,7 +279,8 @@ public static class IfrRouter
                 if (dist.TryGetValue(edge.To, out double dv) && dv <= nd) continue;
                 dist[edge.To] = nd;
                 prev[edge.To] = (u, edge.Segment);
-                queue.Enqueue(edge.To, nd);
+                queue.Enqueue(edge.To, nd + Estimate(edge.To));
+                Reached(edge.To, nd);
             }
 
             if (grid is null) continue;
@@ -265,7 +291,8 @@ public static class IfrRouter
                 if (dist.TryGetValue(other.Ident, out double dv) && dv <= nd) continue;
                 dist[other.Ident] = nd;
                 prev[other.Ident] = (u, null);
-                queue.Enqueue(other.Ident, nd);
+                queue.Enqueue(other.Ident, nd + Estimate(other.Ident));
+                Reached(other.Ident, nd);
             }
         }
         return (dist, prev, root);
@@ -320,21 +347,21 @@ public static class IfrRouter
     /// <summary>Route en notation de plan de vol : « LFPG AMBO1A AMBO UN871 TOU TOU1B LFBO ».</summary>
     private static string Describe(IfrFix dep, IfrFix arr, string? sid, string? star, List<IfrRoutePoint> enroute)
     {
-        var tokens = new List<string> { dep.Ident };
+        var tokens = new List<string> { FixKey.Display(dep.Ident) };
         if (sid is not null) tokens.Add(sid);
 
-        if (enroute.Count > 0) tokens.Add(enroute[0].Ident);
+        if (enroute.Count > 0) tokens.Add(FixKey.Display(enroute[0].Ident));
         for (int i = 1; i < enroute.Count; i++)
         {
             // On n'écrit que la fin de chaque série de points sur la même route ATS.
             bool endOfRun = i == enroute.Count - 1 || enroute[i].Airway is null || enroute[i + 1].Airway != enroute[i].Airway;
             if (!endOfRun) continue;
             tokens.Add(enroute[i].Airway ?? "DCT");
-            tokens.Add(enroute[i].Ident);
+            tokens.Add(FixKey.Display(enroute[i].Ident));
         }
 
         if (star is not null) tokens.Add(star);
-        tokens.Add(arr.Ident);
+        tokens.Add(FixKey.Display(arr.Ident));
         return string.Join(' ', tokens);
     }
 

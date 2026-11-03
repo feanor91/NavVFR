@@ -17,11 +17,15 @@ public partial class MainWindow
 
     private async void Ifr_Loaded(object sender, RoutedEventArgs e)
     {
+        await LoadWorldNetworkAsync();
         // Données AIRAC déjà choisies lors d'une session précédente : rechargées sans rien demander.
         if (_settings.IfrDataPath.Length > 0 && File.Exists(_settings.IfrDataPath))
             await LoadIfrDataAsync(_settings.IfrDataPath);
         else
+        {
+            await ApplyWorldNetworkAsync();
             ShowIfrDataLabel();
+        }
         RefreshIfrChoices();
     }
 
@@ -29,7 +33,7 @@ public partial class MainWindow
     {
         if (_ifrData.AiracCycle == "TEST")
         {
-            IfrDataLabel.Text = IfrSampleData.Label + " : ne pas utiliser pour naviguer. Chargez l'export AIXM du SIA." + ProceduresNote();
+            IfrDataLabel.Text = IfrSampleData.Label + " : ne pas utiliser pour naviguer. Chargez l'export AIXM du SIA." + ProceduresNote() + NetworkNote();
             return;
         }
         bool expired = _ifrData.IsExpired(DateTime.UtcNow);
@@ -39,7 +43,7 @@ public partial class MainWindow
             : "";
         IfrDataLabel.Text = $"AIRAC {_ifrData.AiracCycle}" + (expired ? " : PÉRIMÉ, à mettre à jour." : ".") +
                             $" {_ifrData.Fixes.Count} points, {_ifrData.Segments.Select(s => s.Airway).Distinct().Count()} routes ATS." + procedures +
-                            ProceduresNote();
+                            ProceduresNote() + NetworkNote();
     }
 
     private async void IfrLoad_Click(object sender, RoutedEventArgs e)
@@ -62,7 +66,7 @@ public partial class MainWindow
         {
             var loaded = await Task.Run(() => AixmReader.LoadFile(path, GeoArea.MetropolitanFrance));
             _ifrData = loaded.Data;
-            ResetAppliedProcedures();
+            await ApplyWorldNetworkAsync();
             EnsureProceduresForRoute();
             ShowIfrDataLabel();
             return true;

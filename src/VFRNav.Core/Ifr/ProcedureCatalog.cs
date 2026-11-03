@@ -12,7 +12,7 @@ public sealed record CatalogAirport(DateTimeOffset ReadAt, int Procedures, strin
 /// <param name="SimVersion">Version du simulateur qui a fourni les données, ex. « MSFS 1.5.4.0 ».</param>
 public sealed record CatalogIndex(int Version, string Source, string SimVersion, DateTimeOffset ReadAt, Dictionary<string, CatalogAirport> Airports)
 {
-    public const int CurrentVersion = 2;
+    public const int CurrentVersion = 3;
     public int ProcedureCount => Airports.Values.Sum(a => a.Procedures);
 }
 
