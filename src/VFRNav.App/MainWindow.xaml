@@ -133,6 +133,8 @@
                     <TextBox x:Name="VacBox"/>
                 </DockPanel>
                 <Button Content="Recharger" Click="Reload_Click" Margin="0,8,0,0"/>
+                <Button x:Name="VacUpdateButton" Content="Mettre à jour les cartes VAC (SIA)" Click="VacUpdate_Click" Margin="0,6,0,0"
+                        ToolTip="Télécharge depuis le site du SIA les cartes VAC du cycle AIRAC en vigueur, à ta demande : seules les cartes différentes de celles du dossier sont remplacées. Un second clic arrête."/>
                 <TextBlock x:Name="StatusText" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 </StackPanel>
             </Expander>

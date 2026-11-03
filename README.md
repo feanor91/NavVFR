@@ -32,7 +32,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 ### Cartes VAC et procédures VFR
 
 - **Base d'aérodromes** livrée avec l'application (`vfr-data` : liste nationale et environ 425 profils VFR avec position, altitude, fréquences, pistes), sans autre logiciel à installer.
-- **Lecteur de cartes VAC** (PDF) : les cartes du SIA sont celles du pilote (fichiers `AD-2.LFxx.pdf`, dossier réglé dans le panneau Données, sinon `%AppData%\VFRNav\Cartes VAC`). Elles sont lues sur place, jamais copiées ni livrées.
+- **Lecteur de cartes VAC** (PDF) : les cartes du SIA sont celles du pilote (fichiers `AD-2.LFxx.pdf`, dossier réglé dans le panneau Données, sinon `%AppData%\VFRNav\Cartes VAC`). Elles sont lues sur place, jamais copiées ni livrées. **Mise à jour** : le bouton « Mettre à jour les cartes VAC (SIA) » du panneau Données télécharge, à ta demande, les cartes du cycle AIRAC en vigueur depuis le site du SIA ; une carte n'est remplacée que si elle diffère de la tienne, et le bouton peut aussi récupérer celles qui manquent (une à la fois, quelques minutes). Un second clic arrête.
 - **Procédures VFR** (points de report, circuit, arrivées et départs, notes) lues dans les profils VFR de `vfr-data`, en français quand ils le fournissent. Un profil placé dans `%AppData%\VFRNavfr-profiles` remplace celui livré.
 
 ### Route IFR
