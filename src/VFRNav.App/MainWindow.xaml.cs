@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
@@ -33,10 +33,6 @@ public partial class MainWindow : Window
     private readonly MemoryLayer _aircraftLayer = new("Avion");
     private readonly MemoryLayer _navaidLayer = new("Balises");
     private readonly SimConnectTracker _tracker = new();
-    private LiveFeedServer? _feed;
-    private volatile FeedWaypoint[] _feedRoute = [];
-    private (FeedAircraft Aircraft, DateTimeOffset At)? _feedAircraft;
-    private volatile bool _airspacesLoadedForFeed;
     private IReadOnlyList<Airport> _airports = [];
     private IReadOnlyList<Airspace> _airspaces = [];
     private readonly Dictionary<string, (string? Category, double? VisibilityM)> _wx = new(StringComparer.OrdinalIgnoreCase);
@@ -148,8 +144,8 @@ public partial class MainWindow : Window
             RefreshRoute();
             await LoadDataAsync();
         };
-        Closing += (_, _) => { SaveSettings(); _tracker.Dispose(); _feed?.Dispose(); };
-        SourceInitialized += (_, _) => { StartTracker(); StartFeed(); };
+        Closing += (_, _) => { SaveSettings(); _tracker.Dispose(); };
+        SourceInitialized += (_, _) => { StartTracker(); };
     }
 
     private static string Fmt(double v) => v.ToString(CultureInfo.InvariantCulture);
@@ -216,7 +212,6 @@ public partial class MainWindow : Window
                 StatusText.Text += " Chargement des espaces aériens...";
                 var spaces = await new OpenAipService(_http).LoadAsync(country, key);
                 _airspaces = spaces;
-                _airspacesLoadedForFeed = spaces.Count > 0;
                 ApplyAirspaceFilter();
                 StatusText.Text = $"{_airports.Count} terrains, {spaces.Count} espaces aériens ({country}). " + StormAtcSummary();
             }
@@ -436,7 +431,7 @@ public partial class MainWindow : Window
 
     // ---------- Événements UI ----------
     private void RouteGrid_CellEditEnding(object? sender, DataGridCellEditEndingEventArgs e) =>
-        Dispatcher.BeginInvoke(() => { RefreshRoute(); RefreshFeedRoute(); ScheduleLive(); });
+        Dispatcher.BeginInvoke(() => { RefreshRoute(); ScheduleLive(); });
 
     private void Param_Changed(object sender, TextChangedEventArgs e)
     {
@@ -1157,7 +1152,6 @@ public partial class MainWindow
 
     private void OnAircraft(AircraftState a)
     {
-        _feedAircraft = (new FeedAircraft(a.Lat, a.Lon, a.AltitudeFt, a.HeadingTrue, a.GroundSpeedKt, a.OnGround), DateTimeOffset.UtcNow);
         var (x, y) = SphericalMercator.FromLonLat(a.Lon, a.Lat);
         var plane = new PointFeature(new MPoint(x, y));
         plane.Styles.Add(new ImageStyle

@@ -99,7 +99,6 @@ public partial class MainWindow
     {
         if (!_aircraftReady || _loadingParams || !IsLoaded) return;
         RefreshLog();
-        RefreshFeedRoute();
         ScheduleLive();
     }
 
@@ -113,7 +112,6 @@ public partial class MainWindow
 
     private void AfterAircraftChange()
     {
-        RefreshFeedRoute();
         ScheduleLive();
         UpdateAircraftUi();
         if (IsLoaded) RefreshLog();

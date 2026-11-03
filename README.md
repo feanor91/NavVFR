@@ -45,10 +45,9 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 - **Piste conseillée** d'après le vent du METAR (repli : le vent supposé du formulaire) : elle est sélectionnée, et les listes de SID et de STAR ne montrent que celles qui la desservent. « Auto » reprend le trajet le plus court toutes pistes confondues.
 - Hors de France, les points sont repérés par leur nom et leur région, pour ne pas confondre deux points de même nom dans deux pays.
 
-### Avec MSFS et StormATC
+### Avec MSFS
 
 - **Suivi de l'avion en direct** (SimConnect) : un avion dessiné sur la carte, qui suit le cap.
-- **Partage avec StormATC** : serveur local en lecture seule sur `127.0.0.1:47731` (route, avion, zones, fond de carte), pour son panneau dans le simulateur.
 
 ## Où sont les données
 

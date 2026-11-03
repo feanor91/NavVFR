@@ -27,7 +27,6 @@ public partial class MainWindow
     /// <summary>Tout changement de la route : mise à jour de la carte, puis du point choisi.</summary>
     private void OnRouteChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        RefreshFeedRoute();
         RefreshRoute();
         // Un point qu'on vient d'ajouter devient le point suivi : ses infos s'affichent aussitôt.
         if (e.Action == NotifyCollectionChangedAction.Add && e.NewStartingIndex >= 0) RouteGrid.SelectedIndex = e.NewStartingIndex;
@@ -38,62 +37,6 @@ public partial class MainWindow
     {
         _liveTimer.Stop();
         _liveTimer.Start();
-    }
-
-    // ---------- partage avec StormATC ----------
-
-    /// <summary>Copie la route pour le serveur local, qui la lit hors du thread de l'interface.</summary>
-    private double _feedCruiseAltFt = 2500; // processus x64 : lecture/écriture d'un double atomiques
-
-    private void RefreshFeedRoute()
-    {
-        _feedRoute = [.. LiveFeed.State(_route, null, null, 0, DateTimeOffset.UtcNow).Route];
-        _feedCruiseAltFt = CurrentCruiseAltFt(); // lu ici, sur le thread de l'interface : le serveur local n'y touche pas
-    }
-
-    private void StartFeed()
-    {
-        RefreshFeedRoute();
-        _feed = new LiveFeedServer(
-            () =>
-            {
-                var a = _feedAircraft;
-                string key = _settings.BaseMap, carto = _settings.CartoKey;
-                return new LiveFeedState(LiveFeed.ProtocolVersion, _feedRoute, a?.Aircraft, _feedCruiseAltFt,
-                    a is null ? -1 : (long)Math.Max(0, (DateTimeOffset.UtcNow - a.Value.At).TotalMilliseconds),
-                    new FeedBaseMap(BaseMapSources.Effective(key, carto), BaseMapSources.LayerCount(key, carto), BaseMapSources.MaxZoom(key, carto)));
-            },
-            (minLat, minLon, maxLat, maxLon) =>
-                LiveFeed.Map(_shownAirspaces, _airspacesLoadedForFeed, _airports, minLat, minLon, maxLat, maxLon),
-            FetchTileAsync);
-        _feed.Start();
-    }
-
-    private readonly Dictionary<string, (byte[] Bytes, string ContentType)> _tileCache = [];
-
-    /// <summary>Tuile du fond de carte courant, téléchargée une fois puis gardée (le fond est celui de la carte de MSFS Rhumb).</summary>
-    private async Task<(byte[] Bytes, string ContentType)?> FetchTileAsync(int layer, int z, int x, int y, CancellationToken ct)
-    {
-        string key = _settings.BaseMap, carto = _settings.CartoKey;
-        string? url = BaseMapSources.TileUrl(key, carto, layer, z, x, y);
-        if (url is null) return null;
-        string cacheKey = $"{BaseMapSources.Effective(key, carto)}/{layer}/{z}/{x}/{y}";
-        lock (_tileCache) if (_tileCache.TryGetValue(cacheKey, out var hit)) return hit;
-        try
-        {
-            using var request = new HttpRequestMessage(HttpMethod.Get, url);
-            request.Headers.UserAgent.ParseAdd("MSFS-Rhumb (flight simulation)");
-            using var response = await _http.SendAsync(request, ct);
-            if (!response.IsSuccessStatusCode) return null;
-            var tile = (await response.Content.ReadAsByteArrayAsync(ct), response.Content.Headers.ContentType?.MediaType ?? "image/png");
-            lock (_tileCache)
-            {
-                if (_tileCache.Count > 1500) _tileCache.Clear();
-                _tileCache[cacheKey] = tile;
-            }
-            return tile;
-        }
-        catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException) { return null; }
     }
 
     private Waypoint? Followed() => RouteGrid.SelectedItem as Waypoint ?? _route.LastOrDefault();
@@ -131,8 +74,7 @@ public partial class MainWindow
         {
             _route[i].AltitudeFt = ft;
             RouteGrid.Items.Refresh();
-            RefreshFeedRoute();
-        }
+            }
         else if (ft is double cruise) SetCruiseAlt(cruise);
         ScheduleLive();
     }
@@ -204,7 +146,6 @@ public partial class MainWindow
 
         var route = _route.ToList();
         var p = ReadParams();
-        RefreshFeedRoute();
         try
         {
             if (Followed() is { } wp) await ShowPointInfoAsync(wp, p, ct);

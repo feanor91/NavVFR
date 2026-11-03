@@ -159,12 +159,10 @@ public class PointBriefingTests
     }
 
     [Fact]
-    public void Entered_altitude_is_written_in_the_pln_and_shared_with_stormatc()
+    public void Entered_altitude_is_written_in_the_pln()
     {
         var route = new List<Waypoint> { Wp("A", 49, 2), Wp("B", 49, 2.5, 3456) };
         string pln = PlnWriter.Build(route, 2500);
         Assert.Contains("+003456.00", pln);
-        Assert.Equal(3456, LiveFeed.State(route, null, null, 2500, DateTimeOffset.UtcNow).Route[1].AltitudeFt);
-        Assert.Null(LiveFeed.State(route, null, null, 2500, DateTimeOffset.UtcNow).Route[0].AltitudeFt);
     }
 }
