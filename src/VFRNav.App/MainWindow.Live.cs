@@ -128,7 +128,7 @@ public partial class MainWindow
             RouteGrid.Items.Refresh();
             RefreshFeedRoute();
         }
-        else if (ft is double cruise) AltBox.Text = Fmt(cruise);
+        else if (ft is double cruise) SetCruiseAlt(cruise);
         ScheduleLive();
     }
 

@@ -17,6 +17,7 @@ public partial class MainWindow
     {
         if (_route.Count < 2) { PlanStatus.Text = "Il faut au moins deux points pour calculer le plan de vol."; return; }
 
+        SetMode(FlightMode.Vfr);
         PlanButton.IsEnabled = false;
         PlanStatus.Text = "Calcul du plan de vol...";
         try

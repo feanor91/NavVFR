@@ -67,9 +67,7 @@ public partial class MainWindow : Window
         _http.DefaultRequestHeaders.UserAgent.ParseAdd("VFRNav/0.1");
 
         _loadingParams = true;
-        TasBox.Text = Fmt(_settings.TasKt);
-        BurnBox.Text = Fmt(_settings.BurnLph);
-        AltBox.Text = Fmt(_settings.CruiseAltFt);
+        InitAircraft();
         VarBox.Text = Fmt(_settings.VariationEast);
         WdirBox.Text = Fmt(_settings.WindDir);
         WspdBox.Text = Fmt(_settings.WindKt);
@@ -118,6 +116,7 @@ public partial class MainWindow : Window
         foreach (var layer in _baseLayers) map.Layers.Add(layer);
         map.Layers.Add(_airspaceLayer);
         map.Layers.Add(_navaidLayer);
+        map.Layers.Add(_rangeLayer);
         ProfileView.AltitudeEdited += OnProfileAltitude;
         map.Layers.Add(_reportLayer);
         map.Layers.Add(_routeLayer);
@@ -158,7 +157,7 @@ public partial class MainWindow : Window
         double.TryParse(box.Text.Replace(',', '.'), NumberStyles.Float, CultureInfo.InvariantCulture, out var v) ? v : fallback;
 
     private FlightParameters ReadParams() => new(
-        Math.Max(Parse(TasBox, 100), 1), Parse(BurnBox, 0), Parse(AltBox, 2500), Parse(VarBox, 0), Parse(WdirBox, 0), Parse(WspdBox, 0));
+        CruiseTas, CruiseBurn, CurrentCruiseAltFt(), Parse(VarBox, 0), Parse(WdirBox, 0), Parse(WspdBox, 0));
 
     private void SaveSettings()
     {
@@ -180,7 +179,13 @@ public partial class MainWindow : Window
         _settings.VfrPanelOpen = VfrPanel.IsExpanded;
         _settings.IfrPanelOpen = IfrPanel.IsExpanded;
         _settings.BaseMap = BaseMaps.Keys[Math.Max(BaseMapBox.SelectedIndex, 0)];
-        _settings.TasKt = p.TasKt; _settings.BurnLph = p.BurnLph; _settings.CruiseAltFt = p.CruiseAltFt;
+        _settings.TasKt = p.TasKt; _settings.BurnLph = p.BurnLph;
+        _settings.CruiseAltFt = Parse(VfrAltBox, _settings.CruiseAltFt);
+        _settings.IfrCruiseAltFt = Parse(IfrFlBox, 0) * 100;
+        _settings.VfrAircraftId = AircraftFor(FlightMode.Vfr)?.Id;
+        _settings.IfrAircraftId = AircraftFor(FlightMode.Ifr)?.Id;
+        _settings.ActiveMode = _mode == FlightMode.Ifr ? "ifr" : "vfr";
+        _settings.ShowRange = RangeCheck.IsChecked == true;
         _settings.VariationEast = p.VariationEast; _settings.WindDir = p.WindDir; _settings.WindKt = p.WindKt;
         _settings.Route = [.. _route];
         try { _settings.Save(); } catch (IOException) { /* non bloquant */ }
@@ -380,6 +385,7 @@ public partial class MainWindow : Window
 
         ApplyAutoVariation();
         RefreshLog();
+        RefreshRange();
         MapControl.Refresh();
         ScheduleLive();
     }
@@ -391,7 +397,7 @@ public partial class MainWindow : Window
         LogGrid.ItemsSource = log.Legs;
         UpdateLegLabels(log.Legs);
         MapControl.Refresh();
-        TotalText.Text = $"Total : {log.TotalDistanceNm:F1} NM   {NavMath.FormatTime(log.TotalMinutes)}   {log.TotalFuelL:F1} L";
+        TotalText.Text = $"Total : {log.TotalDistanceNm:F1} NM   {NavMath.FormatTime(log.TotalMinutes)}   {log.TotalFuelL:F1} L" + FuelWarning(log);
     }
 
     private void FitRoute()
@@ -461,7 +467,7 @@ public partial class MainWindow : Window
         try
         {
             var plan = PlnReader.Parse(File.ReadAllText(dlg.FileName));
-            if (plan.CruiseAltFt is { } cruise) AltBox.Text = Fmt(cruise);
+            if (plan.CruiseAltFt is { } cruise) SetCruiseAlt(cruise);
             _route.Clear();
             foreach (var w in plan.Route) _route.Add(w);
             FitRoute();
@@ -1352,7 +1358,7 @@ public partial class MainWindow
         inl.Clear();
         inl.Add(new System.Windows.Documents.Run(zone.Name) { FontWeight = FontWeights.Bold, FontSize = 15 });
         inl.Add(new System.Windows.Documents.Run($"   {zone.Lower} → {zone.Upper}") { Foreground = System.Windows.Media.Brushes.DimGray });
-        foreach (var section in AirspaceGuide.Explain(zone, Parse(AltBox, 2500)))
+        foreach (var section in AirspaceGuide.Explain(zone, CurrentCruiseAltFt()))
         {
             inl.Add(new System.Windows.Documents.LineBreak());
             inl.Add(new System.Windows.Documents.Run(section.Heading + " : ") { FontWeight = FontWeights.SemiBold });
