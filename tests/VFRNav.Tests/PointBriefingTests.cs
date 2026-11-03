@@ -31,6 +31,19 @@ public class PointBriefingTests
     }
 
     [Fact]
+    public void An_airport_without_entered_altitude_is_on_the_ground_and_a_typed_altitude_wins()
+    {
+        var route = new List<Waypoint> { Wp("LFPG", 49, 2, icao: "LFPG", elevation: 392), Wp("B", 49, 2.5), Wp("LFMN", 49, 3, icao: "LFMN", elevation: 12) };
+        var p = new AltitudeProfile(route, 30000);
+        Assert.Equal(392, p.AtWaypoint(0));
+        Assert.Equal(30000, p.AtWaypoint(1));
+        Assert.Equal(12, p.AtWaypoint(2));
+
+        route[0].AltitudeFt = 0;
+        Assert.Equal(0, new AltitudeProfile(route, 30000).AtWaypoint(0));
+    }
+
+    [Fact]
     public void Crossing_status_follows_the_altitude_at_each_part_of_the_route()
     {
         var zone = Zone("TMA X", "A", 7, 2000, 3000);

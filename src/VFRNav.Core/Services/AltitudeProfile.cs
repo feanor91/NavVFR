@@ -4,7 +4,7 @@ namespace VFRNav.Core.Services;
 
 /// <summary>
 /// Altitude prévue tout au long de la route : celle saisie à chaque point (sinon l'altitude de croisière), avec une
-/// variation linéaire entre deux points (montée ou descente).
+/// variation linéaire entre deux points (montée ou descente). Un terrain sans altitude saisie est au sol.
 /// </summary>
 public sealed class AltitudeProfile
 {
@@ -18,7 +18,8 @@ public sealed class AltitudeProfile
         for (int i = 0; i < route.Count; i++)
         {
             _distance[i] = i == 0 ? 0 : _distance[i - 1] + NavMath.DistanceNm(route[i - 1], route[i]);
-            _altitude[i] = route[i].AltitudeFt ?? defaultFt;
+            // Un terrain sans altitude saisie est au sol (altitude du terrain), pas à la croisière.
+            _altitude[i] = route[i].AltitudeFt ?? (route[i].IsAirport ? route[i].ElevationFt : defaultFt);
         }
         DefaultFt = defaultFt;
         MaxFt = _altitude.Length == 0 ? defaultFt : _altitude.Max();
