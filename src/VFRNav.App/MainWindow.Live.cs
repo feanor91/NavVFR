@@ -182,8 +182,8 @@ public partial class MainWindow
 
     private void ShowLiveBasics()
     {
-        if (Followed() is not { } wp) { LiveInfo.Text = "Pose un point sur la carte : ses informations s'affichent ici."; return; }
-        LiveInfo.Text = string.Join("\n", BasicLines(wp, ReadParams()));
+        if (Followed() is not { } wp) { SetLive(LiveDefaultText); return; }
+        SetLive(string.Join("\n", BasicLines(wp, ReadParams())));
     }
 
     private async Task RunLiveAsync()
@@ -208,7 +208,7 @@ public partial class MainWindow
     private async Task ShowPointInfoAsync(Waypoint wp, FlightParameters p, CancellationToken ct)
     {
         var lines = BasicLines(wp, p);
-        LiveInfo.Text = string.Join("\n", lines) + "\nSol : calcul…";
+        SetLive(string.Join("\n", lines) + "\nSol : calcul…");
         try
         {
             _terrainService ??= new TerrainService(_http);
@@ -230,11 +230,11 @@ public partial class MainWindow
                 }
                 else lines.Insert(2, "Météo : pas de METAR pour ce terrain");
             }
-            LiveInfo.Text = string.Join("\n", lines);
+            SetLive(string.Join("\n", lines));
         }
         catch (Exception ex) when (ex is HttpRequestException or System.Text.Json.JsonException or InvalidOperationException)
         {
-            LiveInfo.Text = string.Join("\n", lines) + "\n(sol et météo indisponibles : " + ex.Message + ")";
+            SetLive(string.Join("\n", lines) + "\n(sol et météo indisponibles : " + ex.Message + ")");
         }
     }
 

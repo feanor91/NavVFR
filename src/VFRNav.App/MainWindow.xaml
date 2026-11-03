@@ -67,10 +67,6 @@
                          TextChanged="WpNotes_Changed" LostFocus="WpNotes_LostFocus"
                          ToolTip="Consignes, repères visuels, fréquences... Elles apparaissent sur la feuille de route et au survol du point."/>
 
-                <TextBlock Style="{StaticResource Header}" Text="INFOS EN DIRECT"/>
-                <TextBlock x:Name="LiveInfo" Foreground="#E8EEFC" FontSize="11.5" TextWrapping="Wrap"
-                           Text="Pose un point sur la carte : ses informations s'affichent ici."/>
-
                 <TextBlock Style="{StaticResource Header}" Text="CONDITIONS"/>
                 <UniformGrid Columns="2">
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Déclinaison (°E +)"/><TextBox x:Name="VarBox" TextChanged="Param_Changed"/>
@@ -250,6 +246,9 @@
                     </DockPanel>
                 </Border>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
+                    <Button x:Name="LiveInfoButton" Content="Infos en direct" Margin="0,0,8,0" Width="132" Height="34"
+                            Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"
+                            Click="LiveInfo_Click" ToolTip="Altitude du sol, météo et zones du point suivi, dans une fenêtre à part"/>
                     <Button x:Name="GlossaryButton" Content="Glossaire" Margin="0,0,8,0" Width="132" Height="34"
                             Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"
                             Click="Glossary_Click" ToolTip="Sigles des cartes : TMA, CTR, QNH, RMZ…"/>

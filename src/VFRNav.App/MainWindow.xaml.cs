@@ -661,6 +661,29 @@ public partial class MainWindow
         MapControl.Refresh();
     }
 
+    private const string LiveDefaultText = "Pose un point sur la carte : ses informations s'affichent ici.";
+    private string _liveText = LiveDefaultText;
+    private LiveInfoWindow? _liveWindow;
+
+    /// <summary>Mémorise les infos en direct et les affiche dans la fenêtre si elle est ouverte.</summary>
+    private void SetLive(string text)
+    {
+        _liveText = text;
+        _liveWindow?.SetText(text);
+    }
+
+    /// <summary>Ouvre les infos en direct à côté de la carte ; un second clic les ramène devant.</summary>
+    private void LiveInfo_Click(object sender, RoutedEventArgs e)
+    {
+        if (_liveWindow is null)
+        {
+            _liveWindow = new LiveInfoWindow(_liveText) { Owner = this };
+            _liveWindow.Closed += (_, _) => _liveWindow = null;
+            _liveWindow.Show();
+        }
+        _liveWindow.BringToFront();
+    }
+
     private GlossaryWindow? _glossary;
 
     /// <summary>Ouvre le glossaire des sigles à côté de la carte ; un second clic le ramène devant.</summary>
