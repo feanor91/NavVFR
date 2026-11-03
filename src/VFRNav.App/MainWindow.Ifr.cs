@@ -91,6 +91,11 @@ public partial class MainWindow
         EnsureProceduresForRoute();
         Fill(IfrSidBox, IfrDepRunwayBox, IfrDepBox.Text, ProcedureKind.Sid);
         Fill(IfrStarBox, IfrArrRunwayBox, IfrArrBox.Text, ProcedureKind.Star);
+        IfrAirportInfo.Text = string.Join("\n", new[]
+        {
+            AirportProcedureInfo("Départ", IfrDepBox.Text, ProcedureKind.Sid),
+            AirportProcedureInfo("Arrivée", IfrArrBox.Text, ProcedureKind.Star)
+        }.Where(t => t.Length > 0));
 
         void Fill(ComboBox procedures, ComboBox runways, string icao, ProcedureKind kind)
         {

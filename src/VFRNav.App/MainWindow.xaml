@@ -79,10 +79,11 @@
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Niveau (FL)" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau. À partir du FL195, la route libre (tronçons directs) est autorisée."/>
                         <TextBox x:Name="IfrFlBox" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/></StackPanel>
                 </UniformGrid>
+                <TextBlock x:Name="IfrAirportInfo" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,4,0,0"/>
                 <Button Content="Charger les données AIRAC (SIA)…" Click="IfrLoad_Click" Margin="0,8,0,0"
                         ToolTip="Export AIXM 4.5 gratuit de la boutique du SIA : export_xml_bd_SIA_aaaa-mm-jj.zip. Il contient les routes ATS mais pas les SID/STAR."/>
-                <Button x:Name="IfrSimButton" Content="Relire le départ et l'arrivée dans MSFS" Click="IfrSim_Click" Margin="0,0,0,0"
-                        ToolTip="Demande à MSFS (lancé) les SID et STAR du départ et de l'arrivée saisis et les enregistre dans les données de VFRNav."/>
+                <Button x:Name="IfrSimButton" Content="Relire ces deux terrains dans MSFS (facultatif)" Click="IfrSim_Click" Margin="0,0,0,0"
+                        ToolTip="Facultatif : les SID et STAR de tous les terrains sont déjà enregistrées, il suffit de saisir un autre code OACI. Ce bouton remet à jour tout de suite le départ et l'arrivée saisis, MSFS lancé."/>
                 <Button x:Name="IfrSimAllButton" Content="Enregistrer / mettre à jour les SID/STAR du monde (MSFS)" Click="IfrSimAll_Click" Margin="0,0,0,0"
                         ToolTip="MSFS lancé : lit les SID et STAR de tous les terrains du simulateur et les enregistre dans les données de VFRNav (quelques minutes). Ensuite le calcul de route n'a plus besoin du simulateur. À refaire à la main quand MSFS met à jour ses données : seuls les terrains qui ont changé sont réécrits. Un second clic arrête la lecture."/>
                 <Button x:Name="IfrNetworkButton" Content="Enregistrer / mettre à jour les routes ATS hors de France (MSFS)" Click="IfrNetwork_Click" Margin="0,0,0,0"

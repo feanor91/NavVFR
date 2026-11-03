@@ -40,6 +40,19 @@ public partial class MainWindow
         }
     }
 
+    /// <summary>Ce que VFRNav sait déjà du terrain saisi : de quoi partir ou arriver d'ailleurs sans MSFS.</summary>
+    private string AirportProcedureInfo(string role, string text, ProcedureKind kind)
+    {
+        string icao = text.Trim().ToUpperInvariant();
+        if (icao.Length != 4) return "";
+        string label = kind == ProcedureKind.Sid ? "SID" : "STAR";
+        if (_ifrData.Find(icao) is null) return $"{role} {icao} : terrain inconnu des données (ni le SIA ni MSFS).";
+        int count = _ifrData.ProceduresFor(icao, kind).Count();
+        return count > 0
+            ? $"{role} {icao} : {count} {label} enregistrées, MSFS inutile."
+            : $"{role} {icao} : aucune {label} enregistrée, le terrain se raccorde directement au réseau.";
+    }
+
     private void EnsureProceduresForRoute() => EnsureProcedures(IfrDepBox.Text, IfrArrBox.Text);
 
     /// <summary>La base de navigation vient d'être remplacée (nouveau fichier du SIA) : les procédures sont à remettre.</summary>
