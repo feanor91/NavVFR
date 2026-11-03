@@ -120,6 +120,7 @@ public partial class MainWindow
 
     private void IfrCompute_Click(object sender, RoutedEventArgs e)
     {
+        SetMode(FlightMode.Ifr);
         string dep = IfrDepBox.Text.Trim().ToUpperInvariant(), arr = IfrArrBox.Text.Trim().ToUpperInvariant();
         int? fl = null;
         if (IfrFlBox.Text.Trim().Length > 0)

@@ -34,6 +34,19 @@ public sealed class AppSettings
     public string VacDock { get; set; } = "right";
     /// <summary>Fichier AIXM du SIA (zip ou xml) chargé pour le calcul de route IFR ; vide = données de test.</summary>
     public string IfrDataPath { get; set; } = "";
+    /// <summary>Panneaux repliables du côté gauche : true = ouvert.</summary>
+    /// <summary>Appareil choisi pour chaque type de navigation (null = le premier de la liste).</summary>
+    public Guid? VfrAircraftId { get; set; }
+    public Guid? IfrAircraftId { get; set; }
+    /// <summary>Type de navigation dont l'appareil sert au log de navigation : vfr ou ifr.</summary>
+    public string ActiveMode { get; set; } = "vfr";
+    /// <summary>Altitude de croisière IFR en pieds (niveau de vol x 100).</summary>
+    public double IfrCruiseAltFt { get; set; }
+    /// <summary>Cercle de portée de l'appareil autour du point de départ.</summary>
+    public bool ShowRange { get; set; } = true;
+    public bool CommonPanelOpen { get; set; } = true;
+    public bool VfrPanelOpen { get; set; } = true;
+    public bool IfrPanelOpen { get; set; } = true;
     public List<Waypoint> Route { get; set; } = [];
 
     public static string DefaultPath => Path.Combine(
