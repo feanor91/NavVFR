@@ -19,7 +19,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 
 ### Préparer une route
 
-- **Route** : clic pour poser un point, glisser pour le déplacer, clic sur un point pour le retirer. Étiquette de chaque branche sur la carte : route magnétique et longueur.
+- **Route** : clic pour poser un point, glisser pour le déplacer, clic sur un point pour le retirer. Étiquette de chaque branche sur la carte (route magnétique et longueur) et nom de chaque point sous son cercle numéroté, y compris les points des SID et des STAR ; un nom disparaît quand la carte est trop éloignée pour qu'il reste lisible.
 - **Log de navigation** : routes vraie et magnétique, dérive, cap, vitesse sol, temps, carburant (vent supposé constant).
 - **Altitude par point** : colonne « Alt (ft) », ou glisser-déposer dans le profil (un point ; double-clic pour revenir à la croisière) ou du trait de croisière pour toute la route.
 - **Briefing de chaque point** : zones traversées à l'altitude du point, ce que chacune implique (survol, radio, clairance) et fréquences à contacter.

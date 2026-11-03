@@ -349,6 +349,29 @@ public partial class MainWindow : Window
         e.Handled = true;
     }
 
+    /// <summary>Longueur, en pixels, qu'il faut entre un point et son voisin le plus proche pour que son nom s'affiche (au-dessous, le nom recouvrirait le voisin).</summary>
+    private const double PointNameMinPx = 75;
+
+    /// <summary>Distance (unités de la carte) du point au point voisin le plus proche de la route ; infinie s'il est seul.</summary>
+    private static double NearestNeighbour(IReadOnlyList<(double x, double y)> pts, int i)
+    {
+        double best = double.MaxValue;
+        foreach (int j in new[] { i - 1, i + 1 })
+            if (j >= 0 && j < pts.Count) best = Math.Min(best, Math.Sqrt(Math.Pow(pts[i].x - pts[j].x, 2) + Math.Pow(pts[i].y - pts[j].y, 2)));
+        return best;
+    }
+
+    /// <summary>Nom du point sous son cercle numéroté ; masqué quand la carte est trop éloignée pour qu'il reste lisible.</summary>
+    private static LabelStyle PointNameLabel(string name, double neighbour) => new()
+    {
+        Text = name,
+        ForeColor = Color.FromArgb(255, 20, 30, 70),
+        BackColor = new Brush(Color.FromArgb(215, 255, 255, 255)),
+        Halo = new Pen(Color.White, 1.5),
+        Offset = new Offset(0, 24),
+        MaxVisible = neighbour == double.MaxValue ? double.MaxValue : neighbour / PointNameMinPx
+    };
+
     private void RefreshRoute()
     {
         var pts = _route.Select(w => SphericalMercator.FromLonLat(w.Lon, w.Lat)).ToList();
@@ -378,6 +401,7 @@ public partial class MainWindow : Window
                 Outline = new Pen(Color.White, 2)
             });
             f.Styles.Add(new LabelStyle { Text = (i + 1).ToString(), ForeColor = Color.White, BackColor = new Brush(Color.Transparent) });
+            if (!string.IsNullOrWhiteSpace(_route[i].Name)) f.Styles.Add(PointNameLabel(_route[i].Name, NearestNeighbour(pts, i)));
             markers.Add(f);
         }
         _waypointLayer.Features = markers;
