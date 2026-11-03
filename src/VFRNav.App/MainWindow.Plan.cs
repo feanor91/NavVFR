@@ -17,7 +17,6 @@ public partial class MainWindow
     {
         if (_route.Count < 2) { PlanStatus.Text = "Il faut au moins deux points pour calculer le plan de vol."; return; }
 
-        SetMode(FlightMode.Vfr);
         PlanButton.IsEnabled = false;
         PlanStatus.Text = "Calcul du plan de vol...";
         try
@@ -66,7 +65,7 @@ public partial class MainWindow
             // Graphique de l'onglet « Profil » et image pour la feuille.
             string? message = terrainNote ?? (_airspaces.Count == 0 ? "Zones non chargées (clé OpenAIP) : seul le relief est tracé." : null);
             ProfileView.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles, altitudes);
-            ProfileStatus.Text = message ?? $"{crossings.Count} passage(s) de zone · point le plus haut {(terrain?.MaxFt ?? 0):N0} ft · {obstacles.Count} obstacle(s) répertorié(s)";
+            ProfileStatus.Text = message ?? $"{crossings.Count} passage(s) de zone · point le plus haut {(terrain?.MaxFt ?? 0):N0} ft · {obstacles.Count} obstacle(s) répertorié(s)" + CruiseSummary();
             var snapshot = new ProfileChart();
             snapshot.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles, altitudes);
             var image = terrain is null ? null : ProfileChart.Snapshot(snapshot, 700, 270);

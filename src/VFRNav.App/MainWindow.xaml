@@ -78,6 +78,11 @@
                           ToolTip="Distance que l'appareil actif peut parcourir avec tout son carburant à sa vitesse de croisière, sans vent et sans réserve."/>
                 <TextBlock x:Name="RangeInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
 
+                <TextBlock Style="{StaticResource Header}" Text="PLAN DE VOL"/>
+                <Button x:Name="PlanButton" Content="Calculer le plan de vol et la feuille de route" Click="CalculatePlan_Click"
+                        Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                <TextBlock x:Name="PlanStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,8"/>
+
                 <TextBlock Style="{StaticResource Header}" Text="SIMULATEUR"/>
                 <TextBlock x:Name="SimStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Text="Suivi de l'avion : démarrage..."/>
                 <TextBlock x:Name="SimInfo" Foreground="#7FE3A0" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" Margin="0,4,0,0"/>
@@ -144,11 +149,7 @@
                 </DockPanel>
                 <TextBlock x:Name="VfrAircraftInfo" Foreground="#E8EEFC" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,0"/>
                 <TextBlock Style="{StaticResource Label}" Text="Croisière (ft)" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
-                <TextBox x:Name="VfrAltBox" TextChanged="Param_Changed" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
-
-                <Button x:Name="PlanButton" Content="Calculer le plan de vol et la feuille de route" Click="CalculatePlan_Click"
-                        Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
-                <TextBlock x:Name="PlanStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,8"/>
+                <TextBox x:Name="VfrAltBox" TextChanged="CruiseAlt_Changed" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
 
                 <TextBlock Style="{StaticResource Header}" Text="VÉRIFICATION DE LA ROUTE"/>
                 <TextBlock x:Name="LiveCheck" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap"/>
@@ -208,7 +209,7 @@
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="STAR"/>
                         <ComboBox x:Name="IfrStarBox"/></StackPanel>
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Croisière (FL)" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau. À partir du FL195, la route libre (tronçons directs) est autorisée."/>
-                        <TextBox x:Name="IfrFlBox" TextChanged="Param_Changed" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/></StackPanel>
+                        <TextBox x:Name="IfrFlBox" TextChanged="CruiseAlt_Changed" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/></StackPanel>
                 </UniformGrid>
                 <Button Content="Charger les données AIRAC (SIA)…" Click="IfrLoad_Click" Margin="0,8,0,0"
                         ToolTip="Export AIXM 4.5 gratuit de la boutique du SIA : export_xml_bd_SIA_aaaa-mm-jj.zip. Il contient les routes ATS mais pas les SID/STAR."/>
