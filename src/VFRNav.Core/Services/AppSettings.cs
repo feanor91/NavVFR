@@ -34,6 +34,10 @@ public sealed class AppSettings
     public string VacDock { get; set; } = "right";
     /// <summary>Fichier AIXM du SIA (zip ou xml) chargé pour le calcul de route IFR ; vide = données de test.</summary>
     public string IfrDataPath { get; set; } = "";
+    /// <summary>Panneaux repliables du côté gauche : true = ouvert.</summary>
+    public bool CommonPanelOpen { get; set; } = true;
+    public bool VfrPanelOpen { get; set; } = true;
+    public bool IfrPanelOpen { get; set; } = true;
     public List<Waypoint> Route { get; set; } = [];
 
     public static string DefaultPath => Path.Combine(

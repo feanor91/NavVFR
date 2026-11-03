@@ -103,6 +103,9 @@ public partial class MainWindow : Window
         NotamKeyBox.Password = _settings.NotamKey;
         SetNotamLocked(_settings.NotamKey.Length > 0);
         _vacVisible = _settings.VacVisible;
+        CommonPanel.IsExpanded = _settings.CommonPanelOpen;
+        VfrPanel.IsExpanded = _settings.VfrPanelOpen;
+        IfrPanel.IsExpanded = _settings.IfrPanelOpen;
         _loadingParams = false;
 
         foreach (var wp in _settings.Route) _route.Add(wp);
@@ -173,6 +176,9 @@ public partial class MainWindow : Window
         _settings.Filter = ReadFilter();
         _settings.AirspaceFilter = ReadAirspaceFilter();
         _settings.VacVisible = _vacVisible;
+        _settings.CommonPanelOpen = CommonPanel.IsExpanded;
+        _settings.VfrPanelOpen = VfrPanel.IsExpanded;
+        _settings.IfrPanelOpen = IfrPanel.IsExpanded;
         _settings.BaseMap = BaseMaps.Keys[Math.Max(BaseMapBox.SelectedIndex, 0)];
         _settings.TasKt = p.TasKt; _settings.BurnLph = p.BurnLph; _settings.CruiseAltFt = p.CruiseAltFt;
         _settings.VariationEast = p.VariationEast; _settings.WindDir = p.WindDir; _settings.WindKt = p.WindKt;

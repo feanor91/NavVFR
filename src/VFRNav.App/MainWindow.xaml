@@ -30,8 +30,14 @@
 
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" Padding="12">
             <StackPanel>
-                <TextBlock Text="VFRNav" Foreground="White" FontSize="26" FontWeight="Bold"/>
-
+            <Expander x:Name="CommonPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Commun" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="route, appareil, carte" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel Margin="4,2,0,0">
                 <TextBlock Style="{StaticResource Header}" Text="ROUTE"/>
                 <DataGrid x:Name="RouteGrid" SelectionChanged="RouteGrid_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
                           HeadersVisibility="Column" Height="190" CellEditEnding="RouteGrid_CellEditEnding"
@@ -61,7 +67,121 @@
                          TextChanged="WpNotes_Changed" LostFocus="WpNotes_LostFocus"
                          ToolTip="Consignes, repères visuels, fréquences... Elles apparaissent sur la feuille de route et au survol du point."/>
 
-                <TextBlock Style="{StaticResource Header}" Text="ROUTE IFR"/>
+                <TextBlock Style="{StaticResource Header}" Text="INFOS EN DIRECT"/>
+                <TextBlock x:Name="LiveInfo" Foreground="#E8EEFC" FontSize="11.5" TextWrapping="Wrap"
+                           Text="Pose un point sur la carte : ses informations s'affichent ici."/>
+
+                <TextBlock Style="{StaticResource Header}" Text="APPAREIL ET CONDITIONS"/>
+                <UniformGrid Columns="2">
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="TAS (kt)"/><TextBox x:Name="TasBox" TextChanged="Param_Changed"/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Conso (L/h)"/><TextBox x:Name="BurnBox" TextChanged="Param_Changed"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Croisière (ft)" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/><TextBox x:Name="AltBox" TextChanged="Param_Changed" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Déclinaison (°E +)"/><TextBox x:Name="VarBox" TextChanged="Param_Changed"/>
+                        <CheckBox x:Name="AutoVarCheck" Content="auto (départ)" Foreground="#A9C4EE" FontSize="10" Margin="0,2,0,0" IsChecked="True" Click="AutoVar_Click"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Vent dir (°)"/><TextBox x:Name="WdirBox" TextChanged="Param_Changed"/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Vent (kt)"/><TextBox x:Name="WspdBox" TextChanged="Param_Changed"/></StackPanel>
+                </UniformGrid>
+
+                <TextBlock Style="{StaticResource Header}" Text="SIMULATEUR"/>
+                <TextBlock x:Name="SimStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Text="Suivi de l'avion : démarrage..."/>
+                <TextBlock x:Name="SimInfo" Foreground="#7FE3A0" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                <CheckBox x:Name="FollowCheck" Content="Centrer la carte sur l'avion" Foreground="#E8EEFC" Margin="0,6,0,0" IsChecked="True"/>
+
+                <TextBlock Style="{StaticResource Header}" Text="FOND DE CARTE"/>
+                <ComboBox x:Name="BaseMapBox" SelectionChanged="BaseMap_Changed">
+                    <ComboBoxItem Content="Clair (Esri, sans clé)"/>
+                    <ComboBoxItem Content="CARTO Positron (clé CARTO)"/>
+                    <ComboBoxItem Content="CARTO Voyager (clé CARTO)"/>
+                    <ComboBoxItem Content="Relief (OpenTopoMap)"/>
+                    <ComboBoxItem Content="Rues (OpenStreetMap)"/>
+                </ComboBox>
+
+                <TextBlock Style="{StaticResource Header}" Text="BALISES"/>
+                <CheckBox x:Name="NavVorCheck" Content="VOR (losange violet)" Foreground="#E8EEFC" Click="NavFilter_Click"/>
+                <CheckBox x:Name="NavNdbCheck" Content="NDB / ADF (rond orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="NavFilter_Click"/>
+                <TextBlock x:Name="NavCount" Style="{StaticResource Label}"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Un clic sur une balise l'ajoute à la route."/>
+
+                <CheckBox x:Name="WxDotsCheck" Content="Pastilles météo (couleur = catégorie de vol)" Foreground="#E8EEFC" Margin="0,8,0,0" Click="WxDots_Click"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
+                           Text="Vert VFR · bleu MVFR · rouge IFR · violet LIFR · gris : pas de METAR. Contour doré : carte VAC disponible. Texte sous le code : visibilité."/>
+
+                <TextBlock Style="{StaticResource Header}" Text="DONNÉES"/>
+                <TextBlock Style="{StaticResource Label}" Text="Pays (code ISO)"/>
+                <TextBox x:Name="CountryBox" MaxLength="2"/>
+                <TextBlock Style="{StaticResource Label}" Text="Clé API OpenAIP (espaces aériens, optionnel)"/>
+                <DockPanel>
+                    <Button x:Name="KeyEditButton" DockPanel.Dock="Right" Content="Valider" Click="KeyEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
+                    <PasswordBox x:Name="KeyBox"/>
+                </DockPanel>
+                <TextBlock Style="{StaticResource Label}" Text="Clé CARTO (fond de carte CARTO, optionnel)"/>
+                <DockPanel>
+                    <Button x:Name="CartoEditButton" DockPanel.Dock="Right" Content="Valider" Click="CartoEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
+                    <PasswordBox x:Name="CartoKeyBox"/>
+                </DockPanel>
+                <TextBlock Style="{StaticResource Label}" Text="Clé ICAO API Data Service (NOTAM, optionnel)"/>
+                <DockPanel>
+                    <Button x:Name="NotamEditButton" DockPanel.Dock="Right" Content="Valider" Click="NotamEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
+                    <PasswordBox x:Name="NotamKeyBox"/>
+                </DockPanel>
+                <TextBlock Style="{StaticResource Label}" Text="Dossier StormATC (vide = détection automatique)"/>
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Content="…" Click="BrowseStorm_Click" Margin="6,0,0,0"/>
+                    <TextBox x:Name="StormBox"/>
+                </DockPanel>
+                <Button Content="Recharger" Click="Reload_Click" Margin="0,8,0,0"/>
+                <TextBlock x:Name="StatusText" Style="{StaticResource Label}" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Expander>
+            <Expander x:Name="VfrPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="VFRNav" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="vol à vue" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel Margin="4,2,0,0">
+                <Button x:Name="PlanButton" Content="Calculer le plan de vol et la feuille de route" Click="CalculatePlan_Click"
+                        Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                <TextBlock x:Name="PlanStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,8"/>
+
+                <TextBlock Style="{StaticResource Header}" Text="VÉRIFICATION DE LA ROUTE"/>
+                <TextBlock x:Name="LiveCheck" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap"/>
+
+                <TextBlock Style="{StaticResource Header}" Text="FILTRES TERRAINS"/>
+                <CheckBox x:Name="FWithCode" Content="Avec code (LFPL, LF3126…)" Foreground="#E8EEFC" Click="Filter_Click"/>
+                <CheckBox x:Name="FWithoutCode" Content="Sans code (FR-xxxx)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
+                <CheckBox x:Name="FVacOnly" Content="Seulement avec carte VAC" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
+                <WrapPanel Margin="0,6,0,0">
+                    <CheckBox x:Name="FLarge" Content="Grands" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
+                    <CheckBox x:Name="FMedium" Content="Moyens" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
+                    <CheckBox x:Name="FSmall" Content="Petits" Foreground="#E8EEFC" Click="Filter_Click"/>
+                </WrapPanel>
+                <TextBlock x:Name="FilterCount" Style="{StaticResource Label}"/>
+
+                <CheckBox x:Name="ZoneHelpCheck" Content="Aide des zones en bas de la carte" Foreground="#E8EEFC" Margin="0,8,0,0" Click="ZoneHelp_Click"/>
+
+                <TextBlock Style="{StaticResource Header}" Text="FILTRES ESPACES AÉRIENS"/>
+                <CheckBox x:Name="ARestricted" Content="Zones R / D / P / TSA (rouge)" Foreground="#E8EEFC" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="AControlled" Content="CTR / TMA / CTA (bleu)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="ARadio" Content="RMZ / TMZ / ATZ (violet)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="ALeisure" Content="Planeur / ULM / parachutage (orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="ASectors" Content="FIR / secteurs FIS / autres (gris)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <DockPanel Margin="0,6,0,0">
+                    <TextBox x:Name="AFloorBox" DockPanel.Dock="Right" Width="64" TextChanged="AirspaceFloor_Changed"/>
+                    <CheckBox x:Name="AFloorCheck" Content="Masquer si plancher &gt; (ft)" Foreground="#E8EEFC" VerticalAlignment="Center" Click="AirspaceFloor_Changed"/>
+                </DockPanel>
+                <TextBlock x:Name="AirspaceCount" Style="{StaticResource Label}"/>
+                </StackPanel>
+            </Expander>
+            <Expander x:Name="IfrPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="IFRNav" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="vol aux instruments" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel Margin="4,2,0,0">
                 <TextBlock x:Name="IfrDataLabel" Foreground="#FFD479" FontSize="10.5" TextWrapping="Wrap" Margin="0,0,0,2"/>
                 <UniformGrid Columns="2">
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Départ (OACI)"/>
@@ -90,101 +210,8 @@
                 <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,0,0,4"
                         ToolTip="Cherche le plus court chemin SID, routes ATS, STAR et remplace la route par le résultat."/>
                 <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="INFOS EN DIRECT"/>
-                <TextBlock x:Name="LiveInfo" Foreground="#E8EEFC" FontSize="11.5" TextWrapping="Wrap"
-                           Text="Pose un point sur la carte : ses informations s'affichent ici."/>
-                <TextBlock Style="{StaticResource Header}" Text="VÉRIFICATION DE LA ROUTE"/>
-                <TextBlock x:Name="LiveCheck" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="APPAREIL ET CONDITIONS"/>
-                <UniformGrid Columns="2">
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="TAS (kt)"/><TextBox x:Name="TasBox" TextChanged="Param_Changed"/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Conso (L/h)"/><TextBox x:Name="BurnBox" TextChanged="Param_Changed"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Croisière (ft)" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/><TextBox x:Name="AltBox" TextChanged="Param_Changed" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Déclinaison (°E +)"/><TextBox x:Name="VarBox" TextChanged="Param_Changed"/>
-                        <CheckBox x:Name="AutoVarCheck" Content="auto (départ)" Foreground="#A9C4EE" FontSize="10" Margin="0,2,0,0" IsChecked="True" Click="AutoVar_Click"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Vent dir (°)"/><TextBox x:Name="WdirBox" TextChanged="Param_Changed"/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Vent (kt)"/><TextBox x:Name="WspdBox" TextChanged="Param_Changed"/></StackPanel>
-                </UniformGrid>
-
-                <TextBlock Style="{StaticResource Header}" Text="EXPORT MSFS"/>
-                <Button x:Name="PlanButton" Content="Calculer le plan de vol et la feuille de route" Click="CalculatePlan_Click"
-                        Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
-                <TextBlock x:Name="PlanStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,8"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="SIMULATEUR"/>
-                <TextBlock x:Name="SimStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Text="Suivi de l'avion : démarrage..."/>
-                <TextBlock x:Name="SimInfo" Foreground="#7FE3A0" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" Margin="0,4,0,0"/>
-                <CheckBox x:Name="FollowCheck" Content="Centrer la carte sur l'avion" Foreground="#E8EEFC" Margin="0,6,0,0" IsChecked="True"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="FOND DE CARTE"/>
-                <ComboBox x:Name="BaseMapBox" SelectionChanged="BaseMap_Changed">
-                    <ComboBoxItem Content="Clair (Esri, sans clé)"/>
-                    <ComboBoxItem Content="CARTO Positron (clé CARTO)"/>
-                    <ComboBoxItem Content="CARTO Voyager (clé CARTO)"/>
-                    <ComboBoxItem Content="Relief (OpenTopoMap)"/>
-                    <ComboBoxItem Content="Rues (OpenStreetMap)"/>
-                </ComboBox>
-
-                <TextBlock Style="{StaticResource Header}" Text="FILTRES TERRAINS"/>
-                <CheckBox x:Name="FWithCode" Content="Avec code (LFPL, LF3126…)" Foreground="#E8EEFC" Click="Filter_Click"/>
-                <CheckBox x:Name="FWithoutCode" Content="Sans code (FR-xxxx)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
-                <CheckBox x:Name="FVacOnly" Content="Seulement avec carte VAC" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
-                <WrapPanel Margin="0,6,0,0">
-                    <CheckBox x:Name="FLarge" Content="Grands" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
-                    <CheckBox x:Name="FMedium" Content="Moyens" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
-                    <CheckBox x:Name="FSmall" Content="Petits" Foreground="#E8EEFC" Click="Filter_Click"/>
-                </WrapPanel>
-                <TextBlock x:Name="FilterCount" Style="{StaticResource Label}"/>
-                <TextBlock Style="{StaticResource Header}" Text="BALISES"/>
-                <CheckBox x:Name="NavVorCheck" Content="VOR (losange violet)" Foreground="#E8EEFC" Click="NavFilter_Click"/>
-                <CheckBox x:Name="NavNdbCheck" Content="NDB / ADF (rond orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="NavFilter_Click"/>
-                <TextBlock x:Name="NavCount" Style="{StaticResource Label}"/>
-                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Un clic sur une balise l'ajoute à la route."/>
-
-                <CheckBox x:Name="WxDotsCheck" Content="Pastilles météo (couleur = catégorie de vol)" Foreground="#E8EEFC" Margin="0,8,0,0" Click="WxDots_Click"/>
-                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
-                           Text="Vert VFR · bleu MVFR · rouge IFR · violet LIFR · gris : pas de METAR. Contour doré : carte VAC disponible. Texte sous le code : visibilité."/>
-                <CheckBox x:Name="ZoneHelpCheck" Content="Aide des zones en bas de la carte" Foreground="#E8EEFC" Margin="0,8,0,0" Click="ZoneHelp_Click"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="FILTRES ESPACES AÉRIENS"/>
-                <CheckBox x:Name="ARestricted" Content="Zones R / D / P / TSA (rouge)" Foreground="#E8EEFC" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="AControlled" Content="CTR / TMA / CTA (bleu)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="ARadio" Content="RMZ / TMZ / ATZ (violet)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="ALeisure" Content="Planeur / ULM / parachutage (orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="ASectors" Content="FIR / secteurs FIS / autres (gris)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <DockPanel Margin="0,6,0,0">
-                    <TextBox x:Name="AFloorBox" DockPanel.Dock="Right" Width="64" TextChanged="AirspaceFloor_Changed"/>
-                    <CheckBox x:Name="AFloorCheck" Content="Masquer si plancher &gt; (ft)" Foreground="#E8EEFC" VerticalAlignment="Center" Click="AirspaceFloor_Changed"/>
-                </DockPanel>
-                <TextBlock x:Name="AirspaceCount" Style="{StaticResource Label}"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="DONNÉES"/>
-                <TextBlock Style="{StaticResource Label}" Text="Pays (code ISO)"/>
-                <TextBox x:Name="CountryBox" MaxLength="2"/>
-                <TextBlock Style="{StaticResource Label}" Text="Clé API OpenAIP (espaces aériens, optionnel)"/>
-                <DockPanel>
-                    <Button x:Name="KeyEditButton" DockPanel.Dock="Right" Content="Valider" Click="KeyEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
-                    <PasswordBox x:Name="KeyBox"/>
-                </DockPanel>
-                <TextBlock Style="{StaticResource Label}" Text="Clé CARTO (fond de carte CARTO, optionnel)"/>
-                <DockPanel>
-                    <Button x:Name="CartoEditButton" DockPanel.Dock="Right" Content="Valider" Click="CartoEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
-                    <PasswordBox x:Name="CartoKeyBox"/>
-                </DockPanel>
-                <TextBlock Style="{StaticResource Label}" Text="Clé ICAO API Data Service (NOTAM, optionnel)"/>
-                <DockPanel>
-                    <Button x:Name="NotamEditButton" DockPanel.Dock="Right" Content="Valider" Click="NotamEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
-                    <PasswordBox x:Name="NotamKeyBox"/>
-                </DockPanel>
-                <TextBlock Style="{StaticResource Label}" Text="Dossier StormATC (vide = détection automatique)"/>
-                <DockPanel>
-                    <Button DockPanel.Dock="Right" Content="…" Click="BrowseStorm_Click" Margin="6,0,0,0"/>
-                    <TextBox x:Name="StormBox"/>
-                </DockPanel>
-                <Button Content="Recharger" Click="Reload_Click" Margin="0,8,0,0"/>
-                <TextBlock x:Name="StatusText" Style="{StaticResource Label}" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Expander>
             </StackPanel>
         </ScrollViewer>
 
