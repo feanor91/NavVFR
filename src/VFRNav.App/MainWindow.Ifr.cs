@@ -51,6 +51,18 @@ public partial class MainWindow
                             ProceduresNote() + NetworkNote();
     }
 
+    /// <summary>
+    /// Un terrain connu de la carte mais absent des données IFR est hors de France (le SIA ne couvre que la France) :
+    /// il faut le réseau mondial lu dans MSFS. Le dire évite de croire à une faute de saisie.
+    /// </summary>
+    private string MissingDataHint(string dep, string arr)
+    {
+        var missing = new[] { dep, arr }.Distinct().Where(c => _ifrData.Find(c) is null && _airports.Any(a => a.Ident == c)).ToList();
+        if (missing.Count == 0) return "";
+        return $"\n{string.Join(" et ", missing)} existe sur la carte, mais les données IFR n'en contiennent pas : l'export du SIA ne couvre que la France. " +
+               "Pour voler hors de France, enregistrez une fois les SID/STAR et les routes ATS du monde avec MSFS lancé (boutons de lecture MSFS, dans les données IFR) ; ensuite MSFS n'est plus nécessaire.";
+    }
+
     private async void IfrLoad_Click(object sender, RoutedEventArgs e)
     {
         var dlg = new OpenFileDialog { Filter = "Export AIXM du SIA (*.zip;*.xml)|*.zip;*.xml", Title = "export_xml_bd_SIA_….zip" };
@@ -185,7 +197,7 @@ public partial class MainWindow
         if (result.Route is not { } ifr)
         {
             IfrStatus.Foreground = System.Windows.Media.Brushes.Gold;
-            IfrStatus.Text = result.Error;
+            IfrStatus.Text = result.Error + MissingDataHint(dep, arr);
             return;
         }
 
