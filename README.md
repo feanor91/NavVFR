@@ -73,6 +73,7 @@ Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du pl
 | Terrains du monde (OurAirports) | `%AppData%\VFRNav\airports\` |
 | SID/STAR du monde | `%AppData%\VFRNav\procedures\` : un fichier `.json.gz` par terrain et un `index.json` |
 | Routes ATS hors de France | `%AppData%\VFRNav\network\world-network.bin.gz` |
+| Tuiles de nuages déjà téléchargées (cache, supprimable) | `%LocalAppData%\VFRNav\cache\clouds\` : un dossier par couche et par créneau de 15 minutes |
 | Données du SIA | ton propre fichier `export_xml_bd_SIA_….zip` : MSFS Rhumb n'en garde que le chemin |
 
 Les données lues dans MSFS viennent de sa base de navigation : elles ne sont **pas dans le dépôt** (`data/` est ignoré) ni dans les releases. MSFS Rhumb les cherche aussi à côté de son exécutable (`data\procedures`, `data\network`) : un installeur construit sur une machine qui les a les emporte. Sur un autre PC, copier les dossiers ci-dessus ou relancer les lectures, MSFS lancé. Le fichier du SIA et les cartes VAC (© SIA) sont sous licence et ne sont pas inclus.

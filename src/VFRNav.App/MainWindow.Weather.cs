@@ -19,15 +19,16 @@ public partial class MainWindow
     /// <summary>Images de l'animation du radar : les 4 dernières, soit 30 minutes (une image toutes les 10 minutes).</summary>
     private const int RadarAnimationFrames = 4;
 
-    /// <summary>Les images satellite sortent toutes les 10 minutes : inutile de les redemander plus souvent.</summary>
-    private static readonly TimeSpan CloudRefresh = TimeSpan.FromMinutes(9);
+    /// <summary>Le satellite publie toutes les 10 à 15 minutes : une couche de nuages n'est renouvelée que quand le créneau de 15 minutes a changé.</summary>
+    private long _coverSlot, _topsSlot;
+
+    /// <summary>Au plus tard au bout de ce délai, l'ancienne couche de nuages est retirée même si la nouvelle n'a pas fini de charger.</summary>
+    private static readonly TimeSpan CloudSwapTimeout = TimeSpan.FromSeconds(30);
 
     private readonly List<ILayer> _radarLayers = [];
     private IReadOnlyList<RadarFrame> _radarFrames = [];
     private ILayer? _coverLayer;
     private ILayer? _topsLayer;
-    private DateTimeOffset _coverBuiltAt;
-    private DateTimeOffset _topsBuiltAt;
     private TimeSpan _radarAge;
     private string? _radarProblem;
     private bool _weatherLayersReady;
@@ -260,17 +261,51 @@ public partial class MainWindow
         }
 
         var existing = cover ? _coverLayer : _topsLayer;
-        var builtAt = cover ? _coverBuiltAt : _topsBuiltAt;
-        if (existing is not null && DateTimeOffset.UtcNow - builtAt < CloudRefresh) return;
+        long builtSlot = cover ? _coverSlot : _topsSlot;
+        if (existing is not null && builtSlot == CloudTileSource.CurrentSlot) return;
 
         ILayer aboveClouds = _radarLayers.Count > 0 ? _radarLayers[0] : _sigmetLayer;
-        var layer = new TileLayer(new CloudTileSource(kind))
+        var source = new CloudTileSource(kind);
+        var layer = new TileLayer(source)
         {
             Name = cover ? Loc.Get("Weather_Couverture_nuageuse") : Loc.Get("Weather_Sommets_de_nuages"),
             Opacity = cover ? CloudCoverOpacitySlider.Value : CloudTopsOpacitySlider.Value,
         };
-        if (cover) { SetWeatherLayer(ref _coverLayer, layer, _topsLayer ?? aboveClouds); _coverBuiltAt = DateTimeOffset.UtcNow; }
-        else { SetWeatherLayer(ref _topsLayer, layer, aboveClouds); _topsBuiltAt = DateTimeOffset.UtcNow; }
+        if (cover) { SwapCloudLayer(ref _coverLayer, layer, _topsLayer ?? aboveClouds); _coverSlot = source.Slot; }
+        else { SwapCloudLayer(ref _topsLayer, layer, aboveClouds); _topsSlot = source.Slot; }
+    }
+
+    /// <summary>
+    /// Remplace une couche de nuages par une plus récente sans écran vide : l'ancienne reste affichée jusqu'à ce que la nouvelle ait fini de charger
+    /// (ou au bout de <see cref="CloudSwapTimeout"/>), au lieu d'être retirée tout de suite.
+    /// </summary>
+    private void SwapCloudLayer(ref ILayer? slot, ILayer layer, ILayer anchor)
+    {
+        var old = slot;
+        var layers = MapControl.Map.Layers;
+        int index = layers.ToList().IndexOf(anchor);
+        layers.Insert(index < 0 ? layers.Count() : index, layer);
+        slot = layer;
+        if (old is null) return;
+
+        bool removed = false;
+        void RemoveOld()
+        {
+            if (removed) return;
+            removed = true;
+            layer.DataChanged -= OnChanged;
+            MapControl.Map.Layers.Remove(old);
+            (old as IDisposable)?.Dispose();
+            MapControl.Refresh();
+        }
+        void OnChanged(object? sender, Mapsui.Fetcher.DataChangedEventArgs e)
+        {
+            if (!layer.Busy) Dispatcher.BeginInvoke(RemoveOld);
+        }
+        layer.DataChanged += OnChanged;
+        var timeout = new System.Windows.Threading.DispatcherTimer { Interval = CloudSwapTimeout };
+        timeout.Tick += (_, _) => { timeout.Stop(); RemoveOld(); };
+        timeout.Start();
     }
 
     /// <summary>Remplace la couche d'un emplacement (la retire si <paramref name="layer"/> est nul) en la plaçant juste avant <paramref name="anchor"/>.</summary>
