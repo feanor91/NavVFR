@@ -68,8 +68,7 @@
   <data name="AircraftWindow_Reserve_min_facultatif" xml:space="preserve"><value>Réserve (min, facultatif)</value></data>
   <data name="AircraftWindow_Sert_a_calculer_l_autonomie" xml:space="preserve"><value>Sert à calculer l'autonomie et la portée.</value></data>
   <data name="AircraftWindow_Sert_au_profil_les_points" xml:space="preserve"><value>Sert au profil : les points sans altitude montent à cette pente. Vide = valeur usuelle de la catégorie.</value></data>
-  <data name="AircraftWindow_Supprimer_Cette_suppression_est_definitive" xml:space="preserve"><value>Supprimer « {0} » ?
-Cette suppression est définitive (les appareils par défaut peuvent être remis).</value></data>
+  <data name="AircraftWindow_Supprimer_Cette_suppression_est_definitive" xml:space="preserve"><value>Supprimer « {0} » ?&#10;Cette suppression est définitive (les appareils par défaut peuvent être remis).</value></data>
   <data name="AircraftWindow_Turbopropulseur" xml:space="preserve"><value>Turbopropulseur</value></data>
   <data name="AircraftWindow_Un_appareil_VFR_et_IFR" xml:space="preserve"><value>Un appareil VFR et IFR est proposé dans les deux panneaux.</value></data>
   <data name="AircraftWindow_Vitesse_de_croisiere_kt" xml:space="preserve"><value>Vitesse de croisière (kt)</value></data>
@@ -92,13 +91,10 @@ Cette suppression est définitive (les appareils par défaut peuvent être remis
   <data name="Aircraft_La_reserve_ne_peut_pas" xml:space="preserve"><value>La réserve ne peut pas être négative.</value></data>
   <data name="Aircraft_La_vitesse_de_croisiere_doit" xml:space="preserve"><value>La vitesse de croisière doit être positive.</value></data>
   <data name="Aircraft_La_vitesse_maximale_ne_peut" xml:space="preserve"><value>La vitesse maximale ne peut pas être inférieure à la vitesse de croisière.</value></data>
-  <data name="Aircraft_La_zone_affichee_est_dans" xml:space="preserve"><value>
-La zone affichée est dans la réserve : au-delà de la portée utile, mais dans la portée tout carburant.</value></data>
-  <data name="Aircraft_La_zone_affichee_est_hors" xml:space="preserve"><value>
-La zone affichée est hors de portée, même avec tout le carburant.</value></data>
+  <data name="Aircraft_La_zone_affichee_est_dans" xml:space="preserve"><value>&#10;La zone affichée est dans la réserve : au-delà de la portée utile, mais dans la portée tout carburant.</value></data>
+  <data name="Aircraft_La_zone_affichee_est_hors" xml:space="preserve"><value>&#10;La zone affichée est hors de portée, même avec tout le carburant.</value></data>
   <data name="Aircraft_Le_carburant_utilisable_doit_etre" xml:space="preserve"><value>Le carburant utilisable doit être positif.</value></data>
-  <data name="Aircraft_Le_cercle_enferme_un_pole" xml:space="preserve"><value>
-Le cercle enferme un pôle : sur la carte, la zone grisée est hors de portée</value></data>
+  <data name="Aircraft_Le_cercle_enferme_un_pole" xml:space="preserve"><value>&#10;Le cercle enferme un pôle : sur la carte, la zone grisée est hors de portée</value></data>
   <data name="Aircraft_Le_nom_est_obligatoire" xml:space="preserve"><value>Le nom est obligatoire.</value></data>
   <data name="Aircraft_Le_plafond_ne_peut_pas" xml:space="preserve"><value>Le plafond ne peut pas être inférieur à l'altitude de croisière.</value></data>
   <data name="Aircraft_Le_taux_de_descente_doit" xml:space="preserve"><value>Le taux de descente doit être positif.</value></data>
@@ -107,14 +103,11 @@ Le cercle enferme un pôle : sur la carte, la zone grisée est hors de portée</
   <data name="Aircraft_Portee_utile_NM_reserve_min" xml:space="preserve"><value>Portée utile {0:N0} NM (réserve {1:0} min) · {2}</value></data>
   <data name="Aircraft_Portee_utile_NM_reserve_min_2" xml:space="preserve"><value>Portée utile {0:N0} NM (réserve {1:0} min), tout le carburant {2:N0} NM, autour de {3}. Sans vent.</value></data>
   <data name="Aircraft_Tout_le_carburant_NM" xml:space="preserve"><value>Tout le carburant : {0:N0} NM</value></data>
-  <data name="Aircraft_Toute_la_zone_affichee_est" xml:space="preserve"><value>
-Toute la zone affichée est dans la portée utile : dézoome pour voir le cercle.</value></data>
+  <data name="Aircraft_Toute_la_zone_affichee_est" xml:space="preserve"><value>&#10;Toute la zone affichée est dans la portée utile : dézoome pour voir le cercle.</value></data>
   <data name="Aircraft_croisiere" xml:space="preserve"><value> · croisière {0} · {1}</value></data>
-  <data name="Aircraft_kt_L_h_L_Autonomie" xml:space="preserve"><value>{0:0} kt · {1:0.#} L/h · {2:N0} L
-Autonomie {3} · portée utile {4:N0} NM</value></data>
+  <data name="Aircraft_kt_L_h_L_Autonomie" xml:space="preserve"><value>{0:0} kt · {1:0.#} L/h · {2:N0} L&#10;Autonomie {3} · portée utile {4:N0} NM</value></data>
   <data name="Aircraft_la_bande_orange_est_la" xml:space="preserve"><value>, la bande orange est la réserve.</value></data>
-  <data name="Aircraft_utilise_pour_le_log_de" xml:space="preserve"><value>
-▶ utilisé pour le log de navigation</value></data>
+  <data name="Aircraft_utilise_pour_le_log_de" xml:space="preserve"><value>&#10;▶ utilisé pour le log de navigation</value></data>
   <data name="AirportDataStore_Pistes_indisponibles_les_filtres_de" xml:space="preserve"><value>Pistes indisponibles : les filtres de longueur et de revêtement ne retiennent aucun terrain.</value></data>
   <data name="AirportDataStore_Telechargement_impossible_terrains_du_garde" xml:space="preserve"><value>Téléchargement impossible ({0}) : terrains du {1:dd/MM/yyyy} gardés en cache.</value></data>
   <data name="AirspaceGuide_ADIZ_zone_ou_les_aeronefs" xml:space="preserve"><value>ADIZ : zone où les aéronefs doivent être identifiés avant d'y entrer.</value></data>
@@ -226,8 +219,7 @@ Autonomie {3} · portée utile {4:N0} NM</value></data>
   <data name="FlightSheetBuilder_Alerte" xml:space="preserve"><value>Alerte</value></data>
   <data name="FlightSheetBuilder_Altitude_de_croisiere" xml:space="preserve"><value>Altitude de croisière</value></data>
   <data name="FlightSheetBuilder_Altitude_de_croisiere_ft_soit" xml:space="preserve"><value>Altitude de croisière : {0} ft, soit une marge de {1} ft au-dessus du point le plus haut.</value></data>
-  <data name="FlightSheetBuilder_Altitude_prevue" xml:space="preserve"><value>Altitude
-prévue</value></data>
+  <data name="FlightSheetBuilder_Altitude_prevue" xml:space="preserve"><value>Altitude&#10;prévue</value></data>
   <data name="FlightSheetBuilder_Aucun_METAR_ni_TAF_pour" xml:space="preserve"><value>Aucun METAR ni TAF pour ce terrain.</value></data>
   <data name="FlightSheetBuilder_Aucun_SIGMET_en_vigueur_pendant" xml:space="preserve"><value>Aucun SIGMET en vigueur pendant le vol ne traverse la route ({0} SIGMET actifs dans le monde à la consultation).</value></data>
   <data name="FlightSheetBuilder_Aucun_mat_tour_cheminee_ni" xml:space="preserve"><value>Aucun mât, tour, cheminée ni éolienne répertoriés dans le couloir (ou données non chargées).</value></data>
@@ -237,8 +229,7 @@ prévue</value></data>
   <data name="FlightSheetBuilder_Aucune_zone_connue_sur_la" xml:space="preserve"><value>Aucune zone connue sur la route à ton altitude (ou zones non chargées : saisis une clé OpenAIP).</value></data>
   <data name="FlightSheetBuilder_Avec_reserve_30_min_indicatif" xml:space="preserve"><value>Avec réserve 30 min (indicatif)</value></data>
   <data name="FlightSheetBuilder_Balises_VOR_et_NDB_ADF" xml:space="preserve"><value>Balises VOR et NDB (ADF) à moins de 15 NM de la route</value></data>
-  <data name="FlightSheetBuilder_Carb_L" xml:space="preserve"><value>Carb
-L</value></data>
+  <data name="FlightSheetBuilder_Carb_L" xml:space="preserve"><value>Carb&#10;L</value></data>
   <data name="FlightSheetBuilder_Carburant_en_croisiere" xml:space="preserve"><value>Carburant en croisière</value></data>
   <data name="FlightSheetBuilder_Carte_VAC_disponible" xml:space="preserve"><value>Carte VAC disponible</value></data>
   <data name="FlightSheetBuilder_Carte_VAC_publiee_absente_du" xml:space="preserve"><value>Carte VAC publiée (absente du dossier)</value></data>
@@ -252,15 +243,12 @@ L</value></data>
   <data name="FlightSheetBuilder_Declinaison_E" xml:space="preserve"><value>Déclinaison {0}° E</value></data>
   <data name="FlightSheetBuilder_Declinaison_magnetique" xml:space="preserve"><value>Déclinaison magnétique</value></data>
   <data name="FlightSheetBuilder_Depuis_le_terrain_d_arrivee" xml:space="preserve"><value>Depuis le terrain d'arrivée (dernier point de la route), même vent et même vitesse que le log de navigation. Vérifie la météo et les NOTAM de ces terrains.</value></data>
-  <data name="FlightSheetBuilder_Dist_NM" xml:space="preserve"><value>Dist
-NM</value></data>
+  <data name="FlightSheetBuilder_Dist_NM" xml:space="preserve"><value>Dist&#10;NM</value></data>
   <data name="FlightSheetBuilder_Distance" xml:space="preserve"><value>Distance</value></data>
   <data name="FlightSheetBuilder_Document_de_preparation_pour_la" xml:space="preserve"><value>Document de préparation pour la simulation de vol. Il ne remplace ni l'AIP, ni les NOTAM, ni la météo officielle : </value></data>
   <data name="FlightSheetBuilder_Donnees_collaboratives_incompletes_les_li" xml:space="preserve"><value>Données collaboratives, incomplètes : les lignes électriques, les câbles et beaucoup d'ouvrages n'y figurent pas. </value></data>
-  <data name="FlightSheetBuilder_Ecart_NM" xml:space="preserve"><value>Écart
-NM</value></data>
-  <data name="FlightSheetBuilder_Ecart_route_NM" xml:space="preserve"><value>Écart route
-NM</value></data>
+  <data name="FlightSheetBuilder_Ecart_NM" xml:space="preserve"><value>Écart&#10;NM</value></data>
+  <data name="FlightSheetBuilder_Ecart_route_NM" xml:space="preserve"><value>Écart route&#10;NM</value></data>
   <data name="FlightSheetBuilder_Elev" xml:space="preserve"><value>Élév.</value></data>
   <data name="FlightSheetBuilder_Elevation_ft" xml:space="preserve"><value>Élévation {0} ft</value></data>
   <data name="FlightSheetBuilder_Elevation_ft_aucune_fiche_d" xml:space="preserve"><value>Élévation {0} ft (aucune fiche d'aérodrome pour ce terrain)</value></data>
@@ -275,10 +263,8 @@ NM</value></data>
   <data name="FlightSheetBuilder_Frequences_a_contacter" xml:space="preserve"><value>Fréquences à contacter : </value></data>
   <data name="FlightSheetBuilder_Garde_une_marge_confortable_au" xml:space="preserve"><value>Garde une marge confortable au-dessus du point le plus haut ; 1 000 ft est une valeur indicative.</value></data>
   <data name="FlightSheetBuilder_Hauteur" xml:space="preserve"><value>Hauteur</value></data>
-  <data name="FlightSheetBuilder_Heure_prevue" xml:space="preserve"><value>Heure
-prévue</value></data>
-  <data name="FlightSheetBuilder_Heure_reelle" xml:space="preserve"><value>Heure
-réelle</value></data>
+  <data name="FlightSheetBuilder_Heure_prevue" xml:space="preserve"><value>Heure&#10;prévue</value></data>
+  <data name="FlightSheetBuilder_Heure_reelle" xml:space="preserve"><value>Heure&#10;réelle</value></data>
   <data name="FlightSheetBuilder_L_absence_d_un_obstacle" xml:space="preserve"><value>L'absence d'un obstacle ici ne prouve pas qu'il n'existe pas.</value></data>
   <data name="FlightSheetBuilder_Le_carburant_est_calcule_avec" xml:space="preserve"><value>Le carburant est calculé avec la vitesse propre et la consommation saisies dans MSFS Rhumb, pas avec celles de ton avion : </value></data>
   <data name="FlightSheetBuilder_Le_relief_vient_d_un" xml:space="preserve"><value>Le relief vient d'un modèle numérique d'environ 90 m : il ne montre ni pylônes, ni antennes, ni autres obstacles. </value></data>
@@ -286,10 +272,8 @@ réelle</value></data>
   <data name="FlightSheetBuilder_Limites" xml:space="preserve"><value>Limites</value></data>
   <data name="FlightSheetBuilder_Marge_inferieure_a_1_000" xml:space="preserve"><value>Marge inférieure à 1 000 ft</value></data>
   <data name="FlightSheetBuilder_Marge_sous_la_croisiere" xml:space="preserve"><value>Marge sous la croisière</value></data>
-  <data name="FlightSheetBuilder_Marge_sous_la_croisiere_2" xml:space="preserve"><value>Marge sous
-la croisière</value></data>
-  <data name="FlightSheetBuilder_NM_depart" xml:space="preserve"><value>NM
-départ</value></data>
+  <data name="FlightSheetBuilder_Marge_sous_la_croisiere_2" xml:space="preserve"><value>Marge sous&#10;la croisière</value></data>
+  <data name="FlightSheetBuilder_NM_depart" xml:space="preserve"><value>NM&#10;départ</value></data>
   <data name="FlightSheetBuilder_Navigation" xml:space="preserve"><value>Navigation</value></data>
   <data name="FlightSheetBuilder_Niveaux" xml:space="preserve"><value>Niveaux</value></data>
   <data name="FlightSheetBuilder_Non_inclus_dans_ce_document" xml:space="preserve"><value>Non inclus dans ce document. Avant un vol réel, consulte les NOTAM sur SOFIA-Briefing (SIA)</value></data>
@@ -315,8 +299,7 @@ départ</value></data>
   <data name="FlightSheetBuilder_SIGMET_consultes_le_UTC_aviationweather" xml:space="preserve"><value>SIGMET consultés le {0} UTC (aviationweather.gov). </value></data>
   <data name="FlightSheetBuilder_SIGMET_non_verifies" xml:space="preserve"><value>SIGMET non vérifiés.</value></data>
   <data name="FlightSheetBuilder_SIGMET_sur_la_route" xml:space="preserve"><value>SIGMET sur la route</value></data>
-  <data name="FlightSheetBuilder_Sommet_altitude" xml:space="preserve"><value>Sommet
-(altitude)</value></data>
+  <data name="FlightSheetBuilder_Sommet_altitude" xml:space="preserve"><value>Sommet&#10;(altitude)</value></data>
   <data name="FlightSheetBuilder_Sommet_le_plus_haut_ft" xml:space="preserve"><value> Sommet le plus haut : {0} ft.</value></data>
   <data name="FlightSheetBuilder_Sources" xml:space="preserve"><value>Sources</value></data>
   <data name="FlightSheetBuilder_Survol_autorisations_et_frequences_par" xml:space="preserve"><value>Survol, autorisations et fréquences par point</value></data>
@@ -602,54 +585,38 @@ départ</value></data>
   <data name="IfrNetwork_Elle_prend_de_quelques_minutes" xml:space="preserve"><value>Elle prend de quelques minutes à une heure ; MSFS doit rester lancé. La France reste celle du SIA.</value></data>
   <data name="IfrNetwork_Enregistrez_d_abord_les_SID" xml:space="preserve"><value>Enregistrez d'abord les SID/STAR du monde : leurs points servent de départ à l'exploration des routes.</value></data>
   <data name="IfrNetwork_Exploration_des_routes_dans_MSFS" xml:space="preserve"><value>Exploration des routes dans MSFS... {0} points lus, {1} à lire, {2} tronçons</value></data>
-  <data name="IfrNetwork_L_exploration_part_des_points" xml:space="preserve"><value>
-
-L'exploration part des points des SID/STAR enregistrées et suit les routes de proche en proche. </value></data>
+  <data name="IfrNetwork_L_exploration_part_des_points" xml:space="preserve"><value>&#10;&#10;L'exploration part des points des SID/STAR enregistrées et suit les routes de proche en proche. </value></data>
   <data name="IfrNetwork_Le_reseau_enregistre_troncons_a" xml:space="preserve"><value>Le réseau enregistré ({0} tronçons) a déjà été lu dans {1} le {2:dd/MM/yyyy}. Cette version de MSFS n'a pas changé.</value></data>
   <data name="IfrNetwork_Lecture_arretee_rien_n_est" xml:space="preserve"><value>Lecture arrêtée : rien n'est enregistré (un réseau à moitié lu ferait de fausses routes).</value></data>
   <data name="IfrNetwork_Lecture_interrompue" xml:space="preserve"><value>Lecture interrompue : </value></data>
   <data name="IfrNetwork_Lire_dans_les_routes_ATS" xml:space="preserve"><value>Lire dans {0} les routes ATS hors de France ?</value></data>
   <data name="IfrNetwork_MSFS_a_change_de_version" xml:space="preserve"><value>MSFS a changé de version : le réseau enregistré vient de {0} ({1:dd/MM/yyyy}), le simulateur est maintenant en {2}.</value></data>
-  <data name="IfrNetwork_Relire_toutes_les_routes_pour" xml:space="preserve"><value>
-
-Relire toutes les routes pour mettre à jour ?</value></data>
+  <data name="IfrNetwork_Relire_toutes_les_routes_pour" xml:space="preserve"><value>&#10;&#10;Relire toutes les routes pour mettre à jour ?</value></data>
   <data name="IfrNetwork_Reseau_lu_mais_non_enregistre" xml:space="preserve"><value>Réseau lu mais non enregistré : </value></data>
-  <data name="IfrNetwork_Rien_n_est_enregistre" xml:space="preserve"><value>
-Rien n'est enregistré.</value></data>
-  <data name="IfrNetwork_Routes_ATS_hors_de_France" xml:space="preserve"><value>
-Routes ATS hors de France ignorées : </value></data>
-  <data name="IfrNetwork_Routes_ATS_hors_de_France_2" xml:space="preserve"><value>
-Routes ATS hors de France : aucune enregistrée (la France vient du SIA). « </value></data>
-  <data name="IfrNetwork_Routes_ATS_hors_de_France_3" xml:space="preserve"><value>
-Routes ATS hors de France : {0} tronçons sur {1} routes, {2} points et {3} terrains, </value></data>
+  <data name="IfrNetwork_Rien_n_est_enregistre" xml:space="preserve"><value>&#10;Rien n'est enregistré.</value></data>
+  <data name="IfrNetwork_Routes_ATS_hors_de_France" xml:space="preserve"><value>&#10;Routes ATS hors de France ignorées : </value></data>
+  <data name="IfrNetwork_Routes_ATS_hors_de_France_2" xml:space="preserve"><value>&#10;Routes ATS hors de France : aucune enregistrée (la France vient du SIA). « </value></data>
+  <data name="IfrNetwork_Routes_ATS_hors_de_France_3" xml:space="preserve"><value>&#10;Routes ATS hors de France : {0} tronçons sur {1} routes, {2} points et {3} terrains, </value></data>
   <data name="IfrNetwork_Routes_ATS_hors_de_France_4" xml:space="preserve"><value>Routes ATS hors de France</value></data>
   <data name="IfrNetwork_les_lit_une_fois_MSFS" xml:space="preserve"><value> » les lit une fois, MSFS lancé.</value></data>
   <data name="IfrNetwork_lus_dans_le_utilisables_sans" xml:space="preserve"><value>lus dans {0} le {1:dd/MM/yyyy}, utilisables sans MSFS. Sens uniques et niveaux : ceux que donne MSFS, à vérifier.</value></data>
   <data name="IfrNetwork_troncons_sur_routes_enregistres_points" xml:space="preserve"><value>{0} tronçons sur {1} routes enregistrés ({2} points, {3} terrains), lus dans {4}.</value></data>
   <data name="IfrProcedures_Arreter_la_lecture" xml:space="preserve"><value>Arrêter la lecture ({0}/{1})</value></data>
-  <data name="IfrProcedures_Ce_qui_a_ete_lu" xml:space="preserve"><value>
-Ce qui a été lu avant reste enregistré.</value></data>
+  <data name="IfrProcedures_Ce_qui_a_ete_lu" xml:space="preserve"><value>&#10;Ce qui a été lu avant reste enregistré.</value></data>
   <data name="IfrProcedures_Lecture_arretee_apres_terrains" xml:space="preserve"><value>Lecture arrêtée après {0}/{1} terrains.</value></data>
   <data name="IfrProcedures_Lecture_dans_MSFS_terrains_avec" xml:space="preserve"><value>Lecture dans MSFS... {0}/{1} ({2}) : {3} terrains avec SID/STAR</value></data>
   <data name="IfrProcedures_Lecture_des_SID_STAR_dans" xml:space="preserve"><value>Lecture des SID/STAR dans MSFS...</value></data>
   <data name="IfrProcedures_Les_SID_STAR_enregistrees_terrains" xml:space="preserve"><value>Les SID/STAR enregistrées ({0} terrains) ont déjà été lues dans {1} le {2:dd/MM/yyyy}. Cette version de MSFS n'a pas changé.</value></data>
   <data name="IfrProcedures_Les_donnees_sont_enregistrees_dans" xml:space="preserve"><value>Les données sont enregistrées dans MSFS Rhumb : ensuite le simulateur n'est plus nécessaire.</value></data>
   <data name="IfrProcedures_Leur_cycle_AIRAC_est_celui" xml:space="preserve"><value>Leur cycle AIRAC est celui du simulateur, qui peut différer du SIA.</value></data>
-  <data name="IfrProcedures_Lire_dans_les_SID_et" xml:space="preserve"><value>Lire dans {0} les SID et STAR de tous les terrains du monde ?
-
-Cela prend plusieurs minutes ; MSFS doit rester lancé. </value></data>
+  <data name="IfrProcedures_Lire_dans_les_SID_et" xml:space="preserve"><value>Lire dans {0} les SID et STAR de tous les terrains du monde ?&#10;&#10;Cela prend plusieurs minutes ; MSFS doit rester lancé. </value></data>
   <data name="IfrProcedures_MSFS_a_change_de_version" xml:space="preserve"><value>MSFS a changé de version : les SID/STAR enregistrées viennent de {0} ({1:dd/MM/yyyy}), le simulateur est maintenant en {2}.</value></data>
   <data name="IfrProcedures_MSFS_n_a_ni_SID" xml:space="preserve"><value>{0} : MSFS n'a ni SID ni STAR pour ce terrain.</value></data>
-  <data name="IfrProcedures_Relire_tous_les_terrains_dans" xml:space="preserve"><value>
-
-Relire tous les terrains dans MSFS pour mettre à jour ? Seuls les terrains qui ont changé sont réécrits.</value></data>
-  <data name="IfrProcedures_SID_STAR_aucune_enregistree" xml:space="preserve"><value>
-SID/STAR : aucune enregistrée. « </value></data>
+  <data name="IfrProcedures_Relire_tous_les_terrains_dans" xml:space="preserve"><value>&#10;&#10;Relire tous les terrains dans MSFS pour mettre à jour ? Seuls les terrains qui ont changé sont réécrits.</value></data>
+  <data name="IfrProcedures_SID_STAR_aucune_enregistree" xml:space="preserve"><value>&#10;SID/STAR : aucune enregistrée. « </value></data>
   <data name="IfrProcedures_SID_STAR_du_monde" xml:space="preserve"><value>SID/STAR du monde</value></data>
-  <data name="IfrProcedures_SID_STAR_enregistrees_ignorees" xml:space="preserve"><value>
-SID/STAR enregistrées ignorées : </value></data>
-  <data name="IfrProcedures_SID_STAR_enregistrees_procedures_pour" xml:space="preserve"><value>
-SID/STAR enregistrées : {0} procédures pour {1} terrains{2}, utilisables sans MSFS. </value></data>
+  <data name="IfrProcedures_SID_STAR_enregistrees_ignorees" xml:space="preserve"><value>&#10;SID/STAR enregistrées ignorées : </value></data>
+  <data name="IfrProcedures_SID_STAR_enregistrees_procedures_pour" xml:space="preserve"><value>&#10;SID/STAR enregistrées : {0} procédures pour {1} terrains{2}, utilisables sans MSFS. </value></data>
   <data name="IfrProcedures_Saisissez_le_depart_et_l" xml:space="preserve"><value>Saisissez le départ et l'arrivée (codes OACI de quatre lettres).</value></data>
   <data name="IfrProcedures_aucune_enregistree_le_terrain_se" xml:space="preserve"><value>{0} {1} : aucune {2} enregistrée, le terrain se raccorde directement au réseau.</value></data>
   <data name="IfrProcedures_enregistrees_MSFS_inutile" xml:space="preserve"><value>{0} {1} : {2} {3} enregistrées, MSFS inutile.</value></data>
@@ -657,8 +624,7 @@ SID/STAR enregistrées : {0} procédures pour {1} terrains{2}, utilisables sans 
   <data name="IfrProcedures_les_lit_une_fois_MSFS" xml:space="preserve"><value> » les lit une fois, MSFS lancé ; ensuite il n'est plus nécessaire.</value></data>
   <data name="IfrProcedures_lues_dans_le" xml:space="preserve"><value>, lues dans {0} le {1:dd/MM/yyyy}</value></data>
   <data name="IfrProcedures_mis_a_jour" xml:space="preserve"><value>mis à jour</value></data>
-  <data name="IfrProcedures_nouveaux_mis_a_jour_inchanges" xml:space="preserve"><value>{0}
-{1} nouveaux, {2} mis à jour, {3} inchangés, {4} retirés (plus de procédures dans MSFS).</value></data>
+  <data name="IfrProcedures_nouveaux_mis_a_jour_inchanges" xml:space="preserve"><value>{0}&#10;{1} nouveaux, {2} mis à jour, {3} inchangés, {4} retirés (plus de procédures dans MSFS).</value></data>
   <data name="IfrProcedures_terrain_inconnu_des_donnees_ni" xml:space="preserve"><value>{0} {1} : terrain inconnu des données (ni le SIA ni MSFS).</value></data>
   <data name="IfrProcedures_une_version_inconnue_de_MSFS" xml:space="preserve"><value>une version inconnue de MSFS</value></data>
   <data name="IfrRouter_Aucun_point_du_reseau_IFR" xml:space="preserve"><value>Aucun point du réseau IFR à moins de {0:0} NM de {1}.</value></data>
@@ -690,8 +656,7 @@ SID/STAR enregistrées : {0} procédures pour {1} terrains{2}, utilisables sans 
   <data name="Ifr_Route_IFR" xml:space="preserve"><value>Route IFR</value></data>
   <data name="Ifr_arrivee" xml:space="preserve"><value>arrivée {0}</value></data>
   <data name="Ifr_depart" xml:space="preserve"><value>départ {0}</value></data>
-  <data name="Ifr_existe_sur_la_carte_mais" xml:space="preserve"><value>
-{0} existe sur la carte, mais les données IFR n'en contiennent pas : l'export du SIA ne couvre que la France. </value></data>
+  <data name="Ifr_existe_sur_la_carte_mais" xml:space="preserve"><value>&#10;{0} existe sur la carte, mais les données IFR n'en contiennent pas : l'export du SIA ne couvre que la France. </value></data>
   <data name="Ifr_ne_pas_utiliser_pour_naviguer" xml:space="preserve"><value> : ne pas utiliser pour naviguer. Chargez l'export AIXM du SIA.</value></data>
   <data name="IlsApproaches_ILS_MHz_interception_a_NM" xml:space="preserve"><value>ILS {0} {1} {2:0.00} MHz{3}{4}{5} · interception à {6:0} NM ({7:N0} ft), </value></data>
   <data name="IlsApproaches_L_ILS_existe_mais_la" xml:space="preserve"><value>L'ILS {0} existe, mais la route finit déjà à {1:0} NM du seuil : aucun point de finale ajouté.</value></data>
@@ -711,8 +676,7 @@ SID/STAR enregistrées : {0} procédures pour {1} terrains{2}, utilisables sans 
   <data name="Live_Terrain" xml:space="preserve"><value>Terrain {0} {1} — {2}</value></data>
   <data name="Live_Zones_non_chargees_cle_OpenAIP" xml:space="preserve"><value>Zones non chargées (clé OpenAIP) : espaces aériens non vérifiés</value></data>
   <data name="Live_et_autre_s_zone_s" xml:space="preserve"><value>… et {0} autre(s) zone(s)</value></data>
-  <data name="Live_sol_et_meteo_indisponibles" xml:space="preserve"><value>
-(sol et météo indisponibles : </value></data>
+  <data name="Live_sol_et_meteo_indisponibles" xml:space="preserve"><value>&#10;(sol et météo indisponibles : </value></data>
   <data name="Navaids_Balises_indisponibles" xml:space="preserve"><value>Balises indisponibles : </value></data>
   <data name="Navaids_balises_affichees_sur" xml:space="preserve"><value>{0} balises affichées sur {1}</value></data>
   <data name="ObstacleService_Cheminee" xml:space="preserve"><value>Cheminée</value></data>
@@ -1028,19 +992,10 @@ SID/STAR enregistrées : {0} procédures pour {1} terrains{2}, utilisables sans 
   <data name="VacUpdate_Arreter_la_mise_a_jour" xml:space="preserve"><value>Arrêter la mise à jour des cartes</value></data>
   <data name="VacUpdate_Aucune_carte_a_mettre_a" xml:space="preserve"><value>Aucune carte à mettre à jour : le dossier n'en contient pas et rien n'est demandé en téléchargement.</value></data>
   <data name="VacUpdate_Ecriture_impossible_dans_le_dossier" xml:space="preserve"><value>Écriture impossible dans le dossier des cartes : </value></data>
-  <data name="VacUpdate_Les_profils_VFR_de_MSFS" xml:space="preserve"><value>
-Les profils VFR de MSFS Rhumb ont été relevés sur les cartes d'un cycle précédent : à vérifier sur les cartes modifiées.</value></data>
-  <data name="VacUpdate_Mettre_a_jour_les_cartes" xml:space="preserve"><value>Mettre à jour les cartes VAC depuis le site du SIA (cycle AIRAC du {0:dd/MM/yyyy}) ?
-
-Dossier : {1}
-
-</value></data>
-  <data name="VacUpdate_Non_seulement_mettre_a_jour" xml:space="preserve"><value>Non : seulement mettre à jour celles que tu as déjà.
-Annuler : ne rien faire.
-
-</value></data>
-  <data name="VacUpdate_Oui_mettre_a_jour_les" xml:space="preserve"><value>Oui : mettre à jour les {0} cartes du dossier et télécharger les {1} qui manquent (plusieurs minutes, une carte à la fois).
-</value></data>
+  <data name="VacUpdate_Les_profils_VFR_de_MSFS" xml:space="preserve"><value>&#10;Les profils VFR de MSFS Rhumb ont été relevés sur les cartes d'un cycle précédent : à vérifier sur les cartes modifiées.</value></data>
+  <data name="VacUpdate_Mettre_a_jour_les_cartes" xml:space="preserve"><value>Mettre à jour les cartes VAC depuis le site du SIA (cycle AIRAC du {0:dd/MM/yyyy}) ?&#10;&#10;Dossier : {1}&#10;&#10;</value></data>
+  <data name="VacUpdate_Non_seulement_mettre_a_jour" xml:space="preserve"><value>Non : seulement mettre à jour celles que tu as déjà.&#10;Annuler : ne rien faire.&#10;&#10;</value></data>
+  <data name="VacUpdate_Oui_mettre_a_jour_les" xml:space="preserve"><value>Oui : mettre à jour les {0} cartes du dossier et télécharger les {1} qui manquent (plusieurs minutes, une carte à la fois).&#10;</value></data>
   <data name="VacUpdate_Une_carte_n_est_remplacee" xml:space="preserve"><value>Une carte n'est remplacée que si le SIA en publie une différente. Cartes © SIA, pour la simulation uniquement.</value></data>
   <data name="WaypointInsight_Aucune_zone_connue_a_ton" xml:space="preserve"><value>✔ Aucune zone connue à ton altitude sur cette route</value></data>
   <data name="WaypointInsight_Classe_A_a_ton_altitude" xml:space="preserve"><value>⚠ Classe A à ton altitude (vol à vue interdit) : {0}</value></data>
@@ -1201,8 +1156,7 @@ Annuler : ne rien faire.
   <data name="xaml_Aucun_aerodrome_pour" xml:space="preserve"><value>Aucun aérodrome pour « {0} ».</value></data>
   <data name="xaml_Avion" xml:space="preserve"><value>Avion</value></data>
   <data name="xaml_Balises" xml:space="preserve"><value>Balises</value></data>
-  <data name="xaml_Cap_magnetique" xml:space="preserve"><value>Cap {0:000}° magnétique
-</value></data>
+  <data name="xaml_Cap_magnetique" xml:space="preserve"><value>Cap {0:000}° magnétique&#10;</value></data>
   <data name="xaml_Carte_publiee_mais_absente_de" xml:space="preserve"><value>Carte publiée mais absente de ton dossier de cartes VAC (réglage du panneau Données).</value></data>
   <data name="xaml_Categorie_de_vol" xml:space="preserve"><value>Catégorie de vol : </value></data>
   <data name="xaml_Chargement" xml:space="preserve"><value>Chargement...</value></data>
@@ -1260,20 +1214,16 @@ Annuler : ne rien faire.
   <data name="Sim_On_ground" xml:space="preserve"><value>Au sol</value></data>
   <data name="Sim_In_flight" xml:space="preserve"><value>En vol</value></data>
   <data name="Ifr_Fixes_routes" xml:space="preserve"><value> {0} points, {1} routes ATS.</value></data>
-  <data name="Ifr_Route_summary" xml:space="preserve"><value>{0}
-{1:0.#} NM, {2} points.</value></data>
-  <data name="Ifr_Runways_line" xml:space="preserve"><value>
-Pistes : {0}.</value></data>
+  <data name="Ifr_Route_summary" xml:space="preserve"><value>{0}&#10;{1:0.#} NM, {2} points.</value></data>
+  <data name="Ifr_Runways_line" xml:space="preserve"><value>&#10;Pistes : {0}.</value></data>
   <data name="Procedures_New" xml:space="preserve"><value>nouveau</value></data>
   <data name="Procedures_Read_in" xml:space="preserve"><value>{0} terrains lus dans {1}.</value></data>
   <data name="Sigmet_Unavailable" xml:space="preserve"><value>SIGMET indisponibles : </value></data>
   <data name="Sigmet_Loading" xml:space="preserve"><value>SIGMET : chargement...</value></data>
   <data name="Sigmet_More" xml:space="preserve"><value>+ {0} autres SIGMET</value></data>
-  <data name="Live_Ground_computing" xml:space="preserve"><value>
-Sol : calcul…</value></data>
+  <data name="Live_Ground_computing" xml:space="preserve"><value>&#10;Sol : calcul…</value></data>
   <data name="Live_Ground_margin" xml:space="preserve"><value>Sol : {0:N0} ft — marge sous ton altitude ici : {1:N0} ft</value></data>
-  <data name="Live_Terrain_computing" xml:space="preserve"><value>
-Relief : calcul…</value></data>
+  <data name="Live_Terrain_computing" xml:space="preserve"><value>&#10;Relief : calcul…</value></data>
   <data name="FlightSheet_InZone_ClassA" xml:space="preserve"><value>DANS LA ZONE · classe A : VFR interdit</value></data>
   <data name="FlightSheet_InZone" xml:space="preserve"><value>DANS LA ZONE</value></data>
   <data name="FlightSheet_Class_short" xml:space="preserve"><value> · cl. {0}</value></data>
