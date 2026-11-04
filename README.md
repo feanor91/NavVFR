@@ -52,6 +52,7 @@ Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du pl
 
 ### Avec MSFS
 
+- **Météo en temps réel sur la carte** (panneau Paramètres) : radar de précipitations (RainViewer, image toutes les 10 min) et nuages du satellite Meteosat (EUMETSAT, infrarouge), chacun avec son opacité, mis à jour automatiquement. Sans clé. Météo réelle : elle peut différer de celle de MSFS.
 - **Suivi de l'avion en direct** (SimConnect) : un avion dessiné sur la carte, qui suit le cap.
 
 ## Où sont les données

@@ -202,6 +202,24 @@
                     <ComboBoxItem Content="Rues (OpenStreetMap)"/>
                 </ComboBox>
 
+                <TextBlock Style="{StaticResource Header}" Text="MÉTÉO SUR LA CARTE"/>
+                <CheckBox x:Name="RadarCheck" Content="Radar de précipitations (temps réel)" Foreground="#E8EEFC" Click="WeatherLayer_Click"
+                          ToolTip="Pluie, averses et neige mesurées par les radars météo (RainViewer), actualisées toutes les 10 minutes."/>
+                <DockPanel Margin="18,2,0,4">
+                    <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
+                    <Slider x:Name="RadarOpacitySlider" Minimum="0.1" Maximum="1" Value="0.7" ValueChanged="WeatherOpacity_Changed"/>
+                </DockPanel>
+                <CheckBox x:Name="CloudCheck" Content="Nuages (satellite infrarouge)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="WeatherLayer_Click"
+                          ToolTip="Image infrarouge de Meteosat (EUMETSAT) : les nuages moyens et élevés apparaissent en gris-bleu."/>
+                <DockPanel Margin="18,2,0,4">
+                    <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
+                    <Slider x:Name="CloudOpacitySlider" Minimum="0.1" Maximum="1" Value="0.6" ValueChanged="WeatherOpacity_Changed"/>
+                </DockPanel>
+                <TextBlock x:Name="WeatherInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap">
+                    <Run Text="Weather data by "/><Hyperlink NavigateUri="https://www.rainviewer.com" RequestNavigate="WeatherLink_Navigate">RainViewer</Hyperlink><Run Text=" · nuages : "/><Hyperlink NavigateUri="https://view.eumetsat.int" RequestNavigate="WeatherLink_Navigate">EUMETSAT</Hyperlink><Run Text=". Météo réelle : elle peut différer de celle de MSFS."/>
+                </TextBlock>
+
                 <TextBlock Style="{StaticResource Header}" Text="BALISES"/>
                 <CheckBox x:Name="NavVorCheck" Content="VOR (losange violet)" Foreground="#E8EEFC" Click="NavFilter_Click"/>
                 <CheckBox x:Name="NavNdbCheck" Content="NDB / ADF (rond orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="NavFilter_Click"/>

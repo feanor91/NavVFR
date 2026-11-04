@@ -64,6 +64,7 @@ public partial class MainWindow : Window
 
         _loadingParams = true;
         InitAircraft();
+        InitWeatherLayers();
         VarBox.Text = Fmt(_settings.VariationEast);
         WdirBox.Text = Fmt(_settings.WindDir);
         WspdBox.Text = Fmt(_settings.WindKt);
@@ -192,6 +193,10 @@ public partial class MainWindow : Window
         _settings.IfrAircraftId = AircraftFor(FlightMode.Ifr)?.Id;
         _settings.ActiveMode = _mode == FlightMode.Ifr ? "ifr" : "vfr";
         _settings.ShowRange = RangeCheck.IsChecked == true;
+        _settings.ShowRadar = RadarCheck.IsChecked == true;
+        _settings.ShowClouds = CloudCheck.IsChecked == true;
+        _settings.RadarOpacity = RadarOpacitySlider.Value;
+        _settings.CloudOpacity = CloudOpacitySlider.Value;
         _settings.VariationEast = p.VariationEast; _settings.WindDir = p.WindDir; _settings.WindKt = p.WindKt;
         _settings.Route = [.. _route];
         try { _settings.Save(); } catch (IOException) { /* non bloquant */ }
