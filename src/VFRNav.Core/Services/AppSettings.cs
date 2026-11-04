@@ -51,7 +51,12 @@ public sealed class AppSettings
     public bool ShowRange { get; set; } = true;
     /// <summary>Couches météo en temps réel sur la carte : radar de précipitations et nuages du satellite, avec leur opacité.</summary>
     public bool ShowRadar { get; set; }
+    /// <summary>Ancienne case unique « Nuages » : lue une fois pour reprendre le choix (les deux couches), puis remise à faux.</summary>
     public bool ShowClouds { get; set; }
+    public bool ShowCloudCover { get; set; }
+    public bool ShowCloudTops { get; set; }
+    public double CloudCoverOpacity { get; set; } = 0.5;
+    public double CloudTopsOpacity { get; set; } = 0.7;
     public double RadarOpacity { get; set; } = 0.7;
     public double CloudOpacity { get; set; } = 0.6;
     public bool CommonPanelOpen { get; set; } = true;

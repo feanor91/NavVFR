@@ -23,8 +23,10 @@ public partial class MainWindow
 
     private readonly List<ILayer> _radarLayers = [];
     private IReadOnlyList<RadarFrame> _radarFrames = [];
-    private ILayer? _cloudLayer;
-    private DateTimeOffset _cloudBuiltAt;
+    private ILayer? _coverLayer;
+    private ILayer? _topsLayer;
+    private DateTimeOffset _coverBuiltAt;
+    private DateTimeOffset _topsBuiltAt;
     private TimeSpan _radarAge;
     private string? _radarProblem;
     private bool _weatherLayersReady;
@@ -39,9 +41,17 @@ public partial class MainWindow
     private void InitWeatherLayers()
     {
         RadarCheck.IsChecked = _settings.ShowRadar;
-        CloudCheck.IsChecked = _settings.ShowClouds;
+        // L'ancienne case unique affichait les deux couches fusionnées : on reprend ce choix une fois, puis on l'oublie.
+        bool legacy = _settings.ShowClouds;
+        _settings.ShowClouds = false;
+        CloudCoverCheck.IsChecked = _settings.ShowCloudCover || legacy;
+        CloudTopsCheck.IsChecked = _settings.ShowCloudTops || legacy;
+        CloudCoverSwatch.Background = Brush(SatelliteClouds.TintHex(CloudLayerKind.Cover));
+        CloudTopsSwatch.Background = Brush(SatelliteClouds.TintHex(CloudLayerKind.Tops));
         RadarOpacitySlider.Value = Math.Clamp(_settings.RadarOpacity, 0.1, 1);
-        CloudOpacitySlider.Value = Math.Clamp(_settings.CloudOpacity, 0.1, 1);
+        CloudCoverOpacitySlider.Value = Math.Clamp(_settings.CloudCoverOpacity, 0.1, 1);
+        CloudTopsOpacitySlider.Value = Math.Clamp(_settings.CloudTopsOpacity, 0.1, 1);
+        BuildRadarLegend();
         _weatherLayerTimer.Tick += async (_, _) => await RefreshWeatherLayersAsync();
         _radarAnimTimer.Tick += (_, _) => StepRadarAnimation();
         Loaded += async (_, _) =>
@@ -53,11 +63,47 @@ public partial class MainWindow
 
     private async void WeatherLayer_Click(object sender, RoutedEventArgs e) => await RefreshWeatherLayersAsync();
 
+    /// <summary>Remplit la légende : une pastille de couleur par cran de la palette, avec l'intensité en mm/h dessous.</summary>
+    private void BuildRadarLegend()
+    {
+        var fr = CultureInfo.GetCultureInfo("fr-FR");
+        foreach (var entry in RadarLegend.Rain)
+        {
+            var color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(entry.Hex);
+            var swatch = new System.Windows.Controls.StackPanel { Margin = new Thickness(0, 0, 1, 0), MinWidth = 25 };
+            swatch.Children.Add(new System.Windows.Controls.Border
+            {
+                Height = 12,
+                Background = new System.Windows.Media.SolidColorBrush(color),
+                BorderBrush = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(0x55, 0, 0, 0)),
+                BorderThickness = new Thickness(0.5),
+            });
+            swatch.Children.Add(new System.Windows.Controls.TextBlock
+            {
+                Text = entry.MmPerHour < 1 ? entry.MmPerHour.ToString("0.0", fr) : Math.Round(entry.MmPerHour).ToString("0", fr),
+                FontSize = 9.5,
+                Foreground = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(0x0B, 0x2A, 0x55)),
+                HorizontalAlignment = HorizontalAlignment.Center,
+                ToolTip = $"{entry.Intensity} : environ {entry.MmPerHour.ToString("0.#", fr)} mm/h ({entry.Dbz} dBZ)",
+            });
+            swatch.ToolTip = $"{entry.Intensity} : environ {entry.MmPerHour.ToString("0.#", fr)} mm/h ({entry.Dbz} dBZ)";
+            RadarLegendSwatches.Children.Add(swatch);
+        }
+        RadarLegendWeak.Text = RadarLegend.Rain[0].Intensity;
+        RadarLegendStrong.Text = RadarLegend.Rain[^1].Intensity;
+
+        var (light, dark) = RadarLegend.Snow;
+        RadarSnowBar.Background = new System.Windows.Media.LinearGradientBrush(
+            (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(light),
+            (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(dark), 0);
+    }
+
     private void WeatherOpacity_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
     {
         if (!_weatherLayersReady) return;
         foreach (var layer in _radarLayers) layer.Opacity = RadarOpacitySlider.Value;
-        if (_cloudLayer is not null) _cloudLayer.Opacity = CloudOpacitySlider.Value;
+        if (_coverLayer is not null) _coverLayer.Opacity = CloudCoverOpacitySlider.Value;
+        if (_topsLayer is not null) _topsLayer.Opacity = CloudTopsOpacitySlider.Value;
         MapControl.Refresh();
     }
 
@@ -86,16 +132,18 @@ public partial class MainWindow
 
     private async Task ApplyWeatherLayersAsync()
     {
-        bool radar = RadarCheck.IsChecked == true, clouds = CloudCheck.IsChecked == true;
+        bool radar = RadarCheck.IsChecked == true, cover = CloudCoverCheck.IsChecked == true, tops = CloudTopsCheck.IsChecked == true;
+        bool clouds = cover || tops;
 
         if (radar) await UpdateRadarAsync();
         else { ClearRadar(); _radarProblem = null; }
 
-        if (clouds) UpdateClouds();
-        else SetWeatherLayer(ref _cloudLayer, null, _airspaceLayer);
+        UpdateCloudLayer(CloudLayerKind.Cover, cover);
+        UpdateCloudLayer(CloudLayerKind.Tops, tops);
 
         _weatherLayerTimer.IsEnabled = radar || clouds;
         RadarAnimCheck.IsEnabled = radar;
+        RadarLegendBox.Visibility = radar ? Visibility.Visible : Visibility.Collapsed;
         ShowWeatherInfo(radar, clouds);
         MapControl.Refresh();
     }
@@ -167,7 +215,7 @@ public partial class MainWindow
         // Pause sur l'image la plus récente ; première boucle plus lente que les suivantes.
         _radarAnimTimer.Interval = TimeSpan.FromMilliseconds(last ? 2000 : _animFirstLoop ? 1600 : 700);
 
-        ShowWeatherInfo(RadarCheck.IsChecked == true, CloudCheck.IsChecked == true);
+        ShowWeatherInfo(RadarCheck.IsChecked == true, CloudCoverCheck.IsChecked == true || CloudTopsCheck.IsChecked == true);
         MapControl.Refresh();
     }
 
@@ -193,13 +241,35 @@ public partial class MainWindow
 
     // ---------- nuages ----------
 
-    private void UpdateClouds()
+    private static System.Windows.Media.SolidColorBrush Brush(string hex) =>
+        new((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(hex));
+
+    /// <summary>
+    /// Ajoute, renouvelle ou retire une couche de nuages. Ordre sur la carte, du bas vers le haut : fond, couverture, sommets froids, radar,
+    /// puis zones et route : la couche la plus informative reste au-dessus.
+    /// </summary>
+    private void UpdateCloudLayer(CloudLayerKind kind, bool on)
     {
-        if (_cloudLayer is not null && DateTimeOffset.UtcNow - _cloudBuiltAt < CloudRefresh) return;
-        // Les nuages vont sous le radar : au-dessus du fond, mais sous les zones et la route.
-        ILayer anchor = _radarLayers.Count > 0 ? _radarLayers[0] : _airspaceLayer;
-        SetWeatherLayer(ref _cloudLayer, new TileLayer(new CloudTileSource()) { Name = "Nuages", Opacity = CloudOpacitySlider.Value }, anchor);
-        _cloudBuiltAt = DateTimeOffset.UtcNow;
+        bool cover = kind == CloudLayerKind.Cover;
+        if (!on)
+        {
+            if (cover) SetWeatherLayer(ref _coverLayer, null, _airspaceLayer);
+            else SetWeatherLayer(ref _topsLayer, null, _airspaceLayer);
+            return;
+        }
+
+        var existing = cover ? _coverLayer : _topsLayer;
+        var builtAt = cover ? _coverBuiltAt : _topsBuiltAt;
+        if (existing is not null && DateTimeOffset.UtcNow - builtAt < CloudRefresh) return;
+
+        ILayer aboveClouds = _radarLayers.Count > 0 ? _radarLayers[0] : _airspaceLayer;
+        var layer = new TileLayer(new CloudTileSource(kind))
+        {
+            Name = cover ? "Couverture nuageuse" : "Sommets de nuages",
+            Opacity = cover ? CloudCoverOpacitySlider.Value : CloudTopsOpacitySlider.Value,
+        };
+        if (cover) { SetWeatherLayer(ref _coverLayer, layer, _topsLayer ?? aboveClouds); _coverBuiltAt = DateTimeOffset.UtcNow; }
+        else { SetWeatherLayer(ref _topsLayer, layer, aboveClouds); _topsBuiltAt = DateTimeOffset.UtcNow; }
     }
 
     /// <summary>Remplace la couche d'un emplacement (la retire si <paramref name="layer"/> est nul) en la plaçant juste avant <paramref name="anchor"/>.</summary>
@@ -232,8 +302,12 @@ public partial class MainWindow
             }
             else lines.Add($"Radar : image de {_radarFrames[0].Time.LocalDateTime:HH:mm} (il y a {Math.Max(0, (int)_radarAge.TotalMinutes)} min), mise à jour toutes les 5 min.");
         }
+        if (CloudCoverCheck.IsChecked == true)
+            lines.Add("Couverture (gris-bleu) : où il y a des nuages, stratus bas compris ; ne dit pas à quelle hauteur.");
+        if (CloudTopsCheck.IsChecked == true)
+            lines.Add("Sommets froids (violet) : nuages épais ou élevés, orages et fronts ; les stratus bas n'y sont pas.");
         if (clouds)
-            lines.Add("Nuages : image infrarouge la plus récente (10 à 20 min de décalage). Les nuages bas et le brouillard y sont peu visibles.");
+            lines.Add("Images satellite : la plus récente, 10 à 20 min de décalage.");
         WeatherInfo.Text = string.Join("\n", lines);
     }
 }

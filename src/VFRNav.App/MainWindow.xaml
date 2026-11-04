@@ -211,11 +211,27 @@
                 </DockPanel>
                 <CheckBox x:Name="RadarAnimCheck" Content="Animer le radar (4 images, 30 min)" Foreground="#E8EEFC" Margin="18,0,0,4" IsEnabled="False" Click="RadarAnim_Click"
                           ToolTip="Fait défiler les 4 dernières images du radar. La première boucle charge les images une à une (RainViewer limite le nombre de requêtes) ; ensuite elles sont en mémoire."/>
-                <CheckBox x:Name="CloudCheck" Content="Nuages (satellite infrarouge)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="WeatherLayer_Click"
-                          ToolTip="Image infrarouge de Meteosat (EUMETSAT) : les nuages moyens et élevés apparaissent en gris-bleu."/>
+                <CheckBox x:Name="CloudCoverCheck" Margin="0,3,0,0" Foreground="#E8EEFC" Click="WeatherLayer_Click"
+                          ToolTip="Où il y a des nuages, à tous les niveaux : le ciel couvert de nuages bas (stratus) y est visible, de jour comme de nuit. Ne dit pas à quelle hauteur.">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="CloudCoverSwatch" Width="12" Height="12" CornerRadius="2" Margin="0,0,6,0" VerticalAlignment="Center"/>
+                        <TextBlock Text="Couverture nuageuse (tous niveaux)"/>
+                    </StackPanel>
+                </CheckBox>
                 <DockPanel Margin="18,2,0,4">
                     <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
-                    <Slider x:Name="CloudOpacitySlider" Minimum="0.1" Maximum="1" Value="0.6" ValueChanged="WeatherOpacity_Changed"/>
+                    <Slider x:Name="CloudCoverOpacitySlider" Minimum="0.1" Maximum="1" Value="0.5" ValueChanged="WeatherOpacity_Changed"/>
+                </DockPanel>
+                <CheckBox x:Name="CloudTopsCheck" Margin="0,3,0,0" Foreground="#E8EEFC" Click="WeatherLayer_Click"
+                          ToolTip="Nuages épais ou élevés (orages, fronts), d'après l'infrarouge de Meteosat : plus c'est froid, plus c'est opaque. Les stratus bas n'y apparaissent pas.">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="CloudTopsSwatch" Width="12" Height="12" CornerRadius="2" Margin="0,0,6,0" VerticalAlignment="Center"/>
+                        <TextBlock Text="Sommets de nuages froids (infrarouge)"/>
+                    </StackPanel>
+                </CheckBox>
+                <DockPanel Margin="18,2,0,4">
+                    <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
+                    <Slider x:Name="CloudTopsOpacitySlider" Minimum="0.1" Maximum="1" Value="0.7" ValueChanged="WeatherOpacity_Changed"/>
                 </DockPanel>
                 <TextBlock x:Name="WeatherInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap">
@@ -308,16 +324,34 @@
                         Background="#F2FFFFFF" BorderBrush="#1D4A8A" BorderThickness="1" CornerRadius="4" Padding="8,6" MaxWidth="380">
                     <TextBlock x:Name="TipText" TextWrapping="Wrap" Foreground="#0B2A55" FontSize="12"/>
                 </Border>
-                <Border x:Name="ZoneHelp" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="10,10,10,24"
-                        Background="#F5FFFFFF" BorderBrush="#1D4A8A" BorderThickness="1" CornerRadius="4" Padding="10,6">
-                    <DockPanel>
-                        <Button DockPanel.Dock="Right" VerticalAlignment="Top" Content="✕" Padding="6,0" Margin="8,0,0,0"
-                                Click="ZoneHelpClose_Click" ToolTip="Masquer : la fiche revient au prochain contour survolé (case à décocher dans le panneau de gauche pour la désactiver)"/>
-                        <ScrollViewer MaxHeight="190" VerticalScrollBarVisibility="Auto">
-                            <TextBlock x:Name="ZoneHelpText" TextWrapping="Wrap" Foreground="#0B2A55" FontSize="12.5"/>
-                        </ScrollViewer>
-                    </DockPanel>
-                </Border>
+                <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,24">
+                    <Border x:Name="RadarLegendBox" Visibility="Collapsed" IsHitTestVisible="False" HorizontalAlignment="Right" Margin="10,0,10,0"
+                            Background="#EBFFFFFF" BorderBrush="#1D4A8A" BorderThickness="1" CornerRadius="4" Padding="8,6">
+                        <StackPanel>
+                            <TextBlock Text="Précipitations (radar)" Foreground="#0B2A55" FontSize="11.5" FontWeight="SemiBold"/>
+                            <UniformGrid x:Name="RadarLegendSwatches" Rows="1" Margin="0,4,0,0"/>
+                            <DockPanel Margin="0,1,0,0">
+                                <TextBlock DockPanel.Dock="Right" x:Name="RadarLegendStrong" Foreground="#5F6978" FontSize="9.5"/>
+                                <TextBlock x:Name="RadarLegendWeak" Foreground="#5F6978" FontSize="9.5"/>
+                            </DockPanel>
+                            <TextBlock Text="mm/h indicatifs. 45–50 dBZ et plus : orage, grêle possible." Foreground="#5F6978" FontSize="9.5" Margin="0,2,0,0"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                <Border x:Name="RadarSnowBar" Width="62" Height="10" CornerRadius="2" BorderBrush="#99000000" BorderThickness="0.5"/>
+                                <TextBlock Text="neige (clair : faible, foncé : forte)" Foreground="#5F6978" FontSize="9.5" Margin="6,-1,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <Border x:Name="ZoneHelp" HorizontalAlignment="Stretch" Margin="10,10,10,0"
+                            Background="#F5FFFFFF" BorderBrush="#1D4A8A" BorderThickness="1" CornerRadius="4" Padding="10,6">
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" VerticalAlignment="Top" Content="✕" Padding="6,0" Margin="8,0,0,0"
+                                    Click="ZoneHelpClose_Click" ToolTip="Masquer : la fiche revient au prochain contour survolé (case à décocher dans le panneau de gauche pour la désactiver)"/>
+                            <ScrollViewer MaxHeight="190" VerticalScrollBarVisibility="Auto">
+                                <TextBlock x:Name="ZoneHelpText" TextWrapping="Wrap" Foreground="#0B2A55" FontSize="12.5"/>
+                            </ScrollViewer>
+                        </DockPanel>
+                    </Border>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
                     <Button x:Name="LiveInfoButton" Content="Infos en direct" Margin="0,0,8,0" Width="132" Height="34"
                             Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"

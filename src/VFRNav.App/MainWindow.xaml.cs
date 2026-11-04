@@ -194,9 +194,11 @@ public partial class MainWindow : Window
         _settings.ActiveMode = _mode == FlightMode.Ifr ? "ifr" : "vfr";
         _settings.ShowRange = RangeCheck.IsChecked == true;
         _settings.ShowRadar = RadarCheck.IsChecked == true;
-        _settings.ShowClouds = CloudCheck.IsChecked == true;
+        _settings.ShowCloudCover = CloudCoverCheck.IsChecked == true;
+        _settings.ShowCloudTops = CloudTopsCheck.IsChecked == true;
         _settings.RadarOpacity = RadarOpacitySlider.Value;
-        _settings.CloudOpacity = CloudOpacitySlider.Value;
+        _settings.CloudCoverOpacity = CloudCoverOpacitySlider.Value;
+        _settings.CloudTopsOpacity = CloudTopsOpacitySlider.Value;
         _settings.VariationEast = p.VariationEast; _settings.WindDir = p.WindDir; _settings.WindKt = p.WindKt;
         _settings.Route = [.. _route];
         try { _settings.Save(); } catch (IOException) { /* non bloquant */ }
