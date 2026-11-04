@@ -26,7 +26,7 @@ public static class AirportCatalog
         // Aérodromes de la base absents d'OurAirports mais dont le profil donne une position.
         foreach (var s in aerodromes.All)
             if (!seen.Contains(s.Icao) && s is { Lat: { } lat, Lon: { } lon })
-                result.Add(new Airport(s.Icao, s.Name, "small_airport", lat, lon, s.ElevationFt ?? 0, s.HasChart));
+                result.Add(new Airport(s.Icao, s.Name, "small_airport", lat, lon, s.ElevationFt ?? 0, s.HasChart, Country: "FR", Continent: "EU"));
         return result;
     }
 }

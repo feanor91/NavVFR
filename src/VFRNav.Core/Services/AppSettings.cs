@@ -23,6 +23,9 @@ public sealed class AppSettings
     public string StormAtcPath { get; set; } = "";
     public bool AutoVariation { get; set; } = true;
     public AirportFilter Filter { get; set; } = new();
+    /// <summary>Terrains limités à un couloir autour de la route.</summary>
+    public bool FilterNearRoute { get; set; }
+    public double FilterNearRouteNm { get; set; } = 30;
     public AirspaceFilter AirspaceFilter { get; set; } = new();
     /// <summary>clair, relief ou rues.</summary>
     public string BaseMap { get; set; } = "clair";

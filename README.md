@@ -15,6 +15,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 - **Carte** avec terrains (OurAirports), espaces aériens (OpenAIP, contours avec nom et limites le long du trait), balises **VOR** et **NDB/ADF**, fonds de carte au choix, points de report VFR (triangles jaunes, case à cocher pour les masquer).
 - **Zones** : au survol d'un contour, la fiche de la zone concernée (type, classe, limites, fréquences) et une explication pour débutants.
 - **Glossaire** de 110 sigles des cartes, de la météo et de l'application, avec recherche.
+- **Terrains du monde** (48 000 terrains OurAirports, téléchargés une fois puis gardés en cache 7 jours, bouton « Actualiser » dans Données) : filtres par taille, service régulier, code IATA, piste en dur et longueur minimale, pays ou continent, couloir autour de la route. L'affichage se répartit selon le zoom (les plus importants d'abord, 800 au plus à l'écran) ; une **recherche** par code OACI/IATA, nom ou ville centre la carte et ajoute le terrain à la route.
 - **Terrains** : fiche au survol (météo en clair, procédures VFR), pastilles météo (VFR, MVFR, IFR, LIFR), METAR et TAF traduits en français.
 
 ### Préparer une route

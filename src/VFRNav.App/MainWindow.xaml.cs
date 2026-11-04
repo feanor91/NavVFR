@@ -61,6 +61,7 @@ public partial class MainWindow : Window
         InitializeComponent();
         Title = AppVersion.Title;
         _http.DefaultRequestHeaders.UserAgent.ParseAdd("MSFS-Rhumb");
+        _airportStore = new AirportDataStore(_http, AirportDataStore.DefaultDirectory);
 
         _loadingParams = true;
         InitAircraft();
@@ -93,6 +94,7 @@ public partial class MainWindow : Window
         FLarge.IsChecked = _settings.Filter.Large;
         FMedium.IsChecked = _settings.Filter.Medium;
         FSmall.IsChecked = _settings.Filter.Small;
+        RestoreWorldFilterControls();
         KeyBox.Password = _settings.OpenAipKey;
         SetKeyLocked(_settings.OpenAipKey.Length > 0);
         CartoKeyBox.Password = _settings.CartoKey;
@@ -179,6 +181,8 @@ public partial class MainWindow : Window
         _settings.ShowReportingPoints = ReportCheck.IsChecked == true;
         _settings.ZoneHelp = ZoneHelpCheck.IsChecked == true;
         _settings.Filter = ReadFilter();
+        _settings.FilterNearRoute = FNearRoute.IsChecked == true;
+        _settings.FilterNearRouteNm = NearRouteNm;
         _settings.AirspaceFilter = ReadAirspaceFilter();
         _settings.VacVisible = _vacVisible;
         _settings.CommonPanelOpen = CommonPanel.IsExpanded;
@@ -211,17 +215,19 @@ public partial class MainWindow : Window
     }
 
     // ---------- Données ----------
-    private async Task LoadDataAsync()
+    private async Task LoadDataAsync(bool refreshWorld = false)
     {
         string country = CountryBox.Text.Trim().ToUpperInvariant();
         if (country.Length != 2) { StatusText.Text = "Code pays invalide."; return; }
         try
         {
-            StatusText.Text = "Chargement des terrains...";
-            var baseAirports = await new OurAirportsService(_http).LoadAsync(country);
+            StatusText.Text = "Chargement des terrains du monde...";
+            var world = await _airportStore.LoadAsync(refreshWorld);
             _aerodromes = await LoadAerodromesAsync();
             ApplyReportingPoints();
-            _airports = AirportCatalog.Merge(baseAirports, _aerodromes);
+            _airports = AirportCatalog.Merge(world.Airports, _aerodromes);
+            _airportIndex = await Task.Run(() => new AirportSearchIndex(_airports));
+            ShowWorldAirportsInfo(world);
             ApplyAirportFilter();
             await LoadNavaidsAsync(country);
             StatusText.Text = $"{_airports.Count} terrains ({country}). " + AerodromeSummary();
@@ -237,7 +243,7 @@ public partial class MainWindow : Window
                 StatusText.Text = $"{_airports.Count} terrains, {spaces.Count} espaces aériens ({country}). " + AerodromeSummary();
             }
         }
-        catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException)
+        catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException or IOException)
         {
             StatusText.Text = "Erreur de chargement : " + ex.Message;
         }
@@ -600,20 +606,6 @@ public partial class MainWindow
             string text = v.ToString(CultureInfo.InvariantCulture);
             if (VarBox.Text != text) VarBox.Text = text;
         }
-    }
-
-    private AirportFilter ReadFilter() => new(
-        FWithCode.IsChecked == true, FWithoutCode.IsChecked == true, FVacOnly.IsChecked == true,
-        FLarge.IsChecked == true, FMedium.IsChecked == true, FSmall.IsChecked == true);
-
-    private void ApplyAirportFilter()
-    {
-        var filter = ReadFilter();
-        var shown = _airports.Where(filter.Matches).ToList();
-        _airportLayer.Features = shown.Select(AirportFeature).ToList();
-        _airportLayer.DataHasChanged();
-        FilterCount.Text = $"{shown.Count} / {_airports.Count} terrains affichés";
-        MapControl.Refresh();
     }
 
     private void Filter_Click(object sender, RoutedEventArgs e) => ApplyAirportFilter();
@@ -1109,10 +1101,9 @@ public partial class MainWindow
     /// <summary>Un point lâché sur un terrain devient ce terrain.</summary>
     private void SnapToAirport(int index, System.Windows.Point drop)
     {
-        var filter = ReadFilter();
         Airport? nearest = null;
         double best = GrabRadiusPx;
-        foreach (var a in _airports.Where(filter.Matches))
+        foreach (var a in _shownAirports)
         {
             double d = Distance(drop, ToScreen(a.Lon, a.Lat));
             if (d <= best) { best = d; nearest = a; }
@@ -1244,10 +1235,9 @@ public partial class MainWindow
 
     private Airport? AirportAt(System.Windows.Point pos)
     {
-        var filter = ReadFilter();
         Airport? best = null;
         double bestDistance = AirportHoverPx;
-        foreach (var a in _airports.Where(filter.Matches))
+        foreach (var a in _shownAirports)
         {
             double d = Distance(pos, ToScreen(a.Lon, a.Lat));
             if (d <= bestDistance) { bestDistance = d; best = a; }
@@ -1355,7 +1345,7 @@ public partial class MainWindow
     {
         var vp = MapControl.Map.Navigator.Viewport;
         var view = (Math.Round(vp.CenterX), Math.Round(vp.CenterY), Math.Round(vp.Resolution, 2));
-        if (view != _lastView) { _lastView = view; _wxDirty = true; UpdateRangeView(); return; }
+        if (view != _lastView) { _lastView = view; _wxDirty = true; UpdateRangeView(); if (_airports.Count > 0) ApplyAirportFilter(); return; }
         if (_wxDirty && !_wxBusy && WxDotsCheck.IsChecked == true && _airports.Count > 0)
         {
             _wxDirty = false;

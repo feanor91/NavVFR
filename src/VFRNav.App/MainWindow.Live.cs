@@ -28,6 +28,7 @@ public partial class MainWindow
     private void OnRouteChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
         RefreshRoute();
+        if (FNearRoute.IsChecked == true || e.Action != NotifyCollectionChangedAction.Move) ApplyAirportFilter();
         // Un point qu'on vient d'ajouter devient le point suivi : ses infos s'affichent aussitôt.
         if (e.Action == NotifyCollectionChangedAction.Add && e.NewStartingIndex >= 0) RouteGrid.SelectedIndex = e.NewStartingIndex;
     }

@@ -270,7 +270,28 @@
                     <CheckBox x:Name="FMedium" Content="Moyens" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
                     <CheckBox x:Name="FSmall" Content="Petits" Foreground="#E8EEFC" Click="Filter_Click"/>
                 </WrapPanel>
-                <TextBlock x:Name="FilterCount" Style="{StaticResource Label}"/>
+                <CheckBox x:Name="FScheduled" Content="Service régulier seulement" Foreground="#E8EEFC" Margin="0,6,0,0" Click="Filter_Click"/>
+                <CheckBox x:Name="FIata" Content="Avec code IATA (aéroports commerciaux)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
+                <DockPanel Margin="0,6,0,0">
+                    <TextBox x:Name="FMinRunway" DockPanel.Dock="Right" Width="64" TextChanged="FilterText_Changed"/>
+                    <CheckBox x:Name="FPaved" Content="Piste en dur, longueur min. (ft)" Foreground="#E8EEFC" VerticalAlignment="Center" Click="Filter_Click"/>
+                </DockPanel>
+                <TextBlock Style="{StaticResource Label}" Text="Pays affichés (codes ISO : FR GB DE ; vide = tous)"/>
+                <TextBox x:Name="FCountries" TextChanged="FilterText_Changed"/>
+                <ComboBox x:Name="FContinent" Margin="0,4,0,0" SelectionChanged="FilterChoice_Changed"/>
+                <DockPanel Margin="0,6,0,0">
+                    <TextBox x:Name="FNearRouteNm" DockPanel.Dock="Right" Width="64" TextChanged="FilterText_Changed"/>
+                    <CheckBox x:Name="FNearRoute" Content="Près de la route (NM)" Foreground="#E8EEFC" VerticalAlignment="Center" Click="Filter_Click"/>
+                </DockPanel>
+                <TextBlock x:Name="FilterCount" Style="{StaticResource Label}" TextWrapping="Wrap"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
+                           Text="Les terrains se répartissent selon le zoom : les plus importants d'abord, jusqu'à 800 à l'écran. Zoomez pour voir les autres."/>
+
+                <TextBlock Style="{StaticResource Header}" Text="RECHERCHE DE TERRAIN"/>
+                <TextBlock Style="{StaticResource Label}" Text="Code OACI / IATA, nom ou ville"/>
+                <TextBox x:Name="AptSearchBox" TextChanged="AptSearch_Changed"/>
+                <ListBox x:Name="AptSearchList" MaxHeight="170" Margin="0,4,0,0" SelectionChanged="AptSearchList_SelectionChanged"/>
+                <Button x:Name="AptSearchAdd" Content="Ajouter à la route" Margin="0,4,0,0" Click="AptSearchAdd_Click" IsEnabled="False"/>
 
                 <CheckBox x:Name="ZoneHelpCheck" Content="Aide des zones en bas de la carte" Foreground="#E8EEFC" Margin="0,8,0,0" Click="ZoneHelp_Click"/>
 
@@ -286,8 +307,10 @@
                 </DockPanel>
                 <TextBlock x:Name="AirspaceCount" Style="{StaticResource Label}"/>
                 <TextBlock Style="{StaticResource Header}" Text="DONNÉES"/>
-                <TextBlock Style="{StaticResource Label}" Text="Pays (code ISO)"/>
+                <TextBlock Style="{StaticResource Label}" Text="Pays des balises et espaces aériens (code ISO)"/>
                 <TextBox x:Name="CountryBox" MaxLength="2"/>
+                <Button Content="Actualiser les terrains du monde" Margin="0,4,0,0" Click="RefreshWorldAirports_Click"/>
+                <TextBlock x:Name="WorldAirportsInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <TextBlock Style="{StaticResource Label}" Text="Clé API OpenAIP (espaces aériens, optionnel)"/>
                 <DockPanel>
                     <Button x:Name="KeyEditButton" DockPanel.Dock="Right" Content="Valider" Click="KeyEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
