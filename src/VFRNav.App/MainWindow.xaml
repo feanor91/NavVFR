@@ -233,6 +233,15 @@
                     <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
                     <Slider x:Name="CloudTopsOpacitySlider" Minimum="0.1" Maximum="1" Value="0.7" ValueChanged="WeatherOpacity_Changed"/>
                 </DockPanel>
+                <CheckBox x:Name="SigmetCheck" Content="SIGMET (phénomènes dangereux)" Margin="0,6,0,0" Foreground="#E8EEFC" Click="Sigmet_Click"
+                          ToolTip="Zones d'orages, de turbulence, de givrage, de cendres volcaniques... signalées par les centres météo (aviationweather.gov). Un contour plein et épais : le SIGMET traverse ta route. Survole une zone pour lire le message."/>
+                <DockPanel Margin="18,2,0,2">
+                    <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
+                    <Slider x:Name="SigmetOpacitySlider" Minimum="0.1" Maximum="1" Value="0.7" ValueChanged="SigmetOpacity_Changed"/>
+                </DockPanel>
+                <CheckBox x:Name="SigmetAltCheck" Content="Seulement à mon altitude" Margin="18,0,0,4" Foreground="#E8EEFC" Click="Sigmet_Click"
+                          ToolTip="Masque les SIGMET dont la tranche d'altitude ne contient pas ton altitude de croisière."/>
+                <TextBlock x:Name="SigmetInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <TextBlock x:Name="WeatherInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap">
                     <Run Text="Weather data by "/><Hyperlink NavigateUri="https://www.rainviewer.com" RequestNavigate="WeatherLink_Navigate">RainViewer</Hyperlink><Run Text=" · nuages : "/><Hyperlink NavigateUri="https://view.eumetsat.int" RequestNavigate="WeatherLink_Navigate">EUMETSAT</Hyperlink><Run Text=". Météo réelle : elle peut différer de celle de MSFS."/>
@@ -325,6 +334,14 @@
                     <TextBlock x:Name="TipText" TextWrapping="Wrap" Foreground="#0B2A55" FontSize="12"/>
                 </Border>
                 <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,24">
+                    <Border x:Name="SigmetLegendBox" Visibility="Collapsed" IsHitTestVisible="False" HorizontalAlignment="Right" Margin="10,0,10,6"
+                            Background="#EBFFFFFF" BorderBrush="#1D4A8A" BorderThickness="1" CornerRadius="4" Padding="8,5" MaxWidth="330">
+                        <StackPanel>
+                            <TextBlock Text="SIGMET (phénomènes dangereux)" Foreground="#0B2A55" FontSize="11.5" FontWeight="SemiBold"/>
+                            <WrapPanel x:Name="SigmetLegendItems" Margin="0,3,0,0"/>
+                            <TextBlock Text="Contour plein et épais : traverse ta route. Étiquette : phénomène et niveau maximal." Foreground="#5F6978" FontSize="9.5" Margin="0,2,0,0" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
                     <Border x:Name="RadarLegendBox" Visibility="Collapsed" IsHitTestVisible="False" HorizontalAlignment="Right" Margin="10,0,10,0"
                             Background="#EBFFFFFF" BorderBrush="#1D4A8A" BorderThickness="1" CornerRadius="4" Padding="8,6">
                         <StackPanel>

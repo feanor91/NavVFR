@@ -399,8 +399,7 @@ public static class FlightSheetBuilder
             + "Un SIGMET n'est publié que pour des phénomènes dangereux : l'absence de message ne garantit pas une météo calme."));
     }
 
-    private static string SigmetLevel(double? feet, string missing) =>
-        feet is not { } ft ? missing : ft <= 0 ? "SFC" : "FL" + Math.Round(ft / 100).ToString("000", Fr);
+    private static string SigmetLevel(double? feet, string missing) => SigmetPresentation.LevelText(feet, missing);
 
     private static string SigmetValidity(Sigmet s, DateTimeOffset now)
     {
@@ -408,12 +407,7 @@ public static class FlightSheetBuilder
         return $"{Time(s.ValidFrom)} → {Time(s.ValidTo)}";
     }
 
-    /// <summary>Texte du message sur une seule ligne, raccourci pour tenir sur la feuille.</summary>
-    private static string SigmetText(string raw)
-    {
-        string text = string.Join(' ', raw.Split(['\n', '\r'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries));
-        return text.Length <= 320 ? text : text[..320] + "…";
-    }
+    private static string SigmetText(string raw) => SigmetPresentation.RawOneLine(raw, 320);
 
     private static void AddCrossings(FlowDocument doc, FlightSheetInput input)
     {

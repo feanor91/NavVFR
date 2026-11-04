@@ -153,3 +153,128 @@ public class SigmetTests
         public override DateTimeOffset GetUtcNow() => _now;
     }
 }
+
+public class SigmetPresentationTests
+{
+    private static readonly DateTimeOffset Now = new(2026, 11, 4, 6, 0, 0, TimeSpan.Zero);
+
+    private static Sigmet Make(string hazard = "TS", double? baseFt = null, double? topFt = 35000, int fromMin = -60, int toMin = 96, string raw = "WSFR34 LFPW\nLFMM SIGMET T02") => new(
+        "LFMM", "LFMM MARSEILLE", "T02", hazard, "EMBD", Now.AddMinutes(fromMin), Now.AddMinutes(toMin), baseFt, topFt,
+        [[(41.75, 7.75), (43, 2.75), (43.75, 3.5), (43, 7.75), (41.75, 7.75)]], raw);
+
+    [Fact]
+    public void Every_hazard_has_a_valid_distinct_colour_and_unknown_ones_are_grey()
+    {
+        var colours = SigmetPresentation.Legend.Select(e => e.Hex).ToList();
+        Assert.All(colours, h => Assert.Matches("^#[0-9A-F]{6}$", h));
+        Assert.Equal(colours.Count, colours.Distinct().Count());
+        Assert.Equal("#757575", SigmetPresentation.HazardColorHex("XYZ"));
+        Assert.Equal(SigmetPresentation.HazardColorHex("DS"), SigmetPresentation.HazardColorHex("ss"));
+    }
+
+    [Theory]
+    [InlineData(35000, "FL350")]
+    [InlineData(0, "SFC")]
+    [InlineData(9500, "FL095")]
+    public void Level_text_is_a_flight_level_or_surface(double feet, string expected) =>
+        Assert.Equal(expected, SigmetPresentation.LevelText(feet, "?"));
+
+    [Fact]
+    public void Missing_limits_use_the_given_wording()
+    {
+        Assert.Equal("illimité", SigmetPresentation.LevelText(null, "illimité"));
+        Assert.Equal("SFC → FL350", SigmetPresentation.LevelRange(Make(baseFt: null, topFt: 35000)));
+        Assert.Equal("FL150 → illimité", SigmetPresentation.LevelRange(Make(baseFt: 15000, topFt: null)));
+    }
+
+    [Fact]
+    public void Map_label_shows_the_hazard_and_the_vertical_extent()
+    {
+        Assert.Equal("TS FL350", SigmetPresentation.LabelText(Make()));
+        Assert.Equal("TURB FL150-FL280", SigmetPresentation.LabelText(Make("TURB", 15000, 28000)));
+        Assert.Equal("VA", SigmetPresentation.LabelText(Make("VA", null, null)));
+    }
+
+    [Fact]
+    public void Validity_text_gives_utc_times_and_the_time_left_or_to_wait()
+    {
+        Assert.Equal("05:00 → 07:36 UTC, reste 1 h 36", SigmetPresentation.ValidityText(Make(), Now));
+        Assert.Equal("06:30 → 07:36 UTC, commence dans 30 min", SigmetPresentation.ValidityText(Make(fromMin: 30), Now));
+        Assert.EndsWith("expiré", SigmetPresentation.ValidityText(Make(toMin: -5), Now));
+        Assert.Contains("05/11", SigmetPresentation.ValidityText(Make(toMin: 24 * 60), Now));   // fin le lendemain : la date est précisée
+    }
+
+    [Fact]
+    public void Raw_text_is_one_line_and_shortened()
+    {
+        Assert.Equal("WSFR34 LFPW LFMM SIGMET T02", SigmetPresentation.RawOneLine("WSFR34 LFPW\nLFMM SIGMET T02"));
+        string text = SigmetPresentation.RawOneLine(new string('A', 500), 100);
+        Assert.Equal(101, text.Length);
+        Assert.EndsWith("…", text);
+    }
+
+    [Fact]
+    public void Tip_text_has_the_phenomenon_as_title_then_fir_levels_validity_and_message()
+    {
+        var (title, lines) = SigmetPresentation.TipText(Make(), Now);
+
+        Assert.Equal("Orages noyés dans les nuages", title);
+        Assert.Contains("LFMM MARSEILLE · série T02", lines[0]);
+        Assert.Equal("Niveaux : SFC → FL350", lines[1]);
+        Assert.StartsWith("Validité : 05:00", lines[2]);
+        Assert.Equal(4, lines.Count);
+    }
+
+    [Fact]
+    public void Select_keeps_only_valid_messages_and_optionally_those_at_the_given_altitude()
+    {
+        var active = Make();
+        var future = Make(fromMin: 30);
+        var expired = Make(toMin: -1);
+        var high = Make("TURB", 30000, 40000);
+        var all = new[] { active, future, expired, high };
+
+        var now = SigmetPresentation.Select(all, Now);
+        Assert.Equal([active, high], now);
+
+        Assert.Equal([active], SigmetPresentation.Select(all, Now, 5000));
+        Assert.Equal([active, high], SigmetPresentation.Select(all, Now, 33000));
+        Assert.Equal([high], SigmetPresentation.Select(all, Now, 38000));
+    }
+
+    [Fact]
+    public void At_finds_the_messages_covering_a_point()
+    {
+        var s = Make();
+        Assert.Single(SigmetPresentation.At([s], 42.5, 5));
+        Assert.Empty(SigmetPresentation.At([s], 50, 5));
+    }
+
+    [Fact]
+    public void DrawRing_closes_the_contour_and_keeps_longitudes_continuous_across_the_antimeridian()
+    {
+        IReadOnlyList<(double, double)> ring = [(60, 170), (60, 190), (70, 190), (70, 170)];
+
+        var drawn = SigmetPresentation.DrawRing(ring);
+
+        Assert.Equal(drawn[0], drawn[^1]);                                            // fermé
+        Assert.InRange(drawn.Take(drawn.Count - 1).Average(p => p.Lon), -180, 180);                       // centre sur la carte
+        for (int i = 1; i < drawn.Count; i++) Assert.True(Math.Abs(drawn[i].Lon - drawn[i - 1].Lon) <= 180);   // pas de ruban autour du monde
+    }
+
+    [Fact]
+    public void DrawRing_shifts_a_zone_lying_entirely_beyond_180_degrees_back_onto_the_map()
+    {
+        IReadOnlyList<(double, double)> ring = [(65, 185), (65, 190), (68, 190), (68, 185)];
+        var drawn = SigmetPresentation.DrawRing(ring);
+        Assert.All(drawn, p => Assert.InRange(p.Lon, -175.1, -169.9));
+    }
+
+    [Fact]
+    public void Label_point_lies_inside_the_drawn_area()
+    {
+        var (lat, lon) = SigmetPresentation.LabelPoint(Make().Areas[0]);
+        Assert.InRange(lat, 41.75, 43.75);
+        Assert.InRange(lon, 2.75, 7.75);
+    }
+}

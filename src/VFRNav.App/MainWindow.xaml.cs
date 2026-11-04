@@ -65,6 +65,7 @@ public partial class MainWindow : Window
         _loadingParams = true;
         InitAircraft();
         InitWeatherLayers();
+        InitSigmet();
         VarBox.Text = Fmt(_settings.VariationEast);
         WdirBox.Text = Fmt(_settings.WindDir);
         WspdBox.Text = Fmt(_settings.WindKt);
@@ -116,6 +117,7 @@ public partial class MainWindow : Window
         var map = MapControl.Map;
         _baseLayers = BaseMaps.Create(BaseMaps.Keys[BaseMapBox.SelectedIndex], _settings.CartoKey);
         foreach (var layer in _baseLayers) map.Layers.Add(layer);
+        map.Layers.Add(_sigmetLayer);
         map.Layers.Add(_airspaceLayer);
         map.Layers.Add(_navaidLayer);
         map.Layers.Add(_rangeLayer);
@@ -193,6 +195,9 @@ public partial class MainWindow : Window
         _settings.IfrAircraftId = AircraftFor(FlightMode.Ifr)?.Id;
         _settings.ActiveMode = _mode == FlightMode.Ifr ? "ifr" : "vfr";
         _settings.ShowRange = RangeCheck.IsChecked == true;
+        _settings.ShowSigmet = SigmetCheck.IsChecked == true;
+        _settings.SigmetOpacity = SigmetOpacitySlider.Value;
+        _settings.SigmetAltitudeOnly = SigmetAltCheck.IsChecked == true;
         _settings.ShowRadar = RadarCheck.IsChecked == true;
         _settings.ShowCloudCover = CloudCoverCheck.IsChecked == true;
         _settings.ShowCloudTops = CloudTopsCheck.IsChecked == true;
@@ -434,6 +439,7 @@ public partial class MainWindow : Window
         ApplyAutoVariation();
         RefreshLog();
         RefreshRange();
+        RedrawSigmet();
         MapControl.Refresh();
         ScheduleLive();
         RefreshAlternates();
@@ -787,7 +793,7 @@ public partial class MainWindow
             && Distance(_mouse, ToScreen(shown.Lon, shown.Lat)) <= AirportHoverPx) return;
         HideTip();
         // Pas d'infobulle pendant un déplacement de la carte.
-        if (e.LeftButton == System.Windows.Input.MouseButtonState.Released && (_shownAirspaces.Count > 0 || _airports.Count > 0)) _tipTimer.Start();
+        if (e.LeftButton == System.Windows.Input.MouseButtonState.Released && (_shownAirspaces.Count > 0 || _airports.Count > 0 || _sigmetsShown.Count > 0)) _tipTimer.Start();
     }
 
     private void HideTip()
@@ -810,6 +816,7 @@ public partial class MainWindow
         double reach = EdgeHoverPx * MapControl.Map.Navigator.Viewport.Resolution;
         var onEdge = _shownAirspaces.Select(a => (Zone: a, Distance: a.EdgeDistanceMercator(lon, lat)))
             .Where(z => z.Distance <= reach).OrderBy(z => z.Distance).Select(z => z.Zone).Take(MaxZonesOnEdge).ToList();
+        if (onEdge.Count == 0 && TryShowSigmetTip(lat, lon)) return;
         var hits = onEdge.Count > 0
             ? onEdge
             : _shownAirspaces.Where(a => a.Contains(lon, lat)).OrderBy(a => a.LowerFt).ThenBy(a => a.UpperFt).ToList();

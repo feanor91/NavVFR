@@ -100,6 +100,7 @@ public partial class MainWindow
         if (!_aircraftReady || _loadingParams || !IsLoaded) return;
         RefreshLog();
         ScheduleLive();
+        RedrawSigmet();
     }
 
     /// <summary>Croisière utilisée pour le profil, ex. « croisière FL350 · IFR · Airbus A320neo ».</summary>
@@ -117,6 +118,7 @@ public partial class MainWindow
         UpdateAircraftUi();
         if (IsLoaded) RefreshLog();
         RefreshRange();
+        RedrawSigmet();
     }
 
     // ---------- événements ----------
