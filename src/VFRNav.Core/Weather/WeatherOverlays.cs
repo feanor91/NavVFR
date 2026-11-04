@@ -65,27 +65,40 @@ public sealed class RadarMaps
     public TimeSpan Age(DateTimeOffset now) => now - Latest.Time;
 }
 
+/// <summary>Les deux couches de nuages du satellite, que l'on peut afficher séparément ou ensemble.</summary>
+public enum CloudLayerKind
+{
+    /// <summary>Couverture nuageuse : où il y a des nuages, à tous les niveaux (stratus bas compris), jour et nuit. Gris-bleu.</summary>
+    Cover,
+
+    /// <summary>Sommets froids : nuages épais ou élevés (orages, front), d'après l'infrarouge. Violet.</summary>
+    Tops,
+}
+
 /// <summary>
-/// Nuages vus du satellite, en deux couches EUMETSAT superposées : le masque de nuages (présence de nuages à tous les niveaux,
-/// y compris les stratus bas, jour et nuit) en teinte claire, et l'image infrarouge 10,5 µm de Meteosat Troisième Génération
-/// (sommets froids, donc nuages épais ou élevés) en teinte plus sombre. de Meteosat Troisième Génération, via le service WMS gratuit d'EUMETSAT
-/// (EUMETView, sans clé). Sans paramètre de date, le service renvoie l'image la plus récente (une toutes les 10 à 15 minutes,
-/// avec 10 à 20 minutes de décalage). L'infrarouge seul ne montrait pas les stratus bas ni le brouillard, presque aussi chauds
-/// que le sol : c'est le masque de nuages qui les révèle. Le masque ne dit pas l'épaisseur ni la hauteur : une teinte claire
-/// signifie « nuageux », pas « plafond bas ».
+/// Nuages vus du satellite, via le service WMS gratuit d'EUMETSAT (EUMETView, sans clé), en deux couches indépendantes :
+/// la <b>couverture</b> (masque de nuages de Meteosat : présence de nuages à tous les niveaux, y compris les stratus bas)
+/// et les <b>sommets froids</b> (image infrarouge 10,5 µm de Meteosat Troisième Génération : nuages épais ou élevés).
+/// Sans paramètre de date, le service renvoie l'image la plus récente (une toutes les 10 à 15 minutes, avec 10 à 20 minutes de décalage).
+/// Le masque ne dit ni l'épaisseur ni la hauteur : « nuageux » ne veut pas dire « plafond bas ».
 /// </summary>
 public static class SatelliteClouds
 {
     public const string WmsUrl = "https://view.eumetsat.int/geoserver/ows";
+
+    /// <summary>Infrarouge 10,5 µm de Meteosat Troisième Génération : sommets de nuages froids.</summary>
     public const string Layer = "mtg_fd:ir105_hrfi";
 
     /// <summary>Masque de nuages de Meteosat Seconde Génération (nuage / sol dégagé / mer dégagée), une image toutes les 15 minutes.</summary>
     public const string MaskLayer = "msg_fes:clm";
-    public const string AttributionText = "Nuages : © EUMETSAT (Meteosat MTG, infrarouge 10,5 µm)";
+
+    public const string AttributionText = "Nuages : © EUMETSAT (Meteosat)";
     public const string AttributionUrl = "https://view.eumetsat.int";
     public const int MaxZoom = 8;
 
-    /// <summary>Requête GetMap pour une tuile, en projection Web Mercator (EPSG:3857, mètres), fond transparent.</summary>
+    public static string LayerFor(CloudLayerKind kind) => kind == CloudLayerKind.Cover ? MaskLayer : Layer;
+
+    /// <summary>Requête GetMap pour une tuile de la couche infrarouge, en projection Web Mercator (EPSG:3857, mètres), fond transparent.</summary>
     public static string GetMapUrl(double minX, double minY, double maxX, double maxY, int size = 256) =>
         GetMapUrl(Layer, minX, minY, maxX, maxY, size);
 
@@ -97,12 +110,19 @@ public static class SatelliteClouds
             $"&crs=EPSG:3857&bbox={minX:0.###},{minY:0.###},{maxX:0.###},{maxY:0.###}&width={size}&height={size}");
     }
 
-    // Teinte des nuages : un gris-bleu foncé, lisible sur le fond « clair » comme sur le relief.
-    private const byte R = 88, G = 108, B = 146;
-    private const double DarkLimit = 105, BrightLimit = 215, MaxAlpha = 0.8;
+    // Deux teintes bien distinctes : un gris-bleu pour la couverture, un violet pour les sommets froids.
+    public static (byte R, byte G, byte B) Tint(CloudLayerKind kind) => kind == CloudLayerKind.Cover ? ((byte)112, (byte)128, (byte)150) : ((byte)116, (byte)62, (byte)196);
 
-    /// <summary>Opacité d'un point nuageux d'après le masque seul, quand l'infrarouge ne le distingue pas du sol (nuage bas).</summary>
-    public const double CoverageAlpha = 0.38;
+    public static string TintHex(CloudLayerKind kind)
+    {
+        var (r, g, b) = Tint(kind);
+        return $"#{r:X2}{g:X2}{b:X2}";
+    }
+
+    private const double DarkLimit = 105, BrightLimit = 215;
+
+    /// <summary>Opacité maximale de chaque couche avant le curseur de l'utilisateur.</summary>
+    public const double CoverAlpha = 0.85, TopsMaxAlpha = 0.9;
 
     /// <summary>
     /// Le masque de nuages est livré en couleurs : blanc = nuage, vert = terre dégagée, bleu = mer dégagée.
@@ -114,49 +134,51 @@ public static class SatelliteClouds
     public static double CloudAlpha(double luminance)
     {
         double t = Math.Clamp((luminance - DarkLimit) / (BrightLimit - DarkLimit), 0, 1);
-        return t * t * (3 - 2 * t) * MaxAlpha;   // lissage : pas de bord dur entre nuage et ciel clair
+        return t * t * (3 - 2 * t) * TopsMaxAlpha;   // lissage : pas de bord dur entre nuage et ciel clair
     }
 
     /// <summary>
-    /// Transforme une image infrarouge en niveaux de gris, opaque, en calque transparent de nuages.
-    /// Entrée et sortie : pixels RGBA de 4 octets, alpha non prémultiplié. Les points déjà transparents (hors du disque vu par le satellite) le restent.
+    /// Couche « couverture » : transforme le masque de nuages (couleurs opaques) en calque transparent, teinté là où il y a un nuage.
+    /// Entrée et sortie : pixels RGBA de 4 octets, alpha non prémultiplié.
     /// </summary>
-    public static void ToCloudOverlay(ReadOnlySpan<byte> rgba, Span<byte> output)
+    public static void ToCoverOverlay(ReadOnlySpan<byte> maskRgba, Span<byte> output)
     {
-        if (output.Length < rgba.Length) throw new ArgumentException("Tampon de sortie trop petit.", nameof(output));
-        for (int i = 0; i + 3 < rgba.Length; i += 4)
+        if (output.Length < maskRgba.Length) throw new ArgumentException("Tampon de sortie trop petit.", nameof(output));
+        var (r, g, b) = Tint(CloudLayerKind.Cover);
+        for (int i = 0; i + 3 < maskRgba.Length; i += 4)
         {
-            double luminance = 0.299 * rgba[i] + 0.587 * rgba[i + 1] + 0.114 * rgba[i + 2];
-            double alpha = CloudAlpha(luminance) * (rgba[i + 3] / 255.0);
-            output[i] = R;
-            output[i + 1] = G;
-            output[i + 2] = B;
-            output[i + 3] = (byte)Math.Round(alpha * 255);
+            bool cloud = IsCloudInMask(maskRgba[i], maskRgba[i + 1], maskRgba[i + 2], maskRgba[i + 3]);
+            output[i] = r;
+            output[i + 1] = g;
+            output[i + 2] = b;
+            output[i + 3] = cloud ? (byte)Math.Round(CoverAlpha * 255) : (byte)0;
         }
     }
 
     /// <summary>
-    /// Fusionne le masque de nuages et l'image infrarouge d'une même tuile en un seul calque transparent :
-    /// teinte claire (<see cref="CoverageAlpha"/>) là où le masque voit un nuage, plus opaque là où l'infrarouge montre un sommet froid.
-    /// Les trois tampons ont la même taille (pixels RGBA de 4 octets). Un point transparent dans les deux sources le reste.
+    /// Couche « sommets froids » : transforme l'image infrarouge en niveaux de gris, opaque, en calque transparent où seuls les nuages froids (clairs) restent.
+    /// Les points déjà transparents (hors du disque vu par le satellite) le restent.
     /// </summary>
-    public static void ToCloudOverlay(ReadOnlySpan<byte> infraredRgba, ReadOnlySpan<byte> maskRgba, Span<byte> output)
+    public static void ToTopsOverlay(ReadOnlySpan<byte> infraredRgba, Span<byte> output)
     {
-        if (maskRgba.Length != infraredRgba.Length) throw new ArgumentException("Le masque et l'infrarouge n'ont pas la même taille.", nameof(maskRgba));
         if (output.Length < infraredRgba.Length) throw new ArgumentException("Tampon de sortie trop petit.", nameof(output));
-
+        var (r, g, b) = Tint(CloudLayerKind.Tops);
         for (int i = 0; i + 3 < infraredRgba.Length; i += 4)
         {
             double luminance = 0.299 * infraredRgba[i] + 0.587 * infraredRgba[i + 1] + 0.114 * infraredRgba[i + 2];
-            double fromInfrared = CloudAlpha(luminance) * (infraredRgba[i + 3] / 255.0);
-            double fromMask = IsCloudInMask(maskRgba[i], maskRgba[i + 1], maskRgba[i + 2], maskRgba[i + 3]) ? CoverageAlpha : 0;
-            double alpha = Math.Max(fromInfrared, fromMask);
-
-            output[i] = R;
-            output[i + 1] = G;
-            output[i + 2] = B;
+            double alpha = CloudAlpha(luminance) * (infraredRgba[i + 3] / 255.0);
+            output[i] = r;
+            output[i + 1] = g;
+            output[i + 2] = b;
             output[i + 3] = (byte)Math.Round(alpha * 255);
         }
+    }
+
+    /// <summary>Convertit l'image d'une couche vers son calque transparent.</summary>
+    public static void ToOverlay(CloudLayerKind kind, ReadOnlySpan<byte> rgba, Span<byte> output)
+    {
+        if (kind == CloudLayerKind.Cover) ToCoverOverlay(rgba, output);
+        else ToTopsOverlay(rgba, output);
     }
 }
 

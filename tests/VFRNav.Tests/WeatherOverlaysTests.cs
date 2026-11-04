@@ -78,11 +78,34 @@ public class SatelliteCloudsTests
     }
 
     [Fact]
+    public void Each_layer_kind_targets_its_own_eumetsat_product()
+    {
+        Assert.Equal("msg_fes:clm", SatelliteClouds.LayerFor(CloudLayerKind.Cover));
+        Assert.Equal("mtg_fd:ir105_hrfi", SatelliteClouds.LayerFor(CloudLayerKind.Tops));
+        Assert.Contains("layers=msg_fes%3Aclm", SatelliteClouds.GetMapUrl(SatelliteClouds.MaskLayer, 0, 0, 100, 100));
+    }
+
+    [Fact]
+    public void The_two_layers_have_clearly_different_tints()
+    {
+        var (cr, cg, cb) = SatelliteClouds.Tint(CloudLayerKind.Cover);
+        var (tr, tg, tb) = SatelliteClouds.Tint(CloudLayerKind.Tops);
+
+        // Distance de couleur assez grande pour qu'on les distingue superposées sur une carte.
+        double distance = Math.Sqrt(Math.Pow(cr - tr, 2) + Math.Pow(cg - tg, 2) + Math.Pow(cb - tb, 2));
+        Assert.True(distance > 80, $"teintes trop proches : {distance:0}");
+        Assert.NotEqual(SatelliteClouds.TintHex(CloudLayerKind.Cover), SatelliteClouds.TintHex(CloudLayerKind.Tops));
+        Assert.Matches("^#[0-9A-F]{6}$", SatelliteClouds.TintHex(CloudLayerKind.Cover));
+    }
+
+    // ---------- couche « sommets froids » (infrarouge) ----------
+
+    [Fact]
     public void Warm_ground_becomes_transparent_and_cold_cloud_tops_stay_visible()
     {
         Assert.Equal(0, SatelliteClouds.CloudAlpha(40));
         Assert.Equal(0, SatelliteClouds.CloudAlpha(105));
-        Assert.InRange(SatelliteClouds.CloudAlpha(255), 0.7, 0.85);
+        Assert.InRange(SatelliteClouds.CloudAlpha(255), 0.8, 0.95);
     }
 
     [Fact]
@@ -99,7 +122,7 @@ public class SatelliteCloudsTests
     }
 
     [Fact]
-    public void Overlay_conversion_uses_brightness_for_alpha_and_keeps_transparent_pixels_transparent()
+    public void Tops_overlay_uses_brightness_for_alpha_and_keeps_transparent_pixels_transparent()
     {
         byte[] input =
         [
@@ -110,65 +133,50 @@ public class SatelliteCloudsTests
         ];
         var output = new byte[input.Length];
 
-        SatelliteClouds.ToCloudOverlay(input, output);
+        SatelliteClouds.ToTopsOverlay(input, output);
 
         Assert.Equal(0, output[3]);
-        Assert.InRange(output[7], 180, 215);
+        Assert.InRange(output[7], 200, 235);
         Assert.Equal(0, output[11]);
         Assert.InRange(output[15], 1, output[7]);
-        // Toute l'image a la même teinte : seule l'opacité varie.
-        for (int p = 0; p < 4; p++) Assert.Equal(output[0], output[p * 4]);
+        var (r, g, b) = SatelliteClouds.Tint(CloudLayerKind.Tops);
+        for (int p = 0; p < 4; p++) { Assert.Equal(r, output[p * 4]); Assert.Equal(g, output[p * 4 + 1]); Assert.Equal(b, output[p * 4 + 2]); }
     }
 
-    [Fact]
-    public void Overlay_conversion_rejects_a_too_small_output_buffer() =>
-        Assert.Throws<ArgumentException>(() => SatelliteClouds.ToCloudOverlay(new byte[8], new byte[4]));
+    // ---------- couche « couverture » (masque de nuages) ----------
 
-    // ---------- fusion masque de nuages + infrarouge ----------
+    private static readonly byte[] White = [255, 255, 255, 255], CleanLand = [0, 190, 0, 255], CleanSea = [0, 0, 255, 255], Nothing = [0, 0, 0, 0];
 
-    private static readonly byte[] White = [255, 255, 255, 255], CleanLand = [0, 190, 0, 255], CleanSea = [0, 0, 255, 255], Dark = [60, 60, 60, 255], Bright = [250, 250, 250, 255], Nothing = [0, 0, 0, 0];
-
-    private static byte AlphaOf(byte[] infrared, byte[] mask)
+    private static byte[] Cover(byte[] pixel)
     {
         var output = new byte[4];
-        SatelliteClouds.ToCloudOverlay(infrared, mask, output);
-        return output[3];
+        SatelliteClouds.ToCoverOverlay(pixel, output);
+        return output;
     }
 
     [Fact]
-    public void Low_cloud_that_the_infrared_cannot_see_is_shown_lightly_from_the_mask()
+    public void Cover_overlay_tints_cloudy_points_and_leaves_clear_sky_transparent()
     {
-        // Le cas de Paris par temps couvert : sol chaud et nuage bas ont la même température (infrarouge sombre), mais le masque voit le nuage.
-        byte alpha = AlphaOf(Dark, White);
-        Assert.InRange(alpha, 90, 105);   // ~ 38 % d'opacité
+        var (r, g, b) = SatelliteClouds.Tint(CloudLayerKind.Cover);
+        var cloud = Cover(White);
+        Assert.Equal([r, g, b], cloud[..3]);
+        Assert.InRange(cloud[3], 200, 230);          // ~ 85 %
+
+        Assert.Equal(0, Cover(CleanLand)[3]);        // terre dégagée
+        Assert.Equal(0, Cover(CleanSea)[3]);         // mer dégagée
+        Assert.Equal(0, Cover(Nothing)[3]);          // hors du disque du satellite
     }
 
     [Fact]
-    public void Clear_sky_stays_transparent_over_land_and_sea()
+    public void Cover_overlay_sees_low_cloud_that_the_infrared_misses()
     {
-        Assert.Equal(0, AlphaOf(Dark, CleanLand));
-        Assert.Equal(0, AlphaOf(Dark, CleanSea));
-    }
+        // Le cas de Paris par temps couvert : le sol chaud et le stratus ont la même température (infrarouge sombre).
+        var infrared = new byte[] { 60, 60, 60, 255 };
+        var tops = new byte[4];
+        SatelliteClouds.ToTopsOverlay(infrared, tops);
 
-    [Fact]
-    public void Cold_cloud_tops_are_denser_than_low_cloud_cover()
-    {
-        byte low = AlphaOf(Dark, White), high = AlphaOf(Bright, White);
-        Assert.True(high > low);
-        Assert.InRange(high, 190, 215);
-    }
-
-    [Fact]
-    public void Infrared_alone_still_shows_a_cold_cloud_the_mask_missed()
-    {
-        Assert.True(AlphaOf(Bright, CleanLand) > 150);
-    }
-
-    [Fact]
-    public void Points_outside_both_images_stay_transparent()
-    {
-        Assert.Equal(0, AlphaOf(Nothing, Nothing));
-        Assert.Equal(0, AlphaOf(Nothing, CleanLand));
+        Assert.Equal(0, tops[3]);                    // l'infrarouge ne voit rien
+        Assert.True(Cover(White)[3] > 150);          // le masque voit le nuage
     }
 
     [Theory]
@@ -181,17 +189,24 @@ public class SatelliteCloudsTests
         Assert.Equal(cloud, SatelliteClouds.IsCloudInMask(r, g, b, a));
 
     [Fact]
-    public void Merge_rejects_buffers_of_different_sizes()
+    public void ToOverlay_dispatches_to_the_right_conversion()
     {
-        Assert.Throws<ArgumentException>(() => SatelliteClouds.ToCloudOverlay(new byte[8], new byte[4], new byte[8]));
-        Assert.Throws<ArgumentException>(() => SatelliteClouds.ToCloudOverlay(new byte[8], new byte[8], new byte[4]));
+        var input = new byte[] { 255, 255, 255, 255 };
+        var cover = new byte[4];
+        var tops = new byte[4];
+
+        SatelliteClouds.ToOverlay(CloudLayerKind.Cover, input, cover);
+        SatelliteClouds.ToOverlay(CloudLayerKind.Tops, input, tops);
+
+        Assert.Equal(SatelliteClouds.Tint(CloudLayerKind.Cover).R, cover[0]);
+        Assert.Equal(SatelliteClouds.Tint(CloudLayerKind.Tops).R, tops[0]);
     }
 
     [Fact]
-    public void GetMap_url_can_target_the_cloud_mask_layer()
+    public void Conversions_reject_a_too_small_output_buffer()
     {
-        string url = SatelliteClouds.GetMapUrl(SatelliteClouds.MaskLayer, 0, 0, 100, 100);
-        Assert.Contains("layers=msg_fes%3Aclm", url);
+        Assert.Throws<ArgumentException>(() => SatelliteClouds.ToCoverOverlay(new byte[8], new byte[4]));
+        Assert.Throws<ArgumentException>(() => SatelliteClouds.ToTopsOverlay(new byte[8], new byte[4]));
     }
 }
 

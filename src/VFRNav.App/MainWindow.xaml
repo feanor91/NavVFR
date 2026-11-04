@@ -211,11 +211,27 @@
                 </DockPanel>
                 <CheckBox x:Name="RadarAnimCheck" Content="Animer le radar (4 images, 30 min)" Foreground="#E8EEFC" Margin="18,0,0,4" IsEnabled="False" Click="RadarAnim_Click"
                           ToolTip="Fait défiler les 4 dernières images du radar. La première boucle charge les images une à une (RainViewer limite le nombre de requêtes) ; ensuite elles sont en mémoire."/>
-                <CheckBox x:Name="CloudCheck" Content="Nuages (satellite)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="WeatherLayer_Click"
-                          ToolTip="Meteosat (EUMETSAT) : la couverture nuageuse, ciel couvert compris, en gris-bleu clair, et les sommets de nuages froids (orages, nuages épais) en plus foncé."/>
+                <CheckBox x:Name="CloudCoverCheck" Margin="0,3,0,0" Foreground="#E8EEFC" Click="WeatherLayer_Click"
+                          ToolTip="Où il y a des nuages, à tous les niveaux : le ciel couvert de nuages bas (stratus) y est visible, de jour comme de nuit. Ne dit pas à quelle hauteur.">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="CloudCoverSwatch" Width="12" Height="12" CornerRadius="2" Margin="0,0,6,0" VerticalAlignment="Center"/>
+                        <TextBlock Text="Couverture nuageuse (tous niveaux)"/>
+                    </StackPanel>
+                </CheckBox>
                 <DockPanel Margin="18,2,0,4">
                     <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
-                    <Slider x:Name="CloudOpacitySlider" Minimum="0.1" Maximum="1" Value="0.6" ValueChanged="WeatherOpacity_Changed"/>
+                    <Slider x:Name="CloudCoverOpacitySlider" Minimum="0.1" Maximum="1" Value="0.5" ValueChanged="WeatherOpacity_Changed"/>
+                </DockPanel>
+                <CheckBox x:Name="CloudTopsCheck" Margin="0,3,0,0" Foreground="#E8EEFC" Click="WeatherLayer_Click"
+                          ToolTip="Nuages épais ou élevés (orages, fronts), d'après l'infrarouge de Meteosat : plus c'est froid, plus c'est opaque. Les stratus bas n'y apparaissent pas.">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="CloudTopsSwatch" Width="12" Height="12" CornerRadius="2" Margin="0,0,6,0" VerticalAlignment="Center"/>
+                        <TextBlock Text="Sommets de nuages froids (infrarouge)"/>
+                    </StackPanel>
+                </CheckBox>
+                <DockPanel Margin="18,2,0,4">
+                    <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
+                    <Slider x:Name="CloudTopsOpacitySlider" Minimum="0.1" Maximum="1" Value="0.7" ValueChanged="WeatherOpacity_Changed"/>
                 </DockPanel>
                 <TextBlock x:Name="WeatherInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap">
