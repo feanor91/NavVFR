@@ -19,6 +19,10 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 
 ### Préparer une route
 
+Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du plan de vol et de la feuille de route, simulateur), **VFR** et **IFR** (chacun avec sa liste de points de route et ses boutons Ouvrir / Enregistrer .pln, son appareil, ses aéroports de dégagement) et **Paramètres** (conditions, fond de carte, balises, filtres, clés, données et toutes les mises à jour : cartes VAC, SIA, SID/STAR et routes ATS lues dans MSFS). La route est la même dans les deux listes, avec la même sélection.
+
+- **Aéroports de dégagement** (VFR et IFR) : codes OACI de détournement saisis dans chaque panneau ; distance, cap, temps et carburant depuis le dernier point de la route, avec le carburant total route + dégagement le plus lointain comparé à l'appareil ; repris sur la feuille de route.
+
 - **Route** : clic pour poser un point, glisser pour le déplacer, clic sur un point pour le retirer. Étiquette de chaque branche sur la carte (route magnétique et longueur) et nom de chaque point sous son cercle numéroté, y compris les points des SID et des STAR ; un nom disparaît quand la carte est trop éloignée pour qu'il reste lisible.
 - **Log de navigation** : routes vraie et magnétique, dérive, cap, vitesse sol, temps, carburant (vent supposé constant).
 - **Altitude par point** : colonne « Alt (ft) », ou glisser-déposer dans le profil (un point ; double-clic pour revenir à la croisière) ou du trait de croisière pour toute la route.

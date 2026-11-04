@@ -112,6 +112,7 @@ public partial class MainWindow
 
     private void AfterAircraftChange()
     {
+        RefreshAlternates();
         ScheduleLive();
         UpdateAircraftUi();
         if (IsLoaded) RefreshLog();

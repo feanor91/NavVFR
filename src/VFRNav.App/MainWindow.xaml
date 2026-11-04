@@ -34,12 +34,38 @@
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Commun" Foreground="White" FontSize="18" FontWeight="Bold"/>
-                        <TextBlock Text="route, appareil, carte" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                        <TextBlock Text="notes, plan de vol, simulateur" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel Margin="4,2,0,0">
+                                <TextBlock Style="{StaticResource Header}" Text="NOTES DU POINT"/>
+                <TextBlock x:Name="WpNotesLabel" Style="{StaticResource Label}" Text="Notes du point (sélectionne un point de la route)"/>
+                <TextBox x:Name="WpNotesBox" AcceptsReturn="True" TextWrapping="Wrap" Height="62" VerticalScrollBarVisibility="Auto" IsEnabled="False"
+                         TextChanged="WpNotes_Changed" LostFocus="WpNotes_LostFocus"
+                         ToolTip="Consignes, repères visuels, fréquences... Elles apparaissent sur la feuille de route et au survol du point."/>
+
+                <TextBlock Style="{StaticResource Header}" Text="PLAN DE VOL"/>
+                <Button x:Name="PlanButton" Content="Calculer le plan de vol et la feuille de route" Click="CalculatePlan_Click"
+                        Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                <TextBlock x:Name="PlanStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,8"/>
+
+                <TextBlock Style="{StaticResource Header}" Text="SIMULATEUR"/>
+                <TextBlock x:Name="SimStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Text="Suivi de l'avion : démarrage..."/>
+                <TextBlock x:Name="SimInfo" Foreground="#7FE3A0" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                <CheckBox x:Name="FollowCheck" Content="Centrer la carte sur l'avion" Foreground="#E8EEFC" Margin="0,6,0,0" IsChecked="True"/>
+
+                </StackPanel>
+            </Expander>
+            <Expander x:Name="VfrPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="VFR" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="vol à vue" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel Margin="4,2,0,0">
                 <TextBlock Style="{StaticResource Header}" Text="ROUTE"/>
-                <DataGrid x:Name="RouteGrid" SelectionChanged="RouteGrid_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                <DataGrid x:Name="VfrRouteGrid" SelectionChanged="RouteGrid_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
                           HeadersVisibility="Column" Height="190" CellEditEnding="RouteGrid_CellEditEnding"
                           SelectionMode="Single" GridLinesVisibility="Horizontal">
                     <DataGrid.Columns>
@@ -62,11 +88,100 @@
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
                            Text="Clic sur la carte : point tournant. Clic sur un terrain : ajout du terrain. Lat/Lon modifiables dans la liste."/>
 
-                <TextBlock x:Name="WpNotesLabel" Style="{StaticResource Label}" Text="Notes du point (sélectionne un point de la route)"/>
-                <TextBox x:Name="WpNotesBox" AcceptsReturn="True" TextWrapping="Wrap" Height="62" VerticalScrollBarVisibility="Auto" IsEnabled="False"
-                         TextChanged="WpNotes_Changed" LostFocus="WpNotes_LostFocus"
-                         ToolTip="Consignes, repères visuels, fréquences... Elles apparaissent sur la feuille de route et au survol du point."/>
+                <TextBlock Style="{StaticResource Header}" Text="APPAREIL VFR"/>
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Content="Gérer…" Click="VfrManage_Click" Margin="6,0,0,0" ToolTip="Créer, modifier, dupliquer ou supprimer des appareils"/>
+                    <ComboBox x:Name="VfrAircraftBox" DisplayMemberPath="Name" SelectionChanged="VfrAircraft_Changed" VerticalAlignment="Top"/>
+                </DockPanel>
+                <TextBlock x:Name="VfrAircraftInfo" Foreground="#E8EEFC" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                <TextBlock Style="{StaticResource Label}" Text="Croisière (ft)" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
+                <TextBox x:Name="VfrAltBox" TextChanged="CruiseAlt_Changed" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
 
+                <TextBlock Style="{StaticResource Header}" Text="DÉGAGEMENT"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Aéroports de détournement (codes OACI séparés par un espace)"/>
+                <TextBox x:Name="VfrAltnBox" CharacterCasing="Upper" TextChanged="Altn_Changed"
+                         ToolTip="Terrains de dégagement : distance, cap, temps et carburant depuis le terrain d'arrivée (dernier point de la route), repris sur la feuille de route."/>
+                <TextBlock x:Name="VfrAltnInfo" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                <TextBlock Style="{StaticResource Header}" Text="VÉRIFICATION DE LA ROUTE"/>
+                <TextBlock x:Name="LiveCheck" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap"/>
+
+                </StackPanel>
+            </Expander>
+            
+            <Expander x:Name="IfrPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="IFR" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="vol aux instruments" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel Margin="4,2,0,0">
+                <TextBlock Style="{StaticResource Header}" Text="ROUTE"/>
+                <DataGrid x:Name="IfrRouteGrid" SelectionChanged="RouteGrid_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                          HeadersVisibility="Column" Height="190" CellEditEnding="RouteGrid_CellEditEnding"
+                          SelectionMode="Single" GridLinesVisibility="Horizontal">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Name}" Width="*"/>
+                        <DataGridTextColumn Header="Alt (ft)" Binding="{Binding AltitudeFt, StringFormat=0, TargetNullValue=''}" Width="58"/>
+                        <DataGridTextColumn Header="Lat" Binding="{Binding Lat, StringFormat=F4}" Width="56"/>
+                        <DataGridTextColumn Header="Lon" Binding="{Binding Lon, StringFormat=F4}" Width="56"/>
+                        <DataGridTextColumn Header="Note" Binding="{Binding NoteMark}" Width="40" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <WrapPanel Margin="0,6,0,0">
+                    <Button Content="↑" Click="MoveUp_Click"/>
+                    <Button Content="↓" Click="MoveDown_Click"/>
+                    <Button Content="Supprimer" Click="Remove_Click"/>
+                    <Button Content="Inverser" Click="Reverse_Click"/>
+                    <Button Content="Effacer" Click="Clear_Click"/>
+                    <Button Content="Ouvrir .pln" Click="Open_Click" ToolTip="Ouvre un plan de vol MSFS (.pln), de MSFS Rhumb ou d'un autre outil"/>
+                    <Button Content="Enregistrer .pln" Click="Save_Click" ToolTip="Enregistre la route en plan de vol MSFS (.pln), avec les altitudes et les notes"/>
+                </WrapPanel>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
+                           Text="Clic sur la carte : point tournant. Clic sur un terrain : ajout du terrain. Lat/Lon modifiables dans la liste."/>
+
+                <TextBlock Style="{StaticResource Header}" Text="APPAREIL IFR"/>
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Content="Gérer…" Click="IfrManage_Click" Margin="6,0,0,0" ToolTip="Créer, modifier, dupliquer ou supprimer des appareils"/>
+                    <ComboBox x:Name="IfrAircraftBox" DisplayMemberPath="Name" SelectionChanged="IfrAircraft_Changed" VerticalAlignment="Top"/>
+                </DockPanel>
+                <TextBlock x:Name="IfrAircraftInfo" Foreground="#E8EEFC" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,8"/>
+                <TextBlock x:Name="IfrDataLabel" Foreground="#FFD479" FontSize="10.5" TextWrapping="Wrap" Margin="0,0,0,2"/>
+                <UniformGrid Columns="2">
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Départ (OACI)"/>
+                        <TextBox x:Name="IfrDepBox" Text="LFPG" CharacterCasing="Upper" TextChanged="IfrAirport_Changed"/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Arrivée (OACI)"/>
+                        <TextBox x:Name="IfrArrBox" Text="LFMN" CharacterCasing="Upper" TextChanged="IfrAirport_Changed"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Piste de départ"/>
+                        <ComboBox x:Name="IfrDepRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="Piste conseillée d'après le vent du METAR. Choisissez-en une autre pour la forcer ; « Auto » prend le trajet le plus court toutes pistes confondues."/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Piste d'arrivée"/>
+                        <ComboBox x:Name="IfrArrRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="Piste conseillée d'après le vent du METAR. Choisissez-en une autre pour la forcer ; « Auto » prend le trajet le plus court toutes pistes confondues."/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="SID"/>
+                        <ComboBox x:Name="IfrSidBox"/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="STAR"/>
+                        <ComboBox x:Name="IfrStarBox"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Croisière (FL)" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau. À partir du FL195, la route libre (tronçons directs) est autorisée."/>
+                        <TextBox x:Name="IfrFlBox" TextChanged="CruiseAlt_Changed" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/></StackPanel>
+                </UniformGrid>
+                <TextBlock x:Name="IfrAirportInfo" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                <TextBlock Style="{StaticResource Header}" Text="DÉGAGEMENT"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Aéroports de détournement (codes OACI séparés par un espace)"/>
+                <TextBox x:Name="IfrAltnBox" CharacterCasing="Upper" TextChanged="Altn_Changed"
+                         ToolTip="Terrains de dégagement : distance, cap, temps et carburant depuis le terrain d'arrivée (dernier point de la route), repris sur la feuille de route."/>
+                <TextBlock x:Name="IfrAltnInfo" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,8,0,4"
+                        ToolTip="Cherche le plus court chemin SID, routes ATS, STAR et remplace la route par le résultat."/>
+                <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>
+                </StackPanel>
+            </Expander>
+            <Expander x:Name="SettingsPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Paramètres" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="conditions, carte, filtres, données, mises à jour" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel Margin="4,2,0,0">
                 <TextBlock Style="{StaticResource Header}" Text="CONDITIONS"/>
                 <UniformGrid Columns="2">
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Déclinaison (°E +)"/><TextBox x:Name="VarBox" TextChanged="Param_Changed"/>
@@ -77,16 +192,6 @@
                 <CheckBox x:Name="RangeCheck" Content="Cercle de portée autour du départ" Foreground="#E8EEFC" Margin="0,8,0,0" IsChecked="True" Click="Range_Click"
                           ToolTip="Distance que l'appareil actif peut parcourir avec tout son carburant à sa vitesse de croisière, sans vent et sans réserve."/>
                 <TextBlock x:Name="RangeInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="PLAN DE VOL"/>
-                <Button x:Name="PlanButton" Content="Calculer le plan de vol et la feuille de route" Click="CalculatePlan_Click"
-                        Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
-                <TextBlock x:Name="PlanStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,8"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="SIMULATEUR"/>
-                <TextBlock x:Name="SimStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Text="Suivi de l'avion : démarrage..."/>
-                <TextBlock x:Name="SimInfo" Foreground="#7FE3A0" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" Margin="0,4,0,0"/>
-                <CheckBox x:Name="FollowCheck" Content="Centrer la carte sur l'avion" Foreground="#E8EEFC" Margin="0,6,0,0" IsChecked="True"/>
 
                 <TextBlock Style="{StaticResource Header}" Text="FOND DE CARTE"/>
                 <ComboBox x:Name="BaseMapBox" SelectionChanged="BaseMap_Changed">
@@ -109,6 +214,30 @@
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
                            Text="Vert VFR · bleu MVFR · rouge IFR · violet LIFR · gris : pas de METAR. Contour doré : carte VAC disponible. Texte sous le code : visibilité."/>
 
+                <TextBlock Style="{StaticResource Header}" Text="FILTRES TERRAINS"/>
+                <CheckBox x:Name="FWithCode" Content="Avec code (LFPL, LF3126…)" Foreground="#E8EEFC" Click="Filter_Click"/>
+                <CheckBox x:Name="FWithoutCode" Content="Sans code (FR-xxxx)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
+                <CheckBox x:Name="FVacOnly" Content="Seulement avec carte VAC" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
+                <WrapPanel Margin="0,6,0,0">
+                    <CheckBox x:Name="FLarge" Content="Grands" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
+                    <CheckBox x:Name="FMedium" Content="Moyens" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
+                    <CheckBox x:Name="FSmall" Content="Petits" Foreground="#E8EEFC" Click="Filter_Click"/>
+                </WrapPanel>
+                <TextBlock x:Name="FilterCount" Style="{StaticResource Label}"/>
+
+                <CheckBox x:Name="ZoneHelpCheck" Content="Aide des zones en bas de la carte" Foreground="#E8EEFC" Margin="0,8,0,0" Click="ZoneHelp_Click"/>
+
+                <TextBlock Style="{StaticResource Header}" Text="FILTRES ESPACES AÉRIENS"/>
+                <CheckBox x:Name="ARestricted" Content="Zones R / D / P / TSA (rouge)" Foreground="#E8EEFC" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="AControlled" Content="CTR / TMA / CTA (bleu)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="ARadio" Content="RMZ / TMZ / ATZ (violet)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="ALeisure" Content="Planeur / ULM / parachutage (orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="ASectors" Content="FIR / secteurs FIS / autres (gris)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <DockPanel Margin="0,6,0,0">
+                    <TextBox x:Name="AFloorBox" DockPanel.Dock="Right" Width="64" TextChanged="AirspaceFloor_Changed"/>
+                    <CheckBox x:Name="AFloorCheck" Content="Masquer si plancher &gt; (ft)" Foreground="#E8EEFC" VerticalAlignment="Center" Click="AirspaceFloor_Changed"/>
+                </DockPanel>
+                <TextBlock x:Name="AirspaceCount" Style="{StaticResource Label}"/>
                 <TextBlock Style="{StaticResource Header}" Text="DONNÉES"/>
                 <TextBlock Style="{StaticResource Label}" Text="Pays (code ISO)"/>
                 <TextBox x:Name="CountryBox" MaxLength="2"/>
@@ -136,91 +265,7 @@
                 <Button x:Name="VacUpdateButton" Content="Mettre à jour les cartes VAC (SIA)" Click="VacUpdate_Click" Margin="0,6,0,0"
                         ToolTip="Télécharge depuis le site du SIA les cartes VAC du cycle AIRAC en vigueur, à ta demande : seules les cartes différentes de celles du dossier sont remplacées. Un second clic arrête."/>
                 <TextBlock x:Name="StatusText" Style="{StaticResource Label}" TextWrapping="Wrap"/>
-                </StackPanel>
-            </Expander>
-            <Expander x:Name="VfrPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
-                <Expander.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="VFR" Foreground="White" FontSize="18" FontWeight="Bold"/>
-                        <TextBlock Text="vol à vue" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
-                    </StackPanel>
-                </Expander.Header>
-                <StackPanel Margin="4,2,0,0">
-                <TextBlock Style="{StaticResource Header}" Text="APPAREIL VFR"/>
-                <DockPanel>
-                    <Button DockPanel.Dock="Right" Content="Gérer…" Click="VfrManage_Click" Margin="6,0,0,0" ToolTip="Créer, modifier, dupliquer ou supprimer des appareils"/>
-                    <ComboBox x:Name="VfrAircraftBox" DisplayMemberPath="Name" SelectionChanged="VfrAircraft_Changed" VerticalAlignment="Top"/>
-                </DockPanel>
-                <TextBlock x:Name="VfrAircraftInfo" Foreground="#E8EEFC" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,0"/>
-                <TextBlock Style="{StaticResource Label}" Text="Croisière (ft)" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
-                <TextBox x:Name="VfrAltBox" TextChanged="CruiseAlt_Changed" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
-
-                <TextBlock Style="{StaticResource Header}" Text="VÉRIFICATION DE LA ROUTE"/>
-                <TextBlock x:Name="LiveCheck" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="FILTRES TERRAINS"/>
-                <CheckBox x:Name="FWithCode" Content="Avec code (LFPL, LF3126…)" Foreground="#E8EEFC" Click="Filter_Click"/>
-                <CheckBox x:Name="FWithoutCode" Content="Sans code (FR-xxxx)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
-                <CheckBox x:Name="FVacOnly" Content="Seulement avec carte VAC" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
-                <WrapPanel Margin="0,6,0,0">
-                    <CheckBox x:Name="FLarge" Content="Grands" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
-                    <CheckBox x:Name="FMedium" Content="Moyens" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
-                    <CheckBox x:Name="FSmall" Content="Petits" Foreground="#E8EEFC" Click="Filter_Click"/>
-                </WrapPanel>
-                <TextBlock x:Name="FilterCount" Style="{StaticResource Label}"/>
-
-                <CheckBox x:Name="ZoneHelpCheck" Content="Aide des zones en bas de la carte" Foreground="#E8EEFC" Margin="0,8,0,0" Click="ZoneHelp_Click"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="FILTRES ESPACES AÉRIENS"/>
-                <CheckBox x:Name="ARestricted" Content="Zones R / D / P / TSA (rouge)" Foreground="#E8EEFC" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="AControlled" Content="CTR / TMA / CTA (bleu)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="ARadio" Content="RMZ / TMZ / ATZ (violet)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="ALeisure" Content="Planeur / ULM / parachutage (orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="ASectors" Content="FIR / secteurs FIS / autres (gris)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <DockPanel Margin="0,6,0,0">
-                    <TextBox x:Name="AFloorBox" DockPanel.Dock="Right" Width="64" TextChanged="AirspaceFloor_Changed"/>
-                    <CheckBox x:Name="AFloorCheck" Content="Masquer si plancher &gt; (ft)" Foreground="#E8EEFC" VerticalAlignment="Center" Click="AirspaceFloor_Changed"/>
-                </DockPanel>
-                <TextBlock x:Name="AirspaceCount" Style="{StaticResource Label}"/>
-                </StackPanel>
-            </Expander>
-            <Expander x:Name="IfrPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
-                <Expander.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="IFR" Foreground="White" FontSize="18" FontWeight="Bold"/>
-                        <TextBlock Text="vol aux instruments" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
-                    </StackPanel>
-                </Expander.Header>
-                <StackPanel Margin="4,2,0,0">
-                <TextBlock Style="{StaticResource Header}" Text="APPAREIL IFR"/>
-                <DockPanel>
-                    <Button DockPanel.Dock="Right" Content="Gérer…" Click="IfrManage_Click" Margin="6,0,0,0" ToolTip="Créer, modifier, dupliquer ou supprimer des appareils"/>
-                    <ComboBox x:Name="IfrAircraftBox" DisplayMemberPath="Name" SelectionChanged="IfrAircraft_Changed" VerticalAlignment="Top"/>
-                </DockPanel>
-                <TextBlock x:Name="IfrAircraftInfo" Foreground="#E8EEFC" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,8"/>
-                <TextBlock x:Name="IfrDataLabel" Foreground="#FFD479" FontSize="10.5" TextWrapping="Wrap" Margin="0,0,0,2"/>
-                <UniformGrid Columns="2">
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Départ (OACI)"/>
-                        <TextBox x:Name="IfrDepBox" Text="LFPG" CharacterCasing="Upper" TextChanged="IfrAirport_Changed"/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Arrivée (OACI)"/>
-                        <TextBox x:Name="IfrArrBox" Text="LFMN" CharacterCasing="Upper" TextChanged="IfrAirport_Changed"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Piste de départ"/>
-                        <ComboBox x:Name="IfrDepRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="Piste conseillée d'après le vent du METAR. Choisissez-en une autre pour la forcer ; « Auto » prend le trajet le plus court toutes pistes confondues."/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Piste d'arrivée"/>
-                        <ComboBox x:Name="IfrArrRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="Piste conseillée d'après le vent du METAR. Choisissez-en une autre pour la forcer ; « Auto » prend le trajet le plus court toutes pistes confondues."/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="SID"/>
-                        <ComboBox x:Name="IfrSidBox"/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="STAR"/>
-                        <ComboBox x:Name="IfrStarBox"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Croisière (FL)" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau. À partir du FL195, la route libre (tronçons directs) est autorisée."/>
-                        <TextBox x:Name="IfrFlBox" TextChanged="CruiseAlt_Changed" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/></StackPanel>
-                </UniformGrid>
-                <TextBlock x:Name="IfrAirportInfo" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,4,0,0"/>
-                <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,8,0,4"
-                        ToolTip="Cherche le plus court chemin SID, routes ATS, STAR et remplace la route par le résultat."/>
-                <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>
-                <Separator Margin="0,8,0,6"/>
-                <TextBlock Style="{StaticResource Label}" Text="Données de navigation (configuration)" Margin="0,0,0,4"/>
+                                <TextBlock Style="{StaticResource Header}" Text="DONNÉES DE NAVIGATION IFR"/>
                 <Button Content="Charger les données AIRAC (SIA)…" Click="IfrLoad_Click" Margin="0,0,0,0"
                         ToolTip="Export AIXM 4.5 gratuit de la boutique du SIA : export_xml_bd_SIA_aaaa-mm-jj.zip. Il contient les routes ATS mais pas les SID/STAR."/>
                 <Button x:Name="IfrSimButton" Content="Relire ces deux terrains dans MSFS (facultatif)" Click="IfrSim_Click" Margin="0,0,0,0"

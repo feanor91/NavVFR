@@ -52,6 +52,11 @@ public sealed class AppSettings
     public bool CommonPanelOpen { get; set; } = true;
     public bool VfrPanelOpen { get; set; } = true;
     public bool IfrPanelOpen { get; set; } = true;
+    public bool SettingsPanelOpen { get; set; } = true;
+
+    /// <summary>Aéroports de dégagement saisis dans chaque panneau (codes OACI séparés par des espaces).</summary>
+    public string VfrAlternates { get; set; } = "";
+    public string IfrAlternates { get; set; } = "";
     public List<Waypoint> Route { get; set; } = [];
 
     public static string DefaultPath => Path.Combine(

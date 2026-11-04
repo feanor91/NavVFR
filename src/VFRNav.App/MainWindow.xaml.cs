@@ -101,10 +101,14 @@ public partial class MainWindow : Window
         CommonPanel.IsExpanded = _settings.CommonPanelOpen;
         VfrPanel.IsExpanded = _settings.VfrPanelOpen;
         IfrPanel.IsExpanded = _settings.IfrPanelOpen;
+        SettingsPanel.IsExpanded = _settings.SettingsPanelOpen;
+        VfrAltnBox.Text = _settings.VfrAlternates;
+        IfrAltnBox.Text = _settings.IfrAlternates;
         _loadingParams = false;
 
         foreach (var wp in _settings.Route) _route.Add(wp);
-        RouteGrid.ItemsSource = _route;
+        VfrRouteGrid.ItemsSource = _route;
+        IfrRouteGrid.ItemsSource = _route;
         _route.CollectionChanged += OnRouteChanged;
 
         MapRenderer.RegisterStyleRenderer(typeof(AirspaceStyle), new AirspaceRenderer());
@@ -177,6 +181,9 @@ public partial class MainWindow : Window
         _settings.CommonPanelOpen = CommonPanel.IsExpanded;
         _settings.VfrPanelOpen = VfrPanel.IsExpanded;
         _settings.IfrPanelOpen = IfrPanel.IsExpanded;
+        _settings.SettingsPanelOpen = SettingsPanel.IsExpanded;
+        _settings.VfrAlternates = VfrAltnBox.Text.Trim();
+        _settings.IfrAlternates = IfrAltnBox.Text.Trim();
         _settings.BaseMap = BaseMaps.Keys[Math.Max(BaseMapBox.SelectedIndex, 0)];
         _settings.TasKt = p.TasKt; _settings.BurnLph = p.BurnLph;
         _settings.CruiseAltFt = Parse(VfrAltBox, _settings.CruiseAltFt);
@@ -336,6 +343,7 @@ public partial class MainWindow : Window
         if (info?.Feature?["ident"] is string ident && _airports.FirstOrDefault(a => a.Ident == ident) is { } apt)
         {
             _route.Add(apt.ToWaypoint());
+            SyncIfrAirports(apt.Ident);
             ShowAerodrome(apt.Ident);
             e.Handled = true;
             return;
@@ -345,6 +353,17 @@ public partial class MainWindow : Window
         int n = _route.Count(w => !w.IsAirport) + 1;
         _route.Add(new Waypoint { Name = $"WP{n}", Lat = Math.Round(lat, 5), Lon = Math.Round(lon, 5) });
         e.Handled = true;
+    }
+
+    /// <summary>
+    /// En navigation IFR, un terrain cliqué sur la carte devient le départ si c'est le premier point de la route, sinon l'arrivée :
+    /// les champs d'aéroports IFR suivent la route au lieu de garder l'ancien couple.
+    /// </summary>
+    private void SyncIfrAirports(string icao)
+    {
+        if (_mode != FlightMode.Ifr) return;
+        var box = _route.Count <= 1 ? IfrDepBox : IfrArrBox;
+        if (box.Text != icao) box.Text = icao;
     }
 
     /// <summary>Longueur, en pixels, qu'il faut entre un point et son voisin le plus proche pour que son nom s'affiche (au-dessous, le nom recouvrirait le voisin).</summary>
@@ -410,6 +429,7 @@ public partial class MainWindow : Window
         RefreshRange();
         MapControl.Refresh();
         ScheduleLive();
+        RefreshAlternates();
     }
 
     private void RefreshLog()
@@ -587,9 +607,28 @@ public partial class MainWindow
         if (dlg.ShowDialog(this) == true) VacBox.Text = dlg.FolderName;
     }
 
+    /// <summary>
+    /// La liste des points de route existe dans les panneaux VFR et IFR : les deux montrent la même route et gardent
+    /// la même sélection. Les boutons et les cartes agissent sur celle du mode actif.
+    /// </summary>
+    private DataGrid RouteGrid => _mode == FlightMode.Ifr ? IfrRouteGrid : VfrRouteGrid;
+
+    private bool _syncingGrids;
+
+    private void RefreshRouteGrids()
+    {
+        VfrRouteGrid.Items.Refresh();
+        IfrRouteGrid.Items.Refresh();
+    }
+
     private void RouteGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (RouteGrid.SelectedItem is Waypoint { IsAirport: true } wp) ShowAerodrome(wp.Icao!);
+        if (_syncingGrids || sender is not DataGrid grid) return;
+        var other = ReferenceEquals(grid, VfrRouteGrid) ? IfrRouteGrid : VfrRouteGrid;
+        _syncingGrids = true;
+        try { other.SelectedItem = grid.SelectedItem; }
+        finally { _syncingGrids = false; }
+        if (grid.SelectedItem is Waypoint { IsAirport: true } wp) ShowAerodrome(wp.Icao!);
         OnRouteSelectionChanged();
     }
 
@@ -1031,7 +1070,7 @@ public partial class MainWindow
             wp.Name = $"WP{_dragIndex + 1}";
         }
         RefreshRoute();
-        RouteGrid.Items.Refresh();
+        RefreshRouteGrids();
     }
 
     private void OnDragEnd(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -1041,7 +1080,7 @@ public partial class MainWindow
             _suppressTap = true;
             SnapToAirport(_dragIndex, e.GetPosition(MapControl));
             RefreshRoute();
-            RouteGrid.Items.Refresh();
+            RefreshRouteGrids();
         }
         _dragIndex = -1;
         _dragCandidate = -1;

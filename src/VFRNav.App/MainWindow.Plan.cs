@@ -70,7 +70,7 @@ public partial class MainWindow
             snapshot.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles, altitudes);
             var image = terrain is null ? null : ProfileChart.Snapshot(snapshot, 700, 270);
 
-            var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes);
+            var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes, AlternateLines(_mode));
             var document = FlightSheetBuilder.Build(input);
             string title = $"Feuille de route {route[0].Icao ?? route[0].Name} - {route[^1].Icao ?? route[^1].Name}";
             new FlightSheetWindow(document, title) { Owner = this }.Show();

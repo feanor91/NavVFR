@@ -27,7 +27,8 @@ public sealed record FlightSheetInput(
     string? WeatherNote,
     DateTimeOffset Now,
     IReadOnlyList<PointBriefing>? Briefings = null,
-    AltitudeProfile? Altitudes = null);
+    AltitudeProfile? Altitudes = null,
+    IReadOnlyList<string>? AlternateLines = null);
 
 /// <summary>Construit la feuille de route (A4) : tableau de navigation, relief, terrains, météo, zones et balises.</summary>
 public static class FlightSheetBuilder
@@ -95,6 +96,14 @@ public static class FlightSheetBuilder
             input.Log.TotalFuelL.ToString("0.0", Fr), "", ""]);
         doc.Blocks.Add(MakeTable(navHeaders, navRows, [0.4, 2.6, 0.8, 0.8, 0.8, 0.8, 0.8, 0.7, 1, 0.8, 1, 1], rightFrom: 2, boldLast: true));
         doc.Blocks.Add(Small("Rv : route vraie · Rm : route magnétique · Cm : cap magnétique à tenir (vent supposé constant)."));
+
+        // --- Aéroports de dégagement
+        if (input.AlternateLines is { Count: > 0 } alternates)
+        {
+            doc.Blocks.Add(Section("Aéroports de dégagement"));
+            foreach (string line in alternates) doc.Blocks.Add(Plain(line));
+            doc.Blocks.Add(Small("Depuis le terrain d'arrivée (dernier point de la route), même vent et même vitesse que le log de navigation. Vérifie la météo et les NOTAM de ces terrains."));
+        }
 
         // --- Points de navigation et notes
         doc.Blocks.Add(Section("Points de navigation et notes"));

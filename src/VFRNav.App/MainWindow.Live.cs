@@ -63,7 +63,7 @@ public partial class MainWindow
     }
 
     /// <summary>Le repère 📝 de la liste ne se met à jour qu'à la fin de la saisie, pour ne pas perturber le champ.</summary>
-    private void WpNotes_LostFocus(object sender, RoutedEventArgs e) => RouteGrid.Items.Refresh();
+    private void WpNotes_LostFocus(object sender, RoutedEventArgs e) => RefreshRouteGrids();
 
     // ---------- infos du point suivi ----------
 
@@ -73,7 +73,7 @@ public partial class MainWindow
         if (index is int i && i >= 0 && i < _route.Count)
         {
             _route[i].AltitudeFt = ft;
-            RouteGrid.Items.Refresh();
+            RefreshRouteGrids();
             }
         else if (ft is double cruise) SetCruiseAlt(cruise);
         ScheduleLive();
