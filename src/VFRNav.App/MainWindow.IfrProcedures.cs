@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 using VFRNav.Core.Ifr;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -9,7 +10,7 @@ namespace VFRNav.App;
 public partial class MainWindow
 {
     private const int ReadWindow = 128;
-    private const string WorldButtonText = "Enregistrer / mettre à jour les SID/STAR du monde (MSFS)";
+    private static string WorldButtonText => Loc.Get("Ui_Enregistrer_mettre_a_jour_les");
 
     private ProcedureLibrary _procedures = OpenProcedureLibrary();
     private readonly HashSet<string> _proceduresApplied = new(StringComparer.OrdinalIgnoreCase);
@@ -46,11 +47,11 @@ public partial class MainWindow
         string icao = text.Trim().ToUpperInvariant();
         if (icao.Length != 4) return "";
         string label = kind == ProcedureKind.Sid ? "SID" : "STAR";
-        if (_ifrData.Find(icao) is null) return $"{role} {icao} : terrain inconnu des données (ni le SIA ni MSFS).";
+        if (_ifrData.Find(icao) is null) return Loc.F("IfrProcedures_terrain_inconnu_des_donnees_ni", role, icao);
         int count = _ifrData.ProceduresFor(icao, kind).Count();
         return count > 0
-            ? $"{role} {icao} : {count} {label} enregistrées, MSFS inutile."
-            : $"{role} {icao} : aucune {label} enregistrée, le terrain se raccorde directement au réseau.";
+            ? Loc.F("IfrProcedures_enregistrees_MSFS_inutile", role, icao, count, label)
+            : Loc.F("IfrProcedures_aucune_enregistree_le_terrain_se", role, icao, label);
     }
 
     private void EnsureProceduresForRoute() => EnsureProcedures(IfrDepBox.Text, IfrArrBox.Text);
@@ -61,13 +62,13 @@ public partial class MainWindow
     /// <summary>Texte ajouté à l'étiquette des données IFR : ce que contient la bibliothèque de SID/STAR.</summary>
     private string ProceduresNote()
     {
-        if (_procedures.Problem is { } problem) return "\nSID/STAR enregistrées ignorées : " + problem;
+        if (_procedures.Problem is { } problem) return Loc.Get("IfrProcedures_SID_STAR_enregistrees_ignorees") + problem;
         if (_procedures.AirportCount == 0)
-            return "\nSID/STAR : aucune enregistrée. « " + WorldButtonText + " » les lit une fois, MSFS lancé ; ensuite il n'est plus nécessaire.";
+            return Loc.Get("IfrProcedures_SID_STAR_aucune_enregistree") + WorldButtonText + Loc.Get("IfrProcedures_les_lit_une_fois_MSFS");
         var origin = _procedures.Origin;
-        string from = origin is { } o ? $", lues dans {(o.SimVersion.Length > 0 ? o.SimVersion : "MSFS")} le {o.ReadAt.LocalDateTime:dd/MM/yyyy}" : "";
-        return $"\nSID/STAR enregistrées : {_procedures.ProcedureCount} procédures pour {_procedures.AirportCount} terrains{from}, utilisables sans MSFS. " +
-               "Leur cycle AIRAC est celui du simulateur, qui peut différer du SIA.";
+        string from = origin is { } o ? Loc.F("IfrProcedures_lues_dans_le", (o.SimVersion.Length > 0 ? o.SimVersion : "MSFS"), o.ReadAt.LocalDateTime) : "";
+        return Loc.F("IfrProcedures_SID_STAR_enregistrees_procedures_pour", _procedures.ProcedureCount, _procedures.AirportCount, from) +
+               Loc.Get("IfrProcedures_Leur_cycle_AIRAC_est_celui");
     }
 
     private void SetProcedureStatus(string text, Brush? color = null)
@@ -84,10 +85,10 @@ public partial class MainWindow
         if (_readingProcedures) return;
         var airports = new[] { IfrDepBox.Text, IfrArrBox.Text }
             .Select(a => a.Trim().ToUpperInvariant()).Where(a => a.Length == 4).Distinct().ToList();
-        if (airports.Count == 0) { SetProcedureStatus("Saisissez le départ et l'arrivée (codes OACI de quatre lettres)."); return; }
+        if (airports.Count == 0) { SetProcedureStatus(Loc.Get("IfrProcedures_Saisissez_le_depart_et_l")); return; }
 
         SetReading(true);
-        SetProcedureStatus("Lecture des SID/STAR dans MSFS...");
+        SetProcedureStatus(Loc.Get("IfrProcedures_Lecture_des_SID_STAR_dans"));
         try
         {
             var lines = await Task.Run(() =>
@@ -99,7 +100,7 @@ public partial class MainWindow
                 foreach (var icao in airports)
                 {
                     var import = SimProcedures.ToIfr(icao, session.ReadProcedures(icao));
-                    if (import.Procedures.Count == 0) { catalog.Remove(icao); output.Add($"{icao} : MSFS n'a ni SID ni STAR pour ce terrain."); continue; }
+                    if (import.Procedures.Count == 0) { catalog.Remove(icao); output.Add(Loc.F("IfrProcedures_MSFS_n_a_ni_SID", icao)); continue; }
                     var change = catalog.Write(icao, import, now);
                     int sids = import.Procedures.Count(p => p.Kind == ProcedureKind.Sid);
                     output.Add($"{icao} : {sids} SID, {import.Procedures.Count - sids} STAR ({ChangeText(change)})");
@@ -121,9 +122,9 @@ public partial class MainWindow
 
     private static string ChangeText(CatalogChange change) => change switch
     {
-        CatalogChange.New => "nouveau",
-        CatalogChange.Updated => "mis à jour",
-        _ => "inchangé",
+        CatalogChange.New => Loc.Get("Procedures_New"),
+        CatalogChange.Updated => Loc.Get("IfrProcedures_mis_a_jour"),
+        _ => Loc.Get("IfrProcedures_inchange"),
     };
 
     // ---------- lecture du monde entier, et mise à jour ----------
@@ -146,14 +147,14 @@ public partial class MainWindow
         try { simVersion = await Task.Run(() => { using var s = SimFacilitySession.Open(); return s.SimVersion; }); }
         catch (InvalidOperationException ex) { SetProcedureStatus(ex.Message); return; }
 
-        if (MessageBox.Show(this, UpdateQuestion(simVersion), "SID/STAR du monde", MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
+        if (MessageBox.Show(this, UpdateQuestion(simVersion), Loc.Get("IfrProcedures_SID_STAR_du_monde"), MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
 
         using var cts = _procedureCts = new CancellationTokenSource();
         SetReading(true);
         var progress = new Progress<ReadProgress>(p =>
         {
-            IfrSimAllButton.Content = $"Arrêter la lecture ({p.Done}/{p.Total})";
-            SetProcedureStatus($"Lecture dans MSFS... {p.Done}/{p.Total} ({p.Icao}) : {p.WithProcedures} terrains avec SID/STAR");
+            IfrSimAllButton.Content = Loc.F("IfrProcedures_Arreter_la_lecture", p.Done, p.Total);
+            SetProcedureStatus(Loc.F("IfrProcedures_Lecture_dans_MSFS_terrains_avec", p.Done, p.Total, p.Icao, p.WithProcedures));
         });
 
         ReadResult? result = null;
@@ -172,7 +173,7 @@ public partial class MainWindow
         ShowIfrDataLabel();
         RefreshIfrChoices();
 
-        if (stopped is not null) SetProcedureStatus("Lecture interrompue : " + stopped + "\nCe qui a été lu avant reste enregistré.");
+        if (stopped is not null) SetProcedureStatus(Loc.Get("IfrNetwork_Lecture_interrompue") + stopped + Loc.Get("IfrProcedures_Ce_qui_a_ete_lu"));
         else if (result is not null) SetProcedureStatus(Summary(result), result.Cancelled ? Brushes.Gold : Brushes.LightGreen);
     }
 
@@ -180,20 +181,20 @@ public partial class MainWindow
     {
         var origin = _procedures.Origin;
         if (_procedures.AirportCount == 0 || origin is null)
-            return $"Lire dans {simVersion} les SID et STAR de tous les terrains du monde ?\n\nCela prend plusieurs minutes ; MSFS doit rester lancé. " +
-                   "Les données sont enregistrées dans MSFS Rhumb : ensuite le simulateur n'est plus nécessaire.";
+            return Loc.F("IfrProcedures_Lire_dans_les_SID_et", simVersion) +
+                   Loc.Get("IfrProcedures_Les_donnees_sont_enregistrees_dans");
 
-        string stored = origin.Value.SimVersion.Length > 0 ? origin.Value.SimVersion : "une version inconnue de MSFS";
+        string stored = origin.Value.SimVersion.Length > 0 ? origin.Value.SimVersion : Loc.Get("IfrProcedures_une_version_inconnue_de_MSFS");
         string head = origin.Value.SimVersion == simVersion
-            ? $"Les SID/STAR enregistrées ({_procedures.AirportCount} terrains) ont déjà été lues dans {simVersion} le {origin.Value.ReadAt.LocalDateTime:dd/MM/yyyy}. Cette version de MSFS n'a pas changé."
-            : $"MSFS a changé de version : les SID/STAR enregistrées viennent de {stored} ({origin.Value.ReadAt.LocalDateTime:dd/MM/yyyy}), le simulateur est maintenant en {simVersion}.";
-        return head + "\n\nRelire tous les terrains dans MSFS pour mettre à jour ? Seuls les terrains qui ont changé sont réécrits.";
+            ? Loc.F("IfrProcedures_Les_SID_STAR_enregistrees_terrains", _procedures.AirportCount, simVersion, origin.Value.ReadAt.LocalDateTime)
+            : Loc.F("IfrProcedures_MSFS_a_change_de_version", stored, origin.Value.ReadAt.LocalDateTime, simVersion);
+        return head + Loc.Get("IfrProcedures_Relire_tous_les_terrains_dans");
     }
 
     private static string Summary(ReadResult r)
     {
-        string changes = r.Cancelled ? $"Lecture arrêtée après {r.Read}/{r.Total} terrains." : $"{r.Total} terrains lus dans {r.SimVersion}.";
-        return $"{changes}\n{r.New} nouveaux, {r.Updated} mis à jour, {r.Unchanged} inchangés, {r.Removed} retirés (plus de procédures dans MSFS).";
+        string changes = r.Cancelled ? Loc.F("IfrProcedures_Lecture_arretee_apres_terrains", r.Read, r.Total) : Loc.F("Procedures_Read_in", r.Total, r.SimVersion);
+        return Loc.F("IfrProcedures_nouveaux_mis_a_jour_inchanges", changes, r.New, r.Updated, r.Unchanged, r.Removed);
     }
 
     /// <summary>Lecture de tous les terrains, sur un thread à part : un fichier par terrain, l'index enregistré régulièrement.</summary>

@@ -1,6 +1,7 @@
 using System.Text.Json;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Weather;
 
@@ -26,29 +27,29 @@ public sealed record Sigmet(
 
     public static string HazardName(string code) => code.ToUpperInvariant() switch
     {
-        "TS" => "Orages",
-        "TURB" => "Turbulence",
-        "ICE" => "Givrage",
-        "MTW" => "Ondes orographiques",
-        "VA" => "Cendres volcaniques",
-        "TC" => "Cyclone tropical",
-        "DS" => "Tempête de poussière",
-        "SS" => "Tempête de sable",
-        "GR" => "Grêle",
-        "FZRA" => "Pluie verglaçante",
-        "RDOACT_CLD" => "Nuage radioactif",
+        "TS" => Loc.Get("Sigmet_Orages"),
+        "TURB" => Loc.Get("Sigmet_Turbulence"),
+        "ICE" => Loc.Get("Sigmet_Givrage"),
+        "MTW" => Loc.Get("Sigmet_Ondes_orographiques"),
+        "VA" => Loc.Get("Sigmet_Cendres_volcaniques"),
+        "TC" => Loc.Get("Sigmet_Cyclone_tropical"),
+        "DS" => Loc.Get("Sigmet_Tempete_de_poussiere"),
+        "SS" => Loc.Get("Sigmet_Tempete_de_sable"),
+        "GR" => Loc.Get("Common_Hail"),
+        "FZRA" => Loc.Get("Sigmet_Pluie_verglacante"),
+        "RDOACT_CLD" => Loc.Get("Sigmet_Nuage_radioactif"),
         var other => other,
     };
 
     public static string QualifierName(string code) => code.ToUpperInvariant() switch
     {
-        "EMBD" => "noyés dans les nuages",
-        "OBSC" => "masqués",
-        "FRQ" => "fréquents",
-        "SQL" => "en ligne de grains",
-        "SEV" => "sévère",
-        "ISOL" => "isolés",
-        "OCNL" => "occasionnels",
+        "EMBD" => Loc.Get("Sigmet_noyes_dans_les_nuages"),
+        "OBSC" => Loc.Get("Sigmet_masques"),
+        "FRQ" => Loc.Get("Sigmet_frequents"),
+        "SQL" => Loc.Get("Sigmet_en_ligne_de_grains"),
+        "SEV" => Loc.Get("Sigmet_severe"),
+        "ISOL" => Loc.Get("Sigmet_isoles"),
+        "OCNL" => Loc.Get("Sigmet_occasionnels"),
         var other => other.ToLowerInvariant(),
     };
 }
@@ -70,7 +71,7 @@ public static class SigmetParser
         try
         {
             using var doc = JsonDocument.Parse(json);
-            if (doc.RootElement.ValueKind != JsonValueKind.Array) throw new InvalidDataException("Réponse inattendue : une liste de SIGMET était attendue.");
+            if (doc.RootElement.ValueKind != JsonValueKind.Array) throw new InvalidDataException(Loc.Get("Sigmet_Reponse_inattendue_une_liste_de"));
 
             var result = new List<Sigmet>();
             foreach (var e in doc.RootElement.EnumerateArray())
@@ -87,7 +88,7 @@ public static class SigmetParser
         }
         catch (JsonException ex)
         {
-            throw new InvalidDataException("Réponse des SIGMET illisible : " + ex.Message, ex);
+            throw new InvalidDataException(Loc.Get("Sigmet_Reponse_des_SIGMET_illisible") + ex.Message, ex);
         }
     }
 

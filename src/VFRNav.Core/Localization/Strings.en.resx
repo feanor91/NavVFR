@@ -1,0 +1,1254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AerodromeRepository_Carte_VAC_disponible" xml:space="preserve"><value>VAC chart: available</value></data>
+  <data name="AerodromeRepository_Carte_VAC_non_publiee" xml:space="preserve"><value>VAC chart: not published</value></data>
+  <data name="AerodromeRepository_Carte_VAC_publiee_absente_du" xml:space="preserve"><value>VAC chart: published, missing from the folder</value></data>
+  <data name="AerodromeRepository_Commune" xml:space="preserve"><value>Municipality: {0}</value></data>
+  <data name="AerodromeRepository_Remarque" xml:space="preserve"><value>Remark: {0}</value></data>
+  <data name="AerodromeRepository_Service" xml:space="preserve"><value>Service: {0}</value></data>
+  <data name="AircraftCatalog_Consommation_2_200_a_2" xml:space="preserve"><value>Fuel flow 2,200 to 2,400 kg/h depending on comparisons, 2,300 kg/h used = 2,875 L/h. Tanks 23,740 L. Ceiling 39,800 ft.</value></data>
+  <data name="AircraftCatalog_Consommation_30_L_h_d" xml:space="preserve"><value>Fuel flow 30 L/h from the flight manual cited by the BEA (65%, 0 to 4,000 ft); about 40 L/h observed at flying clubs. </value></data>
+  <data name="AircraftCatalog_Croisiere_Mach_0_78_447" xml:space="preserve"><value>Cruise Mach 0.78 ≈ 447 kt. Max speed 473 kt (fast cruise value, not the VMO/MMO limits of the FCOM). </value></data>
+  <data name="AircraftCatalog_Liste_d_appareils_illisible_appareils" xml:space="preserve"><value>Unreadable aircraft list, default aircraft used: </value></data>
+  <data name="AircraftCatalog_Lycoming_IO_360_L2A_180" xml:space="preserve"><value>Lycoming IO-360-L2A, 180 hp. Cruise at 75%: 124 kt and about 9.9 US gal/h = 37.5 L/h (AOPA; Plane &amp; Pilot: 9.7). </value></data>
+  <data name="AircraftCatalog_Lycoming_O_320_D2A_160" xml:space="preserve"><value>Lycoming O-320-D2A, 160 hp. Cruise 116 kt and maximum speed 130 kt (data sheet of one aircraft, not a manufacturer value). </value></data>
+  <data name="AircraftCatalog_Melange_pauvre_8_a_9" xml:space="preserve"><value>Lean mixture: 8 to 9 US gal/h possible. Usable fuel 53 US gal = 200 L. Max speed = Vne 163 KIAS. Ceiling 14,000 ft.</value></data>
+  <data name="AircraftCatalog_Reservoir_principal_110_L_dont" xml:space="preserve"><value>Main tank 110 L of which 7 unusable = 103 L; optional wing tanks not counted. Ceiling not found.</value></data>
+  <data name="AircraftCatalog_Un_appareil_porte_deja_ce" xml:space="preserve"><value>An aircraft already has this name.</value></data>
+  <data name="AircraftCatalog_defaut" xml:space="preserve"><value> (default)</value></data>
+  <data name="AircraftCatalog_fiche_s_d_appareil_invalide" xml:space="preserve"><value>{0} invalid aircraft record(s) ignored.</value></data>
+  <data name="AircraftWindow_35000_pour_FL350" xml:space="preserve"><value>35000 for FL350.</value></data>
+  <data name="AircraftWindow_Appareils_IFR" xml:space="preserve"><value>IFR aircraft</value></data>
+  <data name="AircraftWindow_Appareils_VFR" xml:space="preserve"><value>VFR aircraft</value></data>
+  <data name="AircraftWindow_Autonomie_portee_tout_carburant_NM" xml:space="preserve"><value>Endurance {0} · range with all fuel {1:N0} NM · </value></data>
+  <data name="AircraftWindow_Capacites" xml:space="preserve"><value>Capabilities:</value></data>
+  <data name="AircraftWindow_Carburant_garde_en_reserve_en" xml:space="preserve"><value>Fuel kept in reserve, in minutes of flight: it is subtracted from the usable range shown on the map. Empty: 30 min for VFR, 45 min for IFR.</value></data>
+  <data name="AircraftWindow_Carburant_utilisable_L" xml:space="preserve"><value>Usable fuel (L)</value></data>
+  <data name="AircraftWindow_Categorie" xml:space="preserve"><value>Category</value></data>
+  <data name="AircraftWindow_Consommation_L_h" xml:space="preserve"><value>Fuel flow (L/h)</value></data>
+  <data name="AircraftWindow_Croisiere_par_defaut_ft" xml:space="preserve"><value>Default cruise (ft)</value></data>
+  <data name="AircraftWindow_Descente_ft_min_facultatif" xml:space="preserve"><value>Descent (ft/min, optional)</value></data>
+  <data name="AircraftWindow_Dupliquer" xml:space="preserve"><value>Duplicate</value></data>
+  <data name="AircraftWindow_En_croisiere" xml:space="preserve"><value>In cruise.</value></data>
+  <data name="AircraftWindow_Enregistre" xml:space="preserve"><value>Saved.</value></data>
+  <data name="AircraftWindow_Enregistre_Cet_appareil_n_est" xml:space="preserve"><value>Saved. This aircraft is no longer offered for this navigation type.</value></data>
+  <data name="AircraftWindow_Enregistrement_impossible" xml:space="preserve"><value>Could not save: </value></data>
+  <data name="AircraftWindow_Enregistrer" xml:space="preserve"><value>Save</value></data>
+  <data name="AircraftWindow_Fermer" xml:space="preserve"><value>Close</value></data>
+  <data name="AircraftWindow_Idem_pour_la_descente_Vide" xml:space="preserve"><value>Same for the descent. Empty = usual value for the category.</value></data>
+  <data name="AircraftWindow_Le_champ_n_est_pas" xml:space="preserve"><value>The "{0}" field is not a number.</value></data>
+  <data name="AircraftWindow_Les_appareils_par_defaut_sont" xml:space="preserve"><value>All the default aircraft are already there.</value></data>
+  <data name="AircraftWindow_Montee_ft_min_facultatif" xml:space="preserve"><value>Climb (ft/min, optional)</value></data>
+  <data name="AircraftWindow_Notes_et_sources" xml:space="preserve"><value>Notes and sources</value></data>
+  <data name="AircraftWindow_Nouvel_appareil" xml:space="preserve"><value>New aircraft</value></data>
+  <data name="AircraftWindow_Piston" xml:space="preserve"><value>Piston</value></data>
+  <data name="AircraftWindow_Plafond_ft_facultatif" xml:space="preserve"><value>Ceiling (ft, optional)</value></data>
+  <data name="AircraftWindow_Remettre_les_appareils_par_defaut" xml:space="preserve"><value>Restore the default aircraft</value></data>
+  <data name="AircraftWindow_Reserve_min_facultatif" xml:space="preserve"><value>Reserve (min, optional)</value></data>
+  <data name="AircraftWindow_Sert_a_calculer_l_autonomie" xml:space="preserve"><value>Used to compute endurance and range.</value></data>
+  <data name="AircraftWindow_Sert_au_profil_les_points" xml:space="preserve"><value>Used by the profile: points without an altitude climb at this rate. Empty = usual value for the category.</value></data>
+  <data name="AircraftWindow_Supprimer_Cette_suppression_est_definitive" xml:space="preserve"><value>Delete "{0}"?&#10;This deletion is permanent (the default aircraft can be restored).</value></data>
+  <data name="AircraftWindow_Turbopropulseur" xml:space="preserve"><value>Turboprop</value></data>
+  <data name="AircraftWindow_Un_appareil_VFR_et_IFR" xml:space="preserve"><value>An aircraft that is both VFR and IFR is offered in both panels.</value></data>
+  <data name="AircraftWindow_Vitesse_de_croisiere_kt" xml:space="preserve"><value>Cruise speed (kt)</value></data>
+  <data name="AircraftWindow_Vitesse_maximale_kt" xml:space="preserve"><value>Maximum speed (kt)</value></data>
+  <data name="AircraftWindow_Vitesse_propre_en_croisiere_utilisee" xml:space="preserve"><value>True airspeed in cruise, used for the nav log and the range.</value></data>
+  <data name="AircraftWindow_Vne_ou_vitesse_maximale_en" xml:space="preserve"><value>Vne or maximum cruise speed.</value></data>
+  <data name="AircraftWindow_Voir_aussi_l_autre_type" xml:space="preserve"><value>See also the other navigation type</value></data>
+  <data name="AircraftWindow_altitude_de_croisiere" xml:space="preserve"><value>cruise altitude</value></data>
+  <data name="AircraftWindow_appareil_s_par_defaut_remis" xml:space="preserve"><value>{0} default aircraft restored.</value></data>
+  <data name="AircraftWindow_portee_utile_NM_reserve_min" xml:space="preserve"><value>usable range {0:N0} NM (reserve {1:0} min in {2}). No wind.</value></data>
+  <data name="AircraftWindow_reserve" xml:space="preserve"><value>reserve</value></data>
+  <data name="AircraftWindow_taux_de_descente" xml:space="preserve"><value>descent rate</value></data>
+  <data name="AircraftWindow_taux_de_montee" xml:space="preserve"><value>climb rate</value></data>
+  <data name="AircraftWindow_vitesse_de_croisiere" xml:space="preserve"><value>cruise speed</value></data>
+  <data name="Aircraft_Aucun_appareil_ouvre_Gerer_pour" xml:space="preserve"><value>No aircraft: open "Manage…" to create one.</value></data>
+  <data name="Aircraft_Coche_au_moins_une_capacite" xml:space="preserve"><value>Tick at least one capability: VFR or IFR.</value></data>
+  <data name="Aircraft_L_altitude_de_croisiere_ne" xml:space="preserve"><value>The cruise altitude cannot be negative.</value></data>
+  <data name="Aircraft_L_autonomie_NM_ne_depasse" xml:space="preserve"><value>The endurance ({0:N0} NM) does not exceed the {1:0} min reserve: no usable range. All fuel: {2:N0} NM around {3}. No wind.</value></data>
+  <data name="Aircraft_La_consommation_doit_etre_positive" xml:space="preserve"><value>The fuel flow must be positive.</value></data>
+  <data name="Aircraft_La_reserve_ne_peut_pas" xml:space="preserve"><value>The reserve cannot be negative.</value></data>
+  <data name="Aircraft_La_vitesse_de_croisiere_doit" xml:space="preserve"><value>The cruise speed must be positive.</value></data>
+  <data name="Aircraft_La_vitesse_maximale_ne_peut" xml:space="preserve"><value>The maximum speed cannot be lower than the cruise speed.</value></data>
+  <data name="Aircraft_La_zone_affichee_est_dans" xml:space="preserve"><value>&#10;The area shown is in the reserve: beyond the usable range, but within the all-fuel range.</value></data>
+  <data name="Aircraft_La_zone_affichee_est_hors" xml:space="preserve"><value>&#10;The area shown is out of range, even with all the fuel.</value></data>
+  <data name="Aircraft_Le_carburant_utilisable_doit_etre" xml:space="preserve"><value>The usable fuel must be positive.</value></data>
+  <data name="Aircraft_Le_cercle_enferme_un_pole" xml:space="preserve"><value>&#10;The circle encloses a pole: on the map, the greyed area is out of range</value></data>
+  <data name="Aircraft_Le_nom_est_obligatoire" xml:space="preserve"><value>The name is required.</value></data>
+  <data name="Aircraft_Le_plafond_ne_peut_pas" xml:space="preserve"><value>The ceiling cannot be lower than the cruise altitude.</value></data>
+  <data name="Aircraft_Le_taux_de_descente_doit" xml:space="preserve"><value>The descent rate must be positive.</value></data>
+  <data name="Aircraft_Le_taux_de_montee_doit" xml:space="preserve"><value>The climb rate must be positive.</value></data>
+  <data name="Aircraft_Portee" xml:space="preserve"><value>Range</value></data>
+  <data name="Aircraft_Portee_utile_NM_reserve_min" xml:space="preserve"><value>Usable range {0:N0} NM (reserve {1:0} min) · {2}</value></data>
+  <data name="Aircraft_Portee_utile_NM_reserve_min_2" xml:space="preserve"><value>Usable range {0:N0} NM (reserve {1:0} min), all fuel {2:N0} NM, around {3}. No wind.</value></data>
+  <data name="Aircraft_Tout_le_carburant_NM" xml:space="preserve"><value>All fuel: {0:N0} NM</value></data>
+  <data name="Aircraft_Toute_la_zone_affichee_est" xml:space="preserve"><value>&#10;The whole area shown is within usable range: zoom out to see the circle.</value></data>
+  <data name="Aircraft_croisiere" xml:space="preserve"><value> · cruise {0} · {1}</value></data>
+  <data name="Aircraft_kt_L_h_L_Autonomie" xml:space="preserve"><value>{0:0} kt · {1:0.#} L/h · {2:N0} L&#10;Endurance {3} · usable range {4:N0} NM</value></data>
+  <data name="Aircraft_la_bande_orange_est_la" xml:space="preserve"><value>, the orange band is the reserve.</value></data>
+  <data name="Aircraft_utilise_pour_le_log_de" xml:space="preserve"><value>&#10;▶ used for the nav log</value></data>
+  <data name="AirportDataStore_Pistes_indisponibles_les_filtres_de" xml:space="preserve"><value>Runways unavailable: the length and surface filters retain no airport.</value></data>
+  <data name="AirportDataStore_Telechargement_impossible_terrains_du_garde" xml:space="preserve"><value>Download impossible ({0}): airports of {1:dd/MM/yyyy} kept from the cache.</value></data>
+  <data name="AirspaceGuide_ADIZ_zone_ou_les_aeronefs" xml:space="preserve"><value>ADIZ: zone where aircraft must be identified before entering.</value></data>
+  <data name="AirspaceGuide_ATZ_zone_de_circulation_d" xml:space="preserve"><value>ATZ (aerodrome traffic zone): zone around an aerodrome where local traffic is intense; you must follow the circuit rules and the radio.</value></data>
+  <data name="AirspaceGuide_A_ton_altitude_ft" xml:space="preserve"><value>At your altitude ({0} ft)</value></data>
+  <data name="AirspaceGuide_Activite_aerienne_sportive_voltige_parachutage" xml:space="preserve"><value>Aerial sporting activity: aerobatics, parachuting, model flying, microlights… Other aircraft are warned to keep clear.</value></data>
+  <data name="AirspaceGuide_Annonce_toi_par_radio_sur" xml:space="preserve"><value>Announce yourself by radio on the aerodrome frequency and follow the circuit and local traffic.</value></data>
+  <data name="AirspaceGuide_Aucune_contrainte_particuliere_pour_un" xml:space="preserve"><value>No particular constraint for a simple VFR flight: it is mostly an organisational reference.</value></data>
+  <data name="AirspaceGuide_Avant_le_vol_verifie_si" xml:space="preserve"><value>Before the flight, check whether the zone is active (NOTAM, SIA). If it is, go around it or contact the body given before entering. If in doubt, avoid it.</value></data>
+  <data name="AirspaceGuide_CTA_region_de_controle_espace" xml:space="preserve"><value>CTA (control area): controlled airspace at altitude, above a floor. Neighbour of the TMA but more general, often higher.</value></data>
+  <data name="AirspaceGuide_CTR_zone_de_controle_espace" xml:space="preserve"><value>CTR (control zone): controlled airspace around an important aerodrome, from the ground up to a given height. The controller handles take-offs, landings and arrivals there.</value></data>
+  <data name="AirspaceGuide_Clairance_du_controle_et_radio" xml:space="preserve"><value>ATC clearance and radio required for all (IFR and VFR). IFR flights are separated from each other; VFR flights receive traffic information. Common class around controlled aerodromes.</value></data>
+  <data name="AirspaceGuide_Clairance_du_controle_obligatoire_pour" xml:space="preserve"><value>ATC clearance required for all. IFR flights are separated from all; a VFR flight receives traffic information on other VFR flights.</value></data>
+  <data name="AirspaceGuide_Classe" xml:space="preserve"><value>Class {0}</value></data>
+  <data name="AirspaceGuide_Conditions_d_activation" xml:space="preserve"><value>Activation conditions</value></data>
+  <data name="AirspaceGuide_Controle_pour_les_IFR_mais" xml:space="preserve"><value>Controlled for IFR, but a VFR flight may fly in it without clearance (radio is not mandatory). ATC gives traffic information when possible.</value></data>
+  <data name="AirspaceGuide_Ecoute_la_frequence_avant_d" xml:space="preserve"><value>Listen to the frequency before entering and announce your position and intentions. No clearance is required.</value></data>
+  <data name="AirspaceGuide_En_dessous_du_plancher_tu" xml:space="preserve"><value>Below the floor you are outside the zone. Above it, ATC clearance is needed when the class requires it. Watch your altitude.</value></data>
+  <data name="AirspaceGuide_En_pratique_en_vol_a" xml:space="preserve"><value>In practice in VFR flight</value></data>
+  <data name="AirspaceGuide_Espace_aerien_dont_le_type" xml:space="preserve"><value>Airspace whose type is not specified by the source.</value></data>
+  <data name="AirspaceGuide_Espace_non_controle_tu_vols" xml:space="preserve"><value>Uncontrolled airspace: you fly on your own responsibility, looking outside, with or without an information service.</value></data>
+  <data name="AirspaceGuide_Explications_generales_pour_la_simulation" xml:space="preserve"><value>General explanations for simulation. For a real flight, refer to the AIP France and SIA publications.</value></data>
+  <data name="AirspaceGuide_FIR_region_d_information_de" xml:space="preserve"><value>FIR (flight information region): large division of the sky in which a flight information and alerting service is provided. It is not a constraint for the pilot.</value></data>
+  <data name="AirspaceGuide_Frequences_a_utiliser" xml:space="preserve"><value>Frequencies to use</value></data>
+  <data name="AirspaceGuide_HTZ_zone_d_intense_activite" xml:space="preserve"><value>HTZ: zone of intense helicopter activity.</value></data>
+  <data name="AirspaceGuide_LTA_espace_controle_a_basse" xml:space="preserve"><value>LTA: controlled airspace at low altitude.</value></data>
+  <data name="AirspaceGuide_Limites_verticales" xml:space="preserve"><value>Vertical limits</value></data>
+  <data name="AirspaceGuide_Lis_les_remarques_publiees_de" xml:space="preserve"><value>Read the published remarks of the zone and be cautious.</value></data>
+  <data name="AirspaceGuide_MATZ_zone_de_circulation_d" xml:space="preserve"><value>MATZ: traffic zone of a military aerodrome.</value></data>
+  <data name="AirspaceGuide_MCTR_zone_de_controle_militaire" xml:space="preserve"><value>MCTR: military control zone.</value></data>
+  <data name="AirspaceGuide_MRT_route_militaire_d_entrainement" xml:space="preserve"><value>MRT: military training route.</value></data>
+  <data name="AirspaceGuide_MTA_region_de_controle_militaire" xml:space="preserve"><value>MTA: military control area.</value></data>
+  <data name="AirspaceGuide_MTR_itineraire_de_vol_militaire" xml:space="preserve"><value>MTR: low-altitude military flight route.</value></data>
+  <data name="AirspaceGuide_N_entre_pas_le_survol" xml:space="preserve"><value>Do not enter: overflight is prohibited.</value></data>
+  <data name="AirspaceGuide_Non_utilisee_en_France_service" xml:space="preserve"><value>Not used in France: advisory service, no clearance obligation.</value></data>
+  <data name="AirspaceGuide_Plancher_Plafond_La_zone_n" xml:space="preserve"><value>Floor: {0}. Ceiling: {1}. The zone only exists between the two: below the floor or above the ceiling, its rules do not apply.</value></data>
+  <data name="AirspaceGuide_Pour_entrer_appelle_le_controle" xml:space="preserve"><value>To enter, call the aerodrome control on the frequency given, wait for its clearance and prepare radio and transponder. Without clearance, go around the zone.</value></data>
+  <data name="AirspaceGuide_RMZ_zone_a_radio_obligatoire" xml:space="preserve"><value>RMZ (radio mandatory zone): you must listen to the frequency given, and usually announce yourself, before entering. No clearance is required, though.</value></data>
+  <data name="AirspaceGuide_Regarde_dehors_en_permanence_ces" xml:space="preserve"><value>Keep looking outside: these aircraft are hard to see. Pass wide, or cross the zone well above or below.</value></data>
+  <data name="AirspaceGuide_Remarques_publiees" xml:space="preserve"><value>Published remarks</value></data>
+  <data name="AirspaceGuide_Reservee_aux_vols_aux_instruments" xml:space="preserve"><value>Reserved for instrument flights (IFR). VFR flight is prohibited.</value></data>
+  <data name="AirspaceGuide_Restriction_de_survol_a_basse" xml:space="preserve"><value>Low-altitude overflight restriction: the zone must not be overflown below a certain height (for example for noise or wildlife).</value></data>
+  <data name="AirspaceGuide_Secteur_FIS_service_d_information" xml:space="preserve"><value>FIS sector (flight information service): a controller gives information on the frequency given. You can connect to be informed; it is not mandatory.</value></data>
+  <data name="AirspaceGuide_Secteur_VFR_espace_amenage_pour" xml:space="preserve"><value>VFR sector: airspace arranged to ease the passage of VFR flights.</value></data>
+  <data name="AirspaceGuide_Secteur_de_controle_de_route" xml:space="preserve"><value>En-route control sector (ACC): internal division of en-route control. No direct constraint for a VFR flight.</value></data>
+  <data name="AirspaceGuide_Secteur_planeur_des_planeurs_y" xml:space="preserve"><value>Gliding sector: gliders operate there (winch, tow, slope soaring). They are hard to see and move silently.</value></data>
+  <data name="AirspaceGuide_TFR_restriction_temporaire_de_vol" xml:space="preserve"><value>TFR: temporary flight restriction.</value></data>
+  <data name="AirspaceGuide_TIA_espace_ou_un_service" xml:space="preserve"><value>TIA: airspace where a traffic information service is provided.</value></data>
+  <data name="AirspaceGuide_TIZ_zone_d_information_de" xml:space="preserve"><value>TIZ: traffic information zone.</value></data>
+  <data name="AirspaceGuide_TMA_region_de_controle_terminale" xml:space="preserve"><value>TMA (terminal control area): controlled airspace at altitude, above one or more aerodromes, to handle arrivals and departures. Its floor is at altitude, not on the ground.</value></data>
+  <data name="AirspaceGuide_TMZ_zone_a_transpondeur_obligatoire" xml:space="preserve"><value>TMZ (transponder mandatory zone): the transponder must be on and set to enter.</value></data>
+  <data name="AirspaceGuide_TRA_zone_temporairement_reservee_reservee" xml:space="preserve"><value>TRA (temporary reserved area): reserved for an activity, often military, when activated.</value></data>
+  <data name="AirspaceGuide_TSA_zone_temporairement_segreguee_reservee" xml:space="preserve"><value>TSA (temporary segregated area): reserved for an activity when activated; other aircraft must avoid it.</value></data>
+  <data name="AirspaceGuide_Transpondeur_allume_et_regle_sur" xml:space="preserve"><value>Transponder on and set to the requested code during the whole crossing.</value></data>
+  <data name="AirspaceGuide_Tu_peux_appeler_la_frequence" xml:space="preserve"><value>You can call the FIS frequency to receive traffic information and navigation help; it is not an obligation.</value></data>
+  <data name="AirspaceGuide_Tu_serais_au_dessus_du" xml:space="preserve"><value>You would be above the ceiling: the zone is below you{0}.</value></data>
+  <data name="AirspaceGuide_Tu_serais_dans_la_zone" xml:space="preserve"><value>You would be in the zone: its rules apply at your altitude{0}.</value></data>
+  <data name="AirspaceGuide_Tu_serais_sous_le_plancher" xml:space="preserve"><value>You would be below the floor: under the zone, its rules do not apply at your altitude{0}.</value></data>
+  <data name="AirspaceGuide_UIR_region_superieure_d_information" xml:space="preserve"><value>UIR (upper information region): the equivalent of the FIR for high altitudes.</value></data>
+  <data name="AirspaceGuide_UTA_espace_controle_en_haute" xml:space="preserve"><value>UTA: controlled airspace at high altitude.</value></data>
+  <data name="AirspaceGuide_Un_contact_radio_ou_un" xml:space="preserve"><value>A radio contact or a transponder may be requested: read the zone's remarks.</value></data>
+  <data name="AirspaceGuide_Verifie_l_activation_de_la" xml:space="preserve"><value>Check the zone's activation before entering.</value></data>
+  <data name="AirspaceGuide_Verifie_la_classe_et_les" xml:space="preserve"><value>Check the class and limits before entering; a radio contact and a clearance may be needed.</value></data>
+  <data name="AirspaceGuide_Voie_aerienne_couloir_utilise_surtout" xml:space="preserve"><value>Airway: corridor used mainly by instrument flights.</value></data>
+  <data name="AirspaceGuide_Vols_IFR_et_VFR_acceptes" xml:space="preserve"><value>IFR and VFR flights accepted, with ATC clearance for all. All aircraft are separated.</value></data>
+  <data name="AirspaceGuide_Zone_d_alerte_activite_inhabituelle" xml:space="preserve"><value>Alert area: unusual activity (for example intensive training); be extra vigilant.</value></data>
+  <data name="AirspaceGuide_Zone_d_avertissement_activite_dangereuse" xml:space="preserve"><value>Warning area: activity hazardous to air navigation, often outside territorial waters.</value></data>
+  <data name="AirspaceGuide_Zone_dangereuse_D_des_activites" xml:space="preserve"><value>Danger area (D): activities hazardous to aircraft may take place (firing, exercises, trials). Overflight is not prohibited but strongly discouraged when it is active.</value></data>
+  <data name="AirspaceGuide_Zone_interdite_P_le_survol" xml:space="preserve"><value>Prohibited area (P): overflight is prohibited, except with special authorisation.</value></data>
+  <data name="AirspaceGuide_Zone_ou_le_transpondeur_est" xml:space="preserve"><value>Zone where the transponder is recommended or requested.</value></data>
+  <data name="AirspaceGuide_Zone_protegee_survol_a_eviter" xml:space="preserve"><value>Protected area: overflight to be avoided or at high altitude (for example natural site, power plant).</value></data>
+  <data name="AirspaceGuide_Zone_reglementee_R_le_vol" xml:space="preserve"><value>Restricted area (R): flight is only allowed under certain conditions (military activity, security, environmental protection). It may be active only at certain times.</value></data>
+  <data name="AirspaceGuide_au_dessus_du_sol" xml:space="preserve"><value>{0} {1} above ground level</value></data>
+  <data name="AirspaceGuide_comparaison_faite_sans_tenir_compte" xml:space="preserve"><value> (comparison made without taking terrain into account)</value></data>
+  <data name="AirspaceGuide_d_altitude_au_dessus_du" xml:space="preserve"><value>{0} {1} altitude, above sea level</value></data>
+  <data name="AirspaceGuide_depuis_le_sol" xml:space="preserve"><value>from the ground</value></data>
+  <data name="AirspaceGuide_niveau_de_vol_soit_environ" xml:space="preserve"><value>flight level {0}, about {1} ft at standard setting 1013 hPa</value></data>
+  <data name="AirspaceGuide_non_precise" xml:space="preserve"><value>not specified</value></data>
+  <data name="AirspaceGuide_qu_est_ce_que_c" xml:space="preserve"><value>{0}: what is it?</value></data>
+  <data name="Airspace_Activite_aerienne_sportive" xml:space="preserve"><value>Aerial sporting activity</value></data>
+  <data name="Airspace_Espace_aerien" xml:space="preserve"><value>Airspace</value></data>
+  <data name="Airspace_Plafond_Plancher" xml:space="preserve"><value>Ceiling: {0}    Floor: {1}</value></data>
+  <data name="Airspace_Restriction_de_survol_a_basse" xml:space="preserve"><value>Low-altitude overflight restriction</value></data>
+  <data name="Airspace_Secteur_ACC" xml:space="preserve"><value>ACC sector</value></data>
+  <data name="Airspace_Secteur_FIS" xml:space="preserve"><value>FIS sector</value></data>
+  <data name="Airspace_Secteur_VFR" xml:space="preserve"><value>VFR sector</value></data>
+  <data name="Airspace_Secteur_planeur" xml:space="preserve"><value>Gliding sector</value></data>
+  <data name="Airspace_Voie_aerienne" xml:space="preserve"><value>Airway</value></data>
+  <data name="Airspace_Zone_d_alerte" xml:space="preserve"><value>Alert area</value></data>
+  <data name="Airspace_Zone_d_avertissement" xml:space="preserve"><value>Warning area</value></data>
+  <data name="Airspace_Zone_dangereuse_D" xml:space="preserve"><value>Danger area (D)</value></data>
+  <data name="Airspace_Zone_interdite_P" xml:space="preserve"><value>Prohibited area (P)</value></data>
+  <data name="Airspace_Zone_protegee" xml:space="preserve"><value>Protected area</value></data>
+  <data name="Airspace_Zone_reglementee_R" xml:space="preserve"><value>Restricted area (R)</value></data>
+  <data name="AixmReader_Ce_fichier_n_est_pas" xml:space="preserve"><value>This file is not an AIXM 4.5 export.</value></data>
+  <data name="AixmReader_Le_zip_ne_contient_pas" xml:space="preserve"><value>The zip does not contain an AIXM4.5_*.xml file.</value></data>
+  <data name="AixmReader_identifiant_s_de_point_utilise" xml:space="preserve"><value>{0} point identifier(s) used in two different places: only the first is kept.</value></data>
+  <data name="Alternates_Carburant_route_degagement_le_plus" xml:space="preserve"><value>Route fuel + farthest alternate: {0} L</value></data>
+  <data name="Alternates_plus_que_les_L_de" xml:space="preserve"><value>   ⚠ more than the {0:N0} L of {1}</value></data>
+  <data name="Alternates_terrain_inconnu_verifie_le_code" xml:space="preserve"><value>{0}: unknown airport (check the ICAO code)</value></data>
+  <data name="AppVersion_MSFS_Rhumb_developpement" xml:space="preserve"><value>MSFS Rhumb (development)</value></data>
+  <data name="AppVersion_developpement" xml:space="preserve"><value>development</value></data>
+  <data name="CloudTileSource_Couverture_nuageuse_EUMETSAT" xml:space="preserve"><value>EUMETSAT cloud cover</value></data>
+  <data name="CloudTileSource_Nuages" xml:space="preserve"><value>Clouds</value></data>
+  <data name="CloudTileSource_Sommets_de_nuages_EUMETSAT" xml:space="preserve"><value>EUMETSAT cloud tops</value></data>
+  <data name="FlightSheetBuilder_A_faire" xml:space="preserve"><value>To do</value></data>
+  <data name="FlightSheetBuilder_A_ton_altitude" xml:space="preserve"><value>At your altitude</value></data>
+  <data name="FlightSheetBuilder_Aeroports_de_degagement" xml:space="preserve"><value>Alternate airports</value></data>
+  <data name="FlightSheetBuilder_Alerte" xml:space="preserve"><value>Alert</value></data>
+  <data name="FlightSheetBuilder_Altitude_de_croisiere" xml:space="preserve"><value>Cruise altitude</value></data>
+  <data name="FlightSheetBuilder_Altitude_de_croisiere_ft_soit" xml:space="preserve"><value>Cruise altitude: {0} ft, a margin of {1} ft above the highest point.</value></data>
+  <data name="FlightSheetBuilder_Altitude_prevue" xml:space="preserve"><value>Planned&#10;altitude</value></data>
+  <data name="FlightSheetBuilder_Aucun_METAR_ni_TAF_pour" xml:space="preserve"><value>No METAR or TAF for this airport.</value></data>
+  <data name="FlightSheetBuilder_Aucun_SIGMET_en_vigueur_pendant" xml:space="preserve"><value>No SIGMET in force during the flight crosses the route ({0} SIGMETs active worldwide at the time of the query).</value></data>
+  <data name="FlightSheetBuilder_Aucun_mat_tour_cheminee_ni" xml:space="preserve"><value>No mast, tower, chimney or wind turbine listed in the corridor (or data not loaded).</value></data>
+  <data name="FlightSheetBuilder_Aucun_obstacle_de_hauteur_connue" xml:space="preserve"><value>No obstacle of known height within 1,500 ft below your cruise altitude.</value></data>
+  <data name="FlightSheetBuilder_Aucune_balise_a_proximite_ou" xml:space="preserve"><value>No beacon nearby (or beacons not loaded).</value></data>
+  <data name="FlightSheetBuilder_Aucune_zone_connue_a_cette" xml:space="preserve"><value>No known zone at this altitude: no clearance or radio required by the zones loaded.</value></data>
+  <data name="FlightSheetBuilder_Aucune_zone_connue_sur_la" xml:space="preserve"><value>No known zone on the route at your altitude (or zones not loaded: enter an OpenAIP key).</value></data>
+  <data name="FlightSheetBuilder_Avec_reserve_30_min_indicatif" xml:space="preserve"><value>With 30 min reserve (indicative)</value></data>
+  <data name="FlightSheetBuilder_Balises_VOR_et_NDB_ADF" xml:space="preserve"><value>VOR and NDB (ADF) beacons within 15 NM of the route</value></data>
+  <data name="FlightSheetBuilder_Carb_L" xml:space="preserve"><value>Fuel&#10;L</value></data>
+  <data name="FlightSheetBuilder_Carburant_en_croisiere" xml:space="preserve"><value>Cruise fuel</value></data>
+  <data name="FlightSheetBuilder_Carte_VAC_disponible" xml:space="preserve"><value>VAC chart available</value></data>
+  <data name="FlightSheetBuilder_Carte_VAC_publiee_absente_du" xml:space="preserve"><value>VAC chart published (missing from the folder)</value></data>
+  <data name="FlightSheetBuilder_Ce_que_ca_implique" xml:space="preserve"><value>What it means</value></data>
+  <data name="FlightSheetBuilder_Code" xml:space="preserve"><value>Code</value></data>
+  <data name="FlightSheetBuilder_Comparaison_faite_sans_tenir_compte" xml:space="preserve"><value>Comparison made without taking terrain into account.</value></data>
+  <data name="FlightSheetBuilder_Consommation_saisie" xml:space="preserve"><value>Fuel flow (entered)</value></data>
+  <data name="FlightSheetBuilder_Consulte_les_SIGMET_sur_une" xml:space="preserve"><value>Check the SIGMETs on an official source before flying.</value></data>
+  <data name="FlightSheetBuilder_DANS_LA_ZONE_la_route" xml:space="preserve"><value>"IN THE ZONE": the route passes through it within the altitude band of the message. </value></data>
+  <data name="FlightSheetBuilder_DANS_LA_ZONE_tu_y" xml:space="preserve"><value>"IN THE ZONE": you fly in it at your planned altitude — check class, radio and clearance before departure. </value></data>
+  <data name="FlightSheetBuilder_Declinaison_E" xml:space="preserve"><value>Variation {0}° E</value></data>
+  <data name="FlightSheetBuilder_Declinaison_magnetique" xml:space="preserve"><value>Magnetic variation</value></data>
+  <data name="FlightSheetBuilder_Depuis_le_terrain_d_arrivee" xml:space="preserve"><value>From the destination airport (last route point), same wind and speed as the nav log. Check the weather and NOTAMs of these airports.</value></data>
+  <data name="FlightSheetBuilder_Dist_NM" xml:space="preserve"><value>Dist&#10;NM</value></data>
+  <data name="FlightSheetBuilder_Distance" xml:space="preserve"><value>Distance</value></data>
+  <data name="FlightSheetBuilder_Document_de_preparation_pour_la" xml:space="preserve"><value>Document for flight simulation preparation. It does not replace the AIP, NOTAMs or official weather: </value></data>
+  <data name="FlightSheetBuilder_Donnees_collaboratives_incompletes_les_li" xml:space="preserve"><value>Crowd-sourced, incomplete data: power lines, cables and many structures are missing. </value></data>
+  <data name="FlightSheetBuilder_Ecart_NM" xml:space="preserve"><value>Offset&#10;NM</value></data>
+  <data name="FlightSheetBuilder_Ecart_route_NM" xml:space="preserve"><value>Offset from route&#10;NM</value></data>
+  <data name="FlightSheetBuilder_Elev" xml:space="preserve"><value>Elev.</value></data>
+  <data name="FlightSheetBuilder_Elevation_ft" xml:space="preserve"><value>Elevation {0} ft</value></data>
+  <data name="FlightSheetBuilder_Elevation_ft_aucune_fiche_d" xml:space="preserve"><value>Elevation {0} ft (no aerodrome record for this airport)</value></data>
+  <data name="FlightSheetBuilder_En_classe_A_le_vol" xml:space="preserve"><value>In class A, VFR flight is prohibited: change altitude or route. </value></data>
+  <data name="FlightSheetBuilder_Espaces_aeriens_OpenAIP_Meteo_et" xml:space="preserve"><value>Airspaces: OpenAIP. Weather and SIGMET: aviationweather.gov. </value></data>
+  <data name="FlightSheetBuilder_Espaces_aeriens_traverses" xml:space="preserve"><value>Airspaces crossed</value></data>
+  <data name="FlightSheetBuilder_FIR_serie" xml:space="preserve"><value>FIR · series</value></data>
+  <data name="FlightSheetBuilder_Feuille_de_route" xml:space="preserve"><value>Flight sheet — {0} → {1}</value></data>
+  <data name="FlightSheetBuilder_Fond_rose_clairance_obligatoire_ou" xml:space="preserve"><value>Pink background: clearance required or VFR flight prohibited at this altitude. General text for simulation: for a real flight, </value></data>
+  <data name="FlightSheetBuilder_Frequence" xml:space="preserve"><value>Frequency</value></data>
+  <data name="FlightSheetBuilder_Frequences" xml:space="preserve"><value>Frequencies: </value></data>
+  <data name="FlightSheetBuilder_Frequences_a_contacter" xml:space="preserve"><value>Frequencies to contact: </value></data>
+  <data name="FlightSheetBuilder_Garde_une_marge_confortable_au" xml:space="preserve"><value>Keep a comfortable margin above the highest point; 1,000 ft is an indicative value.</value></data>
+  <data name="FlightSheetBuilder_Hauteur" xml:space="preserve"><value>Height</value></data>
+  <data name="FlightSheetBuilder_Heure_prevue" xml:space="preserve"><value>Planned&#10;time</value></data>
+  <data name="FlightSheetBuilder_Heure_reelle" xml:space="preserve"><value>Actual&#10;time</value></data>
+  <data name="FlightSheetBuilder_L_absence_d_un_obstacle" xml:space="preserve"><value>The absence of an obstacle here does not prove it does not exist.</value></data>
+  <data name="FlightSheetBuilder_Le_carburant_est_calcule_avec" xml:space="preserve"><value>Fuel is calculated with the true airspeed and fuel flow entered in MSFS Rhumb, not those of your aircraft: </value></data>
+  <data name="FlightSheetBuilder_Le_relief_vient_d_un" xml:space="preserve"><value>The terrain comes from a digital model of about 90 m: it shows no pylons, antennas or other obstacles. </value></data>
+  <data name="FlightSheetBuilder_Le_vol_est_suppose_commencer" xml:space="preserve"><value>The flight is assumed to start at the time of the query: check the validity times against your actual departure. </value></data>
+  <data name="FlightSheetBuilder_Limites" xml:space="preserve"><value>Limits</value></data>
+  <data name="FlightSheetBuilder_Marge_inferieure_a_1_000" xml:space="preserve"><value>Margin under 1,000 ft</value></data>
+  <data name="FlightSheetBuilder_Marge_sous_la_croisiere" xml:space="preserve"><value>Margin below cruise</value></data>
+  <data name="FlightSheetBuilder_Marge_sous_la_croisiere_2" xml:space="preserve"><value>Margin below&#10;cruise</value></data>
+  <data name="FlightSheetBuilder_NM_depart" xml:space="preserve"><value>NM&#10;from dep.</value></data>
+  <data name="FlightSheetBuilder_Navigation" xml:space="preserve"><value>Navigation</value></data>
+  <data name="FlightSheetBuilder_Niveaux" xml:space="preserve"><value>Levels</value></data>
+  <data name="FlightSheetBuilder_Non_inclus_dans_ce_document" xml:space="preserve"><value>Not included in this document. Before a real flight, check the NOTAMs on SOFIA-Briefing (SIA)</value></data>
+  <data name="FlightSheetBuilder_Notes" xml:space="preserve"><value>Notes</value></data>
+  <data name="FlightSheetBuilder_Obstacle" xml:space="preserve"><value>Obstacle</value></data>
+  <data name="FlightSheetBuilder_Obstacles_dont_le_sommet_est" xml:space="preserve"><value>Obstacles whose top is within 1,500 ft below your cruise altitude (or above it). In red: margin under 500 ft.</value></data>
+  <data name="FlightSheetBuilder_Obstacles_pres_de_la_route" xml:space="preserve"><value>Obstacles near the route (2 NM corridor on each side)</value></data>
+  <data name="FlightSheetBuilder_Pas_de_carte_VAC" xml:space="preserve"><value>No VAC chart</value></data>
+  <data name="FlightSheetBuilder_Phenomene" xml:space="preserve"><value>Phenomenon</value></data>
+  <data name="FlightSheetBuilder_Pilote_Avion_immat_Depart_prevu" xml:space="preserve"><value>Pilot: ____________________   Aircraft / reg.: ____________________   Planned departure (UTC): ________</value></data>
+  <data name="FlightSheetBuilder_Piste" xml:space="preserve"><value>Runway {0}{1}{2}{3}</value></data>
+  <data name="FlightSheetBuilder_Point" xml:space="preserve"><value>Point</value></data>
+  <data name="FlightSheetBuilder_Point_le_plus_haut" xml:space="preserve"><value>Highest point</value></data>
+  <data name="FlightSheetBuilder_Point_le_plus_haut_ft" xml:space="preserve"><value>Highest point: {0} ft at {1} NM from the departure. </value></data>
+  <data name="FlightSheetBuilder_Points_de_navigation_et_notes" xml:space="preserve"><value>Navigation points and notes</value></data>
+  <data name="FlightSheetBuilder_Position" xml:space="preserve"><value>Position</value></data>
+  <data name="FlightSheetBuilder_Preparee_le_UTC_heure_locale" xml:space="preserve"><value>Prepared on {0} UTC ({1} local time)</value></data>
+  <data name="FlightSheetBuilder_Procedures_VFR_du_terrain" xml:space="preserve"><value>VFR procedures of the airport</value></data>
+  <data name="FlightSheetBuilder_Relief_non_calcule" xml:space="preserve"><value>Terrain not calculated.</value></data>
+  <data name="FlightSheetBuilder_Relief_plus_haut_que_la" xml:space="preserve"><value>Terrain higher than the cruise altitude</value></data>
+  <data name="FlightSheetBuilder_Relief_sous_la_route" xml:space="preserve"><value>Terrain under the route</value></data>
+  <data name="FlightSheetBuilder_Rv_route_vraie_Rm_route" xml:space="preserve"><value>TC: true course · MC: magnetic course · MH: magnetic heading to fly (wind assumed constant).</value></data>
+  <data name="FlightSheetBuilder_SIGMET_consultes_le_UTC_aviationweather" xml:space="preserve"><value>SIGMETs queried on {0} UTC (aviationweather.gov). </value></data>
+  <data name="FlightSheetBuilder_SIGMET_non_verifies" xml:space="preserve"><value>SIGMETs not checked.</value></data>
+  <data name="FlightSheetBuilder_SIGMET_sur_la_route" xml:space="preserve"><value>SIGMETs on the route</value></data>
+  <data name="FlightSheetBuilder_Sommet_altitude" xml:space="preserve"><value>Top&#10;(altitude)</value></data>
+  <data name="FlightSheetBuilder_Sommet_le_plus_haut_ft" xml:space="preserve"><value> Highest top: {0} ft.</value></data>
+  <data name="FlightSheetBuilder_Sources" xml:space="preserve"><value>Sources</value></data>
+  <data name="FlightSheetBuilder_Survol_autorisations_et_frequences_par" xml:space="preserve"><value>Overflight, clearances and frequencies by point</value></data>
+  <data name="FlightSheetBuilder_TAF_prevision" xml:space="preserve"><value>TAF (forecast)</value></data>
+  <data name="FlightSheetBuilder_Temps_estime" xml:space="preserve"><value>Estimated time</value></data>
+  <data name="FlightSheetBuilder_Terrains" xml:space="preserve"><value>Airports</value></data>
+  <data name="FlightSheetBuilder_Terrains_et_balises_OurAirports_domaine" xml:space="preserve"><value>Airports and navaids: OurAirports (public domain). Aerodromes and VFR profiles: MSFS Rhumb database; VAC charts: © SIA. </value></data>
+  <data name="FlightSheetBuilder_Total" xml:space="preserve"><value>Total</value></data>
+  <data name="FlightSheetBuilder_Troncon" xml:space="preserve"><value>Leg</value></data>
+  <data name="FlightSheetBuilder_Type" xml:space="preserve"><value>Type</value></data>
+  <data name="FlightSheetBuilder_Type_et_limites" xml:space="preserve"><value>Type and limits</value></data>
+  <data name="FlightSheetBuilder_Un_SIGMET_n_est_publie" xml:space="preserve"><value>A SIGMET is only issued for hazardous phenomena: no message does not guarantee calm weather.</value></data>
+  <data name="FlightSheetBuilder_Validite_UTC" xml:space="preserve"><value>Validity (UTC)</value></data>
+  <data name="FlightSheetBuilder_Vent_suppose" xml:space="preserve"><value>Assumed wind</value></data>
+  <data name="FlightSheetBuilder_Vitesse_propre_saisie" xml:space="preserve"><value>True airspeed (entered)</value></data>
+  <data name="FlightSheetBuilder_Zone" xml:space="preserve"><value>Zone</value></data>
+  <data name="FlightSheetBuilder_au_dessus" xml:space="preserve"><value>above</value></data>
+  <data name="FlightSheetBuilder_illimite" xml:space="preserve"><value>unlimited</value></data>
+  <data name="FlightSheetBuilder_lignes_de_plus_dans_l" xml:space="preserve"><value>… {0} more lines in the METAR / TAF tab.</value></data>
+  <data name="FlightSheetBuilder_obstacle_s_n_ont_pas" xml:space="preserve"><value>{0} obstacle(s) have no height in OpenStreetMap: they are not assessed. Stay careful near these points.</value></data>
+  <data name="FlightSheetBuilder_obstacle_s_repertorie_s_dans" xml:space="preserve"><value>{0} obstacle(s) listed in the corridor: {1} with a known height, {2} with no height recorded.{3}</value></data>
+  <data name="FlightSheetBuilder_pour" xml:space="preserve"><value> for: {0}.</value></data>
+  <data name="FlightSheetBuilder_pour_un_vol_reel_utilise" xml:space="preserve"><value>for a real flight, use the official sources (SIA, Météo-France) and check everything.</value></data>
+  <data name="FlightSheetBuilder_sous_le_plancher" xml:space="preserve"><value>below the floor</value></data>
+  <data name="FlightSheetBuilder_verifie_l_activation_des_zones" xml:space="preserve"><value>check zone activation (NOTAM, SIA) and the published access conditions. Comparison made without taking terrain into account.</value></data>
+  <data name="FlightSheetBuilder_verifie_les_dans_son_manuel" xml:space="preserve"><value>check them in its flight manual. It includes no taxi, climb, circuits or approach: allow a margin.</value></data>
+  <data name="FlightSheetWindow_Imprimer_PDF" xml:space="preserve"><value>Print / PDF…</value></data>
+  <data name="FlightSheetWindow_Pour_un_PDF_choisis_l" xml:space="preserve"><value>For a PDF, choose the "Microsoft Print to PDF" printer.</value></data>
+  <data name="FuelCheck_la_route_depasse_les_L" xml:space="preserve"><value>⚠ the route exceeds the {0:N0} L of {1} by {2:N0} L (about {3:0} min or {4:N0} NM): a stop or another aircraft is needed</value></data>
+  <data name="FuelCheck_la_route_entame_la_reserve" xml:space="preserve"><value>⚠ the route eats into the {0:0} min reserve of {1}: {2:N0} L are missing to keep it (about {3:0} min or {4:N0} NM)</value></data>
+  <data name="GlossaryWindow_Aucun_resultat" xml:space="preserve"><value>No results.</value></data>
+  <data name="GlossaryWindow_Cherche_un_sigle_TMA_QNH" xml:space="preserve"><value>Search an abbreviation (TMA, QNH, RMZ…) or a word (clearance, runway…).</value></data>
+  <data name="GlossaryWindow_Glossaire_sigles_des_cartes" xml:space="preserve"><value>Glossary: chart abbreviations</value></data>
+  <data name="GlossaryWindow_entree_s" xml:space="preserve"><value>{0} entry(ies)</value></data>
+  <data name="Glossary_Accord_du_controle_pour_entrer" xml:space="preserve"><value>ATC's agreement to enter a zone or perform a manoeuvre. Without clearance, you do not enter.</value></data>
+  <data name="Glossary_Activites_risquees_pour_un_avion" xml:space="preserve"><value>Activities hazardous to aircraft (firing, trials). Overflight is not prohibited but discouraged when the zone is active.</value></data>
+  <data name="Glossary_Aerodrome" xml:space="preserve"><value>Aerodrome</value></data>
+  <data name="Glossary_Aerodrome_et_cartes_VAC" xml:space="preserve"><value>Aerodrome and VAC charts</value></data>
+  <data name="Glossary_Aeronef" xml:space="preserve"><value>Aircraft</value></data>
+  <data name="Glossary_Affiche_sur_l_altimetre_il" xml:space="preserve"><value>Set on the altimeter, it gives the height above the aerodrome (0 on the ground).</value></data>
+  <data name="Glossary_Altitude_de_l_aerodrome" xml:space="preserve"><value>Aerodrome elevation</value></data>
+  <data name="Glossary_Altitude_du_point_le_plus" xml:space="preserve"><value>Elevation of the highest point of the runway, in feet above sea level.</value></data>
+  <data name="Glossary_Altitude_en_centaines_de_pieds" xml:space="preserve"><value>Altitude in hundreds of feet, read with the standard setting 1013 hPa. FL65 = about 6,500 ft. It is used above a transition altitude.</value></data>
+  <data name="Glossary_Altitude_mesuree_a_partir_du" xml:space="preserve"><value>Altitude measured from sea level, read on the altimeter set to QNH. "1500ft AMSL" is the same altitude everywhere.</value></data>
+  <data name="Glossary_Altitudes_hauteurs_et_unites" xml:space="preserve"><value>Altitudes, heights and units</value></data>
+  <data name="Glossary_Angle_dont_il_faut_corriger" xml:space="preserve"><value>Angle by which the heading must be corrected to compensate for crosswind.</value></data>
+  <data name="Glossary_Approche" xml:space="preserve"><value>Approach</value></data>
+  <data name="Glossary_Au_dessus_du_niveau_moyen" xml:space="preserve"><value>Above mean sea level</value></data>
+  <data name="Glossary_Au_dessus_du_sol_Ground" xml:space="preserve"><value>Above ground level (Ground / Above Ground Level)</value></data>
+  <data name="Glossary_Aucune_evolution_notable_prevue_dans" xml:space="preserve"><value>No notable change expected in the next two hours.</value></data>
+  <data name="Glossary_Autorisation_du_controle" xml:space="preserve"><value>ATC clearance</value></data>
+  <data name="Glossary_Autorisation_du_controle_d_entrer" xml:space="preserve"><value>ATC clearance to enter or cross a CTR with a visibility below the minima of normal visual flight.</value></data>
+  <data name="Glossary_Autorisation_prealable_Prior_Permission_Required" xml:space="preserve"><value>Prior Permission Required</value></data>
+  <data name="Glossary_Aux_heures_d_ouverture_du" xml:space="preserve"><value>During the service's opening hours, often to be requested before the flight.</value></data>
+  <data name="Glossary_Avion_rose" xml:space="preserve"><value>Pink aircraft</value></data>
+  <data name="Glossary_Avis_aux_navigants_Notice_to" xml:space="preserve"><value>Notice to Airmen</value></data>
+  <data name="Glossary_BECMG_devient_TEMPO_par_moments" xml:space="preserve"><value>BECMG: becoming. TEMPO: at times, temporarily. PROB: probability of 30 or 40%.</value></data>
+  <data name="Glossary_Balise_VOR_avec_sa_frequence" xml:space="preserve"><value>VOR beacon with its frequency in MHz.</value></data>
+  <data name="Glossary_Balise_qui_donne_la_direction" xml:space="preserve"><value>Beacon that gives the direction you are in relative to it (radial), on a frequency in MHz.</value></data>
+  <data name="Glossary_Balise_simple_sur_une_frequence" xml:space="preserve"><value>Simple beacon, on a frequency in kHz. The ADF receiver shows the direction to the beacon.</value></data>
+  <data name="Glossary_CTR_et_TMA" xml:space="preserve"><value>CTR and TMA</value></data>
+  <data name="Glossary_Calage_altimetrique" xml:space="preserve"><value>Altimeter setting</value></data>
+  <data name="Glossary_Calage_standard" xml:space="preserve"><value>Standard setting</value></data>
+  <data name="Glossary_Cap_magnetique" xml:space="preserve"><value>Magnetic heading</value></data>
+  <data name="Glossary_Cap_magnetique_de_l_axe" xml:space="preserve"><value>Magnetic heading of the runway centreline, in the direction of use.</value></data>
+  <data name="Glossary_Carte_d_approche_a_vue" xml:space="preserve"><value>Visual Approach Chart</value></data>
+  <data name="Glossary_Carte_d_un_aerodrome_pour" xml:space="preserve"><value>Chart of an aerodrome for VFR flights: circuit, reporting points, frequencies, runways, instructions.</value></data>
+  <data name="Glossary_Categories_de_vol_d_apres" xml:space="preserve"><value>Flight categories from the METAR</value></data>
+  <data name="Glossary_Ceiling_and_Visibility_OK" xml:space="preserve"><value>Ceiling and Visibility OK</value></data>
+  <data name="Glossary_Chemin_que_suit_l_avion" xml:space="preserve"><value>Path the aircraft follows between the runway and the parking areas.</value></data>
+  <data name="Glossary_Circuit" xml:space="preserve"><value>Circuit</value></data>
+  <data name="Glossary_Circuit_d_aerodrome" xml:space="preserve"><value>Aerodrome circuit</value></data>
+  <data name="Glossary_Clairance" xml:space="preserve"><value>Clearance</value></data>
+  <data name="Glossary_Clairance_du_controle_obligatoire_pour" xml:space="preserve"><value>ATC clearance required for all flights. Class B does not exist in France; class C is rare there for VFR flight.</value></data>
+  <data name="Glossary_Clairance_et_radio_obligatoires_pour" xml:space="preserve"><value>Clearance and radio required for all. This is the usual class of CTRs and many TMAs.</value></data>
+  <data name="Glossary_Classe_A" xml:space="preserve"><value>Class A</value></data>
+  <data name="Glossary_Classe_B_C" xml:space="preserve"><value>Class B / C</value></data>
+  <data name="Glossary_Classe_D" xml:space="preserve"><value>Class D</value></data>
+  <data name="Glossary_Classe_E" xml:space="preserve"><value>Class E</value></data>
+  <data name="Glossary_Classe_G" xml:space="preserve"><value>Class G</value></data>
+  <data name="Glossary_Communications_radio_entre_le_pilote" xml:space="preserve"><value>Radio communications between the pilot and ATC.</value></data>
+  <data name="Glossary_Conditions_meteorologiques_de_vol_a" xml:space="preserve"><value>Visual / instrument meteorological conditions</value></data>
+  <data name="Glossary_Contour_bleu" xml:space="preserve"><value>Blue outline</value></data>
+  <data name="Glossary_Contour_orange" xml:space="preserve"><value>Orange outline</value></data>
+  <data name="Glossary_Contour_rouge" xml:space="preserve"><value>Red outline</value></data>
+  <data name="Glossary_Contour_violet" xml:space="preserve"><value>Purple outline</value></data>
+  <data name="Glossary_Controle_au_sol" xml:space="preserve"><value>Ground control</value></data>
+  <data name="Glossary_Controle_de_la_circulation_aerienne" xml:space="preserve"><value>Air Traffic Control</value></data>
+  <data name="Glossary_Controle_les_arrivees_et_departs" xml:space="preserve"><value>Controls instrument arrivals and departures and provides services in the TMA.</value></data>
+  <data name="Glossary_Controle_les_decollages_et_atterrissages" xml:space="preserve"><value>Controls take-offs and landings and traffic around the aerodrome.</value></data>
+  <data name="Glossary_Controle_pour_les_IFR_un" xml:space="preserve"><value>Controlled for IFR; a VFR flight may fly in it without clearance, radio not being mandatory.</value></data>
+  <data name="Glossary_Correction_de_derive" xml:space="preserve"><value>Drift correction</value></data>
+  <data name="Glossary_Debut_de_la_partie_de" xml:space="preserve"><value>Start of the part of the runway usable for landing.</value></data>
+  <data name="Glossary_Declinaison" xml:space="preserve"><value>Variation</value></data>
+  <data name="Glossary_Depart_et_arrivee_en_bleu" xml:space="preserve"><value>Departure and arrival in blue, intermediate points in red, numbered in order. A click on a point removes it.</value></data>
+  <data name="Glossary_Designe_un_avion_un_helicoptere" xml:space="preserve"><value>Means an aeroplane, helicopter, glider, microlight…</value></data>
+  <data name="Glossary_Direction_a_tenir_avec_l" xml:space="preserve"><value>Direction to hold with the aircraft to follow the route despite the wind.</value></data>
+  <data name="Glossary_Direction_de_la_route_par" xml:space="preserve"><value>Direction of the route relative to geographic north.</value></data>
+  <data name="Glossary_Donne_la_distance_en_NM" xml:space="preserve"><value>Gives the distance in NM to a beacon. Often paired with a VOR.</value></data>
+  <data name="Glossary_Donnee_en_metres_9999_10" xml:space="preserve"><value>Given in metres (9999 = 10 km or more) or in kilometres.</value></data>
+  <data name="Glossary_Du_lever_au_coucher_du" xml:space="preserve"><value>From sunrise to sunset.</value></data>
+  <data name="Glossary_ETA_heure_d_arrivee_prevue" xml:space="preserve"><value>ETA: estimated time of arrival. ETD: estimated time of departure. ETE: estimated time en route.</value></data>
+  <data name="Glossary_Ecart_entre_le_nord_geographique" xml:space="preserve"><value>Difference between geographic north and magnetic north, expressed in degrees East or West.</value></data>
+  <data name="Glossary_Elle_fixe_les_codes_utilises" xml:space="preserve"><value>It sets the codes used everywhere: four-letter aerodrome identifiers (LFPN, LFPL…), charts, units.</value></data>
+  <data name="Glossary_Ensemble_des_services_rendus_aux" xml:space="preserve"><value>All the services provided to aircraft: control, flight information, alerting.</value></data>
+  <data name="Glossary_Equipement_de_mesure_de_distance" xml:space="preserve"><value>Distance measuring equipment</value></data>
+  <data name="Glossary_Espace_aerien_de_classe_A" xml:space="preserve"><value>Class A airspace</value></data>
+  <data name="Glossary_Espace_aerien_de_classe_D" xml:space="preserve"><value>Class D airspace</value></data>
+  <data name="Glossary_Espace_aerien_de_classe_E" xml:space="preserve"><value>Class E airspace</value></data>
+  <data name="Glossary_Espace_aerien_non_controle" xml:space="preserve"><value>Uncontrolled airspace</value></data>
+  <data name="Glossary_Espace_controle_du_sol_jusqu" xml:space="preserve"><value>Controlled airspace from the ground up to a given height, around an important aerodrome. ATC clearance is needed to enter.</value></data>
+  <data name="Glossary_Espace_controle_en_altitude_au" xml:space="preserve"><value>Controlled airspace at altitude above one or more aerodromes, for arrivals and departures. Its floor is at altitude: below it, you are outside the zone.</value></data>
+  <data name="Glossary_Espace_controle_en_altitude_voisin" xml:space="preserve"><value>Controlled airspace at altitude, neighbour of the TMA but more general, often higher.</value></data>
+  <data name="Glossary_Espaces_aeriens_de_classes_B" xml:space="preserve"><value>Class B and C airspaces</value></data>
+  <data name="Glossary_Espaces_controles_a_moyenne_ou" xml:space="preserve"><value>Controlled airspace at medium or high altitude (LTA: low levels, UTA: high levels).</value></data>
+  <data name="Glossary_Espaces_controles_la_classe_et" xml:space="preserve"><value>Controlled airspaces: the class and limits are written along the line.</value></data>
+  <data name="Glossary_Evolution_dans_un_TAF" xml:space="preserve"><value>Change in a TAF</value></data>
+  <data name="Glossary_FEW_1_a_2_huitiemes" xml:space="preserve"><value>FEW: 1 to 2 eighths, SCT: 3 to 4, BKN: 5 to 7 (broken), OVC: 8 (overcast). The number that follows is the height of the base in hundreds of feet.</value></data>
+  <data name="Glossary_Flight_Information_Service" xml:space="preserve"><value>Flight Information Service</value></data>
+  <data name="Glossary_Frequence_d_auto_information_entre" xml:space="preserve"><value>Self-information frequency between aircraft when there is no unit ("air-air 123.50").</value></data>
+  <data name="Glossary_Gere_la_circulation_des_avions" xml:space="preserve"><value>Manages aircraft traffic on taxiways and parking areas.</value></data>
+  <data name="Glossary_Grands_decoupages_du_ciel_dans" xml:space="preserve"><value>Large divisions of the sky in which a flight information and alerting service is provided. No constraint for a simple VFR flight.</value></data>
+  <data name="Glossary_Guidage_radio_precis_vers_la" xml:space="preserve"><value>Precise radio guidance to the runway, used in IFR. Outside IFR, it also serves as a centreline reference.</value></data>
+  <data name="Glossary_Hauteur_mesuree_a_partir_du" xml:space="preserve"><value>Height measured from the terrain being overflown. "500ft GND" means 500 ft above the ground, wherever it is.</value></data>
+  <data name="Glossary_Hectopascal" xml:space="preserve"><value>Hectopascal</value></data>
+  <data name="Glossary_Heure_d_arrivee_de_depart" xml:space="preserve"><value>Estimated time of arrival / departure / en route</value></data>
+  <data name="Glossary_Heures_de_bureau" xml:space="preserve"><value>Office hours</value></data>
+  <data name="Glossary_Heures_de_jour" xml:space="preserve"><value>Daylight hours</value></data>
+  <data name="Glossary_Il_faut_ecouter_la_frequence" xml:space="preserve"><value>You must listen to the frequency given and, usually, announce yourself before entering. No clearance is required.</value></data>
+  <data name="Glossary_Il_faut_prevenir_l_aerodrome" xml:space="preserve"><value>You must notify the aerodrome before arrival.</value></data>
+  <data name="Glossary_Indicateur_de_pente_d_approche" xml:space="preserve"><value>Approach slope indicator</value></data>
+  <data name="Glossary_Indiquee_par_son_QFU_arrondi" xml:space="preserve"><value>Identified by its rounded QFU: runway 25 for a QFU close to 250°. The letters L, R, C: left, right, centre.</value></data>
+  <data name="Glossary_LF_designe_la_France_la" xml:space="preserve"><value>"LF" stands for France, the letter for the type (R, D or P) and the number identifies it. Example: LF-R324 is restricted area no. 324.</value></data>
+  <data name="Glossary_L_aerodrome_doit_avoir_donne" xml:space="preserve"><value>The aerodrome must have agreed before arrival.</value></data>
+  <data name="Glossary_L_instrument_de_bord_dont" xml:space="preserve"><value>The onboard instrument whose needle points to an NDB.</value></data>
+  <data name="Glossary_Le_document_officiel_qui_decrit" xml:space="preserve"><value>The official document describing a country's aerodromes, airspaces and rules.</value></data>
+  <data name="Glossary_Le_nom_le_plancher_et" xml:space="preserve"><value>The name, floor and ceiling are written along the outline, on the inside of the zone. Hovering the line shows the detail.</value></data>
+  <data name="Glossary_Le_service_ou_l_aerodrome" xml:space="preserve"><value>The service or aerodrome is open permanently.</value></data>
+  <data name="Glossary_Le_service_qui_donne_les" xml:space="preserve"><value>The service that gives clearances and separates aircraft in controlled airspace.</value></data>
+  <data name="Glossary_Le_transpondeur_doit_etre_allume" xml:space="preserve"><value>The transponder must be on and set to enter the zone.</value></data>
+  <data name="Glossary_Le_vol_n_y_est" xml:space="preserve"><value>Flight is only allowed under certain conditions (military activity, security, environment). It may be active only at certain times: check before entering.</value></data>
+  <data name="Glossary_Les_aeronefs_doivent_etre_identifies" xml:space="preserve"><value>Aircraft must be identified before entering.</value></data>
+  <data name="Glossary_Les_conditions_minimales_de_visibilite" xml:space="preserve"><value>The minimum conditions of visibility and distance from clouds allow, or not, visual flight.</value></data>
+  <data name="Glossary_Limite_maximale_minimale" xml:space="preserve"><value>Maximum / minimum limit</value></data>
+  <data name="Glossary_Limite_qui_part_du_sol" xml:space="preserve"><value>Limit starting at the ground: the zone begins at ground level.</value></data>
+  <data name="Glossary_Loisirs_et_sport_aerien" xml:space="preserve"><value>Leisure and air sports</value></data>
+  <data name="Glossary_Losange_violet" xml:space="preserve"><value>Purple diamond</value></data>
+  <data name="Glossary_METAR_emis_en_dehors_de" xml:space="preserve"><value>METAR issued outside the normal time because the weather changes quickly.</value></data>
+  <data name="Glossary_Main_gauche_droite" xml:space="preserve"><value>Left / right hand</value></data>
+  <data name="Glossary_Message_code_qui_donne_le" xml:space="preserve"><value>Coded message giving the wind, visibility, clouds, temperature and QNH at the time of observation.</value></data>
+  <data name="Glossary_Message_qui_signale_un_changement" xml:space="preserve"><value>Message that reports a temporary change: runway closed, zone activated, crane… To be checked before any real flight (SOFIA-Briefing).</value></data>
+  <data name="Glossary_Message_radio_continu_piste_en" xml:space="preserve"><value>Continuous radio message: runway in use, wind, QNH. Listen before contacting the tower.</value></data>
+  <data name="Glossary_Meteo" xml:space="preserve"><value>Weather</value></data>
+  <data name="Glossary_Mille_nautique" xml:space="preserve"><value>Nautical mile</value></data>
+  <data name="Glossary_Modifications_temporaires_de_l_AIP" xml:space="preserve"><value>Temporary AIP changes and general information published between two editions.</value></data>
+  <data name="Glossary_Navigation_et_radionavigation" xml:space="preserve"><value>Navigation and radio navigation</value></data>
+  <data name="Glossary_Navigation_par_positions_calculees_plutot" xml:space="preserve"><value>Navigation by computed positions rather than by beacons.</value></data>
+  <data name="Glossary_Navigation_par_satellite_de_surface" xml:space="preserve"><value>Satellite / area navigation</value></data>
+  <data name="Glossary_Niveau_de_vol_Flight_Level" xml:space="preserve"><value>Flight Level</value></data>
+  <data name="Glossary_Nom_et_limites_de_la" xml:space="preserve"><value>Name and limits of the zone</value></data>
+  <data name="Glossary_Nom_international_du_service_d" xml:space="preserve"><value>International name of the flight information service (in France: SIV).</value></data>
+  <data name="Glossary_Numero_de_zone" xml:space="preserve"><value>Zone number</value></data>
+  <data name="Glossary_Observation_meteo_d_aerodrome" xml:space="preserve"><value>Aerodrome weather observation</value></data>
+  <data name="Glossary_Observation_speciale" xml:space="preserve"><value>Special observation</value></data>
+  <data name="Glossary_On_pilote_avec_les_instruments" xml:space="preserve"><value>You fly with the instruments, including in clouds. Requires a rating.</value></data>
+  <data name="Glossary_On_pilote_en_s_aidant" xml:space="preserve"><value>You fly using what you see outside: ground, horizon, other aircraft.</value></data>
+  <data name="Glossary_On_vole_sous_sa_propre" xml:space="preserve"><value>You fly on your own responsibility, with or without an information service, looking outside.</value></data>
+  <data name="Glossary_Organisation_de_l_aviation_civile" xml:space="preserve"><value>International Civil Aviation Organization</value></data>
+  <data name="Glossary_Organisme_francais_qui_publie_l" xml:space="preserve"><value>French body that publishes the AIP, VAC charts and NOTAMs.</value></data>
+  <data name="Glossary_Orientation_magnetique_de_la_piste" xml:space="preserve"><value>Magnetic orientation of the runway</value></data>
+  <data name="Glossary_Pas_de_changement_significatif" xml:space="preserve"><value>No significant change</value></data>
+  <data name="Glossary_Passage_dans_un_espace_controle" xml:space="preserve"><value>Passing through controlled airspace without landing there, with clearance if the class requires it.</value></data>
+  <data name="Glossary_Pastille_de_terrain" xml:space="preserve"><value>Airport dot</value></data>
+  <data name="Glossary_Petit_avion_leger_Certains_aerodromes" xml:space="preserve"><value>Small light aircraft. Some aerodromes reserve circuits or hours for it.</value></data>
+  <data name="Glossary_Pied_feet" xml:space="preserve"><value>Foot (feet)</value></data>
+  <data name="Glossary_Piste_runway" xml:space="preserve"><value>Runway</value></data>
+  <data name="Glossary_Planeur_parachutage_voltige_ULM_regarder" xml:space="preserve"><value>Gliding, parachuting, aerobatics, microlight: look outside.</value></data>
+  <data name="Glossary_Point_de_compte_rendu_VFR" xml:space="preserve"><value>VFR reporting point</value></data>
+  <data name="Glossary_Point_de_reference_d_aerodrome" xml:space="preserve"><value>Aerodrome reference point</value></data>
+  <data name="Glossary_Point_de_report" xml:space="preserve"><value>Reporting point</value></data>
+  <data name="Glossary_Point_de_report_VFR" xml:space="preserve"><value>VFR reporting point</value></data>
+  <data name="Glossary_Point_de_report_d_un" xml:space="preserve"><value>Reporting point of an aerodrome (read from its VAC chart). A click adds it to the route under the name "ICAO-point".</value></data>
+  <data name="Glossary_Point_de_route_waypoint" xml:space="preserve"><value>Waypoint</value></data>
+  <data name="Glossary_Point_tournant_ou_repere_pose" xml:space="preserve"><value>Turning point or reference placed on the route.</value></data>
+  <data name="Glossary_Points_de_la_route" xml:space="preserve"><value>Route points</value></data>
+  <data name="Glossary_Position_et_cap_de_l" xml:space="preserve"><value>Position and heading of the aircraft, updated once a second when the simulator is running.</value></data>
+  <data name="Glossary_Position_officielle_de_l_aerodrome" xml:space="preserve"><value>Official position of the aerodrome on charts.</value></data>
+  <data name="Glossary_Preavis_necessaire" xml:space="preserve"><value>Prior notice required</value></data>
+  <data name="Glossary_Pression_au_niveau_du_terrain" xml:space="preserve"><value>Pressure at field level</value></data>
+  <data name="Glossary_Pression_de_reference_1013_25" xml:space="preserve"><value>Reference pressure (1013.25 hPa) used for flight levels.</value></data>
+  <data name="Glossary_Pression_ramenee_au_niveau_de" xml:space="preserve"><value>Pressure reduced to sea level. Set on the altimeter, it gives the true altitude above the sea.</value></data>
+  <data name="Glossary_Prevision_d_aerodrome" xml:space="preserve"><value>Aerodrome forecast</value></data>
+  <data name="Glossary_Prevision_de_la_meteo_sur" xml:space="preserve"><value>Forecast of the weather at an aerodrome for the coming hours. MSFS Rhumb translates it into plain language.</value></data>
+  <data name="Glossary_Publication_d_information_aeronautique" xml:space="preserve"><value>Aeronautical information publication</value></data>
+  <data name="Glossary_QDM_cap_magnetique_pour_aller" xml:space="preserve"><value>QDM: magnetic heading to go to the station. QDR: direction you are in relative to it.</value></data>
+  <data name="Glossary_Quantite_de_nuages" xml:space="preserve"><value>Cloud amount</value></data>
+  <data name="Glossary_Quatre_feux_a_cote_de" xml:space="preserve"><value>Four lights beside the runway: two red and two white indicate a good slope.</value></data>
+  <data name="Glossary_RMZ_TMZ_ATZ_la_radio" xml:space="preserve"><value>RMZ, TMZ, ATZ: radio or transponder is requested.</value></data>
+  <data name="Glossary_Radio_transpondeur_circulation_d_aerodrome" xml:space="preserve"><value>Radio, transponder, aerodrome traffic</value></data>
+  <data name="Glossary_Radiogoniometre_automatique" xml:space="preserve"><value>Automatic direction finder</value></data>
+  <data name="Glossary_Radiophare_non_directionnel" xml:space="preserve"><value>Non-directional beacon</value></data>
+  <data name="Glossary_Radiophare_non_directionnel_avec_sa" xml:space="preserve"><value>Non-directional beacon with its frequency in kHz.</value></data>
+  <data name="Glossary_Radiophare_omnidirectionnel_VHF" xml:space="preserve"><value>VHF omnidirectional range</value></data>
+  <data name="Glossary_Radiotelephonie" xml:space="preserve"><value>Radiotelephony</value></data>
+  <data name="Glossary_Region_d_information_de_vol" xml:space="preserve"><value>Flight information region / upper region</value></data>
+  <data name="Glossary_Region_de_controle" xml:space="preserve"><value>Control area</value></data>
+  <data name="Glossary_Region_de_controle_inferieure_superieure" xml:space="preserve"><value>Lower / upper control area</value></data>
+  <data name="Glossary_Region_de_controle_terminale" xml:space="preserve"><value>Terminal control area</value></data>
+  <data name="Glossary_Regles_de_vol" xml:space="preserve"><value>Flight rules</value></data>
+  <data name="Glossary_Regles_de_vol_a_vue" xml:space="preserve"><value>Visual flight rules</value></data>
+  <data name="Glossary_Regles_de_vol_aux_instruments" xml:space="preserve"><value>Instrument flight rules</value></data>
+  <data name="Glossary_Relevement_magnetique_vers_depuis_une" xml:space="preserve"><value>Magnetic bearing to / from a station</value></data>
+  <data name="Glossary_Repere_connu_village_etang_route" xml:space="preserve"><value>Known landmark (village, pond, road) where you announce your position on arrival or departure. Designated by one or two letters (N, S, NE, EA…).</value></data>
+  <data name="Glossary_Reserve_aux_vols_aux_instruments" xml:space="preserve"><value>Reserved for instrument flights (IFR). VFR flight is prohibited there in France except with special clearance.</value></data>
+  <data name="Glossary_Reservee_a_une_activite_souvent" xml:space="preserve"><value>Reserved for an activity (often military) when activated. Other aircraft must avoid it during that time.</value></data>
+  <data name="Glossary_Restriction_qui_n_existe_que" xml:space="preserve"><value>Restriction that only exists during a given period, published by NOTAM or aeronautical information.</value></data>
+  <data name="Glossary_Rond_orange" xml:space="preserve"><value>Orange circle</value></data>
+  <data name="Glossary_Rond_sur_un_terrain_sa" xml:space="preserve"><value>Circle on an airport: its colour gives the weather category (green VFR, blue MVFR, red IFR, purple LIFR, grey: no METAR).</value></data>
+  <data name="Glossary_Ronds_numerotes" xml:space="preserve"><value>Numbered circles</value></data>
+  <data name="Glossary_Route_magnetique" xml:space="preserve"><value>Magnetic course</value></data>
+  <data name="Glossary_Route_vraie" xml:space="preserve"><value>True course</value></data>
+  <data name="Glossary_Route_vraie_corrigee_de_la" xml:space="preserve"><value>True course corrected for magnetic variation: direction to read on the compass, drift aside.</value></data>
+  <data name="Glossary_Sens_du_circuit" xml:space="preserve"><value>Direction of the circuit</value></data>
+  <data name="Glossary_Service_automatique_d_information_de" xml:space="preserve"><value>Automatic terminal information service</value></data>
+  <data name="Glossary_Service_d_information_de_vol" xml:space="preserve"><value>Flight information service</value></data>
+  <data name="Glossary_Service_d_information_de_vol_2" xml:space="preserve"><value>Aerodrome flight information service</value></data>
+  <data name="Glossary_Service_de_l_information_aeronautique" xml:space="preserve"><value>Aeronautical information service</value></data>
+  <data name="Glossary_Service_en_ligne_d_information" xml:space="preserve"><value>Online flight information service (SIA)</value></data>
+  <data name="Glossary_Services_de_la_circulation_aerienne" xml:space="preserve"><value>Air traffic services</value></data>
+  <data name="Glossary_Services_radio_et_documents" xml:space="preserve"><value>Services, radio and documents</value></data>
+  <data name="Glossary_Seuil_de_piste_threshold" xml:space="preserve"><value>Runway threshold</value></data>
+  <data name="Glossary_Site_du_SIA_ou_l" xml:space="preserve"><value>SIA website where you consult NOTAMs and active zones and file a flight plan.</value></data>
+  <data name="Glossary_Supplement_AIP_circulaire_d_information" xml:space="preserve"><value>AIP supplement / information circular</value></data>
+  <data name="Glossary_Sur_une_carte_VAC_1500" xml:space="preserve"><value>On a VAC chart, "1500 ft MAX" forbids exceeding that altitude at this point; "MIN" forbids being lower.</value></data>
+  <data name="Glossary_Surface" xml:space="preserve"><value>Surface</value></data>
+  <data name="Glossary_Survol_interdit_sauf_autorisation_speciale" xml:space="preserve"><value>Overflight prohibited, except with special authorisation.</value></data>
+  <data name="Glossary_Symboles_de_la_carte" xml:space="preserve"><value>Map symbols</value></data>
+  <data name="Glossary_Systeme_d_atterrissage_aux_instruments" xml:space="preserve"><value>Instrument landing system</value></data>
+  <data name="Glossary_Terrain_d_aviation_Les_cartes" xml:space="preserve"><value>Airfield. VAC charts carry the prefix "AD 2".</value></data>
+  <data name="Glossary_Terrain_et_meteo" xml:space="preserve"><value>Airport and weather</value></data>
+  <data name="Glossary_Texte_le_long_du_trait" xml:space="preserve"><value>Text along the line</value></data>
+  <data name="Glossary_Tour_de_controle" xml:space="preserve"><value>Control tower</value></data>
+  <data name="Glossary_Trajectoire_standard_autour_de_la" xml:space="preserve"><value>Standard path around the runway: downwind, base, final. It is flown at a height and on a side set by the chart.</value></data>
+  <data name="Glossary_Transit" xml:space="preserve"><value>Transit</value></data>
+  <data name="Glossary_Traversee_d_une_zone" xml:space="preserve"><value>Crossing a zone</value></data>
+  <data name="Glossary_Triangle_jaune" xml:space="preserve"><value>Yellow triangle</value></data>
+  <data name="Glossary_Ultra_leger_motorise" xml:space="preserve"><value>Microlight</value></data>
+  <data name="Glossary_Un_agent_informe_sur_le" xml:space="preserve"><value>An officer informs about traffic and the runway in use, without giving clearances. The pilot remains responsible.</value></data>
+  <data name="Glossary_Un_controleur_donne_des_informations" xml:space="preserve"><value>A controller gives flight and traffic information on the frequency given. Connecting is useful but not mandatory.</value></data>
+  <data name="Glossary_Unite_d_altitude_1_ft" xml:space="preserve"><value>Unit of altitude: 1 ft = 0.3048 m. 1,000 ft ≈ 305 m.</value></data>
+  <data name="Glossary_Unite_de_distance_1_NM" xml:space="preserve"><value>Unit of distance: 1 NM = 1.852 km, i.e. one minute of arc of latitude.</value></data>
+  <data name="Glossary_Unite_de_pression_atmospherique_Au" xml:space="preserve"><value>Unit of atmospheric pressure. At sea level, the standard pressure is 1013.25 hPa.</value></data>
+  <data name="Glossary_VFR_bonnes_conditions_MVFR_marginales" xml:space="preserve"><value>VFR: good conditions. MVFR: marginal. IFR: poor, visual flight is difficult. LIFR: very poor. MSFS Rhumb shows them by the colour of an airport.</value></data>
+  <data name="Glossary_VFR_special" xml:space="preserve"><value>Special VFR</value></data>
+  <data name="Glossary_Variation_magnetique" xml:space="preserve"><value>Magnetic variation</value></data>
+  <data name="Glossary_Vingt_quatre_heures_sur_vingt" xml:space="preserve"><value>Twenty-four hours a day</value></data>
+  <data name="Glossary_Virages_vers_la_gauche_ou" xml:space="preserve"><value>Turns to the left or to the right. Left hand is the rule, unless the chart says otherwise.</value></data>
+  <data name="Glossary_Visibilite" xml:space="preserve"><value>Visibility</value></data>
+  <data name="Glossary_Visibilite_de_10_km_ou" xml:space="preserve"><value>Visibility of 10 km or more, no significant cloud below 5,000 ft, no notable phenomenon: very good conditions.</value></data>
+  <data name="Glossary_Visibilite_horizontale" xml:space="preserve"><value>Horizontal visibility</value></data>
+  <data name="Glossary_Vitesse_d_un_mille_nautique" xml:space="preserve"><value>Speed of one nautical mile per hour: 1 kt = 1.852 km/h.</value></data>
+  <data name="Glossary_Vitesse_de_l_avion_par" xml:space="preserve"><value>Speed of the aircraft relative to the ground, wind included.</value></data>
+  <data name="Glossary_Vitesse_de_l_avion_par_2" xml:space="preserve"><value>Speed of the aircraft relative to the air.</value></data>
+  <data name="Glossary_Vitesse_propre_True_Air_Speed" xml:space="preserve"><value>True Air Speed</value></data>
+  <data name="Glossary_Vitesse_sol_Ground_Speed" xml:space="preserve"><value>Ground Speed</value></data>
+  <data name="Glossary_Voie_de_circulation_taxiway" xml:space="preserve"><value>Taxiway</value></data>
+  <data name="Glossary_Votre_avion_dans_MSFS" xml:space="preserve"><value>Your aircraft in MSFS</value></data>
+  <data name="Glossary_Zone_a_radio_obligatoire_Radio" xml:space="preserve"><value>Radio Mandatory Zone</value></data>
+  <data name="Glossary_Zone_a_transpondeur_obligatoire_Transponder" xml:space="preserve"><value>Transponder Mandatory Zone</value></data>
+  <data name="Glossary_Zone_autour_d_un_aerodrome" xml:space="preserve"><value>Zone around an aerodrome where local traffic is intense: follow the circuit and the radio.</value></data>
+  <data name="Glossary_Zone_d_identification_de_defense" xml:space="preserve"><value>Air defence identification zone</value></data>
+  <data name="Glossary_Zone_dangereuse" xml:space="preserve"><value>Danger area</value></data>
+  <data name="Glossary_Zone_de_circulation_d_aerodrome" xml:space="preserve"><value>Aerodrome traffic zone</value></data>
+  <data name="Glossary_Zone_de_controle_Control_Zone" xml:space="preserve"><value>Control Zone</value></data>
+  <data name="Glossary_Zone_interdite" xml:space="preserve"><value>Prohibited area</value></data>
+  <data name="Glossary_Zone_reglementee" xml:space="preserve"><value>Restricted area</value></data>
+  <data name="Glossary_Zone_reglementee_temporaire_designation_de" xml:space="preserve"><value>Temporary restricted area (chart designation)</value></data>
+  <data name="Glossary_Zone_temporairement_reservee_segreguee" xml:space="preserve"><value>Temporary reserved / segregated area</value></data>
+  <data name="Glossary_Zones_R_D_P_a" xml:space="preserve"><value>R, D, P zones: to be checked before entering.</value></data>
+  <data name="Glossary_Zones_reglementees_dangereuses_interdites" xml:space="preserve"><value>Restricted, danger, prohibited areas</value></data>
+  <data name="IfrNetwork_Arreter_la_lecture_points" xml:space="preserve"><value>Stop reading ({0} points)</value></data>
+  <data name="IfrNetwork_Attendez_la_fin_de_la" xml:space="preserve"><value>Wait for the SID/STAR reading to finish.</value></data>
+  <data name="IfrNetwork_Elle_prend_de_quelques_minutes" xml:space="preserve"><value>It takes a few minutes to an hour; MSFS must stay running. France stays the SIA's.</value></data>
+  <data name="IfrNetwork_Enregistrez_d_abord_les_SID" xml:space="preserve"><value>Save the world SIDs/STARs first: their points are the starting point for exploring the routes.</value></data>
+  <data name="IfrNetwork_Exploration_des_routes_dans_MSFS" xml:space="preserve"><value>Exploring routes in MSFS... {0} points read, {1} left to read, {2} segments</value></data>
+  <data name="IfrNetwork_L_exploration_part_des_points" xml:space="preserve"><value>&#10;&#10;The exploration starts from the saved SID/STAR points and follows the routes step by step. </value></data>
+  <data name="IfrNetwork_Le_reseau_enregistre_troncons_a" xml:space="preserve"><value>The saved network ({0} segments) was already read from {1} on {2:dd/MM/yyyy}. This MSFS version has not changed.</value></data>
+  <data name="IfrNetwork_Lecture_arretee_rien_n_est" xml:space="preserve"><value>Reading stopped: nothing is saved (a half-read network would make false routes).</value></data>
+  <data name="IfrNetwork_Lecture_interrompue" xml:space="preserve"><value>Reading interrupted: </value></data>
+  <data name="IfrNetwork_Lire_dans_les_routes_ATS" xml:space="preserve"><value>Read the ATS routes outside France from {0}?</value></data>
+  <data name="IfrNetwork_MSFS_a_change_de_version" xml:space="preserve"><value>MSFS changed version: the saved network comes from {0} ({1:dd/MM/yyyy}), the simulator is now on {2}.</value></data>
+  <data name="IfrNetwork_Relire_toutes_les_routes_pour" xml:space="preserve"><value>&#10;&#10;Read all the routes again to update?</value></data>
+  <data name="IfrNetwork_Reseau_lu_mais_non_enregistre" xml:space="preserve"><value>Network read but not saved: </value></data>
+  <data name="IfrNetwork_Rien_n_est_enregistre" xml:space="preserve"><value>&#10;Nothing is saved.</value></data>
+  <data name="IfrNetwork_Routes_ATS_hors_de_France" xml:space="preserve"><value>&#10;ATS routes outside France ignored: </value></data>
+  <data name="IfrNetwork_Routes_ATS_hors_de_France_2" xml:space="preserve"><value>&#10;ATS routes outside France: none saved (France comes from the SIA). "</value></data>
+  <data name="IfrNetwork_Routes_ATS_hors_de_France_3" xml:space="preserve"><value>&#10;ATS routes outside France: {0} segments on {1} routes, {2} points and {3} airports, </value></data>
+  <data name="IfrNetwork_Routes_ATS_hors_de_France_4" xml:space="preserve"><value>ATS routes outside France</value></data>
+  <data name="IfrNetwork_les_lit_une_fois_MSFS" xml:space="preserve"><value>" reads them once, with MSFS running.</value></data>
+  <data name="IfrNetwork_lus_dans_le_utilisables_sans" xml:space="preserve"><value>read from {0} on {1:dd/MM/yyyy}, usable without MSFS. One-way directions and levels: as given by MSFS, to be checked.</value></data>
+  <data name="IfrNetwork_troncons_sur_routes_enregistres_points" xml:space="preserve"><value>{0} segments on {1} routes saved ({2} points, {3} airports), read from {4}.</value></data>
+  <data name="IfrProcedures_Arreter_la_lecture" xml:space="preserve"><value>Stop reading ({0}/{1})</value></data>
+  <data name="IfrProcedures_Ce_qui_a_ete_lu" xml:space="preserve"><value>&#10;What was read before stays saved.</value></data>
+  <data name="IfrProcedures_Lecture_arretee_apres_terrains" xml:space="preserve"><value>Reading stopped after {0}/{1} airports.</value></data>
+  <data name="IfrProcedures_Lecture_dans_MSFS_terrains_avec" xml:space="preserve"><value>Reading in MSFS... {0}/{1} ({2}): {3} airports with SID/STAR</value></data>
+  <data name="IfrProcedures_Lecture_des_SID_STAR_dans" xml:space="preserve"><value>Reading the SIDs/STARs in MSFS...</value></data>
+  <data name="IfrProcedures_Les_SID_STAR_enregistrees_terrains" xml:space="preserve"><value>The saved SIDs/STARs ({0} airports) were already read from {1} on {2:dd/MM/yyyy}. This MSFS version has not changed.</value></data>
+  <data name="IfrProcedures_Les_donnees_sont_enregistrees_dans" xml:space="preserve"><value>The data is saved in MSFS Rhumb: after that the simulator is no longer needed.</value></data>
+  <data name="IfrProcedures_Leur_cycle_AIRAC_est_celui" xml:space="preserve"><value>Their AIRAC cycle is the simulator's, which may differ from the SIA's.</value></data>
+  <data name="IfrProcedures_Lire_dans_les_SID_et" xml:space="preserve"><value>Read the SIDs and STARs of all the airports in the world from {0}?&#10;&#10;This takes several minutes; MSFS must stay running. </value></data>
+  <data name="IfrProcedures_MSFS_a_change_de_version" xml:space="preserve"><value>MSFS changed version: the saved SIDs/STARs come from {0} ({1:dd/MM/yyyy}), the simulator is now on {2}.</value></data>
+  <data name="IfrProcedures_MSFS_n_a_ni_SID" xml:space="preserve"><value>{0}: MSFS has neither SID nor STAR for this airport.</value></data>
+  <data name="IfrProcedures_Relire_tous_les_terrains_dans" xml:space="preserve"><value>&#10;&#10;Read all the airports again in MSFS to update? Only airports that changed are rewritten.</value></data>
+  <data name="IfrProcedures_SID_STAR_aucune_enregistree" xml:space="preserve"><value>&#10;SID/STAR: none saved. "</value></data>
+  <data name="IfrProcedures_SID_STAR_du_monde" xml:space="preserve"><value>World SIDs/STARs</value></data>
+  <data name="IfrProcedures_SID_STAR_enregistrees_ignorees" xml:space="preserve"><value>&#10;Saved SIDs/STARs ignored: </value></data>
+  <data name="IfrProcedures_SID_STAR_enregistrees_procedures_pour" xml:space="preserve"><value>&#10;Saved SIDs/STARs: {0} procedures for {1} airports{2}, usable without MSFS. </value></data>
+  <data name="IfrProcedures_Saisissez_le_depart_et_l" xml:space="preserve"><value>Enter the departure and arrival (four-letter ICAO codes).</value></data>
+  <data name="IfrProcedures_aucune_enregistree_le_terrain_se" xml:space="preserve"><value>{0} {1}: no {2} saved, the airport connects directly to the network.</value></data>
+  <data name="IfrProcedures_enregistrees_MSFS_inutile" xml:space="preserve"><value>{0} {1}: {2} {3} saved, MSFS not needed.</value></data>
+  <data name="IfrProcedures_inchange" xml:space="preserve"><value>unchanged</value></data>
+  <data name="IfrProcedures_les_lit_une_fois_MSFS" xml:space="preserve"><value>" reads them once, with MSFS running; after that it is no longer needed.</value></data>
+  <data name="IfrProcedures_lues_dans_le" xml:space="preserve"><value>, read from {0} on {1:dd/MM/yyyy}</value></data>
+  <data name="IfrProcedures_mis_a_jour" xml:space="preserve"><value>updated</value></data>
+  <data name="IfrProcedures_nouveaux_mis_a_jour_inchanges" xml:space="preserve"><value>{0}&#10;{1} new, {2} updated, {3} unchanged, {4} removed (no more procedures in MSFS).</value></data>
+  <data name="IfrProcedures_terrain_inconnu_des_donnees_ni" xml:space="preserve"><value>{0} {1}: airport unknown to the data (neither the SIA nor MSFS).</value></data>
+  <data name="IfrProcedures_une_version_inconnue_de_MSFS" xml:space="preserve"><value>an unknown MSFS version</value></data>
+  <data name="IfrRouter_Aucun_point_du_reseau_IFR" xml:space="preserve"><value>No IFR network point within {0:0} NM of {1}.</value></data>
+  <data name="IfrRouter_Aucune_ne_convient_a_la" xml:space="preserve"><value>No {0}{1} suits runway {2} of {3}.</value></data>
+  <data name="IfrRouter_Aucune_route_ATS_ne_relie" xml:space="preserve"><value>No ATS route links {0} to {1}</value></data>
+  <data name="IfrRouter_Aucune_route_trouvee" xml:space="preserve"><value>No route found.</value></data>
+  <data name="IfrRouter_Les_de_referencent_des_points" xml:space="preserve"><value>The {0} of {1} reference points missing from the data.</value></data>
+  <data name="IfrRouter_Terrain_d_arrivee_inconnu" xml:space="preserve"><value>Unknown arrival airport: {0}.</value></data>
+  <data name="IfrRouter_Terrain_de_depart_inconnu" xml:space="preserve"><value>Unknown departure airport: {0}.</value></data>
+  <data name="IfrRouter_introuvable_pour" xml:space="preserve"><value>{0} {1} not found for {2}.</value></data>
+  <data name="IfrRunway_Variation_inconnue_vent_pris_en" xml:space="preserve"><value> Variation unknown: wind taken as true north.</value></data>
+  <data name="IfrRunway_Vent_pas_de_piste_conseillee" xml:space="preserve"><value>   Wind {0} ({1}): no recommended runway (light or variable wind).</value></data>
+  <data name="IfrRunway_Vent_piste_conseillee" xml:space="preserve"><value>   Wind {0} ({1}): recommended runway {2}, {3}.{4}</value></data>
+  <data name="IfrRunway_vent_suppose_du_formulaire" xml:space="preserve"><value>assumed wind from the form</value></data>
+  <data name="IfrSampleData_DONNEES_DE_TEST_fictives" xml:space="preserve"><value>TEST DATA (fictitious)</value></data>
+  <data name="Ifr_Arrivee" xml:space="preserve"><value>Arrival</value></data>
+  <data name="Ifr_Aucune" xml:space="preserve"><value>None</value></data>
+  <data name="Ifr_Auto" xml:space="preserve"><value>Auto</value></data>
+  <data name="Ifr_Depart" xml:space="preserve"><value>Departure</value></data>
+  <data name="Ifr_Export_AIXM_du_SIA_zip" xml:space="preserve"><value>SIA AIXM export (*.zip;*.xml)|*.zip;*.xml</value></data>
+  <data name="Ifr_Fichier_AIXM_illisible" xml:space="preserve"><value>Unreadable AIXM file: </value></data>
+  <data name="Ifr_Finale_ILS_ft_sur_la" xml:space="preserve"><value>ILS final {0}: {1:N0} ft on the glide path (indicative, not the published procedure).</value></data>
+  <data name="Ifr_Lecture_des_donnees_AIRAC" xml:space="preserve"><value>Reading the AIRAC data...</value></data>
+  <data name="Ifr_Niveau_de_vol_invalide_ex" xml:space="preserve"><value>Invalid flight level (e.g. 240 for FL240), or leave the box empty.</value></data>
+  <data name="Ifr_PERIME_a_mettre_a_jour" xml:space="preserve"><value> : EXPIRED, needs updating.</value></data>
+  <data name="Ifr_Pas_de_SID_STAR_dans" xml:space="preserve"><value> No SID/STAR in this data: airports connect directly to the ATS routes.</value></data>
+  <data name="Ifr_Pour_voler_hors_de_France" xml:space="preserve"><value>To fly outside France, save the world SIDs/STARs and ATS routes once with MSFS running (MSFS read buttons, in the IFR data); after that MSFS is no longer needed.</value></data>
+  <data name="Ifr_Remplacer_la_route_actuelle_par" xml:space="preserve"><value>Replace the current route with the IFR route?</value></data>
+  <data name="Ifr_Route_IFR" xml:space="preserve"><value>IFR route</value></data>
+  <data name="Ifr_arrivee" xml:space="preserve"><value>arrival {0}</value></data>
+  <data name="Ifr_depart" xml:space="preserve"><value>departure {0}</value></data>
+  <data name="Ifr_existe_sur_la_carte_mais" xml:space="preserve"><value>&#10;{0} exists on the map, but the IFR data does not contain it: the SIA export only covers France. </value></data>
+  <data name="Ifr_ne_pas_utiliser_pour_naviguer" xml:space="preserve"><value> : do not use for navigation. Load the SIA AIXM export.</value></data>
+  <data name="IlsApproaches_ILS_MHz_interception_a_NM" xml:space="preserve"><value>ILS {0} {1} {2:0.00} MHz{3}{4}{5} · intercept at {6:0} NM ({7:N0} ft), </value></data>
+  <data name="IlsApproaches_L_ILS_existe_mais_la" xml:space="preserve"><value>ILS {0} exists, but the route already ends {1:0} NM from the threshold: no final point added.</value></data>
+  <data name="IlsApproaches_La_piste_de_n_a" xml:space="preserve"><value>Runway {0} of {1} has no ILS. Runways with ILS: {2}.</value></data>
+  <data name="IlsApproaches_Pas_d_ILS_dans_les" xml:space="preserve"><value>No ILS in the data for {0} (the SIA only covers France).</value></data>
+  <data name="IlsApproaches_finale_a_NM_ft_finale" xml:space="preserve"><value>final at {0:0} NM ({1:N0} ft) · indicative final, not the published procedure</value></data>
+  <data name="LegLabels_Branches" xml:space="preserve"><value>Legs</value></data>
+  <data name="Live_Altitude_a_ce_point_ft" xml:space="preserve"><value>Altitude at this point: {0:N0} ft ({1})</value></data>
+  <data name="Live_Depuis_NM_Rv_cap_kt" xml:space="preserve"><value>From {0}: {1:0.0} NM · TC {2:000}° · heading {3:000}° · {4:0} kt · {5} · {6:0.0} L</value></data>
+  <data name="Live_Meteo" xml:space="preserve"><value>Weather: {0} — {1}</value></data>
+  <data name="Live_Meteo_pas_de_METAR_pour" xml:space="preserve"><value>Weather: no METAR for this airport</value></data>
+  <data name="Live_Notes" xml:space="preserve"><value>Notes — {0}</value></data>
+  <data name="Live_Pose_au_moins_deux_points" xml:space="preserve"><value>Place at least two points to check the route.</value></data>
+  <data name="Live_Profil_en_direct_point_le" xml:space="preserve"><value>Live profile · highest point {0:N0} ft · {1} zone crossing(s)</value></data>
+  <data name="Live_Relief_indisponible" xml:space="preserve"><value>Terrain unavailable: </value></data>
+  <data name="Live_Survol_aucune_zone_connue_a" xml:space="preserve"><value>Overflight: no known zone at this altitude</value></data>
+  <data name="Live_Terrain" xml:space="preserve"><value>Airport {0} {1} — {2}</value></data>
+  <data name="Live_Zones_non_chargees_cle_OpenAIP" xml:space="preserve"><value>Zones not loaded (OpenAIP key): airspaces not checked</value></data>
+  <data name="Live_et_autre_s_zone_s" xml:space="preserve"><value>… and {0} other zone(s)</value></data>
+  <data name="Live_sol_et_meteo_indisponibles" xml:space="preserve"><value>&#10;(ground and weather unavailable: </value></data>
+  <data name="Navaids_Balises_indisponibles" xml:space="preserve"><value>Navaids unavailable: </value></data>
+  <data name="Navaids_balises_affichees_sur" xml:space="preserve"><value>{0} navaids shown out of {1}</value></data>
+  <data name="ObstacleService_Cheminee" xml:space="preserve"><value>Chimney</value></data>
+  <data name="ObstacleService_Eolienne" xml:space="preserve"><value>Wind turbine</value></data>
+  <data name="ObstacleService_Mat_antenne" xml:space="preserve"><value>Mast / antenna</value></data>
+  <data name="ObstacleService_Obstacles_contributeurs_OpenStreetMap_licenc" xml:space="preserve"><value>Obstacles: © OpenStreetMap contributors (ODbL licence), via Overpass; heights often from the ANFR.</value></data>
+  <data name="ObstacleService_Overpass_HTTP_service_parfois_sature" xml:space="preserve"><value>Overpass: HTTP {0} (service sometimes overloaded, try again in a moment).</value></data>
+  <data name="ObstacleService_Route_trop_longue_pour_interroger" xml:space="preserve"><value>Route too long to query obstacles ({0} areas, limit {1}).</value></data>
+  <data name="ObstacleService_Tour" xml:space="preserve"><value>Tower</value></data>
+  <data name="OpenAipService_Accord_special_requis" xml:space="preserve"><value>Special agreement required</value></data>
+  <data name="OpenAipService_Activee_par_NOTAM" xml:space="preserve"><value>Activated by NOTAM</value></data>
+  <data name="OpenAipService_Se_conformer_aux_instructions" xml:space="preserve"><value>Comply with instructions</value></data>
+  <data name="OpenAipService_Sur_requete" xml:space="preserve"><value>On request</value></data>
+  <data name="Plan_Calcul_du_plan_de_vol" xml:space="preserve"><value>Calculating the flight plan...</value></data>
+  <data name="Plan_Calcul_du_relief_sous_la" xml:space="preserve"><value>Calculating the terrain under the route...</value></data>
+  <data name="Plan_Calcul_interrompu" xml:space="preserve"><value>Calculation interrupted: </value></data>
+  <data name="Plan_Feuille_de_route" xml:space="preserve"><value>Flight sheet {0} - {1}</value></data>
+  <data name="Plan_Il_faut_au_moins_deux" xml:space="preserve"><value>At least two points are needed to calculate the flight plan.</value></data>
+  <data name="Plan_Meteo_indisponible_au_moment_du" xml:space="preserve"><value>Weather unavailable at the time of calculation: </value></data>
+  <data name="Plan_Obstacles_indisponibles" xml:space="preserve"><value>Obstacles unavailable: </value></data>
+  <data name="Plan_Plan_calcule_NM_L" xml:space="preserve"><value>Plan calculated: {0:0.#} NM, {1}, {2:0.#} L.</value></data>
+  <data name="Plan_Recherche_des_SIGMET" xml:space="preserve"><value>Searching for SIGMETs...</value></data>
+  <data name="Plan_Recherche_des_obstacles_pres_de" xml:space="preserve"><value>Searching for obstacles near the route...</value></data>
+  <data name="Plan_Recuperation_de_la_meteo" xml:space="preserve"><value>Fetching the weather...</value></data>
+  <data name="Plan_Zones_non_chargees_cle_OpenAIP" xml:space="preserve"><value>Zones not loaded (OpenAIP key): only the terrain is drawn.</value></data>
+  <data name="Plan_passage_s_de_zone_point" xml:space="preserve"><value>{0} zone crossing(s) · highest point {1:N0} ft · {2} obstacle(s) listed</value></data>
+  <data name="PlnReader_Ce_fichier_n_est_pas" xml:space="preserve"><value>This file is not a valid .PLN flight plan: </value></data>
+  <data name="PlnReader_Ce_fichier_ne_contient_pas" xml:space="preserve"><value>This file contains no flight plan (FlightPlan.FlightPlan not found).</value></data>
+  <data name="PlnReader_Le_plan_de_vol_ne" xml:space="preserve"><value>The flight plan contains no point.</value></data>
+  <data name="PlnReader_Position_illisible_pour_le_point" xml:space="preserve"><value>Unreadable position for the point "{0}".</value></data>
+  <data name="PlnWriter_Il_faut_au_moins_deux" xml:space="preserve"><value>At least two points are needed.</value></data>
+  <data name="PointBriefing_Activite_de_loisir_ou_sportive" xml:space="preserve"><value>Leisure or sporting activity</value></data>
+  <data name="PointBriefing_Allume_le_transpondeur_et_affiche" xml:space="preserve"><value>Switch the transponder on and set the requested code before entering.</value></data>
+  <data name="PointBriefing_Annonce_toi_et_respecte_le" xml:space="preserve"><value>Announce yourself{0} and follow the circuit and local traffic.</value></data>
+  <data name="PointBriefing_Appelle_le_controle_avant_l" xml:space="preserve"><value>Call ATC{0} before entering and wait for the clearance. Without it: pass below {1} or go around.</value></data>
+  <data name="PointBriefing_Aucune_clairance_demandee" xml:space="preserve"><value>No clearance required{0}.</value></data>
+  <data name="PointBriefing_Clairance_et_radio_obligatoires_classe" xml:space="preserve"><value>Clearance and radio required (class D)</value></data>
+  <data name="PointBriefing_Clairance_obligatoire_classe" xml:space="preserve"><value>Clearance required (class {0})</value></data>
+  <data name="PointBriefing_Considere_la_clairance_comme_necessaire" xml:space="preserve"><value>Consider the clearance as necessary: contact{0} before entering.</value></data>
+  <data name="PointBriefing_Demande_une_clairance_Sans_elle" xml:space="preserve"><value>Request a clearance{0}. Without it: change altitude (below {1}) or route.</value></data>
+  <data name="PointBriefing_Ecoute_la_frequence_avant_d" xml:space="preserve"><value>Listen to the frequency{0} before entering and announce your position and intentions. No clearance required.</value></data>
+  <data name="PointBriefing_Espace_controle_classe_non_precisee" xml:space="preserve"><value>Controlled airspace (class not specified)</value></data>
+  <data name="PointBriefing_Evite_de_la_survoler_a" xml:space="preserve"><value>Avoid overflying it at low altitude.</value></data>
+  <data name="PointBriefing_Fais_toi_identifier_avant_d" xml:space="preserve"><value>Get identified before entering.</value></data>
+  <data name="PointBriefing_Hors_zone_tu_passes_sous" xml:space="preserve"><value>Out of the zone: you pass below the floor</value></data>
+  <data name="PointBriefing_Information_de_vol_disponible_FIS" xml:space="preserve"><value>Flight information available (FIS)</value></data>
+  <data name="PointBriefing_N_entre_pas_une_autorisation" xml:space="preserve"><value>Do not enter: special authorisation is needed. Change altitude or route.</value></data>
+  <data name="PointBriefing_Radio_obligatoire_RMZ" xml:space="preserve"><value>Radio mandatory (RMZ)</value></data>
+  <data name="PointBriefing_Regarde_dehors_en_permanence_passe" xml:space="preserve"><value>Keep looking outside at all times, pass wide or cross the zone well above or below.</value></data>
+  <data name="PointBriefing_Respecte_la_hauteur_minimale_publiee" xml:space="preserve"><value>Respect the minimum height published for this zone, or avoid it.</value></data>
+  <data name="PointBriefing_Reste_attentif_au_trafic" xml:space="preserve"><value>Stay alert to traffic.</value></data>
+  <data name="PointBriefing_Reste_sous_marge_ft_pour" xml:space="preserve"><value>Stay below {0} (margin {1:N0} ft) so as not to enter it.</value></data>
+  <data name="PointBriefing_Reste_vigilant_verifie_les_NOTAM" xml:space="preserve"><value>Stay vigilant; check the NOTAMs.</value></data>
+  <data name="PointBriefing_Survol_autorise_sans_clairance_classe" xml:space="preserve"><value>Overflight allowed without clearance (class {0})</value></data>
+  <data name="PointBriefing_Survol_interdit" xml:space="preserve"><value>Overflight prohibited</value></data>
+  <data name="PointBriefing_Survol_non_interdit_mais_deconseille" xml:space="preserve"><value>Overflight not prohibited but discouraged when active: check its activation.</value></data>
+  <data name="PointBriefing_Transpondeur_obligatoire" xml:space="preserve"><value>Transponder mandatory</value></data>
+  <data name="PointBriefing_Tu_peux_appeler_pour_etre" xml:space="preserve"><value>You can call{0} to be informed; it is not mandatory.</value></data>
+  <data name="PointBriefing_Verifie_qu_elle_est_active" xml:space="preserve"><value>Check that it is active (NOTAM, SIA). If it is, contact the body{0} or go around it.</value></data>
+  <data name="PointBriefing_Vol_a_vue_interdit_classe" xml:space="preserve"><value>VFR flight prohibited (class A)</value></data>
+  <data name="PointBriefing_Zone_d_activite_d_helicopteres" xml:space="preserve"><value>Helicopter activity zone</value></data>
+  <data name="PointBriefing_Zone_d_aerodrome" xml:space="preserve"><value>Aerodrome zone</value></data>
+  <data name="PointBriefing_Zone_d_alerte_ou_d" xml:space="preserve"><value>Alert or warning area</value></data>
+  <data name="PointBriefing_Zone_d_identification_ADIZ" xml:space="preserve"><value>Identification zone (ADIZ)</value></data>
+  <data name="PointBriefing_Zone_d_information_de_trafic" xml:space="preserve"><value>Traffic information zone</value></data>
+  <data name="PointBriefing_Zone_reglementee_entree_soumise_a" xml:space="preserve"><value>Restricted area: entry subject to conditions</value></data>
+  <data name="PointBriefing_croisiere" xml:space="preserve"><value>cruise</value></data>
+  <data name="PointBriefing_le_controle" xml:space="preserve"><value> ATC</value></data>
+  <data name="PointBriefing_sur" xml:space="preserve"><value> on {0}</value></data>
+  <data name="PointBriefing_tu_peux_ecouter" xml:space="preserve"><value> ; you can listen{0}</value></data>
+  <data name="ProcedureCatalog_Code_de_terrain_invalide" xml:space="preserve"><value>Invalid airport code: </value></data>
+  <data name="ProcedureCatalog_version_non_prise_en_charge" xml:space="preserve"><value>version {0} not supported</value></data>
+  <data name="ProfileChart_Aucun_profil_calcule_Pose_une" xml:space="preserve"><value>No profile calculated. Place a route then click "Calculate the flight plan".</value></data>
+  <data name="ProfileChart_Croisiere_ft" xml:space="preserve"><value>Cruise {0} ft</value></data>
+  <data name="ProfileChart_Glisse_vers_le_haut_ou" xml:space="preserve"><value>Drag up or down to change the altitude. A point: double-click to return to cruise.</value></data>
+  <data name="ProfileChart_Molette_zoom_sur_la_distance" xml:space="preserve"><value>Wheel: zoom on distance · Ctrl + wheel: zoom on altitude · drag the background: pan · double-click the background: see everything</value></data>
+  <data name="ProfileChart_Relache_pour_fixer_l_altitude" xml:space="preserve"><value>Release to set the altitude (rounded to 100 ft)</value></data>
+  <data name="ProfileChart_Zoom_sur_la_distance_sur" xml:space="preserve"><value>Zoom {0:0.#}× on distance, {1:0.#}× on altitude · double-click the background: see everything</value></data>
+  <data name="RangeShading_Le_cercle_n_enferme_aucun" xml:space="preserve"><value>The circle does not enclose a pole.</value></data>
+  <data name="RangeShading_Les_deux_cercles_doivent_enfermer" xml:space="preserve"><value>Both circles must enclose the same pole.</value></data>
+  <data name="Reporting_Points_de_report" xml:space="preserve"><value>Reporting points</value></data>
+  <data name="RunwayAdvice_vent_arriere_kt" xml:space="preserve"><value>tailwind {0:0} kt</value></data>
+  <data name="RunwayAdvice_vent_de_face_kt" xml:space="preserve"><value>headwind {0:0} kt</value></data>
+  <data name="SigmetPresentation_Autre" xml:space="preserve"><value>Other</value></data>
+  <data name="SigmetPresentation_Cyclone" xml:space="preserve"><value>Cyclone</value></data>
+  <data name="SigmetPresentation_Niveaux" xml:space="preserve"><value>Levels: </value></data>
+  <data name="SigmetPresentation_Validite" xml:space="preserve"><value>Validity: </value></data>
+  <data name="SigmetPresentation_commence_dans" xml:space="preserve"><value>{0}, starts in {1}</value></data>
+  <data name="SigmetPresentation_expire" xml:space="preserve"><value>, expired</value></data>
+  <data name="SigmetPresentation_min" xml:space="preserve"><value>{0} min</value></data>
+  <data name="SigmetPresentation_reste" xml:space="preserve"><value>{0}, {1} remaining</value></data>
+  <data name="SigmetPresentation_serie" xml:space="preserve"><value>{0} · series {1}</value></data>
+  <data name="Sigmet_Cendres_volcaniques" xml:space="preserve"><value>Volcanic ash</value></data>
+  <data name="Sigmet_Cyclone_tropical" xml:space="preserve"><value>Tropical cyclone</value></data>
+  <data name="Sigmet_Givrage" xml:space="preserve"><value>Icing</value></data>
+  <data name="Sigmet_Nuage_radioactif" xml:space="preserve"><value>Radioactive cloud</value></data>
+  <data name="Sigmet_Ondes_orographiques" xml:space="preserve"><value>Mountain waves</value></data>
+  <data name="Sigmet_Orages" xml:space="preserve"><value>Thunderstorms</value></data>
+  <data name="Sigmet_Pluie_verglacante" xml:space="preserve"><value>Freezing rain</value></data>
+  <data name="Sigmet_Reponse_des_SIGMET_illisible" xml:space="preserve"><value>Unreadable SIGMET response: </value></data>
+  <data name="Sigmet_Reponse_inattendue_une_liste_de" xml:space="preserve"><value>Unexpected response: a SIGMET list was expected.</value></data>
+  <data name="Sigmet_SIGMET_affiches_sur_en_vigueur" xml:space="preserve"><value>{0} SIGMETs shown out of {1} in force worldwide{2}.</value></data>
+  <data name="Sigmet_Source_aviationweather_gov_mis_a" xml:space="preserve"><value>Source: aviationweather.gov, updated every 10 min. No zone does not guarantee calm weather.</value></data>
+  <data name="Sigmet_Tempete_de_poussiere" xml:space="preserve"><value>Dust storm</value></data>
+  <data name="Sigmet_Tempete_de_sable" xml:space="preserve"><value>Sandstorm</value></data>
+  <data name="Sigmet_Turbulence" xml:space="preserve"><value>Turbulence</value></data>
+  <data name="Sigmet_en_ligne_de_grains" xml:space="preserve"><value>squall line</value></data>
+  <data name="Sigmet_frequents" xml:space="preserve"><value>frequent</value></data>
+  <data name="Sigmet_isoles" xml:space="preserve"><value>isolated</value></data>
+  <data name="Sigmet_masques" xml:space="preserve"><value>obscured</value></data>
+  <data name="Sigmet_noyes_dans_les_nuages" xml:space="preserve"><value>embedded in cloud</value></data>
+  <data name="Sigmet_occasionnels" xml:space="preserve"><value>occasional</value></data>
+  <data name="Sigmet_severe" xml:space="preserve"><value>severe</value></data>
+  <data name="Sigmet_sur_ta_route_contour_plein" xml:space="preserve"><value> ; {0} on your route (solid outline)</value></data>
+  <data name="Sigmet_tu_passes_au_dessus" xml:space="preserve"><value>you pass above it</value></data>
+  <data name="Sigmet_tu_passes_en_dessous" xml:space="preserve"><value>you pass below it</value></data>
+  <data name="Sigmet_tu_y_es_a_ton" xml:space="preserve"><value>you are in it at your altitude</value></data>
+  <data name="SimConnectTracker_Connecte_a_MSFS" xml:space="preserve"><value>Connected to MSFS.</value></data>
+  <data name="SimConnectTracker_Connexion_a_MSFS_impossible_definition" xml:space="preserve"><value>Cannot connect to MSFS (data definition refused).</value></data>
+  <data name="SimConnectTracker_Erreur_SimConnect_code" xml:space="preserve"><value>SimConnect error: code {0}</value></data>
+  <data name="SimConnectTracker_MSFS_n_est_pas_lance" xml:space="preserve"><value>MSFS is not running: retrying every 5 s.</value></data>
+  <data name="SimConnectTracker_MSFS_s_est_ferme" xml:space="preserve"><value>MSFS has closed.</value></data>
+  <data name="SimConnectTracker_Suivi_arrete" xml:space="preserve"><value>Tracking stopped.</value></data>
+  <data name="SimConnectTracker_Suivi_indisponible_SimConnect_dll_introuva" xml:space="preserve"><value>Tracking unavailable: SimConnect.dll not found. Copy it next to MSFSRhumb.exe or install the MSFS SDK.</value></data>
+  <data name="SimFacilityClient_MSFS_a_refuse_la_demande" xml:space="preserve"><value>MSFS refused the request for the airport list.</value></data>
+  <data name="SimFacilityClient_MSFS_a_refuse_la_demande_2" xml:space="preserve"><value>MSFS refused the data request for {0}.</value></data>
+  <data name="SimFacilityClient_MSFS_a_refuse_la_demande_3" xml:space="preserve"><value>MSFS refused the route request for {0}.</value></data>
+  <data name="SimFacilityClient_MSFS_n_a_pas_envoye" xml:space="preserve"><value>MSFS did not send the airport list.</value></data>
+  <data name="SimFacilityClient_MSFS_n_a_pas_fini" xml:space="preserve"><value>MSFS did not finish answering for {0}.</value></data>
+  <data name="SimFacilityClient_MSFS_n_a_pas_repondu" xml:space="preserve"><value>MSFS did not answer the SimConnect connection.</value></data>
+  <data name="SimFacilityClient_MSFS_n_est_pas_lance" xml:space="preserve"><value>MSFS is not running (or SimConnect is unavailable).</value></data>
+  <data name="SimFacilityClient_SimConnect_dll_introuvable_copiez_la" xml:space="preserve"><value>SimConnect.dll not found: copy it next to MSFSRhumb.exe or install the MSFS SDK.</value></data>
+  <data name="SimFacilityClient_SimConnect_refuse_la_definition_code" xml:space="preserve"><value>SimConnect refuses the definition "{0}" (code {1:X}).</value></data>
+  <data name="TerrainService_Altitudes_du_sol_Open_Meteo" xml:space="preserve"><value>Ground elevations: Open-Meteo.com (Copernicus digital elevation model, resolution of about 90 m).</value></data>
+  <data name="TerrainService_Open_Meteo_a_renvoye_altitudes" xml:space="preserve"><value>Open-Meteo returned {0} elevations for {1} points.</value></data>
+  <data name="Ui_APPAREIL_IFR" xml:space="preserve"><value>IFR AIRCRAFT</value></data>
+  <data name="Ui_APPAREIL_VFR" xml:space="preserve"><value>VFR AIRCRAFT</value></data>
+  <data name="Ui_Actualiser" xml:space="preserve"><value>Refresh</value></data>
+  <data name="Ui_Actualiser_cle_ICAO" xml:space="preserve"><value>Refresh (ICAO key)</value></data>
+  <data name="Ui_Actualiser_les_terrains_du_monde" xml:space="preserve"><value>Refresh the world airports</value></data>
+  <data name="Ui_Aeroports_de_detournement_codes_OACI" xml:space="preserve"><value>Diversion airports (ICAO codes separated by a space)</value></data>
+  <data name="Ui_Afficher" xml:space="preserve"><value>Show</value></data>
+  <data name="Ui_Afficher_aussi_le_texte_brut" xml:space="preserve"><value>Also show the raw text</value></data>
+  <data name="Ui_Afficher_masquer_le_lecteur_de" xml:space="preserve"><value>Show / hide the VAC chart viewer</value></data>
+  <data name="Ui_Agrandir" xml:space="preserve"><value>Enlarge</value></data>
+  <data name="Ui_Aide_des_zones_en_bas" xml:space="preserve"><value>Zone help at the bottom of the map</value></data>
+  <data name="Ui_Ajoute_a_la_route_l" xml:space="preserve"><value>Adds to the route the interception of the localizer course at 10 NM, then the final at 5 NM on the ILS glide path of the arrival runway. SIA data: France only. This is not the published procedure.</value></data>
+  <data name="Ui_Ajouter_a_la_route" xml:space="preserve"><value>Add to route</value></data>
+  <data name="Ui_Ajouter_la_finale_ILS_indicative" xml:space="preserve"><value>Add the ILS final (indicative)</value></data>
+  <data name="Ui_Ajoutez_des_terrains_a_la" xml:space="preserve"><value>Add airports to the route then click Refresh.</value></data>
+  <data name="Ui_Ajuster" xml:space="preserve"><value>Fit</value></data>
+  <data name="Ui_Ajuster_a_la_largeur_du" xml:space="preserve"><value>Fit to the panel width</value></data>
+  <data name="Ui_Altitude_de_croisiere_par_defaut" xml:space="preserve"><value>Default cruise altitude. Each route point can have its own (Alt column).</value></data>
+  <data name="Ui_Altitude_du_sol_meteo_et" xml:space="preserve"><value>Ground elevation, weather and zones of the tracked point, in a separate window</value></data>
+  <data name="Ui_Animer_le_radar_4_images" xml:space="preserve"><value>Animate the radar (4 frames, 30 min)</value></data>
+  <data name="Ui_Arrivee_OACI" xml:space="preserve"><value>Arrival (ICAO)</value></data>
+  <data name="Ui_Avec_code_IATA_aeroports_commerciaux" xml:space="preserve"><value>With IATA code (commercial airports)</value></data>
+  <data name="Ui_Avec_code_LFPL_LF3126" xml:space="preserve"><value>With code (LFPL, LF3126…)</value></data>
+  <data name="Ui_BALISES" xml:space="preserve"><value>NAVAIDS</value></data>
+  <data name="Ui_CARTO_Positron_cle_CARTO" xml:space="preserve"><value>CARTO Positron (CARTO key)</value></data>
+  <data name="Ui_CARTO_Voyager_cle_CARTO" xml:space="preserve"><value>CARTO Voyager (CARTO key)</value></data>
+  <data name="Ui_CONDITIONS" xml:space="preserve"><value>CONDITIONS</value></data>
+  <data name="Ui_CTR_TMA_CTA_bleu" xml:space="preserve"><value>CTR / TMA / CTA (blue)</value></data>
+  <data name="Ui_Calculer_la_route_IFR" xml:space="preserve"><value>Calculate the IFR route</value></data>
+  <data name="Ui_Calculer_le_plan_de_vol" xml:space="preserve"><value>Calculate the flight plan and flight sheet</value></data>
+  <data name="Ui_Carb_L" xml:space="preserve"><value>Fuel (L)</value></data>
+  <data name="Ui_Cartes_VAC" xml:space="preserve"><value>VAC charts</value></data>
+  <data name="Ui_Centrer_la_carte_sur_l" xml:space="preserve"><value>Centre the map on the aircraft</value></data>
+  <data name="Ui_Cercle_de_portee_autour_du" xml:space="preserve"><value>Range circle around the departure</value></data>
+  <data name="Ui_Charger_les_donnees_AIRAC_SIA" xml:space="preserve"><value>Load the AIRAC data (SIA)…</value></data>
+  <data name="Ui_Cherche_le_plus_court_chemin" xml:space="preserve"><value>Finds the shortest path SID, ATS routes, STAR and replaces the route with the result.</value></data>
+  <data name="Ui_Clair_Esri_sans_cle" xml:space="preserve"><value>Light (Esri, no key)</value></data>
+  <data name="Ui_Cle_API_OpenAIP_espaces_aeriens" xml:space="preserve"><value>OpenAIP API key (airspaces, optional)</value></data>
+  <data name="Ui_Cle_CARTO_fond_de_carte" xml:space="preserve"><value>CARTO key (CARTO base map, optional)</value></data>
+  <data name="Ui_Cle_ICAO_API_Data_Service" xml:space="preserve"><value>ICAO API Data Service key (NOTAM, optional)</value></data>
+  <data name="Ui_Clic_sur_la_carte_point" xml:space="preserve"><value>Click on the map: turning point. Click on an airport: adds the airport. Lat/Lon can be edited in the list.</value></data>
+  <data name="Ui_Code_OACI_IATA_nom_ou" xml:space="preserve"><value>ICAO / IATA code, name or city</value></data>
+  <data name="Ui_Code_OACI_ou_nom" xml:space="preserve"><value>ICAO code or name</value></data>
+  <data name="Ui_Commun" xml:space="preserve"><value>Common</value></data>
+  <data name="Ui_Consignes_reperes_visuels_frequences_Elles" xml:space="preserve"><value>Instructions, visual references, frequencies... They appear on the flight sheet and when hovering the point.</value></data>
+  <data name="Ui_Contour_plein_et_epais_traverse" xml:space="preserve"><value>Thick solid outline: crosses your route. Label: phenomenon and maximum level.</value></data>
+  <data name="Ui_Copier_les_codes_de_la" xml:space="preserve"><value>Copy the route codes</value></data>
+  <data name="Ui_Couverture_nuageuse_tous_niveaux" xml:space="preserve"><value>Cloud cover (all levels)</value></data>
+  <data name="Ui_Creer_modifier_dupliquer_ou_supprimer" xml:space="preserve"><value>Create, edit, duplicate or delete aircraft</value></data>
+  <data name="Ui_Croisiere_FL" xml:space="preserve"><value>Cruise (FL)</value></data>
+  <data name="Ui_Croisiere_ft" xml:space="preserve"><value>Cruise (ft)</value></data>
+  <data name="Ui_DEGAGEMENT" xml:space="preserve"><value>ALTERNATES</value></data>
+  <data name="Ui_DONNEES" xml:space="preserve"><value>DATA</value></data>
+  <data name="Ui_DONNEES_DE_NAVIGATION_IFR" xml:space="preserve"><value>IFR NAVIGATION DATA</value></data>
+  <data name="Ui_Declinaison_E" xml:space="preserve"><value>Variation (°E +)</value></data>
+  <data name="Ui_Depart_OACI" xml:space="preserve"><value>Departure (ICAO)</value></data>
+  <data name="Ui_Derive" xml:space="preserve"><value>Drift</value></data>
+  <data name="Ui_Deux_cercles_autour_du_depart" xml:space="preserve"><value>Two circles around the departure: the usable range (solid line: all fuel minus the aircraft's reserve) and the range with all fuel (thin dashed line). Cruise speed, no wind.</value></data>
+  <data name="Ui_Dist_NM" xml:space="preserve"><value>Dist (NM)</value></data>
+  <data name="Ui_Dossier_des_cartes_VAC_PDF" xml:space="preserve"><value>VAC charts folder (SIA PDFs, AD-2.LFxx.pdf)</value></data>
+  <data name="Ui_Effacer" xml:space="preserve"><value>Clear</value></data>
+  <data name="Ui_Enregistre_la_route_en_plan" xml:space="preserve"><value>Saves the route as an MSFS flight plan (.pln), with altitudes and notes</value></data>
+  <data name="Ui_Enregistrer_mettre_a_jour_les" xml:space="preserve"><value>Save / update the world SIDs/STARs (MSFS)</value></data>
+  <data name="Ui_Enregistrer_mettre_a_jour_les_2" xml:space="preserve"><value>Save / update the ATS routes outside France (MSFS)</value></data>
+  <data name="Ui_Enregistrer_pln" xml:space="preserve"><value>Save .pln</value></data>
+  <data name="Ui_Export_AIXM_4_5_gratuit" xml:space="preserve"><value>Free AIXM 4.5 export from the SIA shop: export_xml_bd_SIA_yyyy-mm-dd.zip. It contains the ATS routes but not the SIDs/STARs.</value></data>
+  <data name="Ui_FILTRES_ESPACES_AERIENS" xml:space="preserve"><value>AIRSPACE FILTERS</value></data>
+  <data name="Ui_FILTRES_TERRAINS" xml:space="preserve"><value>AIRPORT FILTERS</value></data>
+  <data name="Ui_FIR_secteurs_FIS_autres_gris" xml:space="preserve"><value>FIR / FIS sectors / others (grey)</value></data>
+  <data name="Ui_FOND_DE_CARTE" xml:space="preserve"><value>BASE MAP</value></data>
+  <data name="Ui_Facultatif_ecarte_les_routes_ATS" xml:space="preserve"><value>Optional: rules out ATS routes that do not cover this level. From FL195, free route (direct legs) is allowed.</value></data>
+  <data name="Ui_Facultatif_ecarte_les_routes_ATS_2" xml:space="preserve"><value>Optional: rules out ATS routes that do not cover this level.</value></data>
+  <data name="Ui_Facultatif_les_SID_et_STAR" xml:space="preserve"><value>Optional: the SIDs and STARs of all airports are already saved, just enter another ICAO code. This button updates the departure and arrival entered right away, with MSFS running.</value></data>
+  <data name="Ui_Fait_defiler_les_4_dernieres" xml:space="preserve"><value>Plays the last 4 radar frames. The first loop loads the frames one by one (RainViewer limits the number of requests); afterwards they are kept in memory.</value></data>
+  <data name="Ui_Gerer" xml:space="preserve"><value>Manage…</value></data>
+  <data name="Ui_Glossaire" xml:space="preserve"><value>Glossary</value></data>
+  <data name="Ui_Grands" xml:space="preserve"><value>Large</value></data>
+  <data name="Ui_ICAO_un_appel_par_terrain" xml:space="preserve"><value>ICAO: one call per airport, kept 30 min (free quota 100).</value></data>
+  <data name="Ui_Infos_en_direct" xml:space="preserve"><value>Live info</value></data>
+  <data name="Ui_Infos_terrain" xml:space="preserve"><value>Airport info</value></data>
+  <data name="Ui_Inverser" xml:space="preserve"><value>Reverse</value></data>
+  <data name="Ui_Les_terrains_se_repartissent_selon" xml:space="preserve"><value>Airports are spread out according to zoom: the most important first, up to 800 on screen. Zoom in to see the others.</value></data>
+  <data name="Ui_Log_de_nav" xml:space="preserve"><value>Nav log</value></data>
+  <data name="Ui_METAR_TAF" xml:space="preserve"><value>METAR / TAF</value></data>
+  <data name="Ui_METEO_SUR_LA_CARTE" xml:space="preserve"><value>WEATHER ON THE MAP</value></data>
+  <data name="Ui_MSFS_Rhumb" xml:space="preserve"><value>MSFS Rhumb</value></data>
+  <data name="Ui_MSFS_lance_explore_les_routes" xml:space="preserve"><value>With MSFS running: explores the world's ATS routes step by step, starting from the saved SID/STAR points, and saves them in the MSFS Rhumb data. France stays the SIA's. Long (up to an hour). A second click stops the reading without saving anything.</value></data>
+  <data name="Ui_MSFS_lance_lit_les_SID" xml:space="preserve"><value>With MSFS running: reads the SIDs and STARs of every airport in the simulator and saves them in the MSFS Rhumb data (a few minutes). After that, route calculation no longer needs the simulator. Redo by hand when MSFS updates its data: only airports that changed are rewritten. A second click stops the reading.</value></data>
+  <data name="Ui_Masque_les_SIGMET_dont_la" xml:space="preserve"><value>Hides SIGMETs whose altitude band does not contain your cruise altitude.</value></data>
+  <data name="Ui_Masquer_la_fiche_revient_au" xml:space="preserve"><value>Hide: the card comes back at the next outline hovered (untick the box in the left panel to turn it off)</value></data>
+  <data name="Ui_Masquer_le_lecteur" xml:space="preserve"><value>Hide the viewer</value></data>
+  <data name="Ui_Masquer_si_plancher_ft" xml:space="preserve"><value>Hide if floor &gt; (ft)</value></data>
+  <data name="Ui_Meteo_reelle_elle_peut_differer" xml:space="preserve"><value>. Real weather: it may differ from MSFS.</value></data>
+  <data name="Ui_Mettre_a_jour_les_cartes" xml:space="preserve"><value>Update the VAC charts (SIA)</value></data>
+  <data name="Ui_Moyens" xml:space="preserve"><value>Medium</value></data>
+  <data name="Ui_NDB_ADF_rond_orange" xml:space="preserve"><value>NDB / ADF (orange circle)</value></data>
+  <data name="Ui_NOTAM" xml:space="preserve"><value>NOTAM</value></data>
+  <data name="Ui_NOTAM_officiels_Ouvrir_SOFIA_Briefing" xml:space="preserve"><value>Official NOTAMs: "Open SOFIA-Briefing" (browser, free SIA account). Direct display here: enter an ICAO key (Data panel) then "Refresh".</value></data>
+  <data name="Ui_NOTAM_officiels_francais_dans_le" xml:space="preserve"><value>Official French NOTAMs, in the browser (free SIA account)</value></data>
+  <data name="Ui_NOTES_DU_POINT" xml:space="preserve"><value>POINT NOTES</value></data>
+  <data name="Ui_Note" xml:space="preserve"><value>Note</value></data>
+  <data name="Ui_Notes_du_point_selectionne_un" xml:space="preserve"><value>Point notes (select a route point)</value></data>
+  <data name="Ui_Nuages_epais_ou_eleves_orages" xml:space="preserve"><value>Thick or high clouds (thunderstorms, fronts), from Meteosat infrared: the colder, the more opaque. Low stratus does not show.</value></data>
+  <data name="Ui_Opacite" xml:space="preserve"><value>Opacity</value></data>
+  <data name="Ui_Ou_il_y_a_des" xml:space="preserve"><value>Where there are clouds, at all levels: sky covered by low cloud (stratus) shows here, day and night. Does not tell the height.</value></data>
+  <data name="Ui_Ouvre_un_plan_de_vol" xml:space="preserve"><value>Opens an MSFS flight plan (.pln), from MSFS Rhumb or another tool</value></data>
+  <data name="Ui_Ouvrir_SOFIA_Briefing_SIA" xml:space="preserve"><value>Open SOFIA-Briefing (SIA)</value></data>
+  <data name="Ui_Ouvrir_le_PDF" xml:space="preserve"><value>Open the PDF</value></data>
+  <data name="Ui_Ouvrir_pln" xml:space="preserve"><value>Open .pln</value></data>
+  <data name="Ui_PLAN_DE_VOL" xml:space="preserve"><value>FLIGHT PLAN</value></data>
+  <data name="Ui_Parametres" xml:space="preserve"><value>Settings</value></data>
+  <data name="Ui_Pastilles_meteo_couleur_categorie_de" xml:space="preserve"><value>Weather dots (colour = flight category)</value></data>
+  <data name="Ui_Pays_affiches_codes_ISO_FR" xml:space="preserve"><value>Countries shown (ISO codes: FR GB DE; empty = all)</value></data>
+  <data name="Ui_Pays_des_balises_et_espaces" xml:space="preserve"><value>Country of navaids and airspaces (ISO code)</value></data>
+  <data name="Ui_Petits" xml:space="preserve"><value>Small</value></data>
+  <data name="Ui_Piste_conseillee_d_apres_le" xml:space="preserve"><value>Runway recommended from the METAR wind. Choose another to force it; "Auto" takes the shortest path across all runways.</value></data>
+  <data name="Ui_Piste_d_arrivee" xml:space="preserve"><value>Arrival runway</value></data>
+  <data name="Ui_Piste_de_depart" xml:space="preserve"><value>Departure runway</value></data>
+  <data name="Ui_Piste_en_dur_longueur_min" xml:space="preserve"><value>Paved runway, min. length (ft)</value></data>
+  <data name="Ui_Placer_en_bas" xml:space="preserve"><value>Dock at the bottom</value></data>
+  <data name="Ui_Planeur_ULM_parachutage_orange" xml:space="preserve"><value>Gliding / microlight / parachuting (orange)</value></data>
+  <data name="Ui_Pluie_averses_et_neige_mesurees" xml:space="preserve"><value>Rain, showers and snow measured by weather radars (RainViewer), refreshed every 10 minutes.</value></data>
+  <data name="Ui_Points_de_report_VFR_triangle" xml:space="preserve"><value>VFR reporting points (yellow triangle)</value></data>
+  <data name="Ui_Points_de_report_des_aerodromes" xml:space="preserve"><value>Aerodrome reporting points, read from their VAC charts. Clicking a triangle adds it to the route.</value></data>
+  <data name="Ui_Precipitations_radar" xml:space="preserve"><value>Precipitation (radar)</value></data>
+  <data name="Ui_Pres_de_la_route_NM" xml:space="preserve"><value>Near the route (NM)</value></data>
+  <data name="Ui_Profil" xml:space="preserve"><value>Profile</value></data>
+  <data name="Ui_RECHERCHE_DE_TERRAIN" xml:space="preserve"><value>AIRPORT SEARCH</value></data>
+  <data name="Ui_RMZ_TMZ_ATZ_violet" xml:space="preserve"><value>RMZ / TMZ / ATZ (purple)</value></data>
+  <data name="Ui_ROUTE" xml:space="preserve"><value>ROUTE</value></data>
+  <data name="Ui_Radar_de_precipitations_temps_reel" xml:space="preserve"><value>Precipitation radar (real time)</value></data>
+  <data name="Ui_Recharger" xml:space="preserve"><value>Reload</value></data>
+  <data name="Ui_Relief_OpenTopoMap" xml:space="preserve"><value>Terrain (OpenTopoMap)</value></data>
+  <data name="Ui_Relief_sous_la_route_zones" xml:space="preserve"><value>Terrain under the route, zones crossed and cruise altitude: fills in with "Calculate the flight plan".</value></data>
+  <data name="Ui_Relire_ces_deux_terrains_dans" xml:space="preserve"><value>Re-read these two airports in MSFS (optional)</value></data>
+  <data name="Ui_Rues_OpenStreetMap" xml:space="preserve"><value>Streets (OpenStreetMap)</value></data>
+  <data name="Ui_SIGMET_phenomenes_dangereux" xml:space="preserve"><value>SIGMET (hazardous phenomena)</value></data>
+  <data name="Ui_SIMULATEUR" xml:space="preserve"><value>SIMULATOR</value></data>
+  <data name="Ui_Saisissez_un_code_OACI_LFPL" xml:space="preserve"><value>Enter an ICAO code (LFPL) or click an airport on the route.</value></data>
+  <data name="Ui_Sans_code_FR_xxxx" xml:space="preserve"><value>Without code (FR-xxxx)</value></data>
+  <data name="Ui_Service_regulier_seulement" xml:space="preserve"><value>Scheduled service only</value></data>
+  <data name="Ui_Seulement_a_mon_altitude" xml:space="preserve"><value>Only at my altitude</value></data>
+  <data name="Ui_Seulement_avec_carte_VAC" xml:space="preserve"><value>Only with a VAC chart</value></data>
+  <data name="Ui_Sigles_des_cartes_TMA_CTR" xml:space="preserve"><value>Chart abbreviations: TMA, CTR, QNH, RMZ…</value></data>
+  <data name="Ui_Sommets_de_nuages_froids_infrarouge" xml:space="preserve"><value>Cold cloud tops (infrared)</value></data>
+  <data name="Ui_Suivi_de_l_avion_demarrage" xml:space="preserve"><value>Aircraft tracking: starting...</value></data>
+  <data name="Ui_Supprimer" xml:space="preserve"><value>Delete</value></data>
+  <data name="Ui_Telecharge_depuis_le_site_du" xml:space="preserve"><value>Downloads from the SIA website the VAC charts of the current AIRAC cycle, on request: only charts that differ from those in the folder are replaced. A second click stops it.</value></data>
+  <data name="Ui_Temps" xml:space="preserve"><value>Time</value></data>
+  <data name="Ui_Terrains_de_degagement_distance_cap" xml:space="preserve"><value>Alternate airports: distance, heading, time and fuel from the destination airport (last route point), repeated on the flight sheet.</value></data>
+  <data name="Ui_Un_clic_sur_une_balise" xml:space="preserve"><value>Clicking a navaid adds it to the route.</value></data>
+  <data name="Ui_VERIFICATION_DE_LA_ROUTE" xml:space="preserve"><value>ROUTE CHECK</value></data>
+  <data name="Ui_VOR_losange_violet" xml:space="preserve"><value>VOR (purple diamond)</value></data>
+  <data name="Ui_Valider" xml:space="preserve"><value>Apply</value></data>
+  <data name="Ui_Vent_dir" xml:space="preserve"><value>Wind dir (°)</value></data>
+  <data name="Ui_Vent_kt" xml:space="preserve"><value>Wind (kt)</value></data>
+  <data name="Ui_Vert_VFR_bleu_MVFR_rouge" xml:space="preserve"><value>Green VFR · blue MVFR · red IFR · purple LIFR · grey: no METAR. Gold outline: VAC chart available. Text under the code: visibility.</value></data>
+  <data name="Ui_Weather_data_by" xml:space="preserve"><value>Weather data by </value></data>
+  <data name="Ui_Zones_R_D_P_TSA" xml:space="preserve"><value>R / D / P / TSA zones (red)</value></data>
+  <data name="Ui_Zones_d_orages_de_turbulence" xml:space="preserve"><value>Areas of thunderstorms, turbulence, icing, volcanic ash... reported by weather centres (aviationweather.gov). A thick solid outline: the SIGMET crosses your route. Hover an area to read the message.</value></data>
+  <data name="Ui_Zoom_arriere" xml:space="preserve"><value>Zoom out</value></data>
+  <data name="Ui_Zoom_avant" xml:space="preserve"><value>Zoom in</value></data>
+  <data name="Ui_auto_depart" xml:space="preserve"><value>auto (departure)</value></data>
+  <data name="Ui_conditions_carte_filtres_donnees_mises" xml:space="preserve"><value>conditions, map, filters, data, updates</value></data>
+  <data name="Ui_mm_h_indicatifs_4550_dBZ" xml:space="preserve"><value>Indicative mm/h. 45–50 dBZ and above: thunderstorm, hail possible.</value></data>
+  <data name="Ui_neige_clair_faible_fonce_forte" xml:space="preserve"><value>snow (light: weak, dark: heavy)</value></data>
+  <data name="Ui_notes_plan_de_vol_simulateur" xml:space="preserve"><value>notes, flight plan, simulator</value></data>
+  <data name="Ui_nuages" xml:space="preserve"><value> · clouds: </value></data>
+  <data name="Ui_vol_a_vue" xml:space="preserve"><value>visual flight</value></data>
+  <data name="Ui_vol_aux_instruments" xml:space="preserve"><value>instrument flight</value></data>
+  <data name="VacChartUpdater_Cartes_VAC" xml:space="preserve"><value>VAC charts: {0} ({1}/{2})</value></data>
+  <data name="VacChartUpdater_Cartes_conservees_telles_que_publiees" xml:space="preserve"><value>Charts kept as published. Updated on {0:yyyy-MM-dd}.</value></data>
+  <data name="VacChartUpdater_Cycle_AIRAC_modifiee_s_nouvelle" xml:space="preserve"><value>AIRAC cycle {0:yyyy-MM-dd}: {1} changed, {2} new, {3} up to date, {4} not published by the SIA</value></data>
+  <data name="VacChartUpdater_Le_cycle_AIRAC_n_est" xml:space="preserve"><value>The AIRAC cycle {0:yyyy-MM-dd} is not online at the SIA (not yet, or access to the site lost).</value></data>
+  <data name="VacChartUpdater_Source_SIA_Service_de_l" xml:space="preserve"><value>Source: SIA (Service de l'Information Aéronautique, DGAC), AIP France, VAC chart atlas, AIRAC cycle in force on {0:yyyy-MM-dd}. </value></data>
+  <data name="VacChartUpdater_arrete_avant_la_fin" xml:space="preserve"><value> (stopped before the end).</value></data>
+  <data name="VacChartUpdater_rien_n_a_ete_ecrit" xml:space="preserve"><value> (nothing was written).</value></data>
+  <data name="VacUpdate_Arreter_la_mise_a_jour" xml:space="preserve"><value>Stop the chart update</value></data>
+  <data name="VacUpdate_Aucune_carte_a_mettre_a" xml:space="preserve"><value>No chart to update: the folder has none and no download is requested.</value></data>
+  <data name="VacUpdate_Ecriture_impossible_dans_le_dossier" xml:space="preserve"><value>Cannot write to the charts folder: </value></data>
+  <data name="VacUpdate_Les_profils_VFR_de_MSFS" xml:space="preserve"><value>&#10;The VFR profiles of MSFS Rhumb were taken from the charts of a previous cycle: check them on the charts that changed.</value></data>
+  <data name="VacUpdate_Mettre_a_jour_les_cartes" xml:space="preserve"><value>Update the VAC charts from the SIA website (AIRAC cycle of {0:dd/MM/yyyy})?&#10;&#10;Folder: {1}&#10;&#10;</value></data>
+  <data name="VacUpdate_Non_seulement_mettre_a_jour" xml:space="preserve"><value>No: only update the ones you already have.&#10;Cancel: do nothing.&#10;&#10;</value></data>
+  <data name="VacUpdate_Oui_mettre_a_jour_les" xml:space="preserve"><value>Yes: update the {0} charts in the folder and download the {1} that are missing (several minutes, one chart at a time).&#10;</value></data>
+  <data name="VacUpdate_Une_carte_n_est_remplacee" xml:space="preserve"><value>A chart is only replaced if the SIA publishes a different one. Charts © SIA, for simulation only.</value></data>
+  <data name="WaypointInsight_Aucune_zone_connue_a_ton" xml:space="preserve"><value>✔ No known zone at your altitude on this route</value></data>
+  <data name="WaypointInsight_Classe_A_a_ton_altitude" xml:space="preserve"><value>⚠ Class A at your altitude (VFR flight prohibited): {0}</value></data>
+  <data name="WaypointInsight_Relief_point_le_plus_haut" xml:space="preserve"><value>✔ Terrain: highest point {0:0} ft, margin of at least {1:0} ft</value></data>
+  <data name="WaypointInsight_Zone_s_reglementee_s_a" xml:space="preserve"><value>⚠ Restricted area(s) at your altitude: {0}</value></data>
+  <data name="WaypointInsight_Zones_non_chargees_cle_OpenAIP" xml:space="preserve"><value>Zones not loaded (OpenAIP key): airspaces are not checked</value></data>
+  <data name="WaypointInsight_autre_s_zone_s_traversee" xml:space="preserve"><value>{0} other zone(s) crossed at your altitude (controlled, radio…)</value></data>
+  <data name="WaypointInsight_marge_de_ft_seulement" xml:space="preserve"><value>margin of only {0:0} ft</value></data>
+  <data name="WaypointInsight_relief_ft_AU_DESSUS_de" xml:space="preserve"><value>terrain {0:0} ft ABOVE cruise</value></data>
+  <data name="WaypointInsight_troncon" xml:space="preserve"><value>leg {0}</value></data>
+  <data name="WeatherDecoder_10_km_ou_plus" xml:space="preserve"><value>10 km or more</value></data>
+  <data name="WeatherDecoder_A_partir_du_a_UTC" xml:space="preserve"><value>From the {0} at {1}:{2} UTC:</value></data>
+  <data name="WeatherDecoder_Aucun_nuage_detecte_station_automatique" xml:space="preserve"><value>{0}No cloud detected (automatic station)</value></data>
+  <data name="WeatherDecoder_Aucune_observation_disponible" xml:space="preserve"><value>No observation available</value></data>
+  <data name="WeatherDecoder_Aucune_prevision_disponible" xml:space="preserve"><value>No forecast available</value></data>
+  <data name="WeatherDecoder_Categorie_de_vol" xml:space="preserve"><value>Flight category: {0}</value></data>
+  <data name="WeatherDecoder_Ciel_couvert_8_8" xml:space="preserve"><value>Overcast (8/8)</value></data>
+  <data name="WeatherDecoder_Ciel_degage" xml:space="preserve"><value>{0}Clear sky</value></data>
+  <data name="WeatherDecoder_Ciel_invisible_visibilite_verticale_ft" xml:space="preserve"><value>{0}Sky obscured, vertical visibility {1} ft ({2} m)</value></data>
+  <data name="WeatherDecoder_Ciel_invisible_visibilite_verticale_non" xml:space="preserve"><value>{0}Sky obscured, vertical visibility not measured</value></data>
+  <data name="WeatherDecoder_Direction_du_vent_variable_entre" xml:space="preserve"><value>{0}Wind direction variable between {1}° and {2}°</value></data>
+  <data name="WeatherDecoder_Evolution_progressive" xml:space="preserve"><value>Gradual change{0}:</value></data>
+  <data name="WeatherDecoder_Fin_des_phenomenes_meteo_significatifs" xml:space="preserve"><value>{0}End of significant weather</value></data>
+  <data name="WeatherDecoder_IFR_vol_aux_instruments_vol" xml:space="preserve"><value>IFR (instrument flight: visual flight not recommended)</value></data>
+  <data name="WeatherDecoder_LIFR_tres_mauvaises_conditions_vol" xml:space="preserve"><value>LIFR (very poor conditions: visual flight impossible)</value></data>
+  <data name="WeatherDecoder_MVFR_vol_a_vue_possible" xml:space="preserve"><value>MVFR (visual flight possible, marginal conditions)</value></data>
+  <data name="WeatherDecoder_Message_corrige" xml:space="preserve"><value>Corrected message</value></data>
+  <data name="WeatherDecoder_Non_decode" xml:space="preserve"><value>{0}Not decoded: {1}</value></data>
+  <data name="WeatherDecoder_Nuages_epars_3_a_4" xml:space="preserve"><value>Scattered clouds (3 to 4/8)</value></data>
+  <data name="WeatherDecoder_Nuages_fragmentes_5_a_7" xml:space="preserve"><value>Broken clouds (5 to 7/8)</value></data>
+  <data name="WeatherDecoder_Observation_automatique_sans_observateur" xml:space="preserve"><value>Automatic observation (no observer)</value></data>
+  <data name="WeatherDecoder_Pas_de_nuage_significatif" xml:space="preserve"><value>{0}No significant cloud</value></data>
+  <data name="WeatherDecoder_Portee_visuelle_de_piste_m" xml:space="preserve"><value>{0}Runway visual range {1}: {2} m</value></data>
+  <data name="WeatherDecoder_Prevision_annulee" xml:space="preserve"><value>Cancelled forecast</value></data>
+  <data name="WeatherDecoder_Prevision_corrigee" xml:space="preserve"><value>Corrected forecast</value></data>
+  <data name="WeatherDecoder_Prevision_de_base" xml:space="preserve"><value>Base forecast:</value></data>
+  <data name="WeatherDecoder_Prevision_modifiee_amendee" xml:space="preserve"><value>Amended forecast</value></data>
+  <data name="WeatherDecoder_Probabilite" xml:space="preserve"><value>Probability {0} % </value></data>
+  <data name="WeatherDecoder_Quelques_nuages_1_a_2" xml:space="preserve"><value>A few clouds (1 to 2/8)</value></data>
+  <data name="WeatherDecoder_Temperature_C_le_a_h" xml:space="preserve"><value>{0}{1} temperature {2} °C on the {3} at {4}h UTC</value></data>
+  <data name="WeatherDecoder_Temperature_C_point_de_rosee" xml:space="preserve"><value>{0}Temperature {1} °C, dew point {2} °C</value></data>
+  <data name="WeatherDecoder_Tendance" xml:space="preserve"><value>Trend</value></data>
+  <data name="WeatherDecoder_Tendance_evolution_durable_vers" xml:space="preserve"><value>Trend: lasting change to:</value></data>
+  <data name="WeatherDecoder_Tendance_pas_de_changement_significatif" xml:space="preserve"><value>Trend: no significant change in the next 2 hours</value></data>
+  <data name="WeatherDecoder_Tendance_variations_temporaires" xml:space="preserve"><value>Trend: temporary variations:</value></data>
+  <data name="WeatherDecoder_VFR_bonnes_conditions_de_vol" xml:space="preserve"><value>VFR (good visual flight conditions)</value></data>
+  <data name="WeatherDecoder_Valable" xml:space="preserve"><value>Valid {0}</value></data>
+  <data name="WeatherDecoder_Variations_temporaires" xml:space="preserve"><value>{0}Temporary variations{1}:</value></data>
+  <data name="WeatherDecoder_Vent_calme" xml:space="preserve"><value>Wind: calm</value></data>
+  <data name="WeatherDecoder_Vent_kt_km_h" xml:space="preserve"><value>Wind {0}, {1} kt ({2} km/h){3}</value></data>
+  <data name="WeatherDecoder_Visibilite" xml:space="preserve"><value>{0}Visibility: {1}</value></data>
+  <data name="WeatherDecoder_Visibilite_10_km_ou_plus" xml:space="preserve"><value>{0}Visibility 10 km or more, no significant cloud, no phenomenon (CAVOK)</value></data>
+  <data name="WeatherDecoder_a_ft_m_au_dessus" xml:space="preserve"><value>{0} at {1} ft ({2} m) above ground level{3}</value></data>
+  <data name="WeatherDecoder_a_partir_de" xml:space="preserve"><value>from</value></data>
+  <data name="WeatherDecoder_a_proximite" xml:space="preserve"><value>in the vicinity</value></data>
+  <data name="WeatherDecoder_averses" xml:space="preserve"><value>showers</value></data>
+  <data name="WeatherDecoder_averses_de" xml:space="preserve"><value>showers of</value></data>
+  <data name="WeatherDecoder_averses_de_2" xml:space="preserve"><value>showers of {0}</value></data>
+  <data name="WeatherDecoder_bancs_de" xml:space="preserve"><value>patches of</value></data>
+  <data name="WeatherDecoder_brouillard" xml:space="preserve"><value>fog</value></data>
+  <data name="WeatherDecoder_bruine" xml:space="preserve"><value>drizzle</value></data>
+  <data name="WeatherDecoder_brume" xml:space="preserve"><value>mist</value></data>
+  <data name="WeatherDecoder_brume_seche" xml:space="preserve"><value>haze</value></data>
+  <data name="WeatherDecoder_cendres_volcaniques" xml:space="preserve"><value>volcanic ash</value></data>
+  <data name="WeatherDecoder_chasse_basse_de" xml:space="preserve"><value>low drifting</value></data>
+  <data name="WeatherDecoder_chasse_haute_de" xml:space="preserve"><value>blowing</value></data>
+  <data name="WeatherDecoder_cumulonimbus" xml:space="preserve"><value>, cumulonimbus</value></data>
+  <data name="WeatherDecoder_cumulus_bourgeonnants" xml:space="preserve"><value>, towering cumulus</value></data>
+  <data name="WeatherDecoder_d_un_phenomene" xml:space="preserve"><value>{0}of a phenomenon{1}:</value></data>
+  <data name="WeatherDecoder_de_direction_variable" xml:space="preserve"><value>of variable direction</value></data>
+  <data name="WeatherDecoder_du_a_au_a_UTC" xml:space="preserve"><value>from the {0} at {1} to the {2} at {3} UTC</value></data>
+  <data name="WeatherDecoder_emis" xml:space="preserve"><value> — issued {0}</value></data>
+  <data name="WeatherDecoder_est" xml:space="preserve"><value>east</value></data>
+  <data name="WeatherDecoder_est_nord_est" xml:space="preserve"><value>east-north-east</value></data>
+  <data name="WeatherDecoder_est_sud_est" xml:space="preserve"><value>east-south-east</value></data>
+  <data name="WeatherDecoder_faible" xml:space="preserve"><value>light</value></data>
+  <data name="WeatherDecoder_forte" xml:space="preserve"><value>heavy</value></data>
+  <data name="WeatherDecoder_fumee" xml:space="preserve"><value>smoke</value></data>
+  <data name="WeatherDecoder_givrant" xml:space="preserve"><value> freezing</value></data>
+  <data name="WeatherDecoder_grains" xml:space="preserve"><value>squalls</value></data>
+  <data name="WeatherDecoder_granules_de_glace" xml:space="preserve"><value>ice pellets</value></data>
+  <data name="WeatherDecoder_gresil" xml:space="preserve"><value>small hail</value></data>
+  <data name="WeatherDecoder_jusqu_a" xml:space="preserve"><value>until</value></data>
+  <data name="WeatherDecoder_le_a_UTC" xml:space="preserve"><value>on the {0} at {1}:{2} UTC</value></data>
+  <data name="WeatherDecoder_maximale" xml:space="preserve"><value>maximum</value></data>
+  <data name="WeatherDecoder_mince_nappe_de" xml:space="preserve"><value>thin layer of</value></data>
+  <data name="WeatherDecoder_minimale" xml:space="preserve"><value>minimum</value></data>
+  <data name="WeatherDecoder_neige" xml:space="preserve"><value>snow</value></data>
+  <data name="WeatherDecoder_neige_en_grains" xml:space="preserve"><value>snow grains</value></data>
+  <data name="WeatherDecoder_nord" xml:space="preserve"><value>north</value></data>
+  <data name="WeatherDecoder_nord_est" xml:space="preserve"><value>north-east</value></data>
+  <data name="WeatherDecoder_nord_nord_est" xml:space="preserve"><value>north-north-east</value></data>
+  <data name="WeatherDecoder_nord_nord_ouest" xml:space="preserve"><value>north-north-west</value></data>
+  <data name="WeatherDecoder_nord_ouest" xml:space="preserve"><value>north-west</value></data>
+  <data name="WeatherDecoder_orage" xml:space="preserve"><value>thunderstorm</value></data>
+  <data name="WeatherDecoder_orage_avec" xml:space="preserve"><value>thunderstorm with {0}</value></data>
+  <data name="WeatherDecoder_ouest" xml:space="preserve"><value>west</value></data>
+  <data name="WeatherDecoder_ouest_nord_ouest" xml:space="preserve"><value>west-north-west</value></data>
+  <data name="WeatherDecoder_ouest_sud_ouest" xml:space="preserve"><value>west-south-west</value></data>
+  <data name="WeatherDecoder_partiel" xml:space="preserve"><value>partial</value></data>
+  <data name="WeatherDecoder_pluie" xml:space="preserve"><value>rain</value></data>
+  <data name="WeatherDecoder_poussiere" xml:space="preserve"><value>dust</value></data>
+  <data name="WeatherDecoder_precipitations_de_type_inconnu" xml:space="preserve"><value>precipitation of unknown type</value></data>
+  <data name="WeatherDecoder_rafales_a_kt" xml:space="preserve"><value>, gusting to {0} kt</value></data>
+  <data name="WeatherDecoder_sable" xml:space="preserve"><value>sand</value></data>
+  <data name="WeatherDecoder_sud" xml:space="preserve"><value>south</value></data>
+  <data name="WeatherDecoder_sud_est" xml:space="preserve"><value>south-east</value></data>
+  <data name="WeatherDecoder_sud_ouest" xml:space="preserve"><value>south-west</value></data>
+  <data name="WeatherDecoder_sud_sud_est" xml:space="preserve"><value>south-south-east</value></data>
+  <data name="WeatherDecoder_sud_sud_ouest" xml:space="preserve"><value>south-south-west</value></data>
+  <data name="WeatherDecoder_temperature_C" xml:space="preserve"><value>temperature {0} °C</value></data>
+  <data name="WeatherDecoder_tempete_de_poussiere" xml:space="preserve"><value>dust storm</value></data>
+  <data name="WeatherDecoder_tempete_de_sable" xml:space="preserve"><value>sandstorm</value></data>
+  <data name="WeatherDecoder_tourbillons_de_poussiere_ou_de" xml:space="preserve"><value>dust or sand whirls</value></data>
+  <data name="WeatherDecoder_trombe_ou_tornade" xml:space="preserve"><value>funnel cloud or tornado</value></data>
+  <data name="WeatherDecoder_verglacant" xml:space="preserve"><value>freezing</value></data>
+  <data name="WeatherDecoder_verglacant_e" xml:space="preserve"><value> freezing</value></data>
+  <data name="WeatherDecoder_vers" xml:space="preserve"><value>around</value></data>
+  <data name="WeatherOverlays_Adresse_des_tuiles_radar_inattendue" xml:space="preserve"><value>Unexpected radar tile address.</value></data>
+  <data name="WeatherOverlays_Aucune_image_radar_disponible" xml:space="preserve"><value>No radar image available.</value></data>
+  <data name="WeatherOverlays_Nuages_EUMETSAT_Meteosat" xml:space="preserve"><value>Clouds: © EUMETSAT (Meteosat)</value></data>
+  <data name="WeatherOverlays_Reponse_de_RainViewer_illisible" xml:space="preserve"><value>Unreadable RainViewer response: </value></data>
+  <data name="WeatherOverlays_Tampon_de_sortie_trop_petit" xml:space="preserve"><value>Output buffer too small.</value></data>
+  <data name="WeatherOverlays_extreme" xml:space="preserve"><value>extreme</value></data>
+  <data name="WeatherOverlays_moderee" xml:space="preserve"><value>moderate</value></data>
+  <data name="WeatherOverlays_tres_faible" xml:space="preserve"><value>very light</value></data>
+  <data name="WeatherOverlays_tres_forte" xml:space="preserve"><value>very heavy</value></data>
+  <data name="Weather_Couverture_gris_bleu_ou_il" xml:space="preserve"><value>Cover (grey-blue): where there are clouds, low stratus included; does not tell the height.</value></data>
+  <data name="Weather_Couverture_nuageuse" xml:space="preserve"><value>Cloud cover</value></data>
+  <data name="Weather_Images_satellite_la_plus_recente" xml:space="preserve"><value>Satellite images: the most recent, 10 to 20 min delay.</value></data>
+  <data name="Weather_Radar" xml:space="preserve"><value>Radar</value></data>
+  <data name="Weather_Radar_RainViewer" xml:space="preserve"><value>RainViewer radar</value></data>
+  <data name="Weather_Radar_anime_image_de" xml:space="preserve"><value>Animated radar: {0} → {1}, frame from {2}.</value></data>
+  <data name="Weather_Radar_chargement" xml:space="preserve"><value>Radar: loading...</value></data>
+  <data name="Weather_Radar_image_de_il_y" xml:space="preserve"><value>Radar: frame from {0:HH:mm} ({1} min ago), updated every 5 min.</value></data>
+  <data name="Weather_Radar_indisponible" xml:space="preserve"><value>Radar unavailable: </value></data>
+  <data name="Weather_Sommets_de_nuages" xml:space="preserve"><value>Cloud tops</value></data>
+  <data name="Weather_Sommets_froids_violet_nuages_epais" xml:space="preserve"><value>Cold tops (purple): thick or high clouds, thunderstorms and fronts; low stratus is not shown.</value></data>
+  <data name="WorldAirports_Afrique" xml:space="preserve"><value>Africa</value></data>
+  <data name="WorldAirports_Amerique_du_Nord" xml:space="preserve"><value>North America</value></data>
+  <data name="WorldAirports_Amerique_du_Sud" xml:space="preserve"><value>South America</value></data>
+  <data name="WorldAirports_Antarctique" xml:space="preserve"><value>Antarctica</value></data>
+  <data name="WorldAirports_Asie" xml:space="preserve"><value>Asia</value></data>
+  <data name="WorldAirports_Europe" xml:space="preserve"><value>Europe</value></data>
+  <data name="WorldAirports_Oceanie" xml:space="preserve"><value>Oceania</value></data>
+  <data name="WorldAirports_Tous_les_continents" xml:space="preserve"><value>All continents</value></data>
+  <data name="WorldAirports_ajoute_a_la_route" xml:space="preserve"><value>{0} added to the route.</value></data>
+  <data name="WorldAirports_telecharges" xml:space="preserve"><value>downloaded</value></data>
+  <data name="WorldAirports_terrains_OurAirports_du" xml:space="preserve"><value>{0} airports (OurAirports, {1} on {2}).</value></data>
+  <data name="WorldAirports_terrains_affiches_dans_cette_zone" xml:space="preserve"><value>{0} airports shown in this area. {1} in total.</value></data>
+  <data name="WorldAirports_terrains_affiches_sur_dans_cette" xml:space="preserve"><value>{0} airports shown out of {1} in this area ({2} hidden: zoom in). {3} in total.</value></data>
+  <data name="WorldNetwork_ce_n_est_pas_un" xml:space="preserve"><value>this is not an MSFS Rhumb network file</value></data>
+  <data name="WorldNetwork_fichier_abime_index_hors_limites" xml:space="preserve"><value>damaged file (index out of range)</value></data>
+  <data name="WorldNetwork_nombre_d_elements_invraisemblable" xml:space="preserve"><value>implausible number of items</value></data>
+  <data name="xaml_Ajoutez_au_moins_deux_points" xml:space="preserve"><value>Add at least two points to the route.</value></data>
+  <data name="xaml_Ajoutez_des_terrains_a_la" xml:space="preserve"><value>Add airports to the route (click an airport).</value></data>
+  <data name="xaml_Aucun_NOTAM_en_vigueur" xml:space="preserve"><value>No NOTAM in force.</value></data>
+  <data name="xaml_Aucun_aerodrome_pour" xml:space="preserve"><value>No aerodrome for "{0}".</value></data>
+  <data name="xaml_Avion" xml:space="preserve"><value>Aircraft</value></data>
+  <data name="xaml_Balises" xml:space="preserve"><value>Navaids</value></data>
+  <data name="xaml_Cap_magnetique" xml:space="preserve"><value>Heading {0:000}° magnetic&#10;</value></data>
+  <data name="xaml_Carte_publiee_mais_absente_de" xml:space="preserve"><value>Chart published but missing from your VAC charts folder (Data panel setting).</value></data>
+  <data name="xaml_Categorie_de_vol" xml:space="preserve"><value>Flight category: </value></data>
+  <data name="xaml_Chargement" xml:space="preserve"><value>Loading...</value></data>
+  <data name="xaml_Chargement_des_espaces_aeriens" xml:space="preserve"><value> Loading the airspaces...</value></data>
+  <data name="xaml_Chargement_des_terrains_du_monde" xml:space="preserve"><value>Loading the world airports...</value></data>
+  <data name="xaml_Code_pays_invalide" xml:space="preserve"><value>Invalid country code.</value></data>
+  <data name="xaml_Codes_copies" xml:space="preserve"><value>Codes copied: </value></data>
+  <data name="xaml_Donnees_d_aerodromes_introuvables" xml:space="preserve"><value>Aerodrome data not found.</value></data>
+  <data name="xaml_Donnees_d_aerodromes_introuvables_reinstalle" xml:space="preserve"><value>Aerodrome data not found: reinstall MSFS Rhumb (vfr-data folder).</value></data>
+  <data name="xaml_Dossier_des_cartes_VAC_fichiers" xml:space="preserve"><value>VAC charts folder (SIA AD-2.&lt;ICAO&gt;.pdf files)</value></data>
+  <data name="xaml_Erreur" xml:space="preserve"><value>Error: </value></data>
+  <data name="xaml_Erreur_de_chargement" xml:space="preserve"><value>Loading error: </value></data>
+  <data name="xaml_Espaces_aeriens" xml:space="preserve"><value>Airspaces</value></data>
+  <data name="xaml_Fond_CARTO_saisissez_la_cle" xml:space="preserve"><value>CARTO base map: enter the CARTO key (Data panel). Esri base map shown meanwhile.</value></data>
+  <data name="xaml_Il_faut_au_moins_deux" xml:space="preserve"><value>At least two points are needed to save a flight plan.</value></data>
+  <data name="xaml_Impossible_d_ouvrir_ce_fichier" xml:space="preserve"><value>Cannot open this file: </value></data>
+  <data name="xaml_Impossible_de_lire_le_PDF" xml:space="preserve"><value>Cannot read the PDF.</value></data>
+  <data name="xaml_METAR_observation_aucun_message_disponible" xml:space="preserve"><value>METAR (observation): no message available</value></data>
+  <data name="xaml_Masquer_les_VAC" xml:space="preserve"><value>Hide the VAC</value></data>
+  <data name="xaml_Meteo_chargement" xml:space="preserve"><value>Weather: loading...</value></data>
+  <data name="xaml_Meteo_des_pastilles_indisponible" xml:space="preserve"><value>Weather dots unavailable: </value></data>
+  <data name="xaml_Meteo_indisponible" xml:space="preserve"><value>Weather unavailable: </value></data>
+  <data name="xaml_Meteo_indisponible_delai_depasse" xml:space="preserve"><value>Weather unavailable (timeout).</value></data>
+  <data name="xaml_Modifier" xml:space="preserve"><value>Edit</value></data>
+  <data name="xaml_Observation_METAR" xml:space="preserve"><value>Observation (METAR)</value></data>
+  <data name="xaml_Page" xml:space="preserve"><value>Page {0}/{1}</value></data>
+  <data name="xaml_Pas_de_METAR_ni_de" xml:space="preserve"><value>No METAR or TAF for this airport.</value></data>
+  <data name="xaml_Pas_de_carte_VAC_pour" xml:space="preserve"><value>No VAC chart for this aerodrome.</value></data>
+  <data name="xaml_Passez_la_souris_sur_le" xml:space="preserve"><value>Hover the outline of a zone to see here what it is: its type, class, altitude limits and what to do in VFR flight.</value></data>
+  <data name="xaml_Placer_a_droite" xml:space="preserve"><value>Dock on the right</value></data>
+  <data name="xaml_Plan_de_vol_MSFS_pln" xml:space="preserve"><value>MSFS flight plan (*.pln)|*.pln</value></data>
+  <data name="xaml_Plan_enregistre" xml:space="preserve"><value>Plan saved: </value></data>
+  <data name="xaml_Plan_ouvert_point_s" xml:space="preserve"><value>Plan opened: {0} point(s).</value></data>
+  <data name="xaml_Points" xml:space="preserve"><value>Points</value></data>
+  <data name="xaml_Pose_un_point_sur_la" xml:space="preserve"><value>Place a point on the map: its information appears here.</value></data>
+  <data name="xaml_Prevision_TAF" xml:space="preserve"><value>Forecast (TAF)</value></data>
+  <data name="xaml_Reduire" xml:space="preserve"><value>Shrink</value></data>
+  <data name="xaml_Route" xml:space="preserve"><value>Route</value></data>
+  <data name="xaml_Saisissez_d_abord_la_cle" xml:space="preserve"><value>Enter the ICAO API Data Service key first (Data panel).</value></data>
+  <data name="xaml_TAF_prevision_aucun_message_disponible" xml:space="preserve"><value>TAF (forecast): no message available</value></data>
+  <data name="xaml_Total_NM_L" xml:space="preserve"><value>Total: {0:F1} NM   {1}   {2:F1} L</value></data>
+  <data name="xaml_aerodromes_profils_cartes_VAC" xml:space="preserve"><value>{0} aerodromes, {1} profiles, {2} VAC charts.</value></data>
+  <data name="xaml_espaces_affiches" xml:space="preserve"><value>{0} / {1} airspaces shown</value></data>
+  <data name="xaml_lignes_de_plus_onglet_METAR" xml:space="preserve"><value>… {0} more lines: METAR / TAF tab</value></data>
+  <data name="xaml_position_inconnue_impossible_de_l" xml:space="preserve"><value>{0}: unknown position, cannot add it.</value></data>
+  <data name="xaml_terrains_espaces_aeriens" xml:space="preserve"><value>{0} airports, {1} airspaces ({2}). </value></data>
+  <data name="Decoded_Wind" xml:space="preserve"><value>Wind</value></data>
+  <data name="Decoded_Visibility" xml:space="preserve"><value>Visibility</value></data>
+  <data name="Aircraft_Word_reserve" xml:space="preserve"><value>reserve</value></data>
+  <data name="WeatherDecoder_Freezing_fog" xml:space="preserve"><value>freezing {0}</value></data>
+  <data name="WeatherDecoder_Freezing" xml:space="preserve"><value>freezing {0}</value></data>
+  <data name="WeatherDecoder_With_intensity" xml:space="preserve"><value>{1} {0}</value></data>
+  <data name="Data_Airports_country" xml:space="preserve"><value>{0} airports ({1}). </value></data>
+  <data name="Tip_More_zones" xml:space="preserve"><value>+ {0} more zones</value></data>
+  <data name="Sim_On_ground" xml:space="preserve"><value>On the ground</value></data>
+  <data name="Sim_In_flight" xml:space="preserve"><value>In flight</value></data>
+  <data name="Ifr_Fixes_routes" xml:space="preserve"><value> {0} points, {1} ATS routes.</value></data>
+  <data name="Ifr_Route_summary" xml:space="preserve"><value>{0}&#10;{1:0.#} NM, {2} points.</value></data>
+  <data name="Ifr_Runways_line" xml:space="preserve"><value>&#10;Runways: {0}.</value></data>
+  <data name="Procedures_New" xml:space="preserve"><value>new</value></data>
+  <data name="Procedures_Read_in" xml:space="preserve"><value>{0} airports read from {1}.</value></data>
+  <data name="Sigmet_Unavailable" xml:space="preserve"><value>SIGMETs unavailable: </value></data>
+  <data name="Sigmet_Loading" xml:space="preserve"><value>SIGMET: loading...</value></data>
+  <data name="Sigmet_More" xml:space="preserve"><value>+ {0} more SIGMETs</value></data>
+  <data name="Live_Ground_computing" xml:space="preserve"><value>&#10;Ground: calculating…</value></data>
+  <data name="Live_Ground_margin" xml:space="preserve"><value>Ground: {0:N0} ft — margin below your altitude here: {1:N0} ft</value></data>
+  <data name="Live_Terrain_computing" xml:space="preserve"><value>&#10;Terrain: calculating…</value></data>
+  <data name="FlightSheet_InZone_ClassA" xml:space="preserve"><value>IN THE ZONE · class A: VFR prohibited</value></data>
+  <data name="FlightSheet_InZone" xml:space="preserve"><value>IN THE ZONE</value></data>
+  <data name="FlightSheet_Class_short" xml:space="preserve"><value> · class {0}</value></data>
+  <data name="Runway_Gust" xml:space="preserve"><value> gusting {0:0}</value></data>
+  <data name="Aircraft_Label_max" xml:space="preserve"><value>maximum speed</value></data>
+  <data name="Aircraft_Label_burn" xml:space="preserve"><value>fuel flow</value></data>
+  <data name="Aircraft_Label_fuel" xml:space="preserve"><value>usable fuel</value></data>
+  <data name="Aircraft_Label_ceiling" xml:space="preserve"><value>ceiling</value></data>
+  <data name="Aircraft_Copy_suffix" xml:space="preserve"><value> (copy)</value></data>
+  <data name="Ils_Axis_true" xml:space="preserve"><value> · true course {0:000}°</value></data>
+  <data name="Ils_Slope" xml:space="preserve"><value> · slope {0}°</value></data>
+  <data name="Ils_Category" xml:space="preserve"><value> · cat {0}</value></data>
+  <data name="RunwayAdvice_Crosswind" xml:space="preserve"><value>, crosswind {0:0} kt</value></data>
+  <data name="Airspace_Type_class" xml:space="preserve"><value>{0} · class {1}</value></data>
+  <data name="Radar_Violent" xml:space="preserve"><value>violent</value></data>
+  <data name="Insight_Terrain_warning" xml:space="preserve"><value>⚠ {0}: terrain {1:0} ft, {2}</value></data>
+  <data name="OpenAip_On_demand" xml:space="preserve"><value>On demand</value></data>
+  <data name="Briefing_Source_entered" xml:space="preserve"><value>entered</value></data>
+  <data name="Briefing_Source_circuit" xml:space="preserve"><value>circuit (field + 1,000 ft)</value></data>
+  <data name="Alternates_Line" xml:space="preserve"><value>{0} {1}: {2} NM · TC {3:000}° · heading {4:000}° · {5} · {6} L</value></data>
+  <data name="Aircraft_Gone" xml:space="preserve"><value>This aircraft no longer exists.</value></data>
+  <data name="Common_And" xml:space="preserve"><value> and </value></data>
+  <data name="Common_Hail" xml:space="preserve"><value>Hail</value></data>
+  <data name="WeatherDecoder_hail" xml:space="preserve"><value>hail</value></data>
+  <data name="WeatherDecoder_Wind_from" xml:space="preserve"><value>from {0}° ({1})</value></data>
+  <data name="IfrRouter_At_FL" xml:space="preserve"><value> at FL{0}.</value></data>
+  <data name="Insight_Relative" xml:space="preserve"><value>{0} NM on {1:000}°</value></data>
+</root>

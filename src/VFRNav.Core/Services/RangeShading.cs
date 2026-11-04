@@ -1,3 +1,4 @@
+using VFRNav.Core.Localization;
 namespace VFRNav.Core.Services;
 
 /// <summary>
@@ -54,7 +55,7 @@ public static class RangeShading
     /// <summary>Contour fermé de la zone <b>hors</b> du cercle (de l'autre côté de la frontière que le pôle enfermé), en (latitude, longitude).</summary>
     public static IReadOnlyList<(double Lat, double Lon)> OutsideRing(double originLat, double originLon, double radiusNm)
     {
-        char pole = EnclosedPole(originLat, radiusNm) ?? throw new ArgumentException("Le cercle n'enferme aucun pôle.", nameof(radiusNm));
+        char pole = EnclosedPole(originLat, radiusNm) ?? throw new ArgumentException(Loc.Get("RangeShading_Le_cercle_n_enferme_aucun"), nameof(radiusNm));
         var ring = Boundary(originLat, originLon, radiusNm).Select(p => (p.Lat, p.Lon)).ToList();
         double farLat = pole == 'N' ? -MaxLat : MaxLat;     // le bord opposé au pôle enfermé
         ring.Add((farLat, 180));
@@ -70,7 +71,7 @@ public static class RangeShading
     public static IReadOnlyList<(double Lat, double Lon)> BandRing(double originLat, double originLon, double innerNm, double outerNm)
     {
         if (EnclosedPole(originLat, innerNm) is null || EnclosedPole(originLat, innerNm) != EnclosedPole(originLat, outerNm))
-            throw new ArgumentException("Les deux cercles doivent enfermer le même pôle.", nameof(innerNm));
+            throw new ArgumentException(Loc.Get("RangeShading_Les_deux_cercles_doivent_enfermer"), nameof(innerNm));
         var ring = Boundary(originLat, originLon, outerNm).Select(p => (p.Lat, p.Lon)).ToList();
         ring.AddRange(Boundary(originLat, originLon, innerNm).Select(p => (p.Lat, p.Lon)).Reverse());
         ring.Add(ring[0]);

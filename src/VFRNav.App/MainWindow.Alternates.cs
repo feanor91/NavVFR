@@ -1,6 +1,7 @@
 using System.Globalization;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -32,8 +33,8 @@ public partial class MainWindow
         if (_route.Count >= 2 && info.Any(i => i.Known) && AircraftFor(mode) is { } a)
         {
             double total = NavMath.ComputeLog(_route, ReadParamsFor(mode)).TotalFuelL + info.Where(i => i.Known).Max(i => i.FuelL);
-            lines.Add($"Carburant route + dégagement le plus lointain : {total.ToString("0.#", CultureInfo.GetCultureInfo("fr-FR"))} L"
-                + (total > a.FuelCapacityL ? $"   ⚠ plus que les {a.FuelCapacityL:N0} L de {a.Name}" : ""));
+            lines.Add(Loc.F("Alternates_Carburant_route_degagement_le_plus", total.ToString("0.#", VFRNav.Core.Localization.Loc.FormatCulture))
+                + (total > a.FuelCapacityL ? Loc.F("Alternates_plus_que_les_L_de", a.FuelCapacityL, a.Name) : ""));
         }
         return lines;
     }

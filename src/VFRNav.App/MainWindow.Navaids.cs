@@ -6,6 +6,7 @@ using Mapsui.Projections;
 using Mapsui.Styles;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -20,7 +21,7 @@ public partial class MainWindow
         catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException)
         {
             _navaids = [];
-            StatusText.Text = "Balises indisponibles : " + ex.Message;
+            StatusText.Text = Loc.Get("Navaids_Balises_indisponibles") + ex.Message;
         }
         ApplyNavaidFilter();
     }
@@ -31,7 +32,7 @@ public partial class MainWindow
         var shown = _navaids.Select((n, i) => (n, i)).Where(t => t.n.Kind == NavaidKind.Vor ? vor : ndb).ToList();
         _navaidLayer.Features = shown.Select(t => NavaidFeature(t.n, t.i)).ToList();
         _navaidLayer.DataHasChanged();
-        NavCount.Text = _navaids.Count == 0 ? "" : $"{shown.Count} balises affichées sur {_navaids.Count}";
+        NavCount.Text = _navaids.Count == 0 ? "" : Loc.F("Navaids_balises_affichees_sur", shown.Count, _navaids.Count);
         MapControl.Refresh();
     }
 

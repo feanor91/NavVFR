@@ -4,20 +4,25 @@ using Microsoft.Win32;
 using System.Windows.Controls;
 using VFRNav.Core.Ifr;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
 // ---------- Route IFR : choix du départ, de l'arrivée, des procédures, puis calcul sur la base de navigation ----------
 public partial class MainWindow
 {
-    private const string AutoChoice = "Auto";
-    private const string NoneChoice = "Aucune";
+    private static string AutoChoice => Loc.Get("Ifr_Auto");
+    private static string NoneChoice => Loc.Get("Ifr_Aucune");
 
     // Pour l'instant : données de démonstration. Un lecteur AIRAC les remplacera.
     private IfrNavData _ifrData = IfrSampleData.Create();
 
+    /// <summary>ILS de l'export du SIA chargé (France) : localizer, pente et seuil de chaque piste.</summary>
+    private IlsCatalog _ils = IlsCatalog.Empty;
+
     private async void Ifr_Loaded(object sender, RoutedEventArgs e)
     {
+        IfrIlsCheck.IsChecked = _settings.IfrIlsApproach;
         await LoadWorldNetworkAsync();
         // Données AIRAC déjà choisies lors d'une session précédente : rechargées sans rien demander.
         if (_settings.IfrDataPath.Length > 0 && File.Exists(_settings.IfrDataPath))
@@ -34,22 +39,34 @@ public partial class MainWindow
     {
         if (_ifrData.AiracCycle == "TEST")
         {
-            IfrDataLabel.Text = IfrSampleData.Label + " : ne pas utiliser pour naviguer. Chargez l'export AIXM du SIA." + ProceduresNote() + NetworkNote();
+            IfrDataLabel.Text = IfrSampleData.Label + Loc.Get("Ifr_ne_pas_utiliser_pour_naviguer") + ProceduresNote() + NetworkNote();
             return;
         }
         bool expired = _ifrData.IsExpired(DateTime.UtcNow);
         IfrDataLabel.Foreground = expired ? System.Windows.Media.Brushes.OrangeRed : System.Windows.Media.Brushes.LightGreen;
         string procedures = _ifrData.Procedures.Count == 0
-            ? " Pas de SID/STAR dans ces données : les terrains se raccordent directement aux routes ATS."
+            ? Loc.Get("Ifr_Pas_de_SID_STAR_dans")
             : "";
-        IfrDataLabel.Text = $"AIRAC {_ifrData.AiracCycle}" + (expired ? " : PÉRIMÉ, à mettre à jour." : ".") +
-                            $" {_ifrData.Fixes.Count} points, {_ifrData.Segments.Select(s => s.Airway).Distinct().Count()} routes ATS." + procedures +
+        IfrDataLabel.Text = $"AIRAC {_ifrData.AiracCycle}" + (expired ? Loc.Get("Ifr_PERIME_a_mettre_a_jour") : ".") +
+                            Loc.F("Ifr_Fixes_routes", _ifrData.Fixes.Count, _ifrData.Segments.Select(s => s.Airway).Distinct().Count()) + procedures +
                             ProceduresNote() + NetworkNote();
+    }
+
+    /// <summary>
+    /// Un terrain connu de la carte mais absent des données IFR est hors de France (le SIA ne couvre que la France) :
+    /// il faut le réseau mondial lu dans MSFS. Le dire évite de croire à une faute de saisie.
+    /// </summary>
+    private string MissingDataHint(string dep, string arr)
+    {
+        var missing = new[] { dep, arr }.Distinct().Where(c => _ifrData.Find(c) is null && _airports.Any(a => a.Ident == c)).ToList();
+        if (missing.Count == 0) return "";
+        return Loc.F("Ifr_existe_sur_la_carte_mais", string.Join(Loc.Get("Common_And"), missing)) +
+               Loc.Get("Ifr_Pour_voler_hors_de_France");
     }
 
     private async void IfrLoad_Click(object sender, RoutedEventArgs e)
     {
-        var dlg = new OpenFileDialog { Filter = "Export AIXM du SIA (*.zip;*.xml)|*.zip;*.xml", Title = "export_xml_bd_SIA_….zip" };
+        var dlg = new OpenFileDialog { Filter = Loc.Get("Ifr_Export_AIXM_du_SIA_zip"), Title = "export_xml_bd_SIA_….zip" };
         if (dlg.ShowDialog(this) != true) return;
         if (await LoadIfrDataAsync(dlg.FileName))
         {
@@ -62,11 +79,12 @@ public partial class MainWindow
     private async Task<bool> LoadIfrDataAsync(string path)
     {
         IfrDataLabel.Foreground = System.Windows.Media.Brushes.Gold;
-        IfrDataLabel.Text = "Lecture des données AIRAC...";
+        IfrDataLabel.Text = Loc.Get("Ifr_Lecture_des_donnees_AIRAC");
         try
         {
             var loaded = await Task.Run(() => AixmReader.LoadFile(path, GeoArea.MetropolitanFrance));
             _ifrData = loaded.Data;
+            _ils = loaded.Ils;
             await ApplyWorldNetworkAsync();
             EnsureProceduresForRoute();
             ShowIfrDataLabel();
@@ -76,7 +94,7 @@ public partial class MainWindow
         {
             ShowIfrDataLabel();
             IfrStatus.Foreground = System.Windows.Media.Brushes.Gold;
-            IfrStatus.Text = "Fichier AIXM illisible : " + ex.Message;
+            IfrStatus.Text = Loc.Get("Ifr_Fichier_AIXM_illisible") + ex.Message;
             return false;
         }
     }
@@ -126,8 +144,8 @@ public partial class MainWindow
             lines.Add(info);
             if (AdviceText(advice) is { Length: > 0 } wind) lines.Add(wind);
         }
-        Add("Départ", IfrDepBox.Text, ProcedureKind.Sid, _depAdvice);
-        Add("Arrivée", IfrArrBox.Text, ProcedureKind.Star, _arrAdvice);
+        Add(Loc.Get("Ifr_Depart"), IfrDepBox.Text, ProcedureKind.Sid, _depAdvice);
+        Add(Loc.Get("Ifr_Arrivee"), IfrArrBox.Text, ProcedureKind.Star, _arrAdvice);
         return string.Join("\n", lines);
     }
 
@@ -159,7 +177,7 @@ public partial class MainWindow
         {
             if (!int.TryParse(IfrFlBox.Text.Trim(), out int value) || value is < 0 or > 600)
             {
-                IfrStatus.Text = "Niveau de vol invalide (ex. 240 pour FL240), ou laisse la case vide.";
+                IfrStatus.Text = Loc.Get("Ifr_Niveau_de_vol_invalide_ex");
                 return;
             }
             fl = value;
@@ -180,11 +198,20 @@ public partial class MainWindow
         if (result.Route is not { } ifr)
         {
             IfrStatus.Foreground = System.Windows.Media.Brushes.Gold;
-            IfrStatus.Text = result.Error;
+            IfrStatus.Text = result.Error + MissingDataHint(dep, arr);
             return;
         }
 
-        if (_route.Count > 0 && MessageBox.Show(this, "Remplacer la route actuelle par la route IFR ?", "Route IFR",
+        // Finale ILS indicative : ajoutée avant l'arrivée si la piste (choisie, ou la plus alignée avec l'arrivée) a un ILS dans les données.
+        IlsFinal? ilsFinal = null;
+        string? ilsNote = null;
+        if (IfrIlsCheck.IsChecked == true)
+        {
+            double field = _airports.FirstOrDefault(a => a.Ident == arr)?.ElevationFt ?? 0;
+            (ifr, ilsFinal, ilsNote) = IlsPlanner.Apply(ifr, _ils, Chosen(IfrArrRunwayBox), field);
+        }
+
+        if (_route.Count > 0 && MessageBox.Show(this, Loc.Get("Ifr_Remplacer_la_route_actuelle_par"), Loc.Get("Ifr_Route_IFR"),
                 MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes)
             return;
 
@@ -194,13 +221,25 @@ public partial class MainWindow
             if (waypoints[i].Icao is { } icao && _airports.FirstOrDefault(a => a.Ident == icao) is { } apt)
                 waypoints[i] = apt.ToWaypoint();
 
+        // Les points de la finale portent l'ILS en note : elle sort sur la feuille de route, dans « Points de navigation et notes ».
+        bool firstIls = true;
+        for (int i = 0; i < waypoints.Count && i < ifr.Points.Count; i++)
+        {
+            if (ifr.Points[i].Source != IfrLegSource.Ils || ilsFinal is null) continue;
+            waypoints[i].Notes = firstIls
+                ? ilsFinal.Summary
+                : Loc.F("Ifr_Finale_ILS_ft_sur_la", ilsFinal.Ils.Runway, ifr.Points[i].MinAltFt);
+            firstIls = false;
+        }
+
         _route.Clear();
         foreach (var w in waypoints) _route.Add(w);
         FitRoute();
 
         IfrStatus.Foreground = System.Windows.Media.Brushes.LightGreen;
-        string runways = new[] { Chosen(IfrDepRunwayBox) is { } d ? $"départ {d}" : null, Chosen(IfrArrRunwayBox) is { } a ? $"arrivée {a}" : null }
+        string runways = new[] { Chosen(IfrDepRunwayBox) is { } d ? Loc.F("Ifr_depart", d) : null, Chosen(IfrArrRunwayBox) is { } a ? Loc.F("Ifr_arrivee", a) : null }
             .Where(t => t is not null).Aggregate("", (acc, t) => acc.Length == 0 ? t! : acc + ", " + t);
-        IfrStatus.Text = $"{ifr.Description}\n{ifr.DistanceNm:0.#} NM, {ifr.Points.Count} points." + (runways.Length > 0 ? $"\nPistes : {runways}." : "");
+        IfrStatus.Text = Loc.F("Ifr_Route_summary", ifr.Description, ifr.DistanceNm, ifr.Points.Count) + (runways.Length > 0 ? Loc.F("Ifr_Runways_line", runways) : "")
+            + (ilsFinal is not null && ilsNote is null ? "\n" + ilsFinal.Summary : "") + (ilsNote is not null ? "\n" + ilsNote : "");
     }
 }

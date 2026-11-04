@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Weather;
 
@@ -15,7 +16,7 @@ public sealed record DecodedReport(string Station, string Kind, string Raw, stri
 /// <summary>Traduit les METAR et TAF en français clair. Les groupes inconnus sont signalés, jamais devinés.</summary>
 public static partial class WeatherDecoder
 {
-    private static readonly CultureInfo Fr = CultureInfo.GetCultureInfo("fr-FR");
+    private static CultureInfo Fr => VFRNav.Core.Localization.Loc.FormatCulture;
 
     // ---------- découpage du texte brut ----------
 
@@ -58,9 +59,9 @@ public static partial class WeatherDecoder
 
         foreach (string t in main)
         {
-            if (t == "AUTO") lines.Add("Observation automatique (sans observateur)");
-            else if (t == "COR") lines.Add("Message corrigé");
-            else if (t == "NIL") lines.Add("Aucune observation disponible");
+            if (t == "AUTO") lines.Add(Loc.Get("WeatherDecoder_Observation_automatique_sans_observateur"));
+            else if (t == "COR") lines.Add(Loc.Get("WeatherDecoder_Message_corrige"));
+            else if (t == "NIL") lines.Add(Loc.Get("WeatherDecoder_Aucune_observation_disponible"));
         }
         Decode(main.Where(t => t is not ("AUTO" or "COR" or "NIL")), lines, state, "");
 
@@ -73,7 +74,7 @@ public static partial class WeatherDecoder
         }
 
         string? category = Category(state);
-        if (category is not null) lines.Add($"Catégorie de vol : {CategoryText(category)}");
+        if (category is not null) lines.Add(Loc.F("WeatherDecoder_Categorie_de_vol", CategoryText(category)));
         string when = time is null ? "" : $" — {time}";
         return new DecodedReport(station, kind, raw, $"{station}  {kind}{when}", lines, category,
             state.VisibilityM, state.CeilingFt is int.MaxValue ? null : state.CeilingFt);
@@ -94,14 +95,14 @@ public static partial class WeatherDecoder
 
         foreach (string t in tail)
         {
-            if (t == "NOSIG") { Flush(); label = null; lines.Add("Tendance : pas de changement significatif dans les 2 heures"); }
-            else if (t == "BECMG") { Flush(); label = "Tendance : évolution durable vers :"; }
-            else if (t == "TEMPO") { Flush(); label = "Tendance : variations temporaires :"; }
+            if (t == "NOSIG") { Flush(); label = null; lines.Add(Loc.Get("WeatherDecoder_Tendance_pas_de_changement_significatif")); }
+            else if (t == "BECMG") { Flush(); label = Loc.Get("WeatherDecoder_Tendance_evolution_durable_vers"); }
+            else if (t == "TEMPO") { Flush(); label = Loc.Get("WeatherDecoder_Tendance_variations_temporaires"); }
             else if (TrendTimeRx().IsMatch(t))
             {
                 var m = TrendTimeRx().Match(t);
-                string kind = m.Groups[1].Value switch { "FM" => "à partir de", "TL" => "jusqu'à", _ => "vers" };
-                label = (label ?? "Tendance") + $" ({kind} {m.Groups[2].Value[..2]}:{m.Groups[2].Value[2..]} UTC)";
+                string kind = m.Groups[1].Value switch { "FM" => Loc.Get("WeatherDecoder_a_partir_de"), "TL" => Loc.Get("WeatherDecoder_jusqu_a"), _ => Loc.Get("WeatherDecoder_vers") };
+                label = (label ?? Loc.Get("WeatherDecoder_Tendance")) + $" ({kind} {m.Groups[2].Value[..2]}:{m.Groups[2].Value[2..]} UTC)";
             }
             else group.Add(t);
         }
@@ -120,20 +121,20 @@ public static partial class WeatherDecoder
         {
             lines.Add(tokens[i] switch
             {
-                "AMD" => "Prévision modifiée (amendée)",
-                "COR" => "Prévision corrigée",
-                "CNL" => "Prévision annulée",
-                _ => "Aucune prévision disponible"
+                "AMD" => Loc.Get("WeatherDecoder_Prevision_modifiee_amendee"),
+                "COR" => Loc.Get("WeatherDecoder_Prevision_corrigee"),
+                "CNL" => Loc.Get("WeatherDecoder_Prevision_annulee"),
+                _ => Loc.Get("WeatherDecoder_Aucune_prevision_disponible")
             });
             i++;
         }
         string station = i < tokens.Count ? tokens[i++] : "";
         string? issued = i < tokens.Count && TimeRx().IsMatch(tokens[i]) ? Day(tokens[i++]) : null;
         string? validity = i < tokens.Count && ValidityRx().IsMatch(tokens[i]) ? Period(tokens[i++]) : null;
-        if (validity is not null) lines.Add($"Valable {validity}");
+        if (validity is not null) lines.Add(Loc.F("WeatherDecoder_Valable", validity));
 
         var group = new List<string>();
-        string label = "Prévision de base :";
+        string label = Loc.Get("WeatherDecoder_Prevision_de_base");
 
         void Flush()
         {
@@ -149,7 +150,7 @@ public static partial class WeatherDecoder
             {
                 Flush();
                 var m = FromRx().Match(t);
-                label = $"À partir du {m.Groups[1].Value} à {m.Groups[2].Value}:{m.Groups[3].Value} UTC :";
+                label = Loc.F("WeatherDecoder_A_partir_du_a_UTC", m.Groups[1].Value, m.Groups[2].Value, m.Groups[3].Value);
             }
             else if (t is "BECMG" or "TEMPO" || ProbRx().IsMatch(t))
             {
@@ -158,24 +159,24 @@ public static partial class WeatherDecoder
                 string kind = t;
                 if (ProbRx().IsMatch(t))
                 {
-                    prob = $"Probabilité {t[4..]} % ";
+                    prob = Loc.F("WeatherDecoder_Probabilite", t[4..]);
                     if (i + 1 < tokens.Count && tokens[i + 1] == "TEMPO") { i++; kind = "TEMPO"; } else kind = "";
                 }
                 string when = i + 1 < tokens.Count && ValidityRx().IsMatch(tokens[i + 1]) ? " " + Period(tokens[++i]) : "";
                 label = kind switch
                 {
-                    "BECMG" => $"Évolution progressive{when} :",
-                    "TEMPO" => $"{prob}Variations temporaires{when} :",
-                    _ => $"{prob}d'un phénomène{when} :"
+                    "BECMG" => Loc.F("WeatherDecoder_Evolution_progressive", when),
+                    "TEMPO" => Loc.F("WeatherDecoder_Variations_temporaires", prob, when),
+                    _ => Loc.F("WeatherDecoder_d_un_phenomene", prob, when)
                 };
             }
             else group.Add(t);
         }
         Flush();
-        if (lines.Count > 0 && lines[^1].StartsWith("Prévision de base", StringComparison.Ordinal) && group.Count == 0)
+        if (lines.Count > 0 && lines[^1].StartsWith(Loc.Get("WeatherDecoder_Prevision_de_base"), StringComparison.Ordinal) && group.Count == 0)
             lines.RemoveAt(lines.Count - 1);
 
-        string when2 = issued is null ? "" : $" — émis {issued}";
+        string when2 = issued is null ? "" : Loc.F("WeatherDecoder_emis", issued);
         return new DecodedReport(station, "TAF", raw, $"{station}  TAF{when2}", lines, null);
     }
 
@@ -198,37 +199,37 @@ public static partial class WeatherDecoder
             {
                 state.Cavok = true;
                 state.VisibilityM = 10000;
-                lines.Add($"{indent}Visibilité 10 km ou plus, pas de nuage significatif, pas de phénomène (CAVOK)");
+                lines.Add(Loc.F("WeatherDecoder_Visibilite_10_km_ou_plus", indent));
             }
-            else if (t == "NSW") lines.Add($"{indent}Fin des phénomènes météo significatifs");
+            else if (t == "NSW") lines.Add(Loc.F("WeatherDecoder_Fin_des_phenomenes_meteo_significatifs", indent));
             else if ((m = WindRx().Match(t)).Success) lines.Add(indent + Wind(m));
-            else if ((m = WindVarRx().Match(t)).Success) lines.Add($"{indent}Direction du vent variable entre {m.Groups[1].Value}° et {m.Groups[2].Value}°");
+            else if ((m = WindVarRx().Match(t)).Success) lines.Add(Loc.F("WeatherDecoder_Direction_du_vent_variable_entre", indent, m.Groups[1].Value, m.Groups[2].Value));
             else if (VisRx().IsMatch(t))
             {
                 int v = int.Parse(t[..4], CultureInfo.InvariantCulture);
                 state.VisibilityM = v == 9999 ? 10000 : v;
-                lines.Add($"{indent}Visibilité : {Visibility(v)}");
+                lines.Add(Loc.F("WeatherDecoder_Visibilite", indent, Visibility(v)));
             }
             else if ((m = RvrRx().Match(t)).Success)
-                lines.Add($"{indent}Portée visuelle de piste {m.Groups[1].Value} : {int.Parse(m.Groups[2].Value, CultureInfo.InvariantCulture)} m");
+                lines.Add(Loc.F("WeatherDecoder_Portee_visuelle_de_piste_m", indent, m.Groups[1].Value, int.Parse(m.Groups[2].Value, CultureInfo.InvariantCulture)));
             else if ((m = CloudRx().Match(t)).Success) lines.Add(indent + Cloud(m, state));
             else if ((m = VertRx().Match(t)).Success)
             {
                 if (int.TryParse(m.Groups[1].Value, out int h))
                 {
                     state.CeilingFt = Math.Min(state.CeilingFt ?? int.MaxValue, h * 100);
-                    lines.Add($"{indent}Ciel invisible, visibilité verticale {h * 100} ft ({Metres(h * 100)} m)");
+                    lines.Add(Loc.F("WeatherDecoder_Ciel_invisible_visibilite_verticale_ft", indent, h * 100, Metres(h * 100)));
                 }
-                else lines.Add($"{indent}Ciel invisible, visibilité verticale non mesurée");
+                else lines.Add(Loc.F("WeatherDecoder_Ciel_invisible_visibilite_verticale_non", indent));
             }
-            else if (t is "SKC" or "CLR") lines.Add($"{indent}Ciel dégagé");
-            else if (t is "NSC") lines.Add($"{indent}Pas de nuage significatif");
-            else if (t is "NCD") lines.Add($"{indent}Aucun nuage détecté (station automatique)");
+            else if (t is "SKC" or "CLR") lines.Add(Loc.F("WeatherDecoder_Ciel_degage", indent));
+            else if (t is "NSC") lines.Add(Loc.F("WeatherDecoder_Pas_de_nuage_significatif", indent));
+            else if (t is "NCD") lines.Add(Loc.F("WeatherDecoder_Aucun_nuage_detecte_station_automatique", indent));
             else if ((m = TempRx().Match(t)).Success)
             {
-                string temp = $"température {Temp(m.Groups[1].Value)} °C";
+                string temp = Loc.F("WeatherDecoder_temperature_C", Temp(m.Groups[1].Value));
                 lines.Add(m.Groups[2].Success && m.Groups[2].Value.Length > 0
-                    ? $"{indent}Température {Temp(m.Groups[1].Value)} °C, point de rosée {Temp(m.Groups[2].Value)} °C"
+                    ? Loc.F("WeatherDecoder_Temperature_C_point_de_rosee", indent, Temp(m.Groups[1].Value), Temp(m.Groups[2].Value))
                     : $"{indent}{char.ToUpper(temp[0], Fr)}{temp[1..]}");
             }
             else if ((m = QnhRx().Match(t)).Success) lines.Add($"{indent}QNH {m.Groups[1].Value} hPa");
@@ -239,13 +240,13 @@ public static partial class WeatherDecoder
             }
             else if ((m = TafTempRx().Match(t)).Success)
             {
-                string kind = m.Groups[1].Value == "TX" ? "maximale" : "minimale";
-                lines.Add($"{indent}Température {kind} {Temp(m.Groups[2].Value)} °C le {m.Groups[3].Value} à {m.Groups[4].Value}h UTC");
+                string kind = m.Groups[1].Value == "TX" ? Loc.Get("WeatherDecoder_maximale") : Loc.Get("WeatherDecoder_minimale");
+                lines.Add(Loc.F("WeatherDecoder_Temperature_C_le_a_h", indent, kind, Temp(m.Groups[2].Value), m.Groups[3].Value, m.Groups[4].Value));
             }
             else if (Weather(t) is { } wx) lines.Add($"{indent}{wx}");
             else unknown.Add(t);
         }
-        if (unknown.Count > 0) lines.Add($"{indent}Non décodé : {string.Join(" ", unknown)}");
+        if (unknown.Count > 0) lines.Add(Loc.F("WeatherDecoder_Non_decode", indent, string.Join(" ", unknown)));
     }
 
     private static string Wind(Match m)
@@ -255,18 +256,18 @@ public static partial class WeatherDecoder
         bool mps = m.Groups[5].Value == "MPS";
         double toKt = mps ? 1.94384 : 1;
         int kt = (int)Math.Round(speed * toKt);
-        if (kt == 0) return "Vent : calme";
+        if (kt == 0) return Loc.Get("WeatherDecoder_Vent_calme");
         string gust = m.Groups[4].Success && m.Groups[4].Value.Length > 0
-            ? $", rafales à {(int)Math.Round(int.Parse(m.Groups[4].Value, CultureInfo.InvariantCulture) * toKt)} kt"
+            ? Loc.F("WeatherDecoder_rafales_a_kt", (int)Math.Round(int.Parse(m.Groups[4].Value, CultureInfo.InvariantCulture) * toKt))
             : "";
-        string from = dir == "VRB" ? "de direction variable" : $"du {dir}° ({Compass(int.Parse(dir, CultureInfo.InvariantCulture))})";
-        return $"Vent {from}, {kt} kt ({(int)Math.Round(kt * 1.852)} km/h){gust}";
+        string from = dir == "VRB" ? Loc.Get("WeatherDecoder_de_direction_variable") : Loc.F("WeatherDecoder_Wind_from", dir, Compass(int.Parse(dir, CultureInfo.InvariantCulture)));
+        return Loc.F("WeatherDecoder_Vent_kt_km_h", from, kt, (int)Math.Round(kt * 1.852), gust);
     }
 
     private static string Compass(int degrees)
     {
-        string[] names = ["nord", "nord-nord-est", "nord-est", "est-nord-est", "est", "est-sud-est", "sud-est", "sud-sud-est",
-            "sud", "sud-sud-ouest", "sud-ouest", "ouest-sud-ouest", "ouest", "ouest-nord-ouest", "nord-ouest", "nord-nord-ouest"];
+        string[] names = [Loc.Get("WeatherDecoder_nord"), Loc.Get("WeatherDecoder_nord_nord_est"), Loc.Get("WeatherDecoder_nord_est"), Loc.Get("WeatherDecoder_est_nord_est"), Loc.Get("WeatherDecoder_est"), Loc.Get("WeatherDecoder_est_sud_est"), Loc.Get("WeatherDecoder_sud_est"), Loc.Get("WeatherDecoder_sud_sud_est"),
+            Loc.Get("WeatherDecoder_sud"), Loc.Get("WeatherDecoder_sud_sud_ouest"), Loc.Get("WeatherDecoder_sud_ouest"), Loc.Get("WeatherDecoder_ouest_sud_ouest"), Loc.Get("WeatherDecoder_ouest"), Loc.Get("WeatherDecoder_ouest_nord_ouest"), Loc.Get("WeatherDecoder_nord_ouest"), Loc.Get("WeatherDecoder_nord_nord_ouest")];
         return names[(int)Math.Round(degrees % 360 / 22.5) % 16];
     }
 
@@ -280,7 +281,7 @@ public static partial class WeatherDecoder
 
     private static string Visibility(int meters) => meters switch
     {
-        9999 => "10 km ou plus",
+        9999 => Loc.Get("WeatherDecoder_10_km_ou_plus"),
         >= 1000 => $"{(meters / 1000.0).ToString("0.##", Fr)} km",
         _ => $"{meters} m"
     };
@@ -289,15 +290,15 @@ public static partial class WeatherDecoder
     {
         string amount = m.Groups[1].Value switch
         {
-            "FEW" => "Quelques nuages (1 à 2/8)",
-            "SCT" => "Nuages épars (3 à 4/8)",
-            "BKN" => "Nuages fragmentés (5 à 7/8)",
-            _ => "Ciel couvert (8/8)"
+            "FEW" => Loc.Get("WeatherDecoder_Quelques_nuages_1_a_2"),
+            "SCT" => Loc.Get("WeatherDecoder_Nuages_epars_3_a_4"),
+            "BKN" => Loc.Get("WeatherDecoder_Nuages_fragmentes_5_a_7"),
+            _ => Loc.Get("WeatherDecoder_Ciel_couvert_8_8")
         };
         int ft = int.Parse(m.Groups[2].Value, CultureInfo.InvariantCulture) * 100;
         if (m.Groups[1].Value is "BKN" or "OVC") state.CeilingFt = Math.Min(state.CeilingFt ?? int.MaxValue, ft);
-        string type = m.Groups[3].Value switch { "CB" => ", cumulonimbus", "TCU" => ", cumulus bourgeonnants", _ => "" };
-        return $"{amount} à {ft} ft ({Metres(ft)} m) au-dessus du sol{type}";
+        string type = m.Groups[3].Value switch { "CB" => Loc.Get("WeatherDecoder_cumulonimbus"), "TCU" => Loc.Get("WeatherDecoder_cumulus_bourgeonnants"), _ => "" };
+        return Loc.F("WeatherDecoder_a_ft_m_au_dessus", amount, ft, Metres(ft), type);
     }
 
     private static int Metres(int feet) => (int)Math.Round(feet * 0.3048 / 10) * 10;
@@ -305,29 +306,31 @@ public static partial class WeatherDecoder
     private static string Temp(string value) =>
         value.StartsWith('M') ? "-" + int.Parse(value[1..], CultureInfo.InvariantCulture) : int.Parse(value, CultureInfo.InvariantCulture).ToString(CultureInfo.InvariantCulture);
 
-    private static readonly Dictionary<string, string> Descriptors = new()
+    private static readonly Localized<Dictionary<string, string>> DescriptorsByLanguage = new(() => new()
     {
-        ["MI"] = "mince nappe de", ["BC"] = "bancs de", ["PR"] = "partiel", ["DR"] = "chasse basse de",
-        ["BL"] = "chasse haute de", ["SH"] = "averses de", ["TS"] = "orage", ["FZ"] = "verglaçant"
-    };
+        ["MI"] = Loc.Get("WeatherDecoder_mince_nappe_de"), ["BC"] = Loc.Get("WeatherDecoder_bancs_de"), ["PR"] = Loc.Get("WeatherDecoder_partiel"), ["DR"] = Loc.Get("WeatherDecoder_chasse_basse_de"),
+        ["BL"] = Loc.Get("WeatherDecoder_chasse_haute_de"), ["SH"] = Loc.Get("WeatherDecoder_averses_de"), ["TS"] = Loc.Get("WeatherDecoder_orage"), ["FZ"] = Loc.Get("WeatherDecoder_verglacant")
+    });
+    private static Dictionary<string, string> Descriptors => DescriptorsByLanguage.Value;
 
-    private static readonly Dictionary<string, string> Phenomena = new()
+    private static readonly Localized<Dictionary<string, string>> PhenomenaByLanguage = new(() => new()
     {
-        ["DZ"] = "bruine", ["RA"] = "pluie", ["SN"] = "neige", ["SG"] = "neige en grains", ["PL"] = "granules de glace",
-        ["GR"] = "grêle", ["GS"] = "grésil", ["UP"] = "précipitations de type inconnu", ["BR"] = "brume",
-        ["FG"] = "brouillard", ["FU"] = "fumée", ["VA"] = "cendres volcaniques", ["DU"] = "poussière", ["SA"] = "sable",
-        ["HZ"] = "brume sèche", ["PO"] = "tourbillons de poussière ou de sable", ["SQ"] = "grains", ["FC"] = "trombe ou tornade",
-        ["SS"] = "tempête de sable", ["DS"] = "tempête de poussière"
-    };
+        ["DZ"] = Loc.Get("WeatherDecoder_bruine"), ["RA"] = Loc.Get("WeatherDecoder_pluie"), ["SN"] = Loc.Get("WeatherDecoder_neige"), ["SG"] = Loc.Get("WeatherDecoder_neige_en_grains"), ["PL"] = Loc.Get("WeatherDecoder_granules_de_glace"),
+        ["GR"] = Loc.Get("WeatherDecoder_hail"), ["GS"] = Loc.Get("WeatherDecoder_gresil"), ["UP"] = Loc.Get("WeatherDecoder_precipitations_de_type_inconnu"), ["BR"] = Loc.Get("WeatherDecoder_brume"),
+        ["FG"] = Loc.Get("WeatherDecoder_brouillard"), ["FU"] = Loc.Get("WeatherDecoder_fumee"), ["VA"] = Loc.Get("WeatherDecoder_cendres_volcaniques"), ["DU"] = Loc.Get("WeatherDecoder_poussiere"), ["SA"] = Loc.Get("WeatherDecoder_sable"),
+        ["HZ"] = Loc.Get("WeatherDecoder_brume_seche"), ["PO"] = Loc.Get("WeatherDecoder_tourbillons_de_poussiere_ou_de"), ["SQ"] = Loc.Get("WeatherDecoder_grains"), ["FC"] = Loc.Get("WeatherDecoder_trombe_ou_tornade"),
+        ["SS"] = Loc.Get("WeatherDecoder_tempete_de_sable"), ["DS"] = Loc.Get("WeatherDecoder_tempete_de_poussiere")
+    });
+    private static Dictionary<string, string> Phenomena => PhenomenaByLanguage.Value;
 
     /// <summary>Phénomène météo : intensité, descripteur, puis un ou plusieurs phénomènes (+TSRA, -SHRA, FZFG, VCSH...).</summary>
     private static string? Weather(string token)
     {
         string rest = token;
         string intensity = "";
-        if (rest.StartsWith('+')) { intensity = "forte"; rest = rest[1..]; }
-        else if (rest.StartsWith('-')) { intensity = "faible"; rest = rest[1..]; }
-        else if (rest.StartsWith("VC", StringComparison.Ordinal)) { intensity = "à proximité"; rest = rest[2..]; }
+        if (rest.StartsWith('+')) { intensity = Loc.Get("WeatherDecoder_forte"); rest = rest[1..]; }
+        else if (rest.StartsWith('-')) { intensity = Loc.Get("WeatherDecoder_faible"); rest = rest[1..]; }
+        else if (rest.StartsWith("VC", StringComparison.Ordinal)) { intensity = Loc.Get("WeatherDecoder_a_proximite"); rest = rest[2..]; }
         if (rest.Length < 2 || rest.Length % 2 != 0) return null;
 
         var descriptors = new List<string>();
@@ -343,15 +346,15 @@ public static partial class WeatherDecoder
 
         var parts = new List<string>();
         bool thunder = descriptors.Contains("TS"), showers = descriptors.Contains("SH"), freezing = descriptors.Contains("FZ");
-        string names = string.Join(" et ", phenomena.Select(p => Phenomena[p]));
-        if (thunder) parts.Add(phenomena.Count > 0 ? $"orage avec {names}" : "orage");
-        else if (showers) parts.Add(names.Length > 0 ? $"averses de {names}" : "averses");
+        string names = string.Join(Loc.Get("Common_And"), phenomena.Select(p => Phenomena[p]));
+        if (thunder) parts.Add(phenomena.Count > 0 ? Loc.F("WeatherDecoder_orage_avec", names) : Loc.Get("WeatherDecoder_orage"));
+        else if (showers) parts.Add(names.Length > 0 ? Loc.F("WeatherDecoder_averses_de_2", names) : Loc.Get("WeatherDecoder_averses"));
         else if (names.Length > 0) parts.Add(names);
         foreach (string d in descriptors.Where(d => d is not ("TS" or "SH" or "FZ")))
-            parts.Insert(0, Descriptors[d] + (Descriptors[d].EndsWith("de", StringComparison.Ordinal) ? $" {names}" : ""));
+            parts.Insert(0, Descriptors[d] + (d is "MI" or "BC" or "DR" or "BL" ? $" {names}" : ""));
         string text = string.Join(", ", parts);
-        if (freezing) text += phenomena.Contains("FG") ? " givrant" : " verglaçant(e)";
-        if (intensity.Length > 0) text += " " + intensity;
+        if (freezing) text = Loc.F(phenomena.Contains("FG") ? "WeatherDecoder_Freezing_fog" : "WeatherDecoder_Freezing", text);
+        if (intensity.Length > 0) text = Loc.F("WeatherDecoder_With_intensity", text, intensity);
         return char.ToUpper(text[0], Fr) + text[1..];
     }
 
@@ -370,22 +373,22 @@ public static partial class WeatherDecoder
 
     private static string CategoryText(string category) => category switch
     {
-        "VFR" => "VFR (bonnes conditions de vol à vue)",
-        "MVFR" => "MVFR (vol à vue possible, conditions marginales)",
-        "IFR" => "IFR (vol aux instruments : vol à vue déconseillé)",
-        _ => "LIFR (très mauvaises conditions : vol à vue impossible)"
+        "VFR" => Loc.Get("WeatherDecoder_VFR_bonnes_conditions_de_vol"),
+        "MVFR" => Loc.Get("WeatherDecoder_MVFR_vol_a_vue_possible"),
+        "IFR" => Loc.Get("WeatherDecoder_IFR_vol_aux_instruments_vol"),
+        _ => Loc.Get("WeatherDecoder_LIFR_tres_mauvaises_conditions_vol")
     };
 
     // ---------- dates ----------
 
     private static string Day(string token) =>
-        $"le {token[..2]} à {token[2..4]}:{token[4..6]} UTC";
+        Loc.F("WeatherDecoder_le_a_UTC", token[..2], token[2..4], token[4..6]);
 
     private static string Period(string token)
     {
         static string Hour(string s) => s[2..] == "24" ? "24h" : $"{s[2..]}h";
         string a = token[..4], b = token[5..];
-        return $"du {a[..2]} à {Hour(a)} au {b[..2]} à {Hour(b)} UTC";
+        return Loc.F("WeatherDecoder_du_a_au_a_UTC", a[..2], Hour(a), b[..2], Hour(b));
     }
 
     private static List<string> Tokens(string raw) =>

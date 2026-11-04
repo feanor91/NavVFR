@@ -5,13 +5,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
 /// <summary>Profil vertical de la route : relief, altitude de croisière, zones traversées et points de passage.</summary>
 public sealed class ProfileChart : FrameworkElement
 {
-    private static readonly CultureInfo Fr = CultureInfo.GetCultureInfo("fr-FR");
+    private static CultureInfo Fr => VFRNav.Core.Localization.Loc.FormatCulture;
     private const double Left = 62, Right = 16, Top = 26, Bottom = 36;
 
     private TerrainProfile? _terrain;
@@ -142,7 +143,7 @@ public sealed class ProfileChart : FrameworkElement
 
         if (_terrain is null || _terrain.Samples.Count < 2)
         {
-            dc.DrawText(Text(_message ?? "Aucun profil calculé. Pose une route puis clique sur « Calculer le plan de vol ».", 13, Solid(90, 100, 120)), new Point(16, h / 2 - 10));
+            dc.DrawText(Text(_message ?? Loc.Get("ProfileChart_Aucun_profil_calcule_Pose_une"), 13, Solid(90, 100, 120)), new Point(16, h / 2 - 10));
             return;
         }
 
@@ -275,7 +276,7 @@ public sealed class ProfileChart : FrameworkElement
         if (!sloped)
         {
             dc.DrawLine(cruisePen, new Point(Left, Y(cruise)), new Point(w - Right, Y(cruise)));
-            var cruiseLabel = Text($"Croisière {cruise.ToString("N0", Fr)} ft", 10.5, pink, bold: true);
+            var cruiseLabel = Text(Loc.F("ProfileChart_Croisiere_ft", cruise.ToString("N0", Fr)), 10.5, pink, bold: true);
             dc.DrawText(cruiseLabel, new Point(w - Right - cruiseLabel.Width - 4, Y(cruise) - cruiseLabel.Height - 1));
         }
         else if (prof is not null)
@@ -301,7 +302,7 @@ public sealed class ProfileChart : FrameworkElement
             }
         if (_drag != DragKind.None)
         {
-            var hint = Text("Relâche pour fixer l'altitude (arrondie à 100 ft)", 10, Solid(110, 120, 140));
+            var hint = Text(Loc.Get("ProfileChart_Relache_pour_fixer_l_altitude"), 10, Solid(110, 120, 140));
             dc.DrawText(hint, new Point(Left + 6, h - Bottom - hint.Height - 4));
         }
 
@@ -338,7 +339,7 @@ public sealed class ProfileChart : FrameworkElement
         // Rappel du zoom et du moyen de revenir à la vue d'ensemble.
         if (Zoomed)
         {
-            var zoomNote = Text($"Zoom {total / (vx1 - vx0):0.#}× sur la distance, {yMax / (vy1 - vy0):0.#}× sur l'altitude · double-clic sur le fond : tout voir", 9.5, Solid(110, 120, 140));
+            var zoomNote = Text(Loc.F("ProfileChart_Zoom_sur_la_distance_sur", total / (vx1 - vx0), yMax / (vy1 - vy0)), 9.5, Solid(110, 120, 140));
             dc.DrawText(zoomNote, new Point(w - Right - zoomNote.Width - 4, h - 16));
         }
     }
@@ -393,8 +394,8 @@ public sealed class ProfileChart : FrameworkElement
             bool over = MarkerAt(p) is not null || OnCruiseLine(p);
             Cursor = over ? Cursors.SizeNS : Zoomed && InPlot(p) ? Cursors.SizeAll : null;
             ToolTip = over
-                ? "Glisse vers le haut ou le bas pour changer l'altitude. Un point : double-clic pour revenir à la croisière."
-                : InPlot(p) ? "Molette : zoom sur la distance · Ctrl + molette : zoom sur l'altitude · glisser le fond : déplacer · double-clic sur le fond : tout voir" : null;
+                ? Loc.Get("ProfileChart_Glisse_vers_le_haut_ou")
+                : InPlot(p) ? Loc.Get("ProfileChart_Molette_zoom_sur_la_distance") : null;
             return;
         }
 

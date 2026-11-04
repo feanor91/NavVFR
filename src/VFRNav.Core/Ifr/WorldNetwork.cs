@@ -1,6 +1,7 @@
 ﻿using System.IO.Compression;
 using System.Text;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Ifr;
 
@@ -200,9 +201,9 @@ public static class WorldNetworkStore
             using var file = File.OpenRead(path);
             using var gzip = new GZipStream(file, CompressionMode.Decompress);
             using var r = new BinaryReader(gzip, Encoding.UTF8);
-            if (r.ReadString() != Magic) { problem = "ce n'est pas un fichier de réseau MSFS Rhumb"; return null; }
+            if (r.ReadString() != Magic) { problem = Loc.Get("WorldNetwork_ce_n_est_pas_un"); return null; }
             int version = r.ReadInt32();
-            if (version != Version) { problem = $"version {version} non prise en charge"; return null; }
+            if (version != Version) { problem = Loc.F("ProcedureCatalog_version_non_prise_en_charge", version); return null; }
             string simVersion = r.ReadString();
             var readAt = new DateTimeOffset(r.ReadInt64(), TimeSpan.Zero);
 
@@ -227,7 +228,7 @@ public static class WorldNetworkStore
                 int airway = r.ReadInt32(), from = r.ReadInt32(), to = r.ReadInt32();
                 var direction = (AirwayDirection)r.ReadByte();
                 short lower = r.ReadInt16(), upper = r.ReadInt16();
-                if ((uint)airway >= (uint)airwayCount || (uint)from >= (uint)fixCount || (uint)to >= (uint)fixCount) { problem = "fichier abîmé (index hors limites)"; return null; }
+                if ((uint)airway >= (uint)airwayCount || (uint)from >= (uint)fixCount || (uint)to >= (uint)fixCount) { problem = Loc.Get("WorldNetwork_fichier_abime_index_hors_limites"); return null; }
                 segments.Add(new AirwaySegment(airways[airway], fixes[from].Ident, fixes[to].Ident, direction, lower < 0 ? null : lower, upper < 0 ? null : upper));
             }
             return new WorldNetwork(simVersion, readAt, fixes, segments);
@@ -242,7 +243,7 @@ public static class WorldNetworkStore
     private static int Count(BinaryReader r)
     {
         int n = r.ReadInt32();
-        if (n is < 0 or > MaxCount) throw new InvalidDataException("nombre d'éléments invraisemblable");
+        if (n is < 0 or > MaxCount) throw new InvalidDataException(Loc.Get("WorldNetwork_nombre_d_elements_invraisemblable"));
         return n;
     }
 }

@@ -11,6 +11,7 @@ using NetTopologySuite.Geometries;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
 using VFRNav.Core.Weather;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -27,7 +28,7 @@ public partial class MainWindow
     private readonly System.Windows.Threading.DispatcherTimer _sigmetTimer = new() { Interval = TimeSpan.FromMinutes(10) };
 
     private const int MaxSigmetsInTip = 3;
-    private static readonly CultureInfo FrSigmet = CultureInfo.GetCultureInfo("fr-FR");
+    private static CultureInfo FrSigmet => VFRNav.Core.Localization.Loc.FormatCulture;
 
     private void InitSigmet()
     {
@@ -76,7 +77,7 @@ public partial class MainWindow
                     catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or InvalidDataException)
                     {
                         // On garde les messages déjà affichés : une coupure passagère ne doit pas vider la carte.
-                        _sigmetProblem = "SIGMET indisponibles : " + ex.Message;
+                        _sigmetProblem = Loc.Get("Sigmet_Unavailable") + ex.Message;
                     }
                 }
                 RedrawSigmet();
@@ -161,13 +162,13 @@ public partial class MainWindow
         if (!on) { SigmetInfo.Text = ""; return; }
         var lines = new List<string>();
         if (_sigmetProblem is not null) lines.Add(_sigmetProblem);
-        else if (_sigmets.Count == 0) lines.Add("SIGMET : chargement...");
+        else if (_sigmets.Count == 0) lines.Add(Loc.Get("Sigmet_Loading"));
         else
         {
-            string route = onRouteCount > 0 ? $" ; {onRouteCount} sur ta route (contour plein)" : "";
-            lines.Add(string.Create(FrSigmet, $"{_sigmetsShown.Count} SIGMET affichés sur {SigmetPresentation.Select(_sigmets, DateTimeOffset.UtcNow).Count} en vigueur dans le monde{route}."));
+            string route = onRouteCount > 0 ? Loc.F("Sigmet_sur_ta_route_contour_plein", onRouteCount) : "";
+            lines.Add(Loc.F(FrSigmet, "Sigmet_SIGMET_affiches_sur_en_vigueur", _sigmetsShown.Count, SigmetPresentation.Select(_sigmets, DateTimeOffset.UtcNow).Count, route));
         }
-        lines.Add("Source : aviationweather.gov, mis à jour toutes les 10 min. L'absence de zone ne garantit pas une météo calme.");
+        lines.Add(Loc.Get("Sigmet_Source_aviationweather_gov_mis_a"));
         SigmetInfo.Text = string.Join("\n", lines);
     }
 
@@ -194,7 +195,7 @@ public partial class MainWindow
             TipText.Inlines.Add(new System.Windows.Documents.LineBreak());
         }
         if (hits.Count > MaxSigmetsInTip)
-            TipText.Inlines.Add(new System.Windows.Documents.Run($"+ {hits.Count - MaxSigmetsInTip} autres SIGMET") { FontStyle = FontStyles.Italic });
+            TipText.Inlines.Add(new System.Windows.Documents.Run(Loc.F("Sigmet_More", hits.Count - MaxSigmetsInTip)) { FontStyle = FontStyles.Italic });
 
         PlaceTip();
         return true;
@@ -227,9 +228,9 @@ public partial class MainWindow
     {
         string where = r.Status switch
         {
-            VerticalStatus.Inside => "tu y es à ton altitude",
-            VerticalStatus.Above => "tu passes au-dessus",
-            _ => "tu passes en dessous",
+            VerticalStatus.Inside => Loc.Get("Sigmet_tu_y_es_a_ton"),
+            VerticalStatus.Above => Loc.Get("Sigmet_tu_passes_au_dessus"),
+            _ => Loc.Get("Sigmet_tu_passes_en_dessous"),
         };
         string warning = r.Status == VerticalStatus.Inside ? "⚠ " : "";
         return string.Create(FrSigmet,

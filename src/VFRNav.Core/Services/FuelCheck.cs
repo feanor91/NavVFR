@@ -1,4 +1,5 @@
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -49,14 +50,12 @@ public static class FuelCheck
     /// <summary>Phrase d'alerte pour le panneau ou la feuille ; null quand le carburant suffit, réserve comprise.</summary>
     public static string? Message(Aircraft aircraft, FlightMode mode, NavLog log)
     {
-        var fr = System.Globalization.CultureInfo.GetCultureInfo("fr-FR");
+        var fr = VFRNav.Core.Localization.Loc.FormatCulture;
         var r = Evaluate(aircraft, mode, log);
         return r.Status switch
         {
-            FuelStatus.EatsReserve => string.Create(fr,
-                $"⚠ la route entame la réserve de {r.ReserveMinutes:0} min de {aircraft.Name} : il manque {r.ShortfallL:N0} L pour la garder (environ {r.ShortfallMinutes:0} min ou {r.ShortfallNm:N0} NM)"),
-            FuelStatus.Insufficient => string.Create(fr,
-                $"⚠ la route dépasse les {aircraft.FuelCapacityL:N0} L de {aircraft.Name} de {r.ShortfallL:N0} L (environ {r.ShortfallMinutes:0} min ou {r.ShortfallNm:N0} NM) : escale ou autre appareil nécessaire"),
+            FuelStatus.EatsReserve => Loc.F(fr, "FuelCheck_la_route_entame_la_reserve", r.ReserveMinutes, aircraft.Name, r.ShortfallL, r.ShortfallMinutes, r.ShortfallNm),
+            FuelStatus.Insufficient => Loc.F(fr, "FuelCheck_la_route_depasse_les_L", aircraft.FuelCapacityL, aircraft.Name, r.ShortfallL, r.ShortfallMinutes, r.ShortfallNm),
             _ => null,
         };
     }

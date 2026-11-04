@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mapsui="clr-namespace:Mapsui.UI.Wpf;assembly=Mapsui.UI.Wpf"
         xmlns:local="clr-namespace:VFRNav.App"
-        Title="MSFS Rhumb" Icon="Assets/VFRNav.ico" Width="1500" Height="950" Background="#0B2A55" Loaded="Ifr_Loaded">
+        Title="{local:Tr Ui_MSFS_Rhumb}" Icon="Assets/VFRNav.ico" Width="1500" Height="950" Background="#0B2A55" Loaded="Ifr_Loaded">
     <Window.Resources>
         <Style TargetType="TextBlock" x:Key="Label">
             <Setter Property="Foreground" Value="#A9C4EE"/>
@@ -33,26 +33,26 @@
             <Expander x:Name="CommonPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Commun" Foreground="White" FontSize="18" FontWeight="Bold"/>
-                        <TextBlock Text="notes, plan de vol, simulateur" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                        <TextBlock Text="{local:Tr Ui_Commun}" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="{local:Tr Ui_notes_plan_de_vol_simulateur}" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel Margin="4,2,0,0">
-                                <TextBlock Style="{StaticResource Header}" Text="NOTES DU POINT"/>
-                <TextBlock x:Name="WpNotesLabel" Style="{StaticResource Label}" Text="Notes du point (sélectionne un point de la route)"/>
+                                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_NOTES_DU_POINT}"/>
+                <TextBlock x:Name="WpNotesLabel" Style="{StaticResource Label}" Text="{local:Tr Ui_Notes_du_point_selectionne_un}"/>
                 <TextBox x:Name="WpNotesBox" AcceptsReturn="True" TextWrapping="Wrap" Height="62" VerticalScrollBarVisibility="Auto" IsEnabled="False"
                          TextChanged="WpNotes_Changed" LostFocus="WpNotes_LostFocus"
-                         ToolTip="Consignes, repères visuels, fréquences... Elles apparaissent sur la feuille de route et au survol du point."/>
+                         ToolTip="{local:Tr Ui_Consignes_reperes_visuels_frequences_Elles}"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="PLAN DE VOL"/>
-                <Button x:Name="PlanButton" Content="Calculer le plan de vol et la feuille de route" Click="CalculatePlan_Click"
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_PLAN_DE_VOL}"/>
+                <Button x:Name="PlanButton" Content="{local:Tr Ui_Calculer_le_plan_de_vol}" Click="CalculatePlan_Click"
                         Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
                 <TextBlock x:Name="PlanStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,8"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="SIMULATEUR"/>
-                <TextBlock x:Name="SimStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Text="Suivi de l'avion : démarrage..."/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_SIMULATEUR}"/>
+                <TextBlock x:Name="SimStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Text="{local:Tr Ui_Suivi_de_l_avion_demarrage}"/>
                 <TextBlock x:Name="SimInfo" Foreground="#7FE3A0" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" Margin="0,4,0,0"/>
-                <CheckBox x:Name="FollowCheck" Content="Centrer la carte sur l'avion" Foreground="#E8EEFC" Margin="0,6,0,0" IsChecked="True"/>
+                <CheckBox x:Name="FollowCheck" Content="{local:Tr Ui_Centrer_la_carte_sur_l}" Foreground="#E8EEFC" Margin="0,6,0,0" IsChecked="True"/>
 
                 </StackPanel>
             </Expander>
@@ -60,11 +60,11 @@
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="VFR" Foreground="White" FontSize="18" FontWeight="Bold"/>
-                        <TextBlock Text="vol à vue" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                        <TextBlock Text="{local:Tr Ui_vol_a_vue}" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel Margin="4,2,0,0">
-                <TextBlock Style="{StaticResource Header}" Text="ROUTE"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_ROUTE}"/>
                 <DataGrid x:Name="VfrRouteGrid" SelectionChanged="RouteGrid_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
                           HeadersVisibility="Column" Height="190" CellEditEnding="RouteGrid_CellEditEnding"
                           SelectionMode="Single" GridLinesVisibility="Horizontal">
@@ -73,36 +73,36 @@
                         <DataGridTextColumn Header="Alt (ft)" Binding="{Binding AltitudeFt, StringFormat=0, TargetNullValue=''}" Width="58"/>
                         <DataGridTextColumn Header="Lat" Binding="{Binding Lat, StringFormat=F4}" Width="56"/>
                         <DataGridTextColumn Header="Lon" Binding="{Binding Lon, StringFormat=F4}" Width="56"/>
-                        <DataGridTextColumn Header="Note" Binding="{Binding NoteMark}" Width="40" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="{local:Tr Ui_Note}" Binding="{Binding NoteMark}" Width="40" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <WrapPanel Margin="0,6,0,0">
                     <Button Content="↑" Click="MoveUp_Click"/>
                     <Button Content="↓" Click="MoveDown_Click"/>
-                    <Button Content="Supprimer" Click="Remove_Click"/>
-                    <Button Content="Inverser" Click="Reverse_Click"/>
-                    <Button Content="Effacer" Click="Clear_Click"/>
-                    <Button Content="Ouvrir .pln" Click="Open_Click" ToolTip="Ouvre un plan de vol MSFS (.pln), de MSFS Rhumb ou d'un autre outil"/>
-                    <Button Content="Enregistrer .pln" Click="Save_Click" ToolTip="Enregistre la route en plan de vol MSFS (.pln), avec les altitudes et les notes"/>
+                    <Button Content="{local:Tr Ui_Supprimer}" Click="Remove_Click"/>
+                    <Button Content="{local:Tr Ui_Inverser}" Click="Reverse_Click"/>
+                    <Button Content="{local:Tr Ui_Effacer}" Click="Clear_Click"/>
+                    <Button Content="{local:Tr Ui_Ouvrir_pln}" Click="Open_Click" ToolTip="{local:Tr Ui_Ouvre_un_plan_de_vol}"/>
+                    <Button Content="{local:Tr Ui_Enregistrer_pln}" Click="Save_Click" ToolTip="{local:Tr Ui_Enregistre_la_route_en_plan}"/>
                 </WrapPanel>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
-                           Text="Clic sur la carte : point tournant. Clic sur un terrain : ajout du terrain. Lat/Lon modifiables dans la liste."/>
+                           Text="{local:Tr Ui_Clic_sur_la_carte_point}"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="APPAREIL VFR"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_APPAREIL_VFR}"/>
                 <DockPanel>
-                    <Button DockPanel.Dock="Right" Content="Gérer…" Click="VfrManage_Click" Margin="6,0,0,0" ToolTip="Créer, modifier, dupliquer ou supprimer des appareils"/>
+                    <Button DockPanel.Dock="Right" Content="{local:Tr Ui_Gerer}" Click="VfrManage_Click" Margin="6,0,0,0" ToolTip="{local:Tr Ui_Creer_modifier_dupliquer_ou_supprimer}"/>
                     <ComboBox x:Name="VfrAircraftBox" DisplayMemberPath="Name" SelectionChanged="VfrAircraft_Changed" VerticalAlignment="Top"/>
                 </DockPanel>
                 <TextBlock x:Name="VfrAircraftInfo" Foreground="#E8EEFC" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,0"/>
-                <TextBlock Style="{StaticResource Label}" Text="Croisière (ft)" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
-                <TextBox x:Name="VfrAltBox" TextChanged="CruiseAlt_Changed" ToolTip="Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt)."/>
+                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Croisiere_ft}" ToolTip="{local:Tr Ui_Altitude_de_croisiere_par_defaut}"/>
+                <TextBox x:Name="VfrAltBox" TextChanged="CruiseAlt_Changed" ToolTip="{local:Tr Ui_Altitude_de_croisiere_par_defaut}"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="DÉGAGEMENT"/>
-                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Aéroports de détournement (codes OACI séparés par un espace)"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_DEGAGEMENT}"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="{local:Tr Ui_Aeroports_de_detournement_codes_OACI}"/>
                 <TextBox x:Name="VfrAltnBox" CharacterCasing="Upper" TextChanged="Altn_Changed"
-                         ToolTip="Terrains de dégagement : distance, cap, temps et carburant depuis le terrain d'arrivée (dernier point de la route), repris sur la feuille de route."/>
+                         ToolTip="{local:Tr Ui_Terrains_de_degagement_distance_cap}"/>
                 <TextBlock x:Name="VfrAltnInfo" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap" Margin="0,4,0,0"/>
-                <TextBlock Style="{StaticResource Header}" Text="VÉRIFICATION DE LA ROUTE"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_VERIFICATION_DE_LA_ROUTE}"/>
                 <TextBlock x:Name="LiveCheck" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap"/>
 
                 </StackPanel>
@@ -112,11 +112,11 @@
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="IFR" Foreground="White" FontSize="18" FontWeight="Bold"/>
-                        <TextBlock Text="vol aux instruments" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                        <TextBlock Text="{local:Tr Ui_vol_aux_instruments}" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel Margin="4,2,0,0">
-                <TextBlock Style="{StaticResource Header}" Text="ROUTE"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_ROUTE}"/>
                 <DataGrid x:Name="IfrRouteGrid" SelectionChanged="RouteGrid_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
                           HeadersVisibility="Column" Height="190" CellEditEnding="RouteGrid_CellEditEnding"
                           SelectionMode="Single" GridLinesVisibility="Horizontal">
@@ -125,200 +125,229 @@
                         <DataGridTextColumn Header="Alt (ft)" Binding="{Binding AltitudeFt, StringFormat=0, TargetNullValue=''}" Width="58"/>
                         <DataGridTextColumn Header="Lat" Binding="{Binding Lat, StringFormat=F4}" Width="56"/>
                         <DataGridTextColumn Header="Lon" Binding="{Binding Lon, StringFormat=F4}" Width="56"/>
-                        <DataGridTextColumn Header="Note" Binding="{Binding NoteMark}" Width="40" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="{local:Tr Ui_Note}" Binding="{Binding NoteMark}" Width="40" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <WrapPanel Margin="0,6,0,0">
                     <Button Content="↑" Click="MoveUp_Click"/>
                     <Button Content="↓" Click="MoveDown_Click"/>
-                    <Button Content="Supprimer" Click="Remove_Click"/>
-                    <Button Content="Inverser" Click="Reverse_Click"/>
-                    <Button Content="Effacer" Click="Clear_Click"/>
-                    <Button Content="Ouvrir .pln" Click="Open_Click" ToolTip="Ouvre un plan de vol MSFS (.pln), de MSFS Rhumb ou d'un autre outil"/>
-                    <Button Content="Enregistrer .pln" Click="Save_Click" ToolTip="Enregistre la route en plan de vol MSFS (.pln), avec les altitudes et les notes"/>
+                    <Button Content="{local:Tr Ui_Supprimer}" Click="Remove_Click"/>
+                    <Button Content="{local:Tr Ui_Inverser}" Click="Reverse_Click"/>
+                    <Button Content="{local:Tr Ui_Effacer}" Click="Clear_Click"/>
+                    <Button Content="{local:Tr Ui_Ouvrir_pln}" Click="Open_Click" ToolTip="{local:Tr Ui_Ouvre_un_plan_de_vol}"/>
+                    <Button Content="{local:Tr Ui_Enregistrer_pln}" Click="Save_Click" ToolTip="{local:Tr Ui_Enregistre_la_route_en_plan}"/>
                 </WrapPanel>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
-                           Text="Clic sur la carte : point tournant. Clic sur un terrain : ajout du terrain. Lat/Lon modifiables dans la liste."/>
+                           Text="{local:Tr Ui_Clic_sur_la_carte_point}"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="APPAREIL IFR"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_APPAREIL_IFR}"/>
                 <DockPanel>
-                    <Button DockPanel.Dock="Right" Content="Gérer…" Click="IfrManage_Click" Margin="6,0,0,0" ToolTip="Créer, modifier, dupliquer ou supprimer des appareils"/>
+                    <Button DockPanel.Dock="Right" Content="{local:Tr Ui_Gerer}" Click="IfrManage_Click" Margin="6,0,0,0" ToolTip="{local:Tr Ui_Creer_modifier_dupliquer_ou_supprimer}"/>
                     <ComboBox x:Name="IfrAircraftBox" DisplayMemberPath="Name" SelectionChanged="IfrAircraft_Changed" VerticalAlignment="Top"/>
                 </DockPanel>
                 <TextBlock x:Name="IfrAircraftInfo" Foreground="#E8EEFC" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,8"/>
                 <TextBlock x:Name="IfrDataLabel" Foreground="#FFD479" FontSize="10.5" TextWrapping="Wrap" Margin="0,0,0,2"/>
                 <UniformGrid Columns="2">
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Départ (OACI)"/>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Depart_OACI}"/>
                         <TextBox x:Name="IfrDepBox" Text="LFPG" CharacterCasing="Upper" TextChanged="IfrAirport_Changed"/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Arrivée (OACI)"/>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Arrivee_OACI}"/>
                         <TextBox x:Name="IfrArrBox" Text="LFMN" CharacterCasing="Upper" TextChanged="IfrAirport_Changed"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Piste de départ"/>
-                        <ComboBox x:Name="IfrDepRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="Piste conseillée d'après le vent du METAR. Choisissez-en une autre pour la forcer ; « Auto » prend le trajet le plus court toutes pistes confondues."/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Piste d'arrivée"/>
-                        <ComboBox x:Name="IfrArrRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="Piste conseillée d'après le vent du METAR. Choisissez-en une autre pour la forcer ; « Auto » prend le trajet le plus court toutes pistes confondues."/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Piste_de_depart}"/>
+                        <ComboBox x:Name="IfrDepRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="{local:Tr Ui_Piste_conseillee_d_apres_le}"/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Piste_d_arrivee}"/>
+                        <ComboBox x:Name="IfrArrRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="{local:Tr Ui_Piste_conseillee_d_apres_le}"/></StackPanel>
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="SID"/>
                         <ComboBox x:Name="IfrSidBox"/></StackPanel>
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="STAR"/>
                         <ComboBox x:Name="IfrStarBox"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Croisière (FL)" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau. À partir du FL195, la route libre (tronçons directs) est autorisée."/>
-                        <TextBox x:Name="IfrFlBox" TextChanged="CruiseAlt_Changed" ToolTip="Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau."/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Croisiere_FL}" ToolTip="{local:Tr Ui_Facultatif_ecarte_les_routes_ATS}"/>
+                        <TextBox x:Name="IfrFlBox" TextChanged="CruiseAlt_Changed" ToolTip="{local:Tr Ui_Facultatif_ecarte_les_routes_ATS_2}"/></StackPanel>
                 </UniformGrid>
                 <TextBlock x:Name="IfrAirportInfo" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,4,0,0"/>
-                <TextBlock Style="{StaticResource Header}" Text="DÉGAGEMENT"/>
-                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Aéroports de détournement (codes OACI séparés par un espace)"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_DEGAGEMENT}"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="{local:Tr Ui_Aeroports_de_detournement_codes_OACI}"/>
                 <TextBox x:Name="IfrAltnBox" CharacterCasing="Upper" TextChanged="Altn_Changed"
-                         ToolTip="Terrains de dégagement : distance, cap, temps et carburant depuis le terrain d'arrivée (dernier point de la route), repris sur la feuille de route."/>
+                         ToolTip="{local:Tr Ui_Terrains_de_degagement_distance_cap}"/>
                 <TextBlock x:Name="IfrAltnInfo" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap" Margin="0,4,0,0"/>
-                <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,8,0,4"
-                        ToolTip="Cherche le plus court chemin SID, routes ATS, STAR et remplace la route par le résultat."/>
+                <CheckBox x:Name="IfrIlsCheck" Content="{local:Tr Ui_Ajouter_la_finale_ILS_indicative}" Margin="0,8,0,0" Foreground="#E8EEFC" IsChecked="True"
+                          ToolTip="{local:Tr Ui_Ajoute_a_la_route_l}"/>
+                <Button Content="{local:Tr Ui_Calculer_la_route_IFR}" Click="IfrCompute_Click" Margin="0,8,0,4"
+                        ToolTip="{local:Tr Ui_Cherche_le_plus_court_chemin}"/>
                 <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>
                 </StackPanel>
             </Expander>
             <Expander x:Name="SettingsPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Paramètres" Foreground="White" FontSize="18" FontWeight="Bold"/>
-                        <TextBlock Text="conditions, carte, filtres, données, mises à jour" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
+                        <TextBlock Text="{local:Tr Ui_Parametres}" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="{local:Tr Ui_conditions_carte_filtres_donnees_mises}" Foreground="#8FB4E8" FontSize="11" VerticalAlignment="Bottom" Margin="8,0,0,2"/>
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel Margin="4,2,0,0">
-                <TextBlock Style="{StaticResource Header}" Text="CONDITIONS"/>
+                <TextBlock Style="{StaticResource Header}" Text="LANGUE / LANGUAGE"/>
+                <ComboBox x:Name="LanguageBox" SelectionChanged="Language_Changed"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Pris en compte au redémarrage. / Applied after restart."/>
+
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_CONDITIONS}"/>
                 <UniformGrid Columns="2">
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Déclinaison (°E +)"/><TextBox x:Name="VarBox" TextChanged="Param_Changed"/>
-                        <CheckBox x:Name="AutoVarCheck" Content="auto (départ)" Foreground="#A9C4EE" FontSize="10" Margin="0,2,0,0" IsChecked="True" Click="AutoVar_Click"/></StackPanel>
-                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="Vent dir (°)"/><TextBox x:Name="WdirBox" TextChanged="Param_Changed"/></StackPanel>
-                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Vent (kt)"/><TextBox x:Name="WspdBox" TextChanged="Param_Changed"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Declinaison_E}"/><TextBox x:Name="VarBox" TextChanged="Param_Changed"/>
+                        <CheckBox x:Name="AutoVarCheck" Content="{local:Tr Ui_auto_depart}" Foreground="#A9C4EE" FontSize="10" Margin="0,2,0,0" IsChecked="True" Click="AutoVar_Click"/></StackPanel>
+                    <StackPanel><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Vent_dir}"/><TextBox x:Name="WdirBox" TextChanged="Param_Changed"/></StackPanel>
+                    <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Vent_kt}"/><TextBox x:Name="WspdBox" TextChanged="Param_Changed"/></StackPanel>
                 </UniformGrid>
-                <CheckBox x:Name="RangeCheck" Content="Cercle de portée autour du départ" Foreground="#E8EEFC" Margin="0,8,0,0" IsChecked="True" Click="Range_Click"
-                          ToolTip="Deux cercles autour du départ : la portée utile (trait plein : tout le carburant moins la réserve de l'appareil) et la portée avec tout le carburant (trait fin tireté). Vitesse de croisière, sans vent."/>
+                <CheckBox x:Name="RangeCheck" Content="{local:Tr Ui_Cercle_de_portee_autour_du}" Foreground="#E8EEFC" Margin="0,8,0,0" IsChecked="True" Click="Range_Click"
+                          ToolTip="{local:Tr Ui_Deux_cercles_autour_du_depart}"/>
                 <TextBlock x:Name="RangeInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="FOND DE CARTE"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_FOND_DE_CARTE}"/>
                 <ComboBox x:Name="BaseMapBox" SelectionChanged="BaseMap_Changed">
-                    <ComboBoxItem Content="Clair (Esri, sans clé)"/>
-                    <ComboBoxItem Content="CARTO Positron (clé CARTO)"/>
-                    <ComboBoxItem Content="CARTO Voyager (clé CARTO)"/>
-                    <ComboBoxItem Content="Relief (OpenTopoMap)"/>
-                    <ComboBoxItem Content="Rues (OpenStreetMap)"/>
+                    <ComboBoxItem Content="{local:Tr Ui_Clair_Esri_sans_cle}"/>
+                    <ComboBoxItem Content="{local:Tr Ui_CARTO_Positron_cle_CARTO}"/>
+                    <ComboBoxItem Content="{local:Tr Ui_CARTO_Voyager_cle_CARTO}"/>
+                    <ComboBoxItem Content="{local:Tr Ui_Relief_OpenTopoMap}"/>
+                    <ComboBoxItem Content="{local:Tr Ui_Rues_OpenStreetMap}"/>
                 </ComboBox>
 
-                <TextBlock Style="{StaticResource Header}" Text="MÉTÉO SUR LA CARTE"/>
-                <CheckBox x:Name="RadarCheck" Content="Radar de précipitations (temps réel)" Foreground="#E8EEFC" Click="WeatherLayer_Click"
-                          ToolTip="Pluie, averses et neige mesurées par les radars météo (RainViewer), actualisées toutes les 10 minutes."/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_METEO_SUR_LA_CARTE}"/>
+                <CheckBox x:Name="RadarCheck" Content="{local:Tr Ui_Radar_de_precipitations_temps_reel}" Foreground="#E8EEFC" Click="WeatherLayer_Click"
+                          ToolTip="{local:Tr Ui_Pluie_averses_et_neige_mesurees}"/>
                 <DockPanel Margin="18,2,0,4">
-                    <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
+                    <TextBlock DockPanel.Dock="Left" Text="{local:Tr Ui_Opacite}" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
                     <Slider x:Name="RadarOpacitySlider" Minimum="0.1" Maximum="1" Value="0.7" ValueChanged="WeatherOpacity_Changed"/>
                 </DockPanel>
-                <CheckBox x:Name="RadarAnimCheck" Content="Animer le radar (4 images, 30 min)" Foreground="#E8EEFC" Margin="18,0,0,4" IsEnabled="False" Click="RadarAnim_Click"
-                          ToolTip="Fait défiler les 4 dernières images du radar. La première boucle charge les images une à une (RainViewer limite le nombre de requêtes) ; ensuite elles sont en mémoire."/>
+                <CheckBox x:Name="RadarAnimCheck" Content="{local:Tr Ui_Animer_le_radar_4_images}" Foreground="#E8EEFC" Margin="18,0,0,4" IsEnabled="False" Click="RadarAnim_Click"
+                          ToolTip="{local:Tr Ui_Fait_defiler_les_4_dernieres}"/>
                 <CheckBox x:Name="CloudCoverCheck" Margin="0,3,0,0" Foreground="#E8EEFC" Click="WeatherLayer_Click"
-                          ToolTip="Où il y a des nuages, à tous les niveaux : le ciel couvert de nuages bas (stratus) y est visible, de jour comme de nuit. Ne dit pas à quelle hauteur.">
+                          ToolTip="{local:Tr Ui_Ou_il_y_a_des}">
                     <StackPanel Orientation="Horizontal">
                         <Border x:Name="CloudCoverSwatch" Width="12" Height="12" CornerRadius="2" Margin="0,0,6,0" VerticalAlignment="Center"/>
-                        <TextBlock Text="Couverture nuageuse (tous niveaux)"/>
+                        <TextBlock Text="{local:Tr Ui_Couverture_nuageuse_tous_niveaux}"/>
                     </StackPanel>
                 </CheckBox>
                 <DockPanel Margin="18,2,0,4">
-                    <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
+                    <TextBlock DockPanel.Dock="Left" Text="{local:Tr Ui_Opacite}" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
                     <Slider x:Name="CloudCoverOpacitySlider" Minimum="0.1" Maximum="1" Value="0.5" ValueChanged="WeatherOpacity_Changed"/>
                 </DockPanel>
                 <CheckBox x:Name="CloudTopsCheck" Margin="0,3,0,0" Foreground="#E8EEFC" Click="WeatherLayer_Click"
-                          ToolTip="Nuages épais ou élevés (orages, fronts), d'après l'infrarouge de Meteosat : plus c'est froid, plus c'est opaque. Les stratus bas n'y apparaissent pas.">
+                          ToolTip="{local:Tr Ui_Nuages_epais_ou_eleves_orages}">
                     <StackPanel Orientation="Horizontal">
                         <Border x:Name="CloudTopsSwatch" Width="12" Height="12" CornerRadius="2" Margin="0,0,6,0" VerticalAlignment="Center"/>
-                        <TextBlock Text="Sommets de nuages froids (infrarouge)"/>
+                        <TextBlock Text="{local:Tr Ui_Sommets_de_nuages_froids_infrarouge}"/>
                     </StackPanel>
                 </CheckBox>
                 <DockPanel Margin="18,2,0,4">
-                    <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
+                    <TextBlock DockPanel.Dock="Left" Text="{local:Tr Ui_Opacite}" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
                     <Slider x:Name="CloudTopsOpacitySlider" Minimum="0.1" Maximum="1" Value="0.7" ValueChanged="WeatherOpacity_Changed"/>
                 </DockPanel>
-                <CheckBox x:Name="SigmetCheck" Content="SIGMET (phénomènes dangereux)" Margin="0,6,0,0" Foreground="#E8EEFC" Click="Sigmet_Click"
-                          ToolTip="Zones d'orages, de turbulence, de givrage, de cendres volcaniques... signalées par les centres météo (aviationweather.gov). Un contour plein et épais : le SIGMET traverse ta route. Survole une zone pour lire le message."/>
+                <CheckBox x:Name="SigmetCheck" Content="{local:Tr Ui_SIGMET_phenomenes_dangereux}" Margin="0,6,0,0" Foreground="#E8EEFC" Click="Sigmet_Click"
+                          ToolTip="{local:Tr Ui_Zones_d_orages_de_turbulence}"/>
                 <DockPanel Margin="18,2,0,2">
-                    <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
+                    <TextBlock DockPanel.Dock="Left" Text="{local:Tr Ui_Opacite}" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
                     <Slider x:Name="SigmetOpacitySlider" Minimum="0.1" Maximum="1" Value="0.7" ValueChanged="SigmetOpacity_Changed"/>
                 </DockPanel>
-                <CheckBox x:Name="SigmetAltCheck" Content="Seulement à mon altitude" Margin="18,0,0,4" Foreground="#E8EEFC" Click="Sigmet_Click"
-                          ToolTip="Masque les SIGMET dont la tranche d'altitude ne contient pas ton altitude de croisière."/>
+                <CheckBox x:Name="SigmetAltCheck" Content="{local:Tr Ui_Seulement_a_mon_altitude}" Margin="18,0,0,4" Foreground="#E8EEFC" Click="Sigmet_Click"
+                          ToolTip="{local:Tr Ui_Masque_les_SIGMET_dont_la}"/>
                 <TextBlock x:Name="SigmetInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <TextBlock x:Name="WeatherInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap">
-                    <Run Text="Weather data by "/><Hyperlink NavigateUri="https://www.rainviewer.com" RequestNavigate="WeatherLink_Navigate">RainViewer</Hyperlink><Run Text=" · nuages : "/><Hyperlink NavigateUri="https://view.eumetsat.int" RequestNavigate="WeatherLink_Navigate">EUMETSAT</Hyperlink><Run Text=". Météo réelle : elle peut différer de celle de MSFS."/>
+                    <Run Text="{local:Tr Ui_Weather_data_by}"/><Hyperlink NavigateUri="https://www.rainviewer.com" RequestNavigate="WeatherLink_Navigate">RainViewer</Hyperlink><Run Text="{local:Tr Ui_nuages}"/><Hyperlink NavigateUri="https://view.eumetsat.int" RequestNavigate="WeatherLink_Navigate">EUMETSAT</Hyperlink><Run Text="{local:Tr Ui_Meteo_reelle_elle_peut_differer}"/>
                 </TextBlock>
 
-                <TextBlock Style="{StaticResource Header}" Text="BALISES"/>
-                <CheckBox x:Name="NavVorCheck" Content="VOR (losange violet)" Foreground="#E8EEFC" Click="NavFilter_Click"/>
-                <CheckBox x:Name="NavNdbCheck" Content="NDB / ADF (rond orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="NavFilter_Click"/>
-                <CheckBox x:Name="ReportCheck" Content="Points de report VFR (triangle jaune)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="ReportFilter_Click"
-                          ToolTip="Points de report des aérodromes, lus sur leurs cartes VAC . Un clic sur un triangle l'ajoute à la route."/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_BALISES}"/>
+                <CheckBox x:Name="NavVorCheck" Content="{local:Tr Ui_VOR_losange_violet}" Foreground="#E8EEFC" Click="NavFilter_Click"/>
+                <CheckBox x:Name="NavNdbCheck" Content="{local:Tr Ui_NDB_ADF_rond_orange}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="NavFilter_Click"/>
+                <CheckBox x:Name="ReportCheck" Content="{local:Tr Ui_Points_de_report_VFR_triangle}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="ReportFilter_Click"
+                          ToolTip="{local:Tr Ui_Points_de_report_des_aerodromes}"/>
                 <TextBlock x:Name="NavCount" Style="{StaticResource Label}"/>
-                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Un clic sur une balise l'ajoute à la route."/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="{local:Tr Ui_Un_clic_sur_une_balise}"/>
 
-                <CheckBox x:Name="WxDotsCheck" Content="Pastilles météo (couleur = catégorie de vol)" Foreground="#E8EEFC" Margin="0,8,0,0" Click="WxDots_Click"/>
+                <CheckBox x:Name="WxDotsCheck" Content="{local:Tr Ui_Pastilles_meteo_couleur_categorie_de}" Foreground="#E8EEFC" Margin="0,8,0,0" Click="WxDots_Click"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
-                           Text="Vert VFR · bleu MVFR · rouge IFR · violet LIFR · gris : pas de METAR. Contour doré : carte VAC disponible. Texte sous le code : visibilité."/>
+                           Text="{local:Tr Ui_Vert_VFR_bleu_MVFR_rouge}"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="FILTRES TERRAINS"/>
-                <CheckBox x:Name="FWithCode" Content="Avec code (LFPL, LF3126…)" Foreground="#E8EEFC" Click="Filter_Click"/>
-                <CheckBox x:Name="FWithoutCode" Content="Sans code (FR-xxxx)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
-                <CheckBox x:Name="FVacOnly" Content="Seulement avec carte VAC" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_FILTRES_TERRAINS}"/>
+                <CheckBox x:Name="FWithCode" Content="{local:Tr Ui_Avec_code_LFPL_LF3126}" Foreground="#E8EEFC" Click="Filter_Click"/>
+                <CheckBox x:Name="FWithoutCode" Content="{local:Tr Ui_Sans_code_FR_xxxx}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
+                <CheckBox x:Name="FVacOnly" Content="{local:Tr Ui_Seulement_avec_carte_VAC}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
                 <WrapPanel Margin="0,6,0,0">
-                    <CheckBox x:Name="FLarge" Content="Grands" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
-                    <CheckBox x:Name="FMedium" Content="Moyens" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
-                    <CheckBox x:Name="FSmall" Content="Petits" Foreground="#E8EEFC" Click="Filter_Click"/>
+                    <CheckBox x:Name="FLarge" Content="{local:Tr Ui_Grands}" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
+                    <CheckBox x:Name="FMedium" Content="{local:Tr Ui_Moyens}" Foreground="#E8EEFC" Margin="0,0,12,0" Click="Filter_Click"/>
+                    <CheckBox x:Name="FSmall" Content="{local:Tr Ui_Petits}" Foreground="#E8EEFC" Click="Filter_Click"/>
                 </WrapPanel>
-                <TextBlock x:Name="FilterCount" Style="{StaticResource Label}"/>
+                <CheckBox x:Name="FScheduled" Content="{local:Tr Ui_Service_regulier_seulement}" Foreground="#E8EEFC" Margin="0,6,0,0" Click="Filter_Click"/>
+                <CheckBox x:Name="FIata" Content="{local:Tr Ui_Avec_code_IATA_aeroports_commerciaux}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
+                <DockPanel Margin="0,6,0,0">
+                    <TextBox x:Name="FMinRunway" DockPanel.Dock="Right" Width="64" TextChanged="FilterText_Changed"/>
+                    <CheckBox x:Name="FPaved" Content="{local:Tr Ui_Piste_en_dur_longueur_min}" Foreground="#E8EEFC" VerticalAlignment="Center" Click="Filter_Click"/>
+                </DockPanel>
+                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Pays_affiches_codes_ISO_FR}"/>
+                <TextBox x:Name="FCountries" TextChanged="FilterText_Changed"/>
+                <ComboBox x:Name="FContinent" Margin="0,4,0,0" SelectionChanged="FilterChoice_Changed"/>
+                <DockPanel Margin="0,6,0,0">
+                    <TextBox x:Name="FNearRouteNm" DockPanel.Dock="Right" Width="64" TextChanged="FilterText_Changed"/>
+                    <CheckBox x:Name="FNearRoute" Content="{local:Tr Ui_Pres_de_la_route_NM}" Foreground="#E8EEFC" VerticalAlignment="Center" Click="Filter_Click"/>
+                </DockPanel>
+                <TextBlock x:Name="FilterCount" Style="{StaticResource Label}" TextWrapping="Wrap"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
+                           Text="{local:Tr Ui_Les_terrains_se_repartissent_selon}"/>
 
-                <CheckBox x:Name="ZoneHelpCheck" Content="Aide des zones en bas de la carte" Foreground="#E8EEFC" Margin="0,8,0,0" Click="ZoneHelp_Click"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_RECHERCHE_DE_TERRAIN}"/>
+                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Code_OACI_IATA_nom_ou}"/>
+                <TextBox x:Name="AptSearchBox" TextChanged="AptSearch_Changed"/>
+                <ListBox x:Name="AptSearchList" MaxHeight="170" Margin="0,4,0,0" SelectionChanged="AptSearchList_SelectionChanged"/>
+                <Button x:Name="AptSearchAdd" Content="{local:Tr Ui_Ajouter_a_la_route}" Margin="0,4,0,0" Click="AptSearchAdd_Click" IsEnabled="False"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="FILTRES ESPACES AÉRIENS"/>
-                <CheckBox x:Name="ARestricted" Content="Zones R / D / P / TSA (rouge)" Foreground="#E8EEFC" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="AControlled" Content="CTR / TMA / CTA (bleu)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="ARadio" Content="RMZ / TMZ / ATZ (violet)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="ALeisure" Content="Planeur / ULM / parachutage (orange)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
-                <CheckBox x:Name="ASectors" Content="FIR / secteurs FIS / autres (gris)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="ZoneHelpCheck" Content="{local:Tr Ui_Aide_des_zones_en_bas}" Foreground="#E8EEFC" Margin="0,8,0,0" Click="ZoneHelp_Click"/>
+
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_FILTRES_ESPACES_AERIENS}"/>
+                <CheckBox x:Name="ARestricted" Content="{local:Tr Ui_Zones_R_D_P_TSA}" Foreground="#E8EEFC" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="AControlled" Content="{local:Tr Ui_CTR_TMA_CTA_bleu}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="ARadio" Content="{local:Tr Ui_RMZ_TMZ_ATZ_violet}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="ALeisure" Content="{local:Tr Ui_Planeur_ULM_parachutage_orange}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
+                <CheckBox x:Name="ASectors" Content="{local:Tr Ui_FIR_secteurs_FIS_autres_gris}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
                 <DockPanel Margin="0,6,0,0">
                     <TextBox x:Name="AFloorBox" DockPanel.Dock="Right" Width="64" TextChanged="AirspaceFloor_Changed"/>
-                    <CheckBox x:Name="AFloorCheck" Content="Masquer si plancher &gt; (ft)" Foreground="#E8EEFC" VerticalAlignment="Center" Click="AirspaceFloor_Changed"/>
+                    <CheckBox x:Name="AFloorCheck" Content="{local:Tr Ui_Masquer_si_plancher_ft}" Foreground="#E8EEFC" VerticalAlignment="Center" Click="AirspaceFloor_Changed"/>
                 </DockPanel>
                 <TextBlock x:Name="AirspaceCount" Style="{StaticResource Label}"/>
-                <TextBlock Style="{StaticResource Header}" Text="DONNÉES"/>
-                <TextBlock Style="{StaticResource Label}" Text="Pays (code ISO)"/>
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_DONNEES}"/>
+                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Pays_des_balises_et_espaces}"/>
                 <TextBox x:Name="CountryBox" MaxLength="2"/>
-                <TextBlock Style="{StaticResource Label}" Text="Clé API OpenAIP (espaces aériens, optionnel)"/>
+                <Button Content="{local:Tr Ui_Actualiser_les_terrains_du_monde}" Margin="0,4,0,0" Click="RefreshWorldAirports_Click"/>
+                <TextBlock x:Name="WorldAirportsInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
+                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Cle_API_OpenAIP_espaces_aeriens}"/>
                 <DockPanel>
-                    <Button x:Name="KeyEditButton" DockPanel.Dock="Right" Content="Valider" Click="KeyEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
+                    <Button x:Name="KeyEditButton" DockPanel.Dock="Right" Content="{local:Tr Ui_Valider}" Click="KeyEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
                     <PasswordBox x:Name="KeyBox"/>
                 </DockPanel>
-                <TextBlock Style="{StaticResource Label}" Text="Clé CARTO (fond de carte CARTO, optionnel)"/>
+                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Cle_CARTO_fond_de_carte}"/>
                 <DockPanel>
-                    <Button x:Name="CartoEditButton" DockPanel.Dock="Right" Content="Valider" Click="CartoEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
+                    <Button x:Name="CartoEditButton" DockPanel.Dock="Right" Content="{local:Tr Ui_Valider}" Click="CartoEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
                     <PasswordBox x:Name="CartoKeyBox"/>
                 </DockPanel>
-                <TextBlock Style="{StaticResource Label}" Text="Clé ICAO API Data Service (NOTAM, optionnel)"/>
+                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Cle_ICAO_API_Data_Service}"/>
                 <DockPanel>
-                    <Button x:Name="NotamEditButton" DockPanel.Dock="Right" Content="Valider" Click="NotamEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
+                    <Button x:Name="NotamEditButton" DockPanel.Dock="Right" Content="{local:Tr Ui_Valider}" Click="NotamEdit_Click" Margin="6,0,0,0" MinWidth="64"/>
                     <PasswordBox x:Name="NotamKeyBox"/>
                 </DockPanel>
-                <TextBlock Style="{StaticResource Label}" Text="Dossier des cartes VAC (PDF du SIA, AD-2.LFxx.pdf)"/>
+                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Dossier_des_cartes_VAC_PDF}"/>
                 <DockPanel>
                     <Button DockPanel.Dock="Right" Content="…" Click="BrowseVac_Click" Margin="6,0,0,0"/>
                     <TextBox x:Name="VacBox"/>
                 </DockPanel>
-                <Button Content="Recharger" Click="Reload_Click" Margin="0,8,0,0"/>
-                <Button x:Name="VacUpdateButton" Content="Mettre à jour les cartes VAC (SIA)" Click="VacUpdate_Click" Margin="0,6,0,0"
-                        ToolTip="Télécharge depuis le site du SIA les cartes VAC du cycle AIRAC en vigueur, à ta demande : seules les cartes différentes de celles du dossier sont remplacées. Un second clic arrête."/>
+                <Button Content="{local:Tr Ui_Recharger}" Click="Reload_Click" Margin="0,8,0,0"/>
+                <Button x:Name="VacUpdateButton" Content="{local:Tr Ui_Mettre_a_jour_les_cartes}" Click="VacUpdate_Click" Margin="0,6,0,0"
+                        ToolTip="{local:Tr Ui_Telecharge_depuis_le_site_du}"/>
                 <TextBlock x:Name="StatusText" Style="{StaticResource Label}" TextWrapping="Wrap"/>
-                                <TextBlock Style="{StaticResource Header}" Text="DONNÉES DE NAVIGATION IFR"/>
-                <Button Content="Charger les données AIRAC (SIA)…" Click="IfrLoad_Click" Margin="0,0,0,0"
-                        ToolTip="Export AIXM 4.5 gratuit de la boutique du SIA : export_xml_bd_SIA_aaaa-mm-jj.zip. Il contient les routes ATS mais pas les SID/STAR."/>
-                <Button x:Name="IfrSimButton" Content="Relire ces deux terrains dans MSFS (facultatif)" Click="IfrSim_Click" Margin="0,0,0,0"
-                        ToolTip="Facultatif : les SID et STAR de tous les terrains sont déjà enregistrées, il suffit de saisir un autre code OACI. Ce bouton remet à jour tout de suite le départ et l'arrivée saisis, MSFS lancé."/>
-                <Button x:Name="IfrSimAllButton" Content="Enregistrer / mettre à jour les SID/STAR du monde (MSFS)" Click="IfrSimAll_Click" Margin="0,0,0,0"
-                        ToolTip="MSFS lancé : lit les SID et STAR de tous les terrains du simulateur et les enregistre dans les données de MSFS Rhumb (quelques minutes). Ensuite le calcul de route n'a plus besoin du simulateur. À refaire à la main quand MSFS met à jour ses données : seuls les terrains qui ont changé sont réécrits. Un second clic arrête la lecture."/>
-                <Button x:Name="IfrNetworkButton" Content="Enregistrer / mettre à jour les routes ATS hors de France (MSFS)" Click="IfrNetwork_Click" Margin="0,0,0,0"
-                        ToolTip="MSFS lancé : explore les routes ATS du monde de proche en proche, à partir des points des SID/STAR enregistrées, et les enregistre dans les données de MSFS Rhumb. La France reste celle du SIA. Long (jusqu'à une heure). Un second clic arrête la lecture sans rien enregistrer."/>
+                                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_DONNEES_DE_NAVIGATION_IFR}"/>
+                <Button Content="{local:Tr Ui_Charger_les_donnees_AIRAC_SIA}" Click="IfrLoad_Click" Margin="0,0,0,0"
+                        ToolTip="{local:Tr Ui_Export_AIXM_4_5_gratuit}"/>
+                <Button x:Name="IfrSimButton" Content="{local:Tr Ui_Relire_ces_deux_terrains_dans}" Click="IfrSim_Click" Margin="0,0,0,0"
+                        ToolTip="{local:Tr Ui_Facultatif_les_SID_et_STAR}"/>
+                <Button x:Name="IfrSimAllButton" Content="{local:Tr Ui_Enregistrer_mettre_a_jour_les}" Click="IfrSimAll_Click" Margin="0,0,0,0"
+                        ToolTip="{local:Tr Ui_MSFS_lance_lit_les_SID}"/>
+                <Button x:Name="IfrNetworkButton" Content="{local:Tr Ui_Enregistrer_mettre_a_jour_les_2}" Click="IfrNetwork_Click" Margin="0,0,0,0"
+                        ToolTip="{local:Tr Ui_MSFS_lance_explore_les_routes}"/>
                 </StackPanel>
             </Expander>
             </StackPanel>
@@ -337,24 +366,24 @@
                     <Border x:Name="SigmetLegendBox" Visibility="Collapsed" IsHitTestVisible="False" HorizontalAlignment="Right" Margin="10,0,10,6"
                             Background="#EBFFFFFF" BorderBrush="#1D4A8A" BorderThickness="1" CornerRadius="4" Padding="8,5" MaxWidth="330">
                         <StackPanel>
-                            <TextBlock Text="SIGMET (phénomènes dangereux)" Foreground="#0B2A55" FontSize="11.5" FontWeight="SemiBold"/>
+                            <TextBlock Text="{local:Tr Ui_SIGMET_phenomenes_dangereux}" Foreground="#0B2A55" FontSize="11.5" FontWeight="SemiBold"/>
                             <WrapPanel x:Name="SigmetLegendItems" Margin="0,3,0,0"/>
-                            <TextBlock Text="Contour plein et épais : traverse ta route. Étiquette : phénomène et niveau maximal." Foreground="#5F6978" FontSize="9.5" Margin="0,2,0,0" TextWrapping="Wrap"/>
+                            <TextBlock Text="{local:Tr Ui_Contour_plein_et_epais_traverse}" Foreground="#5F6978" FontSize="9.5" Margin="0,2,0,0" TextWrapping="Wrap"/>
                         </StackPanel>
                     </Border>
                     <Border x:Name="RadarLegendBox" Visibility="Collapsed" IsHitTestVisible="False" HorizontalAlignment="Right" Margin="10,0,10,0"
                             Background="#EBFFFFFF" BorderBrush="#1D4A8A" BorderThickness="1" CornerRadius="4" Padding="8,6">
                         <StackPanel>
-                            <TextBlock Text="Précipitations (radar)" Foreground="#0B2A55" FontSize="11.5" FontWeight="SemiBold"/>
+                            <TextBlock Text="{local:Tr Ui_Precipitations_radar}" Foreground="#0B2A55" FontSize="11.5" FontWeight="SemiBold"/>
                             <UniformGrid x:Name="RadarLegendSwatches" Rows="1" Margin="0,4,0,0"/>
                             <DockPanel Margin="0,1,0,0">
                                 <TextBlock DockPanel.Dock="Right" x:Name="RadarLegendStrong" Foreground="#5F6978" FontSize="9.5"/>
                                 <TextBlock x:Name="RadarLegendWeak" Foreground="#5F6978" FontSize="9.5"/>
                             </DockPanel>
-                            <TextBlock Text="mm/h indicatifs. 45–50 dBZ et plus : orage, grêle possible." Foreground="#5F6978" FontSize="9.5" Margin="0,2,0,0"/>
+                            <TextBlock Text="{local:Tr Ui_mm_h_indicatifs_4550_dBZ}" Foreground="#5F6978" FontSize="9.5" Margin="0,2,0,0"/>
                             <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
                                 <Border x:Name="RadarSnowBar" Width="62" Height="10" CornerRadius="2" BorderBrush="#99000000" BorderThickness="0.5"/>
-                                <TextBlock Text="neige (clair : faible, foncé : forte)" Foreground="#5F6978" FontSize="9.5" Margin="6,-1,0,0"/>
+                                <TextBlock Text="{local:Tr Ui_neige_clair_faible_fonce_forte}" Foreground="#5F6978" FontSize="9.5" Margin="6,-1,0,0"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
@@ -362,7 +391,7 @@
                             Background="#F5FFFFFF" BorderBrush="#1D4A8A" BorderThickness="1" CornerRadius="4" Padding="10,6">
                         <DockPanel>
                             <Button DockPanel.Dock="Right" VerticalAlignment="Top" Content="✕" Padding="6,0" Margin="8,0,0,0"
-                                    Click="ZoneHelpClose_Click" ToolTip="Masquer : la fiche revient au prochain contour survolé (case à décocher dans le panneau de gauche pour la désactiver)"/>
+                                    Click="ZoneHelpClose_Click" ToolTip="{local:Tr Ui_Masquer_la_fiche_revient_au}"/>
                             <ScrollViewer MaxHeight="190" VerticalScrollBarVisibility="Auto">
                                 <TextBlock x:Name="ZoneHelpText" TextWrapping="Wrap" Foreground="#0B2A55" FontSize="12.5"/>
                             </ScrollViewer>
@@ -370,67 +399,67 @@
                     </Border>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
-                    <Button x:Name="LiveInfoButton" Content="Infos en direct" Margin="0,0,8,0" Width="132" Height="34"
+                    <Button x:Name="LiveInfoButton" Content="{local:Tr Ui_Infos_en_direct}" Margin="0,0,8,0" Width="132" Height="34"
                             Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"
-                            Click="LiveInfo_Click" ToolTip="Altitude du sol, météo et zones du point suivi, dans une fenêtre à part"/>
-                    <Button x:Name="GlossaryButton" Content="Glossaire" Margin="0,0,8,0" Width="132" Height="34"
+                            Click="LiveInfo_Click" ToolTip="{local:Tr Ui_Altitude_du_sol_meteo_et}"/>
+                    <Button x:Name="GlossaryButton" Content="{local:Tr Ui_Glossaire}" Margin="0,0,8,0" Width="132" Height="34"
                             Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"
-                            Click="Glossary_Click" ToolTip="Sigles des cartes : TMA, CTR, QNH, RMZ…"/>
-                    <Button x:Name="VacToggle" Content="Cartes VAC" Margin="0" Width="132" Height="34"
+                            Click="Glossary_Click" ToolTip="{local:Tr Ui_Sigles_des_cartes_TMA_CTR}"/>
+                    <Button x:Name="VacToggle" Content="{local:Tr Ui_Cartes_VAC}" Margin="0" Width="132" Height="34"
                             Padding="12,6" Background="#0B2A55" Foreground="White" BorderBrush="#5AB0FF" FontWeight="SemiBold"
-                            Click="ToggleVac_Click" ToolTip="Afficher / masquer le lecteur de cartes VAC"/>
+                            Click="ToggleVac_Click" ToolTip="{local:Tr Ui_Afficher_masquer_le_lecteur_de}"/>
                 </StackPanel>
             </Grid>
             <GridSplitter x:Name="SplitA" Height="6" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#1D4A8A"/>
             <GridSplitter x:Name="SplitB" Height="6" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#1D4A8A" Visibility="Collapsed"/>
             <GridSplitter x:Name="SplitV" Width="6" HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="#1D4A8A" Visibility="Collapsed"/>
             <TabControl x:Name="BottomTabs" Grid.Row="2">
-                <TabItem Header="Log de nav">
+                <TabItem Header="{local:Tr Ui_Log_de_nav}">
                     <DockPanel>
                         <TextBlock x:Name="TotalText" DockPanel.Dock="Bottom" Margin="6" FontWeight="Bold"/>
                         <DataGrid x:Name="LogGrid" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="De → A" Binding="{Binding Route}" Width="*"/>
-                                <DataGridTextColumn Header="Dist (NM)" Binding="{Binding DistanceNm, StringFormat=F1}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Dist_NM}" Binding="{Binding DistanceNm, StringFormat=F1}"/>
                                 <DataGridTextColumn Header="Rv" Binding="{Binding TrueCourse, StringFormat=000°}"/>
                                 <DataGridTextColumn Header="Rm" Binding="{Binding MagneticCourse, StringFormat=000°}"/>
-                                <DataGridTextColumn Header="Dérive" Binding="{Binding WindCorrection, StringFormat=+0;-0;0}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Derive}" Binding="{Binding WindCorrection, StringFormat=+0;-0;0}"/>
                                 <DataGridTextColumn Header="Cm" Binding="{Binding MagneticHeading, StringFormat=000°}"/>
                                 <DataGridTextColumn Header="GS (kt)" Binding="{Binding GroundSpeedKt, StringFormat=F0}"/>
-                                <DataGridTextColumn Header="Temps" Binding="{Binding Time}"/>
-                                <DataGridTextColumn Header="Carb (L)" Binding="{Binding FuelL, StringFormat=F1}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Temps}" Binding="{Binding Time}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Carb_L}" Binding="{Binding FuelL, StringFormat=F1}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </DockPanel>
                 </TabItem>
-                <TabItem Header="METAR / TAF">
+                <TabItem Header="{local:Tr Ui_METAR_TAF}">
                     <DockPanel>
                         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="6">
-                            <Button Content="Actualiser" Click="Weather_Click"/>
-                            <CheckBox x:Name="WxRawCheck" Content="Afficher aussi le texte brut" VerticalAlignment="Center" Margin="8,0,0,6" Click="WxRaw_Click"/>
+                            <Button Content="{local:Tr Ui_Actualiser}" Click="Weather_Click"/>
+                            <CheckBox x:Name="WxRawCheck" Content="{local:Tr Ui_Afficher_aussi_le_texte_brut}" VerticalAlignment="Center" Margin="8,0,0,6" Click="WxRaw_Click"/>
                         </StackPanel>
                         <TextBox x:Name="WxText" IsReadOnly="True" FontFamily="Consolas" FontSize="13" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
-                                 Text="Ajoutez des terrains à la route puis cliquez sur Actualiser."/>
+                                 Text="{local:Tr Ui_Ajoutez_des_terrains_a_la}"/>
                     </DockPanel>
                 </TabItem>
-                <TabItem Header="NOTAM">
+                <TabItem Header="{local:Tr Ui_NOTAM}">
                     <DockPanel>
                         <WrapPanel DockPanel.Dock="Top" Margin="6,6,6,0">
-                            <Button Content="Ouvrir SOFIA-Briefing (SIA)" Click="OpenSofia_Click"
-                                    ToolTip="NOTAM officiels français, dans le navigateur (compte gratuit SIA)"/>
-                            <Button Content="Copier les codes de la route" Click="CopyCodes_Click"/>
-                            <Button Content="Actualiser (clé ICAO)" Click="Notam_Click"/>
+                            <Button Content="{local:Tr Ui_Ouvrir_SOFIA_Briefing_SIA}" Click="OpenSofia_Click"
+                                    ToolTip="{local:Tr Ui_NOTAM_officiels_francais_dans_le}"/>
+                            <Button Content="{local:Tr Ui_Copier_les_codes_de_la}" Click="CopyCodes_Click"/>
+                            <Button Content="{local:Tr Ui_Actualiser_cle_ICAO}" Click="Notam_Click"/>
                             <TextBlock Style="{StaticResource Label}" Margin="4,0,0,6" VerticalAlignment="Center"
-                                       Text="ICAO : un appel par terrain, gardé 30 min (quota gratuit 100)."/>
+                                       Text="{local:Tr Ui_ICAO_un_appel_par_terrain}"/>
                         </WrapPanel>
                         <TextBox x:Name="NotamText" IsReadOnly="True" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
-                                 Text="NOTAM officiels : « Ouvrir SOFIA-Briefing » (navigateur, compte gratuit du SIA). Affichage direct ici : saisissez une clé ICAO (panneau Données) puis « Actualiser »."/>
+                                 Text="{local:Tr Ui_NOTAM_officiels_Ouvrir_SOFIA_Briefing}"/>
                     </DockPanel>
                 </TabItem>
-                <TabItem Header="Profil">
+                <TabItem Header="{local:Tr Ui_Profil}">
                     <DockPanel>
                         <TextBlock x:Name="ProfileStatus" DockPanel.Dock="Top" Margin="8,4" Foreground="#0B2A55"
-                                   Text="Relief sous la route, zones traversées et altitude de croisière : se remplit avec « Calculer le plan de vol »."/>
+                                   Text="{local:Tr Ui_Relief_sous_la_route_zones}"/>
                         <local:ProfileChart x:Name="ProfileView" Margin="4"/>
                     </DockPanel>
                 </TabItem>
@@ -438,24 +467,24 @@
             <Border x:Name="VacPanel" Visibility="Collapsed" Background="#0B2A55" BorderBrush="#1D4A8A" BorderThickness="1" Padding="6">
                 <DockPanel>
                     <WrapPanel DockPanel.Dock="Top">
-                        <TextBox x:Name="IcaoBox" Width="90" Margin="0,0,6,6" KeyDown="IcaoBox_KeyDown" ToolTip="Code OACI ou nom"/>
-                        <Button Content="Afficher" Click="ShowAerodrome_Click"/>
+                        <TextBox x:Name="IcaoBox" Width="90" Margin="0,0,6,6" KeyDown="IcaoBox_KeyDown" ToolTip="{local:Tr Ui_Code_OACI_ou_nom}"/>
+                        <Button Content="{local:Tr Ui_Afficher}" Click="ShowAerodrome_Click"/>
                         <Button Content="◀" Click="PrevPage_Click"/>
                         <TextBlock x:Name="PageText" Foreground="White" VerticalAlignment="Center" Margin="0,0,8,6" Text="-"/>
                         <Button Content="▶" Click="NextPage_Click"/>
-                        <Button Content="−" Click="ZoomOut_Click" ToolTip="Zoom arrière"/>
-                        <Button Content="+" Click="ZoomIn_Click" ToolTip="Zoom avant"/>
-                        <Button Content="Ajuster" Click="ZoomFit_Click" ToolTip="Ajuster à la largeur du panneau"/>
-                        <Button x:Name="LargeButton" Content="Agrandir" Click="Large_Click"/>
-                        <Button x:Name="DockButton" Content="Placer en bas" Click="Dock_Click"/>
-                        <Button Content="Ajouter à la route" Click="AddAerodrome_Click"/>
-                        <Button Content="Ouvrir le PDF" Click="OpenPdf_Click"/>
-                        <Button Content="✕" Click="ToggleVac_Click" ToolTip="Masquer le lecteur"/>
+                        <Button Content="−" Click="ZoomOut_Click" ToolTip="{local:Tr Ui_Zoom_arriere}"/>
+                        <Button Content="+" Click="ZoomIn_Click" ToolTip="{local:Tr Ui_Zoom_avant}"/>
+                        <Button Content="{local:Tr Ui_Ajuster}" Click="ZoomFit_Click" ToolTip="{local:Tr Ui_Ajuster_a_la_largeur_du}"/>
+                        <Button x:Name="LargeButton" Content="{local:Tr Ui_Agrandir}" Click="Large_Click"/>
+                        <Button x:Name="DockButton" Content="{local:Tr Ui_Placer_en_bas}" Click="Dock_Click"/>
+                        <Button Content="{local:Tr Ui_Ajouter_a_la_route}" Click="AddAerodrome_Click"/>
+                        <Button Content="{local:Tr Ui_Ouvrir_le_PDF}" Click="OpenPdf_Click"/>
+                        <Button Content="✕" Click="ToggleVac_Click" ToolTip="{local:Tr Ui_Masquer_le_lecteur}"/>
                     </WrapPanel>
-                    <Expander DockPanel.Dock="Top" Header="Infos terrain" Foreground="#A9C4EE" Margin="0,0,0,4">
+                    <Expander DockPanel.Dock="Top" Header="{local:Tr Ui_Infos_terrain}" Foreground="#A9C4EE" Margin="0,0,0,4">
                         <ScrollViewer MaxHeight="160" VerticalScrollBarVisibility="Auto">
                             <TextBlock x:Name="InfoText" TextWrapping="Wrap" FontFamily="Consolas" FontSize="12" Foreground="#E8EEFC"
-                                       Text="Saisissez un code OACI (LFPL) ou cliquez sur un terrain de la route."/>
+                                       Text="{local:Tr Ui_Saisissez_un_code_OACI_LFPL}"/>
                         </ScrollViewer>
                     </Expander>
                     <TextBlock x:Name="VacMessage" DockPanel.Dock="Top" Foreground="#F5C46B" TextWrapping="Wrap"/>

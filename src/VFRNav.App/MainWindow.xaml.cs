@@ -18,6 +18,7 @@ using VFRNav.Core.Models;
 using VFRNav.Core.Services;
 using VFRNav.Core.Aerodromes;
 using VFRNav.Core.Weather;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -26,12 +27,12 @@ public partial class MainWindow : Window
     private readonly HttpClient _http = new();
     private readonly ObservableCollection<Waypoint> _route = [];
     private readonly AppSettings _settings = AppSettings.Load();
-    private readonly MemoryLayer _airspaceLayer = new("Espaces aériens");
-    private readonly MemoryLayer _airportLayer = new("Terrains");
-    private readonly MemoryLayer _routeLayer = new("Route");
-    private readonly MemoryLayer _waypointLayer = new("Points");
-    private readonly MemoryLayer _aircraftLayer = new("Avion");
-    private readonly MemoryLayer _navaidLayer = new("Balises");
+    private readonly MemoryLayer _airspaceLayer = new(Loc.Get("xaml_Espaces_aeriens"));
+    private readonly MemoryLayer _airportLayer = new(Loc.Get("FlightSheetBuilder_Terrains"));
+    private readonly MemoryLayer _routeLayer = new(Loc.Get("xaml_Route"));
+    private readonly MemoryLayer _waypointLayer = new(Loc.Get("xaml_Points"));
+    private readonly MemoryLayer _aircraftLayer = new(Loc.Get("xaml_Avion"));
+    private readonly MemoryLayer _navaidLayer = new(Loc.Get("xaml_Balises"));
     private readonly SimConnectTracker _tracker = new();
     private IReadOnlyList<Airport> _airports = [];
     private IReadOnlyList<Airspace> _airspaces = [];
@@ -61,6 +62,7 @@ public partial class MainWindow : Window
         InitializeComponent();
         Title = AppVersion.Title;
         _http.DefaultRequestHeaders.UserAgent.ParseAdd("MSFS-Rhumb");
+        _airportStore = new AirportDataStore(_http, AirportDataStore.DefaultDirectory);
 
         _loadingParams = true;
         InitAircraft();
@@ -93,6 +95,8 @@ public partial class MainWindow : Window
         FLarge.IsChecked = _settings.Filter.Large;
         FMedium.IsChecked = _settings.Filter.Medium;
         FSmall.IsChecked = _settings.Filter.Small;
+        RestoreWorldFilterControls();
+        RestoreLanguageBox();
         KeyBox.Password = _settings.OpenAipKey;
         SetKeyLocked(_settings.OpenAipKey.Length > 0);
         CartoKeyBox.Password = _settings.CartoKey;
@@ -179,6 +183,8 @@ public partial class MainWindow : Window
         _settings.ShowReportingPoints = ReportCheck.IsChecked == true;
         _settings.ZoneHelp = ZoneHelpCheck.IsChecked == true;
         _settings.Filter = ReadFilter();
+        _settings.FilterNearRoute = FNearRoute.IsChecked == true;
+        _settings.FilterNearRouteNm = NearRouteNm;
         _settings.AirspaceFilter = ReadAirspaceFilter();
         _settings.VacVisible = _vacVisible;
         _settings.CommonPanelOpen = CommonPanel.IsExpanded;
@@ -195,6 +201,7 @@ public partial class MainWindow : Window
         _settings.IfrAircraftId = AircraftFor(FlightMode.Ifr)?.Id;
         _settings.ActiveMode = _mode == FlightMode.Ifr ? "ifr" : "vfr";
         _settings.ShowRange = RangeCheck.IsChecked == true;
+        _settings.IfrIlsApproach = IfrIlsCheck.IsChecked == true;
         _settings.ShowSigmet = SigmetCheck.IsChecked == true;
         _settings.SigmetOpacity = SigmetOpacitySlider.Value;
         _settings.SigmetAltitudeOnly = SigmetAltCheck.IsChecked == true;
@@ -210,35 +217,37 @@ public partial class MainWindow : Window
     }
 
     // ---------- Données ----------
-    private async Task LoadDataAsync()
+    private async Task LoadDataAsync(bool refreshWorld = false)
     {
         string country = CountryBox.Text.Trim().ToUpperInvariant();
-        if (country.Length != 2) { StatusText.Text = "Code pays invalide."; return; }
+        if (country.Length != 2) { StatusText.Text = Loc.Get("xaml_Code_pays_invalide"); return; }
         try
         {
-            StatusText.Text = "Chargement des terrains...";
-            var baseAirports = await new OurAirportsService(_http).LoadAsync(country);
+            StatusText.Text = Loc.Get("xaml_Chargement_des_terrains_du_monde");
+            var world = await _airportStore.LoadAsync(refreshWorld);
             _aerodromes = await LoadAerodromesAsync();
             ApplyReportingPoints();
-            _airports = AirportCatalog.Merge(baseAirports, _aerodromes);
+            _airports = AirportCatalog.Merge(world.Airports, _aerodromes);
+            _airportIndex = await Task.Run(() => new AirportSearchIndex(_airports));
+            ShowWorldAirportsInfo(world);
             ApplyAirportFilter();
             await LoadNavaidsAsync(country);
-            StatusText.Text = $"{_airports.Count} terrains ({country}). " + AerodromeSummary();
+            StatusText.Text = Loc.F("Data_Airports_country", _airports.Count, country) + AerodromeSummary();
             RefreshRoute();
 
             string key = KeyBox.Password.Trim();
             if (key.Length > 0)
             {
-                StatusText.Text += " Chargement des espaces aériens...";
+                StatusText.Text += Loc.Get("xaml_Chargement_des_espaces_aeriens");
                 var spaces = await new OpenAipService(_http).LoadAsync(country, key);
                 _airspaces = spaces;
                 ApplyAirspaceFilter();
-                StatusText.Text = $"{_airports.Count} terrains, {spaces.Count} espaces aériens ({country}). " + AerodromeSummary();
+                StatusText.Text = Loc.F("xaml_terrains_espaces_aeriens", _airports.Count, spaces.Count, country) + AerodromeSummary();
             }
         }
-        catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException)
+        catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException or IOException)
         {
-            StatusText.Text = "Erreur de chargement : " + ex.Message;
+            StatusText.Text = Loc.Get("xaml_Erreur_de_chargement") + ex.Message;
         }
     }
 
@@ -254,8 +263,8 @@ public partial class MainWindow : Window
     }
 
     private string AerodromeSummary() => _aerodromes is null
-        ? "Données d'aérodromes introuvables."
-        : $"{_aerodromes.All.Count} aérodromes, {_aerodromes.ProfileCount} profils, {_aerodromes.ChartCount} cartes VAC.";
+        ? Loc.Get("xaml_Donnees_d_aerodromes_introuvables")
+        : Loc.F("xaml_aerodromes_profils_cartes_VAC", _aerodromes.All.Count, _aerodromes.ProfileCount, _aerodromes.ChartCount);
 
     private IFeature AirportFeature(Airport a)
     {
@@ -325,7 +334,7 @@ public partial class MainWindow : Window
         _projected = shown.Select(ProjectZone).OfType<ProjectedZone>().ToList();
         _airspaceLayer.Features = shown.SelectMany(AirspaceFeatures).ToList();
         _airspaceLayer.DataHasChanged();
-        AirspaceCount.Text = _airspaces.Count == 0 ? "" : $"{shown.Count} / {_airspaces.Count} espaces affichés";
+        AirspaceCount.Text = _airspaces.Count == 0 ? "" : Loc.F("xaml_espaces_affiches", shown.Count, _airspaces.Count);
         ScheduleLive();
         MapControl.Refresh();
     }
@@ -452,12 +461,12 @@ public partial class MainWindow : Window
 
     private void RefreshLog()
     {
-        if (_route.Count < 2) { LogGrid.ItemsSource = null; TotalText.Text = "Ajoutez au moins deux points à la route."; UpdateLegLabels(null); MapControl.Refresh(); return; }
+        if (_route.Count < 2) { LogGrid.ItemsSource = null; TotalText.Text = Loc.Get("xaml_Ajoutez_au_moins_deux_points"); UpdateLegLabels(null); MapControl.Refresh(); return; }
         var log = NavMath.ComputeLog(_route, ReadParams());
         LogGrid.ItemsSource = log.Legs;
         UpdateLegLabels(log.Legs);
         MapControl.Refresh();
-        TotalText.Text = $"Total : {log.TotalDistanceNm:F1} NM   {NavMath.FormatTime(log.TotalMinutes)}   {log.TotalFuelL:F1} L" + FuelWarning(log);
+        TotalText.Text = Loc.F("xaml_Total_NM_L", log.TotalDistanceNm, NavMath.FormatTime(log.TotalMinutes), log.TotalFuelL) + FuelWarning(log);
     }
 
     private void FitRoute()
@@ -511,18 +520,18 @@ public partial class MainWindow : Window
     /// <summary>La route s'enregistre directement en plan de vol .PLN : le même fichier que lit Microsoft Flight Simulator.</summary>
     private void Save_Click(object sender, RoutedEventArgs e)
     {
-        if (_route.Count < 2) { StatusText.Text = "Il faut au moins deux points pour enregistrer un plan de vol."; return; }
+        if (_route.Count < 2) { StatusText.Text = Loc.Get("xaml_Il_faut_au_moins_deux"); return; }
         string a = _route[0].Icao ?? _route[0].Name, b = _route[^1].Icao ?? _route[^1].Name;
-        var dlg = new SaveFileDialog { Filter = "Plan de vol MSFS (*.pln)|*.pln", FileName = $"{a}-{b}.pln", DefaultExt = ".pln" };
+        var dlg = new SaveFileDialog { Filter = Loc.Get("xaml_Plan_de_vol_MSFS_pln"), FileName = $"{a}-{b}.pln", DefaultExt = ".pln" };
         if (dlg.ShowDialog(this) != true) return;
         File.WriteAllText(dlg.FileName, PlnWriter.Build(_route, ReadParams().CruiseAltFt));
-        StatusText.Text = "Plan enregistré : " + dlg.FileName;
+        StatusText.Text = Loc.Get("xaml_Plan_enregistre") + dlg.FileName;
     }
 
     /// <summary>Ouvre un plan de vol .PLN (de MSFS Rhumb, du simulateur ou d'un autre outil).</summary>
     private void Open_Click(object sender, RoutedEventArgs e)
     {
-        var dlg = new OpenFileDialog { Filter = "Plan de vol MSFS (*.pln)|*.pln" };
+        var dlg = new OpenFileDialog { Filter = Loc.Get("xaml_Plan_de_vol_MSFS_pln") };
         if (dlg.ShowDialog(this) != true) return;
         try
         {
@@ -531,11 +540,11 @@ public partial class MainWindow : Window
             _route.Clear();
             foreach (var w in plan.Route) _route.Add(w);
             FitRoute();
-            StatusText.Text = $"Plan ouvert : {plan.Route.Count} point(s).";
+            StatusText.Text = Loc.F("xaml_Plan_ouvert_point_s", plan.Route.Count);
         }
         catch (Exception ex) when (ex is FormatException or IOException)
         {
-            StatusText.Text = "Impossible d'ouvrir ce fichier : " + ex.Message;
+            StatusText.Text = Loc.Get("xaml_Impossible_d_ouvrir_ce_fichier") + ex.Message;
         }
     }
 
@@ -544,14 +553,14 @@ public partial class MainWindow : Window
     private async void Weather_Click(object sender, RoutedEventArgs e)
     {
         var ids = _route.Where(w => w.IsAirport).Select(w => w.Icao!).ToList();
-        if (ids.Count == 0) { WxText.Text = "Ajoutez des terrains à la route (clic sur un terrain)."; return; }
-        WxText.Text = "Chargement...";
+        if (ids.Count == 0) { WxText.Text = Loc.Get("xaml_Ajoutez_des_terrains_a_la"); return; }
+        WxText.Text = Loc.Get("xaml_Chargement");
         try
         {
             _lastWeather = await new WeatherService(_http).GetAsync(ids);
             ShowWeather();
         }
-        catch (HttpRequestException ex) { WxText.Text = "Erreur : " + ex.Message; }
+        catch (HttpRequestException ex) { WxText.Text = Loc.Get("xaml_Erreur") + ex.Message; }
     }
 
     private void WxRaw_Click(object sender, RoutedEventArgs e) => ShowWeather();
@@ -570,8 +579,8 @@ public partial class MainWindow : Window
             sb.AppendLine($"=== {icao}  {name} ===");
             var m = metars.FirstOrDefault(r => r.Station == icao);
             var t = tafs.FirstOrDefault(r => r.Station == icao);
-            AppendReport(sb, m, "METAR (observation) : aucun message disponible", raw);
-            AppendReport(sb, t, "TAF (prévision) : aucun message disponible", raw);
+            AppendReport(sb, m, Loc.Get("xaml_METAR_observation_aucun_message_disponible"), raw);
+            AppendReport(sb, t, Loc.Get("xaml_TAF_prevision_aucun_message_disponible"), raw);
             sb.AppendLine();
         }
         WxText.Text = sb.ToString().TrimEnd();
@@ -582,7 +591,7 @@ public partial class MainWindow : Window
         if (r is null) { sb.AppendLine(missing); return; }
         int dash = r.Header.IndexOf('—');
         string when = dash >= 0 ? " — " + r.Header[(dash + 1)..].Trim() : "";
-        sb.AppendLine((r.Kind == "TAF" ? "TAF (prévision)" : "METAR (observation)") + when);
+        sb.AppendLine((r.Kind == "TAF" ? Loc.Get("FlightSheetBuilder_TAF_prevision") : "METAR (observation)") + when);
         if (raw) sb.AppendLine($"  [{r.Raw}]");
         foreach (string line in r.Lines) sb.AppendLine("  " + (line.StartsWith(' ') ? line : "• " + line));
     }
@@ -601,27 +610,13 @@ public partial class MainWindow
         }
     }
 
-    private AirportFilter ReadFilter() => new(
-        FWithCode.IsChecked == true, FWithoutCode.IsChecked == true, FVacOnly.IsChecked == true,
-        FLarge.IsChecked == true, FMedium.IsChecked == true, FSmall.IsChecked == true);
-
-    private void ApplyAirportFilter()
-    {
-        var filter = ReadFilter();
-        var shown = _airports.Where(filter.Matches).ToList();
-        _airportLayer.Features = shown.Select(AirportFeature).ToList();
-        _airportLayer.DataHasChanged();
-        FilterCount.Text = $"{shown.Count} / {_airports.Count} terrains affichés";
-        MapControl.Refresh();
-    }
-
     private void Filter_Click(object sender, RoutedEventArgs e) => ApplyAirportFilter();
 
     private void AutoVar_Click(object sender, RoutedEventArgs e) => RefreshRoute();
 
     private void BrowseVac_Click(object sender, RoutedEventArgs e)
     {
-        var dlg = new OpenFolderDialog { Title = "Dossier des cartes VAC (fichiers AD-2.<OACI>.pdf du SIA)" };
+        var dlg = new OpenFolderDialog { Title = Loc.Get("xaml_Dossier_des_cartes_VAC_fichiers") };
         if (dlg.ShowDialog(this) == true) VacBox.Text = dlg.FolderName;
     }
 
@@ -661,11 +656,11 @@ public partial class MainWindow
     {
         if (_aerodromes is null)
         {
-            InfoText.Text = "Données d'aérodromes introuvables : réinstalle MSFS Rhumb (dossier vfr-data).";
+            InfoText.Text = Loc.Get("xaml_Donnees_d_aerodromes_introuvables_reinstalle");
             return;
         }
         var apt = _aerodromes.Search(query);
-        if (apt is null) { InfoText.Text = $"Aucun aérodrome pour « {query} »."; return; }
+        if (apt is null) { InfoText.Text = Loc.F("xaml_Aucun_aerodrome_pour", query); return; }
         _shown = apt;
         _page = 0;
         IcaoBox.Text = apt.Icao;
@@ -681,7 +676,7 @@ public partial class MainWindow
         if (known is not null) _route.Add(known.ToWaypoint());
         else if (_shown is { Lat: { } lat, Lon: { } lon })
             _route.Add(new Waypoint { Name = _shown.Icao, Icao = _shown.Icao, FullName = _shown.Name, ElevationFt = _shown.ElevationFt ?? 0, Lat = lat, Lon = lon });
-        else StatusText.Text = $"{_shown.Icao} : position inconnue, impossible de l'ajouter.";
+        else StatusText.Text = Loc.F("xaml_position_inconnue_impossible_de_l", _shown.Icao);
     }
 
     private void OpenPdf_Click(object sender, RoutedEventArgs e)
@@ -698,16 +693,16 @@ public partial class MainWindow
         {
             VacImage.Source = null;
             PageText.Text = "-";
-            VacMessage.Text = _shown.VacListed ? "Carte publiée mais absente de ton dossier de cartes VAC (réglage du panneau Données)." : "Pas de carte VAC pour cet aérodrome.";
+            VacMessage.Text = _shown.VacListed ? Loc.Get("xaml_Carte_publiee_mais_absente_de") : Loc.Get("xaml_Pas_de_carte_VAC_pour");
             return;
         }
         string icao = _shown.Icao;
-        if (!await _pdf.OpenAsync(path)) { VacMessage.Text = "Impossible de lire le PDF."; return; }
+        if (!await _pdf.OpenAsync(path)) { VacMessage.Text = Loc.Get("xaml_Impossible_de_lire_le_PDF"); return; }
         if (_page >= _pdf.PageCount) _page = 0;
         var image = await _pdf.RenderAsync(_page, (uint)(FitWidth() * _zoom));
         if (_shown?.Icao != icao) return; // l'utilisateur a changé d'aérodrome entre-temps
         VacImage.Source = image;
-        PageText.Text = $"Page {_page + 1}/{_pdf.PageCount}";
+        PageText.Text = Loc.F("xaml_Page", _page + 1, _pdf.PageCount);
     }
 
     private void PrevPage_Click(object sender, RoutedEventArgs e) { if (_page > 0) { _page--; _ = RenderVacAsync(); } }
@@ -736,11 +731,11 @@ public partial class MainWindow
         for (int i = 0; i < _baseLayers.Length; i++) map.Layers.Insert(i, _baseLayers[i]);
         _settings.BaseMap = key;
         if (BaseMaps.NeedsCartoKey(key) && cartoKey.Length == 0)
-            StatusText.Text = "Fond CARTO : saisissez la clé CARTO (panneau Données). Fond Esri affiché en attendant.";
+            StatusText.Text = Loc.Get("xaml_Fond_CARTO_saisissez_la_cle");
         MapControl.Refresh();
     }
 
-    private const string LiveDefaultText = "Pose un point sur la carte : ses informations s'affichent ici.";
+    private static string LiveDefaultText => Loc.Get("xaml_Pose_un_point_sur_la");
     private string _liveText = LiveDefaultText;
     private LiveInfoWindow? _liveWindow;
 
@@ -840,7 +835,7 @@ public partial class MainWindow
             TipText.Inlines.Add(new System.Windows.Documents.LineBreak());
         }
         if (hits.Count > MaxZonesInTip)
-            TipText.Inlines.Add(new System.Windows.Documents.Run($"+ {hits.Count - MaxZonesInTip} autres zones") { FontStyle = FontStyles.Italic });
+            TipText.Inlines.Add(new System.Windows.Documents.Run(Loc.F("Tip_More_zones", hits.Count - MaxZonesInTip)) { FontStyle = FontStyles.Italic });
 
         PlaceTip();
     }
@@ -886,7 +881,7 @@ public partial class MainWindow
     {
         _keyLocked = locked;
         KeyBox.IsEnabled = !locked;
-        KeyEditButton.Content = locked ? "Modifier" : "Valider";
+        KeyEditButton.Content = locked ? Loc.Get("xaml_Modifier") : Loc.Get("Ui_Valider");
     }
 
     private async void KeyEdit_Click(object sender, RoutedEventArgs e)
@@ -965,9 +960,9 @@ public partial class MainWindow
         bool right = _settings.VacDock == "right";
         SplitB.Visibility = SplitV.Visibility = Visibility.Collapsed;
         VacPanel.Visibility = _vacVisible ? Visibility.Visible : Visibility.Collapsed;
-        DockButton.Content = right ? "Placer en bas" : "Placer à droite";
-        LargeButton.Content = _vacLarge ? "Réduire" : "Agrandir";
-        VacToggle.Content = _vacVisible ? "Masquer les VAC" : "Cartes VAC";
+        DockButton.Content = right ? Loc.Get("Ui_Placer_en_bas") : Loc.Get("xaml_Placer_a_droite");
+        LargeButton.Content = _vacLarge ? Loc.Get("xaml_Reduire") : Loc.Get("Ui_Agrandir");
+        VacToggle.Content = _vacVisible ? Loc.Get("xaml_Masquer_les_VAC") : Loc.Get("Ui_Cartes_VAC");
 
         if (_vacVisible && !right)
         {
@@ -1012,7 +1007,7 @@ public partial class MainWindow
     {
         _cartoLocked = locked;
         CartoKeyBox.IsEnabled = !locked;
-        CartoEditButton.Content = locked ? "Modifier" : "Valider";
+        CartoEditButton.Content = locked ? Loc.Get("xaml_Modifier") : Loc.Get("Ui_Valider");
     }
 
     private void CartoEdit_Click(object sender, RoutedEventArgs e)
@@ -1108,10 +1103,9 @@ public partial class MainWindow
     /// <summary>Un point lâché sur un terrain devient ce terrain.</summary>
     private void SnapToAirport(int index, System.Windows.Point drop)
     {
-        var filter = ReadFilter();
         Airport? nearest = null;
         double best = GrabRadiusPx;
-        foreach (var a in _airports.Where(filter.Matches))
+        foreach (var a in _shownAirports)
         {
             double d = Distance(drop, ToScreen(a.Lon, a.Lat));
             if (d <= best) { best = d; nearest = a; }
@@ -1130,7 +1124,7 @@ public partial class MainWindow
     {
         _notamLocked = locked;
         NotamKeyBox.IsEnabled = !locked;
-        NotamEditButton.Content = locked ? "Modifier" : "Valider";
+        NotamEditButton.Content = locked ? Loc.Get("xaml_Modifier") : Loc.Get("Ui_Valider");
     }
 
     private void NotamEdit_Click(object sender, RoutedEventArgs e)
@@ -1153,20 +1147,20 @@ public partial class MainWindow
     private void CopyCodes_Click(object sender, RoutedEventArgs e)
     {
         var codes = _route.Where(w => w.IsAirport).Select(w => w.Icao!).Distinct().ToList();
-        if (codes.Count == 0) { NotamText.Text = "Ajoutez des terrains à la route (clic sur un terrain)."; return; }
+        if (codes.Count == 0) { NotamText.Text = Loc.Get("xaml_Ajoutez_des_terrains_a_la"); return; }
         Clipboard.SetText(string.Join(" ", codes));
-        StatusText.Text = "Codes copiés : " + string.Join(" ", codes);
+        StatusText.Text = Loc.Get("xaml_Codes_copies") + string.Join(" ", codes);
     }
 
     private async void Notam_Click(object sender, RoutedEventArgs e)
     {
         string key = NotamKeyBox.Password.Trim();
-        if (key.Length == 0) { NotamText.Text = "Saisissez d'abord la clé ICAO API Data Service (panneau Données)."; return; }
+        if (key.Length == 0) { NotamText.Text = Loc.Get("xaml_Saisissez_d_abord_la_cle"); return; }
         var ids = _route.Where(w => w.IsAirport).Select(w => w.Icao!).Distinct().ToList();
-        if (ids.Count == 0) { NotamText.Text = "Ajoutez des terrains à la route (clic sur un terrain)."; return; }
+        if (ids.Count == 0) { NotamText.Text = Loc.Get("xaml_Ajoutez_des_terrains_a_la"); return; }
 
         _notamService ??= new NotamService(_http);
-        NotamText.Text = "Chargement...";
+        NotamText.Text = Loc.Get("xaml_Chargement");
         var sb = new System.Text.StringBuilder();
         foreach (string icao in ids)
         {
@@ -1175,7 +1169,7 @@ public partial class MainWindow
             try
             {
                 var list = await _notamService.GetAsync(icao, key);
-                if (list.Count == 0) sb.AppendLine("Aucun NOTAM en vigueur.");
+                if (list.Count == 0) sb.AppendLine(Loc.Get("xaml_Aucun_NOTAM_en_vigueur"));
                 foreach (var n in list)
                 {
                     string validity = n.Start is not null || n.End is not null ? $"  [{n.Start ?? "?"} → {n.End ?? "?"}]" : "";
@@ -1185,7 +1179,7 @@ public partial class MainWindow
             }
             catch (Exception ex) when (ex is HttpRequestException or System.Text.Json.JsonException or TaskCanceledException)
             {
-                sb.AppendLine("Erreur : " + ex.Message);
+                sb.AppendLine(Loc.Get("xaml_Erreur") + ex.Message);
             }
             sb.AppendLine();
         }
@@ -1223,9 +1217,9 @@ public partial class MainWindow
         _aircraftLayer.DataHasChanged();
 
         double magnetic = NavMath.Norm360(a.HeadingTrue - Parse(VarBox, 0));
-        SimInfo.Text = $"{(a.OnGround ? "Au sol" : "En vol")}\n" +
+        SimInfo.Text = $"{(a.OnGround ? Loc.Get("Sim_On_ground") : Loc.Get("Sim_In_flight"))}\n" +
                        $"{a.AltitudeFt:0} ft  {a.GroundSpeedKt:0} kt\n" +
-                       $"Cap {magnetic:000}° magnétique\n" +
+                       Loc.F("xaml_Cap_magnetique", magnetic) +
                        $"{a.Lat:0.0000}  {a.Lon:0.0000}";
 
         if (FollowCheck.IsChecked == true) MapControl.Map.Navigator.CenterOn(new MPoint(x, y));
@@ -1243,10 +1237,9 @@ public partial class MainWindow
 
     private Airport? AirportAt(System.Windows.Point pos)
     {
-        var filter = ReadFilter();
         Airport? best = null;
         double bestDistance = AirportHoverPx;
-        foreach (var a in _airports.Where(filter.Matches))
+        foreach (var a in _shownAirports)
         {
             double d = Distance(pos, ToScreen(a.Lon, a.Lat));
             if (d <= bestDistance) { bestDistance = d; best = a; }
@@ -1257,7 +1250,7 @@ public partial class MainWindow
     private async void ShowAirportTip(Airport airport)
     {
         _airportTip = airport;
-        FillAirportTip(airport, "Météo : chargement...", null, null);
+        FillAirportTip(airport, Loc.Get("xaml_Meteo_chargement"), null, null);
         PlaceTip(ToScreen(airport.Lon, airport.Lat));
 
         string metarRaw = "", tafRaw = "";
@@ -1267,13 +1260,13 @@ public partial class MainWindow
             _weatherService ??= new WeatherService(_http);
             (metarRaw, tafRaw) = await _weatherService.GetCachedAsync(airport.Ident);
         }
-        catch (HttpRequestException ex) { error = "Météo indisponible : " + ex.Message; }
-        catch (TaskCanceledException) { error = "Météo indisponible (délai dépassé)."; }
+        catch (HttpRequestException ex) { error = Loc.Get("xaml_Meteo_indisponible") + ex.Message; }
+        catch (TaskCanceledException) { error = Loc.Get("xaml_Meteo_indisponible_delai_depasse"); }
 
         if (_airportTip?.Ident != airport.Ident || MapTip.Visibility != Visibility.Visible) return; // le pointeur est parti
         var metar = metarRaw.Length > 0 ? WeatherDecoder.DecodeMetars(metarRaw).FirstOrDefault(r => r.Station == airport.Ident) : null;
         var taf = tafRaw.Length > 0 ? WeatherDecoder.DecodeTafs(tafRaw).FirstOrDefault(r => r.Station == airport.Ident) : null;
-        FillAirportTip(airport, error ?? (metar is null && taf is null ? "Pas de METAR ni de TAF pour ce terrain." : null), metar, taf);
+        FillAirportTip(airport, error ?? (metar is null && taf is null ? Loc.Get("xaml_Pas_de_METAR_ni_de") : null), metar, taf);
         PlaceTip(ToScreen(airport.Lon, airport.Lat));
     }
 
@@ -1309,17 +1302,17 @@ public partial class MainWindow
         if (metar is not null)
         {
             Line("");
-            Line("Observation (METAR)" + MetarWhen(metar), bold: true);
-            foreach (string l in metar.Lines.Where(l => !l.StartsWith("Catégorie", StringComparison.Ordinal))) Line("• " + l);
-            if (metar.Category is not null) Line("Catégorie de vol : " + metar.Category, bold: true, brush: CategoryBrush(metar.Category));
+            Line(Loc.Get("xaml_Observation_METAR") + MetarWhen(metar), bold: true);
+            foreach (string l in metar.Lines.Where(l => !l.StartsWith(Loc.Get("xaml_Categorie_de_vol"), StringComparison.Ordinal))) Line("• " + l);
+            if (metar.Category is not null) Line(Loc.Get("xaml_Categorie_de_vol") + metar.Category, bold: true, brush: CategoryBrush(metar.Category));
         }
         if (taf is not null)
         {
             Line("");
-            Line("Prévision (TAF)" + MetarWhen(taf), bold: true);
+            Line(Loc.Get("xaml_Prevision_TAF") + MetarWhen(taf), bold: true);
             var lines = taf.Lines;
             foreach (string l in lines.Take(MaxTafLinesInTip)) Line(l.StartsWith(' ') ? "   " + l.TrimStart() : (l.EndsWith(':') ? l : "• " + l));
-            if (lines.Count > MaxTafLinesInTip) Line($"… {lines.Count - MaxTafLinesInTip} lignes de plus : onglet METAR / TAF");
+            if (lines.Count > MaxTafLinesInTip) Line(Loc.F("xaml_lignes_de_plus_onglet_METAR", lines.Count - MaxTafLinesInTip));
         }
         if (note is not null) { Line(""); Line(note); }
     }
@@ -1354,7 +1347,7 @@ public partial class MainWindow
     {
         var vp = MapControl.Map.Navigator.Viewport;
         var view = (Math.Round(vp.CenterX), Math.Round(vp.CenterY), Math.Round(vp.Resolution, 2));
-        if (view != _lastView) { _lastView = view; _wxDirty = true; UpdateRangeView(); return; }
+        if (view != _lastView) { _lastView = view; _wxDirty = true; UpdateRangeView(); if (_airports.Count > 0) ApplyAirportFilter(); return; }
         if (_wxDirty && !_wxBusy && WxDotsCheck.IsChecked == true && _airports.Count > 0)
         {
             _wxDirty = false;
@@ -1381,7 +1374,7 @@ public partial class MainWindow
         }
         catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException)
         {
-            StatusText.Text = "Météo des pastilles indisponible : " + ex.Message;
+            StatusText.Text = Loc.Get("xaml_Meteo_des_pastilles_indisponible") + ex.Message;
         }
         finally { _wxBusy = false; }
     }
@@ -1390,8 +1383,8 @@ public partial class MainWindow
 // ---------- Aide des zones pour novices, au survol d'une frontière ----------
 public partial class MainWindow
 {
-    private const string ZoneHelpIntro =
-        "Passez la souris sur le contour d'une zone pour voir ici ce qu'elle est : son type, sa classe, ses limites en altitude et ce qu'il faut faire en vol à vue.";
+    private static string ZoneHelpIntro =>
+        Loc.Get("xaml_Passez_la_souris_sur_le");
     private const double BoundaryPx = 8;
 
     private sealed record ProjectedZone(Airspace Zone, double[][] Xs, double[][] Ys, double MinX, double MinY, double MaxX, double MaxY);

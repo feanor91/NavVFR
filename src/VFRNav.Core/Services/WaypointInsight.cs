@@ -1,4 +1,5 @@
 ﻿using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -56,7 +57,7 @@ public static class WaypointInsight
 
     /// <summary>« 3,2 NM au 310° » : repère par rapport au point.</summary>
     public static string Relative(double distanceNm, double bearingTrue) =>
-        $"{distanceNm.ToString("0.0", System.Globalization.CultureInfo.GetCultureInfo("fr-FR"))} NM au {bearingTrue:000}°";
+        Loc.F("Insight_Relative", distanceNm.ToString("0.0", Loc.FormatCulture), bearingTrue);
 
     /// <summary>
     /// Résumé de la route en construction : zones où l'on vole à son altitude (dont la classe A, interdite au vol à vue)
@@ -69,26 +70,26 @@ public static class WaypointInsight
         if (route.Count < 2) return lines;
 
         var classA = crossings.Where(c => c.Status == VerticalStatus.Inside && c.Zone.IcaoClass == "A").Select(c => c.Zone.Name).Distinct().ToList();
-        if (classA.Count > 0) lines.Add($"⚠ Classe A à ton altitude (vol à vue interdit) : {string.Join(", ", classA)}");
+        if (classA.Count > 0) lines.Add(Loc.F("WaypointInsight_Classe_A_a_ton_altitude", string.Join(", ", classA)));
 
         var inside = crossings.Where(c => c.Status == VerticalStatus.Inside && c.Zone.IcaoClass != "A").ToList();
         var restricted = inside.Where(c => c.Zone.Kind == AirspaceKind.Restricted).Select(c => c.Zone.Name).Distinct().ToList();
-        if (restricted.Count > 0) lines.Add($"⚠ Zone(s) réglementée(s) à ton altitude : {string.Join(", ", restricted)}");
+        if (restricted.Count > 0) lines.Add(Loc.F("WaypointInsight_Zone_s_reglementee_s_a", string.Join(", ", restricted)));
         int others = inside.Count(c => c.Zone.Kind != AirspaceKind.Restricted);
-        if (others > 0) lines.Add($"{others} autre(s) zone(s) traversée(s) à ton altitude (contrôlées, radio…)");
-        if (!zonesLoaded) lines.Add("Zones non chargées (clé OpenAIP) : les espaces aériens ne sont pas vérifiés");
-        else if (classA.Count == 0 && restricted.Count == 0 && others == 0) lines.Add("✔ Aucune zone connue à ton altitude sur cette route");
+        if (others > 0) lines.Add(Loc.F("WaypointInsight_autre_s_zone_s_traversee", others));
+        if (!zonesLoaded) lines.Add(Loc.Get("WaypointInsight_Zones_non_chargees_cle_OpenAIP"));
+        else if (classA.Count == 0 && restricted.Count == 0 && others == 0) lines.Add(Loc.Get("WaypointInsight_Aucune_zone_connue_a_ton"));
 
         if (terrain is not null)
         {
             var warnings = altitudes is null ? terrain.Warnings(cruiseFt, marginFt) : terrain.Warnings(altitudes, marginFt);
             foreach (var w in warnings)
             {
-                string leg = w.LegIndex + 1 < route.Count ? $"{route[w.LegIndex].Name} → {route[w.LegIndex + 1].Name}" : $"tronçon {w.LegIndex + 1}";
-                string margin = w.ClearanceFt < 0 ? $"relief {Math.Abs(w.ClearanceFt):0} ft AU-DESSUS de la croisière" : $"marge de {w.ClearanceFt:0} ft seulement";
-                lines.Add($"⚠ {leg} : relief {w.MaxFt:0} ft, {margin}");
+                string leg = w.LegIndex + 1 < route.Count ? $"{route[w.LegIndex].Name} → {route[w.LegIndex + 1].Name}" : Loc.F("WaypointInsight_troncon", w.LegIndex + 1);
+                string margin = w.ClearanceFt < 0 ? Loc.F("WaypointInsight_relief_ft_AU_DESSUS_de", Math.Abs(w.ClearanceFt)) : Loc.F("WaypointInsight_marge_de_ft_seulement", w.ClearanceFt);
+                lines.Add(Loc.F("Insight_Terrain_warning", leg, w.MaxFt, margin));
             }
-            if (warnings.Count == 0) lines.Add($"✔ Relief : point le plus haut {terrain.MaxFt:0} ft, marge d'au moins {marginFt:0} ft");
+            if (warnings.Count == 0) lines.Add(Loc.F("WaypointInsight_Relief_point_le_plus_haut", terrain.MaxFt, marginFt));
         }
         return lines;
     }

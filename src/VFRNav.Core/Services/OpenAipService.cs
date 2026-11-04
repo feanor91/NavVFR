@@ -1,5 +1,6 @@
 using System.Text.Json;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -48,14 +49,14 @@ public sealed class OpenAipService(HttpClient http)
             cls >= 0 && cls < Classes.Length ? Classes[cls] : "", lower.Text, upper.Text, rings, kind, lower.Feet, upper.Feet, typeCode, Details(e));
     }
 
-    private static readonly (string Property, string Text)[] FlagProperties =
-    [
-        ("byNotam", "Activée par NOTAM"),
-        ("onDemand", "Sur demande"),
-        ("onRequest", "Sur requête"),
-        ("specialAgreement", "Accord spécial requis"),
-        ("requestCompliance", "Se conformer aux instructions")
-    ];
+    private static readonly Localized<(string Property, string Text)[]> FlagPropertiesByLanguage = new(() => [
+        ("byNotam", Loc.Get("OpenAipService_Activee_par_NOTAM")),
+        ("onDemand", Loc.Get("OpenAip_On_demand")),
+        ("onRequest", Loc.Get("OpenAipService_Sur_requete")),
+        ("specialAgreement", Loc.Get("OpenAipService_Accord_special_requis")),
+        ("requestCompliance", Loc.Get("OpenAipService_Se_conformer_aux_instructions"))
+    ]);
+    private static (string Property, string Text)[] FlagProperties => FlagPropertiesByLanguage.Value;
 
     /// <summary>Remarques, conditions d'accès et fréquences : tous ces champs sont facultatifs dans l'API.</summary>
     private static AirspaceDetails Details(JsonElement e)

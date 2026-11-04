@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Ifr;
 
@@ -98,7 +99,7 @@ public sealed class ProcedureCatalog
         {
             var index = JsonSerializer.Deserialize<CatalogIndex>(File.ReadAllText(IndexPath), Options);
             if (index?.Airports is null) _problem = "index vide";
-            else if (index.Version != CatalogIndex.CurrentVersion) _problem = $"version {index.Version} non prise en charge";
+            else if (index.Version != CatalogIndex.CurrentVersion) _problem = Loc.F("ProcedureCatalog_version_non_prise_en_charge", index.Version);
             else _index = index with { Airports = new Dictionary<string, CatalogAirport>(index.Airports, StringComparer.OrdinalIgnoreCase) };
         }
         catch (Exception ex) when (ex is JsonException or IOException or UnauthorizedAccessException)
@@ -139,7 +140,7 @@ public sealed class ProcedureCatalog
     public CatalogChange Write(string icao, SimProcedureImport import, DateTimeOffset readAt)
     {
         icao = Normalize(icao);
-        if (!Valid(icao)) throw new ArgumentException("Code de terrain invalide : " + icao, nameof(icao));
+        if (!Valid(icao)) throw new ArgumentException(Loc.Get("ProcedureCatalog_Code_de_terrain_invalide") + icao, nameof(icao));
         lock (_gate) return WriteLocked(icao, import, readAt);
     }
 

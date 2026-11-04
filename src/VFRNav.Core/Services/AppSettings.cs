@@ -22,7 +22,12 @@ public sealed class AppSettings
     /// <summary>Ancien réglage (dossier de StormATC), relu une fois pour reprendre le dossier des cartes ; plus jamais écrit.</summary>
     public string StormAtcPath { get; set; } = "";
     public bool AutoVariation { get; set; } = true;
+    /// <summary>Langue de l'interface : « fr », « en » ; vide = celle de Windows (français si elle n'est pas proposée).</summary>
+    public string Language { get; set; } = "";
     public AirportFilter Filter { get; set; } = new();
+    /// <summary>Terrains limités à un couloir autour de la route.</summary>
+    public bool FilterNearRoute { get; set; }
+    public double FilterNearRouteNm { get; set; } = 30;
     public AirspaceFilter AirspaceFilter { get; set; } = new();
     /// <summary>clair, relief ou rues.</summary>
     public string BaseMap { get; set; } = "clair";
@@ -55,6 +60,8 @@ public sealed class AppSettings
     public bool ShowClouds { get; set; }
     /// <summary>SIGMET sur la carte : affichage, opacité, et restriction aux messages valables à l'altitude de croisière.</summary>
     public bool ShowSigmet { get; set; }
+    /// <summary>Ajoute la finale ILS (indicative) à la route IFR quand la piste d'arrivée a un ILS dans les données du SIA.</summary>
+    public bool IfrIlsApproach { get; set; } = true;
     public double SigmetOpacity { get; set; } = 0.7;
     public bool SigmetAltitudeOnly { get; set; }
     public bool ShowCloudCover { get; set; }

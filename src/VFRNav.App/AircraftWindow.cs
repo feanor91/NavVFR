@@ -6,6 +6,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -23,19 +24,19 @@ public sealed class AircraftWindow : Window
     private readonly FlightMode _mode;
 
     private readonly ListBox _list = new() { DisplayMemberPath = "Name", MinWidth = 210 };
-    private readonly CheckBox _showAll = new() { Content = "Voir aussi l'autre type de navigation", Margin = new Thickness(0, 6, 0, 0) };
+    private readonly CheckBox _showAll = new() { Content = Loc.Get("AircraftWindow_Voir_aussi_l_autre_type"), Margin = new Thickness(0, 6, 0, 0) };
 
     private readonly TextBox _name = new();
-    private readonly ComboBox _category = new() { ItemsSource = new[] { "Piston", "Turbopropulseur", "Jet" } };
+    private readonly ComboBox _category = new() { ItemsSource = new[] { Loc.Get("AircraftWindow_Piston"), Loc.Get("AircraftWindow_Turbopropulseur"), "Jet" } };
     private readonly CheckBox _vfr = new() { Content = "VFR" };
     private readonly CheckBox _ifr = new() { Content = "IFR" };
     private readonly TextBox _cruise = new(), _max = new(), _burn = new(), _fuel = new(), _ceiling = new(), _cruiseAlt = new(), _climb = new(), _descent = new(), _reserve = new();
     private readonly TextBox _notes = new() { AcceptsReturn = true, TextWrapping = TextWrapping.Wrap, Height = 120, VerticalScrollBarVisibility = ScrollBarVisibility.Auto };
     private readonly TextBlock _derived = new() { Foreground = Grey, Margin = new Thickness(0, 6, 0, 0), TextWrapping = TextWrapping.Wrap };
     private readonly TextBlock _error = new() { Foreground = Red, TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 6, 0, 0) };
-    private readonly Button _save = new() { Content = "Enregistrer", IsDefault = true };
-    private readonly Button _delete = new() { Content = "Supprimer" };
-    private readonly Button _duplicate = new() { Content = "Dupliquer" };
+    private readonly Button _save = new() { Content = Loc.Get("AircraftWindow_Enregistrer"), IsDefault = true };
+    private readonly Button _delete = new() { Content = Loc.Get("Ui_Supprimer") };
+    private readonly Button _duplicate = new() { Content = Loc.Get("AircraftWindow_Dupliquer") };
 
     private Aircraft? _editing;
     private bool _isNew;
@@ -48,7 +49,7 @@ public sealed class AircraftWindow : Window
     {
         _catalog = catalog;
         _mode = mode;
-        Title = mode == FlightMode.Vfr ? "Appareils VFR" : "Appareils IFR";
+        Title = mode == FlightMode.Vfr ? Loc.Get("AircraftWindow_Appareils_VFR") : Loc.Get("AircraftWindow_Appareils_IFR");
         Width = 760;
         Height = 640;
         MinHeight = 560;
@@ -62,11 +63,11 @@ public sealed class AircraftWindow : Window
 
         // --- liste à gauche
         var left = new DockPanel { Margin = new Thickness(0, 0, 12, 0) };
-        var newButton = new Button { Content = "Nouvel appareil", Padding = new Thickness(8, 4, 8, 4), Margin = new Thickness(0, 0, 0, 6) };
+        var newButton = new Button { Content = Loc.Get("AircraftWindow_Nouvel_appareil"), Padding = new Thickness(8, 4, 8, 4), Margin = new Thickness(0, 0, 0, 6) };
         newButton.Click += (_, _) => StartNew();
         DockPanel.SetDock(newButton, Dock.Top);
         left.Children.Add(newButton);
-        var restore = new Button { Content = "Remettre les appareils par défaut", Padding = new Thickness(8, 4, 8, 4), Margin = new Thickness(0, 6, 0, 0) };
+        var restore = new Button { Content = Loc.Get("AircraftWindow_Remettre_les_appareils_par_defaut"), Padding = new Thickness(8, 4, 8, 4), Margin = new Thickness(0, 6, 0, 0) };
         restore.Click += Restore_Click;
         DockPanel.SetDock(restore, Dock.Bottom);
         left.Children.Add(restore);
@@ -79,29 +80,29 @@ public sealed class AircraftWindow : Window
         // --- fiche à droite
         var form = new StackPanel();
         form.Children.Add(Field("Nom", _name));
-        form.Children.Add(Field("Catégorie", _category));
+        form.Children.Add(Field(Loc.Get("AircraftWindow_Categorie"), _category));
 
         var caps = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 8, 0, 0) };
-        caps.Children.Add(new TextBlock { Text = "Capacités :", Margin = new Thickness(0, 0, 12, 0), VerticalAlignment = VerticalAlignment.Center });
+        caps.Children.Add(new TextBlock { Text = Loc.Get("AircraftWindow_Capacites"), Margin = new Thickness(0, 0, 12, 0), VerticalAlignment = VerticalAlignment.Center });
         _vfr.Margin = new Thickness(0, 0, 14, 0);
         caps.Children.Add(_vfr);
         caps.Children.Add(_ifr);
         form.Children.Add(caps);
-        form.Children.Add(new TextBlock { Text = "Un appareil VFR et IFR est proposé dans les deux panneaux.", Foreground = Grey, FontSize = 11 });
+        form.Children.Add(new TextBlock { Text = Loc.Get("AircraftWindow_Un_appareil_VFR_et_IFR"), Foreground = Grey, FontSize = 11 });
 
         var grid = new UniformGrid { Columns = 2, Margin = new Thickness(0, 4, 0, 0) };
-        grid.Children.Add(Field("Vitesse de croisière (kt)", _cruise, "Vitesse propre en croisière, utilisée pour le log de navigation et la portée."));
-        grid.Children.Add(Field("Vitesse maximale (kt)", _max, "Vne ou vitesse maximale en croisière."));
-        grid.Children.Add(Field("Consommation (L/h)", _burn, "En croisière."));
-        grid.Children.Add(Field("Carburant utilisable (L)", _fuel, "Sert à calculer l'autonomie et la portée."));
-        grid.Children.Add(Field("Croisière par défaut (ft)", _cruiseAlt, "35000 pour FL350."));
-        grid.Children.Add(Field("Plafond (ft, facultatif)", _ceiling));
-        grid.Children.Add(Field("Réserve (min, facultatif)", _reserve, "Carburant gardé en réserve, en minutes de vol : elle est retranchée de la portée utile affichée sur la carte. Vide : 30 min en VFR, 45 min en IFR."));
-        grid.Children.Add(Field("Montée (ft/min, facultatif)", _climb, "Sert au profil : les points sans altitude montent à cette pente. Vide = valeur usuelle de la catégorie."));
-        grid.Children.Add(Field("Descente (ft/min, facultatif)", _descent, "Idem pour la descente. Vide = valeur usuelle de la catégorie."));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_Vitesse_de_croisiere_kt"), _cruise, Loc.Get("AircraftWindow_Vitesse_propre_en_croisiere_utilisee")));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_Vitesse_maximale_kt"), _max, Loc.Get("AircraftWindow_Vne_ou_vitesse_maximale_en")));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_Consommation_L_h"), _burn, Loc.Get("AircraftWindow_En_croisiere")));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_Carburant_utilisable_L"), _fuel, Loc.Get("AircraftWindow_Sert_a_calculer_l_autonomie")));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_Croisiere_par_defaut_ft"), _cruiseAlt, Loc.Get("AircraftWindow_35000_pour_FL350")));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_Plafond_ft_facultatif"), _ceiling));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_Reserve_min_facultatif"), _reserve, Loc.Get("AircraftWindow_Carburant_garde_en_reserve_en")));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_Montee_ft_min_facultatif"), _climb, Loc.Get("AircraftWindow_Sert_au_profil_les_points")));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_Descente_ft_min_facultatif"), _descent, Loc.Get("AircraftWindow_Idem_pour_la_descente_Vide")));
         form.Children.Add(grid);
 
-        form.Children.Add(Field("Notes et sources", _notes));
+        form.Children.Add(Field(Loc.Get("AircraftWindow_Notes_et_sources"), _notes));
         form.Children.Add(_derived);
         form.Children.Add(_error);
 
@@ -112,7 +113,7 @@ public sealed class AircraftWindow : Window
             b.Margin = new Thickness(0, 0, 8, 0);
             buttons.Children.Add(b);
         }
-        var close = new Button { Content = "Fermer", IsCancel = true, Padding = new Thickness(12, 5, 12, 5) };
+        var close = new Button { Content = Loc.Get("AircraftWindow_Fermer"), IsCancel = true, Padding = new Thickness(12, 5, 12, 5) };
         buttons.Children.Add(close);
         form.Children.Add(buttons);
 
@@ -215,16 +216,16 @@ public sealed class AircraftWindow : Window
         a.Category = (AircraftCategory)Math.Max(_category.SelectedIndex, 0);
         a.Vfr = _vfr.IsChecked == true;
         a.Ifr = _ifr.IsChecked == true;
-        a.CruiseKt = Parse(_cruise, "vitesse de croisière", problems);
-        a.MaxKt = Parse(_max, "vitesse maximale", problems);
-        a.BurnLph = Parse(_burn, "consommation", problems);
-        a.FuelCapacityL = Parse(_fuel, "carburant utilisable", problems);
-        a.CruiseAltFt = Parse(_cruiseAlt, "altitude de croisière", problems);
+        a.CruiseKt = Parse(_cruise, Loc.Get("AircraftWindow_vitesse_de_croisiere"), problems);
+        a.MaxKt = Parse(_max, Loc.Get("Aircraft_Label_max"), problems);
+        a.BurnLph = Parse(_burn, Loc.Get("Aircraft_Label_burn"), problems);
+        a.FuelCapacityL = Parse(_fuel, Loc.Get("Aircraft_Label_fuel"), problems);
+        a.CruiseAltFt = Parse(_cruiseAlt, Loc.Get("AircraftWindow_altitude_de_croisiere"), problems);
         if (_ceiling.Text.Trim().Length == 0) a.ServiceCeilingFt = null;
-        else a.ServiceCeilingFt = Parse(_ceiling, "plafond", problems);
-        a.ReserveMinutes = _reserve.Text.Trim().Length == 0 ? null : Parse(_reserve, "réserve", problems);
-        a.ClimbFpm = _climb.Text.Trim().Length == 0 ? null : Parse(_climb, "taux de montée", problems);
-        a.DescentFpm = _descent.Text.Trim().Length == 0 ? null : Parse(_descent, "taux de descente", problems);
+        else a.ServiceCeilingFt = Parse(_ceiling, Loc.Get("Aircraft_Label_ceiling"), problems);
+        a.ReserveMinutes = _reserve.Text.Trim().Length == 0 ? null : Parse(_reserve, Loc.Get("AircraftWindow_reserve"), problems);
+        a.ClimbFpm = _climb.Text.Trim().Length == 0 ? null : Parse(_climb, Loc.Get("AircraftWindow_taux_de_montee"), problems);
+        a.DescentFpm = _descent.Text.Trim().Length == 0 ? null : Parse(_descent, Loc.Get("AircraftWindow_taux_de_descente"), problems);
         a.Notes = string.IsNullOrWhiteSpace(_notes.Text) ? null : _notes.Text.Trim();
         return a;
     }
@@ -232,7 +233,7 @@ public sealed class AircraftWindow : Window
     private static double Parse(TextBox box, string label, List<string> problems)
     {
         if (TryNum(box.Text, out double v)) return v;
-        problems.Add($"Le champ « {label} » n'est pas un nombre.");
+        problems.Add(Loc.F("AircraftWindow_Le_champ_n_est_pas", label));
         return double.NaN;
     }
 
@@ -240,14 +241,14 @@ public sealed class AircraftWindow : Window
     {
         if (_loading) return;
         var a = Read(out var problems);
-        if (problems.Count > 0 || a.Validate().Any(e => e.Contains("positi") || e.Contains("réserve")))
+        if (problems.Count > 0 || a.Validate().Any(e => e.Contains("positi") || e.Contains(Loc.Get("Aircraft_Word_reserve"))))
         {
             _derived.Text = "";
             return;
         }
         string mode = _mode == FlightMode.Vfr ? "VFR" : "IFR";
-        _derived.Text = $"Autonomie {NavMath.FormatTime(a.EnduranceMinutes)} · portée tout carburant {a.RangeNm:N0} NM · " +
-                        $"portée utile {a.UsableRangeNm(_mode):N0} NM (réserve {a.ReserveFor(_mode):0} min en {mode}). Vent nul.";
+        _derived.Text = Loc.F("AircraftWindow_Autonomie_portee_tout_carburant_NM", NavMath.FormatTime(a.EnduranceMinutes), a.RangeNm) +
+                        Loc.F("AircraftWindow_portee_utile_NM_reserve_min", a.UsableRangeNm(_mode), a.ReserveFor(_mode), mode);
     }
 
     // ---------- actions ----------
@@ -262,14 +263,14 @@ public sealed class AircraftWindow : Window
         Changed = true;
         Refill(a.Id);
         // La fiche enregistrée peut sortir de la liste affichée (capacité retirée pour ce type de navigation).
-        if (_list.SelectedItem is null) { StartNew(); _error.Text = "Enregistré. Cet appareil n'est plus proposé dans ce type de navigation."; _error.Foreground = Grey; }
-        else { _error.Text = "Enregistré."; _error.Foreground = Grey; }
+        if (_list.SelectedItem is null) { StartNew(); _error.Text = Loc.Get("AircraftWindow_Enregistre_Cet_appareil_n_est"); _error.Foreground = Grey; }
+        else { _error.Text = Loc.Get("AircraftWindow_Enregistre"); _error.Foreground = Grey; }
     }
 
     private void Delete_Click(object sender, RoutedEventArgs e)
     {
         if (_editing is null || _isNew) return;
-        if (MessageBox.Show(this, $"Supprimer « {_editing.Name} » ?\nCette suppression est définitive (les appareils par défaut peuvent être remis).",
+        if (MessageBox.Show(this, Loc.F("AircraftWindow_Supprimer_Cette_suppression_est_definitive", _editing.Name),
                 Title, MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
         _catalog.Remove(_editing.Id);
         if (!Persist()) return;
@@ -282,7 +283,7 @@ public sealed class AircraftWindow : Window
         if (_editing is null || _isNew) return;
         var copy = _editing.Clone();
         copy.Id = Guid.NewGuid();
-        copy.Name = UniqueName(_editing.Name + " (copie)");
+        copy.Name = UniqueName(_editing.Name + Loc.Get("Aircraft_Copy_suffix"));
         _list.SelectedItem = null;
         Load(copy, isNew: true);
         _name.Focus();
@@ -304,7 +305,7 @@ public sealed class AircraftWindow : Window
         Changed |= added > 0;
         Refill(_editing?.Id);
         _error.Foreground = Grey;
-        _error.Text = added > 0 ? $"{added} appareil(s) par défaut remis." : "Les appareils par défaut sont déjà tous là.";
+        _error.Text = added > 0 ? Loc.F("AircraftWindow_appareil_s_par_defaut_remis", added) : Loc.Get("AircraftWindow_Les_appareils_par_defaut_sont");
     }
 
     private bool Persist()
@@ -312,7 +313,7 @@ public sealed class AircraftWindow : Window
         try { _catalog.Save(); return true; }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            Show(["Enregistrement impossible : " + ex.Message]);
+            Show([Loc.Get("AircraftWindow_Enregistrement_impossible") + ex.Message]);
             return false;
         }
     }

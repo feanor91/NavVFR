@@ -1,9 +1,10 @@
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Ifr;
 
-public enum IfrLegSource { Airport, Sid, Airway, Star, Direct }
+public enum IfrLegSource { Airport, Sid, Airway, Star, Direct, Ils }
 
 /// <summary>Point de la route IFR calculée. <see cref="Airway"/> = route ATS empruntée pour y arriver.</summary>
 public sealed record IfrRoutePoint(
@@ -92,15 +93,15 @@ public static class IfrRouter
         options ??= new IfrPlanOptions();
         var dep = data.Find(departure);
         var arr = data.Find(arrival);
-        if (dep is null) return Fail($"Terrain de départ inconnu : {departure}.");
-        if (arr is null) return Fail($"Terrain d'arrivée inconnu : {arrival}.");
+        if (dep is null) return Fail(Loc.F("IfrRouter_Terrain_de_depart_inconnu", departure));
+        if (arr is null) return Fail(Loc.F("IfrRouter_Terrain_d_arrivee_inconnu", arrival));
 
         var starts = Anchors(data, dep, ProcedureKind.Sid, options.Sid, options.NoSid, options.DepartureRunway, options.DirectRadiusNm, options.FlightLevel, FreeAt(options), out var startError);
         if (startError is not null) return Fail(startError);
         var ends = Anchors(data, arr, ProcedureKind.Star, options.Star, options.NoStar, options.ArrivalRunway, options.DirectRadiusNm, options.FlightLevel, FreeAt(options), out var endError);
         if (endError is not null) return Fail(endError);
-        if (starts.Count == 0) return Fail($"Aucun point du réseau IFR à moins de {options.DirectRadiusNm:0} NM de {departure}.");
-        if (ends.Count == 0) return Fail($"Aucun point du réseau IFR à moins de {options.DirectRadiusNm:0} NM de {arrival}.");
+        if (starts.Count == 0) return Fail(Loc.F("IfrRouter_Aucun_point_du_reseau_IFR", options.DirectRadiusNm, departure));
+        if (ends.Count == 0) return Fail(Loc.F("IfrRouter_Aucun_point_du_reseau_IFR", options.DirectRadiusNm, arrival));
 
         var (dist, prev, root) = Dijkstra(data, starts, ends, arr, options);
 
@@ -132,14 +133,14 @@ public static class IfrRouter
                     bestStart = s;
                     bestEnd = e;
                 }
-            if (bestStart is null || bestEnd is null) return Fail("Aucune route trouvée.");
+            if (bestStart is null || bestEnd is null) return Fail(Loc.Get("IfrRouter_Aucune_route_trouvee"));
             path = [(bestStart.Node, null)];
             if (!bestStart.Node.Equals(bestEnd.Node, StringComparison.OrdinalIgnoreCase)) path.Add((bestEnd.Node, null));
         }
         else
         {
-            return Fail($"Aucune route ATS ne relie {departure} à {arrival}" +
-                        (options.FlightLevel is { } fl ? $" au FL{fl}." : "."));
+            return Fail(Loc.F("IfrRouter_Aucune_route_ATS_ne_relie", departure, arrival) +
+                        (options.FlightLevel is { } fl ? Loc.F("IfrRouter_At_FL", fl) : "."));
         }
 
         return new IfrPlanResult(Assemble(data, dep, arr, bestStart!, bestEnd!, path), null);
@@ -177,7 +178,7 @@ public static class IfrRouter
             procedures = procedures.Where(p => p.Ident.Equals(ident, StringComparison.OrdinalIgnoreCase)).ToList();
             if (procedures.Count == 0)
             {
-                error = $"{label} {ident} introuvable pour {airport.Ident}.";
+                error = Loc.F("IfrRouter_introuvable_pour", label, ident, airport.Ident);
                 return [];
             }
         }
@@ -211,8 +212,8 @@ public static class IfrRouter
         {
             // Des procédures existent mais aucune n'est utilisable : pas de repli silencieux vers un tronçon direct.
             error = runway is not null
-                ? $"Aucune {label}{(ident is null ? "" : " " + ident)} ne convient à la piste {runway} de {airport.Ident}."
-                : $"Les {label} de {airport.Ident} référencent des points absents des données.";
+                ? Loc.F("IfrRouter_Aucune_ne_convient_a_la", label, (ident is null ? "" : " " + ident), runway, airport.Ident)
+                : Loc.F("IfrRouter_Les_de_referencent_des_points", label, airport.Ident);
             return [];
         }
 

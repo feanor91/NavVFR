@@ -8,6 +8,12 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 > **Pour la simulation uniquement.** Ce logiciel ne remplace ni l'AIP, ni les NOTAM, ni la météo officielle.
 > Ne l'utilise pas pour un vol réel.
 
+## Langue
+
+L'interface, les messages, la feuille de route, le glossaire et la météo décodée existent en **français et en anglais** (English version of this file: [README.en.md](README.en.md)). La langue se choisit dans **Paramètres → LANGUE / LANGUAGE** (prise en compte au redémarrage) ; par défaut, celle de Windows (français sinon). Les textes sont dans des fichiers de ressources : `src/VFRNav.Core/Localization/Strings.resx` (français, langue neutre) et `Strings.en.resx` (anglais). Dans le XAML on les lit avec `{local:Tr Cle}`, dans le code avec `Loc.Get("Cle")` ou `Loc.F("Cle", args)`. Pour ajouter une langue : un fichier `Strings.<code>.resx` et une ligne dans `Loc.Languages`. Un test vérifie que les deux fichiers ont les mêmes clés et les mêmes paramètres, et que chaque clé utilisée dans le code existe.
+
+Non traduits : les textes des procédures VFR lus sur les cartes VAC (`vfr-data`), qui sont des données sources en français.
+
 ## Ce que fait l'application
 
 ### Carte, zones et aide
@@ -15,6 +21,7 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 - **Carte** avec terrains (OurAirports), espaces aériens (OpenAIP, contours avec nom et limites le long du trait), balises **VOR** et **NDB/ADF**, fonds de carte au choix, points de report VFR (triangles jaunes, case à cocher pour les masquer).
 - **Zones** : au survol d'un contour, la fiche de la zone concernée (type, classe, limites, fréquences) et une explication pour débutants.
 - **Glossaire** de 110 sigles des cartes, de la météo et de l'application, avec recherche.
+- **Terrains du monde** (48 000 terrains OurAirports, téléchargés une fois puis gardés en cache 7 jours, bouton « Actualiser » dans Données) : filtres par taille, service régulier, code IATA, piste en dur et longueur minimale, pays ou continent, couloir autour de la route. L'affichage se répartit selon le zoom (les plus importants d'abord, 800 au plus à l'écran) ; une **recherche** par code OACI/IATA, nom ou ville centre la carte et ajoute le terrain à la route.
 - **Terrains** : fiche au survol (météo en clair, procédures VFR), pastilles météo (VFR, MVFR, IFR, LIFR), METAR et TAF traduits en français.
 
 ### Préparer une route
@@ -54,6 +61,7 @@ Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du pl
 
 - **Météo en temps réel sur la carte** (panneau Paramètres) : radar de précipitations (RainViewer, image toutes les 10 min) et nuages du satellite Meteosat (EUMETSAT) en deux couches à afficher séparément ou ensemble : la couverture nuageuse (stratus bas compris) et les sommets froids (orages, fronts), chacun avec son opacité, mis à jour automatiquement. Le radar peut être animé sur ses 4 dernières images (30 min). Sans clé. Météo réelle : elle peut différer de celle de MSFS.
 - **SIGMET sur la carte** (panneau Paramètres) : les zones de phénomènes dangereux en vigueur (orages, turbulence, givrage, ondes orographiques, cendres volcaniques, cyclones), une couleur par phénomène, avec infobulle au survol (niveaux, validité, message). Un contour plein et épais signale ceux qui traversent la route, et une ligne apparaît dans la vérification de la route. Option « seulement à mon altitude ».
+- **Finale ILS indicative** (route IFR, France) : quand la piste d'arrivée a un ILS dans l'export du SIA, la route reçoit l'interception de l'axe à 10 NM puis la finale à 5 NM sur la pente de l'ILS, avec leurs altitudes (profil de descente) et une note (indicatif, fréquence, QDM, pente, catégorie) reprise sur la feuille de route. Ce n'est pas la procédure d'approche publiée : ses points, altitudes et minima ne sont pas dans les données du SIA.
 - **SIGMET sur la feuille de route** : les messages SIGMET en vigueur (aviationweather.gov) qui traversent la route sont listés avec leur phénomène, leurs niveaux, leur validité et leur position par rapport à ton altitude prévue.
 - **Suivi de l'avion en direct** (SimConnect) : un avion dessiné sur la carte, qui suit le cap.
 
@@ -62,6 +70,7 @@ Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du pl
 | Quoi | Où |
 | --- | --- |
 | Réglages, clés, route (jamais dans le dépôt) | `%AppData%\VFRNav\settings.json` |
+| Terrains du monde (OurAirports) | `%AppData%\VFRNav\airports\` |
 | SID/STAR du monde | `%AppData%\VFRNav\procedures\` : un fichier `.json.gz` par terrain et un `index.json` |
 | Routes ATS hors de France | `%AppData%\VFRNav\network\world-network.bin.gz` |
 | Données du SIA | ton propre fichier `export_xml_bd_SIA_….zip` : MSFS Rhumb n'en garde que le chemin |

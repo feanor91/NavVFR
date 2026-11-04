@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -20,7 +21,7 @@ public sealed class LiveInfoWindow : Window
 
     public LiveInfoWindow(string text)
     {
-        Title = "Infos en direct";
+        Title = Loc.Get("Ui_Infos_en_direct");
         Width = 430;
         Height = 480;
         MinWidth = 300;

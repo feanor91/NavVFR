@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Text.Json;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Weather;
 
@@ -14,7 +15,7 @@ public sealed record RadarFrame(DateTimeOffset Time, string Path);
 public sealed class RadarMaps
 {
     public const string IndexUrl = "https://api.rainviewer.com/public/weather-maps.json";
-    public const string AttributionText = "Weather data by RainViewer";
+    public static string AttributionText => "Weather data by RainViewer";
     public const string AttributionUrl = "https://www.rainviewer.com";
 
     /// <summary>Niveau de zoom maximal des tuiles (au-delà, l'image est agrandie).</summary>
@@ -47,14 +48,14 @@ public sealed class RadarMaps
             foreach (var f in root.GetProperty("radar").GetProperty("past").EnumerateArray())
                 frames.Add(new RadarFrame(DateTimeOffset.FromUnixTimeSeconds(f.GetProperty("time").GetInt64()), f.GetProperty("path").GetString() ?? ""));
 
-            if (!host.StartsWith("https://", StringComparison.Ordinal)) throw new InvalidDataException("Adresse des tuiles radar inattendue.");
-            if (frames.Count == 0 || frames.Any(f => f.Path.Length == 0)) throw new InvalidDataException("Aucune image radar disponible.");
+            if (!host.StartsWith("https://", StringComparison.Ordinal)) throw new InvalidDataException(Loc.Get("WeatherOverlays_Adresse_des_tuiles_radar_inattendue"));
+            if (frames.Count == 0 || frames.Any(f => f.Path.Length == 0)) throw new InvalidDataException(Loc.Get("WeatherOverlays_Aucune_image_radar_disponible"));
             frames.Sort((a, b) => a.Time.CompareTo(b.Time));
             return new RadarMaps(host.TrimEnd('/'), frames);
         }
         catch (Exception ex) when (ex is JsonException or KeyNotFoundException or InvalidOperationException or FormatException)
         {
-            throw new InvalidDataException("Réponse de RainViewer illisible : " + ex.Message, ex);
+            throw new InvalidDataException(Loc.Get("WeatherOverlays_Reponse_de_RainViewer_illisible") + ex.Message, ex);
         }
     }
 
@@ -92,7 +93,7 @@ public static class SatelliteClouds
     /// <summary>Masque de nuages de Meteosat Seconde Génération (nuage / sol dégagé / mer dégagée), une image toutes les 15 minutes.</summary>
     public const string MaskLayer = "msg_fes:clm";
 
-    public const string AttributionText = "Nuages : © EUMETSAT (Meteosat)";
+    public static string AttributionText => Loc.Get("WeatherOverlays_Nuages_EUMETSAT_Meteosat");
     public const string AttributionUrl = "https://view.eumetsat.int";
     public const int MaxZoom = 8;
 
@@ -143,7 +144,7 @@ public static class SatelliteClouds
     /// </summary>
     public static void ToCoverOverlay(ReadOnlySpan<byte> maskRgba, Span<byte> output)
     {
-        if (output.Length < maskRgba.Length) throw new ArgumentException("Tampon de sortie trop petit.", nameof(output));
+        if (output.Length < maskRgba.Length) throw new ArgumentException(Loc.Get("WeatherOverlays_Tampon_de_sortie_trop_petit"), nameof(output));
         var (r, g, b) = Tint(CloudLayerKind.Cover);
         for (int i = 0; i + 3 < maskRgba.Length; i += 4)
         {
@@ -161,7 +162,7 @@ public static class SatelliteClouds
     /// </summary>
     public static void ToTopsOverlay(ReadOnlySpan<byte> infraredRgba, Span<byte> output)
     {
-        if (output.Length < infraredRgba.Length) throw new ArgumentException("Tampon de sortie trop petit.", nameof(output));
+        if (output.Length < infraredRgba.Length) throw new ArgumentException(Loc.Get("WeatherOverlays_Tampon_de_sortie_trop_petit"), nameof(output));
         var (r, g, b) = Tint(CloudLayerKind.Tops);
         for (int i = 0; i + 3 < infraredRgba.Length; i += 4)
         {
@@ -192,18 +193,18 @@ public sealed record RadarLegendEntry(int Dbz, string Hex, double MmPerHour, str
 /// </summary>
 public static class RadarLegend
 {
-    public static IReadOnlyList<RadarLegendEntry> Rain { get; } =
-    [
-        Entry(15, "#88DDEE", "très faible"),
-        Entry(20, "#00A3E0", "faible"),
-        Entry(25, "#0077AA", "faible"),
-        Entry(30, "#005588", "modérée"),
-        Entry(35, "#FFEE00", "modérée"),
-        Entry(40, "#FFAA00", "forte"),
-        Entry(45, "#FF4400", "très forte"),
-        Entry(50, "#C10000", "violente"),
-        Entry(55, "#FFAAFF", "extrême"),
-    ];
+    private static readonly Localized<IReadOnlyList<RadarLegendEntry>> RainByLanguage = new(() => [
+        Entry(15, "#88DDEE", Loc.Get("WeatherOverlays_tres_faible")),
+        Entry(20, "#00A3E0", Loc.Get("WeatherDecoder_faible")),
+        Entry(25, "#0077AA", Loc.Get("WeatherDecoder_faible")),
+        Entry(30, "#005588", Loc.Get("WeatherOverlays_moderee")),
+        Entry(35, "#FFEE00", Loc.Get("WeatherOverlays_moderee")),
+        Entry(40, "#FFAA00", Loc.Get("WeatherDecoder_forte")),
+        Entry(45, "#FF4400", Loc.Get("WeatherOverlays_tres_forte")),
+        Entry(50, "#C10000", Loc.Get("Radar_Violent")),
+        Entry(55, "#FFAAFF", Loc.Get("WeatherOverlays_extreme")),
+    ]);
+    public static IReadOnlyList<RadarLegendEntry> Rain => RainByLanguage.Value;
 
     /// <summary>Neige : un dégradé du clair au bleu soutenu, plus la réflectivité est forte plus la teinte est foncée.</summary>
     public static (string Light, string Dark) Snow { get; } = ("#C3FFFF", "#3F7FFF");

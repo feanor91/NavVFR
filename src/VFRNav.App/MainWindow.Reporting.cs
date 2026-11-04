@@ -5,13 +5,14 @@ using Mapsui.Projections;
 using Mapsui.Styles;
 using VFRNav.Core.Models;
 using VFRNav.Core.Aerodromes;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
 // ---------- Points de report VFR (quand le profil de l'aérodrome les donne) ----------
 public partial class MainWindow
 {
-    private readonly MemoryLayer _reportLayer = new("Points de report");
+    private readonly MemoryLayer _reportLayer = new(Loc.Get("Reporting_Points_de_report"));
     private List<(string Icao, ReportingPoint Point)> _reportingPoints = [];
 
     private void ApplyReportingPoints()
