@@ -70,6 +70,46 @@ public static class RouteGeometry
     }
 
     /// <summary>
+    /// Tracé de la route pour la carte : chaque branche suit le grand cercle (c'est lui que mesurent la distance et le cap du log),
+    /// échantillonné tous les <paramref name="stepNm"/> milles, et non la ligne droite de la projection Mercator qui est trompeuse sur
+    /// les longues branches. Les lignes sont coupées là où la route franchit l'antiméridien (avec des points sur ±180°), et les latitudes bornées.
+    /// </summary>
+    public static IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> GreatCircleLines(IReadOnlyList<Waypoint> route, double stepNm = 30, double maxLat = 85)
+    {
+        var lines = new List<IReadOnlyList<(double, double)>>();
+        if (route.Count < 2) return lines;
+
+        var current = new List<(double Lat, double Lon)>();
+        for (int leg = 0; leg < route.Count - 1; leg++)
+        {
+            var a = route[leg];
+            var b = route[leg + 1];
+            int n = Math.Clamp((int)Math.Ceiling(NavMath.DistanceNm(a, b) / Math.Max(stepNm, 1)), 1, 720);
+            for (int k = leg == 0 ? 0 : 1; k <= n; k++)
+            {
+                var (lat, lon) = k == 0 ? (a.Lat, a.Lon) : k == n ? (b.Lat, b.Lon) : Interpolate(a.Lat, a.Lon, b.Lat, b.Lon, (double)k / n);
+                lat = Math.Clamp(lat, -maxLat, maxLat);
+
+                if (current.Count > 0 && Math.Abs(lon - current[^1].Lon) > 180)
+                {
+                    // Franchissement de l'antiméridien : on termine la ligne sur le bord et on repart de l'autre bord à la même latitude.
+                    var (pLat, pLon) = current[^1];
+                    double edge = pLon > 0 ? 180 : -180;
+                    double unwrapped = lon + (pLon > 0 ? 360 : -360);
+                    double t = (edge - pLon) / (unwrapped - pLon);
+                    double edgeLat = pLat + t * (lat - pLat);
+                    current.Add((edgeLat, edge));
+                    if (current.Count > 1) lines.Add(current);
+                    current = [(edgeLat, -edge)];
+                }
+                current.Add((lat, lon));
+            }
+        }
+        if (current.Count > 1) lines.Add(current);
+        return lines;
+    }
+
+    /// <summary>
     /// Points régulièrement espacés le long de la route, extrémités des tronçons comprises.
     /// Le pas est agrandi si besoin pour ne pas dépasser <paramref name="maxPoints"/> points.
     /// </summary>

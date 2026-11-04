@@ -214,6 +214,7 @@ public partial class MainWindow
 
         var lines = WaypointInsight.RouteCheck(route, p.CruiseAltFt, crossings, terrain, zonesLoaded: _airspaces.Count > 0, altitudes: altitudes);
         if (note is not null) lines = [.. lines, note];
+        if (ActiveAircraft is { } aircraft && FuelCheck.Message(aircraft, _mode, NavMath.ComputeLog(route, p)) is { } fuel) lines = [.. lines, fuel];
         lines = [.. lines, .. await SigmetCheckLinesAsync(route, altitudes, p, ct)];
         LiveCheck.Text = string.Join("\n", lines);
 

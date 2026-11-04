@@ -405,10 +405,15 @@ public partial class MainWindow : Window
     {
         var pts = _route.Select(w => SphericalMercator.FromLonLat(w.Lon, w.Lat)).ToList();
 
+        // Chaque branche suit le grand cercle (celui que mesurent la distance et le cap du log), pas la droite de la projection.
         var lineFeatures = new List<IFeature>();
-        if (pts.Count > 1)
+        foreach (var segment in RouteGeometry.GreatCircleLines(_route.ToList()))
         {
-            var line = new LineString(pts.Select(p => new Coordinate(p.x, p.y)).ToArray());
+            var line = new LineString(segment.Select(q =>
+            {
+                var (x, y) = SphericalMercator.FromLonLat(q.Lon, q.Lat);
+                return new Coordinate(x, y);
+            }).ToArray());
             var lf = new GeometryFeature(line);
             lf.Styles.Add(new VectorStyle { Line = new Pen(Color.White, 8) });
             lf.Styles.Add(new VectorStyle { Line = new Pen(Color.FromArgb(255, 228, 40, 30), 4) });

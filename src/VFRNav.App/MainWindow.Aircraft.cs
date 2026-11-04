@@ -175,16 +175,15 @@ public partial class MainWindow
 
     /// <summary>Avertit quand le carburant nécessaire dépasse ce que l'appareil actif peut emporter.</summary>
     private string FuelWarning(NavLog log) =>
-        ActiveAircraft is { } a && log.TotalFuelL > a.FuelCapacityL
-            ? $"   ⚠ plus que les {a.FuelCapacityL:N0} L de {a.Name}"
-            : "";
+        ActiveAircraft is { } a && FuelCheck.Message(a, _mode, log) is { } message ? "   " + message : "";
 
     // ---------- cercles de portée ----------
 
     /// <summary>Les deux cercles de l'appareil actif autour du départ, avec leurs contours (recalculés quand la route ou l'appareil change).</summary>
     private sealed record RangeCircles(
         Waypoint Origin, Aircraft Aircraft, double UsableNm, double FullNm, double ReserveMin,
-        IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> UsableLines, IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> FullLines);
+        IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> UsableLines, IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> FullLines,
+        IReadOnlyList<(double Lat, double Lon)>? OutsideRing, IReadOnlyList<(double Lat, double Lon)>? BandRing, bool UsableEnclosesPole);
 
     private RangeCircles? _range;
 
@@ -207,9 +206,15 @@ public partial class MainWindow
             var origin = _route[0];
             double full = aircraft.RangeNm, usable = aircraft.UsableRangeNm(_mode);
             // 360 points : assez serré pour poser l'étiquette sur le cercle même à fort zoom.
+            // Un cercle qui enferme un pôle ne peut pas être fermé sur la carte : on grise la zone hors de portée à la place du trait.
+            char? fullPole = RangeShading.EnclosedPole(origin.Lat, full);
+            char? usablePole = usable > 0 ? RangeShading.EnclosedPole(origin.Lat, usable) : null;
             _range = new RangeCircles(origin, aircraft, usable, full, aircraft.ReserveFor(_mode),
                 usable > 0 ? RouteGeometry.CircleLines(origin.Lat, origin.Lon, usable, 360) : [],
-                RouteGeometry.CircleLines(origin.Lat, origin.Lon, full, 360));
+                RouteGeometry.CircleLines(origin.Lat, origin.Lon, full, 360),
+                fullPole is null ? null : RangeShading.OutsideRing(origin.Lat, origin.Lon, full),
+                fullPole is not null && fullPole == usablePole ? RangeShading.BandRing(origin.Lat, origin.Lon, usable, full) : null,
+                usablePole is not null);
         }
         UpdateRangeView();
     }
@@ -233,8 +238,18 @@ public partial class MainWindow
 
             if (state == RangeViewState.Crossing && view is { } v)
             {
-                AddRangeLines(features, r.FullLines, new Pen(Color.FromArgb(215, 217, 119, 6), 1.5) { PenStyle = PenStyle.Dash }, 3.5);
-                if (r.UsableNm > 0) AddRangeLines(features, r.UsableLines, new Pen(RangeOrange, 2.5), 5.5);
+                if (r.OutsideRing is not null)
+                {
+                    // Cercle qui enferme un pôle : gris = hors de portée, orange clair = réserve (entre la portée utile et tout le carburant).
+                    AddRangeShade(features, r.OutsideRing, Color.FromArgb(105, 60, 70, 85));
+                    if (r.BandRing is not null) AddRangeShade(features, r.BandRing, Color.FromArgb(90, 217, 119, 6));
+                    if (r.UsableNm > 0 && !r.UsableEnclosesPole) AddRangeLines(features, r.UsableLines, new Pen(RangeOrange, 2.5), 5.5);
+                }
+                else
+                {
+                    AddRangeLines(features, r.FullLines, new Pen(Color.FromArgb(215, 217, 119, 6), 1.5) { PenStyle = PenStyle.Dash }, 3.5);
+                    if (r.UsableNm > 0) AddRangeLines(features, r.UsableLines, new Pen(RangeOrange, 2.5), 5.5);
+                }
 
                 if (r.UsableNm > 0)
                     AddRangeLabel(features, r.UsableLines, v, string.Create(fr, $"Portée utile {r.UsableNm:N0} NM (réserve {r.ReserveMin:0} min) · {r.Aircraft.Name}"), -12);
@@ -255,6 +270,9 @@ public partial class MainWindow
         string numbers = r.UsableNm > 0
             ? string.Create(fr, $"Portée utile {r.UsableNm:N0} NM (réserve {r.ReserveMin:0} min), tout le carburant {r.FullNm:N0} NM, autour de {r.Origin.Name}. Sans vent.")
             : string.Create(fr, $"L'autonomie ({r.FullNm:N0} NM) ne dépasse pas la réserve de {r.ReserveMin:0} min : pas de portée utile. Tout le carburant : {r.FullNm:N0} NM autour de {r.Origin.Name}. Sans vent.");
+        // Quand le cercle enferme un pôle, il n'y a pas de trait : on explique le grisé.
+        if (r.OutsideRing is not null && state == RangeViewState.Crossing)
+            numbers += "\nLe cercle enferme un pôle : sur la carte, la zone grisée est hors de portée" + (r.BandRing is not null ? ", la bande orange est la réserve." : ".");
         return state switch
         {
             RangeViewState.InsideUsable => numbers + "\nToute la zone affichée est dans la portée utile : dézoome pour voir le cercle.",
@@ -274,6 +292,21 @@ public partial class MainWindow
         var (lonB, latB) = SphericalMercator.ToLonLat(extent.MaxX, extent.MaxY);
         var (cLon, cLat) = SphericalMercator.ToLonLat(vp.CenterX, vp.CenterY);
         return (Math.Min(latA, latB), Math.Min(lonA, lonB), Math.Max(latA, latB), Math.Max(lonA, lonB), cLat, cLon);
+    }
+
+    /// <summary>Surface teintée (sans contour) à partir d'un contour en latitude/longitude.</summary>
+    private static void AddRangeShade(List<IFeature> features, IReadOnlyList<(double Lat, double Lon)> ring, Color fill)
+    {
+        if (ring.Count < 4) return;
+        var coordinates = ring.Select(p =>
+        {
+            var (x, y) = SphericalMercator.FromLonLat(p.Lon, p.Lat);
+            return new Coordinate(x, y);
+        }).ToList();
+        if (!coordinates[0].Equals2D(coordinates[^1])) coordinates.Add(coordinates[0]);
+        var feature = new GeometryFeature(new Polygon(new LinearRing(coordinates.ToArray())));
+        feature.Styles.Add(new VectorStyle { Fill = new Brush(fill), Outline = null, Line = null });
+        features.Add(feature);
     }
 
     private static void AddRangeLines(List<IFeature> features, IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> lines, Pen pen, double casingWidth)
