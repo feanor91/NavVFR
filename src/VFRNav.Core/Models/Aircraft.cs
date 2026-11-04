@@ -41,6 +41,9 @@ public sealed class Aircraft
     public double? ClimbFpm { get; set; }
     public double? DescentFpm { get; set; }
 
+    /// <summary>Réserve de carburant en minutes de vol, retranchée de la portée utile ; null = valeur usuelle du type de navigation (30 min en VFR, 45 min en IFR).</summary>
+    public double? ReserveMinutes { get; set; }
+
     public string? Notes { get; set; }
 
     /// <summary>Taux de montée effectif (saisi, sinon usuel de la catégorie), en pieds par minute.</summary>
@@ -59,8 +62,17 @@ public sealed class Aircraft
     /// <summary>Autonomie à la consommation de croisière, en minutes (0 si la consommation est nulle).</summary>
     public double EnduranceMinutes => BurnLph > 0 ? FuelCapacityL / BurnLph * 60 : 0;
 
-    /// <summary>Rayon d'action théorique en vent nul, sans réserve, en milles nautiques.</summary>
+    /// <summary>Rayon d'action théorique avec tout le carburant, en vent nul, sans réserve, en milles nautiques.</summary>
     public double RangeNm => EnduranceMinutes / 60 * CruiseKt;
+
+    /// <summary>Réserve retenue pour un type de navigation, en minutes.</summary>
+    public double ReserveFor(FlightMode mode) => ReserveMinutes ?? (mode == FlightMode.Ifr ? 45 : 30);
+
+    /// <summary>Autonomie une fois la réserve gardée de côté, en minutes (0 si la réserve consomme tout).</summary>
+    public double UsableEnduranceMinutes(FlightMode mode) => Math.Max(0, EnduranceMinutes - ReserveFor(mode));
+
+    /// <summary>Portée utile : distance parcourue en gardant la réserve, en vent nul, en milles nautiques.</summary>
+    public double UsableRangeNm(FlightMode mode) => UsableEnduranceMinutes(mode) / 60 * CruiseKt;
 
     public Aircraft Clone() => (Aircraft)MemberwiseClone();
 
@@ -77,6 +89,7 @@ public sealed class Aircraft
         if (!(CruiseAltFt >= 0)) errors.Add("L'altitude de croisière ne peut pas être négative.");
         if (ClimbFpm is { } c && !(c > 0)) errors.Add("Le taux de montée doit être positif.");
         if (DescentFpm is { } d && !(d > 0)) errors.Add("Le taux de descente doit être positif.");
+        if (ReserveMinutes is { } r && !(r >= 0)) errors.Add("La réserve ne peut pas être négative.");
         if (ServiceCeilingFt is { } ceiling && !(ceiling >= CruiseAltFt))
             errors.Add("Le plafond ne peut pas être inférieur à l'altitude de croisière.");
         return errors;

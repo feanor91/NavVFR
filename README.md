@@ -31,7 +31,7 @@ Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du pl
 - **Notes** par point de route, **infos en direct** dans une fenêtre séparée.
 - **Plan de vol `.pln`** : la route s'enregistre et s'ouvre directement dans le fichier de MSFS, avec les altitudes et les notes par point.
 - **Feuille de route imprimable** (aperçu, impression, PDF) : navigation, briefing par point, relief, profil, terrains, météo, zones, balises, obstacles.
-- **Appareils** : liste modifiable (nom, VFR et/ou IFR, vitesses de croisière et maximale, consommation, carburant utilisable, plafond), un choix par type de navigation. Le log prévient quand le carburant dépasse la capacité ; un cercle de portée est tracé autour du départ.
+- **Appareils** : liste modifiable (nom, VFR et/ou IFR, vitesses de croisière et maximale, consommation, carburant utilisable, plafond), un choix par type de navigation. Le log prévient quand le carburant dépasse la capacité ; deux cercles de portée sont tracés autour du point de départ : la portée utile (tout le carburant moins la réserve de l'appareil, 30 min en VFR et 45 min en IFR par défaut) et la portée avec tout le carburant, sans vent. Ils ne sont dessinés que s'ils traversent la zone affichée, et leurs étiquettes suivent la vue. Quand un cercle enferme un pôle (grands porteurs), la zone hors de portée est grisée et la réserve en orange clair au lieu d'un trait. Le log et la vérification de la route signalent quand la route entame la réserve de l'appareil (ou dépasse son réservoir), et les branches de la route sont tracées sur le grand cercle, comme le calculent distance et cap.
 
 ### Cartes VAC et procédures VFR
 
@@ -53,6 +53,7 @@ Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du pl
 ### Avec MSFS
 
 - **Météo en temps réel sur la carte** (panneau Paramètres) : radar de précipitations (RainViewer, image toutes les 10 min) et nuages du satellite Meteosat (EUMETSAT) en deux couches à afficher séparément ou ensemble : la couverture nuageuse (stratus bas compris) et les sommets froids (orages, fronts), chacun avec son opacité, mis à jour automatiquement. Le radar peut être animé sur ses 4 dernières images (30 min). Sans clé. Météo réelle : elle peut différer de celle de MSFS.
+- **SIGMET sur la carte** (panneau Paramètres) : les zones de phénomènes dangereux en vigueur (orages, turbulence, givrage, ondes orographiques, cendres volcaniques, cyclones), une couleur par phénomène, avec infobulle au survol (niveaux, validité, message). Un contour plein et épais signale ceux qui traversent la route, et une ligne apparaît dans la vérification de la route. Option « seulement à mon altitude ».
 - **SIGMET sur la feuille de route** : les messages SIGMET en vigueur (aviationweather.gov) qui traversent la route sont listés avec leur phénomène, leurs niveaux, leur validité et leur position par rapport à ton altitude prévue.
 - **Suivi de l'avion en direct** (SimConnect) : un avion dessiné sur la carte, qui suit le cap.
 

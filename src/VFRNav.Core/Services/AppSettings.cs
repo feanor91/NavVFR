@@ -53,6 +53,10 @@ public sealed class AppSettings
     public bool ShowRadar { get; set; }
     /// <summary>Ancienne case unique « Nuages » : lue une fois pour reprendre le choix (les deux couches), puis remise à faux.</summary>
     public bool ShowClouds { get; set; }
+    /// <summary>SIGMET sur la carte : affichage, opacité, et restriction aux messages valables à l'altitude de croisière.</summary>
+    public bool ShowSigmet { get; set; }
+    public double SigmetOpacity { get; set; } = 0.7;
+    public bool SigmetAltitudeOnly { get; set; }
     public bool ShowCloudCover { get; set; }
     public bool ShowCloudTops { get; set; }
     public double CloudCoverOpacity { get; set; } = 0.5;

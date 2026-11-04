@@ -172,7 +172,7 @@ public partial class MainWindow
                 name: "Radar RainViewer", attribution: new BruTile.Attribution(RadarMaps.AttributionText, RadarMaps.AttributionUrl));
             var layer = new TileLayer(source) { Name = "Radar", Opacity = RadarOpacitySlider.Value, Enabled = i == 0 };
             // Au-dessus des nuages et sous les zones : on insère avant les espaces aériens.
-            int index = MapControl.Map.Layers.ToList().IndexOf(_airspaceLayer);
+            int index = MapControl.Map.Layers.ToList().IndexOf(_sigmetLayer);
             MapControl.Map.Layers.Insert(index < 0 ? MapControl.Map.Layers.Count() : index, layer);
             _radarLayers.Add(layer);
         }
@@ -253,8 +253,8 @@ public partial class MainWindow
         bool cover = kind == CloudLayerKind.Cover;
         if (!on)
         {
-            if (cover) SetWeatherLayer(ref _coverLayer, null, _airspaceLayer);
-            else SetWeatherLayer(ref _topsLayer, null, _airspaceLayer);
+            if (cover) SetWeatherLayer(ref _coverLayer, null, _sigmetLayer);
+            else SetWeatherLayer(ref _topsLayer, null, _sigmetLayer);
             return;
         }
 
@@ -262,7 +262,7 @@ public partial class MainWindow
         var builtAt = cover ? _coverBuiltAt : _topsBuiltAt;
         if (existing is not null && DateTimeOffset.UtcNow - builtAt < CloudRefresh) return;
 
-        ILayer aboveClouds = _radarLayers.Count > 0 ? _radarLayers[0] : _airspaceLayer;
+        ILayer aboveClouds = _radarLayers.Count > 0 ? _radarLayers[0] : _sigmetLayer;
         var layer = new TileLayer(new CloudTileSource(kind))
         {
             Name = cover ? "Couverture nuageuse" : "Sommets de nuages",
