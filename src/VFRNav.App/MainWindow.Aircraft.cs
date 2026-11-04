@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using Mapsui;
+using Mapsui.Extensions;
 using Mapsui.Layers;
 using Mapsui.Nts;
 using Mapsui.Projections;
@@ -160,15 +161,15 @@ public partial class MainWindow
 
     private void UpdateAircraftUi()
     {
-        VfrAircraftInfo.Text = Describe(AircraftFor(FlightMode.Vfr), _mode == FlightMode.Vfr);
-        IfrAircraftInfo.Text = Describe(AircraftFor(FlightMode.Ifr), _mode == FlightMode.Ifr);
+        VfrAircraftInfo.Text = Describe(AircraftFor(FlightMode.Vfr), _mode == FlightMode.Vfr, FlightMode.Vfr);
+        IfrAircraftInfo.Text = Describe(AircraftFor(FlightMode.Ifr), _mode == FlightMode.Ifr, FlightMode.Ifr);
     }
 
-    private static string Describe(Aircraft? a, bool active)
+    private static string Describe(Aircraft? a, bool active, FlightMode mode)
     {
         if (a is null) return "Aucun appareil : ouvre « Gérer… » pour en créer un.";
         string text = string.Create(CultureInfo.GetCultureInfo("fr-FR"),
-            $"{a.CruiseKt:0} kt · {a.BurnLph:0.#} L/h · {a.FuelCapacityL:N0} L\nAutonomie {NavMath.FormatTime(a.EnduranceMinutes)} · portée {a.RangeNm:N0} NM");
+            $"{a.CruiseKt:0} kt · {a.BurnLph:0.#} L/h · {a.FuelCapacityL:N0} L\nAutonomie {NavMath.FormatTime(a.EnduranceMinutes)} · portée utile {a.UsableRangeNm(mode):N0} NM");
         return active ? text + "\n▶ utilisé pour le log de navigation" : text;
     }
 
@@ -178,58 +179,132 @@ public partial class MainWindow
             ? $"   ⚠ plus que les {a.FuelCapacityL:N0} L de {a.Name}"
             : "";
 
-    // ---------- cercle de portée ----------
+    // ---------- cercles de portée ----------
+
+    /// <summary>Les deux cercles de l'appareil actif autour du départ, avec leurs contours (recalculés quand la route ou l'appareil change).</summary>
+    private sealed record RangeCircles(
+        Waypoint Origin, Aircraft Aircraft, double UsableNm, double FullNm, double ReserveMin,
+        IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> UsableLines, IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> FullLines);
+
+    private RangeCircles? _range;
+
+    private static readonly Color RangeOrange = Color.FromArgb(255, 217, 119, 6);
 
     /// <summary>
-    /// Cercle centré sur le premier point de la route : distance parcourue avec tout le carburant
-    /// à la vitesse de croisière, sans vent et sans réserve.
+    /// Deux cercles centrés sur le premier point de la route : la <b>portée utile</b> (tout le carburant moins la réserve, trait plein) et
+    /// la portée <b>tout carburant</b> (trait fin tireté). Vent nul, vitesse de croisière, montée et descente ignorées.
     /// </summary>
     private void RefreshRange()
     {
         if (!_aircraftReady) return;
-        var features = new List<IFeature>();
         var aircraft = ActiveAircraft;
-        bool show = RangeCheck.IsChecked == true && aircraft is not null && _route.Count > 0;
-
-        if (show)
+        if (RangeCheck.IsChecked != true || aircraft is null || _route.Count == 0)
+        {
+            _range = null;
+        }
+        else
         {
             var origin = _route[0];
-            double range = aircraft!.RangeNm;
-            foreach (var line in RouteGeometry.CircleLines(origin.Lat, origin.Lon, range))
+            double full = aircraft.RangeNm, usable = aircraft.UsableRangeNm(_mode);
+            // 360 points : assez serré pour poser l'étiquette sur le cercle même à fort zoom.
+            _range = new RangeCircles(origin, aircraft, usable, full, aircraft.ReserveFor(_mode),
+                usable > 0 ? RouteGeometry.CircleLines(origin.Lat, origin.Lon, usable, 360) : [],
+                RouteGeometry.CircleLines(origin.Lat, origin.Lon, full, 360));
+        }
+        UpdateRangeView();
+    }
+
+    /// <summary>
+    /// Dessine les cercles pour la zone actuellement affichée. Un cercle plus grand que l'écran n'est pas dessiné (on ne verrait rien) :
+    /// le panneau dit où se trouve la zone affichée par rapport à la portée. Les étiquettes se posent sur le point visible le plus proche
+    /// du centre de l'écran. Rappelée quand la vue change.
+    /// </summary>
+    private void UpdateRangeView()
+    {
+        var features = new List<IFeature>();
+        var fr = CultureInfo.GetCultureInfo("fr-FR");
+
+        if (_range is { } r)
+        {
+            var view = CurrentViewBounds();
+            var state = view is null
+                ? RangeViewState.Crossing
+                : RangeView.Classify(r.Origin.Lat, r.Origin.Lon, RangeView.Grid(view.Value.MinLat, view.Value.MinLon, view.Value.MaxLat, view.Value.MaxLon), r.UsableNm, r.FullNm);
+
+            if (state == RangeViewState.Crossing && view is { } v)
             {
-                var coordinates = line.Select(p =>
-                {
-                    var (x, y) = SphericalMercator.FromLonLat(p.Lon, p.Lat);
-                    return new Coordinate(x, y);
-                }).ToArray();
-                var feature = new GeometryFeature(new LineString(coordinates));
-                feature.Styles.Add(new VectorStyle { Line = new Pen(Color.White, 5) });
-                feature.Styles.Add(new VectorStyle { Line = new Pen(Color.FromArgb(255, 217, 119, 6), 2.5) { PenStyle = PenStyle.Dash } });
-                features.Add(feature);
+                AddRangeLines(features, r.FullLines, new Pen(Color.FromArgb(215, 217, 119, 6), 1.5) { PenStyle = PenStyle.Dash }, 3.5);
+                if (r.UsableNm > 0) AddRangeLines(features, r.UsableLines, new Pen(RangeOrange, 2.5), 5.5);
+
+                if (r.UsableNm > 0)
+                    AddRangeLabel(features, r.UsableLines, v, string.Create(fr, $"Portée utile {r.UsableNm:N0} NM (réserve {r.ReserveMin:0} min) · {r.Aircraft.Name}"), -12);
+                AddRangeLabel(features, r.FullLines, v, string.Create(fr, $"Tout le carburant : {r.FullNm:N0} NM"), r.UsableNm > 0 ? 12 : -12);
             }
 
-            // Étiquette au nord du cercle quand il est visible dans la projection.
-            var (lat, lon) = RouteGeometry.Destination(origin.Lat, origin.Lon, 0, range);
-            if (Math.Abs(lat) < 84)
-            {
-                var (lx, ly) = SphericalMercator.FromLonLat(lon, lat);
-                var label = new PointFeature(new MPoint(lx, ly));
-                label.Styles.Add(new LabelStyle
-                {
-                    Text = string.Create(CultureInfo.GetCultureInfo("fr-FR"), $"Portée {range:N0} NM · {aircraft.Name}"),
-                    ForeColor = Color.FromArgb(255, 146, 64, 14),
-                    BackColor = new Brush(Color.FromArgb(220, 255, 255, 255)),
-                    Offset = new Offset(0, -12),
-                });
-                features.Add(label);
-            }
+            RangeInfo.Text = RangeText(r, state, fr);
         }
+        else RangeInfo.Text = "";
 
         _rangeLayer.Features = features;
         _rangeLayer.DataHasChanged();
-        RangeInfo.Text = show
-            ? string.Create(CultureInfo.GetCultureInfo("fr-FR"), $"{aircraft!.RangeNm:N0} NM autour de {_route[0].Name}, sans vent ni réserve.")
-            : "";
         MapControl.Refresh();
+    }
+
+    private static string RangeText(RangeCircles r, RangeViewState state, CultureInfo fr)
+    {
+        string numbers = r.UsableNm > 0
+            ? string.Create(fr, $"Portée utile {r.UsableNm:N0} NM (réserve {r.ReserveMin:0} min), tout le carburant {r.FullNm:N0} NM, autour de {r.Origin.Name}. Sans vent.")
+            : string.Create(fr, $"L'autonomie ({r.FullNm:N0} NM) ne dépasse pas la réserve de {r.ReserveMin:0} min : pas de portée utile. Tout le carburant : {r.FullNm:N0} NM autour de {r.Origin.Name}. Sans vent.");
+        return state switch
+        {
+            RangeViewState.InsideUsable => numbers + "\nToute la zone affichée est dans la portée utile : dézoome pour voir le cercle.",
+            RangeViewState.InsideReserve => numbers + "\nLa zone affichée est dans la réserve : au-delà de la portée utile, mais dans la portée tout carburant.",
+            RangeViewState.Beyond => numbers + "\nLa zone affichée est hors de portée, même avec tout le carburant.",
+            _ => numbers,
+        };
+    }
+
+    /// <summary>Limites de la zone affichée en latitude et longitude ; null tant que la carte n'a pas de taille.</summary>
+    private (double MinLat, double MinLon, double MaxLat, double MaxLon, double CenterLat, double CenterLon)? CurrentViewBounds()
+    {
+        var vp = MapControl.Map.Navigator.Viewport;
+        if (vp.Width <= 0 || vp.Height <= 0) return null;
+        var extent = vp.ToExtent();
+        var (lonA, latA) = SphericalMercator.ToLonLat(extent.MinX, extent.MinY);
+        var (lonB, latB) = SphericalMercator.ToLonLat(extent.MaxX, extent.MaxY);
+        var (cLon, cLat) = SphericalMercator.ToLonLat(vp.CenterX, vp.CenterY);
+        return (Math.Min(latA, latB), Math.Min(lonA, lonB), Math.Max(latA, latB), Math.Max(lonA, lonB), cLat, cLon);
+    }
+
+    private static void AddRangeLines(List<IFeature> features, IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> lines, Pen pen, double casingWidth)
+    {
+        foreach (var line in lines)
+        {
+            var coordinates = line.Select(p =>
+            {
+                var (x, y) = SphericalMercator.FromLonLat(p.Lon, p.Lat);
+                return new Coordinate(x, y);
+            }).ToArray();
+            var feature = new GeometryFeature(new LineString(coordinates));
+            feature.Styles.Add(new VectorStyle { Line = new Pen(Color.White, casingWidth) });
+            feature.Styles.Add(new VectorStyle { Line = pen });
+            features.Add(feature);
+        }
+    }
+
+    private static void AddRangeLabel(List<IFeature> features, IReadOnlyList<IReadOnlyList<(double Lat, double Lon)>> lines,
+        (double MinLat, double MinLon, double MaxLat, double MaxLon, double CenterLat, double CenterLon) view, string text, double offsetY)
+    {
+        if (RangeView.NearestVisiblePoint(lines, view.MinLat, view.MinLon, view.MaxLat, view.MaxLon, view.CenterLat, view.CenterLon) is not { } p) return;
+        var (x, y) = SphericalMercator.FromLonLat(p.Lon, p.Lat);
+        var label = new PointFeature(new MPoint(x, y));
+        label.Styles.Add(new LabelStyle
+        {
+            Text = text,
+            ForeColor = Color.FromArgb(255, 146, 64, 14),
+            BackColor = new Brush(Color.FromArgb(225, 255, 255, 255)),
+            Offset = new Offset(0, offsetY),
+        });
+        features.Add(label);
     }
 }

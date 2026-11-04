@@ -314,3 +314,166 @@ public class RangeCircleTests
         Assert.Contains(new Aircraft { Name = "X", ClimbFpm = 0 }.Validate(), e => e.Contains("montée"));
     }
 }
+
+public class AircraftReserveTests
+{
+    private static Aircraft Make() => new()
+    {
+        Name = "Test", Vfr = true, Ifr = true, CruiseKt = 100, MaxKt = 120, BurnLph = 30, FuelCapacityL = 90, CruiseAltFt = 3000,   // 3 h, 300 NM
+    };
+
+    [Fact]
+    public void Default_reserve_is_30_minutes_in_vfr_and_45_in_ifr()
+    {
+        var a = Make();
+        Assert.Equal(30, a.ReserveFor(FlightMode.Vfr));
+        Assert.Equal(45, a.ReserveFor(FlightMode.Ifr));
+    }
+
+    [Fact]
+    public void An_explicit_reserve_applies_to_both_flight_modes()
+    {
+        var a = Make();
+        a.ReserveMinutes = 60;
+        Assert.Equal(60, a.ReserveFor(FlightMode.Vfr));
+        Assert.Equal(60, a.ReserveFor(FlightMode.Ifr));
+    }
+
+    [Fact]
+    public void Usable_range_is_the_full_range_minus_the_reserve_flown_at_cruise_speed()
+    {
+        var a = Make();                                  // 180 min d'autonomie, 300 NM
+        Assert.Equal(300, a.RangeNm, 6);
+        Assert.Equal(150, a.UsableEnduranceMinutes(FlightMode.Vfr), 6);   // 180 - 30
+        Assert.Equal(250, a.UsableRangeNm(FlightMode.Vfr), 6);            // 150 min x 100 kt
+        Assert.Equal(225, a.UsableRangeNm(FlightMode.Ifr), 6);            // 135 min x 100 kt
+        Assert.True(a.UsableRangeNm(FlightMode.Ifr) < a.UsableRangeNm(FlightMode.Vfr));
+    }
+
+    [Fact]
+    public void Usable_range_is_never_negative_when_the_reserve_exceeds_the_endurance()
+    {
+        var a = Make();
+        a.ReserveMinutes = 500;
+        Assert.Equal(0, a.UsableEnduranceMinutes(FlightMode.Vfr));
+        Assert.Equal(0, a.UsableRangeNm(FlightMode.Vfr));
+    }
+
+    [Fact]
+    public void A_negative_reserve_is_refused_but_zero_is_allowed()
+    {
+        var a = Make();
+        a.ReserveMinutes = -5;
+        Assert.Contains(a.Validate(), e => e.Contains("réserve"));
+        a.ReserveMinutes = 0;
+        Assert.Empty(a.Validate());
+        Assert.Equal(a.RangeNm, a.UsableRangeNm(FlightMode.Vfr), 6);
+    }
+
+    [Fact]
+    public void The_reserve_survives_saving_and_loading()
+    {
+        string path = Path.Combine(Path.GetTempPath(), "vfrnav-tests-" + Guid.NewGuid().ToString("N"), "aircraft.json");
+        var catalog = new AircraftCatalog([]);
+        var a = Make();
+        a.ReserveMinutes = 20;
+        catalog.Add(a);
+        catalog.Save(path);
+
+        var back = AircraftCatalog.Load(path).Find(a.Id)!;
+        Assert.Equal(20, back.ReserveMinutes);
+        Directory.Delete(Path.GetDirectoryName(path)!, true);
+    }
+
+    [Fact]
+    public void Default_aircraft_have_a_smaller_usable_range_than_their_full_range()
+    {
+        var catalog = AircraftCatalog.Load(Path.Combine(Path.GetTempPath(), "vfrnav-absent-" + Guid.NewGuid().ToString("N"), "a.json"));
+        foreach (var a in catalog.All)
+        {
+            var mode = a.Ifr ? FlightMode.Ifr : FlightMode.Vfr;
+            Assert.True(a.UsableRangeNm(mode) < a.RangeNm);
+            Assert.True(a.UsableRangeNm(mode) > 0);
+        }
+        var a320 = catalog.Find(AircraftCatalog.A320NeoId)!;
+        Assert.InRange(a320.UsableRangeNm(FlightMode.Ifr), 3300, 3400);   // 3 691 NM - (45 min à 447 kt = 335 NM) ≈ 3 356 NM
+    }
+}
+
+public class RangeViewTests
+{
+    // Origine à 45°N 5°E, rayons utile 250 NM et total 300 NM.
+    private const double Lat = 45, Lon = 5, Usable = 250, Full = 300;
+
+    private static IReadOnlyList<(double Lat, double Lon)> Around(double radiusNm) =>
+        [RouteGeometry.Destination(Lat, Lon, 0, radiusNm), RouteGeometry.Destination(Lat, Lon, 90, radiusNm),
+         RouteGeometry.Destination(Lat, Lon, 180, radiusNm), RouteGeometry.Destination(Lat, Lon, 270, radiusNm)];
+
+    [Fact]
+    public void A_view_entirely_inside_the_usable_range_is_reported_as_such()
+    {
+        var view = RangeView.Grid(44.5, 4.5, 45.5, 5.5);
+        Assert.Equal(RangeViewState.InsideUsable, RangeView.Classify(Lat, Lon, view, Usable, Full));
+    }
+
+    [Fact]
+    public void A_view_entirely_beyond_the_full_range_is_reported_as_out_of_reach()
+    {
+        var view = RangeView.Grid(10, 100, 12, 102);
+        Assert.Equal(RangeViewState.Beyond, RangeView.Classify(Lat, Lon, view, Usable, Full));
+    }
+
+    [Fact]
+    public void A_view_crossed_by_a_circle_is_drawn()
+    {
+        // Une zone qui contient des points en dedans et en dehors de la portée utile.
+        var view = RangeView.Grid(44, 2, 50, 8);
+        Assert.Equal(RangeViewState.Crossing, RangeView.Classify(Lat, Lon, view, Usable, Full));
+    }
+
+    [Fact]
+    public void A_view_lying_between_the_two_circles_is_inside_the_reserve()
+    {
+        // Petite zone à 275 NM au nord : au-delà des 250 NM utiles, en deçà des 300 NM.
+        var (cLat, cLon) = RouteGeometry.Destination(Lat, Lon, 0, 275);
+        var view = RangeView.Grid(cLat - 0.1, cLon - 0.1, cLat + 0.1, cLon + 0.1, 3);
+        Assert.Equal(RangeViewState.InsideReserve, RangeView.Classify(Lat, Lon, view, Usable, Full));
+    }
+
+    [Fact]
+    public void Without_a_usable_circle_the_whole_full_range_counts_as_reserve()
+    {
+        var view = RangeView.Grid(44.5, 4.5, 45.5, 5.5);
+        Assert.Equal(RangeViewState.InsideReserve, RangeView.Classify(Lat, Lon, view, 0, Full));
+    }
+
+    [Fact]
+    public void Grid_covers_the_view_corners_and_has_n_squared_points()
+    {
+        var grid = RangeView.Grid(10, 20, 30, 40, 5);
+        Assert.Equal(25, grid.Count);
+        Assert.Contains((10.0, 20.0), grid);
+        Assert.Contains((30.0, 40.0), grid);
+    }
+
+    [Fact]
+    public void The_label_goes_to_the_visible_circle_point_nearest_the_screen_centre()
+    {
+        var lines = new[] { RouteGeometry.CircleLines(Lat, Lon, Full, 360)[0] };
+
+        // Vue sur l'est du cercle seulement : l'étiquette doit y être, pas au nord hors écran.
+        var point = RangeView.NearestVisiblePoint(lines, 44, 8, 46, 12, 45, 10);
+
+        Assert.NotNull(point);
+        Assert.InRange(point!.Value.Lat, 44, 46);
+        Assert.InRange(point.Value.Lon, 8, 12);
+        Assert.InRange(NavMath.DistanceNm(Lat, Lon, point.Value.Lat, point.Value.Lon), Full - 1, Full + 1);   // bien sur le cercle
+    }
+
+    [Fact]
+    public void No_label_point_when_the_circle_is_not_in_view()
+    {
+        var lines = new[] { RouteGeometry.CircleLines(Lat, Lon, Full, 360)[0] };
+        Assert.Null(RangeView.NearestVisiblePoint(lines, 44.5, 4.5, 45.5, 5.5, 45, 5));   // vue au centre : le cercle est bien plus loin
+    }
+}

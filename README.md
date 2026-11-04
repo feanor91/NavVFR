@@ -31,7 +31,7 @@ Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du pl
 - **Notes** par point de route, **infos en direct** dans une fenêtre séparée.
 - **Plan de vol `.pln`** : la route s'enregistre et s'ouvre directement dans le fichier de MSFS, avec les altitudes et les notes par point.
 - **Feuille de route imprimable** (aperçu, impression, PDF) : navigation, briefing par point, relief, profil, terrains, météo, zones, balises, obstacles.
-- **Appareils** : liste modifiable (nom, VFR et/ou IFR, vitesses de croisière et maximale, consommation, carburant utilisable, plafond), un choix par type de navigation. Le log prévient quand le carburant dépasse la capacité ; un cercle de portée est tracé autour du départ.
+- **Appareils** : liste modifiable (nom, VFR et/ou IFR, vitesses de croisière et maximale, consommation, carburant utilisable, plafond), un choix par type de navigation. Le log prévient quand le carburant dépasse la capacité ; deux cercles de portée sont tracés autour du point de départ : la portée utile (tout le carburant moins la réserve de l'appareil, 30 min en VFR et 45 min en IFR par défaut) et la portée avec tout le carburant, sans vent. Ils ne sont dessinés que s'ils traversent la zone affichée, et leurs étiquettes suivent la vue.
 
 ### Cartes VAC et procédures VFR
 

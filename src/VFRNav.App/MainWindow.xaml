@@ -190,7 +190,7 @@
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="Vent (kt)"/><TextBox x:Name="WspdBox" TextChanged="Param_Changed"/></StackPanel>
                 </UniformGrid>
                 <CheckBox x:Name="RangeCheck" Content="Cercle de portée autour du départ" Foreground="#E8EEFC" Margin="0,8,0,0" IsChecked="True" Click="Range_Click"
-                          ToolTip="Distance que l'appareil actif peut parcourir avec tout son carburant à sa vitesse de croisière, sans vent et sans réserve."/>
+                          ToolTip="Deux cercles autour du départ : la portée utile (trait plein : tout le carburant moins la réserve de l'appareil) et la portée avec tout le carburant (trait fin tireté). Vitesse de croisière, sans vent."/>
                 <TextBlock x:Name="RangeInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
 
                 <TextBlock Style="{StaticResource Header}" Text="FOND DE CARTE"/>

@@ -1349,7 +1349,7 @@ public partial class MainWindow
     {
         var vp = MapControl.Map.Navigator.Viewport;
         var view = (Math.Round(vp.CenterX), Math.Round(vp.CenterY), Math.Round(vp.Resolution, 2));
-        if (view != _lastView) { _lastView = view; _wxDirty = true; return; }
+        if (view != _lastView) { _lastView = view; _wxDirty = true; UpdateRangeView(); return; }
         if (_wxDirty && !_wxBusy && WxDotsCheck.IsChecked == true && _airports.Count > 0)
         {
             _wxDirty = false;
