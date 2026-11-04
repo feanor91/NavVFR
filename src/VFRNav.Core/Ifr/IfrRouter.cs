@@ -3,7 +3,7 @@ using VFRNav.Core.Services;
 
 namespace VFRNav.Core.Ifr;
 
-public enum IfrLegSource { Airport, Sid, Airway, Star, Direct }
+public enum IfrLegSource { Airport, Sid, Airway, Star, Direct, Ils }
 
 /// <summary>Point de la route IFR calculée. <see cref="Airway"/> = route ATS empruntée pour y arriver.</summary>
 public sealed record IfrRoutePoint(

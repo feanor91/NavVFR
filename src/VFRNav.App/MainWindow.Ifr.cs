@@ -16,8 +16,12 @@ public partial class MainWindow
     // Pour l'instant : données de démonstration. Un lecteur AIRAC les remplacera.
     private IfrNavData _ifrData = IfrSampleData.Create();
 
+    /// <summary>ILS de l'export du SIA chargé (France) : localizer, pente et seuil de chaque piste.</summary>
+    private IlsCatalog _ils = IlsCatalog.Empty;
+
     private async void Ifr_Loaded(object sender, RoutedEventArgs e)
     {
+        IfrIlsCheck.IsChecked = _settings.IfrIlsApproach;
         await LoadWorldNetworkAsync();
         // Données AIRAC déjà choisies lors d'une session précédente : rechargées sans rien demander.
         if (_settings.IfrDataPath.Length > 0 && File.Exists(_settings.IfrDataPath))
@@ -67,6 +71,7 @@ public partial class MainWindow
         {
             var loaded = await Task.Run(() => AixmReader.LoadFile(path, GeoArea.MetropolitanFrance));
             _ifrData = loaded.Data;
+            _ils = loaded.Ils;
             await ApplyWorldNetworkAsync();
             EnsureProceduresForRoute();
             ShowIfrDataLabel();
@@ -184,6 +189,15 @@ public partial class MainWindow
             return;
         }
 
+        // Finale ILS indicative : ajoutée avant l'arrivée si la piste (choisie, ou la plus alignée avec l'arrivée) a un ILS dans les données.
+        IlsFinal? ilsFinal = null;
+        string? ilsNote = null;
+        if (IfrIlsCheck.IsChecked == true)
+        {
+            double field = _airports.FirstOrDefault(a => a.Ident == arr)?.ElevationFt ?? 0;
+            (ifr, ilsFinal, ilsNote) = IlsPlanner.Apply(ifr, _ils, Chosen(IfrArrRunwayBox), field);
+        }
+
         if (_route.Count > 0 && MessageBox.Show(this, "Remplacer la route actuelle par la route IFR ?", "Route IFR",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes)
             return;
@@ -194,6 +208,17 @@ public partial class MainWindow
             if (waypoints[i].Icao is { } icao && _airports.FirstOrDefault(a => a.Ident == icao) is { } apt)
                 waypoints[i] = apt.ToWaypoint();
 
+        // Les points de la finale portent l'ILS en note : elle sort sur la feuille de route, dans « Points de navigation et notes ».
+        bool firstIls = true;
+        for (int i = 0; i < waypoints.Count && i < ifr.Points.Count; i++)
+        {
+            if (ifr.Points[i].Source != IfrLegSource.Ils || ilsFinal is null) continue;
+            waypoints[i].Notes = firstIls
+                ? ilsFinal.Summary
+                : $"Finale ILS {ilsFinal.Ils.Runway} : {ifr.Points[i].MinAltFt:N0} ft sur la pente (indicatif, pas la procédure publiée).";
+            firstIls = false;
+        }
+
         _route.Clear();
         foreach (var w in waypoints) _route.Add(w);
         FitRoute();
@@ -201,6 +226,7 @@ public partial class MainWindow
         IfrStatus.Foreground = System.Windows.Media.Brushes.LightGreen;
         string runways = new[] { Chosen(IfrDepRunwayBox) is { } d ? $"départ {d}" : null, Chosen(IfrArrRunwayBox) is { } a ? $"arrivée {a}" : null }
             .Where(t => t is not null).Aggregate("", (acc, t) => acc.Length == 0 ? t! : acc + ", " + t);
-        IfrStatus.Text = $"{ifr.Description}\n{ifr.DistanceNm:0.#} NM, {ifr.Points.Count} points." + (runways.Length > 0 ? $"\nPistes : {runways}." : "");
+        IfrStatus.Text = $"{ifr.Description}\n{ifr.DistanceNm:0.#} NM, {ifr.Points.Count} points." + (runways.Length > 0 ? $"\nPistes : {runways}." : "")
+            + (ilsFinal is not null && ilsNote is null ? "\n" + ilsFinal.Summary : "") + (ilsNote is not null ? "\n" + ilsNote : "");
     }
 }

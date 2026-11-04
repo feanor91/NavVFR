@@ -195,6 +195,7 @@ public partial class MainWindow : Window
         _settings.IfrAircraftId = AircraftFor(FlightMode.Ifr)?.Id;
         _settings.ActiveMode = _mode == FlightMode.Ifr ? "ifr" : "vfr";
         _settings.ShowRange = RangeCheck.IsChecked == true;
+        _settings.IfrIlsApproach = IfrIlsCheck.IsChecked == true;
         _settings.ShowSigmet = SigmetCheck.IsChecked == true;
         _settings.SigmetOpacity = SigmetOpacitySlider.Value;
         _settings.SigmetAltitudeOnly = SigmetAltCheck.IsChecked == true;

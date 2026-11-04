@@ -169,6 +169,8 @@
                 <TextBox x:Name="IfrAltnBox" CharacterCasing="Upper" TextChanged="Altn_Changed"
                          ToolTip="Terrains de dégagement : distance, cap, temps et carburant depuis le terrain d'arrivée (dernier point de la route), repris sur la feuille de route."/>
                 <TextBlock x:Name="IfrAltnInfo" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                <CheckBox x:Name="IfrIlsCheck" Content="Ajouter la finale ILS (indicative)" Margin="0,8,0,0" Foreground="#E8EEFC" IsChecked="True"
+                          ToolTip="Ajoute à la route l'interception de l'axe du localizer à 10 NM, puis la finale à 5 NM sur la pente de l'ILS de la piste d'arrivée. Données du SIA : France seulement. Ce n'est pas la procédure publiée."/>
                 <Button Content="Calculer la route IFR" Click="IfrCompute_Click" Margin="0,8,0,4"
                         ToolTip="Cherche le plus court chemin SID, routes ATS, STAR et remplace la route par le résultat."/>
                 <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>

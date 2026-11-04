@@ -55,6 +55,8 @@ public sealed class AppSettings
     public bool ShowClouds { get; set; }
     /// <summary>SIGMET sur la carte : affichage, opacité, et restriction aux messages valables à l'altitude de croisière.</summary>
     public bool ShowSigmet { get; set; }
+    /// <summary>Ajoute la finale ILS (indicative) à la route IFR quand la piste d'arrivée a un ILS dans les données du SIA.</summary>
+    public bool IfrIlsApproach { get; set; } = true;
     public double SigmetOpacity { get; set; } = 0.7;
     public bool SigmetAltitudeOnly { get; set; }
     public bool ShowCloudCover { get; set; }

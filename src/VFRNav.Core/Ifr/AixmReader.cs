@@ -15,7 +15,11 @@ public sealed record GeoArea(double MinLat, double MinLon, double MaxLat, double
     public static GeoArea MetropolitanFrance { get; } = new(40.5, -6.0, 52.0, 10.5);
 }
 
-public sealed record AixmLoadResult(IfrNavData Data, IReadOnlyList<string> Warnings);
+public sealed record AixmLoadResult(IfrNavData Data, IReadOnlyList<string> Warnings, IlsCatalog? IlsOrNull = null)
+{
+    /// <summary>ILS de l'export (France), avec la position du seuil de leur piste.</summary>
+    public IlsCatalog Ils => IlsOrNull ?? IlsCatalog.Empty;
+}
 
 /// <summary>
 /// Lit l'export AIXM 4.5 du SIA (« AIXM4.5_all_FR_OM_aaaa-mm-jj.xml », ou le zip qui le contient) :
@@ -45,6 +49,8 @@ public static class AixmReader
         var fixes = new Dictionary<string, IfrFix>(StringComparer.OrdinalIgnoreCase);
         var segments = new List<(string Airway, XElement Start, XElement End, int? Lower, int? Upper)>();
         string? cycle = null;
+        var thresholds = new Dictionary<(string Airport, string Runway), (double Lat, double Lon, double True, double? Magnetic)>();
+        var ilsElements = new List<XElement>();
         DateTime? effective = null;
         int collisions = 0;
 
@@ -78,7 +84,7 @@ public static class AixmReader
             if (xml.NodeType != XmlNodeType.Element) { xml.Read(); continue; }
             switch (xml.LocalName)
             {
-                case "Vor" or "Ndb" or "Dme" or "Dpn" or "Ahp" or "Rsg":
+                case "Vor" or "Ndb" or "Dme" or "Dpn" or "Ahp" or "Rsg" or "Rdn" or "Ils":
                     var e = (XElement)XNode.ReadFrom(xml);
                     switch (e.Name.LocalName)
                     {
@@ -88,6 +94,8 @@ public static class AixmReader
                         case "Dpn": AddPoint(e, "DpnUid", FixKind.Waypoint); break;
                         case "Ahp": AddAirport(e); break;
                         case "Rsg": AddSegment(e); break;
+                        case "Rdn": AddThreshold(e); break;
+                        case "Ils": ilsElements.Add(e); break;
                     }
                     break;
                 default:
@@ -111,7 +119,8 @@ public static class AixmReader
         if (collisions > 0)
             warnings.Add($"{collisions} identifiant(s) de point utilisé(s) à deux endroits différents : seul le premier est gardé.");
 
-        return new AixmLoadResult(new IfrNavData(fixes.Values, result, [], cycle, effective), warnings);
+        var ils = ilsElements.Select(e => ReadIls(e, thresholds, area)).OfType<IlsApproach>().ToList();
+        return new AixmLoadResult(new IfrNavData(fixes.Values, result, [], cycle, effective), warnings, new IlsCatalog(ils));
 
         void AddPoint(XElement e, string uid, FixKind kind)
         {
@@ -127,6 +136,16 @@ public static class AixmReader
             AddFix(id, Lat(e), Lon(e), FixKind.Airport);
         }
 
+        void AddThreshold(XElement e)
+        {
+            var uid = e.Element("RdnUid");
+            string? airport = uid?.Element("RwyUid")?.Element("AhpUid")?.Element("codeId")?.Value;
+            string? runway = uid?.Element("txtDesig")?.Value;
+            double? lat = Lat(e), lon = Lon(e);
+            if (airport is null || runway is null || lat is null || lon is null || !TryDouble(e.Element("valTrueBrg")?.Value, out double trueBearing)) return;
+            thresholds[(airport, runway.Trim())] = (lat.Value, lon.Value, trueBearing, TryDouble(e.Element("valMagBrg")?.Value, out double magnetic) ? magnetic : null);
+        }
+
         void AddSegment(XElement e)
         {
             var uid = e.Element("RsgUid");
@@ -136,6 +155,32 @@ public static class AixmReader
             if (airway is null || start is null || end is null) return;
             segments.Add((airway, start, end, FlightLevel(e, "Lower"), FlightLevel(e, "Upper")));
         }
+    }
+
+    private static bool TryDouble(string? text, out double value) =>
+        double.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out value);
+
+    /// <summary>
+    /// Un ILS de l'export : localizer (indicatif, fréquence), pente de descente (en degrés), catégorie, et le seuil et l'axe de la piste
+    /// lus dans les pistes. Un ILS dont le seuil est inconnu ou hors de la zone retenue est ignoré.
+    /// </summary>
+    private static IlsApproach? ReadIls(XElement e, Dictionary<(string Airport, string Runway), (double Lat, double Lon, double True, double? Magnetic)> thresholds, GeoArea? area)
+    {
+        var uid = e.Element("IlsUid")?.Element("RdnUid");
+        string? airport = uid?.Element("RwyUid")?.Element("AhpUid")?.Element("codeId")?.Value;
+        string? runway = uid?.Element("txtDesig")?.Value?.Trim();
+        var localizer = e.Element("Ilz");
+        if (airport is null || runway is null || localizer is null || !thresholds.TryGetValue((airport, runway), out var threshold)) return null;
+        if (!TryDouble(localizer.Element("valFreq")?.Value, out double frequency)) return null;
+        if (area is not null && !area.Contains(threshold.Lat, threshold.Lon)) return null;
+
+        var glide = e.Element("Igp");
+        double? slope = TryDouble(glide?.Element("valSlope")?.Value, out double s) ? s : null;
+        double? reference = TryDouble(glide?.Element("valRdh")?.Value, out double r) ? (glide?.Element("uomRdh")?.Value == "FT" ? r / 3.28084 : r) : null;
+        double? elevation = TryDouble(glide?.Element("valElev")?.Value, out double el) && glide?.Element("uomDistVer")?.Value == "FT" ? el : null;
+
+        return new IlsApproach(airport, runway, e.Element("codeCat")?.Value ?? "", localizer.Element("codeId")?.Value ?? "", frequency, slope,
+            threshold.Lat, threshold.Lon, threshold.True, threshold.Magnetic, elevation, reference);
     }
 
     private static string? EndpointIdent(XElement e) => e.Element("codeId")?.Value;
