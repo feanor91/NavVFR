@@ -49,6 +49,11 @@ public sealed class AppSettings
     public double IfrCruiseAltFt { get; set; }
     /// <summary>Cercle de portée de l'appareil autour du point de départ.</summary>
     public bool ShowRange { get; set; } = true;
+    /// <summary>Couches météo en temps réel sur la carte : radar de précipitations et nuages du satellite, avec leur opacité.</summary>
+    public bool ShowRadar { get; set; }
+    public bool ShowClouds { get; set; }
+    public double RadarOpacity { get; set; } = 0.7;
+    public double CloudOpacity { get; set; } = 0.6;
     public bool CommonPanelOpen { get; set; } = true;
     public bool VfrPanelOpen { get; set; } = true;
     public bool IfrPanelOpen { get; set; } = true;

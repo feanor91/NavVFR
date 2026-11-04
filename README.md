@@ -52,6 +52,8 @@ Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du pl
 
 ### Avec MSFS
 
+- **Météo en temps réel sur la carte** (panneau Paramètres) : radar de précipitations (RainViewer, image toutes les 10 min) et nuages du satellite Meteosat (EUMETSAT, infrarouge), chacun avec son opacité, mis à jour automatiquement. Le radar peut être animé sur ses 4 dernières images (30 min). Sans clé. Météo réelle : elle peut différer de celle de MSFS.
+- **SIGMET sur la feuille de route** : les messages SIGMET en vigueur (aviationweather.gov) qui traversent la route sont listés avec leur phénomène, leurs niveaux, leur validité et leur position par rapport à ton altitude prévue.
 - **Suivi de l'avion en direct** (SimConnect) : un avion dessiné sur la carte, qui suit le cap.
 
 ## Où sont les données
