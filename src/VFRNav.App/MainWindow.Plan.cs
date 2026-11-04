@@ -1,3 +1,4 @@
+using System.IO;
 using System.Net.Http;
 using System.Windows;
 using VFRNav.Core.Models;
@@ -11,6 +12,7 @@ namespace VFRNav.App;
 public partial class MainWindow
 {
     private TerrainService? _terrainService;
+    private SigmetService? _sigmetService;
     private ObstacleService? _obstacleService;
 
     private async void CalculatePlan_Click(object sender, RoutedEventArgs e)
@@ -62,6 +64,21 @@ public partial class MainWindow
             PlanStatus.Text = "Récupération de la météo...";
             var (airports, weatherNote) = await BuildAirportBriefsAsync(route);
 
+            // SIGMET en vigueur sur la route : un échec réseau n'empêche pas la feuille, il y est signalé.
+            PlanStatus.Text = "Recherche des SIGMET...";
+            SigmetReport? sigmets = null;
+            string? sigmetNote = null;
+            try
+            {
+                var all = await (_sigmetService ??= new SigmetService(_http)).GetAsync();
+                var now = DateTimeOffset.UtcNow;
+                sigmets = new SigmetReport(SigmetAnalysis.AlongRoute(route, altitudes, all, now, TimeSpan.FromMinutes(log.TotalMinutes)), SigmetAnalysis.CountActive(all, now), now);
+            }
+            catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or InvalidDataException)
+            {
+                sigmetNote = "SIGMET indisponibles : " + ex.Message;
+            }
+
             // Graphique de l'onglet « Profil » et image pour la feuille.
             string? message = terrainNote ?? (_airspaces.Count == 0 ? "Zones non chargées (clé OpenAIP) : seul le relief est tracé." : null);
             ProfileView.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles, altitudes);
@@ -70,7 +87,7 @@ public partial class MainWindow
             snapshot.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles, altitudes);
             var image = terrain is null ? null : ProfileChart.Snapshot(snapshot, 700, 270);
 
-            var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes, AlternateLines(_mode));
+            var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes, AlternateLines(_mode), sigmets, sigmetNote);
             var document = FlightSheetBuilder.Build(input);
             string title = $"Feuille de route {route[0].Icao ?? route[0].Name} - {route[^1].Icao ?? route[^1].Name}";
             new FlightSheetWindow(document, title) { Owner = this }.Show();

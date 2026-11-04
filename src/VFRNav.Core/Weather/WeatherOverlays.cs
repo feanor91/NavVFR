@@ -33,6 +33,9 @@ public sealed class RadarMaps
 
     public RadarFrame Latest => Frames[^1];
 
+    /// <summary>Les <paramref name="count"/> images les plus récentes, de la plus ancienne à la plus récente (moins si le service en fournit moins).</summary>
+    public IReadOnlyList<RadarFrame> LastFrames(int count) => Frames.Skip(Math.Max(0, Frames.Count - Math.Max(1, count))).ToList();
+
     public static RadarMaps Parse(string json)
     {
         try

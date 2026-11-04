@@ -27,6 +27,16 @@ public class RadarMapsTests
     }
 
     [Fact]
+    public void LastFrames_returns_the_most_recent_images_oldest_first()
+    {
+        var maps = RadarMaps.Parse(Sample);
+
+        Assert.Equal(["/v2/radar/b", "/v2/radar/c"], maps.LastFrames(2).Select(f => f.Path));
+        Assert.Equal(3, maps.LastFrames(10).Count);                 // le service en fournit moins que demandé
+        Assert.Equal(["/v2/radar/c"], maps.LastFrames(0).Select(f => f.Path));   // au moins une image
+    }
+
+    [Fact]
     public void Tile_url_template_keeps_the_zxy_placeholders_for_the_tile_source()
     {
         var maps = RadarMaps.Parse(Sample);

@@ -28,7 +28,9 @@ public sealed record FlightSheetInput(
     DateTimeOffset Now,
     IReadOnlyList<PointBriefing>? Briefings = null,
     AltitudeProfile? Altitudes = null,
-    IReadOnlyList<string>? AlternateLines = null);
+    IReadOnlyList<string>? AlternateLines = null,
+    SigmetReport? Sigmets = null,
+    string? SigmetNote = null);
 
 /// <summary>Construit la feuille de route (A4) : tableau de navigation, relief, terrains, météo, zones et balises.</summary>
 public static class FlightSheetBuilder
@@ -138,6 +140,10 @@ public static class FlightSheetBuilder
         foreach (var brief in input.Airports) AddAirport(doc, brief);
         if (input.WeatherNote is not null) doc.Blocks.Add(Small(input.WeatherNote));
 
+        // --- SIGMET
+        doc.Blocks.Add(Section("SIGMET sur la route"));
+        AddSigmets(doc, input);
+
         // --- Zones
         doc.Blocks.Add(Section("Espaces aériens traversés"));
         AddCrossings(doc, input);
@@ -162,7 +168,7 @@ public static class FlightSheetBuilder
 
         doc.Blocks.Add(Section("Sources"));
         doc.Blocks.Add(Small("Terrains et balises : OurAirports (domaine public). Aérodromes et profils VFR : base de MSFS Rhumb ; cartes VAC : © SIA. "
-            + "Espaces aériens : OpenAIP. Météo : aviationweather.gov. " + TerrainService.Attribution + " " + ObstacleService.Attribution));
+            + "Espaces aériens : OpenAIP. Météo et SIGMET : aviationweather.gov. " + TerrainService.Attribution + " " + ObstacleService.Attribution));
         var note = Small(Disclaimer);
         note.FontStyle = FontStyles.Italic;
         doc.Blocks.Add(note);
@@ -348,6 +354,66 @@ public static class FlightSheetBuilder
     }
 
     // ---------- zones ----------
+
+    private static void AddSigmets(FlowDocument doc, FlightSheetInput input)
+    {
+        if (input.Sigmets is not { } report)
+        {
+            doc.Blocks.Add(Plain(input.SigmetNote ?? "SIGMET non vérifiés."));
+            doc.Blocks.Add(Small("Consulte les SIGMET sur une source officielle avant de voler."));
+            return;
+        }
+
+        if (report.OnRoute.Count == 0)
+        {
+            doc.Blocks.Add(Plain($"Aucun SIGMET en vigueur pendant le vol ne traverse la route ({report.ActiveCount.ToString("N0", Fr)} SIGMET actifs dans le monde à la consultation)."));
+        }
+        else
+        {
+            var rows = report.OnRoute.Select(r => new[]
+            {
+                $"{r.EntryNm.ToString("0", Fr)} → {r.ExitNm.ToString("0", Fr)}",
+                r.Sigmet.Description,
+                $"{r.Sigmet.FirId} · {r.Sigmet.SeriesId}",
+                $"{SigmetLevel(r.Sigmet.BaseFt, "SFC")} → {SigmetLevel(r.Sigmet.TopFt, "illimité")}",
+                SigmetValidity(r.Sigmet, input.Now),
+                r.Status switch
+                {
+                    VerticalStatus.Inside => "DANS LA ZONE",
+                    VerticalStatus.Above => "au-dessus",
+                    _ => "sous le plancher"
+                }
+            }).ToList();
+            var inside = report.OnRoute.Select((r, i) => (r, i)).Where(t => t.r.Status == VerticalStatus.Inside).Select(t => t.i).ToHashSet();
+            doc.Blocks.Add(MakeTable(["NM", "Phénomène", "FIR · série", "Niveaux", "Validité (UTC)", "À ton altitude"], rows, [1.2, 3, 1.6, 2, 2, 1.7], rightFrom: 99,
+                highlight: inside.Contains));
+
+            foreach (var r in report.OnRoute)
+                if (r.Sigmet.RawText is { Length: > 0 } raw)
+                    doc.Blocks.Add(Small($"{r.Sigmet.FirId} {r.Sigmet.SeriesId} : " + SigmetText(raw)));
+        }
+
+        doc.Blocks.Add(Small($"SIGMET consultés le {report.At.UtcDateTime.ToString("dd/MM/yyyy HH:mm", Fr)} UTC (aviationweather.gov). "
+            + "Le vol est supposé commencer à la consultation : vérifie les heures de validité par rapport à ton départ réel. "
+            + "« DANS LA ZONE » : la route y passe dans la tranche d'altitude du message. "
+            + "Un SIGMET n'est publié que pour des phénomènes dangereux : l'absence de message ne garantit pas une météo calme."));
+    }
+
+    private static string SigmetLevel(double? feet, string missing) =>
+        feet is not { } ft ? missing : ft <= 0 ? "SFC" : "FL" + Math.Round(ft / 100).ToString("000", Fr);
+
+    private static string SigmetValidity(Sigmet s, DateTimeOffset now)
+    {
+        string Time(DateTimeOffset t) => t.UtcDateTime.Date == now.UtcDateTime.Date ? t.UtcDateTime.ToString("HH:mm", Fr) : t.UtcDateTime.ToString("dd/MM HH:mm", Fr);
+        return $"{Time(s.ValidFrom)} → {Time(s.ValidTo)}";
+    }
+
+    /// <summary>Texte du message sur une seule ligne, raccourci pour tenir sur la feuille.</summary>
+    private static string SigmetText(string raw)
+    {
+        string text = string.Join(' ', raw.Split(['\n', '\r'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries));
+        return text.Length <= 320 ? text : text[..320] + "…";
+    }
 
     private static void AddCrossings(FlowDocument doc, FlightSheetInput input)
     {
