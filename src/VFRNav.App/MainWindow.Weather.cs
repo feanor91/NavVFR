@@ -42,6 +42,7 @@ public partial class MainWindow
         CloudCheck.IsChecked = _settings.ShowClouds;
         RadarOpacitySlider.Value = Math.Clamp(_settings.RadarOpacity, 0.1, 1);
         CloudOpacitySlider.Value = Math.Clamp(_settings.CloudOpacity, 0.1, 1);
+        BuildRadarLegend();
         _weatherLayerTimer.Tick += async (_, _) => await RefreshWeatherLayersAsync();
         _radarAnimTimer.Tick += (_, _) => StepRadarAnimation();
         Loaded += async (_, _) =>
@@ -52,6 +53,41 @@ public partial class MainWindow
     }
 
     private async void WeatherLayer_Click(object sender, RoutedEventArgs e) => await RefreshWeatherLayersAsync();
+
+    /// <summary>Remplit la légende : une pastille de couleur par cran de la palette, avec l'intensité en mm/h dessous.</summary>
+    private void BuildRadarLegend()
+    {
+        var fr = CultureInfo.GetCultureInfo("fr-FR");
+        foreach (var entry in RadarLegend.Rain)
+        {
+            var color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(entry.Hex);
+            var swatch = new System.Windows.Controls.StackPanel { Margin = new Thickness(0, 0, 1, 0), MinWidth = 25 };
+            swatch.Children.Add(new System.Windows.Controls.Border
+            {
+                Height = 12,
+                Background = new System.Windows.Media.SolidColorBrush(color),
+                BorderBrush = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(0x55, 0, 0, 0)),
+                BorderThickness = new Thickness(0.5),
+            });
+            swatch.Children.Add(new System.Windows.Controls.TextBlock
+            {
+                Text = entry.MmPerHour < 1 ? entry.MmPerHour.ToString("0.0", fr) : Math.Round(entry.MmPerHour).ToString("0", fr),
+                FontSize = 9.5,
+                Foreground = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(0x0B, 0x2A, 0x55)),
+                HorizontalAlignment = HorizontalAlignment.Center,
+                ToolTip = $"{entry.Intensity} : environ {entry.MmPerHour.ToString("0.#", fr)} mm/h ({entry.Dbz} dBZ)",
+            });
+            swatch.ToolTip = $"{entry.Intensity} : environ {entry.MmPerHour.ToString("0.#", fr)} mm/h ({entry.Dbz} dBZ)";
+            RadarLegendSwatches.Children.Add(swatch);
+        }
+        RadarLegendWeak.Text = RadarLegend.Rain[0].Intensity;
+        RadarLegendStrong.Text = RadarLegend.Rain[^1].Intensity;
+
+        var (light, dark) = RadarLegend.Snow;
+        RadarSnowBar.Background = new System.Windows.Media.LinearGradientBrush(
+            (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(light),
+            (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(dark), 0);
+    }
 
     private void WeatherOpacity_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
     {
@@ -96,6 +132,7 @@ public partial class MainWindow
 
         _weatherLayerTimer.IsEnabled = radar || clouds;
         RadarAnimCheck.IsEnabled = radar;
+        RadarLegendBox.Visibility = radar ? Visibility.Visible : Visibility.Collapsed;
         ShowWeatherInfo(radar, clouds);
         MapControl.Refresh();
     }

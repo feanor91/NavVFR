@@ -159,3 +159,35 @@ public static class SatelliteClouds
         }
     }
 }
+
+/// <summary>Un cran de la légende du radar : réflectivité, couleur de la palette RainViewer, intensité de pluie correspondante.</summary>
+public sealed record RadarLegendEntry(int Dbz, string Hex, double MmPerHour, string Intensity);
+
+/// <summary>
+/// Légende de la palette « Universal Blue » (identifiant 2) de RainViewer. Les couleurs sont celles de la table officielle
+/// (rainviewer.com/api/color-schemes.html) pour les réflectivités en dBZ ; l'intensité en millimètres par heure est
+/// indicative (relation de Marshall-Palmer Z = 200 R^1,6) : un radar ne mesure pas directement la pluie au sol.
+/// </summary>
+public static class RadarLegend
+{
+    public static IReadOnlyList<RadarLegendEntry> Rain { get; } =
+    [
+        Entry(15, "#88DDEE", "très faible"),
+        Entry(20, "#00A3E0", "faible"),
+        Entry(25, "#0077AA", "faible"),
+        Entry(30, "#005588", "modérée"),
+        Entry(35, "#FFEE00", "modérée"),
+        Entry(40, "#FFAA00", "forte"),
+        Entry(45, "#FF4400", "très forte"),
+        Entry(50, "#C10000", "violente"),
+        Entry(55, "#FFAAFF", "extrême"),
+    ];
+
+    /// <summary>Neige : un dégradé du clair au bleu soutenu, plus la réflectivité est forte plus la teinte est foncée.</summary>
+    public static (string Light, string Dark) Snow { get; } = ("#C3FFFF", "#3F7FFF");
+
+    /// <summary>Intensité de pluie en mm/h pour une réflectivité en dBZ : R = (10^(dBZ/10) / 200)^(1/1,6).</summary>
+    public static double MmPerHour(double dbz) => Math.Pow(Math.Pow(10, dbz / 10) / 200, 1 / 1.6);
+
+    private static RadarLegendEntry Entry(int dbz, string hex, string intensity) => new(dbz, hex, MmPerHour(dbz), intensity);
+}

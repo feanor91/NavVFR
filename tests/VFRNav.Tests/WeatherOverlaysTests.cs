@@ -194,3 +194,45 @@ public class SatelliteCloudsTests
         Assert.Contains("layers=msg_fes%3Aclm", url);
     }
 }
+
+public class RadarLegendTests
+{
+    [Fact]
+    public void Rain_intensity_follows_the_marshall_palmer_relation()
+    {
+        Assert.InRange(RadarLegend.MmPerHour(20), 0.63, 0.67);    // ≈ 0,65 mm/h
+        Assert.InRange(RadarLegend.MmPerHour(30), 2.6, 2.8);      // ≈ 2,7 mm/h
+        Assert.InRange(RadarLegend.MmPerHour(40), 11, 12);        // ≈ 11,5 mm/h
+        Assert.InRange(RadarLegend.MmPerHour(50), 47, 51);        // ≈ 49 mm/h
+    }
+
+    [Fact]
+    public void Legend_steps_increase_in_reflectivity_and_in_rain_rate()
+    {
+        var rain = RadarLegend.Rain;
+        Assert.True(rain.Count >= 8);
+        for (int i = 1; i < rain.Count; i++)
+        {
+            Assert.True(rain[i].Dbz > rain[i - 1].Dbz);
+            Assert.True(rain[i].MmPerHour > rain[i - 1].MmPerHour);
+        }
+    }
+
+    [Fact]
+    public void Colours_are_valid_hex_and_match_the_official_palette_for_a_few_known_values()
+    {
+        Assert.All(RadarLegend.Rain, e => Assert.Matches("^#[0-9A-F]{6}$", e.Hex));
+        // Valeurs relevées dans la table officielle (colonne « Universal Blue », pluie).
+        Assert.Equal("#00A3E0", RadarLegend.Rain.Single(e => e.Dbz == 20).Hex);
+        Assert.Equal("#FFEE00", RadarLegend.Rain.Single(e => e.Dbz == 35).Hex);
+        Assert.Equal("#C10000", RadarLegend.Rain.Single(e => e.Dbz == 50).Hex);
+        Assert.Equal("#FFAAFF", RadarLegend.Rain.Single(e => e.Dbz == 55).Hex);
+    }
+
+    [Fact]
+    public void Every_step_has_a_description_and_the_strongest_is_flagged_extreme()
+    {
+        Assert.All(RadarLegend.Rain, e => Assert.False(string.IsNullOrWhiteSpace(e.Intensity)));
+        Assert.Equal("extrême", RadarLegend.Rain[^1].Intensity);
+    }
+}
