@@ -2,13 +2,14 @@
 using System.Windows;
 using System.Windows.Media;
 using VFRNav.Core.Ifr;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
 // ---------- Routes ATS hors de France : lues dans MSFS, enregistrées dans les données de MSFS Rhumb, ajoutées à celles du SIA ----------
 public partial class MainWindow
 {
-    private const string NetworkButtonText = "Enregistrer / mettre à jour les routes ATS hors de France (MSFS)";
+    private static string NetworkButtonText => Loc.Get("Ui_Enregistrer_mettre_a_jour_les_2");
     private const int CrawlWindow = 128;
 
     private WorldNetwork? _world;
@@ -45,11 +46,11 @@ public partial class MainWindow
     /// <summary>Texte ajouté à l'étiquette des données IFR : ce que contient le réseau hors de France.</summary>
     private string NetworkNote()
     {
-        if (_worldProblem is { } problem) return "\nRoutes ATS hors de France ignorées : " + problem;
+        if (_worldProblem is { } problem) return Loc.Get("IfrNetwork_Routes_ATS_hors_de_France") + problem;
         if (_world is not { } w)
-            return "\nRoutes ATS hors de France : aucune enregistrée (la France vient du SIA). « " + NetworkButtonText + " » les lit une fois, MSFS lancé.";
-        return $"\nRoutes ATS hors de France : {w.Segments.Count} tronçons sur {w.Airways} routes, {w.Fixes.Count - w.Airports} points et {w.Airports} terrains, " +
-               $"lus dans {w.SimVersion} le {w.ReadAt.LocalDateTime:dd/MM/yyyy}, utilisables sans MSFS. Sens uniques et niveaux : ceux que donne MSFS, à vérifier.";
+            return Loc.Get("IfrNetwork_Routes_ATS_hors_de_France_2") + NetworkButtonText + Loc.Get("IfrNetwork_les_lit_une_fois_MSFS");
+        return Loc.F("IfrNetwork_Routes_ATS_hors_de_France_3", w.Segments.Count, w.Airways, w.Fixes.Count - w.Airports, w.Airports) +
+               Loc.F("IfrNetwork_lus_dans_le_utilisables_sans", w.SimVersion, w.ReadAt.LocalDateTime);
     }
 
     // ---------- lecture dans MSFS ----------
@@ -65,11 +66,11 @@ public partial class MainWindow
             _networkCts?.Cancel();
             return;
         }
-        if (_readingProcedures) { SetProcedureStatus("Attendez la fin de la lecture des SID/STAR."); return; }
+        if (_readingProcedures) { SetProcedureStatus(Loc.Get("IfrNetwork_Attendez_la_fin_de_la")); return; }
 
         if (SeedPoints().Count == 0)
         {
-            SetProcedureStatus("Enregistrez d'abord les SID/STAR du monde : leurs points servent de départ à l'exploration des routes.");
+            SetProcedureStatus(Loc.Get("IfrNetwork_Enregistrez_d_abord_les_SID"));
             return;
         }
 
@@ -77,14 +78,14 @@ public partial class MainWindow
         try { simVersion = await Task.Run(() => { using var s = SimFacilitySession.Open(); return s.SimVersion; }); }
         catch (InvalidOperationException ex) { SetProcedureStatus(ex.Message); return; }
 
-        if (MessageBox.Show(this, NetworkQuestion(simVersion), "Routes ATS hors de France", MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
+        if (MessageBox.Show(this, NetworkQuestion(simVersion), Loc.Get("IfrNetwork_Routes_ATS_hors_de_France_4"), MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
 
         using var cts = _networkCts = new CancellationTokenSource();
         SetNetworkReading(true);
         var progress = new Progress<NetworkProgress>(p =>
         {
-            IfrNetworkButton.Content = $"Arrêter la lecture ({p.Done} points)";
-            SetProcedureStatus($"Exploration des routes dans MSFS... {p.Done} points lus, {p.Left} à lire, {p.Segments} tronçons");
+            IfrNetworkButton.Content = Loc.F("IfrNetwork_Arreter_la_lecture_points", p.Done);
+            SetProcedureStatus(Loc.F("IfrNetwork_Exploration_des_routes_dans_MSFS", p.Done, p.Left, p.Segments));
         });
 
         WorldNetwork? network = null;
@@ -99,31 +100,31 @@ public partial class MainWindow
             SetNetworkReading(false);
         }
 
-        if (cancelled) { SetProcedureStatus("Lecture arrêtée : rien n'est enregistré (un réseau à moitié lu ferait de fausses routes)."); return; }
-        if (problem is not null) { SetProcedureStatus("Lecture interrompue : " + problem + "\nRien n'est enregistré."); return; }
+        if (cancelled) { SetProcedureStatus(Loc.Get("IfrNetwork_Lecture_arretee_rien_n_est")); return; }
+        if (problem is not null) { SetProcedureStatus(Loc.Get("IfrNetwork_Lecture_interrompue") + problem + Loc.Get("IfrNetwork_Rien_n_est_enregistre")); return; }
         if (network is null) return;
 
         try
         {
             await Task.Run(() => WorldNetworkStore.Write(WorldNetworkStore.UserPath, network));
         }
-        catch (IOException ex) { SetProcedureStatus("Réseau lu mais non enregistré : " + ex.Message); return; }
+        catch (IOException ex) { SetProcedureStatus(Loc.Get("IfrNetwork_Reseau_lu_mais_non_enregistre") + ex.Message); return; }
 
         _world = network;
         _worldProblem = null;
         await ReloadNavigationDataAsync();
-        SetProcedureStatus($"{network.Segments.Count} tronçons sur {network.Airways} routes enregistrés ({network.Fixes.Count - network.Airports} points, {network.Airports} terrains), lus dans {network.SimVersion}.", Brushes.LightGreen);
+        SetProcedureStatus(Loc.F("IfrNetwork_troncons_sur_routes_enregistres_points", network.Segments.Count, network.Airways, network.Fixes.Count - network.Airports, network.Airports, network.SimVersion), Brushes.LightGreen);
     }
 
     private string NetworkQuestion(string simVersion)
     {
-        string how = "\n\nL'exploration part des points des SID/STAR enregistrées et suit les routes de proche en proche. " +
-                     "Elle prend de quelques minutes à une heure ; MSFS doit rester lancé. La France reste celle du SIA.";
-        if (_world is not { } w) return $"Lire dans {simVersion} les routes ATS hors de France ?" + how;
+        string how = Loc.Get("IfrNetwork_L_exploration_part_des_points") +
+                     Loc.Get("IfrNetwork_Elle_prend_de_quelques_minutes");
+        if (_world is not { } w) return Loc.F("IfrNetwork_Lire_dans_les_routes_ATS", simVersion) + how;
         string head = w.SimVersion == simVersion
-            ? $"Le réseau enregistré ({w.Segments.Count} tronçons) a déjà été lu dans {simVersion} le {w.ReadAt.LocalDateTime:dd/MM/yyyy}. Cette version de MSFS n'a pas changé."
-            : $"MSFS a changé de version : le réseau enregistré vient de {w.SimVersion} ({w.ReadAt.LocalDateTime:dd/MM/yyyy}), le simulateur est maintenant en {simVersion}.";
-        return head + "\n\nRelire toutes les routes pour mettre à jour ?" + how;
+            ? Loc.F("IfrNetwork_Le_reseau_enregistre_troncons_a", w.Segments.Count, simVersion, w.ReadAt.LocalDateTime)
+            : Loc.F("IfrNetwork_MSFS_a_change_de_version", w.SimVersion, w.ReadAt.LocalDateTime, simVersion);
+        return head + Loc.Get("IfrNetwork_Relire_toutes_les_routes_pour") + how;
     }
 
     /// <summary>Points de départ de l'exploration : les points des SID/STAR enregistrées qui ne sont pas en France.</summary>

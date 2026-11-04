@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -46,7 +47,7 @@ public sealed class AircraftCatalog
     public IReadOnlyList<string> Update(Aircraft aircraft)
     {
         int index = _items.FindIndex(a => a.Id == aircraft.Id);
-        if (index < 0) return ["Cet appareil n'existe plus."];
+        if (index < 0) return [Loc.Get("Aircraft_Gone")];
         var errors = Check(aircraft, ignoreId: aircraft.Id);
         if (errors.Count == 0) _items[index] = aircraft.Clone();
         return errors;
@@ -62,7 +63,7 @@ public sealed class AircraftCatalog
         {
             if (_items.Any(a => a.Id == d.Id)) continue;
             // Un nom déjà pris par une autre fiche est complété pour rester unique.
-            if (_items.Any(a => SameName(a.Name, d.Name))) d.Name += " (défaut)";
+            if (_items.Any(a => SameName(a.Name, d.Name))) d.Name += Loc.Get("AircraftCatalog_defaut");
             _items.Add(d);
             added++;
         }
@@ -73,7 +74,7 @@ public sealed class AircraftCatalog
     {
         var errors = aircraft.Validate().ToList();
         if (!string.IsNullOrWhiteSpace(aircraft.Name) && _items.Any(a => a.Id != ignoreId && SameName(a.Name, aircraft.Name)))
-            errors.Add("Un appareil porte déjà ce nom.");
+            errors.Add(Loc.Get("AircraftCatalog_Un_appareil_porte_deja_ce"));
         return errors;
     }
 
@@ -94,12 +95,12 @@ public sealed class AircraftCatalog
                 if (a.Validate().Count == 0 && valid.All(v => v.Id != a.Id && !SameName(v.Name, a.Name))) valid.Add(a);
             return new AircraftCatalog(valid)
             {
-                LoadWarning = valid.Count < items.Count ? $"{items.Count - valid.Count} fiche(s) d'appareil invalide(s) ignorée(s)." : null,
+                LoadWarning = valid.Count < items.Count ? Loc.F("AircraftCatalog_fiche_s_d_appareil_invalide", items.Count - valid.Count) : null,
             };
         }
         catch (Exception ex) when (ex is JsonException or IOException or UnauthorizedAccessException)
         {
-            return new AircraftCatalog(Defaults()) { LoadWarning = "Liste d'appareils illisible, appareils par défaut utilisés : " + ex.Message };
+            return new AircraftCatalog(Defaults()) { LoadWarning = Loc.Get("AircraftCatalog_Liste_d_appareils_illisible_appareils") + ex.Message };
         }
     }
 
@@ -130,8 +131,8 @@ public sealed class AircraftCatalog
             Vfr = true, Ifr = true,
             CruiseKt = 124, MaxKt = 163, BurnLph = 37.5, FuelCapacityL = 200,
             ServiceCeilingFt = 14000, CruiseAltFt = 4500,
-            Notes = "Lycoming IO-360-L2A, 180 ch. Croisière à 75 % : 124 kt et environ 9,9 gal US/h = 37,5 L/h (AOPA ; Plane & Pilot : 9,7). " +
-                    "Mélange pauvre : 8 à 9 gal US/h possibles. Carburant utilisable 53 gal US = 200 L. Vitesse max = Vne 163 KIAS. Plafond 14 000 ft.",
+            Notes = Loc.Get("AircraftCatalog_Lycoming_IO_360_L2A_180") +
+                    Loc.Get("AircraftCatalog_Melange_pauvre_8_a_9"),
         },
         new()
         {
@@ -141,9 +142,9 @@ public sealed class AircraftCatalog
             Vfr = true, Ifr = false,
             CruiseKt = 116, MaxKt = 130, BurnLph = 30, FuelCapacityL = 103,
             ServiceCeilingFt = null, CruiseAltFt = 3500,
-            Notes = "Lycoming O-320-D2A, 160 ch. Croisière 116 kt et vitesse maximale 130 kt (fiche d'un exemplaire, pas une valeur constructeur). " +
-                    "Consommation 30 L/h d'après le manuel de vol cité par le BEA (65 %, 0 à 4 000 ft) ; environ 40 L/h constatés en club. " +
-                    "Réservoir principal 110 L dont 7 inutilisables = 103 L ; réservoirs d'aile en option non comptés. Plafond non trouvé.",
+            Notes = Loc.Get("AircraftCatalog_Lycoming_O_320_D2A_160") +
+                    Loc.Get("AircraftCatalog_Consommation_30_L_h_d") +
+                    Loc.Get("AircraftCatalog_Reservoir_principal_110_L_dont"),
         },
         new()
         {
@@ -153,8 +154,8 @@ public sealed class AircraftCatalog
             Vfr = false, Ifr = true,
             CruiseKt = 447, MaxKt = 473, BurnLph = 2875, FuelCapacityL = 23740,
             ServiceCeilingFt = 39800, CruiseAltFt = 35000,
-            Notes = "Croisière Mach 0,78 ≈ 447 kt. Vitesse max 473 kt (valeur de croisière rapide, pas les limites VMO/MMO du FCOM). " +
-                    "Consommation 2 200 à 2 400 kg/h selon les comparatifs, 2 300 kg/h retenus = 2 875 L/h. Réservoirs 23 740 L. Plafond 39 800 ft.",
+            Notes = Loc.Get("AircraftCatalog_Croisiere_Mach_0_78_447") +
+                    Loc.Get("AircraftCatalog_Consommation_2_200_a_2"),
         },
     ];
 }

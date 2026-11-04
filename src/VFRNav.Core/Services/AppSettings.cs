@@ -22,6 +22,8 @@ public sealed class AppSettings
     /// <summary>Ancien réglage (dossier de StormATC), relu une fois pour reprendre le dossier des cartes ; plus jamais écrit.</summary>
     public string StormAtcPath { get; set; } = "";
     public bool AutoVariation { get; set; } = true;
+    /// <summary>Langue de l'interface : « fr », « en » ; vide = celle de Windows (français si elle n'est pas proposée).</summary>
+    public string Language { get; set; } = "";
     public AirportFilter Filter { get; set; } = new();
     /// <summary>Terrains limités à un couloir autour de la route.</summary>
     public bool FilterNearRoute { get; set; }

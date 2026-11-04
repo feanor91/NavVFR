@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -25,10 +26,10 @@ public static partial class PlnReader
     {
         XDocument doc;
         try { doc = XDocument.Parse(xml); }
-        catch (XmlException ex) { throw new FormatException("Ce fichier n'est pas un plan de vol .PLN valide : " + ex.Message, ex); }
+        catch (XmlException ex) { throw new FormatException(Loc.Get("PlnReader_Ce_fichier_n_est_pas") + ex.Message, ex); }
 
         var plan = doc.Descendants("FlightPlan.FlightPlan").FirstOrDefault()
-            ?? throw new FormatException("Ce fichier ne contient pas de plan de vol (FlightPlan.FlightPlan introuvable).");
+            ?? throw new FormatException(Loc.Get("PlnReader_Ce_fichier_ne_contient_pas"));
 
         double? cruise = Number(plan.Element("CruisingAlt")?.Value);
         var extras = ReadExtras(doc);
@@ -37,7 +38,7 @@ public static partial class PlnReader
         {
             string id = (string?)el.Attribute("id") ?? $"WP{index + 1}";
             var m = PositionRx().Match(el.Element("WorldPosition")?.Value ?? "");
-            if (!m.Success) throw new FormatException($"Position illisible pour le point « {id} ».");
+            if (!m.Success) throw new FormatException(Loc.F("PlnReader_Position_illisible_pour_le_point", id));
 
             double lat = Sign(m.Groups[1].Value) * Dms(m.Groups[2].Value, m.Groups[3].Value, m.Groups[4].Value);
             double lon = Sign(m.Groups[5].Value) * Dms(m.Groups[6].Value, m.Groups[7].Value, m.Groups[8].Value);
@@ -60,7 +61,7 @@ public static partial class PlnReader
             }
             route.Add(wp);
         }
-        if (route.Count == 0) throw new FormatException("Le plan de vol ne contient aucun point.");
+        if (route.Count == 0) throw new FormatException(Loc.Get("PlnReader_Le_plan_de_vol_ne"));
         return new PlnPlan(route, cruise, plan.Element("Title")?.Value);
     }
 

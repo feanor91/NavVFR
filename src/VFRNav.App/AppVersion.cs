@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -9,9 +10,9 @@ public static class AppVersion
     public static string Text { get; } = Read(typeof(AppVersion).Assembly);
 
     /// <summary>Titre de la fenêtre principale : « MSFS Rhumb 0.11.0 ».</summary>
-    public static string Title => Text == Development ? "MSFS Rhumb (développement)" : $"MSFS Rhumb {Text}";
+    public static string Title => Text == Development ? Loc.Get("AppVersion_MSFS_Rhumb_developpement") : $"MSFS Rhumb {Text}";
 
-    private const string Development = "développement";
+    private static string Development => Loc.Get("AppVersion_developpement");
 
     internal static string Read(Assembly assembly)
     {

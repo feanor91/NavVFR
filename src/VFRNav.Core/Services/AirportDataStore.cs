@@ -1,5 +1,6 @@
 using System.Globalization;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -49,7 +50,7 @@ public sealed class AirportDataStore(HttpClient http, string? directory = null, 
             {
                 // Sans réseau, des fichiers anciens valent mieux que rien.
                 if (cached is null) throw;
-                note = $"Téléchargement impossible ({ex.Message}) : terrains du {cached.Value.LocalDateTime:dd/MM/yyyy} gardés en cache.";
+                note = Loc.F("AirportDataStore_Telechargement_impossible_terrains_du_garde", ex.Message, cached.Value.LocalDateTime);
             }
         }
 
@@ -85,7 +86,7 @@ public sealed class AirportDataStore(HttpClient http, string? directory = null, 
         IReadOnlyList<Airport> airports;
         using (var reader = new StreamReader(AirportsPath)) airports = OurAirportsService.ParseWorld(reader);
 
-        if (!File.Exists(RunwaysPath)) return (airports, "Pistes indisponibles : les filtres de longueur et de revêtement ne retiennent aucun terrain.");
+        if (!File.Exists(RunwaysPath)) return (airports, Loc.Get("AirportDataStore_Pistes_indisponibles_les_filtres_de"));
         using var runways = new StreamReader(RunwaysPath);
         return (OurAirportsService.WithRunways(airports, OurAirportsService.ParseRunways(runways)), null);
     }

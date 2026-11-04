@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Ifr;
 
@@ -15,7 +16,7 @@ public sealed record WindInfo(int? DirectionTrueDeg, double SpeedKt, double? Gus
 public sealed record RunwayChoice(string Runway, double HeadwindKt, double CrosswindKt)
 {
     public string Describe() =>
-        (HeadwindKt >= 0 ? $"vent de face {HeadwindKt:0} kt" : $"vent arrière {-HeadwindKt:0} kt") + $", travers {CrosswindKt:0} kt";
+        (HeadwindKt >= 0 ? Loc.F("RunwayAdvice_vent_de_face_kt", HeadwindKt) : Loc.F("RunwayAdvice_vent_arriere_kt", -HeadwindKt)) + Loc.F("RunwayAdvice_Crosswind", CrosswindKt);
 }
 
 /// <summary>

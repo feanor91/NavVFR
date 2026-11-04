@@ -6,6 +6,7 @@ using Mapsui.Extensions;
 using Mapsui.Projections;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -14,7 +15,7 @@ public partial class MainWindow
 {
     private static readonly string[] Continents = ["", "EU", "NA", "SA", "AF", "AS", "OC", "AN"];
     private static readonly string[] ContinentNames =
-        ["Tous les continents", "Europe", "Amérique du Nord", "Amérique du Sud", "Afrique", "Asie", "Océanie", "Antarctique"];
+        [Loc.Get("WorldAirports_Tous_les_continents"), Loc.Get("WorldAirports_Europe"), Loc.Get("WorldAirports_Amerique_du_Nord"), Loc.Get("WorldAirports_Amerique_du_Sud"), Loc.Get("WorldAirports_Afrique"), Loc.Get("WorldAirports_Asie"), Loc.Get("WorldAirports_Oceanie"), Loc.Get("WorldAirports_Antarctique")];
 
     private readonly AirportDataStore _airportStore;
     private AirportSearchIndex _airportIndex = new([]);
@@ -76,8 +77,8 @@ public partial class MainWindow
         _airportLayer.Features = selection.Shown.Select(AirportFeature).ToList();
         _airportLayer.DataHasChanged();
         FilterCount.Text = selection.Hidden > 0
-            ? $"{selection.Shown.Count} terrains affichés sur {selection.InView} dans cette zone ({selection.Hidden} masqués : zoomez). {_airports.Count} au total."
-            : $"{selection.Shown.Count} terrains affichés dans cette zone. {_airports.Count} au total.";
+            ? Loc.F("WorldAirports_terrains_affiches_sur_dans_cette", selection.Shown.Count, selection.InView, selection.Hidden, _airports.Count)
+            : Loc.F("WorldAirports_terrains_affiches_dans_cette_zone", selection.Shown.Count, _airports.Count);
         MapControl.Refresh();
     }
 
@@ -94,7 +95,7 @@ public partial class MainWindow
     private void ShowWorldAirportsInfo(WorldAirportData world)
     {
         string date = world.DownloadedAt.LocalDateTime.ToString("dd/MM/yyyy", CultureInfo.CurrentCulture);
-        WorldAirportsInfo.Text = $"{world.Airports.Count} terrains (OurAirports, {(world.FromCache ? "cache" : "téléchargés")} du {date})." +
+        WorldAirportsInfo.Text = Loc.F("WorldAirports_terrains_OurAirports_du", world.Airports.Count, (world.FromCache ? "cache" : Loc.Get("WorldAirports_telecharges")), date) +
                                  (world.Note is null ? "" : "\n" + world.Note);
     }
 
@@ -128,6 +129,32 @@ public partial class MainWindow
     {
         if (SelectedSearchResult is not { } apt) return;
         _route.Add(apt.ToWaypoint());
-        StatusText.Text = $"{apt.Ident} ajouté à la route.";
+        StatusText.Text = Loc.F("WorldAirports_ajoute_a_la_route", apt.Ident);
+    }
+}
+
+// ---------- Langue de l'interface ----------
+public partial class MainWindow
+{
+    private bool _restoringLanguage;
+
+    private void RestoreLanguageBox()
+    {
+        _restoringLanguage = true;
+        try
+        {
+            LanguageBox.ItemsSource = Loc.Languages.Select(l => l.Name).ToList();
+            LanguageBox.SelectedIndex = Math.Max(0, Loc.Languages.ToList().FindIndex(l => l.Code == Loc.Resolve(_settings.Language, System.Globalization.CultureInfo.InstalledUICulture)));
+        }
+        finally { _restoringLanguage = false; }
+    }
+
+    private void Language_Changed(object sender, SelectionChangedEventArgs e)
+    {
+        if (_restoringLanguage || !IsLoaded || LanguageBox.SelectedIndex < 0) return;
+        _settings.Language = Loc.Languages[LanguageBox.SelectedIndex].Code;
+        SaveSettings();
+        // Message dans les deux langues : celle qui vient d'être choisie ne s'applique qu'au prochain lancement.
+        MessageBox.Show(this, "Redémarrez MSFS Rhumb pour changer la langue.\nRestart MSFS Rhumb to change the language.", "MSFS Rhumb");
     }
 }

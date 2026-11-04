@@ -1,4 +1,5 @@
 using System.Globalization;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Weather;
 
@@ -11,7 +12,7 @@ public sealed record SigmetLegendEntry(string Code, string Label, string Hex);
 /// </summary>
 public static class SigmetPresentation
 {
-    private static readonly CultureInfo Fr = CultureInfo.GetCultureInfo("fr-FR");
+    private static CultureInfo Fr => VFRNav.Core.Localization.Loc.FormatCulture;
     private const string OtherHex = "#757575";
 
     /// <summary>
@@ -33,13 +34,13 @@ public static class SigmetPresentation
 
     public static IReadOnlyList<SigmetLegendEntry> Legend { get; } =
     [
-        Entry("TS", "Orages"),
-        Entry("TURB", "Turbulence"),
-        Entry("ICE", "Givrage"),
-        Entry("MTW", "Ondes orographiques"),
-        Entry("VA", "Cendres volcaniques"),
-        Entry("TC", "Cyclone"),
-        Entry("", "Autre"),
+        Entry("TS", Loc.Get("Sigmet_Orages")),
+        Entry("TURB", Loc.Get("Sigmet_Turbulence")),
+        Entry("ICE", Loc.Get("Sigmet_Givrage")),
+        Entry("MTW", Loc.Get("Sigmet_Ondes_orographiques")),
+        Entry("VA", Loc.Get("Sigmet_Cendres_volcaniques")),
+        Entry("TC", Loc.Get("SigmetPresentation_Cyclone")),
+        Entry("", Loc.Get("SigmetPresentation_Autre")),
     ];
 
     private static SigmetLegendEntry Entry(string code, string label) => new(code, label, HazardColorHex(code));
@@ -51,7 +52,7 @@ public static class SigmetPresentation
         feet is not { } ft ? missing : ft <= 0 ? "SFC" : "FL" + Math.Round(ft / 100).ToString("000", Fr);
 
     /// <summary>Tranche d'altitude du message, ex. « SFC → FL350 ».</summary>
-    public static string LevelRange(Sigmet s) => $"{LevelText(s.BaseFt, "SFC")} → {LevelText(s.TopFt, "illimité")}";
+    public static string LevelRange(Sigmet s) => $"{LevelText(s.BaseFt, "SFC")} → {LevelText(s.TopFt, Loc.Get("FlightSheetBuilder_illimite"))}";
 
     /// <summary>Étiquette courte posée sur la zone, ex. « TS FL350 » ou « TURB FL150-FL280 ».</summary>
     public static string LabelText(Sigmet s)
@@ -67,15 +68,15 @@ public static class SigmetPresentation
     {
         string Time(DateTimeOffset t) => t.UtcDateTime.Date == now.UtcDateTime.Date ? t.UtcDateTime.ToString("HH:mm", Fr) : t.UtcDateTime.ToString("dd/MM HH:mm", Fr);
         string range = $"{Time(s.ValidFrom)} → {Time(s.ValidTo)} UTC";
-        if (now < s.ValidFrom) return $"{range}, commence dans {Duration(s.ValidFrom - now)}";
-        if (now < s.ValidTo) return $"{range}, reste {Duration(s.ValidTo - now)}";
-        return range + ", expiré";
+        if (now < s.ValidFrom) return Loc.F("SigmetPresentation_commence_dans", range, Duration(s.ValidFrom - now));
+        if (now < s.ValidTo) return Loc.F("SigmetPresentation_reste", range, Duration(s.ValidTo - now));
+        return range + Loc.Get("SigmetPresentation_expire");
     }
 
     private static string Duration(TimeSpan span)
     {
         int minutes = Math.Max(1, (int)Math.Round(span.TotalMinutes));
-        return minutes < 60 ? $"{minutes} min" : $"{minutes / 60} h {minutes % 60:00}";
+        return minutes < 60 ? Loc.F("SigmetPresentation_min", minutes) : $"{minutes / 60} h {minutes % 60:00}";
     }
 
     /// <summary>Texte du message sur une seule ligne, raccourci pour tenir dans une infobulle ou sur la feuille.</summary>
@@ -91,9 +92,9 @@ public static class SigmetPresentation
         string fir = s.FirName.Trim().Length > 0 ? s.FirName.Trim() : s.FirId;
         var lines = new List<string>
         {
-            $"{fir} · série {s.SeriesId}",
-            "Niveaux : " + LevelRange(s),
-            "Validité : " + ValidityText(s, now),
+            Loc.F("SigmetPresentation_serie", fir, s.SeriesId),
+            Loc.Get("SigmetPresentation_Niveaux") + LevelRange(s),
+            Loc.Get("SigmetPresentation_Validite") + ValidityText(s, now),
         };
         if (s.RawText is { Length: > 0 } raw) lines.Add(RawOneLine(raw));
         return (s.Description, lines);

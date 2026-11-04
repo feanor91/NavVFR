@@ -11,6 +11,7 @@ using Mapsui.Styles;
 using NetTopologySuite.Geometries;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -18,7 +19,7 @@ namespace VFRNav.App;
 public partial class MainWindow
 {
     private readonly AircraftCatalog _aircraft = AircraftCatalog.Load();
-    private readonly MemoryLayer _rangeLayer = new("Portée") { Style = null };
+    private readonly MemoryLayer _rangeLayer = new(Loc.Get("Aircraft_Portee")) { Style = null };
     private FlightMode _mode = FlightMode.Vfr;
     private bool _aircraftReady;
 
@@ -108,8 +109,8 @@ public partial class MainWindow
     private string CruiseSummary()
     {
         double ft = CurrentCruiseAltFt();
-        string level = ft >= 18000 ? $"FL{ft / 100:000}" : string.Create(CultureInfo.GetCultureInfo("fr-FR"), $"{ft:N0} ft");
-        return $" · croisière {level} · {(_mode == FlightMode.Ifr ? "IFR" : "VFR")}" + (ActiveAircraft is { } a ? " · " + a.Name : "");
+        string level = ft >= 18000 ? $"FL{ft / 100:000}" : string.Create(VFRNav.Core.Localization.Loc.FormatCulture, $"{ft:N0} ft");
+        return Loc.F("Aircraft_croisiere", level, (_mode == FlightMode.Ifr ? "IFR" : "VFR")) + (ActiveAircraft is { } a ? " · " + a.Name : "");
     }
 
     private void AfterAircraftChange()
@@ -167,10 +168,9 @@ public partial class MainWindow
 
     private static string Describe(Aircraft? a, bool active, FlightMode mode)
     {
-        if (a is null) return "Aucun appareil : ouvre « Gérer… » pour en créer un.";
-        string text = string.Create(CultureInfo.GetCultureInfo("fr-FR"),
-            $"{a.CruiseKt:0} kt · {a.BurnLph:0.#} L/h · {a.FuelCapacityL:N0} L\nAutonomie {NavMath.FormatTime(a.EnduranceMinutes)} · portée utile {a.UsableRangeNm(mode):N0} NM");
-        return active ? text + "\n▶ utilisé pour le log de navigation" : text;
+        if (a is null) return Loc.Get("Aircraft_Aucun_appareil_ouvre_Gerer_pour");
+        string text = Loc.F(VFRNav.Core.Localization.Loc.FormatCulture, "Aircraft_kt_L_h_L_Autonomie", a.CruiseKt, a.BurnLph, a.FuelCapacityL, NavMath.FormatTime(a.EnduranceMinutes), a.UsableRangeNm(mode));
+        return active ? text + Loc.Get("Aircraft_utilise_pour_le_log_de") : text;
     }
 
     /// <summary>Avertit quand le carburant nécessaire dépasse ce que l'appareil actif peut emporter.</summary>
@@ -227,7 +227,7 @@ public partial class MainWindow
     private void UpdateRangeView()
     {
         var features = new List<IFeature>();
-        var fr = CultureInfo.GetCultureInfo("fr-FR");
+        var fr = VFRNav.Core.Localization.Loc.FormatCulture;
 
         if (_range is { } r)
         {
@@ -252,8 +252,8 @@ public partial class MainWindow
                 }
 
                 if (r.UsableNm > 0)
-                    AddRangeLabel(features, r.UsableLines, v, string.Create(fr, $"Portée utile {r.UsableNm:N0} NM (réserve {r.ReserveMin:0} min) · {r.Aircraft.Name}"), -12);
-                AddRangeLabel(features, r.FullLines, v, string.Create(fr, $"Tout le carburant : {r.FullNm:N0} NM"), r.UsableNm > 0 ? 12 : -12);
+                    AddRangeLabel(features, r.UsableLines, v, Loc.F(fr, "Aircraft_Portee_utile_NM_reserve_min", r.UsableNm, r.ReserveMin, r.Aircraft.Name), -12);
+                AddRangeLabel(features, r.FullLines, v, Loc.F(fr, "Aircraft_Tout_le_carburant_NM", r.FullNm), r.UsableNm > 0 ? 12 : -12);
             }
 
             RangeInfo.Text = RangeText(r, state, fr);
@@ -268,16 +268,16 @@ public partial class MainWindow
     private static string RangeText(RangeCircles r, RangeViewState state, CultureInfo fr)
     {
         string numbers = r.UsableNm > 0
-            ? string.Create(fr, $"Portée utile {r.UsableNm:N0} NM (réserve {r.ReserveMin:0} min), tout le carburant {r.FullNm:N0} NM, autour de {r.Origin.Name}. Sans vent.")
-            : string.Create(fr, $"L'autonomie ({r.FullNm:N0} NM) ne dépasse pas la réserve de {r.ReserveMin:0} min : pas de portée utile. Tout le carburant : {r.FullNm:N0} NM autour de {r.Origin.Name}. Sans vent.");
+            ? Loc.F(fr, "Aircraft_Portee_utile_NM_reserve_min_2", r.UsableNm, r.ReserveMin, r.FullNm, r.Origin.Name)
+            : Loc.F(fr, "Aircraft_L_autonomie_NM_ne_depasse", r.FullNm, r.ReserveMin, r.FullNm, r.Origin.Name);
         // Quand le cercle enferme un pôle, il n'y a pas de trait : on explique le grisé.
         if (r.OutsideRing is not null && state == RangeViewState.Crossing)
-            numbers += "\nLe cercle enferme un pôle : sur la carte, la zone grisée est hors de portée" + (r.BandRing is not null ? ", la bande orange est la réserve." : ".");
+            numbers += Loc.Get("Aircraft_Le_cercle_enferme_un_pole") + (r.BandRing is not null ? Loc.Get("Aircraft_la_bande_orange_est_la") : ".");
         return state switch
         {
-            RangeViewState.InsideUsable => numbers + "\nToute la zone affichée est dans la portée utile : dézoome pour voir le cercle.",
-            RangeViewState.InsideReserve => numbers + "\nLa zone affichée est dans la réserve : au-delà de la portée utile, mais dans la portée tout carburant.",
-            RangeViewState.Beyond => numbers + "\nLa zone affichée est hors de portée, même avec tout le carburant.",
+            RangeViewState.InsideUsable => numbers + Loc.Get("Aircraft_Toute_la_zone_affichee_est"),
+            RangeViewState.InsideReserve => numbers + Loc.Get("Aircraft_La_zone_affichee_est_dans"),
+            RangeViewState.Beyond => numbers + Loc.Get("Aircraft_La_zone_affichee_est_hors"),
             _ => numbers,
         };
     }

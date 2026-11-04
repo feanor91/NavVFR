@@ -5,6 +5,7 @@ using VFRNav.Core.Models;
 using VFRNav.Core.Services;
 using VFRNav.Core.Aerodromes;
 using VFRNav.Core.Weather;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -17,10 +18,10 @@ public partial class MainWindow
 
     private async void CalculatePlan_Click(object sender, RoutedEventArgs e)
     {
-        if (_route.Count < 2) { PlanStatus.Text = "Il faut au moins deux points pour calculer le plan de vol."; return; }
+        if (_route.Count < 2) { PlanStatus.Text = Loc.Get("Plan_Il_faut_au_moins_deux"); return; }
 
         PlanButton.IsEnabled = false;
-        PlanStatus.Text = "Calcul du plan de vol...";
+        PlanStatus.Text = Loc.Get("Plan_Calcul_du_plan_de_vol");
         try
         {
             var route = _route.ToList();
@@ -31,17 +32,17 @@ public partial class MainWindow
             // Relief (service en ligne) : un échec n'empêche pas la feuille, il y est signalé.
             TerrainProfile? terrain = null;
             string? terrainNote = null;
-            PlanStatus.Text = "Calcul du relief sous la route...";
+            PlanStatus.Text = Loc.Get("Plan_Calcul_du_relief_sous_la");
             try { terrain = await (_terrainService ??= new TerrainService(_http)).ProfileAsync(route); }
             catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException or InvalidOperationException)
             {
-                terrainNote = "Relief indisponible : " + ex.Message;
+                terrainNote = Loc.Get("Live_Relief_indisponible") + ex.Message;
             }
 
             // Obstacles (OpenStreetMap) : service public parfois saturé, un échec n'empêche pas la feuille.
             IReadOnlyList<RouteObstacle> obstacles = [];
             string? obstacleNote = null;
-            PlanStatus.Text = "Recherche des obstacles près de la route...";
+            PlanStatus.Text = Loc.Get("Plan_Recherche_des_obstacles_pres_de");
             try
             {
                 _terrainService ??= new TerrainService(_http);
@@ -49,7 +50,7 @@ public partial class MainWindow
             }
             catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException or InvalidOperationException)
             {
-                obstacleNote = "Obstacles indisponibles : " + ex.Message;
+                obstacleNote = Loc.Get("Plan_Obstacles_indisponibles") + ex.Message;
             }
 
             _planObstacles = obstacles;
@@ -61,11 +62,11 @@ public partial class MainWindow
             var briefings = PointBriefings.ForRoute(route, p.CruiseAltFt, _airspaces.Where(z => z.Kind != AirspaceKind.Other).ToList(), AerodromeFrequencies);
             var navaids = RouteAnalysis.NavaidsAlong(route, _navaids, 15);
 
-            PlanStatus.Text = "Récupération de la météo...";
+            PlanStatus.Text = Loc.Get("Plan_Recuperation_de_la_meteo");
             var (airports, weatherNote) = await BuildAirportBriefsAsync(route);
 
             // SIGMET en vigueur sur la route : un échec réseau n'empêche pas la feuille, il y est signalé.
-            PlanStatus.Text = "Recherche des SIGMET...";
+            PlanStatus.Text = Loc.Get("Plan_Recherche_des_SIGMET");
             SigmetReport? sigmets = null;
             string? sigmetNote = null;
             try
@@ -76,26 +77,26 @@ public partial class MainWindow
             }
             catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or InvalidDataException)
             {
-                sigmetNote = "SIGMET indisponibles : " + ex.Message;
+                sigmetNote = Loc.Get("Sigmet_Unavailable") + ex.Message;
             }
 
             // Graphique de l'onglet « Profil » et image pour la feuille.
-            string? message = terrainNote ?? (_airspaces.Count == 0 ? "Zones non chargées (clé OpenAIP) : seul le relief est tracé." : null);
+            string? message = terrainNote ?? (_airspaces.Count == 0 ? Loc.Get("Plan_Zones_non_chargees_cle_OpenAIP") : null);
             ProfileView.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles, altitudes);
-            ProfileStatus.Text = message ?? $"{crossings.Count} passage(s) de zone · point le plus haut {(terrain?.MaxFt ?? 0):N0} ft · {obstacles.Count} obstacle(s) répertorié(s)" + CruiseSummary();
+            ProfileStatus.Text = message ?? Loc.F("Plan_passage_s_de_zone_point", crossings.Count, (terrain?.MaxFt ?? 0), obstacles.Count) + CruiseSummary();
             var snapshot = new ProfileChart();
             snapshot.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles, altitudes);
             var image = terrain is null ? null : ProfileChart.Snapshot(snapshot, 700, 270);
 
             var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes, AlternateLines(_mode), sigmets, sigmetNote);
             var document = FlightSheetBuilder.Build(input);
-            string title = $"Feuille de route {route[0].Icao ?? route[0].Name} - {route[^1].Icao ?? route[^1].Name}";
+            string title = Loc.F("Plan_Feuille_de_route", route[0].Icao ?? route[0].Name, route[^1].Icao ?? route[^1].Name);
             new FlightSheetWindow(document, title) { Owner = this }.Show();
-            PlanStatus.Text = $"Plan calculé : {log.TotalDistanceNm:0.#} NM, {NavMath.FormatTime(log.TotalMinutes)}, {log.TotalFuelL:0.#} L.";
+            PlanStatus.Text = Loc.F("Plan_Plan_calcule_NM_L", log.TotalDistanceNm, NavMath.FormatTime(log.TotalMinutes), log.TotalFuelL);
         }
         catch (Exception ex) when (ex is HttpRequestException or InvalidOperationException or TaskCanceledException)
         {
-            PlanStatus.Text = "Calcul interrompu : " + ex.Message;
+            PlanStatus.Text = Loc.Get("Plan_Calcul_interrompu") + ex.Message;
         }
         finally { PlanButton.IsEnabled = true; }
     }
@@ -116,7 +117,7 @@ public partial class MainWindow
             }
             catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException)
             {
-                note = "Météo indisponible au moment du calcul : " + ex.Message;
+                note = Loc.Get("Plan_Meteo_indisponible_au_moment_du") + ex.Message;
             }
         }
         var briefs = airports.Select(a => new AirportBrief(a, _aerodromes?.Find(a.Icao!),

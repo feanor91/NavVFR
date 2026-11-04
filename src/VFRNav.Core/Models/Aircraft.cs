@@ -1,3 +1,4 @@
+using VFRNav.Core.Localization;
 namespace VFRNav.Core.Models;
 
 /// <summary>Type de navigation : à vue ou aux instruments.</summary>
@@ -80,18 +81,18 @@ public sealed class Aircraft
     public IReadOnlyList<string> Validate()
     {
         var errors = new List<string>();
-        if (string.IsNullOrWhiteSpace(Name)) errors.Add("Le nom est obligatoire.");
-        if (!Vfr && !Ifr) errors.Add("Coche au moins une capacité : VFR ou IFR.");
-        if (!(CruiseKt > 0)) errors.Add("La vitesse de croisière doit être positive.");
-        if (!(MaxKt >= CruiseKt)) errors.Add("La vitesse maximale ne peut pas être inférieure à la vitesse de croisière.");
-        if (!(BurnLph > 0)) errors.Add("La consommation doit être positive.");
-        if (!(FuelCapacityL > 0)) errors.Add("Le carburant utilisable doit être positif.");
-        if (!(CruiseAltFt >= 0)) errors.Add("L'altitude de croisière ne peut pas être négative.");
-        if (ClimbFpm is { } c && !(c > 0)) errors.Add("Le taux de montée doit être positif.");
-        if (DescentFpm is { } d && !(d > 0)) errors.Add("Le taux de descente doit être positif.");
-        if (ReserveMinutes is { } r && !(r >= 0)) errors.Add("La réserve ne peut pas être négative.");
+        if (string.IsNullOrWhiteSpace(Name)) errors.Add(Loc.Get("Aircraft_Le_nom_est_obligatoire"));
+        if (!Vfr && !Ifr) errors.Add(Loc.Get("Aircraft_Coche_au_moins_une_capacite"));
+        if (!(CruiseKt > 0)) errors.Add(Loc.Get("Aircraft_La_vitesse_de_croisiere_doit"));
+        if (!(MaxKt >= CruiseKt)) errors.Add(Loc.Get("Aircraft_La_vitesse_maximale_ne_peut"));
+        if (!(BurnLph > 0)) errors.Add(Loc.Get("Aircraft_La_consommation_doit_etre_positive"));
+        if (!(FuelCapacityL > 0)) errors.Add(Loc.Get("Aircraft_Le_carburant_utilisable_doit_etre"));
+        if (!(CruiseAltFt >= 0)) errors.Add(Loc.Get("Aircraft_L_altitude_de_croisiere_ne"));
+        if (ClimbFpm is { } c && !(c > 0)) errors.Add(Loc.Get("Aircraft_Le_taux_de_montee_doit"));
+        if (DescentFpm is { } d && !(d > 0)) errors.Add(Loc.Get("Aircraft_Le_taux_de_descente_doit"));
+        if (ReserveMinutes is { } r && !(r >= 0)) errors.Add(Loc.Get("Aircraft_La_reserve_ne_peut_pas"));
         if (ServiceCeilingFt is { } ceiling && !(ceiling >= CruiseAltFt))
-            errors.Add("Le plafond ne peut pas être inférieur à l'altitude de croisière.");
+            errors.Add(Loc.Get("Aircraft_Le_plafond_ne_peut_pas"));
         return errors;
     }
 }

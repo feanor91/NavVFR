@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -34,10 +35,10 @@ public static class PointBriefings
     public static (double Ft, string Source) AltitudeFor(IReadOnlyList<Waypoint> route, int index, double cruiseFt)
     {
         var wp = route[index];
-        if (wp.AltitudeFt is { } set) return (set, "saisie");
+        if (wp.AltitudeFt is { } set) return (set, Loc.Get("Briefing_Source_entered"));
         bool endpoint = route.Count > 1 && (index == 0 || index == route.Count - 1);
-        if (wp.IsAirport && wp.ElevationFt > 0 && endpoint) return (wp.ElevationFt + CircuitHeightFt, "circuit (terrain + 1 000 ft)");
-        return (cruiseFt, "croisière");
+        if (wp.IsAirport && wp.ElevationFt > 0 && endpoint) return (wp.ElevationFt + CircuitHeightFt, Loc.Get("Briefing_Source_circuit"));
+        return (cruiseFt, Loc.Get("PointBriefing_croisiere"));
     }
 
     public static IReadOnlyList<PointBriefing> ForRoute(IReadOnlyList<Waypoint> route, double cruiseFt, IReadOnlyList<Airspace> zones,
@@ -62,8 +63,8 @@ public static class PointBriefings
                 {
                     Status = VerticalStatus.Below,
                     Severity = Severity.Info,
-                    Verdict = "Hors zone : tu passes sous le plancher",
-                    Action = $"Reste sous {zone.Lower} (marge {zone.LowerFt - alt:N0} ft) pour ne pas y entrer."
+                    Verdict = Loc.Get("PointBriefing_Hors_zone_tu_passes_sous"),
+                    Action = Loc.F("PointBriefing_Reste_sous_marge_ft_pour", zone.Lower, zone.LowerFt - alt)
                 });
             }
         }
@@ -80,26 +81,26 @@ public static class PointBriefings
     public static ZoneBrief? Assess(Airspace z)
     {
         var freqs = Frequencies(z);
-        string call = freqs.Count > 0 ? $" sur {string.Join(" / ", freqs)}" : "";
+        string call = freqs.Count > 0 ? Loc.F("PointBriefing_sur", string.Join(" / ", freqs)) : "";
         string cls = z.IcaoClass;
 
         (Severity, string, string)? r = z.TypeCode switch
         {
-            3 => (Severity.Forbidden, "Survol interdit", "N'entre pas : une autorisation spéciale est nécessaire. Change d'altitude ou de route."),
-            1 or 8 or 9 or 31 => (Severity.Caution, "Zone réglementée : entrée soumise à conditions",
-                $"Vérifie qu'elle est active (NOTAM, SIA). Si elle l'est, contacte l'organisme{call} ou contourne-la."),
-            29 => (Severity.Caution, "Restriction de survol à basse altitude", "Respecte la hauteur minimale publiée pour cette zone, ou évite-la."),
-            2 => (Severity.Caution, "Zone dangereuse", "Survol non interdit mais déconseillé quand elle est active : vérifie son activation."),
-            17 or 18 => (Severity.Info, "Zone d'alerte ou d'avertissement", "Reste vigilant ; vérifie les NOTAM."),
-            19 => (Severity.Caution, "Zone protégée", "Évite de la survoler à basse altitude."),
+            3 => (Severity.Forbidden, Loc.Get("PointBriefing_Survol_interdit"), Loc.Get("PointBriefing_N_entre_pas_une_autorisation")),
+            1 or 8 or 9 or 31 => (Severity.Caution, Loc.Get("PointBriefing_Zone_reglementee_entree_soumise_a"),
+                Loc.F("PointBriefing_Verifie_qu_elle_est_active", call)),
+            29 => (Severity.Caution, Loc.Get("Airspace_Restriction_de_survol_a_basse"), Loc.Get("PointBriefing_Respecte_la_hauteur_minimale_publiee")),
+            2 => (Severity.Caution, Loc.Get("Glossary_Zone_dangereuse"), Loc.Get("PointBriefing_Survol_non_interdit_mais_deconseille")),
+            17 or 18 => (Severity.Info, Loc.Get("PointBriefing_Zone_d_alerte_ou_d"), Loc.Get("PointBriefing_Reste_vigilant_verifie_les_NOTAM")),
+            19 => (Severity.Caution, Loc.Get("Airspace_Zone_protegee"), Loc.Get("PointBriefing_Evite_de_la_survoler_a")),
             4 or 36 or 7 or 24 or 25 or 26 or 34 or 35 => Controlled(z, cls, call),
-            5 or 22 => (Severity.Caution, "Transpondeur obligatoire", "Allume le transpondeur et affiche le code demandé avant d'entrer."),
-            6 => (Severity.Caution, "Radio obligatoire (RMZ)", $"Écoute la fréquence{call} avant d'entrer et annonce ta position et tes intentions. Pas de clairance demandée."),
-            13 or 14 => (Severity.Caution, "Zone d'aérodrome", $"Annonce-toi{call} et respecte le circuit et la circulation locale."),
-            33 => (Severity.Info, "Information de vol disponible (FIS)", $"Tu peux appeler{call} pour être renseigné ; ce n'est pas obligatoire."),
-            12 => (Severity.Caution, "Zone d'identification (ADIZ)", "Fais-toi identifier avant d'entrer."),
-            21 or 28 => (Severity.Caution, "Activité de loisir ou sportive", "Regarde dehors en permanence, passe au large ou franchis la zone bien au-dessus ou en dessous."),
-            20 or 23 or 32 => (Severity.Info, z.TypeCode == 20 ? "Zone d'activité d'hélicoptères" : "Zone d'information de trafic", "Reste attentif au trafic."),
+            5 or 22 => (Severity.Caution, Loc.Get("PointBriefing_Transpondeur_obligatoire"), Loc.Get("PointBriefing_Allume_le_transpondeur_et_affiche")),
+            6 => (Severity.Caution, Loc.Get("PointBriefing_Radio_obligatoire_RMZ"), Loc.F("PointBriefing_Ecoute_la_frequence_avant_d", call)),
+            13 or 14 => (Severity.Caution, Loc.Get("PointBriefing_Zone_d_aerodrome"), Loc.F("PointBriefing_Annonce_toi_et_respecte_le", call)),
+            33 => (Severity.Info, Loc.Get("PointBriefing_Information_de_vol_disponible_FIS"), Loc.F("PointBriefing_Tu_peux_appeler_pour_etre", call)),
+            12 => (Severity.Caution, Loc.Get("PointBriefing_Zone_d_identification_ADIZ"), Loc.Get("PointBriefing_Fais_toi_identifier_avant_d")),
+            21 or 28 => (Severity.Caution, Loc.Get("PointBriefing_Activite_de_loisir_ou_sportive"), Loc.Get("PointBriefing_Regarde_dehors_en_permanence_passe")),
+            20 or 23 or 32 => (Severity.Info, z.TypeCode == 20 ? Loc.Get("PointBriefing_Zone_d_activite_d_helicopteres") : Loc.Get("PointBriefing_Zone_d_information_de_trafic"), Loc.Get("PointBriefing_Reste_attentif_au_trafic")),
             _ => null
         };
         return r is var (sev, verdict, action) ? new ZoneBrief(z, VerticalStatus.Inside, sev, verdict, action, freqs) : null;
@@ -107,16 +108,16 @@ public static class PointBriefings
 
     private static (Severity, string, string) Controlled(Airspace z, string cls, string call) => cls switch
     {
-        "A" => (Severity.Forbidden, "Vol à vue interdit (classe A)",
-            $"Demande une clairance{call}. Sans elle : change d'altitude (sous {z.Lower}) ou de route."),
-        "B" or "C" => (Severity.Clearance, $"Clairance obligatoire (classe {cls})",
-            $"Appelle le contrôle{call} avant l'entrée et attends la clairance. Sans elle : passe sous {z.Lower} ou contourne."),
-        "D" => (Severity.Clearance, "Clairance et radio obligatoires (classe D)",
-            $"Appelle le contrôle{call} avant l'entrée et attends la clairance. Sans elle : passe sous {z.Lower} ou contourne."),
-        "E" or "F" or "G" => (Severity.Free, $"Survol autorisé sans clairance (classe {cls})",
-            $"Aucune clairance demandée{(call.Length > 0 ? $" ; tu peux écouter{call}" : "")}."),
-        _ => (Severity.Caution, "Espace contrôlé (classe non précisée)",
-            $"Considère la clairance comme nécessaire : contacte{(call.Length > 0 ? call : " le contrôle")} avant d'entrer.")
+        "A" => (Severity.Forbidden, Loc.Get("PointBriefing_Vol_a_vue_interdit_classe"),
+            Loc.F("PointBriefing_Demande_une_clairance_Sans_elle", call, z.Lower)),
+        "B" or "C" => (Severity.Clearance, Loc.F("PointBriefing_Clairance_obligatoire_classe", cls),
+            Loc.F("PointBriefing_Appelle_le_controle_avant_l", call, z.Lower)),
+        "D" => (Severity.Clearance, Loc.Get("PointBriefing_Clairance_et_radio_obligatoires_classe"),
+            Loc.F("PointBriefing_Appelle_le_controle_avant_l", call, z.Lower)),
+        "E" or "F" or "G" => (Severity.Free, Loc.F("PointBriefing_Survol_autorise_sans_clairance_classe", cls),
+            Loc.F("PointBriefing_Aucune_clairance_demandee", (call.Length > 0 ? Loc.F("PointBriefing_tu_peux_ecouter", call) : ""))),
+        _ => (Severity.Caution, Loc.Get("PointBriefing_Espace_controle_classe_non_precisee"),
+            Loc.F("PointBriefing_Considere_la_clairance_comme_necessaire", (call.Length > 0 ? call : Loc.Get("PointBriefing_le_controle"))))
     };
 
     /// <summary>Fréquences publiées pour la zone : « Paris Info 124.350 ».</summary>

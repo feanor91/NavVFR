@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using VFRNav.Core.Ifr;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -56,9 +57,9 @@ public sealed partial class SimFacilitySession : IDisposable
     public static SimFacilitySession Open()
     {
         if (!SimConnectTracker.Available)
-            throw new SimUnavailableException("SimConnect.dll introuvable : copiez-la à côté de MSFSRhumb.exe ou installez le SDK de MSFS.");
+            throw new SimUnavailableException(Loc.Get("SimFacilityClient_SimConnect_dll_introuvable_copiez_la"));
         if (SimConnect_Open(out var handle, "MSFS Rhumb facilities", IntPtr.Zero, 0, IntPtr.Zero, 0) != 0 || handle == IntPtr.Zero)
-            throw new SimUnavailableException("MSFS n'est pas lancé (ou SimConnect est indisponible).");
+            throw new SimUnavailableException(Loc.Get("SimFacilityClient_MSFS_n_est_pas_lance"));
 
         try
         {
@@ -95,7 +96,7 @@ public sealed partial class SimFacilitySession : IDisposable
             uint buildMajor = (uint)Marshal.ReadInt32(data, 276), buildMinor = (uint)Marshal.ReadInt32(data, 280);
             return $"MSFS {major}.{minor}.{buildMajor}.{buildMinor}";
         }
-        throw new SimUnavailableException("MSFS n'a pas répondu à la connexion SimConnect.");
+        throw new SimUnavailableException(Loc.Get("SimFacilityClient_MSFS_n_a_pas_repondu"));
     }
 
     // ---------- liste des terrains ----------
@@ -112,7 +113,7 @@ public sealed partial class SimFacilitySession : IDisposable
     {
         uint request = ListRequestId;
         if (SimConnect_RequestFacilitiesList(_handle, 0 /* AIRPORT */, request) != 0)
-            throw new SimUnavailableException("MSFS a refusé la demande de la liste des terrains.");
+            throw new SimUnavailableException(Loc.Get("SimFacilityClient_MSFS_a_refuse_la_demande"));
 
         var airports = new Dictionary<string, SimAirport>(StringComparer.Ordinal);
         int received = 0, expected = int.MaxValue;
@@ -135,7 +136,7 @@ public sealed partial class SimFacilitySession : IDisposable
                         BitConverter.Int64BitsToDouble(Marshal.ReadInt64(e, 12)), BitConverter.Int64BitsToDouble(Marshal.ReadInt64(e, 20)));
             }
         }
-        if (received == 0) throw new SimUnavailableException("MSFS n'a pas envoyé la liste des terrains.");
+        if (received == 0) throw new SimUnavailableException(Loc.Get("SimFacilityClient_MSFS_n_a_pas_envoye"));
         return [.. airports.Values.OrderBy(a => a.Icao, StringComparer.Ordinal)];
     }
 
@@ -150,7 +151,7 @@ public sealed partial class SimFacilitySession : IDisposable
         icao = icao.Trim().ToUpperInvariant();
         uint request = _nextRequest++;
         if (SimConnect_RequestFacilityData(_handle, DefineId, request, icao, "") != 0)
-            throw new SimUnavailableException($"MSFS a refusé la demande de données pour {icao}.");
+            throw new SimUnavailableException(Loc.F("SimFacilityClient_MSFS_a_refuse_la_demande_2", icao));
 
         var nodes = new Dictionary<uint, Node>();
         var order = new List<uint>();
@@ -170,7 +171,7 @@ public sealed partial class SimFacilitySession : IDisposable
             }
         }
 
-        if (!ended) throw new SimUnavailableException($"MSFS n'a pas fini de répondre pour {icao}.");
+        if (!ended) throw new SimUnavailableException(Loc.F("SimFacilityClient_MSFS_n_a_pas_fini", icao));
         _ = exception; // un terrain inconnu de MSFS répond par une erreur sans données : liste vide
         return Build(nodes, order);
     }
@@ -195,7 +196,7 @@ public sealed partial class SimFacilitySession : IDisposable
                 string icao = airports[next++].Trim().ToUpperInvariant();
                 uint request = _nextRequest++;
                 if (SimConnect_RequestFacilityData(_handle, DefineId, request, icao, "") != 0)
-                    throw new SimUnavailableException($"MSFS a refusé la demande de données pour {icao}.");
+                    throw new SimUnavailableException(Loc.F("SimFacilityClient_MSFS_a_refuse_la_demande_2", icao));
                 pending[request] = (icao, new Dictionary<uint, Node>(), new List<uint>(), DateTime.UtcNow + limit);
             }
 
@@ -263,7 +264,7 @@ public sealed partial class SimFacilitySession : IDisposable
                 uint request = _nextRequest++;
                 char type = point.Kind switch { SimPointKind.Vor => 'V', SimPointKind.Ndb => 'N', _ => 'W' };
                 if (SimConnect_RequestFacilityData_EX1(_handle, RouteDefineId, request, point.Ident, point.Region, (byte)type) != 0)
-                    throw new SimUnavailableException($"MSFS a refusé la demande de routes pour {point.Ident}.");
+                    throw new SimUnavailableException(Loc.F("SimFacilityClient_MSFS_a_refuse_la_demande_3", point.Ident));
                 pending[request] = (point, [], DateTime.UtcNow + limit);
             }
 
@@ -309,7 +310,7 @@ public sealed partial class SimFacilitySession : IDisposable
         void Add(string name)
         {
             int hr = SimConnect_AddToFacilityDefinition(_handle, RouteDefineId, name);
-            if (hr != 0) throw new SimUnavailableException($"SimConnect refuse la définition « {name} » (code {hr:X}).");
+            if (hr != 0) throw new SimUnavailableException(Loc.F("SimFacilityClient_SimConnect_refuse_la_definition_code", name, hr));
         }
         Add("OPEN WAYPOINT"); Add("ICAO"); Add("N_ROUTES");
         Add("OPEN ROUTE");
@@ -324,7 +325,7 @@ public sealed partial class SimFacilitySession : IDisposable
         void Add(string name)
         {
             int hr = SimConnect_AddToFacilityDefinition(h, DefineId, name);
-            if (hr != 0) throw new SimUnavailableException($"SimConnect refuse la définition « {name} » (code {hr:X}).");
+            if (hr != 0) throw new SimUnavailableException(Loc.F("SimFacilityClient_SimConnect_refuse_la_definition_code", name, hr));
         }
         void Fields(string[] fields) { foreach (var f in fields) Add(f); }
         void Leg() { Add("OPEN APPROACH_LEG"); Fields(LegFields); Add("CLOSE APPROACH_LEG"); }

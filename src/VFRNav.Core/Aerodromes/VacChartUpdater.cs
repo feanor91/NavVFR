@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Aerodromes;
 
@@ -12,8 +13,8 @@ namespace VFRNav.Core.Aerodromes;
 public sealed record VacUpdateResult(DateTime Cycle, int Changed, int Added, int Same, int Absent, bool Cancelled, bool DryRun)
 {
     public string Summary =>
-        $"Cycle AIRAC {Cycle:yyyy-MM-dd} : {Changed} modifiée(s), {Added} nouvelle(s), {Same} à jour, {Absent} non publiée(s) par le SIA" +
-        (DryRun ? " (rien n'a été écrit)." : Cancelled ? " (arrêté avant la fin)." : ".");
+        Loc.F("VacChartUpdater_Cycle_AIRAC_modifiee_s_nouvelle", Cycle, Changed, Added, Same, Absent) +
+        (DryRun ? Loc.Get("VacChartUpdater_rien_n_a_ete_ecrit") : Cancelled ? Loc.Get("VacChartUpdater_arrete_avant_la_fin") : ".");
 }
 
 /// <summary>
@@ -85,7 +86,7 @@ public sealed partial class VacChartUpdater
     {
         var effective = cycle ?? CycleFor(DateTime.UtcNow);
         if (!await IsOnlineAsync(effective, ct))
-            throw new InvalidOperationException($"Le cycle AIRAC {effective:yyyy-MM-dd} n'est pas en ligne au SIA (pas encore, ou plus d'accès au site).");
+            throw new InvalidOperationException(Loc.F("VacChartUpdater_Le_cycle_AIRAC_n_est", effective));
         if (!dryRun) Directory.CreateDirectory(directory);
 
         int changed = 0, added = 0, same = 0, absent = 0, done = 0;
@@ -94,7 +95,7 @@ public sealed partial class VacChartUpdater
         foreach (string icao in list)
         {
             if (ct.IsCancellationRequested) { cancelled = true; break; }
-            progress?.Report($"Cartes VAC : {icao} ({++done}/{list.Count})");
+            progress?.Report(Loc.F("VacChartUpdater_Cartes_VAC", icao, ++done, list.Count));
             byte[]? bytes;
             try { bytes = await DownloadAsync(effective, icao, ct); }
             catch (OperationCanceledException) { cancelled = true; break; }
@@ -122,8 +123,8 @@ public sealed partial class VacChartUpdater
 
         if (!dryRun && !cancelled)
             await File.WriteAllTextAsync(Path.Combine(directory, "_cycle.txt"),
-                $"Source : SIA (Service de l'Information Aéronautique, DGAC), AIP France, atlas des cartes VAC, cycle AIRAC en vigueur le {effective:yyyy-MM-dd}. " +
-                $"Cartes conservées telles que publiées. Mises à jour le {DateTime.Now:yyyy-MM-dd}.", new UTF8Encoding(false), CancellationToken.None);
+                Loc.F("VacChartUpdater_Source_SIA_Service_de_l", effective) +
+                Loc.F("VacChartUpdater_Cartes_conservees_telles_que_publiees", DateTime.Now), new UTF8Encoding(false), CancellationToken.None);
         return new VacUpdateResult(effective, changed, added, same, absent, cancelled, dryRun);
     }
 

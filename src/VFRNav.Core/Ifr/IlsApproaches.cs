@@ -1,5 +1,6 @@
 using System.Globalization;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Ifr;
 
@@ -48,7 +49,7 @@ public static class IlsPlanner
     private const double FeetPerNm = 6076.12;
     private const double DefaultSlopeDeg = 3;
     private const double DefaultReferenceHeightM = 15;      // ≈ 50 ft au-dessus du seuil
-    private static readonly CultureInfo Fr = CultureInfo.GetCultureInfo("fr-FR");
+    private static CultureInfo Fr => VFRNav.Core.Localization.Loc.FormatCulture;
 
     /// <summary>Altitude sur la pente à une distance du seuil, arrondie à 100 ft.</summary>
     public static int GlidePathAltitudeFt(IlsApproach ils, double fieldElevationFt, double distanceNm)
@@ -75,14 +76,13 @@ public static class IlsPlanner
 
     private static string Summary(IlsApproach ils, IReadOnlyList<IlsFinalPoint> points)
     {
-        string qdm = ils.MagneticBearingDeg is { } m ? $" · QDM {Math.Round(m):000}°" : $" · axe {Math.Round(ils.TrueBearingDeg):000}° vrai";
-        string slope = ils.GlideSlopeDeg is { } s ? $" · pente {s.ToString("0.0#", Fr)}°" : "";
-        string category = ils.Category is "NOCAT" or "" ? "" : $" · cat {ils.Category}";
+        string qdm = ils.MagneticBearingDeg is { } m ? $" · QDM {Math.Round(m):000}°" : Loc.F(Fr, "Ils_Axis_true", Math.Round(ils.TrueBearingDeg));
+        string slope = ils.GlideSlopeDeg is { } s ? Loc.F("Ils_Slope", s.ToString("0.0#", Fr)) : "";
+        string category = ils.Category is "NOCAT" or "" ? "" : Loc.F("Ils_Category", ils.Category);
         var intercept = points[0];
         var final = points[1];
-        return string.Create(Fr,
-            $"ILS {ils.Runway} {ils.LocalizerIdent} {ils.LocalizerMhz:0.00} MHz{qdm}{slope}{category} · interception à {intercept.DistanceNm:0} NM ({intercept.AltitudeFt:N0} ft), " +
-            $"finale à {final.DistanceNm:0} NM ({final.AltitudeFt:N0} ft) · finale indicative, pas la procédure publiée");
+        return Loc.F(Fr, "IlsApproaches_ILS_MHz_interception_a_NM", ils.Runway, ils.LocalizerIdent, ils.LocalizerMhz, qdm, slope, category, intercept.DistanceNm, intercept.AltitudeFt) +
+            Loc.F(Fr, "IlsApproaches_finale_a_NM_ft_finale", final.DistanceNm, final.AltitudeFt);
     }
 
     /// <summary>
@@ -112,7 +112,7 @@ public static class IlsPlanner
         string airport = FixKey.Display(route.Points[^1].Ident);
         var candidates = catalog.For(airport);
         if (candidates.Count == 0)
-            return (route, null, $"Pas d'ILS dans les données pour {airport} (le SIA ne couvre que la France).");
+            return (route, null, Loc.F("IlsApproaches_Pas_d_ILS_dans_les", airport));
 
         IlsApproach? ils;
         var previous = route.Points[^2];
@@ -120,7 +120,7 @@ public static class IlsPlanner
         {
             ils = catalog.Find(airport, requestedRunway);
             if (ils is null)
-                return (route, null, $"La piste {requestedRunway} de {airport} n'a pas d'ILS. Pistes avec ILS : {string.Join(", ", candidates.Select(c => c.Runway).Order())}.");
+                return (route, null, Loc.F("IlsApproaches_La_piste_de_n_a", requestedRunway, airport, string.Join(", ", candidates.Select(c => c.Runway).Order())));
         }
         else
         {
@@ -136,7 +136,7 @@ public static class IlsPlanner
         final = final with { Points = kept };
 
         if (kept.Count == 0)
-            return (route, final, $"L'ILS {ils.Runway} existe, mais la route finit déjà à {previousDistance:0} NM du seuil : aucun point de finale ajouté.");
+            return (route, final, Loc.F("IlsApproaches_L_ILS_existe_mais_la", ils.Runway, previousDistance));
 
         var points = route.Points.Take(route.Points.Count - 1)
             .Concat(kept.Select(p => new IfrRoutePoint(p.Ident, p.Lat, p.Lon, IfrLegSource.Ils, null, p.AltitudeFt, p.AltitudeFt)))

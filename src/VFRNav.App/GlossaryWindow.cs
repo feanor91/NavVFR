@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -18,7 +19,7 @@ public sealed class GlossaryWindow : Window
 
     public GlossaryWindow()
     {
-        Title = "Glossaire : sigles des cartes";
+        Title = Loc.Get("GlossaryWindow_Glossaire_sigles_des_cartes");
         Width = 560;
         Height = 720;
         Background = Brushes.White;
@@ -26,7 +27,7 @@ public sealed class GlossaryWindow : Window
 
         var hint = new TextBlock
         {
-            Text = "Cherche un sigle (TMA, QNH, RMZ…) ou un mot (clairance, piste…).",
+            Text = Loc.Get("GlossaryWindow_Cherche_un_sigle_TMA_QNH"),
             Foreground = Grey,
             Margin = new Thickness(14, 10, 12, 0),
             FontSize = 12
@@ -74,7 +75,7 @@ public sealed class GlossaryWindow : Window
     {
         var results = Glossary.Search(_search.Text);
         _list.Children.Clear();
-        _count.Text = results.Count == 0 ? "Aucun résultat." : $"{results.Count} entrée(s)";
+        _count.Text = results.Count == 0 ? Loc.Get("GlossaryWindow_Aucun_resultat") : Loc.F("GlossaryWindow_entree_s", results.Count);
 
         foreach (string category in Glossary.Categories)
         {
@@ -82,7 +83,7 @@ public sealed class GlossaryWindow : Window
             if (inCategory.Count == 0) continue;
             _list.Children.Add(new TextBlock
             {
-                Text = category.ToUpper(System.Globalization.CultureInfo.GetCultureInfo("fr-FR")),
+                Text = category.ToUpper(VFRNav.Core.Localization.Loc.FormatCulture),
                 FontWeight = FontWeights.Bold,
                 FontSize = 12,
                 Foreground = Accent,

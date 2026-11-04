@@ -3,6 +3,7 @@ using System.IO.Compression;
 using System.Xml;
 using System.Xml.Linq;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Ifr;
 
@@ -35,7 +36,7 @@ public static class AixmReader
             using var zip = ZipFile.OpenRead(path);
             var entry = zip.Entries.FirstOrDefault(e => e.Name.StartsWith("AIXM4.5", StringComparison.OrdinalIgnoreCase)
                                                         && e.Name.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
-                        ?? throw new InvalidDataException("Le zip ne contient pas de fichier AIXM4.5_*.xml.");
+                        ?? throw new InvalidDataException(Loc.Get("AixmReader_Le_zip_ne_contient_pas"));
             using var stream = entry.Open();
             return Read(stream, area);
         }
@@ -70,7 +71,7 @@ public static class AixmReader
         var settings = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, IgnoreWhitespace = true };
         using var xml = XmlReader.Create(stream, settings);
         xml.MoveToContent();
-        if (xml.LocalName != "AIXM-Snapshot") throw new InvalidDataException("Ce fichier n'est pas un export AIXM 4.5.");
+        if (xml.LocalName != "AIXM-Snapshot") throw new InvalidDataException(Loc.Get("AixmReader_Ce_fichier_n_est_pas"));
         // La date porte un décalage horaire (« 2026-10-29T00:00:00.000+01:00 ») : on garde la date locale du fichier.
         if (DateTimeOffset.TryParse(xml.GetAttribute("effective"), CultureInfo.InvariantCulture, DateTimeStyles.None, out var eff))
         {
@@ -117,7 +118,7 @@ public static class AixmReader
         }
 
         if (collisions > 0)
-            warnings.Add($"{collisions} identifiant(s) de point utilisé(s) à deux endroits différents : seul le premier est gardé.");
+            warnings.Add(Loc.F("AixmReader_identifiant_s_de_point_utilise", collisions));
 
         var ils = ilsElements.Select(e => ReadIls(e, thresholds, area)).OfType<IlsApproach>().ToList();
         return new AixmLoadResult(new IfrNavData(fixes.Values, result, [], cycle, effective), warnings, new IlsCatalog(ils));

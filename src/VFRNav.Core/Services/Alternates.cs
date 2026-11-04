@@ -1,5 +1,6 @@
 using System.Globalization;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -11,10 +12,10 @@ public sealed record AlternateInfo(string Icao, string Name, bool Known, double 
     {
         get
         {
-            var fr = CultureInfo.GetCultureInfo("fr-FR");
+            var fr = VFRNav.Core.Localization.Loc.FormatCulture;
             return Known
-                ? $"{Icao} {Name} : {DistanceNm.ToString("0", fr)} NM · Rv {TrueCourse:000}° · cap {MagneticHeading:000}° · {Time} · {FuelL.ToString("0.#", fr)} L"
-                : $"{Icao} : terrain inconnu (vérifie le code OACI)";
+                ? Loc.F(fr, "Alternates_Line", Icao, Name, DistanceNm.ToString("0", fr), TrueCourse, MagneticHeading, Time, FuelL.ToString("0.#", fr))
+                : Loc.F("Alternates_terrain_inconnu_verifie_le_code", Icao);
         }
     }
 }

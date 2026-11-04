@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -17,13 +18,13 @@ public sealed class FlightSheetWindow : Window
         Height = 950;
         Background = System.Windows.Media.Brushes.WhiteSmoke;
 
-        var print = new Button { Content = "Imprimer / PDF…", Padding = new Thickness(14, 6, 14, 6), Margin = new Thickness(8) };
+        var print = new Button { Content = Loc.Get("FlightSheetWindow_Imprimer_PDF"), Padding = new Thickness(14, 6, 14, 6), Margin = new Thickness(8) };
         print.Click += (_, _) => Print();
-        var close = new Button { Content = "Fermer", Padding = new Thickness(14, 6, 14, 6), Margin = new Thickness(0, 8, 8, 8) };
+        var close = new Button { Content = Loc.Get("AircraftWindow_Fermer"), Padding = new Thickness(14, 6, 14, 6), Margin = new Thickness(0, 8, 8, 8) };
         close.Click += (_, _) => Close();
         var hint = new TextBlock
         {
-            Text = "Pour un PDF, choisis l'imprimante « Microsoft Print to PDF ».",
+            Text = Loc.Get("FlightSheetWindow_Pour_un_PDF_choisis_l"),
             VerticalAlignment = VerticalAlignment.Center,
             Foreground = System.Windows.Media.Brushes.DimGray,
             Margin = new Thickness(8, 0, 0, 0)

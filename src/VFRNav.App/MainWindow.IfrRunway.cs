@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using VFRNav.Core.Ifr;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -101,7 +102,7 @@ public partial class MainWindow
         {
             // Pas de METAR (hors ligne, terrain sans station) : le vent supposé du formulaire sert de repli.
             wind = new WindInfo((int)Math.Round(Parse(WdirBox, 0)), Parse(WspdBox, 0));
-            source = "vent supposé du formulaire";
+            source = Loc.Get("IfrRunway_vent_suppose_du_formulaire");
         }
 
         bool known = _aerodromes?.Find(icao)?.MagneticVariation is not null;
@@ -132,10 +133,10 @@ public partial class MainWindow
         if (a is null) return "";
         var w = a.Wind;
         string wind = w.DirectionTrueDeg is { } d ? $"{d:000}° {w.SpeedKt:0} kt" : $"variable {w.SpeedKt:0} kt";
-        if (w.GustKt is { } g) wind += $" rafales {g:0}";
-        if (a.Ranking.Count == 0) return $"   Vent {wind} ({a.Source}) : pas de piste conseillée (vent faible ou variable).";
+        if (w.GustKt is { } g) wind += Loc.F("Runway_Gust", g);
+        if (a.Ranking.Count == 0) return Loc.F("IfrRunway_Vent_pas_de_piste_conseillee", wind, a.Source);
         var best = a.Ranking[0];
-        string note = a.VariationKnown ? "" : " Variation inconnue : vent pris en nord vrai.";
-        return $"   Vent {wind} ({a.Source}) : piste conseillée {best.Runway}, {best.Describe()}.{note}";
+        string note = a.VariationKnown ? "" : Loc.Get("IfrRunway_Variation_inconnue_vent_pris_en");
+        return Loc.F("IfrRunway_Vent_piste_conseillee", wind, a.Source, best.Runway, best.Describe(), note);
     }
 }

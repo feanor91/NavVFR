@@ -9,6 +9,7 @@ using BruTile.Web;
 using Mapsui.Layers;
 using Mapsui.Tiling.Layers;
 using VFRNav.Core.Weather;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -66,7 +67,7 @@ public partial class MainWindow
     /// <summary>Remplit la légende : une pastille de couleur par cran de la palette, avec l'intensité en mm/h dessous.</summary>
     private void BuildRadarLegend()
     {
-        var fr = CultureInfo.GetCultureInfo("fr-FR");
+        var fr = VFRNav.Core.Localization.Loc.FormatCulture;
         foreach (var entry in RadarLegend.Rain)
         {
             var color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(entry.Hex);
@@ -155,7 +156,7 @@ public partial class MainWindow
         catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or InvalidDataException)
         {
             // On garde les images déjà affichées : une coupure réseau passagère ne doit pas vider la carte.
-            _radarProblem = "Radar indisponible : " + ex.Message;
+            _radarProblem = Loc.Get("Weather_Radar_indisponible") + ex.Message;
             return;
         }
         _radarProblem = null;
@@ -168,9 +169,9 @@ public partial class MainWindow
         ClearRadar();
         for (int i = 0; i < frames.Count; i++)
         {
-            var source = new HttpTileSource(new GlobalSphericalMercator(0, RadarMaps.MaxZoom, "Radar"), maps.TileUrlTemplate(frames[i]),
-                name: "Radar RainViewer", attribution: new BruTile.Attribution(RadarMaps.AttributionText, RadarMaps.AttributionUrl));
-            var layer = new TileLayer(source) { Name = "Radar", Opacity = RadarOpacitySlider.Value, Enabled = i == 0 };
+            var source = new HttpTileSource(new GlobalSphericalMercator(0, RadarMaps.MaxZoom, Loc.Get("Weather_Radar")), maps.TileUrlTemplate(frames[i]),
+                name: Loc.Get("Weather_Radar_RainViewer"), attribution: new BruTile.Attribution(RadarMaps.AttributionText, RadarMaps.AttributionUrl));
+            var layer = new TileLayer(source) { Name = Loc.Get("Weather_Radar"), Opacity = RadarOpacitySlider.Value, Enabled = i == 0 };
             // Au-dessus des nuages et sous les zones : on insère avant les espaces aériens.
             int index = MapControl.Map.Layers.ToList().IndexOf(_sigmetLayer);
             MapControl.Map.Layers.Insert(index < 0 ? MapControl.Map.Layers.Count() : index, layer);
@@ -265,7 +266,7 @@ public partial class MainWindow
         ILayer aboveClouds = _radarLayers.Count > 0 ? _radarLayers[0] : _sigmetLayer;
         var layer = new TileLayer(new CloudTileSource(kind))
         {
-            Name = cover ? "Couverture nuageuse" : "Sommets de nuages",
+            Name = cover ? Loc.Get("Weather_Couverture_nuageuse") : Loc.Get("Weather_Sommets_de_nuages"),
             Opacity = cover ? CloudCoverOpacitySlider.Value : CloudTopsOpacitySlider.Value,
         };
         if (cover) { SetWeatherLayer(ref _coverLayer, layer, _topsLayer ?? aboveClouds); _coverBuiltAt = DateTimeOffset.UtcNow; }
@@ -289,25 +290,25 @@ public partial class MainWindow
 
     private void ShowWeatherInfo(bool radar, bool clouds)
     {
-        var fr = CultureInfo.GetCultureInfo("fr-FR");
+        var fr = VFRNav.Core.Localization.Loc.FormatCulture;
         var lines = new List<string>();
         if (radar)
         {
             if (_radarProblem is not null) lines.Add(_radarProblem);
-            else if (_radarLayers.Count == 0) lines.Add("Radar : chargement...");
+            else if (_radarLayers.Count == 0) lines.Add(Loc.Get("Weather_Radar_chargement"));
             else if (_radarLayers.Count > 1)
             {
                 string Time(RadarFrame f) => f.Time.LocalDateTime.ToString("HH:mm", fr);
-                lines.Add($"Radar animé : {Time(_radarFrames[0])} → {Time(_radarFrames[^1])}, image de {Time(_radarFrames[_animIndex])}.");
+                lines.Add(Loc.F("Weather_Radar_anime_image_de", Time(_radarFrames[0]), Time(_radarFrames[^1]), Time(_radarFrames[_animIndex])));
             }
-            else lines.Add($"Radar : image de {_radarFrames[0].Time.LocalDateTime:HH:mm} (il y a {Math.Max(0, (int)_radarAge.TotalMinutes)} min), mise à jour toutes les 5 min.");
+            else lines.Add(Loc.F("Weather_Radar_image_de_il_y", _radarFrames[0].Time.LocalDateTime, Math.Max(0, (int)_radarAge.TotalMinutes)));
         }
         if (CloudCoverCheck.IsChecked == true)
-            lines.Add("Couverture (gris-bleu) : où il y a des nuages, stratus bas compris ; ne dit pas à quelle hauteur.");
+            lines.Add(Loc.Get("Weather_Couverture_gris_bleu_ou_il"));
         if (CloudTopsCheck.IsChecked == true)
-            lines.Add("Sommets froids (violet) : nuages épais ou élevés, orages et fronts ; les stratus bas n'y sont pas.");
+            lines.Add(Loc.Get("Weather_Sommets_froids_violet_nuages_epais"));
         if (clouds)
-            lines.Add("Images satellite : la plus récente, 10 à 20 min de décalage.");
+            lines.Add(Loc.Get("Weather_Images_satellite_la_plus_recente"));
         WeatherInfo.Text = string.Join("\n", lines);
     }
 }

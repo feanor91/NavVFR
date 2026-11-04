@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -13,10 +14,10 @@ public sealed record Obstacle(long Id, ObstacleKind Kind, string Name, double La
 {
     public string KindText => Kind switch
     {
-        ObstacleKind.Mast => "Mât / antenne",
-        ObstacleKind.Tower => "Tour",
-        ObstacleKind.Chimney => "Cheminée",
-        _ => "Éolienne"
+        ObstacleKind.Mast => Loc.Get("ObstacleService_Mat_antenne"),
+        ObstacleKind.Tower => Loc.Get("ObstacleService_Tour"),
+        ObstacleKind.Chimney => Loc.Get("ObstacleService_Cheminee"),
+        _ => Loc.Get("ObstacleService_Eolienne")
     };
 }
 
@@ -38,7 +39,7 @@ public sealed record RouteObstacle(Obstacle Obstacle, double AlongNm, double Off
 public sealed partial class ObstacleService(HttpClient http, string endpoint = ObstacleService.DefaultEndpoint)
 {
     public const string DefaultEndpoint = "https://overpass-api.de/api/interpreter";
-    public const string Attribution = "Obstacles : © contributeurs OpenStreetMap (licence ODbL), via Overpass ; hauteurs souvent issues de l'ANFR.";
+    public static string Attribution => Loc.Get("ObstacleService_Obstacles_contributeurs_OpenStreetMap_licenc");
     private const int MaxBoxes = 24;
     private const int MaxObstaclesForElevation = 600;
     private const double MetresToFeet = 3.28084;
@@ -84,7 +85,7 @@ public sealed partial class ObstacleService(HttpClient http, string endpoint = O
     public async Task<IReadOnlyList<RouteObstacle>> FindAsync(IReadOnlyList<Waypoint> route, TerrainService terrain, double corridorNm = 2, CancellationToken ct = default)
     {
         var boxes = BuildBoxes(route, corridorNm);
-        if (boxes.Count > MaxBoxes) throw new InvalidOperationException($"Route trop longue pour interroger les obstacles ({boxes.Count} zones, limite {MaxBoxes}).");
+        if (boxes.Count > MaxBoxes) throw new InvalidOperationException(Loc.F("ObstacleService_Route_trop_longue_pour_interroger", boxes.Count, MaxBoxes));
 
         var found = new Dictionary<long, Obstacle>();
         foreach (var o in Parse(await QueryAsync(BuildQuery(boxes), ct))) found[o.Id] = o;
@@ -106,7 +107,7 @@ public sealed partial class ObstacleService(HttpClient http, string endpoint = O
         using var response = await http.PostAsync(endpoint, new FormUrlEncodedContent([new("data", query)]), ct);
         string body = await response.Content.ReadAsStringAsync(ct);
         if (!response.IsSuccessStatusCode)
-            throw new HttpRequestException($"Overpass : HTTP {(int)response.StatusCode} (service parfois saturé, réessaie dans un instant).");
+            throw new HttpRequestException(Loc.F("ObstacleService_Overpass_HTTP_service_parfois_sature", (int)response.StatusCode));
         return body;
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Xml.Linq;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -30,7 +31,7 @@ public static class PlnWriter
 
     public static string Build(IReadOnlyList<Waypoint> route, double cruiseAltFt)
     {
-        if (route.Count < 2) throw new ArgumentException("Il faut au moins deux points.", nameof(route));
+        if (route.Count < 2) throw new ArgumentException(Loc.Get("PlnWriter_Il_faut_au_moins_deux"), nameof(route));
         var first = route[0];
         var last = route[^1];
         string depId = first.Icao ?? first.Name;

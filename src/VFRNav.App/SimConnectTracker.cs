@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Threading;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -59,14 +60,14 @@ public sealed class SimConnectTracker : IDisposable
         if (!Available)
         {
             if (!_libraryMissingReported)
-                StatusChanged?.Invoke("Suivi indisponible : SimConnect.dll introuvable. Copiez-la à côté de MSFSRhumb.exe ou installez le SDK de MSFS.");
+                StatusChanged?.Invoke(Loc.Get("SimConnectTracker_Suivi_indisponible_SimConnect_dll_introuva"));
             _libraryMissingReported = true;
             return;
         }
 
         if (SimConnect_Open(out var handle, "MSFS Rhumb", IntPtr.Zero, 0, IntPtr.Zero, 0) != 0 || handle == IntPtr.Zero)
         {
-            StatusChanged?.Invoke("MSFS n'est pas lancé : nouvelle tentative toutes les 5 s.");
+            StatusChanged?.Invoke(Loc.Get("SimConnectTracker_MSFS_n_est_pas_lance"));
             return;
         }
 
@@ -76,7 +77,7 @@ public sealed class SimConnectTracker : IDisposable
                   && SimConnect_RequestDataOnSimObject(_handle, ReqAircraft, DefAircraft, ObjectIdUser, PeriodSecond, 0, 0, 0, 0) == 0;
         if (!ok)
         {
-            Disconnect("Connexion à MSFS impossible (définition des données refusée).");
+            Disconnect(Loc.Get("SimConnectTracker_Connexion_a_MSFS_impossible_definition"));
             return;
         }
         _poll.Start();
@@ -94,13 +95,13 @@ public sealed class SimConnectTracker : IDisposable
             {
                 case RecvOpen:
                     Connected = true;
-                    StatusChanged?.Invoke("Connecté à MSFS.");
+                    StatusChanged?.Invoke(Loc.Get("SimConnectTracker_Connecte_a_MSFS"));
                     break;
                 case RecvQuit:
-                    Disconnect("MSFS s'est fermé.");
+                    Disconnect(Loc.Get("SimConnectTracker_MSFS_s_est_ferme"));
                     return;
                 case RecvException:
-                    StatusChanged?.Invoke($"Erreur SimConnect : code {Marshal.ReadInt32(data, 12)}");
+                    StatusChanged?.Invoke(Loc.F("SimConnectTracker_Erreur_SimConnect_code", Marshal.ReadInt32(data, 12)));
                     break;
                 case RecvSimObjectData when size >= DataOffset + Marshal.SizeOf<Data>() && (uint)Marshal.ReadInt32(data, 12) == ReqAircraft:
                     var d = Marshal.PtrToStructure<Data>(data + DataOffset);
@@ -122,7 +123,7 @@ public sealed class SimConnectTracker : IDisposable
     public void Dispose()
     {
         _retry.Stop();
-        Disconnect("Suivi arrêté.");
+        Disconnect(Loc.Get("SimConnectTracker_Suivi_arrete"));
     }
 
     // ---------- DLL native ----------

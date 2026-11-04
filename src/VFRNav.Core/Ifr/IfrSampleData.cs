@@ -1,3 +1,4 @@
+using VFRNav.Core.Localization;
 namespace VFRNav.Core.Ifr;
 
 /// <summary>
@@ -7,7 +8,7 @@ namespace VFRNav.Core.Ifr;
 /// </summary>
 public static class IfrSampleData
 {
-    public const string Label = "DONNÉES DE TEST (fictives)";
+    public static string Label => Loc.Get("IfrSampleData_DONNEES_DE_TEST_fictives");
 
     public static IfrNavData Create()
     {

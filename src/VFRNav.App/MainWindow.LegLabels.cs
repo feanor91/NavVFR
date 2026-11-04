@@ -5,14 +5,15 @@ using Mapsui.Projections;
 using Mapsui.Styles;
 using VFRNav.Core.Models;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
 // ---------- Étiquette de chaque branche de la route : route magnétique et longueur ----------
 public partial class MainWindow
 {
-    private readonly MemoryLayer _legLabelLayer = new("Branches") { Style = null }; // pas de symbole par défaut : seule l'étiquette est dessinée
-    private static readonly CultureInfo FrCulture = CultureInfo.GetCultureInfo("fr-FR");
+    private readonly MemoryLayer _legLabelLayer = new(Loc.Get("LegLabels_Branches")) { Style = null }; // pas de symbole par défaut : seule l'étiquette est dessinée
+    private static CultureInfo FrCulture => VFRNav.Core.Localization.Loc.FormatCulture;
 
     /// <summary>Longueur de branche, en pixels, en dessous de laquelle l'étiquette est masquée (elle recouvrirait les points voisins).</summary>
     private const double LegLabelMinPx = 110;

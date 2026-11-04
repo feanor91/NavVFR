@@ -8,6 +8,12 @@ Application Windows en **C# / .NET 10** (WPF + [Mapsui](https://mapsui.com/)).
 > **Pour la simulation uniquement.** Ce logiciel ne remplace ni l'AIP, ni les NOTAM, ni la météo officielle.
 > Ne l'utilise pas pour un vol réel.
 
+## Langue
+
+L'interface, les messages, la feuille de route, le glossaire et la météo décodée existent en **français et en anglais** (English version of this file: [README.en.md](README.en.md)). La langue se choisit dans **Paramètres → LANGUE / LANGUAGE** (prise en compte au redémarrage) ; par défaut, celle de Windows (français sinon). Les textes sont dans des fichiers de ressources : `src/VFRNav.Core/Localization/Strings.resx` (français, langue neutre) et `Strings.en.resx` (anglais). Dans le XAML on les lit avec `{local:Tr Cle}`, dans le code avec `Loc.Get("Cle")` ou `Loc.F("Cle", args)`. Pour ajouter une langue : un fichier `Strings.<code>.resx` et une ligne dans `Loc.Languages`. Un test vérifie que les deux fichiers ont les mêmes clés et les mêmes paramètres, et que chaque clé utilisée dans le code existe.
+
+Non traduits : les textes des procédures VFR lus sur les cartes VAC (`vfr-data`), qui sont des données sources en français.
+
 ## Ce que fait l'application
 
 ### Carte, zones et aide
@@ -64,6 +70,7 @@ Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du pl
 | Quoi | Où |
 | --- | --- |
 | Réglages, clés, route (jamais dans le dépôt) | `%AppData%\VFRNav\settings.json` |
+| Terrains du monde (OurAirports) | `%AppData%\VFRNav\airports\` |
 | SID/STAR du monde | `%AppData%\VFRNav\procedures\` : un fichier `.json.gz` par terrain et un `index.json` |
 | Routes ATS hors de France | `%AppData%\VFRNav\network\world-network.bin.gz` |
 | Données du SIA | ton propre fichier `export_xml_bd_SIA_….zip` : MSFS Rhumb n'en garde que le chemin |

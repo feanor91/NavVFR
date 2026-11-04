@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Text.Json;
 using VFRNav.Core.Models;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Services;
 
@@ -58,7 +59,7 @@ public sealed record TerrainProfile(IReadOnlyList<TerrainSample> Samples)
 /// </summary>
 public sealed class TerrainService(HttpClient http)
 {
-    public const string Attribution = "Altitudes du sol : Open-Meteo.com (modèle numérique de terrain Copernicus, résolution d'environ 90 m).";
+    public static string Attribution => Loc.Get("TerrainService_Altitudes_du_sol_Open_Meteo");
     private const int BatchSize = 100;
     private const double MetresToFeet = 3.28084;
 
@@ -102,7 +103,7 @@ public sealed class TerrainService(HttpClient http)
         string json = await http.GetStringAsync($"https://api.open-meteo.com/v1/elevation?latitude={lats}&longitude={lons}", ct);
         using var doc = JsonDocument.Parse(json);
         var values = doc.RootElement.GetProperty("elevation").EnumerateArray().Select(e => e.ValueKind == JsonValueKind.Number ? e.GetDouble() : 0).ToArray();
-        if (values.Length != batch.Count) throw new InvalidOperationException($"Open-Meteo a renvoyé {values.Length} altitudes pour {batch.Count} points.");
+        if (values.Length != batch.Count) throw new InvalidOperationException(Loc.F("TerrainService_Open_Meteo_a_renvoye_altitudes", values.Length, batch.Count));
         return values;
     }
 }

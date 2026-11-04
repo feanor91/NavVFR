@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Text.Json;
 using VFRNav.Core.Services;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.Core.Aerodromes;
 
@@ -193,22 +194,22 @@ public sealed class AerodromeRepository
     {
         var inv = CultureInfo.InvariantCulture;
         var lines = new List<string> { $"{a.Icao} — {a.Name}" };
-        if (a.Commune is not null) lines.Add($"Commune : {a.Commune}");
-        if (a.Remark is not null) lines.Add($"Remarque : {a.Remark}");
+        if (a.Commune is not null) lines.Add(Loc.F("AerodromeRepository_Commune", a.Commune));
+        if (a.Remark is not null) lines.Add(Loc.F("AerodromeRepository_Remarque", a.Remark));
         var tech = new List<string>();
-        if (a.ElevationFt is { } e) tech.Add($"Élévation {e.ToString("0", inv)} ft");
-        if (a.MagneticVariation is { } v) tech.Add($"Déclinaison {v.ToString("0.#", inv)}° E");
-        if (a.ServiceKind is not null) tech.Add($"Service : {a.ServiceKind}");
+        if (a.ElevationFt is { } e) tech.Add(Loc.F("FlightSheetBuilder_Elevation_ft", e.ToString("0", inv)));
+        if (a.MagneticVariation is { } v) tech.Add(Loc.F("FlightSheetBuilder_Declinaison_E", v.ToString("0.#", inv)));
+        if (a.ServiceKind is not null) tech.Add(Loc.F("AerodromeRepository_Service", a.ServiceKind));
         if (tech.Count > 0) lines.Add(string.Join("  ·  ", tech));
         if (a.Frequencies.Count > 0)
-            lines.Add("Fréquences : " + string.Join("   ", a.Frequencies.Select(f => $"{f.Service} {f.Mhz.ToString("0.000", inv)}")));
+            lines.Add(Loc.Get("FlightSheetBuilder_Frequences") + string.Join("   ", a.Frequencies.Select(f => $"{f.Service} {f.Mhz.ToString("0.000", inv)}")));
         foreach (var r in a.Runways)
         {
             string qfu = r.Qfu.Count > 0 ? " (QFU " + string.Join("/", r.Qfu.Select(q => q.ToString("000", inv))) + ")" : "";
             string size = r.LengthMetres is { } l ? $" {l}×{r.WidthMetres?.ToString(inv) ?? "?"} m" : "";
-            lines.Add($"Piste {r.Id}{qfu}{size}{(r.Surface is not null ? " " + r.Surface : "")}");
+            lines.Add(Loc.F("FlightSheetBuilder_Piste", r.Id, qfu, size, (r.Surface is not null ? " " + r.Surface : "")));
         }
-        lines.Add(a.HasChart ? "Carte VAC : disponible" : a.VacListed ? "Carte VAC : publiée, absente du dossier" : "Carte VAC : non publiée");
+        lines.Add(a.HasChart ? Loc.Get("AerodromeRepository_Carte_VAC_disponible") : a.VacListed ? Loc.Get("AerodromeRepository_Carte_VAC_publiee_absente_du") : Loc.Get("AerodromeRepository_Carte_VAC_non_publiee"));
         return string.Join(Environment.NewLine, lines);
     }
 }

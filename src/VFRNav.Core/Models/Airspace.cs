@@ -1,4 +1,5 @@
-﻿namespace VFRNav.Core.Models;
+﻿using VFRNav.Core.Localization;
+namespace VFRNav.Core.Models;
 
 /// <summary>Famille d'espace aérien, qui décide du style de tracé et du filtre.</summary>
 public enum AirspaceKind { Other, Restricted, Ctr, Tma, Radio, Leisure, Sector }
@@ -34,9 +35,9 @@ public sealed record Airspace(string Name, string IcaoClass, string Lower, strin
 
     public static string TypeName(int type) => type switch
     {
-        1 => "Zone réglementée (R)",
-        2 => "Zone dangereuse (D)",
-        3 => "Zone interdite (P)",
+        1 => Loc.Get("Airspace_Zone_reglementee_R"),
+        2 => Loc.Get("Airspace_Zone_dangereuse_D"),
+        3 => Loc.Get("Airspace_Zone_interdite_P"),
         4 => "CTR",
         5 => "TMZ",
         6 => "RMZ",
@@ -48,29 +49,29 @@ public sealed record Airspace(string Name, string IcaoClass, string Lower, strin
         12 => "ADIZ",
         13 => "ATZ",
         14 => "MATZ",
-        15 => "Voie aérienne",
+        15 => Loc.Get("Airspace_Voie_aerienne"),
         16 => "MTR",
-        17 => "Zone d'alerte",
-        18 => "Zone d'avertissement",
-        19 => "Zone protégée",
+        17 => Loc.Get("Airspace_Zone_d_alerte"),
+        18 => Loc.Get("Airspace_Zone_d_avertissement"),
+        19 => Loc.Get("Airspace_Zone_protegee"),
         20 => "HTZ",
-        21 => "Secteur planeur",
+        21 => Loc.Get("Airspace_Secteur_planeur"),
         22 => "TRP",
         23 => "TIZ",
         24 => "TIA",
         25 => "MTA",
         26 => "CTA",
-        27 => "Secteur ACC",
-        28 => "Activité aérienne sportive",
-        29 => "Restriction de survol à basse altitude",
+        27 => Loc.Get("Airspace_Secteur_ACC"),
+        28 => Loc.Get("Airspace_Activite_aerienne_sportive"),
+        29 => Loc.Get("Airspace_Restriction_de_survol_a_basse"),
         30 => "MRT",
         31 => "TFR",
-        32 => "Secteur VFR",
-        33 => "Secteur FIS",
+        32 => Loc.Get("Airspace_Secteur_VFR"),
+        33 => Loc.Get("Airspace_Secteur_FIS"),
         34 => "LTA",
         35 => "UTA",
         36 => "MCTR",
-        _ => "Espace aérien"
+        _ => Loc.Get("Airspace_Espace_aerien")
     };
 
     /// <summary>
@@ -143,12 +144,12 @@ public sealed record Airspace(string Name, string IcaoClass, string Lower, strin
     {
         var lines = new List<string>();
         string type = TypeName(TypeCode);
-        lines.Add(IcaoClass.Length > 0 ? $"{type} · classe {IcaoClass}" : type);
-        lines.Add($"Plafond : {(Upper.Length > 0 ? Upper : "?")}    Plancher : {(Lower.Length > 0 ? Lower : "?")}");
+        lines.Add(IcaoClass.Length > 0 ? Loc.F("Airspace_Type_class", type, IcaoClass) : type);
+        lines.Add(Loc.F("Airspace_Plafond_Plancher", (Upper.Length > 0 ? Upper : "?"), (Lower.Length > 0 ? Lower : "?")));
         if (Details?.Flags is { Count: > 0 } flags) lines.Add(string.Join(" · ", flags));
         if (Details?.Remarks is { Length: > 0 } remarks) lines.Add(remarks.Trim());
         if (Details?.Frequencies is { Count: > 0 } freqs)
-            lines.Add("Fréquences : " + string.Join("   ", freqs.Select(f => f.Name.Length > 0 ? $"{f.Name} {f.Value}" : f.Value)));
+            lines.Add(Loc.Get("FlightSheetBuilder_Frequences") + string.Join("   ", freqs.Select(f => f.Name.Length > 0 ? $"{f.Name} {f.Value}" : f.Value)));
         return lines;
     }
 }

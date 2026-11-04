@@ -5,6 +5,7 @@ using BruTile.Predefined;
 using BruTile.Web;
 using SkiaSharp;
 using VFRNav.Core.Weather;
+using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
 
@@ -18,9 +19,9 @@ public sealed class CloudTileSource : HttpTileSource
     private readonly CloudLayerKind _kind;
 
     public CloudTileSource(CloudLayerKind kind) : base(
-        new GlobalSphericalMercator(0, SatelliteClouds.MaxZoom, "Nuages"),
+        new GlobalSphericalMercator(0, SatelliteClouds.MaxZoom, Loc.Get("CloudTileSource_Nuages")),
         new WmsUrlBuilder(SatelliteClouds.LayerFor(kind)),
-        name: kind == CloudLayerKind.Cover ? "Couverture nuageuse EUMETSAT" : "Sommets de nuages EUMETSAT",
+        name: kind == CloudLayerKind.Cover ? Loc.Get("CloudTileSource_Couverture_nuageuse_EUMETSAT") : Loc.Get("CloudTileSource_Sommets_de_nuages_EUMETSAT"),
         persistentCache: null,
         attribution: new Attribution(SatelliteClouds.AttributionText, SatelliteClouds.AttributionUrl),
         configureHttpRequestMessage: null)
