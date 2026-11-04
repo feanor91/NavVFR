@@ -211,8 +211,8 @@
                 </DockPanel>
                 <CheckBox x:Name="RadarAnimCheck" Content="Animer le radar (4 images, 30 min)" Foreground="#E8EEFC" Margin="18,0,0,4" IsEnabled="False" Click="RadarAnim_Click"
                           ToolTip="Fait défiler les 4 dernières images du radar. La première boucle charge les images une à une (RainViewer limite le nombre de requêtes) ; ensuite elles sont en mémoire."/>
-                <CheckBox x:Name="CloudCheck" Content="Nuages (satellite infrarouge)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="WeatherLayer_Click"
-                          ToolTip="Image infrarouge de Meteosat (EUMETSAT) : les nuages moyens et élevés apparaissent en gris-bleu."/>
+                <CheckBox x:Name="CloudCheck" Content="Nuages (satellite)" Foreground="#E8EEFC" Margin="0,3,0,0" Click="WeatherLayer_Click"
+                          ToolTip="Meteosat (EUMETSAT) : la couverture nuageuse, ciel couvert compris, en gris-bleu clair, et les sommets de nuages froids (orages, nuages épais) en plus foncé."/>
                 <DockPanel Margin="18,2,0,4">
                     <TextBlock DockPanel.Dock="Left" Text="Opacité" Foreground="#A9C4EE" FontSize="10.5" Width="48" VerticalAlignment="Center"/>
                     <Slider x:Name="CloudOpacitySlider" Minimum="0.1" Maximum="1" Value="0.6" ValueChanged="WeatherOpacity_Changed"/>

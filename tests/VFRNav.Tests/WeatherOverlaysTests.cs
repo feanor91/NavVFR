@@ -123,4 +123,74 @@ public class SatelliteCloudsTests
     [Fact]
     public void Overlay_conversion_rejects_a_too_small_output_buffer() =>
         Assert.Throws<ArgumentException>(() => SatelliteClouds.ToCloudOverlay(new byte[8], new byte[4]));
+
+    // ---------- fusion masque de nuages + infrarouge ----------
+
+    private static readonly byte[] White = [255, 255, 255, 255], CleanLand = [0, 190, 0, 255], CleanSea = [0, 0, 255, 255], Dark = [60, 60, 60, 255], Bright = [250, 250, 250, 255], Nothing = [0, 0, 0, 0];
+
+    private static byte AlphaOf(byte[] infrared, byte[] mask)
+    {
+        var output = new byte[4];
+        SatelliteClouds.ToCloudOverlay(infrared, mask, output);
+        return output[3];
+    }
+
+    [Fact]
+    public void Low_cloud_that_the_infrared_cannot_see_is_shown_lightly_from_the_mask()
+    {
+        // Le cas de Paris par temps couvert : sol chaud et nuage bas ont la même température (infrarouge sombre), mais le masque voit le nuage.
+        byte alpha = AlphaOf(Dark, White);
+        Assert.InRange(alpha, 90, 105);   // ~ 38 % d'opacité
+    }
+
+    [Fact]
+    public void Clear_sky_stays_transparent_over_land_and_sea()
+    {
+        Assert.Equal(0, AlphaOf(Dark, CleanLand));
+        Assert.Equal(0, AlphaOf(Dark, CleanSea));
+    }
+
+    [Fact]
+    public void Cold_cloud_tops_are_denser_than_low_cloud_cover()
+    {
+        byte low = AlphaOf(Dark, White), high = AlphaOf(Bright, White);
+        Assert.True(high > low);
+        Assert.InRange(high, 190, 215);
+    }
+
+    [Fact]
+    public void Infrared_alone_still_shows_a_cold_cloud_the_mask_missed()
+    {
+        Assert.True(AlphaOf(Bright, CleanLand) > 150);
+    }
+
+    [Fact]
+    public void Points_outside_both_images_stay_transparent()
+    {
+        Assert.Equal(0, AlphaOf(Nothing, Nothing));
+        Assert.Equal(0, AlphaOf(Nothing, CleanLand));
+    }
+
+    [Theory]
+    [InlineData(255, 255, 255, 255, true)]
+    [InlineData(235, 240, 238, 255, true)]
+    [InlineData(0, 190, 0, 255, false)]      // terre dégagée
+    [InlineData(0, 0, 255, 255, false)]      // mer dégagée
+    [InlineData(255, 255, 255, 0, false)]    // transparent : hors du disque du satellite
+    public void Mask_colours_are_classified_as_cloud_or_clear(byte r, byte g, byte b, byte a, bool cloud) =>
+        Assert.Equal(cloud, SatelliteClouds.IsCloudInMask(r, g, b, a));
+
+    [Fact]
+    public void Merge_rejects_buffers_of_different_sizes()
+    {
+        Assert.Throws<ArgumentException>(() => SatelliteClouds.ToCloudOverlay(new byte[8], new byte[4], new byte[8]));
+        Assert.Throws<ArgumentException>(() => SatelliteClouds.ToCloudOverlay(new byte[8], new byte[8], new byte[4]));
+    }
+
+    [Fact]
+    public void GetMap_url_can_target_the_cloud_mask_layer()
+    {
+        string url = SatelliteClouds.GetMapUrl(SatelliteClouds.MaskLayer, 0, 0, 100, 100);
+        Assert.Contains("layers=msg_fes%3Aclm", url);
+    }
 }

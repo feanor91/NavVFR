@@ -233,7 +233,7 @@ public partial class MainWindow
             else lines.Add($"Radar : image de {_radarFrames[0].Time.LocalDateTime:HH:mm} (il y a {Math.Max(0, (int)_radarAge.TotalMinutes)} min), mise à jour toutes les 5 min.");
         }
         if (clouds)
-            lines.Add("Nuages : image infrarouge la plus récente (10 à 20 min de décalage). Les nuages bas et le brouillard y sont peu visibles.");
+            lines.Add("Nuages : couverture nuageuse (teinte claire) et sommets froids (teinte foncée), image la plus récente, 10 à 20 min de décalage. Le masque dit « nuageux », pas à quelle hauteur.");
         WeatherInfo.Text = string.Join("\n", lines);
     }
 }
