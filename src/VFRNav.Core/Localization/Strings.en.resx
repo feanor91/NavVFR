@@ -1276,7 +1276,7 @@
   <data name="Forecast_Clouds" xml:space="preserve"><value>{0}/{1}/{2} %</value></data>
   <data name="Ui_HEURE_DE_DEPART" xml:space="preserve"><value>DEPARTURE TIME (UTC)</value></data>
   <data name="Ui_Maintenant" xml:space="preserve"><value>Now</value></data>
-  <data name="Ui_Heure_de_depart_tooltip" xml:space="preserve"><value>Take-off time in UTC: 2026-11-05 14:30, 05/11 14:30 or 14:30 (today). Empty = now. It sets the times over each point and the forecasts.</value></data>
+  <data name="Ui_Heure_de_depart_tooltip" xml:space="preserve"><value>Take-off time in UTC. Empty date = today; empty date and time = now. It sets the times over each point and the forecasts.</value></data>
   <data name="Ui_Vent_prevu_pour_le_log" xml:space="preserve"><value>Use the forecast wind in the navigation log</value></data>
   <data name="Ui_Vent_prevu_tooltip" xml:space="preserve"><value>Replaces the single assumed wind with the wind forecast at the altitude of each leg (Open-Meteo, see the Forecast tab).</value></data>
   <data name="Ui_Previsions" xml:space="preserve"><value>Forecast</value></data>
@@ -1300,4 +1300,18 @@
   <data name="Forecast_Depart_maintenant" xml:space="preserve"><value>Departure now ({0} UTC)</value></data>
   <data name="FlightSheetBuilder_Previsions" xml:space="preserve"><value>Forecast along the route</value></data>
   <data name="FlightSheetBuilder_Previsions_note" xml:space="preserve"><value>Open-Meteo model forecast at the full hour nearest to the time over each point, at the planned altitude of each point. Indicative only: it does not replace TAFs, SIGMETs or the official briefing. Weather data by Open-Meteo.com (CC BY 4.0).</value></data>
+  <data name="Ui_Date_de_depart_tooltip" xml:space="preserve"><value>Departure date (UTC): click the calendar. Empty = today.</value></data>
+  <data name="Ui_Minutes_de_depart_tooltip" xml:space="preserve"><value>Departure minutes: pick a 5-minute step or type the exact minutes (42).</value></data>
+  <data name="Busy_Veuillez_patienter" xml:space="preserve"><value>Please wait…</value></data>
+  <data name="Busy_Arreter" xml:space="preserve"><value>Stop</value></data>
+  <data name="Busy_Arret_en_cours" xml:space="preserve"><value>Stopping…</value></data>
+  <data name="Busy_Calcul_du_plan" xml:space="preserve"><value>Calculating the flight plan, please wait…</value></data>
+  <data name="Busy_Calcul_de_la_route_IFR" xml:space="preserve"><value>Calculating the IFR route, please wait…</value></data>
+  <data name="Busy_Mise_a_jour_cartes" xml:space="preserve"><value>Updating the VAC charts, please wait…</value></data>
+  <data name="Busy_Lecture_SID_STAR" xml:space="preserve"><value>Reading SIDs/STARs from MSFS, please wait…</value></data>
+  <data name="Busy_Lecture_terrains" xml:space="preserve"><value>Reading the departure and arrival SIDs/STARs from MSFS, please wait…</value></data>
+  <data name="Busy_Exploration_routes_ATS" xml:space="preserve"><value>Reading ATS routes from MSFS, please wait…</value></data>
+  <data name="Busy_Lecture_donnees_AIRAC" xml:space="preserve"><value>Reading the SIA AIRAC data, please wait…</value></data>
+  <data name="Busy_Chargement_des_donnees" xml:space="preserve"><value>Loading data, please wait…</value></data>
+  <data name="Plan_Calcul_arrete" xml:space="preserve"><value>Flight plan calculation stopped.</value></data>
 </root>

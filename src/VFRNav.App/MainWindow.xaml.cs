@@ -110,7 +110,8 @@ public partial class MainWindow : Window
         SettingsPanel.IsExpanded = _settings.SettingsPanelOpen;
         VfrAltnBox.Text = _settings.VfrAlternates;
         IfrAltnBox.Text = _settings.IfrAlternates;
-        DepartureBox.Text = _settings.DepartureUtc;
+        FillDepartureChoices();
+        DepartureText = _settings.DepartureUtc;
         ForecastWindCheck.IsChecked = _settings.UseForecastWind;
         _loadingParams = false;
 
@@ -195,7 +196,7 @@ public partial class MainWindow : Window
         _settings.SettingsPanelOpen = SettingsPanel.IsExpanded;
         _settings.VfrAlternates = VfrAltnBox.Text.Trim();
         _settings.IfrAlternates = IfrAltnBox.Text.Trim();
-        _settings.DepartureUtc = DepartureBox.Text.Trim();
+        _settings.DepartureUtc = DepartureText;
         _settings.UseForecastWind = ForecastWindCheck.IsChecked == true;
         _settings.BaseMap = BaseMaps.Keys[Math.Max(BaseMapBox.SelectedIndex, 0)];
         _settings.TasKt = p.TasKt; _settings.BurnLph = p.BurnLph;
@@ -518,7 +519,7 @@ public partial class MainWindow : Window
     private async void Reload_Click(object sender, RoutedEventArgs e)
     {
         if (KeyBox.Password.Trim().Length > 0) SetKeyLocked(true);
-        await LoadDataAsync();
+        using (BeginBusy(Loc.Get("Busy_Chargement_des_donnees"))) await LoadDataAsync();
     }
 
     /// <summary>La route s'enregistre directement en plan de vol .PLN : le même fichier que lit Microsoft Flight Simulator.</summary>

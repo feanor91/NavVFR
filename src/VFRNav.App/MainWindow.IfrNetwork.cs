@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using VFRNav.Core.Ifr;
@@ -81,11 +81,13 @@ public partial class MainWindow
         if (MessageBox.Show(this, NetworkQuestion(simVersion), Loc.Get("IfrNetwork_Routes_ATS_hors_de_France_4"), MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
 
         using var cts = _networkCts = new CancellationTokenSource();
+        using var busy = BeginBusy(Loc.Get("Busy_Exploration_routes_ATS"), () => cts.Cancel());
         SetNetworkReading(true);
         var progress = new Progress<NetworkProgress>(p =>
         {
             IfrNetworkButton.Content = Loc.F("IfrNetwork_Arreter_la_lecture_points", p.Done);
             SetProcedureStatus(Loc.F("IfrNetwork_Exploration_des_routes_dans_MSFS", p.Done, p.Left, p.Segments));
+            SetBusyDetail(Loc.F("IfrNetwork_Exploration_des_routes_dans_MSFS", p.Done, p.Left, p.Segments));
         });
 
         WorldNetwork? network = null;

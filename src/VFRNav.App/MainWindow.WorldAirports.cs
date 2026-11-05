@@ -99,7 +99,10 @@ public partial class MainWindow
                                  (world.Note is null ? "" : "\n" + world.Note);
     }
 
-    private async void RefreshWorldAirports_Click(object sender, RoutedEventArgs e) => await LoadDataAsync(refreshWorld: true);
+    private async void RefreshWorldAirports_Click(object sender, RoutedEventArgs e)
+    {
+        using (BeginBusy(Loc.Get("Busy_Chargement_des_donnees"))) await LoadDataAsync(refreshWorld: true);
+    }
 
     // ---------- Recherche ----------
     private void AptSearch_Changed(object sender, TextChangedEventArgs e)

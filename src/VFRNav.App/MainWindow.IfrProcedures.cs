@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using VFRNav.Core.Ifr;
@@ -87,6 +87,7 @@ public partial class MainWindow
             .Select(a => a.Trim().ToUpperInvariant()).Where(a => a.Length == 4).Distinct().ToList();
         if (airports.Count == 0) { SetProcedureStatus(Loc.Get("IfrProcedures_Saisissez_le_depart_et_l")); return; }
 
+        using var busy = BeginBusy(Loc.Get("Busy_Lecture_terrains"));
         SetReading(true);
         SetProcedureStatus(Loc.Get("IfrProcedures_Lecture_des_SID_STAR_dans"));
         try
@@ -150,11 +151,13 @@ public partial class MainWindow
         if (MessageBox.Show(this, UpdateQuestion(simVersion), Loc.Get("IfrProcedures_SID_STAR_du_monde"), MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
 
         using var cts = _procedureCts = new CancellationTokenSource();
+        using var busy = BeginBusy(Loc.Get("Busy_Lecture_SID_STAR"), () => cts.Cancel());
         SetReading(true);
         var progress = new Progress<ReadProgress>(p =>
         {
             IfrSimAllButton.Content = Loc.F("IfrProcedures_Arreter_la_lecture", p.Done, p.Total);
             SetProcedureStatus(Loc.F("IfrProcedures_Lecture_dans_MSFS_terrains_avec", p.Done, p.Total, p.Icao, p.WithProcedures));
+            SetBusyDetail(Loc.F("IfrProcedures_Lecture_dans_MSFS_terrains_avec", p.Done, p.Total, p.Icao, p.WithProcedures));
         });
 
         ReadResult? result = null;

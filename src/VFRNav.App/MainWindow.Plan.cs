@@ -21,7 +21,10 @@ public partial class MainWindow
         if (_route.Count < 2) { PlanStatus.Text = Loc.Get("Plan_Il_faut_au_moins_deux"); return; }
 
         PlanButton.IsEnabled = false;
+        using var cts = new CancellationTokenSource();
+        using var busy = BeginBusy(Loc.Get("Busy_Calcul_du_plan"), () => cts.Cancel());
         PlanStatus.Text = Loc.Get("Plan_Calcul_du_plan_de_vol");
+        SetBusyDetail(PlanStatus.Text);
         try
         {
             var route = _route.ToList();
@@ -33,25 +36,29 @@ public partial class MainWindow
             TerrainProfile? terrain = null;
             string? terrainNote = null;
             PlanStatus.Text = Loc.Get("Plan_Calcul_du_relief_sous_la");
-            try { terrain = await (_terrainService ??= new TerrainService(_http)).ProfileAsync(route); }
+            SetBusyDetail(PlanStatus.Text);
+            try { terrain = await (_terrainService ??= new TerrainService(_http)).ProfileAsync(route, 1, cts.Token); }
             catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException or InvalidOperationException)
             {
                 terrainNote = Loc.Get("Live_Relief_indisponible") + ex.Message;
             }
+            cts.Token.ThrowIfCancellationRequested();
 
             // Obstacles (OpenStreetMap) : service public parfois saturé, un échec n'empêche pas la feuille.
             IReadOnlyList<RouteObstacle> obstacles = [];
             string? obstacleNote = null;
             PlanStatus.Text = Loc.Get("Plan_Recherche_des_obstacles_pres_de");
+            SetBusyDetail(PlanStatus.Text);
             try
             {
                 _terrainService ??= new TerrainService(_http);
-                obstacles = await (_obstacleService ??= new ObstacleService(_http)).FindAsync(route, _terrainService, 2);
+                obstacles = await (_obstacleService ??= new ObstacleService(_http)).FindAsync(route, _terrainService, 2, cts.Token);
             }
             catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException or InvalidOperationException)
             {
                 obstacleNote = Loc.Get("Plan_Obstacles_indisponibles") + ex.Message;
             }
+            cts.Token.ThrowIfCancellationRequested();
 
             _planObstacles = obstacles;
             _planSignature = Signature(route, p.CruiseAltFt);
@@ -63,10 +70,13 @@ public partial class MainWindow
             var navaids = RouteAnalysis.NavaidsAlong(route, _navaids, 15);
 
             PlanStatus.Text = Loc.Get("Plan_Recuperation_de_la_meteo");
+
+            SetBusyDetail(PlanStatus.Text);
             var (airports, weatherNote) = await BuildAirportBriefsAsync(route);
 
             // SIGMET en vigueur sur la route : un échec réseau n'empêche pas la feuille, il y est signalé.
             PlanStatus.Text = Loc.Get("Plan_Recherche_des_SIGMET");
+            SetBusyDetail(PlanStatus.Text);
             SigmetReport? sigmets = null;
             string? sigmetNote = null;
             try
@@ -89,17 +99,25 @@ public partial class MainWindow
             var image = terrain is null ? null : ProfileChart.Snapshot(snapshot, 700, 270);
 
             PlanStatus.Text = Loc.Get("Forecast_Chargement");
-            await ShowForecastAsync(route, p, CancellationToken.None);
+
+            SetBusyDetail(PlanStatus.Text);
+            await ShowForecastAsync(route, p, cts.Token);
             log = ComputeRouteLog(route, p);   // le vent prévu vient d'arriver, s'il est demandé
             var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes, AlternateLines(_mode), sigmets, sigmetNote, _forecastRows.Count > 0 ? _forecastRows : null, DepartureUtc());
             var document = FlightSheetBuilder.Build(input);
             string title = Loc.F("Plan_Feuille_de_route", route[0].Icao ?? route[0].Name, route[^1].Icao ?? route[^1].Name);
             new FlightSheetWindow(document, title) { Owner = this }.Show();
             PlanStatus.Text = Loc.F("Plan_Plan_calcule_NM_L", log.TotalDistanceNm, NavMath.FormatTime(log.TotalMinutes), log.TotalFuelL);
+            SetBusyDetail(PlanStatus.Text);
+        }
+        catch (OperationCanceledException) when (cts.IsCancellationRequested)
+        {
+            PlanStatus.Text = Loc.Get("Plan_Calcul_arrete");
         }
         catch (Exception ex) when (ex is HttpRequestException or InvalidOperationException or TaskCanceledException)
         {
             PlanStatus.Text = Loc.Get("Plan_Calcul_interrompu") + ex.Message;
+            SetBusyDetail(PlanStatus.Text);
         }
         finally { PlanButton.IsEnabled = true; }
     }

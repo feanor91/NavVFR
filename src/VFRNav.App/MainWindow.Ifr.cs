@@ -68,7 +68,9 @@ public partial class MainWindow
     {
         var dlg = new OpenFileDialog { Filter = Loc.Get("Ifr_Export_AIXM_du_SIA_zip"), Title = "export_xml_bd_SIA_….zip" };
         if (dlg.ShowDialog(this) != true) return;
-        if (await LoadIfrDataAsync(dlg.FileName))
+        bool loaded;
+        using (BeginBusy(Loc.Get("Busy_Lecture_donnees_AIRAC"))) loaded = await LoadIfrDataAsync(dlg.FileName);
+        if (loaded)
         {
             _settings.IfrDataPath = dlg.FileName;
             SaveSettings();
@@ -168,7 +170,7 @@ public partial class MainWindow
 
     private static bool IsNone(ComboBox box) => box.SelectedItem as string == NoneChoice;
 
-    private void IfrCompute_Click(object sender, RoutedEventArgs e)
+    private async void IfrCompute_Click(object sender, RoutedEventArgs e)
     {
         SetMode(FlightMode.Ifr);
         string dep = IfrDepBox.Text.Trim().ToUpperInvariant(), arr = IfrArrBox.Text.Trim().ToUpperInvariant();
@@ -183,8 +185,7 @@ public partial class MainWindow
             fl = value;
         }
 
-        EnsureProcedures(dep, arr);
-        var result = IfrRouter.Plan(_ifrData, dep, arr, new IfrPlanOptions
+        var options = new IfrPlanOptions
         {
             Sid = Chosen(IfrSidBox),
             Star = Chosen(IfrStarBox),
@@ -193,7 +194,15 @@ public partial class MainWindow
             DepartureRunway = Chosen(IfrDepRunwayBox),
             ArrivalRunway = Chosen(IfrArrRunwayBox),
             FlightLevel = fl,
-        });
+        };
+        IfrPlanResult result;
+        using (BeginBusy(Loc.Get("Busy_Calcul_de_la_route_IFR")))
+        {
+            await FlushUiAsync();
+            EnsureProcedures(dep, arr);
+            var data = _ifrData;
+            result = await Task.Run(() => IfrRouter.Plan(data, dep, arr, options));
+        }
 
         if (result.Route is not { } ifr)
         {

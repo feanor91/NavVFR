@@ -23,6 +23,7 @@
     </Window.Resources>
 
     <Grid>
+    <Grid x:Name="MainContent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="320"/>
             <ColumnDefinition Width="*"/>
@@ -47,8 +48,15 @@
                 <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_HEURE_DE_DEPART}"/>
                 <DockPanel>
                     <Button DockPanel.Dock="Right" Content="{local:Tr Ui_Maintenant}" Click="DepartureNow_Click" Margin="6,0,0,0"/>
-                    <TextBox x:Name="DepartureBox" TextChanged="Departure_Changed" ToolTip="{local:Tr Ui_Heure_de_depart_tooltip}"/>
+                    <DatePicker x:Name="DepartureDate" SelectedDateChanged="DepartureDate_Changed" ToolTip="{local:Tr Ui_Date_de_depart_tooltip}"/>
                 </DockPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                    <ComboBox x:Name="DepartureHour" Width="58" SelectionChanged="DepartureTime_Changed" ToolTip="{local:Tr Ui_Heure_de_depart_tooltip}"/>
+                    <TextBlock Text=":" Foreground="#E8EEFC" FontWeight="Bold" VerticalAlignment="Center" Margin="6,0"/>
+                    <ComboBox x:Name="DepartureMinute" Width="58" IsEditable="True" SelectionChanged="DepartureTime_Changed"
+                              LostFocus="DepartureTime_Changed" ToolTip="{local:Tr Ui_Minutes_de_depart_tooltip}"/>
+                    <TextBlock Text="UTC" Foreground="#A9C4EE" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                </StackPanel>
                 <TextBlock x:Name="DepartureHint" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <CheckBox x:Name="ForecastWindCheck" Content="{local:Tr Ui_Vent_prevu_pour_le_log}" Foreground="#E8EEFC" Margin="0,6,0,0" Click="ForecastWind_Click"
                           ToolTip="{local:Tr Ui_Vent_prevu_tooltip}"/>
@@ -535,5 +543,25 @@
                 </DockPanel>
             </Border>
         </Grid>
+    </Grid>
+    <!-- Attente d'un calcul ou d'une mise à jour longue : l'interface est grisée et bloquée, un message dit ce qui se passe. -->
+    <Grid x:Name="BusyOverlay" Visibility="Collapsed" Background="#99283246" Focusable="True">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#F5FFFFFF" CornerRadius="8" Padding="30,22"
+                MinWidth="340" MaxWidth="540" BorderBrush="#1D4A8A" BorderThickness="1">
+            <StackPanel>
+                <Grid Width="46" Height="46" HorizontalAlignment="Center">
+                    <Ellipse Stroke="#D5DEEE" StrokeThickness="5"/>
+                    <Path Stroke="#0B5FB0" StrokeThickness="5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+                          Data="M 23,2.5 A 20.5,20.5 0 0 1 43.5,23" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform><RotateTransform x:Name="SpinnerRotation"/></Path.RenderTransform>
+                    </Path>
+                </Grid>
+                <TextBlock x:Name="BusyMessage" FontSize="15" FontWeight="SemiBold" Foreground="#0B2A55" TextAlignment="Center" TextWrapping="Wrap" Margin="0,16,0,0"/>
+                <TextBlock x:Name="BusyDetail" FontSize="12" Foreground="#44526B" TextAlignment="Center" TextWrapping="Wrap" Margin="0,6,0,0"/>
+                <Button x:Name="BusyCancel" Content="{local:Tr Busy_Arreter}" Click="BusyCancel_Click" HorizontalAlignment="Center"
+                        Margin="0,16,0,0" Padding="18,5" Visibility="Collapsed"/>
+            </StackPanel>
+        </Border>
+    </Grid>
     </Grid>
 </Window>

@@ -1276,7 +1276,7 @@
   <data name="Forecast_Clouds" xml:space="preserve"><value>{0}/{1}/{2} %</value></data>
   <data name="Ui_HEURE_DE_DEPART" xml:space="preserve"><value>HEURE DE DÉPART (UTC)</value></data>
   <data name="Ui_Maintenant" xml:space="preserve"><value>Maintenant</value></data>
-  <data name="Ui_Heure_de_depart_tooltip" xml:space="preserve"><value>Heure UTC du décollage : 2026-11-05 14:30, 05/11 14:30 ou 14:30 (aujourd'hui). Vide = maintenant. Elle fixe les heures de passage et les prévisions.</value></data>
+  <data name="Ui_Heure_de_depart_tooltip" xml:space="preserve"><value>Heure UTC du décollage. Date vide = aujourd'hui ; date et heure vides = maintenant. Elle fixe les heures de passage et les prévisions.</value></data>
   <data name="Ui_Vent_prevu_pour_le_log" xml:space="preserve"><value>Utiliser le vent prévu dans le log de nav</value></data>
   <data name="Ui_Vent_prevu_tooltip" xml:space="preserve"><value>Remplace le vent supposé unique par le vent prévu à l'altitude de chaque tronçon (Open-Meteo, voir l'onglet Prévisions).</value></data>
   <data name="Ui_Previsions" xml:space="preserve"><value>Prévisions</value></data>
@@ -1300,4 +1300,18 @@
   <data name="Forecast_Depart_maintenant" xml:space="preserve"><value>Départ maintenant ({0} UTC)</value></data>
   <data name="FlightSheetBuilder_Previsions" xml:space="preserve"><value>Prévisions le long de la route</value></data>
   <data name="FlightSheetBuilder_Previsions_note" xml:space="preserve"><value>Prévisions du modèle Open-Meteo à l'heure pleine la plus proche de l'heure de passage, à l'altitude prévue à chaque point. Indicatives : elles ne remplacent ni les TAF, ni les SIGMET, ni le briefing officiel. Weather data by Open-Meteo.com (CC BY 4.0).</value></data>
+  <data name="Ui_Date_de_depart_tooltip" xml:space="preserve"><value>Date du départ (UTC) : clique sur le calendrier. Vide = aujourd'hui.</value></data>
+  <data name="Ui_Minutes_de_depart_tooltip" xml:space="preserve"><value>Minutes du départ : choisis un pas de 5 ou tape les minutes exactes (42).</value></data>
+  <data name="Busy_Veuillez_patienter" xml:space="preserve"><value>Veuillez patienter…</value></data>
+  <data name="Busy_Arreter" xml:space="preserve"><value>Arrêter</value></data>
+  <data name="Busy_Arret_en_cours" xml:space="preserve"><value>Arrêt en cours…</value></data>
+  <data name="Busy_Calcul_du_plan" xml:space="preserve"><value>Calcul du plan de vol en cours, merci de patienter…</value></data>
+  <data name="Busy_Calcul_de_la_route_IFR" xml:space="preserve"><value>Calcul de la route IFR en cours, merci de patienter…</value></data>
+  <data name="Busy_Mise_a_jour_cartes" xml:space="preserve"><value>Mise à jour des cartes VAC en cours, merci de patienter…</value></data>
+  <data name="Busy_Lecture_SID_STAR" xml:space="preserve"><value>Lecture des SID/STAR dans MSFS en cours, merci de patienter…</value></data>
+  <data name="Busy_Lecture_terrains" xml:space="preserve"><value>Lecture des SID/STAR du départ et de l'arrivée dans MSFS, merci de patienter…</value></data>
+  <data name="Busy_Exploration_routes_ATS" xml:space="preserve"><value>Lecture des routes ATS dans MSFS en cours, merci de patienter…</value></data>
+  <data name="Busy_Lecture_donnees_AIRAC" xml:space="preserve"><value>Lecture des données AIRAC du SIA en cours, merci de patienter…</value></data>
+  <data name="Busy_Chargement_des_donnees" xml:space="preserve"><value>Chargement des données en cours, merci de patienter…</value></data>
+  <data name="Plan_Calcul_arrete" xml:space="preserve"><value>Calcul du plan de vol arrêté.</value></data>
 </root>

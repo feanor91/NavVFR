@@ -25,13 +25,13 @@ public partial class MainWindow
     private DateTimeOffset DepartureUtc()
     {
         var now = DateTimeOffset.UtcNow;
-        if (DepartureTime.TryParse(DepartureBox.Text, now, out var time)) return time;
+        if (DepartureTime.TryParse(DepartureText, now, out var time)) return time;
         return new DateTimeOffset(now.Year, now.Month, now.Day, now.Hour, now.Minute, 0, TimeSpan.Zero);
     }
 
     /// <summary>Ce qui fait changer les vents prévus et les heures : la route, les altitudes, l'heure de départ.</summary>
     private string WindSignature(IReadOnlyList<Waypoint> route, double cruiseFt) =>
-        Signature(route, cruiseFt) + "|" + string.Join(",", route.Select(w => w.AltitudeFt)) + "|" + DepartureBox.Text.Trim();
+        Signature(route, cruiseFt) + "|" + string.Join(",", route.Select(w => w.AltitudeFt)) + "|" + DepartureText;
 
     /// <summary>Log de la route avec le vent prévu (si demandé et chargé pour cette route) et l'heure de passage de chaque tronçon.</summary>
     private NavLog ComputeRouteLog(IReadOnlyList<Waypoint> route, FlightParameters p)
@@ -44,8 +44,8 @@ public partial class MainWindow
 
     private void Departure_Changed(object sender, System.Windows.Controls.TextChangedEventArgs e)
     {
-        if (!IsLoaded || _loadingParams) return;
-        string text = DepartureBox.Text.Trim();
+        if (!IsLoaded || _loadingParams || _settingDeparture) return;
+        string text = DepartureText;
         var now = DateTimeOffset.UtcNow;
         DepartureHint.Text = text.Length == 0 ? Loc.F("Forecast_Depart_maintenant", DepartureTime.ClockText(DepartureUtc()))
             : DepartureTime.TryParse(text, now, out var t) ? Loc.F("Forecast_Depart_hint", DepartureTime.Format(t))
@@ -54,7 +54,75 @@ public partial class MainWindow
         ScheduleLive();
     }
 
-    private void DepartureNow_Click(object sender, RoutedEventArgs e) => DepartureBox.Text = "";
+    private void DepartureNow_Click(object sender, RoutedEventArgs e) => DepartureText = "";
+
+    private bool _settingDeparture;
+
+    /// <summary>
+    /// Heure de départ choisie, en texte (« 2026-11-05 14:30 »), vide quand rien n'est choisi (= maintenant).
+    /// Date seule : à l'heure pleine actuelle ; heure seule : aujourd'hui.
+    /// </summary>
+    private string DepartureText
+    {
+        get
+        {
+            string? hour = DepartureHour.SelectedItem as string;
+            string minute = (DepartureMinute.Text ?? "").Trim();
+            string time = hour is null && minute.Length == 0 ? ""
+                : $"{hour ?? DateTimeOffset.UtcNow.UtcDateTime.ToString("HH")}:{(minute.Length == 0 ? "00" : minute.PadLeft(2, '0'))}";
+            if (DepartureDate.SelectedDate is { } date) return $"{date:yyyy-MM-dd} {(time.Length == 0 ? "00:00" : time)}";
+            return time;
+        }
+        set
+        {
+            _settingDeparture = true;
+            try
+            {
+                if (value.Trim().Length > 0 && DepartureTime.TryParse(value, DateTimeOffset.UtcNow, out var t))
+                {
+                    bool hasDate = value.Contains('-') || value.Contains('/');
+                    DepartureDate.SelectedDate = hasDate ? t.UtcDateTime.Date : null;
+                    DepartureHour.SelectedItem = t.UtcDateTime.ToString("HH");
+                    DepartureMinute.Text = t.UtcDateTime.ToString("mm");
+                }
+                else
+                {
+                    DepartureDate.SelectedDate = null;
+                    DepartureHour.SelectedItem = null;
+                    DepartureMinute.Text = "";
+                }
+            }
+            finally { _settingDeparture = false; }
+            Departure_Changed(this, null!);
+        }
+    }
+
+    /// <summary>Heures 00 à 23 et minutes par pas de 5 (la liste des minutes se tape aussi : 42 est permis).</summary>
+    private void FillDepartureChoices()
+    {
+        DepartureHour.ItemsSource = Enumerable.Range(0, 24).Select(h => h.ToString("00")).ToList();
+        DepartureMinute.ItemsSource = Enumerable.Range(0, 12).Select(m => (m * 5).ToString("00")).ToList();
+    }
+
+    private void DepartureTime_Changed(object sender, RoutedEventArgs e)
+    {
+        if (_settingDeparture) return;
+        Departure_Changed(sender, null!);
+    }
+
+    private void DepartureDate_Changed(object? sender, System.Windows.Controls.SelectionChangedEventArgs e)
+    {
+        if (_settingDeparture) return;
+        // Une date choisie sans heure : on propose l'heure pleine actuelle plutôt que minuit.
+        if (DepartureDate.SelectedDate is not null && DepartureHour.SelectedItem is null && (DepartureMinute.Text ?? "").Trim().Length == 0)
+        {
+            _settingDeparture = true;
+            DepartureHour.SelectedItem = DateTimeOffset.UtcNow.UtcDateTime.ToString("HH");
+            DepartureMinute.Text = "00";
+            _settingDeparture = false;
+        }
+        Departure_Changed(sender ?? this, null!);
+    }
 
     private void ForecastWind_Click(object sender, RoutedEventArgs e)
     {

@@ -39,8 +39,9 @@ public partial class MainWindow
         }
 
         using var cts = _vacUpdateCts = new CancellationTokenSource();
+        using var busy = BeginBusy(Loc.Get("Busy_Mise_a_jour_cartes"), () => cts.Cancel());
         VacUpdateButton.Content = Loc.Get("VacUpdate_Arreter_la_mise_a_jour");
-        var progress = new Progress<string>(text => StatusText.Text = text);
+        var progress = new Progress<string>(text => { StatusText.Text = text; SetBusyDetail(text); });
         VacUpdateResult? result = null;
         string? failure = null;
         try { result = await new VacChartUpdater(_http).UpdateAsync(dir, icaos, cycle, false, progress, cts.Token); }
