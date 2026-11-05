@@ -152,6 +152,7 @@ public partial class MainWindow
         {
             if (Followed() is { } wp) await ShowPointInfoAsync(wp, p, ct);
             await ShowRouteCheckAsync(route, p, ct);
+            await ShowForecastAsync(route, p, ct);
         }
         catch (OperationCanceledException) { /* un nouveau calcul a pris le relais */ }
     }

@@ -77,6 +77,12 @@ public sealed class AppSettings
 
     /// <summary>Aéroports de dégagement saisis dans chaque panneau (codes OACI séparés par des espaces).</summary>
     public string VfrAlternates { get; set; } = "";
+
+    /// <summary>Heure de départ saisie (UTC) ; vide = maintenant.</summary>
+    public string DepartureUtc { get; set; } = "";
+
+    /// <summary>Le log de navigation utilise le vent prévu à l'altitude de chaque tronçon plutôt que le vent supposé.</summary>
+    public bool UseForecastWind { get; set; }
     public string IfrAlternates { get; set; } = "";
     public List<Waypoint> Route { get; set; } = [];
 

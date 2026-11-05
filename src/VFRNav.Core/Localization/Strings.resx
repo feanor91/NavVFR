@@ -1251,4 +1251,53 @@
   <data name="WeatherDecoder_Wind_from" xml:space="preserve"><value>du {0}° ({1})</value></data>
   <data name="IfrRouter_At_FL" xml:space="preserve"><value> au FL{0}.</value></data>
   <data name="Insight_Relative" xml:space="preserve"><value>{0} NM au {1:000}°</value></data>
+  <data name="Forecast_Advisory_Thunderstorm" xml:space="preserve"><value>Orages possibles</value></data>
+  <data name="Forecast_Advisory_Icing" xml:space="preserve"><value>Risque de givrage</value></data>
+  <data name="Forecast_Advisory_HeavyPrecipitation" xml:space="preserve"><value>Précipitations fortes</value></data>
+  <data name="Forecast_Advisory_LowVisibility" xml:space="preserve"><value>Visibilité réduite</value></data>
+  <data name="Forecast_Advisory_Fog" xml:space="preserve"><value>Brouillard</value></data>
+  <data name="Forecast_Advisory_StrongWind" xml:space="preserve"><value>Rafales fortes</value></data>
+  <data name="Forecast_Code_Clear" xml:space="preserve"><value>Ciel dégagé</value></data>
+  <data name="Forecast_Code_PartlyCloudy" xml:space="preserve"><value>Peu nuageux</value></data>
+  <data name="Forecast_Code_Overcast" xml:space="preserve"><value>Couvert</value></data>
+  <data name="Forecast_Code_Fog" xml:space="preserve"><value>Brouillard</value></data>
+  <data name="Forecast_Code_Drizzle" xml:space="preserve"><value>Bruine</value></data>
+  <data name="Forecast_Code_Rain" xml:space="preserve"><value>Pluie</value></data>
+  <data name="Forecast_Code_Snow" xml:space="preserve"><value>Neige</value></data>
+  <data name="Forecast_Code_Showers" xml:space="preserve"><value>Averses</value></data>
+  <data name="Forecast_Code_SnowShowers" xml:space="preserve"><value>Averses de neige</value></data>
+  <data name="Forecast_Code_Thunderstorm" xml:space="preserve"><value>Orage</value></data>
+  <data name="Forecast_Code_Unknown" xml:space="preserve"><value>Temps inconnu</value></data>
+  <data name="Forecast_Reponse_inattendue" xml:space="preserve"><value>Open-Meteo a répondu pour {0} point(s) au lieu de {1}.</value></data>
+  <data name="Forecast_Reponse_illisible" xml:space="preserve"><value>Réponse d'Open-Meteo illisible : </value></data>
+  <data name="Forecast_Trop_de_requetes" xml:space="preserve"><value>Open-Meteo : trop de requêtes, réessaie dans une minute.</value></data>
+  <data name="Forecast_Indisponible" xml:space="preserve"><value>Pas de prévision à cette heure</value></data>
+  <data name="Forecast_Gust" xml:space="preserve"><value> (rafales {0:0})</value></data>
+  <data name="Forecast_Clouds" xml:space="preserve"><value>{0}/{1}/{2} %</value></data>
+  <data name="Ui_HEURE_DE_DEPART" xml:space="preserve"><value>HEURE DE DÉPART (UTC)</value></data>
+  <data name="Ui_Maintenant" xml:space="preserve"><value>Maintenant</value></data>
+  <data name="Ui_Heure_de_depart_tooltip" xml:space="preserve"><value>Heure UTC du décollage : 2026-11-05 14:30, 05/11 14:30 ou 14:30 (aujourd'hui). Vide = maintenant. Elle fixe les heures de passage et les prévisions.</value></data>
+  <data name="Ui_Vent_prevu_pour_le_log" xml:space="preserve"><value>Utiliser le vent prévu dans le log de nav</value></data>
+  <data name="Ui_Vent_prevu_tooltip" xml:space="preserve"><value>Remplace le vent supposé unique par le vent prévu à l'altitude de chaque tronçon (Open-Meteo, voir l'onglet Prévisions).</value></data>
+  <data name="Ui_Previsions" xml:space="preserve"><value>Prévisions</value></data>
+  <data name="Ui_Heure_UTC" xml:space="preserve"><value>Heure (UTC)</value></data>
+  <data name="Ui_Point" xml:space="preserve"><value>Point</value></data>
+  <data name="Ui_Alt_ft" xml:space="preserve"><value>Alt (ft)</value></data>
+  <data name="Ui_Vent_altitude" xml:space="preserve"><value>Vent à l'altitude</value></data>
+  <data name="Ui_Temperature" xml:space="preserve"><value>Temp.</value></data>
+  <data name="Ui_Nuages_bas_moy_haut" xml:space="preserve"><value>Nuages bas/moy/haut</value></data>
+  <data name="Ui_Visibilite" xml:space="preserve"><value>Visibilité</value></data>
+  <data name="Ui_Precipitations" xml:space="preserve"><value>Précip.</value></data>
+  <data name="Ui_Isotherme_0" xml:space="preserve"><value>Iso 0 °C</value></data>
+  <data name="Ui_Temps_prevu" xml:space="preserve"><value>Temps</value></data>
+  <data name="Ui_Alertes" xml:space="preserve"><value>Alertes</value></data>
+  <data name="Forecast_Chargement" xml:space="preserve"><value>Prévisions : chargement…</value></data>
+  <data name="Forecast_Indisponible_msg" xml:space="preserve"><value>Prévisions indisponibles : {0}</value></data>
+  <data name="Forecast_Status" xml:space="preserve"><value>Prévisions Open-Meteo pour {0} → {1}, départ {2} UTC : {3} point(s) avec alerte. Indicatif : ne remplace ni les TAF ni le briefing officiel.</value></data>
+  <data name="Forecast_Pas_de_route" xml:space="preserve"><value>Pose au moins deux points pour voir les prévisions.</value></data>
+  <data name="Forecast_Depart_invalide" xml:space="preserve"><value>Heure de départ illisible : « {0} » (exemples : 2026-11-05 14:30, 05/11 14:30, 14:30). L'heure actuelle est utilisée.</value></data>
+  <data name="Forecast_Depart_hint" xml:space="preserve"><value>Départ à {0} UTC</value></data>
+  <data name="Forecast_Depart_maintenant" xml:space="preserve"><value>Départ maintenant ({0} UTC)</value></data>
+  <data name="FlightSheetBuilder_Previsions" xml:space="preserve"><value>Prévisions le long de la route</value></data>
+  <data name="FlightSheetBuilder_Previsions_note" xml:space="preserve"><value>Prévisions du modèle Open-Meteo à l'heure pleine la plus proche de l'heure de passage, à l'altitude prévue à chaque point. Indicatives : elles ne remplacent ni les TAF, ni les SIGMET, ni le briefing officiel. Weather data by Open-Meteo.com (CC BY 4.0).</value></data>
 </root>

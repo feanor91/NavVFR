@@ -38,7 +38,13 @@ public static class NavMath
         return (Deg(wca), Norm360(tc + Deg(wca)), Math.Max(gs, 0));
     }
 
-    public static NavLog ComputeLog(IReadOnlyList<Waypoint> route, FlightParameters p)
+    public static NavLog ComputeLog(IReadOnlyList<Waypoint> route, FlightParameters p) => ComputeLog(route, p, null);
+
+    /// <summary>
+    /// Log de navigation. <paramref name="legWinds"/> donne, tronçon par tronçon, le vent (direction d'où il vient, force en nœuds) :
+    /// par exemple celui des prévisions. Un tronçon sans valeur (ou sans liste) prend le vent supposé de <paramref name="p"/>.
+    /// </summary>
+    public static NavLog ComputeLog(IReadOnlyList<Waypoint> route, FlightParameters p, IReadOnlyList<(double Dir, double Kt)?>? legWinds)
     {
         var legs = new List<LegResult>();
         double dist = 0, minutes = 0;
@@ -48,7 +54,8 @@ public static class NavMath
             var b = route[i + 1];
             double d = DistanceNm(a, b);
             double tc = TrueCourse(a, b);
-            var (wca, th, gs) = WindTriangle(tc, p.TasKt, p.WindDir, p.WindKt);
+            var wind = legWinds is not null && i < legWinds.Count && legWinds[i] is { } w ? w : (p.WindDir, p.WindKt);
+            var (wca, th, gs) = WindTriangle(tc, p.TasKt, wind.Item1, wind.Item2);
             double min = gs > 0 ? d / gs * 60 : double.PositiveInfinity;
             legs.Add(new LegResult(a.Name, b.Name, d, tc, Norm360(tc - p.VariationEast), wca,
                 Norm360(th - p.VariationEast), gs, min, min / 60 * p.BurnLph));

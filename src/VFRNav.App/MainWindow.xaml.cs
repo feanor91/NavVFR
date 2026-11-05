@@ -110,6 +110,8 @@ public partial class MainWindow : Window
         SettingsPanel.IsExpanded = _settings.SettingsPanelOpen;
         VfrAltnBox.Text = _settings.VfrAlternates;
         IfrAltnBox.Text = _settings.IfrAlternates;
+        DepartureBox.Text = _settings.DepartureUtc;
+        ForecastWindCheck.IsChecked = _settings.UseForecastWind;
         _loadingParams = false;
 
         foreach (var wp in _settings.Route) _route.Add(wp);
@@ -193,6 +195,8 @@ public partial class MainWindow : Window
         _settings.SettingsPanelOpen = SettingsPanel.IsExpanded;
         _settings.VfrAlternates = VfrAltnBox.Text.Trim();
         _settings.IfrAlternates = IfrAltnBox.Text.Trim();
+        _settings.DepartureUtc = DepartureBox.Text.Trim();
+        _settings.UseForecastWind = ForecastWindCheck.IsChecked == true;
         _settings.BaseMap = BaseMaps.Keys[Math.Max(BaseMapBox.SelectedIndex, 0)];
         _settings.TasKt = p.TasKt; _settings.BurnLph = p.BurnLph;
         _settings.CruiseAltFt = Parse(VfrAltBox, _settings.CruiseAltFt);
@@ -462,7 +466,7 @@ public partial class MainWindow : Window
     private void RefreshLog()
     {
         if (_route.Count < 2) { LogGrid.ItemsSource = null; TotalText.Text = Loc.Get("xaml_Ajoutez_au_moins_deux_points"); UpdateLegLabels(null); MapControl.Refresh(); return; }
-        var log = NavMath.ComputeLog(_route, ReadParams());
+        var log = ComputeRouteLog(_route, ReadParams());
         LogGrid.ItemsSource = log.Legs;
         UpdateLegLabels(log.Legs);
         MapControl.Refresh();

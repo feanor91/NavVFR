@@ -44,6 +44,15 @@
                          TextChanged="WpNotes_Changed" LostFocus="WpNotes_LostFocus"
                          ToolTip="{local:Tr Ui_Consignes_reperes_visuels_frequences_Elles}"/>
 
+                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_HEURE_DE_DEPART}"/>
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Content="{local:Tr Ui_Maintenant}" Click="DepartureNow_Click" Margin="6,0,0,0"/>
+                    <TextBox x:Name="DepartureBox" TextChanged="Departure_Changed" ToolTip="{local:Tr Ui_Heure_de_depart_tooltip}"/>
+                </DockPanel>
+                <TextBlock x:Name="DepartureHint" Style="{StaticResource Label}" TextWrapping="Wrap"/>
+                <CheckBox x:Name="ForecastWindCheck" Content="{local:Tr Ui_Vent_prevu_pour_le_log}" Foreground="#E8EEFC" Margin="0,6,0,0" Click="ForecastWind_Click"
+                          ToolTip="{local:Tr Ui_Vent_prevu_tooltip}"/>
+
                 <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_PLAN_DE_VOL}"/>
                 <Button x:Name="PlanButton" Content="{local:Tr Ui_Calculer_le_plan_de_vol}" Click="CalculatePlan_Click"
                         Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
@@ -427,7 +436,39 @@
                                 <DataGridTextColumn Header="Cm" Binding="{Binding MagneticHeading, StringFormat=000°}"/>
                                 <DataGridTextColumn Header="GS (kt)" Binding="{Binding GroundSpeedKt, StringFormat=F0}"/>
                                 <DataGridTextColumn Header="{local:Tr Ui_Temps}" Binding="{Binding Time}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Heure_UTC}" Binding="{Binding Eta}"/>
                                 <DataGridTextColumn Header="{local:Tr Ui_Carb_L}" Binding="{Binding FuelL, StringFormat=F1}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                </TabItem>
+                <TabItem Header="{local:Tr Ui_Previsions}">
+                    <DockPanel>
+                        <TextBlock x:Name="ForecastStatus" DockPanel.Dock="Top" Margin="8,4" Foreground="#0B2A55" TextWrapping="Wrap"/>
+                        <TextBlock DockPanel.Dock="Bottom" Margin="8,2" FontSize="10.5" Foreground="#5F6978" Text="Weather data by Open-Meteo.com (CC BY 4.0)"/>
+                        <DataGrid x:Name="ForecastGrid" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column">
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding HasAdvisory}" Value="True">
+                                            <Setter Property="Background" Value="#FDE2E2"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.RowStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="N°" Binding="{Binding Number}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Point}" Binding="{Binding Point}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Heure_UTC}" Binding="{Binding Eta}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Alt_ft}" Binding="{Binding AltitudeFt}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Vent_altitude}" Binding="{Binding Wind}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Temperature}" Binding="{Binding Temperature}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Nuages_bas_moy_haut}" Binding="{Binding Clouds}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Visibilite}" Binding="{Binding Visibility}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Precipitations}" Binding="{Binding Precipitation}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Isotherme_0}" Binding="{Binding FreezingLevel}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Temps_prevu}" Binding="{Binding Weather}"/>
+                                <DataGridTextColumn Header="{local:Tr Ui_Alertes}" Binding="{Binding Advisories}" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </DockPanel>

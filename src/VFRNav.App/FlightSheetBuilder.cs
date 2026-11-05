@@ -31,7 +31,9 @@ public sealed record FlightSheetInput(
     AltitudeProfile? Altitudes = null,
     IReadOnlyList<string>? AlternateLines = null,
     SigmetReport? Sigmets = null,
-    string? SigmetNote = null);
+    string? SigmetNote = null,
+    IReadOnlyList<ForecastRow>? Forecast = null,
+    DateTimeOffset? Departure = null);
 
 /// <summary>Construit la feuille de route (A4) : tableau de navigation, relief, terrains, météo, zones et balises.</summary>
 public static class FlightSheetBuilder
@@ -93,7 +95,7 @@ public static class FlightSheetBuilder
         {
             var l = input.Log.Legs[i];
             navRows.Add([(i + 1).ToString(Fr), $"{l.From} → {l.To}", l.DistanceNm.ToString("0.0", Fr), $"{l.TrueCourse:000}°", $"{l.MagneticCourse:000}°",
-                $"{l.WindCorrection:+0;-0;0}°", $"{l.MagneticHeading:000}°", $"{l.GroundSpeedKt:0}", l.Time, l.FuelL.ToString("0.0", Fr), "", ""]);
+                $"{l.WindCorrection:+0;-0;0}°", $"{l.MagneticHeading:000}°", $"{l.GroundSpeedKt:0}", l.Time, l.FuelL.ToString("0.0", Fr), l.Eta, ""]);
         }
         navRows.Add(["", Loc.Get("FlightSheetBuilder_Total"), input.Log.TotalDistanceNm.ToString("0.0", Fr), "", "", "", "", "", NavMath.FormatTime(input.Log.TotalMinutes),
             input.Log.TotalFuelL.ToString("0.0", Fr), "", ""]);
@@ -107,6 +109,9 @@ public static class FlightSheetBuilder
             foreach (string line in alternates) doc.Blocks.Add(Plain(line));
             doc.Blocks.Add(Small(Loc.Get("FlightSheetBuilder_Depuis_le_terrain_d_arrivee")));
         }
+
+        // --- Prévisions le long de la route
+        AddForecast(doc, input);
 
         // --- Points de navigation et notes
         doc.Blocks.Add(Section(Loc.Get("FlightSheetBuilder_Points_de_navigation_et_notes")));
@@ -355,6 +360,19 @@ public static class FlightSheetBuilder
     }
 
     // ---------- zones ----------
+
+    private static void AddForecast(FlowDocument doc, FlightSheetInput input)
+    {
+        if (input.Forecast is not { Count: > 0 } rows) return;
+        doc.Blocks.Add(Section(Loc.Get("FlightSheetBuilder_Previsions")));
+        if (input.Departure is { } departure) doc.Blocks.Add(Small(Loc.F("Forecast_Depart_hint", DepartureTime.Format(departure))));
+        var headers = new[] { "N°", Loc.Get("Ui_Point"), Loc.Get("Ui_Heure_UTC"), Loc.Get("Ui_Alt_ft"), Loc.Get("Ui_Vent_altitude"), Loc.Get("Ui_Temperature"),
+            Loc.Get("Ui_Nuages_bas_moy_haut"), Loc.Get("Ui_Visibilite"), Loc.Get("Ui_Precipitations"), Loc.Get("Ui_Alertes") };
+        var table = rows.Select(r => new[] { r.Number.ToString(Fr), r.Point, r.Eta, r.AltitudeFt, r.Wind, r.Temperature, r.Clouds, r.Visibility, r.Precipitation,
+            string.Join(" · ", new[] { r.Weather, r.Advisories }.Where(t => t.Length > 0)) }).ToList();
+        doc.Blocks.Add(MakeTable(headers, table, [0.4, 1.2, 0.8, 0.8, 1.4, 0.8, 1.1, 0.9, 0.9, 2.6], rightFrom: 99, highlight: i => rows[i].HasAdvisory));
+        doc.Blocks.Add(Small(Loc.Get("FlightSheetBuilder_Previsions_note")));
+    }
 
     private static void AddSigmets(FlowDocument doc, FlightSheetInput input)
     {

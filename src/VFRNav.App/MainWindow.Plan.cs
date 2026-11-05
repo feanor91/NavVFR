@@ -26,7 +26,7 @@ public partial class MainWindow
         {
             var route = _route.ToList();
             var p = ReadParams();
-            var log = NavMath.ComputeLog(route, p);
+            var log = ComputeRouteLog(route, p);
             var samples = RouteGeometry.Sample(route, 1);
 
             // Relief (service en ligne) : un échec n'empêche pas la feuille, il y est signalé.
@@ -88,7 +88,10 @@ public partial class MainWindow
             snapshot.SetData(terrain, p.CruiseAltFt, route, crossings, terrainNote, obstacles, altitudes);
             var image = terrain is null ? null : ProfileChart.Snapshot(snapshot, 700, 270);
 
-            var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes, AlternateLines(_mode), sigmets, sigmetNote);
+            PlanStatus.Text = Loc.Get("Forecast_Chargement");
+            await ShowForecastAsync(route, p, CancellationToken.None);
+            log = ComputeRouteLog(route, p);   // le vent prévu vient d'arriver, s'il est demandé
+            var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes, AlternateLines(_mode), sigmets, sigmetNote, _forecastRows.Count > 0 ? _forecastRows : null, DepartureUtc());
             var document = FlightSheetBuilder.Build(input);
             string title = Loc.F("Plan_Feuille_de_route", route[0].Icao ?? route[0].Name, route[^1].Icao ?? route[^1].Name);
             new FlightSheetWindow(document, title) { Owner = this }.Show();
