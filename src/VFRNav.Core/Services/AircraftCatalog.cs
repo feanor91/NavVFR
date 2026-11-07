@@ -131,6 +131,7 @@ public sealed class AircraftCatalog
             Vfr = true, Ifr = true,
             CruiseKt = 124, MaxKt = 163, BurnLph = 37.5, FuelCapacityL = 200,
             ServiceCeilingFt = 14000, CruiseAltFt = 4500,
+            VrKt = 55, V2Kt = 74,   // rotation et meilleure vitesse ascensionnelle (Vy)
             Notes = Loc.Get("AircraftCatalog_Lycoming_IO_360_L2A_180") +
                     Loc.Get("AircraftCatalog_Melange_pauvre_8_a_9"),
         },
@@ -154,6 +155,7 @@ public sealed class AircraftCatalog
             Vfr = false, Ifr = true,
             CruiseKt = 447, MaxKt = 473, BurnLph = 2875, FuelCapacityL = 23740,
             ServiceCeilingFt = 39800, CruiseAltFt = 35000,
+            V1Kt = 140, VrKt = 143, V2Kt = 147,   // indicatives : environ 70 t, volets 1+F ; varient avec la masse et la piste
             Notes = Loc.Get("AircraftCatalog_Croisiere_Mach_0_78_447") +
                     Loc.Get("AircraftCatalog_Consommation_2_200_a_2"),
         },

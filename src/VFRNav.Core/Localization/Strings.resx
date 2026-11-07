@@ -654,8 +654,8 @@
   <data name="Ifr_Pour_voler_hors_de_France" xml:space="preserve"><value>Pour voler hors de France, enregistrez une fois les SID/STAR et les routes ATS du monde avec MSFS lancé (boutons de lecture MSFS, dans les données IFR) ; ensuite MSFS n'est plus nécessaire.</value></data>
   <data name="Ifr_Remplacer_la_route_actuelle_par" xml:space="preserve"><value>Remplacer la route actuelle par la route IFR ?</value></data>
   <data name="Ifr_Route_IFR" xml:space="preserve"><value>Route IFR</value></data>
-  <data name="Ifr_arrivee" xml:space="preserve"><value>arrivée {0}</value></data>
-  <data name="Ifr_depart" xml:space="preserve"><value>départ {0}</value></data>
+  <data name="Ifr_Piste_arrivee" xml:space="preserve"><value>arrivée {0}</value></data>
+  <data name="Ifr_Piste_depart" xml:space="preserve"><value>départ {0}</value></data>
   <data name="Ifr_existe_sur_la_carte_mais" xml:space="preserve"><value>&#10;{0} existe sur la carte, mais les données IFR n'en contiennent pas : l'export du SIA ne couvre que la France. </value></data>
   <data name="Ifr_ne_pas_utiliser_pour_naviguer" xml:space="preserve"><value> : ne pas utiliser pour naviguer. Chargez l'export AIXM du SIA.</value></data>
   <data name="IlsApproaches_ILS_MHz_interception_a_NM" xml:space="preserve"><value>ILS {0} {1} {2:0.00} MHz{3}{4}{5} · interception à {6:0} NM ({7:N0} ft), </value></data>
@@ -1314,4 +1314,16 @@
   <data name="Busy_Lecture_donnees_AIRAC" xml:space="preserve"><value>Lecture des données AIRAC du SIA en cours, merci de patienter…</value></data>
   <data name="Busy_Chargement_des_donnees" xml:space="preserve"><value>Chargement des données en cours, merci de patienter…</value></data>
   <data name="Plan_Calcul_arrete" xml:space="preserve"><value>Calcul du plan de vol arrêté.</value></data>
+  <data name="Vertical_Limite" xml:space="preserve"><value>{0} n'est pas atteignable sur {1} NM avec {2} : la montée et la descente prennent trop de distance. Croisière retenue : {3}.</value></data>
+  <data name="Vertical_Atteignable" xml:space="preserve"><value>Croisière {0} atteignable sur {1} NM.</value></data>
+  <data name="Vertical_Montee" xml:space="preserve"><value>Montée jusqu'à {0} : {1}, sommet de montée (TOC) à {2} NM de {3}.</value></data>
+  <data name="Vertical_Descente" xml:space="preserve"><value>Descente : {0}, début de descente (TOD) à {1} NM de {2}.</value></data>
+  <data name="Vertical_Vitesses_decollage" xml:space="preserve"><value>Décollage (indicatif, selon masse, volets et piste) : {0} kt</value></data>
+  <data name="Aircraft_Vitesse_decollage_positive" xml:space="preserve"><value>La vitesse {0} doit être positive.</value></data>
+  <data name="AircraftWindow_V1_kt_facultatif" xml:space="preserve"><value>V1 (kt, facultatif)</value></data>
+  <data name="AircraftWindow_VR_kt_facultatif" xml:space="preserve"><value>VR (kt, facultatif)</value></data>
+  <data name="AircraftWindow_V2_kt_facultatif" xml:space="preserve"><value>V2 (kt, facultatif)</value></data>
+  <data name="AircraftWindow_Vitesses_decollage_tooltip" xml:space="preserve"><value>Vitesse de décision (V1), de rotation (VR) et de montée initiale (V2), indicatives : elles dépendent de la masse, des volets et de la piste.</value></data>
+  <data name="FlightSheetBuilder_Performances" xml:space="preserve"><value>Performances</value></data>
+  <data name="FlightSheetBuilder_Performances_note" xml:space="preserve"><value>Estimations de planification d'après les pentes moyennes de l'appareil : elles ne remplacent ni le manuel de vol ni le calcul de performances. Les vitesses V1, VR et V2 dépendent de la masse, des volets et de la piste.</value></data>
 </root>

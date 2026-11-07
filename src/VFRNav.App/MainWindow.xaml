@@ -191,6 +191,7 @@
                 <Button Content="{local:Tr Ui_Calculer_la_route_IFR}" Click="IfrCompute_Click" Margin="0,8,0,4"
                         ToolTip="{local:Tr Ui_Cherche_le_plus_court_chemin}"/>
                 <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>
+                <TextBlock x:Name="IfrPerfInfo" Foreground="#BFE3FF" FontSize="11.5" TextWrapping="Wrap" Margin="0,0,0,6"/>
                 </StackPanel>
             </Expander>
             <Expander x:Name="SettingsPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">

@@ -654,8 +654,8 @@
   <data name="Ifr_Pour_voler_hors_de_France" xml:space="preserve"><value>To fly outside France, save the world SIDs/STARs and ATS routes once with MSFS running (MSFS read buttons, in the IFR data); after that MSFS is no longer needed.</value></data>
   <data name="Ifr_Remplacer_la_route_actuelle_par" xml:space="preserve"><value>Replace the current route with the IFR route?</value></data>
   <data name="Ifr_Route_IFR" xml:space="preserve"><value>IFR route</value></data>
-  <data name="Ifr_arrivee" xml:space="preserve"><value>arrival {0}</value></data>
-  <data name="Ifr_depart" xml:space="preserve"><value>departure {0}</value></data>
+  <data name="Ifr_Piste_arrivee" xml:space="preserve"><value>arrival {0}</value></data>
+  <data name="Ifr_Piste_depart" xml:space="preserve"><value>departure {0}</value></data>
   <data name="Ifr_existe_sur_la_carte_mais" xml:space="preserve"><value>&#10;{0} exists on the map, but the IFR data does not contain it: the SIA export only covers France. </value></data>
   <data name="Ifr_ne_pas_utiliser_pour_naviguer" xml:space="preserve"><value> : do not use for navigation. Load the SIA AIXM export.</value></data>
   <data name="IlsApproaches_ILS_MHz_interception_a_NM" xml:space="preserve"><value>ILS {0} {1} {2:0.00} MHz{3}{4}{5} · intercept at {6:0} NM ({7:N0} ft), </value></data>
@@ -1314,4 +1314,16 @@
   <data name="Busy_Lecture_donnees_AIRAC" xml:space="preserve"><value>Reading the SIA AIRAC data, please wait…</value></data>
   <data name="Busy_Chargement_des_donnees" xml:space="preserve"><value>Loading data, please wait…</value></data>
   <data name="Plan_Calcul_arrete" xml:space="preserve"><value>Flight plan calculation stopped.</value></data>
+  <data name="Vertical_Limite" xml:space="preserve"><value>{0} cannot be reached over {1} NM with {2}: the climb and descent take too much distance. Cruise level used: {3}.</value></data>
+  <data name="Vertical_Atteignable" xml:space="preserve"><value>Cruise {0} can be reached over {1} NM.</value></data>
+  <data name="Vertical_Montee" xml:space="preserve"><value>Climb to {0}: {1}, top of climb (TOC) {2} NM from {3}.</value></data>
+  <data name="Vertical_Descente" xml:space="preserve"><value>Descent: {0}, top of descent (TOD) {1} NM from {2}.</value></data>
+  <data name="Vertical_Vitesses_decollage" xml:space="preserve"><value>Take-off (indicative, depends on weight, flaps and runway): {0} kt</value></data>
+  <data name="Aircraft_Vitesse_decollage_positive" xml:space="preserve"><value>The {0} speed must be positive.</value></data>
+  <data name="AircraftWindow_V1_kt_facultatif" xml:space="preserve"><value>V1 (kt, optional)</value></data>
+  <data name="AircraftWindow_VR_kt_facultatif" xml:space="preserve"><value>VR (kt, optional)</value></data>
+  <data name="AircraftWindow_V2_kt_facultatif" xml:space="preserve"><value>V2 (kt, optional)</value></data>
+  <data name="AircraftWindow_Vitesses_decollage_tooltip" xml:space="preserve"><value>Decision (V1), rotation (VR) and initial climb (V2) speeds, indicative: they depend on weight, flaps and runway.</value></data>
+  <data name="FlightSheetBuilder_Performances" xml:space="preserve"><value>Performance</value></data>
+  <data name="FlightSheetBuilder_Performances_note" xml:space="preserve"><value>Planning estimates from the aircraft average climb and descent gradients: they do not replace the flight manual or a performance calculation. V1, VR and V2 depend on weight, flaps and runway.</value></data>
 </root>

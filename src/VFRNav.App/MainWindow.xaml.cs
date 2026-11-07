@@ -462,6 +462,7 @@ public partial class MainWindow : Window
         MapControl.Refresh();
         ScheduleLive();
         RefreshAlternates();
+        RefreshVerticalInfo();
     }
 
     private void RefreshLog()

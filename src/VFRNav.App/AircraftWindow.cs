@@ -30,7 +30,7 @@ public sealed class AircraftWindow : Window
     private readonly ComboBox _category = new() { ItemsSource = new[] { Loc.Get("AircraftWindow_Piston"), Loc.Get("AircraftWindow_Turbopropulseur"), "Jet" } };
     private readonly CheckBox _vfr = new() { Content = "VFR" };
     private readonly CheckBox _ifr = new() { Content = "IFR" };
-    private readonly TextBox _cruise = new(), _max = new(), _burn = new(), _fuel = new(), _ceiling = new(), _cruiseAlt = new(), _climb = new(), _descent = new(), _reserve = new();
+    private readonly TextBox _cruise = new(), _max = new(), _burn = new(), _fuel = new(), _ceiling = new(), _cruiseAlt = new(), _climb = new(), _descent = new(), _reserve = new(), _v1 = new(), _vr = new(), _v2 = new();
     private readonly TextBox _notes = new() { AcceptsReturn = true, TextWrapping = TextWrapping.Wrap, Height = 120, VerticalScrollBarVisibility = ScrollBarVisibility.Auto };
     private readonly TextBlock _derived = new() { Foreground = Grey, Margin = new Thickness(0, 6, 0, 0), TextWrapping = TextWrapping.Wrap };
     private readonly TextBlock _error = new() { Foreground = Red, TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 6, 0, 0) };
@@ -99,6 +99,9 @@ public sealed class AircraftWindow : Window
         grid.Children.Add(Field(Loc.Get("AircraftWindow_Plafond_ft_facultatif"), _ceiling));
         grid.Children.Add(Field(Loc.Get("AircraftWindow_Reserve_min_facultatif"), _reserve, Loc.Get("AircraftWindow_Carburant_garde_en_reserve_en")));
         grid.Children.Add(Field(Loc.Get("AircraftWindow_Montee_ft_min_facultatif"), _climb, Loc.Get("AircraftWindow_Sert_au_profil_les_points")));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_V1_kt_facultatif"), _v1, Loc.Get("AircraftWindow_Vitesses_decollage_tooltip")));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_VR_kt_facultatif"), _vr, Loc.Get("AircraftWindow_Vitesses_decollage_tooltip")));
+        grid.Children.Add(Field(Loc.Get("AircraftWindow_V2_kt_facultatif"), _v2, Loc.Get("AircraftWindow_Vitesses_decollage_tooltip")));
         grid.Children.Add(Field(Loc.Get("AircraftWindow_Descente_ft_min_facultatif"), _descent, Loc.Get("AircraftWindow_Idem_pour_la_descente_Vide")));
         form.Children.Add(grid);
 
@@ -127,7 +130,7 @@ public sealed class AircraftWindow : Window
         _save.Click += Save_Click;
         _delete.Click += Delete_Click;
         _duplicate.Click += Duplicate_Click;
-        foreach (var box in new[] { _cruise, _max, _burn, _fuel, _cruiseAlt, _ceiling, _climb, _descent, _reserve })
+        foreach (var box in new[] { _cruise, _max, _burn, _fuel, _cruiseAlt, _ceiling, _climb, _descent, _reserve, _v1, _vr, _v2 })
             box.TextChanged += (_, _) => UpdateDerived();
         _vfr.Click += (_, _) => UpdateDerived();
         _ifr.Click += (_, _) => UpdateDerived();
@@ -192,6 +195,9 @@ public sealed class AircraftWindow : Window
         _cruiseAlt.Text = Num(a.CruiseAltFt);
         _ceiling.Text = a.ServiceCeilingFt is { } c ? Num(c) : "";
         _climb.Text = a.ClimbFpm is { } cl ? Num(cl) : "";
+        _v1.Text = a.V1Kt is { } v1 ? Num(v1) : "";
+        _vr.Text = a.VrKt is { } vr ? Num(vr) : "";
+        _v2.Text = a.V2Kt is { } v2 ? Num(v2) : "";
         _reserve.Text = a.ReserveMinutes is { } rv ? Num(rv) : "";
         _descent.Text = a.DescentFpm is { } de ? Num(de) : "";
         _notes.Text = a.Notes ?? "";
@@ -224,6 +230,9 @@ public sealed class AircraftWindow : Window
         if (_ceiling.Text.Trim().Length == 0) a.ServiceCeilingFt = null;
         else a.ServiceCeilingFt = Parse(_ceiling, Loc.Get("Aircraft_Label_ceiling"), problems);
         a.ReserveMinutes = _reserve.Text.Trim().Length == 0 ? null : Parse(_reserve, Loc.Get("AircraftWindow_reserve"), problems);
+        a.V1Kt = _v1.Text.Trim().Length == 0 ? null : Parse(_v1, "V1", problems);
+        a.VrKt = _vr.Text.Trim().Length == 0 ? null : Parse(_vr, "VR", problems);
+        a.V2Kt = _v2.Text.Trim().Length == 0 ? null : Parse(_v2, "V2", problems);
         a.ClimbFpm = _climb.Text.Trim().Length == 0 ? null : Parse(_climb, Loc.Get("AircraftWindow_taux_de_montee"), problems);
         a.DescentFpm = _descent.Text.Trim().Length == 0 ? null : Parse(_descent, Loc.Get("AircraftWindow_taux_de_descente"), problems);
         a.Notes = string.IsNullOrWhiteSpace(_notes.Text) ? null : _notes.Text.Trim();

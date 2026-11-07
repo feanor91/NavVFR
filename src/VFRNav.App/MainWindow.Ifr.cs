@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System.Windows.Controls;
 using VFRNav.Core.Ifr;
 using VFRNav.Core.Models;
+using VFRNav.Core.Services;
 using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
@@ -211,6 +212,32 @@ public partial class MainWindow
             return;
         }
 
+        // Altitude atteignable : sur une route courte, la montée et la descente ne laissent pas le temps d'atteindre le niveau demandé.
+        VerticalPlan? vertical = null;
+        if (AircraftFor(FlightMode.Ifr) is { } ifrAircraft)
+        {
+            double depFt = _airports.FirstOrDefault(a => a.Ident == dep)?.ElevationFt ?? 0, arrFt = _airports.FirstOrDefault(a => a.Ident == arr)?.ElevationFt ?? 0;
+            var first = new Waypoint { Lat = ifr.Points[0].Lat, Lon = ifr.Points[0].Lon };
+            var last = new Waypoint { Lat = ifr.Points[^1].Lat, Lon = ifr.Points[^1].Lon };
+            double track = MagneticTrack(first, last);
+            double requested = fl is { } asked ? asked * 100.0 : ifrAircraft.CruiseAltFt;
+            vertical = VerticalPlanner.Compute(ifr.DistanceNm, depFt, arrFt, requested, ifrAircraft, track);
+            if (vertical.Limited)
+            {
+                // Le niveau demandé est trop haut : on retient le plus haut atteignable et on refait le trajet à ce niveau (les routes ATS en dépendent).
+                options.FlightLevel = vertical.CruiseFl;
+                IfrPlanResult again;
+                using (BeginBusy(Loc.Get("Busy_Calcul_de_la_route_IFR")))
+                {
+                    var data = _ifrData;
+                    again = await Task.Run(() => IfrRouter.Plan(data, dep, arr, options));
+                }
+                if (again.Route is { } lower) ifr = lower;
+                vertical = VerticalPlanner.Compute(ifr.DistanceNm, depFt, arrFt, vertical.CruiseFt, ifrAircraft, track);
+                IfrFlBox.Text = vertical.CruiseFl.ToString();
+            }
+        }
+
         // Finale ILS indicative : ajoutée avant l'arrivée si la piste (choisie, ou la plus alignée avec l'arrivée) a un ILS dans les données.
         IlsFinal? ilsFinal = null;
         string? ilsNote = null;
@@ -241,14 +268,17 @@ public partial class MainWindow
             firstIls = false;
         }
 
+        if (vertical is not null) InsertVerticalPoints(waypoints, vertical);
+
         _route.Clear();
         foreach (var w in waypoints) _route.Add(w);
         FitRoute();
 
         IfrStatus.Foreground = System.Windows.Media.Brushes.LightGreen;
-        string runways = new[] { Chosen(IfrDepRunwayBox) is { } d ? Loc.F("Ifr_depart", d) : null, Chosen(IfrArrRunwayBox) is { } a ? Loc.F("Ifr_arrivee", a) : null }
+        string runways = new[] { Chosen(IfrDepRunwayBox) is { } d ? Loc.F("Ifr_Piste_depart", d) : null, Chosen(IfrArrRunwayBox) is { } a ? Loc.F("Ifr_Piste_arrivee", a) : null }
             .Where(t => t is not null).Aggregate("", (acc, t) => acc.Length == 0 ? t! : acc + ", " + t);
         IfrStatus.Text = Loc.F("Ifr_Route_summary", ifr.Description, ifr.DistanceNm, ifr.Points.Count) + (runways.Length > 0 ? Loc.F("Ifr_Runways_line", runways) : "")
             + (ilsFinal is not null && ilsNote is null ? "\n" + ilsFinal.Summary : "") + (ilsNote is not null ? "\n" + ilsNote : "");
+        RefreshVerticalInfo();
     }
 }

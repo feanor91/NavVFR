@@ -42,13 +42,18 @@ public sealed class Aircraft
     public double? ClimbFpm { get; set; }
     public double? DescentFpm { get; set; }
 
+    /// <summary>Vitesses de décollage indicatives en nœuds (V1 décision, VR rotation, V2 montée initiale) ; elles dépendent de la masse, des volets et de la piste. Null = non renseignée.</summary>
+    public double? V1Kt { get; set; }
+    public double? VrKt { get; set; }
+    public double? V2Kt { get; set; }
+
     /// <summary>Réserve de carburant en minutes de vol, retranchée de la portée utile ; null = valeur usuelle du type de navigation (30 min en VFR, 45 min en IFR).</summary>
     public double? ReserveMinutes { get; set; }
 
     public string? Notes { get; set; }
 
     /// <summary>Taux de montée effectif (saisi, sinon usuel de la catégorie), en pieds par minute.</summary>
-    public double ClimbRateFpm => ClimbFpm ?? Category switch { AircraftCategory.Jet => 2200, AircraftCategory.Turboprop => 1500, _ => 700 };
+    public double ClimbRateFpm => ClimbFpm ?? Category switch { AircraftCategory.Jet => 1800, AircraftCategory.Turboprop => 1500, _ => 700 };
 
     public double DescentRateFpm => DescentFpm ?? Category switch { AircraftCategory.Jet => 2000, AircraftCategory.Turboprop => 1000, _ => 500 };
 
@@ -90,6 +95,8 @@ public sealed class Aircraft
         if (!(CruiseAltFt >= 0)) errors.Add(Loc.Get("Aircraft_L_altitude_de_croisiere_ne"));
         if (ClimbFpm is { } c && !(c > 0)) errors.Add(Loc.Get("Aircraft_Le_taux_de_montee_doit"));
         if (DescentFpm is { } d && !(d > 0)) errors.Add(Loc.Get("Aircraft_Le_taux_de_descente_doit"));
+        foreach (var (label, speed) in new[] { ("V1", V1Kt), ("VR", VrKt), ("V2", V2Kt) })
+            if (speed is { } kt && !(kt > 0)) errors.Add(Loc.F("Aircraft_Vitesse_decollage_positive", label));
         if (ReserveMinutes is { } r && !(r >= 0)) errors.Add(Loc.Get("Aircraft_La_reserve_ne_peut_pas"));
         if (ServiceCeilingFt is { } ceiling && !(ceiling >= CruiseAltFt))
             errors.Add(Loc.Get("Aircraft_Le_plafond_ne_peut_pas"));

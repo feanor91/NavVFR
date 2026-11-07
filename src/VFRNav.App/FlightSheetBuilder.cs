@@ -33,7 +33,8 @@ public sealed record FlightSheetInput(
     SigmetReport? Sigmets = null,
     string? SigmetNote = null,
     IReadOnlyList<ForecastRow>? Forecast = null,
-    DateTimeOffset? Departure = null);
+    DateTimeOffset? Departure = null,
+    IReadOnlyList<string>? PerformanceLines = null);
 
 /// <summary>Construit la feuille de route (A4) : tableau de navigation, relief, terrains, météo, zones et balises.</summary>
 public static class FlightSheetBuilder
@@ -85,6 +86,14 @@ public static class FlightSheetBuilder
 
         doc.Blocks.Add(Small(Loc.Get("FlightSheetBuilder_Le_carburant_est_calcule_avec")
             + Loc.Get("FlightSheetBuilder_verifie_les_dans_son_manuel")));
+
+        // --- Performances (IFR) : vitesses de décollage, altitude atteignable, TOC et TOD
+        if (input.PerformanceLines is { Count: > 0 } performance)
+        {
+            doc.Blocks.Add(Section(Loc.Get("FlightSheetBuilder_Performances")));
+            foreach (string line in performance) doc.Blocks.Add(Plain(line));
+            doc.Blocks.Add(Small(Loc.Get("FlightSheetBuilder_Performances_note")));
+        }
 
         // --- Tableau de navigation
         doc.Blocks.Add(Section(Loc.Get("FlightSheetBuilder_Navigation")));

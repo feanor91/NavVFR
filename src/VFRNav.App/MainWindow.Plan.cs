@@ -103,7 +103,7 @@ public partial class MainWindow
             SetBusyDetail(PlanStatus.Text);
             await ShowForecastAsync(route, p, cts.Token);
             log = ComputeRouteLog(route, p);   // le vent prévu vient d'arriver, s'il est demandé
-            var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes, AlternateLines(_mode), sigmets, sigmetNote, _forecastRows.Count > 0 ? _forecastRows : null, DepartureUtc());
+            var input = new FlightSheetInput(route, p, log, terrain, terrainNote, crossings, navaids, obstacles, obstacleNote, airports, image, weatherNote, DateTimeOffset.Now, briefings, altitudes, AlternateLines(_mode), sigmets, sigmetNote, _forecastRows.Count > 0 ? _forecastRows : null, DepartureUtc(), _mode == FlightMode.Ifr ? VerticalLines() : null);
             var document = FlightSheetBuilder.Build(input);
             string title = Loc.F("Plan_Feuille_de_route", route[0].Icao ?? route[0].Name, route[^1].Icao ?? route[^1].Name);
             new FlightSheetWindow(document, title) { Owner = this }.Show();

@@ -101,6 +101,7 @@ public partial class MainWindow
     {
         if (!_aircraftReady || _loadingParams || !IsLoaded) return;
         RefreshLog();
+        RefreshVerticalInfo();
         ScheduleLive();
         RedrawSigmet();
     }
@@ -116,6 +117,7 @@ public partial class MainWindow
     private void AfterAircraftChange()
     {
         RefreshAlternates();
+        RefreshVerticalInfo();
         ScheduleLive();
         UpdateAircraftUi();
         if (IsLoaded) RefreshLog();

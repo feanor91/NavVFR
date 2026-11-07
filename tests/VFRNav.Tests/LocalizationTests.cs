@@ -78,6 +78,17 @@ public class LocalizationTests
     }
 
     [Fact]
+    public void No_resource_name_differs_from_another_only_by_its_case()
+    {
+        // La compilation des ressources compare les noms sans tenir compte de la casse et ignore les doublons : le texte s'afficherait sous forme de clé.
+        foreach (var file in new[] { "Strings.resx", "Strings.en.resx" })
+        {
+            var duplicates = ReadResx(file).Keys.GroupBy(k => k, StringComparer.OrdinalIgnoreCase).Where(g => g.Count() > 1).Select(g => string.Join("/", g));
+            Assert.Empty(duplicates);
+        }
+    }
+
+    [Fact]
     public void Language_is_resolved_from_the_setting_then_windows_then_french()
     {
         var fr = CultureInfo.GetCultureInfo("fr-FR"); var en = CultureInfo.GetCultureInfo("en-US"); var de = CultureInfo.GetCultureInfo("de-DE");

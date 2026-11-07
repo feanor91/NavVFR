@@ -305,7 +305,7 @@ public class RangeCircleTests
     public void Climb_and_descent_gradients_follow_the_rates_and_the_cruise_speed()
     {
         var jet = new Aircraft { Category = AircraftCategory.Jet, CruiseKt = 450 };
-        Assert.Equal(2200 / (450 * 0.8 / 60), jet.ClimbFtPerNm, 3);
+        Assert.Equal(1800 / (450 * 0.8 / 60), jet.ClimbFtPerNm, 3);
         Assert.Equal(2000 / (450 * 0.85 / 60), jet.DescentFtPerNm, 3);
 
         var piston = new Aircraft { Category = AircraftCategory.Piston, CruiseKt = 100, ClimbFpm = 400 };

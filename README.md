@@ -50,6 +50,7 @@ Le panneau de gauche a quatre parties : **Commun** (notes du point, calcul du pl
 
 ### Route IFR
 
+- **Profil vertical IFR** : d'après les pentes de montée et de descente de l'appareil, l'altitude demandée est ramenée à la plus haute réellement atteignable sur la distance (avec la règle semi-circulaire : niveaux impairs vers l'est, pairs vers l'ouest) ; le niveau de vol et le trajet sont recalculés, et les points **TOC** (fin de la montée) et **TOD** (début de la descente) sont placés sur la route. Le panneau IFR affiche aussi les vitesses de décollage **V1 / VR / V2** de l'appareil (réglables dans sa fiche, indicatives : elles dépendent de la masse, des volets et de la piste). Estimations de planification, pas un calcul de performances.
 - **Calcul de route** : départ, arrivée, niveau de vol, SID, STAR et pistes au choix ; plus court chemin (A*) sur les routes ATS ; route libre à partir du FL195, seulement entre points de pays où elle existe (liste européenne indicative). Les listes de SID et de STAR indiquent le point de sortie (« AGOP6H → AGOPA ») ou d'entrée (« NISA7R ← NISAR ») ; « Aucune » raccorde directement le terrain au réseau, sans procédure.
 - **France** : routes ATS de l'export AIXM 4.5 gratuit du SIA (bouton « Charger les données AIRAC »). Cet export ne contient pas les SID/STAR.
 - **Monde, lu dans MSFS** (SimConnect), une fois, puis utilisable **sans simulateur** :
