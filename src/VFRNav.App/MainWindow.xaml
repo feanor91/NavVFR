@@ -20,6 +20,9 @@
             <Setter Property="Padding" Value="8,4"/>
             <Setter Property="Margin" Value="0,0,6,6"/>
         </Style>
+        <Style x:Key="ProcedureItem" TargetType="ComboBoxItem">
+            <EventSetter Event="MouseEnter" Handler="IfrProcedureItem_MouseEnter"/>
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -127,7 +130,7 @@
                 </StackPanel>
             </Expander>
             
-            <Expander x:Name="IfrPanel" IsExpanded="True" Margin="0,0,0,10" Foreground="#E8EEFC">
+            <Expander x:Name="IfrPanel" IsExpanded="True" Expanded="IfrPanel_Toggled" Collapsed="IfrPanel_Toggled" Margin="0,0,0,10" Foreground="#E8EEFC">
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="IFR" Foreground="White" FontSize="18" FontWeight="Bold"/>
@@ -178,12 +181,14 @@
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Piste_d_arrivee}"/>
                         <ComboBox x:Name="IfrArrRunwayBox" SelectionChanged="IfrRunway_Changed" ToolTip="{local:Tr Ui_Piste_conseillee_d_apres_le}"/></StackPanel>
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="SID"/>
-                        <ComboBox x:Name="IfrSidBox"/></StackPanel>
+                        <ComboBox x:Name="IfrSidBox" SelectionChanged="IfrProcedure_Changed" DropDownClosed="IfrProcedureDropDown_Closed" ItemContainerStyle="{StaticResource ProcedureItem}"/></StackPanel>
                     <StackPanel><TextBlock Style="{StaticResource Label}" Text="STAR"/>
-                        <ComboBox x:Name="IfrStarBox"/></StackPanel>
+                        <ComboBox x:Name="IfrStarBox" SelectionChanged="IfrProcedure_Changed" DropDownClosed="IfrProcedureDropDown_Closed" ItemContainerStyle="{StaticResource ProcedureItem}"/></StackPanel>
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Croisiere_FL}" ToolTip="{local:Tr Ui_Facultatif_ecarte_les_routes_ATS}"/>
                         <TextBox x:Name="IfrFlBox" TextChanged="CruiseAlt_Changed" ToolTip="{local:Tr Ui_Facultatif_ecarte_les_routes_ATS_2}"/></StackPanel>
                 </UniformGrid>
+                <CheckBox x:Name="IfrProcedureMapCheck" Content="{local:Tr Ui_Afficher_les_SID_STAR_sur}" Foreground="#E8EEFC" Margin="0,6,0,0" IsChecked="True"
+                          Click="IfrProcedure_Changed" ToolTip="{local:Tr Ui_Afficher_les_SID_STAR_tooltip}"/>
                 <TextBlock x:Name="IfrAirportInfo" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,4,0,0"/>
                 <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_DEGAGEMENT}"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="{local:Tr Ui_Aeroports_de_detournement_codes_OACI}"/>
@@ -192,8 +197,11 @@
                 <TextBlock x:Name="IfrAltnInfo" Foreground="#FFD479" FontSize="11.5" TextWrapping="Wrap" Margin="0,4,0,0"/>
                 <CheckBox x:Name="IfrIlsCheck" Content="{local:Tr Ui_Ajouter_la_finale_ILS_indicative}" Margin="0,8,0,0" Foreground="#E8EEFC" IsChecked="True"
                           ToolTip="{local:Tr Ui_Ajoute_a_la_route_l}"/>
+                <CheckBox x:Name="IfrOpenSheetCheck" Content="{local:Tr Ui_Ouvrir_la_feuille_de_route}" Foreground="#E8EEFC" Margin="0,8,0,0" IsChecked="True"
+                          ToolTip="{local:Tr Ui_Ouvrir_la_feuille_de_route_tooltip}"/>
                 <Button Content="{local:Tr Ui_Calculer_la_route_IFR}" Click="IfrCompute_Click" Margin="0,8,0,4"
                         ToolTip="{local:Tr Ui_Cherche_le_plus_court_chemin}"/>
+                <Button Content="{local:Tr Ui_Calculer_le_plan_de_vol}" Click="CalculatePlan_Click" Background="#0B5FB0" Foreground="White" Padding="8" FontWeight="SemiBold" Margin="0,0,0,4"/>
                 <TextBlock x:Name="IfrStatus" Style="{StaticResource Label}" TextWrapping="Wrap" Margin="0,0,0,4"/>
                 <TextBlock x:Name="IfrPerfInfo" Foreground="#BFE3FF" FontSize="11.5" TextWrapping="Wrap" Margin="0,0,0,6"/>
                 </StackPanel>

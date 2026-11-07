@@ -1340,4 +1340,8 @@
   <data name="IfrProcedures_Vouliez_vous" xml:space="preserve"><value>Vouliez-vous dire {0} ?</value></data>
   <data name="IfrProcedures_Terrain_MSFS_seulement" xml:space="preserve"><value>{0} n'est connu que des données de MSFS (absent de la base mondiale OurAirports) : il n'apparaît donc ni sur la carte ni dans la recherche de terrains.</value></data>
   <data name="AirportSearch_Code_MSFS" xml:space="preserve"><value>code MSFS {0}</value></data>
+  <data name="Ui_Afficher_les_SID_STAR_sur" xml:space="preserve"><value>Afficher les SID et STAR sur la carte</value></data>
+  <data name="Ui_Afficher_les_SID_STAR_tooltip" xml:space="preserve"><value>Dessine les SID du départ (turquoise) et les STAR de l'arrivée (orange), celles de la piste choisie ou toutes si « Auto ». La procédure choisie dans la liste est en gras, les autres en pâle.</value></data>
+  <data name="Ui_Ouvrir_la_feuille_de_route" xml:space="preserve"><value>Ouvrir la feuille de route après le calcul</value></data>
+  <data name="Ui_Ouvrir_la_feuille_de_route_tooltip" xml:space="preserve"><value>Après « Calculer la route IFR », ouvre la feuille de route (aperçu, impression, PDF). Elle prend quelques secondes : relief, obstacles, météo.</value></data>
 </root>

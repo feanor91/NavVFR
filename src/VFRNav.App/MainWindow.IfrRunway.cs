@@ -53,6 +53,7 @@ public partial class MainWindow
         if (departure) _depRunwayPinned = true; else _arrRunwayPinned = true;
         FillProcedures(departure ? IfrSidBox : IfrStarBox, departure ? IfrDepRunwayBox : IfrArrRunwayBox,
             departure ? IfrDepBox.Text : IfrArrBox.Text, departure ? ProcedureKind.Sid : ProcedureKind.Star, keepRunways: true);
+        RefreshProcedureMap();
     }
 
     // ---------- conseil ----------

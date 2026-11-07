@@ -119,4 +119,28 @@ public class VerticalPlannerTests
         var a = new Aircraft { Name = "X", V1Kt = 0 };
         Assert.Contains(a.Validate(), e => e.Contains("V1"));
     }
+
+    [Fact]
+    public void Top_of_descent_moves_before_a_star_point_constrained_below_the_cruise_level()
+    {
+        // 300 NM ; croisière FL350 ; le planificateur placerait le TOD à environ 190 NM du départ.
+        var plan = VerticalPlanner.Compute(300, 0, 0, 35000, A320());
+        Assert.False(plan.Limited);
+
+        // Entrée de STAR à 270 NM, contrainte à 24 000 ft : la descente doit commencer assez tôt pour y arriver à ce niveau.
+        var adjusted = plan.WithTopOfDescentBefore([(0, null), (270, 24000), (290, 9000), (300, null)]);
+
+        Assert.True(adjusted.TopOfDescentNm <= 270 - (35000 - 24000) / A320().DescentFtPerNm + 0.001);
+        Assert.True(adjusted.TopOfDescentNm >= adjusted.TopOfClimbNm);
+        Assert.Equal(plan.CruiseFt, adjusted.CruiseFt);
+    }
+
+    [Fact]
+    public void Top_of_descent_is_unchanged_when_no_point_is_constrained_below_the_cruise_or_before_the_top_of_climb()
+    {
+        var plan = VerticalPlanner.Compute(900, 0, 0, 35000, A320());
+        Assert.Equal(plan.TopOfDescentNm, plan.WithTopOfDescentBefore([(0, null), (450, null), (900, null)]).TopOfDescentNm);
+        Assert.Equal(plan.TopOfDescentNm, plan.WithTopOfDescentBefore([(5, 3000), (60, 8000)]).TopOfDescentNm);   // contraintes de SID, avant la fin de la montée
+        Assert.Equal(plan.TopOfDescentNm, plan.WithTopOfDescentBefore([(500, 34800)]).TopOfDescentNm);          // presque la croisière : sans effet
+    }
 }

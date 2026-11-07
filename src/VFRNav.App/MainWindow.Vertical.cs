@@ -20,7 +20,8 @@ public partial class MainWindow
         if (_route.Count < 2 || AircraftFor(FlightMode.Ifr) is not { } aircraft) return null;
         var route = _route.ToList();
         double distance = NavMath.ComputeLog(route, ReadParams()).TotalDistanceNm;
-        var plan = VerticalPlanner.Compute(distance, route[0].ElevationFt, route[^1].ElevationFt, RequestedIfrCruiseFt(aircraft), aircraft, MagneticTrack(route[0], route[^1]));
+        var plan = VerticalPlanner.Compute(distance, route[0].ElevationFt, route[^1].ElevationFt, RequestedIfrCruiseFt(aircraft), aircraft, MagneticTrack(route[0], route[^1]))
+            .WithTopOfDescentBefore(ConstrainedPoints(route));
         return (plan, aircraft);
     }
 
@@ -44,8 +45,20 @@ public partial class MainWindow
     /// Place « TOC » (fin de la montée) et « TOD » (début de la descente) sur la route, à l'altitude de croisière : la route les montre sur la carte
     /// et dans le profil. Sur une route trop courte pour une croisière, un seul point « TOC/TOD » marque le sommet.
     /// </summary>
+    /// <summary>Distance depuis le départ et altitude imposée de chaque point de la route (celles des procédures, ou saisies).</summary>
+    private static IEnumerable<(double AlongNm, double? AltitudeFt)> ConstrainedPoints(IReadOnlyList<Waypoint> route)
+    {
+        double along = 0;
+        for (int i = 0; i < route.Count; i++)
+        {
+            if (i > 0) along += NavMath.DistanceNm(route[i - 1], route[i]);
+            yield return (along, route[i].IsAirport ? null : route[i].AltitudeFt);
+        }
+    }
+
     private static void InsertVerticalPoints(List<Waypoint> route, VerticalPlan plan)
     {
+        plan = plan.WithTopOfDescentBefore(ConstrainedPoints(route));
         double total = Total(route);
         if (plan.TopOfClimbNm >= plan.TopOfDescentNm - 1)
         {

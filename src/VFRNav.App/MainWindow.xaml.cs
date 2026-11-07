@@ -114,6 +114,8 @@ public partial class MainWindow : Window
         FillDepartureChoices();
         DepartureText = _settings.DepartureUtc;
         ForecastWindCheck.IsChecked = _settings.UseForecastWind;
+        IfrProcedureMapCheck.IsChecked = _settings.ShowProcedureMap;
+        IfrOpenSheetCheck.IsChecked = _settings.IfrOpenSheetAfterCompute;
         _loadingParams = false;
 
         foreach (var wp in _settings.Route) _route.Add(wp);
@@ -131,6 +133,7 @@ public partial class MainWindow : Window
         map.Layers.Add(_rangeLayer);
         ProfileView.AltitudeEdited += OnProfileAltitude;
         map.Layers.Add(_reportLayer);
+        map.Layers.Add(_procedureLayer);
         map.Layers.Add(_routeLayer);
         map.Layers.Add(_legLabelLayer);
         map.Layers.Add(_airportLayer);
@@ -199,6 +202,8 @@ public partial class MainWindow : Window
         _settings.IfrAlternates = IfrAltnBox.Text.Trim();
         _settings.DepartureUtc = DepartureText;
         _settings.UseForecastWind = ForecastWindCheck.IsChecked == true;
+        _settings.ShowProcedureMap = IfrProcedureMapCheck.IsChecked == true;
+        _settings.IfrOpenSheetAfterCompute = IfrOpenSheetCheck.IsChecked == true;
         _settings.BaseMap = BaseMaps.Keys[Math.Max(BaseMapBox.SelectedIndex, 0)];
         _settings.TasKt = p.TasKt; _settings.BurnLph = p.BurnLph;
         _settings.CruiseAltFt = Parse(VfrAltBox, _settings.CruiseAltFt);

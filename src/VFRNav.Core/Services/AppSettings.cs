@@ -86,6 +86,12 @@ public sealed class AppSettings
 
     /// <summary>Le log de navigation utilise le vent prévu à l'altitude de chaque tronçon plutôt que le vent supposé.</summary>
     public bool UseForecastWind { get; set; }
+
+    /// <summary>Dessiner sur la carte les SID du départ et les STAR de l'arrivée choisis dans le panneau IFR.</summary>
+    public bool ShowProcedureMap { get; set; } = true;
+
+    /// <summary>Ouvrir la feuille de route après le calcul d'une route IFR.</summary>
+    public bool IfrOpenSheetAfterCompute { get; set; } = true;
     public string IfrAlternates { get; set; } = "";
     public List<Waypoint> Route { get; set; } = [];
 

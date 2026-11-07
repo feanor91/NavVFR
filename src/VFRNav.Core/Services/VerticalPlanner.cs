@@ -14,8 +14,26 @@ namespace VFRNav.Core.Services;
 /// <param name="TopOfDescentNm">Distance depuis le départ où la descente commence.</param>
 public sealed record VerticalPlan(
     double DistanceNm, double RequestedFt, double CruiseFt, bool Limited,
-    double TopOfClimbNm, double TopOfDescentNm, double ClimbMinutes, double DescentMinutes)
+    double TopOfClimbNm, double TopOfDescentNm, double ClimbMinutes, double DescentMinutes, double DescentFtPerNm = 0)
 {
+    /// <summary>
+    /// Début de descente ramené avant le premier point de la route (au-delà du sommet de montée) dont l'altitude est inférieure à la croisière :
+    /// typiquement le premier point d'une STAR contraint à une altitude plus basse. Sans cela, le TOD tomberait après lui et la route remonterait.
+    /// <paramref name="points"/> : distance depuis le départ et altitude imposée (null = aucune) de chaque point.
+    /// </summary>
+    public VerticalPlan WithTopOfDescentBefore(IEnumerable<(double AlongNm, double? AltitudeFt)> points)
+    {
+        double gradient = DescentFtPerNm > 0 ? DescentFtPerNm : AltitudeProfile.GradientFtPerNm;
+        double tod = TopOfDescentNm;
+        foreach (var (along, altitude) in points.OrderBy(p => p.AlongNm))
+        {
+            if (altitude is not { } ft || ft >= CruiseFt - 500 || along <= TopOfClimbNm) continue;
+            tod = Math.Min(tod, along - (CruiseFt - ft) / gradient);   // il faut le temps de descendre jusqu'à ce niveau avant ce point
+            break;
+        }
+        return this with { TopOfDescentNm = Math.Max(tod, TopOfClimbNm) };
+    }
+
     /// <summary>Distance du début de la descente à l'arrivée.</summary>
     public double TopOfDescentFromArrivalNm => Math.Max(0, DistanceNm - TopOfDescentNm);
 
@@ -81,7 +99,8 @@ public static class VerticalPlanner
         double toc = Math.Min(climbNm, distanceNm);
         double tod = Math.Max(toc, distanceNm - descentNm);
         return new VerticalPlan(distanceNm, requestedFt, cruise, limited, toc, tod,
-            Math.Max(0, cruise - departureElevationFt) / aircraft.ClimbRateFpm, Math.Max(0, cruise - arrivalElevationFt) / aircraft.DescentRateFpm);
+            Math.Max(0, cruise - departureElevationFt) / aircraft.ClimbRateFpm, Math.Max(0, cruise - arrivalElevationFt) / aircraft.DescentRateFpm,
+            aircraft.DescentFtPerNm);
     }
 
     /// <summary>« FL260 » pour une altitude en pieds au-dessus de la transition (FL100 et plus), « 5 500 ft » dessous.</summary>

@@ -116,6 +116,7 @@ public partial class MainWindow
         IfrAirportInfo.Text = BuildAirportInfo();
         ApplyAdvice();
         ScheduleRunwayAdvice();
+        RefreshProcedureMap();
     }
 
     /// <summary>
@@ -280,5 +281,8 @@ public partial class MainWindow
         IfrStatus.Text = Loc.F("Ifr_Route_summary", ifr.Description, ifr.DistanceNm, ifr.Points.Count) + (runways.Length > 0 ? Loc.F("Ifr_Runways_line", runways) : "")
             + (ilsFinal is not null && ilsNote is null ? "\n" + ilsFinal.Summary : "") + (ilsNote is not null ? "\n" + ilsNote : "");
         RefreshVerticalInfo();
+
+        // La feuille de route (aperçu, impression, PDF) s'ouvre ensuite, comme avec le bouton « Calculer le plan de vol ».
+        if (IfrOpenSheetCheck.IsChecked == true) CalculatePlan_Click(this, new RoutedEventArgs());
     }
 }

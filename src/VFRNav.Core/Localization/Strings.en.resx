@@ -1340,4 +1340,8 @@
   <data name="IfrProcedures_Vouliez_vous" xml:space="preserve"><value>Did you mean {0}?</value></data>
   <data name="IfrProcedures_Terrain_MSFS_seulement" xml:space="preserve"><value>{0} is only known from the MSFS data (it is not in the OurAirports world database): it appears neither on the map nor in the airport search.</value></data>
   <data name="AirportSearch_Code_MSFS" xml:space="preserve"><value>MSFS code {0}</value></data>
+  <data name="Ui_Afficher_les_SID_STAR_sur" xml:space="preserve"><value>Show SIDs and STARs on the map</value></data>
+  <data name="Ui_Afficher_les_SID_STAR_tooltip" xml:space="preserve"><value>Draws the departure SIDs (teal) and the arrival STARs (orange), for the chosen runway or all of them if "Auto". The procedure chosen in the list is bold, the others pale.</value></data>
+  <data name="Ui_Ouvrir_la_feuille_de_route" xml:space="preserve"><value>Open the flight sheet after the calculation</value></data>
+  <data name="Ui_Ouvrir_la_feuille_de_route_tooltip" xml:space="preserve"><value>After "Calculate the IFR route", opens the flight sheet (preview, print, PDF). It takes a few seconds: terrain, obstacles, weather.</value></data>
 </root>
