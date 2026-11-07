@@ -45,7 +45,7 @@ public partial class MainWindow
     /// <summary>Ce que MSFS Rhumb sait déjà du terrain saisi : de quoi partir ou arriver d'ailleurs sans MSFS.</summary>
     private string AirportProcedureInfo(string role, string text, ProcedureKind kind)
     {
-        string icao = text.Trim().ToUpperInvariant();
+        string icao = ResolveIfrCode(text);
         if (icao.Length != 4) return "";
         string label = kind == ProcedureKind.Sid ? "SID" : "STAR";
         // Un code qui n'est pas un terrain (faute de frappe, point de navigation de même nom) : on le dit et on propose le code voisin.

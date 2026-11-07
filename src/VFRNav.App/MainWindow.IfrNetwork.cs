@@ -30,6 +30,7 @@ public partial class MainWindow
         var (network, problem) = await Task.Run(() => (WorldNetworkStore.Read(path, out var p), p));
         _world = network;
         _worldProblem = problem;
+        await ApplyMsfsAliasesAsync();
     }
 
     /// <summary>Ajoute le réseau mondial à la base de navigation en cours (la France reste celle du SIA).</summary>

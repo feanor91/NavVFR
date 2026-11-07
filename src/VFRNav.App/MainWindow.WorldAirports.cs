@@ -68,7 +68,7 @@ public partial class MainWindow
 
         // Les terrains de la route restent toujours dessinés, même hors filtres.
         var routeCodes = _route.Where(w => w.IsAirport).Select(w => w.Icao!).ToHashSet(StringComparer.OrdinalIgnoreCase);
-        var pinned = routeCodes.Count == 0 ? [] : _airports.Where(a => routeCodes.Contains(a.Ident)).ToList();
+        var pinned = routeCodes.Count == 0 ? [] : _airports.Where(a => routeCodes.Contains(a.Ident) || (a.SimIdent is not null && routeCodes.Contains(a.SimIdent))).ToList();
 
         double cell = AirportDisplay.CellPixels * MapControl.Map.Navigator.Viewport.Resolution;
         var selection = AirportDisplay.Select(candidates, VisibleBounds(), cell, AirportDisplay.DefaultCap, pinned);
@@ -104,23 +104,25 @@ public partial class MainWindow
         using (BeginBusy(Loc.Get("Busy_Chargement_des_donnees"))) await LoadDataAsync(refreshWorld: true);
     }
 
-    // ---------- Recherche ----------
-    private void AptSearch_Changed(object sender, TextChangedEventArgs e)
+    // ---------- Recherche (panneaux VFR et IFR) ----------
+
+    /// <summary>Branche les deux zones de recherche de terrains (VFR, IFR) et la complétion des champs Départ et Arrivée de l'IFR.</summary>
+    private void InitAirportSearch()
     {
-        _searchResults = _airportIndex.Find(AptSearchBox.Text);
-        AptSearchList.ItemsSource = _searchResults.Select(a =>
-            $"{a.Ident}{(a.Iata is null ? "" : "/" + a.Iata)} · {a.Name}{(a.City is null ? "" : ", " + a.City)} ({a.Country})").ToList();
-        AptSearchAdd.IsEnabled = false;
+        foreach (var panel in new[] { VfrAirportSearch, IfrAirportSearch })
+        {
+            panel.Finder = query => _airportIndex.Find(query);
+            panel.AirportSelected += CenterOnAirport;
+            panel.AddRequested += AddSearchedAirport;
+        }
+        AirportAutocomplete.Attach(IfrDepBox, query => _airportIndex.Find(query), AirportText.IfrCode);
+        AirportAutocomplete.Attach(IfrArrBox, query => _airportIndex.Find(query), AirportText.IfrCode);
     }
 
-    private Airport? SelectedSearchResult =>
-        AptSearchList.SelectedIndex is >= 0 and var i && i < _searchResults.Count ? _searchResults[i] : null;
-
     /// <summary>Choisir un résultat centre la carte dessus, assez près pour que le terrain soit affiché.</summary>
-    private void AptSearchList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void CenterOnAirport(Airport? apt)
     {
-        if (SelectedSearchResult is not { } apt) { AptSearchAdd.IsEnabled = false; return; }
-        AptSearchAdd.IsEnabled = true;
+        if (apt is null) return;
         var (x, y) = SphericalMercator.FromLonLat(apt.Lon, apt.Lat);
         var nav = MapControl.Map.Navigator;
         double resolution = Math.Min(nav.Viewport.Resolution, 300); // environ 1:1 000 000 : le terrain ressort de la répartition
@@ -128,11 +130,45 @@ public partial class MainWindow
         ApplyAirportFilter();
     }
 
-    private void AptSearchAdd_Click(object sender, RoutedEventArgs e)
+    private void AddSearchedAirport(Airport apt)
     {
-        if (SelectedSearchResult is not { } apt) return;
         _route.Add(apt.ToWaypoint());
+        SyncIfrAirports(AirportText.IfrCode(apt));
         StatusText.Text = Loc.F("WorldAirports_ajoute_a_la_route", apt.Ident);
+    }
+
+    /// <summary>
+    /// Rapproche les terrains de MSFS (réseau IFR) de ceux d'OurAirports par la position : un terrain que MSFS nomme « EGGL » et OurAirports « GB-0309 »
+    /// devient un seul terrain, trouvé par l'un ou l'autre code. Sans effet tant que l'une des deux bases n'est pas chargée.
+    /// </summary>
+    private async Task ApplyMsfsAliasesAsync()
+    {
+        if (_world is not { } world || _airports.Count == 0) return;
+        var airports = _airports;
+        var (merged, index) = await Task.Run(() =>
+        {
+            var sim = world.Fixes.Where(f => f.Kind == VFRNav.Core.Ifr.FixKind.Airport).Select(f => (f.Ident, f.Lat, f.Lon));
+            var map = AirportMatcher.Match(airports, sim);
+            if (map.Count == 0) return (airports, (AirportSearchIndex?)null);
+            var list = airports.Select(a => map.TryGetValue(a.Ident, out var code) && a.SimIdent != code ? a with { SimIdent = code } : a).ToList();
+            return ((IReadOnlyList<Airport>)list, new AirportSearchIndex(list));
+        });
+        if (index is null || !ReferenceEquals(airports, _airports)) return;   // rien à changer, ou la liste a été rechargée entre-temps
+        _airports = merged;
+        _airportIndex = index;
+        ApplyAirportFilter();
+    }
+
+    /// <summary>Terrain (OurAirports) dont le code, ou le code MSFS, est celui donné.</summary>
+    private Airport? AirportByCode(string code) =>
+        _airports.FirstOrDefault(a => string.Equals(a.Ident, code, StringComparison.OrdinalIgnoreCase) || string.Equals(a.SimIdent, code, StringComparison.OrdinalIgnoreCase));
+
+    /// <summary>Code à donner au calcul IFR pour ce qui est saisi : un code OurAirports qui a un code MSFS (GB-0309) devient ce code (EGGL).</summary>
+    private string ResolveIfrCode(string text)
+    {
+        string code = text.Trim().ToUpperInvariant();
+        if (_ifrData.Find(code) is { Kind: VFRNav.Core.Ifr.FixKind.Airport }) return code;
+        return _airports.FirstOrDefault(a => string.Equals(a.Ident, code, StringComparison.OrdinalIgnoreCase))?.SimIdent ?? code;
     }
 }
 

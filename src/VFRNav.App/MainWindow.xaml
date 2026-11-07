@@ -106,6 +106,7 @@
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
                            Text="{local:Tr Ui_Clic_sur_la_carte_point}"/>
 
+                <local:AirportSearchPanel x:Name="VfrAirportSearch"/>
                 <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_APPAREIL_VFR}"/>
                 <DockPanel>
                     <Button DockPanel.Dock="Right" Content="{local:Tr Ui_Gerer}" Click="VfrManage_Click" Margin="6,0,0,0" ToolTip="{local:Tr Ui_Creer_modifier_dupliquer_ou_supprimer}"/>
@@ -159,6 +160,7 @@
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
                            Text="{local:Tr Ui_Clic_sur_la_carte_point}"/>
 
+                <local:AirportSearchPanel x:Name="IfrAirportSearch"/>
                 <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_APPAREIL_IFR}"/>
                 <DockPanel>
                     <Button DockPanel.Dock="Right" Content="{local:Tr Ui_Gerer}" Click="IfrManage_Click" Margin="6,0,0,0" ToolTip="{local:Tr Ui_Creer_modifier_dupliquer_ou_supprimer}"/>
@@ -310,12 +312,6 @@
                 <TextBlock x:Name="FilterCount" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
                            Text="{local:Tr Ui_Les_terrains_se_repartissent_selon}"/>
-
-                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_RECHERCHE_DE_TERRAIN}"/>
-                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Code_OACI_IATA_nom_ou}"/>
-                <TextBox x:Name="AptSearchBox" TextChanged="AptSearch_Changed"/>
-                <ListBox x:Name="AptSearchList" MaxHeight="170" Margin="0,4,0,0" SelectionChanged="AptSearchList_SelectionChanged"/>
-                <Button x:Name="AptSearchAdd" Content="{local:Tr Ui_Ajouter_a_la_route}" Margin="0,4,0,0" Click="AptSearchAdd_Click" IsEnabled="False"/>
 
                 <CheckBox x:Name="ZoneHelpCheck" Content="{local:Tr Ui_Aide_des_zones_en_bas}" Foreground="#E8EEFC" Margin="0,8,0,0" Click="ZoneHelp_Click"/>
 

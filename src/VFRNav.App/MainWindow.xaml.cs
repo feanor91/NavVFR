@@ -60,6 +60,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        InitAirportSearch();
         Title = AppVersion.Title;
         _http.DefaultRequestHeaders.UserAgent.ParseAdd("MSFS-Rhumb");
         _airportStore = new AirportDataStore(_http, AirportDataStore.DefaultDirectory);
@@ -234,6 +235,7 @@ public partial class MainWindow : Window
             ApplyReportingPoints();
             _airports = AirportCatalog.Merge(world.Airports, _aerodromes);
             _airportIndex = await Task.Run(() => new AirportSearchIndex(_airports));
+            await ApplyMsfsAliasesAsync();
             ShowWorldAirportsInfo(world);
             ApplyAirportFilter();
             await LoadNavaidsAsync(country);
@@ -369,7 +371,7 @@ public partial class MainWindow : Window
         if (info?.Feature?["ident"] is string ident && _airports.FirstOrDefault(a => a.Ident == ident) is { } apt)
         {
             _route.Add(apt.ToWaypoint());
-            SyncIfrAirports(apt.Ident);
+            SyncIfrAirports(AirportText.IfrCode(apt));
             ShowAerodrome(apt.Ident);
             e.Handled = true;
             return;

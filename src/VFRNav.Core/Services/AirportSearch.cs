@@ -10,12 +10,12 @@ namespace VFRNav.Core.Services;
 /// </summary>
 public sealed class AirportSearchIndex
 {
-    private readonly record struct Entry(Airport Airport, string Ident, string Iata, string Text);
+    private readonly record struct Entry(Airport Airport, string Ident, string Alias, string Iata, string Text);
 
     private readonly List<Entry> _entries;
 
     public AirportSearchIndex(IEnumerable<Airport> airports) =>
-        _entries = airports.Select(a => new Entry(a, a.Ident.ToUpperInvariant(), (a.Iata ?? "").ToUpperInvariant(), Fold($"{a.Name} {a.City}"))).ToList();
+        _entries = airports.Select(a => new Entry(a, a.Ident.ToUpperInvariant(), (a.SimIdent ?? "").ToUpperInvariant(), (a.Iata ?? "").ToUpperInvariant(), Fold($"{a.Name} {a.City}").Replace('-', ' '))).ToList();
 
     public int Count => _entries.Count;
 
@@ -26,14 +26,14 @@ public sealed class AirportSearchIndex
     public IReadOnlyList<Airport> Find(string query, int max = 8)
     {
         string code = query.Trim().ToUpperInvariant();
-        string text = Fold(query.Trim());
-        if (code.Length == 0 || (code.Length < 2 && !_entries.Any(e => e.Ident == code || e.Iata == code))) return [];
+        string text = Fold(query.Trim()).Replace('-', ' ');
+        if (code.Length == 0 || (code.Length < 2 && !_entries.Any(e => e.Ident == code || e.Alias == code || e.Iata == code))) return [];
 
         var scored = new List<(int Score, Airport Airport)>();
         foreach (var e in _entries)
         {
-            int score = e.Ident == code || e.Iata == code ? 0
-                : e.Ident.StartsWith(code, StringComparison.Ordinal) || (code.Length >= 2 && e.Iata.StartsWith(code, StringComparison.Ordinal)) ? 1
+            int score = e.Ident == code || e.Alias == code || e.Iata == code ? 0
+                : e.Ident.StartsWith(code, StringComparison.Ordinal) || (code.Length >= 2 && (e.Iata.StartsWith(code, StringComparison.Ordinal) || e.Alias.StartsWith(code, StringComparison.Ordinal))) ? 1
                 : e.Text.StartsWith(text, StringComparison.Ordinal) || e.Text.Contains(' ' + text, StringComparison.Ordinal) ? 2
                 : text.Length >= 3 && e.Text.Contains(text, StringComparison.Ordinal) ? 3
                 : -1;

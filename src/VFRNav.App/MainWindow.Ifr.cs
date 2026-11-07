@@ -174,7 +174,7 @@ public partial class MainWindow
     private async void IfrCompute_Click(object sender, RoutedEventArgs e)
     {
         SetMode(FlightMode.Ifr);
-        string dep = IfrDepBox.Text.Trim().ToUpperInvariant(), arr = IfrArrBox.Text.Trim().ToUpperInvariant();
+        string dep = ResolveIfrCode(IfrDepBox.Text), arr = ResolveIfrCode(IfrArrBox.Text);
         int? fl = null;
         if (IfrFlBox.Text.Trim().Length > 0)
         {
@@ -216,7 +216,7 @@ public partial class MainWindow
         VerticalPlan? vertical = null;
         if (AircraftFor(FlightMode.Ifr) is { } ifrAircraft)
         {
-            double depFt = _airports.FirstOrDefault(a => a.Ident == dep)?.ElevationFt ?? 0, arrFt = _airports.FirstOrDefault(a => a.Ident == arr)?.ElevationFt ?? 0;
+            double depFt = AirportByCode(dep)?.ElevationFt ?? 0, arrFt = AirportByCode(arr)?.ElevationFt ?? 0;
             var first = new Waypoint { Lat = ifr.Points[0].Lat, Lon = ifr.Points[0].Lon };
             var last = new Waypoint { Lat = ifr.Points[^1].Lat, Lon = ifr.Points[^1].Lon };
             double track = MagneticTrack(first, last);
@@ -243,7 +243,7 @@ public partial class MainWindow
         string? ilsNote = null;
         if (IfrIlsCheck.IsChecked == true)
         {
-            double field = _airports.FirstOrDefault(a => a.Ident == arr)?.ElevationFt ?? 0;
+            double field = AirportByCode(arr)?.ElevationFt ?? 0;
             (ifr, ilsFinal, ilsNote) = IlsPlanner.Apply(ifr, _ils, Chosen(IfrArrRunwayBox), field);
         }
 

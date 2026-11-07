@@ -832,7 +832,7 @@
   <data name="Ui_Altitude_de_croisiere_par_defaut" xml:space="preserve"><value>Altitude de croisière par défaut. Chaque point de la route peut avoir la sienne (colonne Alt).</value></data>
   <data name="Ui_Altitude_du_sol_meteo_et" xml:space="preserve"><value>Altitude du sol, météo et zones du point suivi, dans une fenêtre à part</value></data>
   <data name="Ui_Animer_le_radar_4_images" xml:space="preserve"><value>Animer le radar (4 images, 30 min)</value></data>
-  <data name="Ui_Arrivee_OACI" xml:space="preserve"><value>Arrivée (OACI)</value></data>
+  <data name="Ui_Arrivee_OACI" xml:space="preserve"><value>Arrivée (code ou ville)</value></data>
   <data name="Ui_Avec_code_IATA_aeroports_commerciaux" xml:space="preserve"><value>Avec code IATA (aéroports commerciaux)</value></data>
   <data name="Ui_Avec_code_LFPL_LF3126" xml:space="preserve"><value>Avec code (LFPL, LF3126…)</value></data>
   <data name="Ui_BALISES" xml:space="preserve"><value>BALISES</value></data>
@@ -867,7 +867,7 @@
   <data name="Ui_DONNEES" xml:space="preserve"><value>DONNÉES</value></data>
   <data name="Ui_DONNEES_DE_NAVIGATION_IFR" xml:space="preserve"><value>DONNÉES DE NAVIGATION IFR</value></data>
   <data name="Ui_Declinaison_E" xml:space="preserve"><value>Déclinaison (°E +)</value></data>
-  <data name="Ui_Depart_OACI" xml:space="preserve"><value>Départ (OACI)</value></data>
+  <data name="Ui_Depart_OACI" xml:space="preserve"><value>Départ (code ou ville)</value></data>
   <data name="Ui_Derive" xml:space="preserve"><value>Dérive</value></data>
   <data name="Ui_Deux_cercles_autour_du_depart" xml:space="preserve"><value>Deux cercles autour du départ : la portée utile (trait plein : tout le carburant moins la réserve de l'appareil) et la portée avec tout le carburant (trait fin tireté). Vitesse de croisière, sans vent.</value></data>
   <data name="Ui_Dist_NM" xml:space="preserve"><value>Dist (NM)</value></data>
@@ -1339,4 +1339,5 @@
   <data name="PlanPicker_Aucun_dossier" xml:space="preserve"><value>Aucun dossier de plans de MSFS n'a été trouvé sur cet ordinateur.</value></data>
   <data name="IfrProcedures_Vouliez_vous" xml:space="preserve"><value>Vouliez-vous dire {0} ?</value></data>
   <data name="IfrProcedures_Terrain_MSFS_seulement" xml:space="preserve"><value>{0} n'est connu que des données de MSFS (absent de la base mondiale OurAirports) : il n'apparaît donc ni sur la carte ni dans la recherche de terrains.</value></data>
+  <data name="AirportSearch_Code_MSFS" xml:space="preserve"><value>code MSFS {0}</value></data>
 </root>
