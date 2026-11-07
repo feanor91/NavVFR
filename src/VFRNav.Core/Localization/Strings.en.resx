@@ -1338,4 +1338,5 @@
   <data name="PlanPicker_Dossiers_examines" xml:space="preserve"><value>Folders searched:</value></data>
   <data name="PlanPicker_Aucun_dossier" xml:space="preserve"><value>No MSFS flight plan folder was found on this computer.</value></data>
   <data name="IfrProcedures_Vouliez_vous" xml:space="preserve"><value>Did you mean {0}?</value></data>
+  <data name="IfrProcedures_Terrain_MSFS_seulement" xml:space="preserve"><value>{0} is only known from the MSFS data (it is not in the OurAirports world database): it appears neither on the map nor in the airport search.</value></data>
 </root>

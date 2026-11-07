@@ -55,12 +55,14 @@ public partial class MainWindow
             string hint = SimilarAirportsHint(icao);
             return Loc.F("IfrProcedures_terrain_inconnu_des_donnees_ni", role, icao) + hint;
         }
+        // Un terrain connu des seules données de MSFS (absent de la base mondiale OurAirports) n'est ni sur la carte ni dans la recherche : on le dit.
+        string msfsOnly = _airports.Any(a => string.Equals(a.Ident, icao, StringComparison.OrdinalIgnoreCase)) ? "" : " " + Loc.F("IfrProcedures_Terrain_MSFS_seulement", icao);
         int count = _ifrData.ProceduresFor(icao, kind).Count();
-        if (count > 0) return Loc.F("IfrProcedures_enregistrees_MSFS_inutile", role, icao, count, label);
+        if (count > 0) return Loc.F("IfrProcedures_enregistrees_MSFS_inutile", role, icao, count, label) + msfsOnly;
 
         // Terrain sans procédure (petite piste, code proche d'un grand aéroport) : on propose les codes voisins qui en ont.
         string suggestion = SimilarAirportsHint(icao);
-        return Loc.F("IfrProcedures_aucune_enregistree_le_terrain_se", role, icao, label) + suggestion;
+        return Loc.F("IfrProcedures_aucune_enregistree_le_terrain_se", role, icao, label) + msfsOnly + suggestion;
     }
 
     /// <summary>

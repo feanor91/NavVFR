@@ -1338,4 +1338,5 @@
   <data name="PlanPicker_Dossiers_examines" xml:space="preserve"><value>Dossiers examinés :</value></data>
   <data name="PlanPicker_Aucun_dossier" xml:space="preserve"><value>Aucun dossier de plans de MSFS n'a été trouvé sur cet ordinateur.</value></data>
   <data name="IfrProcedures_Vouliez_vous" xml:space="preserve"><value>Vouliez-vous dire {0} ?</value></data>
+  <data name="IfrProcedures_Terrain_MSFS_seulement" xml:space="preserve"><value>{0} n'est connu que des données de MSFS (absent de la base mondiale OurAirports) : il n'apparaît donc ni sur la carte ni dans la recherche de terrains.</value></data>
 </root>
