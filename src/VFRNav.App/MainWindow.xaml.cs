@@ -529,19 +529,58 @@ public partial class MainWindow : Window
         if (_route.Count < 2) { StatusText.Text = Loc.Get("xaml_Il_faut_au_moins_deux"); return; }
         string a = _route[0].Icao ?? _route[0].Name, b = _route[^1].Icao ?? _route[^1].Name;
         var dlg = new SaveFileDialog { Filter = Loc.Get("xaml_Plan_de_vol_MSFS_pln"), FileName = $"{a}-{b}.pln", DefaultExt = ".pln" };
+        if (PlanDialogFolder() is { } start) dlg.InitialDirectory = start;
         if (dlg.ShowDialog(this) != true) return;
         File.WriteAllText(dlg.FileName, PlnWriter.Build(_route, ReadParams().CruiseAltFt));
+        RememberPlanFolder(dlg.FileName);
         StatusText.Text = Loc.Get("xaml_Plan_enregistre") + dlg.FileName;
+    }
+
+    /// <summary>
+    /// Dossier de départ des sélecteurs de plans : le dernier utilisé, sinon celui de MSFS, par son vrai chemin : le dossier du Microsoft Store est une jonction
+    /// que le sélecteur de fichiers de Windows refuse de traverser (« point de montage non approuvé »).
+    /// </summary>
+    private string? PlanDialogFolder()
+    {
+        string last = _settings.LastPlanFolder.Trim();
+        if (last.Length > 0 && Directory.Exists(PlanFolders.Resolve(last))) return PlanFolders.Resolve(last);
+        return PlanFolders.MsfsFolders().FirstOrDefault();
+    }
+
+    private void RememberPlanFolder(string file)
+    {
+        if (Path.GetDirectoryName(file) is not { Length: > 0 } folder) return;
+        _settings.LastPlanFolder = PlanFolders.Resolve(folder);
+        try { _settings.Save(); } catch (IOException) { /* non bloquant : retenté à la prochaine sauvegarde des réglages */ }
     }
 
     /// <summary>Ouvre un plan de vol .PLN (de MSFS Rhumb, du simulateur ou d'un autre outil).</summary>
     private void Open_Click(object sender, RoutedEventArgs e)
     {
         var dlg = new OpenFileDialog { Filter = Loc.Get("xaml_Plan_de_vol_MSFS_pln") };
+        if (PlanDialogFolder() is { } start) dlg.InitialDirectory = start;
         if (dlg.ShowDialog(this) != true) return;
+        RememberPlanFolder(dlg.FileName);
+        OpenPlanFile(dlg.FileName);
+    }
+
+    /// <summary>Liste les plans des dossiers de MSFS et ouvre celui qu'on choisit, sans le sélecteur de fichiers de Windows.</summary>
+    private void MsfsPlans_Click(object sender, RoutedEventArgs e)
+    {
+        var folders = PlanFolders.MsfsFolders().ToList();
+        if (_settings.LastPlanFolder.Trim().Length > 0 && Directory.Exists(PlanFolders.Resolve(_settings.LastPlanFolder.Trim())))
+            folders.Add(PlanFolders.Resolve(_settings.LastPlanFolder.Trim()));
+        var picker = new PlanPickerWindow(PlanFolders.PlansIn(folders.Distinct(StringComparer.OrdinalIgnoreCase))) { Owner = this };
+        if (picker.ShowDialog() != true || picker.SelectedPath is not { } path) return;
+        RememberPlanFolder(path);
+        OpenPlanFile(path);
+    }
+
+    private void OpenPlanFile(string path)
+    {
         try
         {
-            var plan = PlnReader.Parse(File.ReadAllText(dlg.FileName));
+            var plan = PlnReader.Parse(File.ReadAllText(path));
             if (plan.CruiseAltFt is { } cruise) SetCruiseAlt(cruise);
             _route.Clear();
             foreach (var w in plan.Route) _route.Add(w);

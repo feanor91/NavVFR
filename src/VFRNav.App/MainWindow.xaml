@@ -100,6 +100,7 @@
                     <Button Content="{local:Tr Ui_Inverser}" Click="Reverse_Click"/>
                     <Button Content="{local:Tr Ui_Effacer}" Click="Clear_Click"/>
                     <Button Content="{local:Tr Ui_Ouvrir_pln}" Click="Open_Click" ToolTip="{local:Tr Ui_Ouvre_un_plan_de_vol}"/>
+                    <Button Content="{local:Tr Ui_Plans_MSFS}" Click="MsfsPlans_Click" ToolTip="{local:Tr Ui_Plans_MSFS_tooltip}"/>
                     <Button Content="{local:Tr Ui_Enregistrer_pln}" Click="Save_Click" ToolTip="{local:Tr Ui_Enregistre_la_route_en_plan}"/>
                 </WrapPanel>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
@@ -152,6 +153,7 @@
                     <Button Content="{local:Tr Ui_Inverser}" Click="Reverse_Click"/>
                     <Button Content="{local:Tr Ui_Effacer}" Click="Clear_Click"/>
                     <Button Content="{local:Tr Ui_Ouvrir_pln}" Click="Open_Click" ToolTip="{local:Tr Ui_Ouvre_un_plan_de_vol}"/>
+                    <Button Content="{local:Tr Ui_Plans_MSFS}" Click="MsfsPlans_Click" ToolTip="{local:Tr Ui_Plans_MSFS_tooltip}"/>
                     <Button Content="{local:Tr Ui_Enregistrer_pln}" Click="Save_Click" ToolTip="{local:Tr Ui_Enregistre_la_route_en_plan}"/>
                 </WrapPanel>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"

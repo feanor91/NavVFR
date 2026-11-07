@@ -1326,4 +1326,13 @@
   <data name="AircraftWindow_Vitesses_decollage_tooltip" xml:space="preserve"><value>Decision (V1), rotation (VR) and initial climb (V2) speeds, indicative: they depend on weight, flaps and runway.</value></data>
   <data name="FlightSheetBuilder_Performances" xml:space="preserve"><value>Performance</value></data>
   <data name="FlightSheetBuilder_Performances_note" xml:space="preserve"><value>Planning estimates from the aircraft average climb and descent gradients: they do not replace the flight manual or a performance calculation. V1, VR and V2 depend on weight, flaps and runway.</value></data>
+  <data name="Ui_Plans_MSFS" xml:space="preserve"><value>MSFS plans…</value></data>
+  <data name="Ui_Plans_MSFS_tooltip" xml:space="preserve"><value>Lists the .pln flight plans in the MSFS folders and opens the one you pick, even when the Windows file picker refuses to enter that folder.</value></data>
+  <data name="PlanPicker_Titre" xml:space="preserve"><value>MSFS flight plans</value></data>
+  <data name="PlanPicker_Nom" xml:space="preserve"><value>Name</value></data>
+  <data name="PlanPicker_Modifie" xml:space="preserve"><value>Modified</value></data>
+  <data name="PlanPicker_Dossier" xml:space="preserve"><value>Folder</value></data>
+  <data name="PlanPicker_Ouvrir" xml:space="preserve"><value>Open</value></data>
+  <data name="PlanPicker_Annuler" xml:space="preserve"><value>Cancel</value></data>
+  <data name="PlanPicker_Aucun" xml:space="preserve"><value>No .pln flight plan found in the MSFS folders.</value></data>
 </root>

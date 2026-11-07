@@ -1326,4 +1326,13 @@
   <data name="AircraftWindow_Vitesses_decollage_tooltip" xml:space="preserve"><value>Vitesse de décision (V1), de rotation (VR) et de montée initiale (V2), indicatives : elles dépendent de la masse, des volets et de la piste.</value></data>
   <data name="FlightSheetBuilder_Performances" xml:space="preserve"><value>Performances</value></data>
   <data name="FlightSheetBuilder_Performances_note" xml:space="preserve"><value>Estimations de planification d'après les pentes moyennes de l'appareil : elles ne remplacent ni le manuel de vol ni le calcul de performances. Les vitesses V1, VR et V2 dépendent de la masse, des volets et de la piste.</value></data>
+  <data name="Ui_Plans_MSFS" xml:space="preserve"><value>Plans MSFS…</value></data>
+  <data name="Ui_Plans_MSFS_tooltip" xml:space="preserve"><value>Liste les plans de vol .pln des dossiers de MSFS et ouvre celui que tu choisis, même quand le sélecteur de fichiers de Windows refuse d'entrer dans ce dossier.</value></data>
+  <data name="PlanPicker_Titre" xml:space="preserve"><value>Plans de vol de MSFS</value></data>
+  <data name="PlanPicker_Nom" xml:space="preserve"><value>Nom</value></data>
+  <data name="PlanPicker_Modifie" xml:space="preserve"><value>Modifié le</value></data>
+  <data name="PlanPicker_Dossier" xml:space="preserve"><value>Dossier</value></data>
+  <data name="PlanPicker_Ouvrir" xml:space="preserve"><value>Ouvrir</value></data>
+  <data name="PlanPicker_Annuler" xml:space="preserve"><value>Annuler</value></data>
+  <data name="PlanPicker_Aucun" xml:space="preserve"><value>Aucun plan de vol .pln trouvé dans les dossiers de MSFS.</value></data>
 </root>

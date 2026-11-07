@@ -81,6 +81,9 @@ public sealed class AppSettings
     /// <summary>Heure de départ saisie (UTC) ; vide = maintenant.</summary>
     public string DepartureUtc { get; set; } = "";
 
+    /// <summary>Dernier dossier où un plan de vol .pln a été ouvert ou enregistré ; vide = dossier de plans de MSFS.</summary>
+    public string LastPlanFolder { get; set; } = "";
+
     /// <summary>Le log de navigation utilise le vent prévu à l'altitude de chaque tronçon plutôt que le vent supposé.</summary>
     public bool UseForecastWind { get; set; }
     public string IfrAlternates { get; set; } = "";
