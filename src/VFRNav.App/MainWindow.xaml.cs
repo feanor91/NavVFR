@@ -570,7 +570,8 @@ public partial class MainWindow : Window
         var folders = PlanFolders.MsfsFolders().ToList();
         if (_settings.LastPlanFolder.Trim().Length > 0 && Directory.Exists(PlanFolders.Resolve(_settings.LastPlanFolder.Trim())))
             folders.Add(PlanFolders.Resolve(_settings.LastPlanFolder.Trim()));
-        var picker = new PlanPickerWindow(PlanFolders.PlansIn(folders.Distinct(StringComparer.OrdinalIgnoreCase))) { Owner = this };
+        var distinct = folders.Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+        var picker = new PlanPickerWindow(PlanFolders.PlansIn(distinct), distinct) { Owner = this };
         if (picker.ShowDialog() != true || picker.SelectedPath is not { } path) return;
         RememberPlanFolder(path);
         OpenPlanFile(path);

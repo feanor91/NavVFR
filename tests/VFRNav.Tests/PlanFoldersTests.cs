@@ -49,15 +49,49 @@ public class PlanFoldersTests : IDisposable
     public void Msfs_folders_are_found_for_the_store_and_steam_layouts_and_only_when_they_exist()
     {
         string local = Path.Combine(_root, "Local"), roaming = Path.Combine(_root, "Roaming");
-        Assert.Empty(PlanFolders.MsfsFolders(local, roaming));
+        Assert.Empty(PlanFolders.MsfsFolders(local, roaming, driveRoots: []));
 
         string store2024 = Path.Combine(local, "Packages", "Microsoft.Limitless_8wekyb3d8bbwe", "LocalState");
         string steam2020 = Path.Combine(roaming, "Microsoft Flight Simulator");
         Directory.CreateDirectory(store2024);
         Directory.CreateDirectory(steam2020);
 
-        var folders = PlanFolders.MsfsFolders(local, roaming);
+        var folders = PlanFolders.MsfsFolders(local, roaming, driveRoots: []);
 
         Assert.Equal([store2024, steam2020], folders);   // MSFS 2024 avant MSFS 2020
+    }
+
+    [Fact]
+    public void Junction_targets_lose_their_nt_prefix_and_relative_targets_become_absolute()
+    {
+        Assert.Equal(@"D:\WpSystem\x", PlanFolders.Clean(@"\??\D:\WpSystem\x", null));
+        Assert.Equal(@"D:\WpSystem\x", PlanFolders.Clean(@"\\?\D:\WpSystem\x", null));
+        Assert.Equal(@"D:\WpSystem\x", PlanFolders.Clean(@"D:\WpSystem\x", @"C:\autre"));
+        Assert.Equal(Path.GetFullPath(@"C:\base\sous"), PlanFolders.Clean(@"sous", @"C:\base"));
+    }
+
+    [Fact]
+    public void Store_folders_are_found_directly_under_wpsystem_without_following_any_junction()
+    {
+        string drive = Path.Combine(_root, "D");
+        string folder = Path.Combine(drive, "WpSystem", "S-1-5-21-1", "AppData", "Local", "Packages", "Microsoft.Limitless_8wekyb3d8bbwe", "LocalState");
+        Directory.CreateDirectory(folder);
+        Directory.CreateDirectory(Path.Combine(_root, "E"));   // un disque sans WpSystem
+
+        Assert.Equal([folder], PlanFolders.WpSystemFolders([Path.Combine(_root, "E"), drive, Path.Combine(_root, "absent")]));
+        Assert.Equal([folder], PlanFolders.MsfsFolders(Path.Combine(_root, "L"), Path.Combine(_root, "R"), driveRoots: [drive]));
+    }
+
+    [Fact]
+    public void A_junction_resolves_to_its_target_when_one_can_be_created()
+    {
+        string target = Path.Combine(_root, "cible"), link = Path.Combine(_root, "lien");
+        Directory.CreateDirectory(target);
+        var psi = new System.Diagnostics.ProcessStartInfo("cmd.exe", $"/c mklink /J \"{link}\" \"{target}\"") { CreateNoWindow = true, UseShellExecute = false, RedirectStandardOutput = true };
+        using (var process = System.Diagnostics.Process.Start(psi)!) process.WaitForExit();
+        if (!Directory.Exists(link)) return;   // création impossible ici (système de fichiers, droits) : rien à vérifier
+
+        try { Assert.Equal(target, PlanFolders.Resolve(link), ignoreCase: true); }
+        finally { Directory.Delete(link); }   // retire la jonction seule : la suppression récursive du dossier de test ne sait pas le faire
     }
 }

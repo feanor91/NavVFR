@@ -17,7 +17,7 @@ public sealed class PlanPickerWindow : Window
 
     public string? SelectedPath { get; private set; }
 
-    public PlanPickerWindow(IReadOnlyList<PlanFile> plans)
+    public PlanPickerWindow(IReadOnlyList<PlanFile> plans, IReadOnlyList<string>? searched = null)
     {
         Title = Loc.Get("PlanPicker_Titre");
         Width = 720;
@@ -49,7 +49,7 @@ public sealed class PlanPickerWindow : Window
         root.Children.Add(buttons);
         if (plans.Count == 0)
         {
-            var none = new TextBlock { Text = Loc.Get("PlanPicker_Aucun"), TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 0, 0, 8) };
+            var none = new TextBlock { Text = Loc.Get("PlanPicker_Aucun") + (searched is { Count: > 0 } ? "\n" + Loc.Get("PlanPicker_Dossiers_examines") + "\n" + string.Join("\n", searched) : "\n" + Loc.Get("PlanPicker_Aucun_dossier")), TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 0, 0, 8) };
             DockPanel.SetDock(none, Dock.Top);
             root.Children.Add(none);
         }

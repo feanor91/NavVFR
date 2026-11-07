@@ -1,4 +1,4 @@
-﻿using System.IO.Compression;
+using System.IO.Compression;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -235,6 +235,16 @@ public sealed class ProcedureLibrary(ProcedureCatalog? bundled, ProcedureCatalog
 
     public SimProcedureImport? Read(string icao) =>
         (user.Has(icao) ? user.Read(icao) : null) ?? (bundled?.Has(icao) == true ? bundled.Read(icao) : null);
+
+    /// <summary>Nombre de procédures enregistrées par terrain (celui de l'utilisateur l'emporte sur celui livré).</summary>
+    public IReadOnlyDictionary<string, int> ProcedureCounts()
+    {
+        var counts = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+        foreach (var catalog in new[] { user, bundled })
+            foreach (var (icao, airport) in catalog?.Snapshot() ?? new Dictionary<string, CatalogAirport>())
+                counts.TryAdd(icao, airport.Procedures);
+        return counts;
+    }
 
     public int AirportCount => AllAirports().Count();
     public int ProcedureCount => AllAirports().Sum(a => a.Procedures);

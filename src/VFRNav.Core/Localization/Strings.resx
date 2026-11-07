@@ -1335,4 +1335,7 @@
   <data name="PlanPicker_Ouvrir" xml:space="preserve"><value>Ouvrir</value></data>
   <data name="PlanPicker_Annuler" xml:space="preserve"><value>Annuler</value></data>
   <data name="PlanPicker_Aucun" xml:space="preserve"><value>Aucun plan de vol .pln trouvé dans les dossiers de MSFS.</value></data>
+  <data name="PlanPicker_Dossiers_examines" xml:space="preserve"><value>Dossiers examinés :</value></data>
+  <data name="PlanPicker_Aucun_dossier" xml:space="preserve"><value>Aucun dossier de plans de MSFS n'a été trouvé sur cet ordinateur.</value></data>
+  <data name="IfrProcedures_Vouliez_vous" xml:space="preserve"><value>Vouliez-vous dire {0} ?</value></data>
 </root>

@@ -1335,4 +1335,7 @@
   <data name="PlanPicker_Ouvrir" xml:space="preserve"><value>Open</value></data>
   <data name="PlanPicker_Annuler" xml:space="preserve"><value>Cancel</value></data>
   <data name="PlanPicker_Aucun" xml:space="preserve"><value>No .pln flight plan found in the MSFS folders.</value></data>
+  <data name="PlanPicker_Dossiers_examines" xml:space="preserve"><value>Folders searched:</value></data>
+  <data name="PlanPicker_Aucun_dossier" xml:space="preserve"><value>No MSFS flight plan folder was found on this computer.</value></data>
+  <data name="IfrProcedures_Vouliez_vous" xml:space="preserve"><value>Did you mean {0}?</value></data>
 </root>

@@ -46,4 +46,6 @@ Name: "{group}\MSFS Rhumb"; Filename: "{app}\MSFSRhumb.exe"
 Name: "{autodesktop}\MSFS Rhumb"; Filename: "{app}\MSFSRhumb.exe"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\MSFSRhumb.exe"; Description: "{cm:LaunchProgram,MSFS Rhumb}"; Flags: nowait postinstall skipifsilent
+; Lancé par l'Explorateur et non directement par l'installeur : un processus lancé par Setup hérite de son contexte (protections de Windows sur les jonctions),
+; ce qui empêchait d'ouvrir le dossier de plans du Microsoft Store (« point de montage non approuvé »). Par l'Explorateur, c'est un lancement normal.
+Filename: "{win}\explorer.exe"; Parameters: """{app}\MSFSRhumb.exe"""; Description: "{cm:LaunchProgram,MSFS Rhumb}"; Flags: nowait postinstall skipifsilent

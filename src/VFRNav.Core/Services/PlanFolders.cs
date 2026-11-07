@@ -10,18 +10,58 @@ public sealed record PlanFile(string Path, string Name, DateTime Modified, strin
 /// </summary>
 public static class PlanFolders
 {
-    /// <summary>Vrai chemin d'un dossier : la cible d'une jonction ou d'un lien symbolique, sinon le chemin tel quel.</summary>
+    /// <summary>
+    /// Vrai chemin d'un dossier : la cible d'une jonction ou d'un lien symbolique, sinon le chemin tel quel. La cible est lue sans traverser le lien
+    /// (<see cref="FileSystemInfo.LinkTarget"/>) : certains processus (protection « Redirection Guard » de Windows) n'ont pas le droit de suivre
+    /// la jonction du Microsoft Store, alors qu'ils peuvent en lire la destination et ouvrir celle-ci directement.
+    /// </summary>
     public static string Resolve(string path)
     {
         try
         {
-            return new DirectoryInfo(path).ResolveLinkTarget(returnFinalTarget: true)?.FullName ?? path;
+            var info = new DirectoryInfo(path);
+            if (info.LinkTarget is { Length: > 0 } target) return Clean(target, Path.GetDirectoryName(path));
+            return info.ResolveLinkTarget(returnFinalTarget: true)?.FullName ?? path;
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or ArgumentException) { return path; }
     }
 
+    /// <summary>Retire le préfixe « \\?\ » ou « \??\ » d'une cible de jonction et la rend absolue.</summary>
+    public static string Clean(string target, string? baseFolder)
+    {
+        foreach (string prefix in new[] { @"\??\", @"\\?\" })
+            if (target.StartsWith(prefix, StringComparison.Ordinal)) target = target[prefix.Length..];
+        return Path.IsPathRooted(target) || baseFolder is null ? target : Path.GetFullPath(Path.Combine(baseFolder, target));
+    }
+
+    /// <summary>
+    /// Dossiers de plans du Microsoft Store trouvés directement dans <c>X:\WpSystem\&lt;SID&gt;\AppData\Local\Packages\...</c> sur chaque disque : le dossier
+    /// réel des jeux installés ailleurs que sur C:, sans passer par la jonction de <c>%LocalAppData%\Packages</c>.
+    /// </summary>
+    public static IReadOnlyList<string> WpSystemFolders(IEnumerable<string> driveRoots)
+    {
+        string[] packages = ["Microsoft.Limitless_8wekyb3d8bbwe", "Microsoft.FlightSimulator_8wekyb3d8bbwe"];
+        var found = new List<string>();
+        foreach (string root in driveRoots)
+        {
+            try
+            {
+                string wp = Path.Combine(root, "WpSystem");
+                if (!Directory.Exists(wp)) continue;
+                foreach (string sid in Directory.EnumerateDirectories(wp))
+                    foreach (string package in packages)
+                    {
+                        string folder = Path.Combine(sid, "AppData", "Local", "Packages", package, "LocalState");
+                        if (Directory.Exists(folder)) found.Add(folder);
+                    }
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { /* disque illisible : on passe au suivant */ }
+        }
+        return found;
+    }
+
     /// <summary>Dossiers de plans de MSFS 2024 et 2020 (Microsoft Store et Steam) qui existent sur cette machine, avec leur vrai chemin.</summary>
-    public static IReadOnlyList<string> MsfsFolders(string? localAppData = null, string? appData = null)
+    public static IReadOnlyList<string> MsfsFolders(string? localAppData = null, string? appData = null, IEnumerable<string>? driveRoots = null)
     {
         localAppData ??= Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         appData ??= Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -38,6 +78,10 @@ public static class PlanFolders
             string real = Resolve(candidate);
             if (Directory.Exists(real) && !found.Contains(real, StringComparer.OrdinalIgnoreCase)) found.Add(real);
         }
+        // Ceux de WpSystem, trouvés sans passer par la jonction (utile quand le processus n'a pas le droit de la suivre).
+        driveRoots ??= DriveInfo.GetDrives().Where(d => d.DriveType == DriveType.Fixed).Select(d => d.RootDirectory.FullName);
+        foreach (string folder in WpSystemFolders(driveRoots))
+            if (!found.Contains(folder, StringComparer.OrdinalIgnoreCase)) found.Add(folder);
         return found;
     }
 

@@ -2,6 +2,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using VFRNav.Core.Ifr;
+using VFRNav.Core.Services;
 using VFRNav.Core.Localization;
 
 namespace VFRNav.App;
@@ -47,11 +48,32 @@ public partial class MainWindow
         string icao = text.Trim().ToUpperInvariant();
         if (icao.Length != 4) return "";
         string label = kind == ProcedureKind.Sid ? "SID" : "STAR";
-        if (_ifrData.Find(icao) is null) return Loc.F("IfrProcedures_terrain_inconnu_des_donnees_ni", role, icao);
+        // Un code qui n'est pas un terrain (faute de frappe, point de navigation de même nom) : on le dit et on propose le code voisin.
+        bool isAirport = _ifrData.Find(icao) is { Kind: FixKind.Airport } || _airports.Any(a => string.Equals(a.Ident, icao, StringComparison.OrdinalIgnoreCase));
+        if (!isAirport)
+        {
+            string hint = SimilarAirportsHint(icao);
+            return Loc.F("IfrProcedures_terrain_inconnu_des_donnees_ni", role, icao) + hint;
+        }
         int count = _ifrData.ProceduresFor(icao, kind).Count();
-        return count > 0
-            ? Loc.F("IfrProcedures_enregistrees_MSFS_inutile", role, icao, count, label)
-            : Loc.F("IfrProcedures_aucune_enregistree_le_terrain_se", role, icao, label);
+        if (count > 0) return Loc.F("IfrProcedures_enregistrees_MSFS_inutile", role, icao, count, label);
+
+        // Terrain sans procédure (petite piste, code proche d'un grand aéroport) : on propose les codes voisins qui en ont.
+        string suggestion = SimilarAirportsHint(icao);
+        return Loc.F("IfrProcedures_aucune_enregistree_le_terrain_se", role, icao, label) + suggestion;
+    }
+
+    /// <summary>
+    /// « Vouliez-vous dire EGLL (London Heathrow) ? » : terrains qui ont des procédures enregistrées et dont le code ne diffère que d'une lettre,
+    /// les plus fournis en procédures d'abord. Vide s'il n'y en a pas.
+    /// </summary>
+    private string SimilarAirportsHint(string icao)
+    {
+        var counts = _procedures.ProcedureCounts();
+        var nearby = AirportSuggestions.Similar(icao, counts.Keys, max: 3, weight: id => counts[id]);
+        if (nearby.Count == 0) return "";
+        string names = string.Join(", ", nearby.Select(id => _airports.FirstOrDefault(a => a.Ident == id) is { } a ? $"{id} ({a.Name})" : id));
+        return " " + Loc.F("IfrProcedures_Vouliez_vous", names);
     }
 
     private void EnsureProceduresForRoute() => EnsureProcedures(IfrDepBox.Text, IfrArrBox.Text);
