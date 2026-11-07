@@ -9,9 +9,44 @@ public sealed class OpenAipService(HttpClient http)
 {
     private static readonly string[] Classes = ["A", "B", "C", "D", "E", "F", "G"];
 
-    public async Task<IReadOnlyList<Airspace>> LoadAsync(string country, string apiKey, CancellationToken ct = default)
+    public async Task<IReadOnlyList<Airspace>> LoadAsync(string country, string apiKey, CancellationToken ct = default) =>
+        Parse(await FetchItemsAsync(country, apiKey, ct));
+
+    /// <summary>
+    /// Comme <see cref="LoadAsync"/>, avec un cache sur disque par pays (<c>FR.json.gz</c>) : tant que le fichier a moins de <paramref name="maxAge"/>,
+    /// les zones sont relues du disque au lieu de plusieurs requêtes à OpenAIP. <paramref name="refresh"/> force le téléchargement.
+    /// </summary>
+    public async Task<IReadOnlyList<Airspace>> LoadCachedAsync(string country, string apiKey, string cacheDirectory, TimeSpan maxAge, bool refresh = false, CancellationToken ct = default)
     {
-        var result = new List<Airspace>();
+        string file = Path.Combine(cacheDirectory, country.ToUpperInvariant() + ".json.gz");
+        if (!refresh && File.Exists(file) && DateTime.UtcNow - File.GetLastWriteTimeUtc(file) < maxAge)
+        {
+            try
+            {
+                await using var gz = new System.IO.Compression.GZipStream(File.OpenRead(file), System.IO.Compression.CompressionMode.Decompress);
+                using var reader = new StreamReader(gz);
+                return Parse(await reader.ReadToEndAsync(ct));
+            }
+            catch (Exception ex) when (ex is IOException or InvalidDataException or JsonException) { /* cache abîmé : on retélécharge */ }
+        }
+
+        string json = await FetchItemsAsync(country, apiKey, ct);
+        try
+        {
+            Directory.CreateDirectory(cacheDirectory);
+            string temporary = file + ".tmp";
+            await using (var gz = new System.IO.Compression.GZipStream(File.Create(temporary), System.IO.Compression.CompressionLevel.Fastest))
+            await using (var writer = new StreamWriter(gz)) await writer.WriteAsync(json);
+            File.Move(temporary, file, overwrite: true);
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { /* le cache est facultatif */ }
+        return Parse(json);
+    }
+
+    /// <summary>Toutes les zones d'un pays, telles que les donne OpenAIP, en un tableau JSON.</summary>
+    private async Task<string> FetchItemsAsync(string country, string apiKey, CancellationToken ct)
+    {
+        var raw = new List<string>();
         int page = 1, totalPages = 1;
         while (page <= totalPages && page <= 30)
         {
@@ -23,10 +58,19 @@ public sealed class OpenAipService(HttpClient http)
             var root = doc.RootElement;
             if (root.TryGetProperty("totalPages", out var tp)) totalPages = tp.GetInt32();
             if (root.TryGetProperty("items", out var items))
-                foreach (var item in items.EnumerateArray())
-                    if (TryParse(item) is { } a) result.Add(a);
+                foreach (var item in items.EnumerateArray()) raw.Add(item.GetRawText());
             page++;
         }
+        return "[" + string.Join(",", raw) + "]";
+    }
+
+    /// <summary>Zones d'un tableau JSON d'éléments OpenAIP (celui de <see cref="FetchItemsAsync"/>).</summary>
+    public static IReadOnlyList<Airspace> Parse(string itemsJson)
+    {
+        var result = new List<Airspace>();
+        using var doc = JsonDocument.Parse(itemsJson);
+        foreach (var item in doc.RootElement.EnumerateArray())
+            if (TryParse(item) is { } a) result.Add(a);
         return result;
     }
 

@@ -228,10 +228,9 @@ public partial class MainWindow : Window
     }
 
     // ---------- Données ----------
-    private async Task LoadDataAsync(bool refreshWorld = false)
+    private async Task LoadDataAsync(bool refreshWorld = false, bool refreshAirspaces = false)
     {
-        string country = CountryBox.Text.Trim().ToUpperInvariant();
-        if (country.Length != 2) { StatusText.Text = Loc.Get("xaml_Code_pays_invalide"); return; }
+        if (TypedCountries().Count == 0) { StatusText.Text = Loc.Get("xaml_Code_pays_invalide"); return; }
         try
         {
             StatusText.Text = Loc.Get("xaml_Chargement_des_terrains_du_monde");
@@ -243,19 +242,11 @@ public partial class MainWindow : Window
             await ApplyMsfsAliasesAsync();
             ShowWorldAirportsInfo(world);
             ApplyAirportFilter();
-            await LoadNavaidsAsync(country);
-            StatusText.Text = Loc.F("Data_Airports_country", _airports.Count, country) + AerodromeSummary();
+            StatusText.Text = Loc.F("Data_Airports_country", _airports.Count, string.Join(" ", TypedCountries())) + AerodromeSummary();
             RefreshRoute();
 
-            string key = KeyBox.Password.Trim();
-            if (key.Length > 0)
-            {
-                StatusText.Text += Loc.Get("xaml_Chargement_des_espaces_aeriens");
-                var spaces = await new OpenAipService(_http).LoadAsync(country, key);
-                _airspaces = spaces;
-                ApplyAirspaceFilter();
-                StatusText.Text = Loc.F("xaml_terrains_espaces_aeriens", _airports.Count, spaces.Count, country) + AerodromeSummary();
-            }
+            // Balises et espaces aériens : pays saisis et pays traversés par la route (les zones viennent du cache sur disque, sauf rechargement demandé).
+            await LoadCountryDataAsync(refreshAirspaces || refreshWorld);
         }
         catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException or IOException)
         {
@@ -527,7 +518,7 @@ public partial class MainWindow : Window
     private async void Reload_Click(object sender, RoutedEventArgs e)
     {
         if (KeyBox.Password.Trim().Length > 0) SetKeyLocked(true);
-        using (BeginBusy(Loc.Get("Busy_Chargement_des_donnees"))) await LoadDataAsync();
+        using (BeginBusy(Loc.Get("Busy_Chargement_des_donnees"))) await LoadDataAsync(refreshAirspaces: true);
     }
 
     /// <summary>La route s'enregistre directement en plan de vol .PLN : le même fichier que lit Microsoft Flight Simulator.</summary>

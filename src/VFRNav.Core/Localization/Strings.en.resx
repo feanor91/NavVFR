@@ -925,7 +925,7 @@
   <data name="Ui_Parametres" xml:space="preserve"><value>Settings</value></data>
   <data name="Ui_Pastilles_meteo_couleur_categorie_de" xml:space="preserve"><value>Weather dots (colour = flight category)</value></data>
   <data name="Ui_Pays_affiches_codes_ISO_FR" xml:space="preserve"><value>Countries shown (ISO codes: FR GB DE; empty = all)</value></data>
-  <data name="Ui_Pays_des_balises_et_espaces" xml:space="preserve"><value>Country of navaids and airspaces (ISO code)</value></data>
+  <data name="Ui_Pays_des_balises_et_espaces" xml:space="preserve"><value>Countries of navaids and airspaces (ISO codes, several allowed: FR GB)</value></data>
   <data name="Ui_Petits" xml:space="preserve"><value>Small</value></data>
   <data name="Ui_Piste_conseillee_d_apres_le" xml:space="preserve"><value>Runway recommended from the METAR wind. Choose another to force it; "Auto" takes the shortest path across all runways.</value></data>
   <data name="Ui_Piste_d_arrivee" xml:space="preserve"><value>Arrival runway</value></data>
@@ -1344,4 +1344,6 @@
   <data name="Ui_Afficher_les_SID_STAR_tooltip" xml:space="preserve"><value>Draws the departure SIDs (teal) and the arrival STARs (orange), for the chosen runway or all of them if "Auto". The procedure chosen in the list is bold, the others pale.</value></data>
   <data name="Ui_Ouvrir_la_feuille_de_route" xml:space="preserve"><value>Open the flight sheet after the calculation</value></data>
   <data name="Ui_Ouvrir_la_feuille_de_route_tooltip" xml:space="preserve"><value>After "Calculate the IFR route", opens the flight sheet (preview, print, PDF). It takes a few seconds: terrain, obstacles, weather.</value></data>
+  <data name="Ui_Pays_tooltip" xml:space="preserve"><value>One or more countries, for example "FR GB BE". The countries the route crosses are added automatically. Airspaces come from OpenAIP (free key) and are kept for seven days on this disk.</value></data>
+  <data name="Countries_Chargement_des_espaces_aeriens" xml:space="preserve"><value>Loading airspaces ({0})…</value></data>
 </root>

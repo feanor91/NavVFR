@@ -148,6 +148,7 @@ public partial class MainWindow
 
         var route = _route.ToList();
         var p = ReadParams();
+        _ = LoadCountriesIfRouteChangedAsync();
         try
         {
             if (Followed() is { } wp) await ShowPointInfoAsync(wp, p, ct);

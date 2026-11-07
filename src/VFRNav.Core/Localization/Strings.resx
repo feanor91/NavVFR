@@ -925,7 +925,7 @@
   <data name="Ui_Parametres" xml:space="preserve"><value>Paramètres</value></data>
   <data name="Ui_Pastilles_meteo_couleur_categorie_de" xml:space="preserve"><value>Pastilles météo (couleur = catégorie de vol)</value></data>
   <data name="Ui_Pays_affiches_codes_ISO_FR" xml:space="preserve"><value>Pays affichés (codes ISO : FR GB DE ; vide = tous)</value></data>
-  <data name="Ui_Pays_des_balises_et_espaces" xml:space="preserve"><value>Pays des balises et espaces aériens (code ISO)</value></data>
+  <data name="Ui_Pays_des_balises_et_espaces" xml:space="preserve"><value>Pays des balises et espaces aériens (codes ISO, plusieurs possibles : FR GB)</value></data>
   <data name="Ui_Petits" xml:space="preserve"><value>Petits</value></data>
   <data name="Ui_Piste_conseillee_d_apres_le" xml:space="preserve"><value>Piste conseillée d'après le vent du METAR. Choisissez-en une autre pour la forcer ; « Auto » prend le trajet le plus court toutes pistes confondues.</value></data>
   <data name="Ui_Piste_d_arrivee" xml:space="preserve"><value>Piste d'arrivée</value></data>
@@ -1344,4 +1344,6 @@
   <data name="Ui_Afficher_les_SID_STAR_tooltip" xml:space="preserve"><value>Dessine les SID du départ (turquoise) et les STAR de l'arrivée (orange), celles de la piste choisie ou toutes si « Auto ». La procédure choisie dans la liste est en gras, les autres en pâle.</value></data>
   <data name="Ui_Ouvrir_la_feuille_de_route" xml:space="preserve"><value>Ouvrir la feuille de route après le calcul</value></data>
   <data name="Ui_Ouvrir_la_feuille_de_route_tooltip" xml:space="preserve"><value>Après « Calculer la route IFR », ouvre la feuille de route (aperçu, impression, PDF). Elle prend quelques secondes : relief, obstacles, météo.</value></data>
+  <data name="Ui_Pays_tooltip" xml:space="preserve"><value>Un ou plusieurs pays, par exemple « FR GB BE ». Les pays que traverse la route sont ajoutés automatiquement. Les espaces aériens viennent d'OpenAIP (clé gratuite) et sont gardés sept jours sur ce disque.</value></data>
+  <data name="Countries_Chargement_des_espaces_aeriens" xml:space="preserve"><value>Chargement des espaces aériens ({0})…</value></data>
 </root>

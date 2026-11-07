@@ -15,9 +15,9 @@ public partial class MainWindow
 {
     private IReadOnlyList<Navaid> _navaids = [];
 
-    private async Task LoadNavaidsAsync(string country)
+    private async Task LoadNavaidsAsync(IReadOnlyList<string> countries)
     {
-        try { _navaids = await new OurAirportsService(_http).LoadNavaidsAsync(country); }
+        try { _navaids = await new OurAirportsService(_http).LoadNavaidsAsync(countries); }
         catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException)
         {
             _navaids = [];

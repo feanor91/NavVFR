@@ -17,16 +17,22 @@ public sealed class OurAirportsService(HttpClient http)
 
     public const string NavaidsUrl = "https://davidmegginson.github.io/ourairports-data/navaids.csv";
 
-    public async Task<IReadOnlyList<Navaid>> LoadNavaidsAsync(string country, CancellationToken ct = default)
+    public Task<IReadOnlyList<Navaid>> LoadNavaidsAsync(string country, CancellationToken ct = default) => LoadNavaidsAsync([country], ct);
+
+    public async Task<IReadOnlyList<Navaid>> LoadNavaidsAsync(IEnumerable<string> countries, CancellationToken ct = default)
     {
         await using var stream = await http.GetStreamAsync(NavaidsUrl, ct);
         using var reader = new StreamReader(stream);
-        return ParseNavaids(reader, country);
+        return ParseNavaids(reader, countries);
     }
 
     /// <summary>VOR et NDB du pays (les DME et TACAN seuls sont ignorés).</summary>
-    public static IReadOnlyList<Navaid> ParseNavaids(TextReader reader, string country)
+    public static IReadOnlyList<Navaid> ParseNavaids(TextReader reader, string country) => ParseNavaids(reader, [country]);
+
+    /// <summary>VOR et NDB des pays donnés.</summary>
+    public static IReadOnlyList<Navaid> ParseNavaids(TextReader reader, IEnumerable<string> countries)
     {
+        var wanted = new HashSet<string>(countries, StringComparer.OrdinalIgnoreCase);
         var result = new List<Navaid>();
         string[]? header = null;
         int iIdent = 0, iName = 0, iType = 0, iFreq = 0, iLat = 0, iLon = 0, iElev = 0, iCountry = 0;
@@ -46,7 +52,7 @@ public sealed class OurAirportsService(HttpClient http)
                 iCountry = Array.IndexOf(header, "iso_country");
                 continue;
             }
-            if (r.Length <= iCountry || !string.Equals(r[iCountry], country, StringComparison.OrdinalIgnoreCase)) continue;
+            if (r.Length <= iCountry || !wanted.Contains(r[iCountry])) continue;
             NavaidKind? kind = r[iType] switch
             {
                 "VOR" or "VOR-DME" or "VORTAC" => NavaidKind.Vor,
