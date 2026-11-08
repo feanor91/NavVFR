@@ -36,6 +36,13 @@ public class CountriesTests : IDisposable
         Assert.True(RouteCountries.Europe.All(c => c.Length == 2));
     }
 
+    [Fact]
+    public void The_airport_filter_countries_understand_europe_too()
+    {
+        Assert.Equal(["IT", "BE"], AirportFilter.ParseCountries("it be"));
+        Assert.Equal(RouteCountries.Europe.Count, AirportFilter.ParseCountries("EUROPE").Count);
+    }
+
     private static Airport Apt(string ident, double lat, double lon, string country) =>
         new(ident, ident, "small_airport", lat, lon, 0, Country: country);
 

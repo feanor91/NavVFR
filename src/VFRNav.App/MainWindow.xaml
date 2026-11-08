@@ -336,7 +336,7 @@
                 <TextBlock x:Name="AirspaceCount" Style="{StaticResource Label}"/>
                 <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_DONNEES}"/>
                 <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Pays_des_balises_et_espaces}"/>
-                <TextBox x:Name="CountryBox" ToolTip="{local:Tr Ui_Pays_tooltip}"/>
+                <TextBox x:Name="CountryBox" TextChanged="CountryText_Changed" ToolTip="{local:Tr Ui_Pays_tooltip}"/>
                 <Button Content="{local:Tr Ui_Actualiser_les_terrains_du_monde}" Margin="0,4,0,0" Click="RefreshWorldAirports_Click"/>
                 <TextBlock x:Name="WorldAirportsInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Cle_API_OpenAIP_espaces_aeriens}"/>

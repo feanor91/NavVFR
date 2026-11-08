@@ -84,6 +84,7 @@ public partial class MainWindow
 
     private void FilterText_Changed(object sender, TextChangedEventArgs e)
     {
+        if (ReferenceEquals(sender, FCountries)) CountryText_Changed(sender, e);
         if (IsLoaded && _airports.Count > 0) ApplyAirportFilter();
     }
 

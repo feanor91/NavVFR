@@ -25,9 +25,7 @@ public sealed record AirportFilter(
     string? Continent = null)
 {
     /// <summary>Codes pays lus dans un texte libre (« fr, gb ; de »), en majuscules, sans doublon ; les mots qui ne font pas deux lettres sont ignorés.</summary>
-    public static IReadOnlyList<string> ParseCountries(string? text) =>
-        (text ?? "").Split([',', ';', ' ', '\t'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-            .Where(t => t.Length == 2 && t.All(char.IsLetter)).Select(t => t.ToUpperInvariant()).Distinct().ToList();
+    public static IReadOnlyList<string> ParseCountries(string? text) => VFRNav.Core.Services.RouteCountries.Parse(text);
 
     public static bool IsLocalCode(Airport a) => a.Ident.Contains('-');
 

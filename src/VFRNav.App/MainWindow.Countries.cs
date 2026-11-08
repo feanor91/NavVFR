@@ -25,7 +25,23 @@ public partial class MainWindow
 
     /// <summary>Pays à charger : ceux saisis, puis ceux que traverse la route.</summary>
     private IReadOnlyList<string> WantedCountries() =>
-        RouteCountries.Wanted(TypedCountries(), RouteCountries.Along(_route.ToList(), _airports));
+        RouteCountries.Wanted(TypedCountries().Concat(AirportFilter.ParseCountries(FCountries.Text)), RouteCountries.Along(_route.ToList(), _airports));
+
+    private readonly System.Windows.Threading.DispatcherTimer _countryTimer = new() { Interval = TimeSpan.FromMilliseconds(1200) };
+    private bool _countryTimerHooked;
+
+    /// <summary>Un pays saisi (champ Pays ou filtre « Pays affichés ») : on recharge zones et balises peu après la dernière frappe.</summary>
+    private void CountryText_Changed(object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        if (!IsLoaded || _airports.Count == 0) return;
+        if (!_countryTimerHooked)
+        {
+            _countryTimerHooked = true;
+            _countryTimer.Tick += async (_, _) => { _countryTimer.Stop(); await LoadCountriesIfRouteChangedAsync(); };
+        }
+        _countryTimer.Stop();
+        _countryTimer.Start();
+    }
 
     /// <summary>
     /// Charge les balises et les espaces aériens des pays voulus. Un pays déjà vu n'est pas redemandé (sauf <paramref name="refresh"/>) ;
@@ -33,7 +49,7 @@ public partial class MainWindow
     /// </summary>
     private async Task LoadCountryDataAsync(bool refresh)
     {
-        if (_countriesBusy) return;
+        if (_countriesBusy) { _countryTimer.Stop(); _countryTimer.Start(); return; }
         var wanted = WantedCountries();
         if (wanted.Count == 0) return;
         _countriesBusy = true;
@@ -78,7 +94,7 @@ public partial class MainWindow
     /// <summary>Quand la route sort des pays chargés, charge ceux qui manquent (zones et balises), sans bloquer l'interface.</summary>
     private async Task LoadCountriesIfRouteChangedAsync()
     {
-        if (_airports.Count == 0 || _countriesBusy) return;
+        if (_airports.Count == 0) return;
         var wanted = WantedCountries();
         if (wanted.Count == 0 || wanted.ToHashSet(StringComparer.OrdinalIgnoreCase).SetEquals(_loadedCountries)) return;
         await LoadCountryDataAsync(refresh: false);
