@@ -51,7 +51,16 @@ public partial class MainWindow
     {
         if (_countriesBusy) { _countryTimer.Stop(); _countryTimer.Start(); return; }
         var wanted = WantedCountries();
-        if (wanted.Count == 0) return;
+        if (wanted.Count == 0)
+        {
+            // Champ vide et route hors de tout pays : plus aucune zone ni balise à montrer.
+            if (_loadedCountries.Count == 0 && _airspaces.Count == 0) return;
+            _loadedCountries = []; _navaidCountries = []; _navaids = []; _airspaces = [];
+            ApplyNavaidFilter();
+            ApplyAirspaceFilter();
+            StatusText.Text = Loc.F("xaml_terrains_espaces_aeriens", _airports.Count, 0, "") + AerodromeSummary();
+            return;
+        }
         _countriesBusy = true;
         try
         {
@@ -99,7 +108,7 @@ public partial class MainWindow
     {
         if (_airports.Count == 0) return;
         var wanted = WantedCountries();
-        if (wanted.Count == 0 || wanted.ToHashSet(StringComparer.OrdinalIgnoreCase).SetEquals(_loadedCountries)) return;
+        if (wanted.ToHashSet(StringComparer.OrdinalIgnoreCase).SetEquals(_loadedCountries)) return;
         await LoadCountryDataAsync(refresh: false);
     }
 }
