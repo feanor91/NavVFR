@@ -326,6 +326,9 @@ public partial class MainWindow : Window
         }
     }
 
+    /// <summary>Groupes repliables du panneau Paramètres (Météo, Aéroports, Espaces aériens…).</summary>
+    private IEnumerable<Expander> SettingGroups() => SettingsPanel.Content is Panel panel ? panel.Children.OfType<Expander>() : [];
+
     private void ApplyAirspaceFilter()
     {
         var filter = ReadAirspaceFilter();

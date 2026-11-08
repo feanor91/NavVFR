@@ -838,7 +838,7 @@
   <data name="Ui_BALISES" xml:space="preserve"><value>NAVAIDS</value></data>
   <data name="Ui_CARTO_Positron_cle_CARTO" xml:space="preserve"><value>CARTO Positron (CARTO key)</value></data>
   <data name="Ui_CARTO_Voyager_cle_CARTO" xml:space="preserve"><value>CARTO Voyager (CARTO key)</value></data>
-  <data name="Ui_CONDITIONS" xml:space="preserve"><value>CONDITIONS</value></data>
+  <data name="Ui_CONDITIONS" xml:space="preserve"><value>FLIGHT CONDITIONS</value></data>
   <data name="Ui_CTR_TMA_CTA_bleu" xml:space="preserve"><value>CTR / TMA / CTA (blue)</value></data>
   <data name="Ui_Calculer_la_route_IFR" xml:space="preserve"><value>Calculate the IFR route</value></data>
   <data name="Ui_Calculer_le_plan_de_vol" xml:space="preserve"><value>Calculate the flight plan and flight sheet</value></data>
@@ -864,7 +864,7 @@
   <data name="Ui_Croisiere_FL" xml:space="preserve"><value>Cruise (FL)</value></data>
   <data name="Ui_Croisiere_ft" xml:space="preserve"><value>Cruise (ft)</value></data>
   <data name="Ui_DEGAGEMENT" xml:space="preserve"><value>ALTERNATES</value></data>
-  <data name="Ui_DONNEES" xml:space="preserve"><value>DATA</value></data>
+  <data name="Ui_DONNEES" xml:space="preserve"><value>DATA SOURCES, UPDATES AND KEYS</value></data>
   <data name="Ui_DONNEES_DE_NAVIGATION_IFR" xml:space="preserve"><value>IFR NAVIGATION DATA</value></data>
   <data name="Ui_Declinaison_E" xml:space="preserve"><value>Variation (°E +)</value></data>
   <data name="Ui_Depart_OACI" xml:space="preserve"><value>Departure (code or city)</value></data>
@@ -878,8 +878,8 @@
   <data name="Ui_Enregistrer_mettre_a_jour_les_2" xml:space="preserve"><value>Save / update the ATS routes outside France (MSFS)</value></data>
   <data name="Ui_Enregistrer_pln" xml:space="preserve"><value>Save .pln</value></data>
   <data name="Ui_Export_AIXM_4_5_gratuit" xml:space="preserve"><value>Free AIXM 4.5 export from the SIA shop: export_xml_bd_SIA_yyyy-mm-dd.zip. It contains the ATS routes but not the SIDs/STARs.</value></data>
-  <data name="Ui_FILTRES_ESPACES_AERIENS" xml:space="preserve"><value>AIRSPACE FILTERS</value></data>
-  <data name="Ui_FILTRES_TERRAINS" xml:space="preserve"><value>AIRPORT FILTERS</value></data>
+  <data name="Ui_FILTRES_ESPACES_AERIENS" xml:space="preserve"><value>AIRSPACES</value></data>
+  <data name="Ui_FILTRES_TERRAINS" xml:space="preserve"><value>AIRPORTS</value></data>
   <data name="Ui_FIR_secteurs_FIS_autres_gris" xml:space="preserve"><value>FIR / FIS sectors / others (grey)</value></data>
   <data name="Ui_FOND_DE_CARTE" xml:space="preserve"><value>BASE MAP</value></data>
   <data name="Ui_Facultatif_ecarte_les_routes_ATS" xml:space="preserve"><value>Optional: rules out ATS routes that do not cover this level. From FL195, free route (direct legs) is allowed.</value></data>
@@ -896,7 +896,7 @@
   <data name="Ui_Les_terrains_se_repartissent_selon" xml:space="preserve"><value>Airports are spread out according to zoom: the most important first, up to 800 on screen. Zoom in to see the others.</value></data>
   <data name="Ui_Log_de_nav" xml:space="preserve"><value>Nav log</value></data>
   <data name="Ui_METAR_TAF" xml:space="preserve"><value>METAR / TAF</value></data>
-  <data name="Ui_METEO_SUR_LA_CARTE" xml:space="preserve"><value>WEATHER ON THE MAP</value></data>
+  <data name="Ui_METEO_SUR_LA_CARTE" xml:space="preserve"><value>WEATHER</value></data>
   <data name="Ui_MSFS_Rhumb" xml:space="preserve"><value>MSFS Rhumb</value></data>
   <data name="Ui_MSFS_lance_explore_les_routes" xml:space="preserve"><value>With MSFS running: explores the world's ATS routes step by step, starting from the saved SID/STAR points, and saves them in the MSFS Rhumb data. France stays the SIA's. Long (up to an hour). A second click stops the reading without saving anything.</value></data>
   <data name="Ui_MSFS_lance_lit_les_SID" xml:space="preserve"><value>With MSFS running: reads the SIDs and STARs of every airport in the simulator and saves them in the MSFS Rhumb data (a few minutes). After that, route calculation no longer needs the simulator. Redo by hand when MSFS updates its data: only airports that changed are rewritten. A second click stops the reading.</value></data>

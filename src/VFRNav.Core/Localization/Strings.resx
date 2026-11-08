@@ -838,7 +838,7 @@
   <data name="Ui_BALISES" xml:space="preserve"><value>BALISES</value></data>
   <data name="Ui_CARTO_Positron_cle_CARTO" xml:space="preserve"><value>CARTO Positron (clé CARTO)</value></data>
   <data name="Ui_CARTO_Voyager_cle_CARTO" xml:space="preserve"><value>CARTO Voyager (clé CARTO)</value></data>
-  <data name="Ui_CONDITIONS" xml:space="preserve"><value>CONDITIONS</value></data>
+  <data name="Ui_CONDITIONS" xml:space="preserve"><value>CONDITIONS DE VOL</value></data>
   <data name="Ui_CTR_TMA_CTA_bleu" xml:space="preserve"><value>CTR / TMA / CTA (bleu)</value></data>
   <data name="Ui_Calculer_la_route_IFR" xml:space="preserve"><value>Calculer la route IFR</value></data>
   <data name="Ui_Calculer_le_plan_de_vol" xml:space="preserve"><value>Calculer le plan de vol et la feuille de route</value></data>
@@ -864,7 +864,7 @@
   <data name="Ui_Croisiere_FL" xml:space="preserve"><value>Croisière (FL)</value></data>
   <data name="Ui_Croisiere_ft" xml:space="preserve"><value>Croisière (ft)</value></data>
   <data name="Ui_DEGAGEMENT" xml:space="preserve"><value>DÉGAGEMENT</value></data>
-  <data name="Ui_DONNEES" xml:space="preserve"><value>DONNÉES</value></data>
+  <data name="Ui_DONNEES" xml:space="preserve"><value>SOURCES DE DONNÉES, MISES À JOUR ET CLÉS</value></data>
   <data name="Ui_DONNEES_DE_NAVIGATION_IFR" xml:space="preserve"><value>DONNÉES DE NAVIGATION IFR</value></data>
   <data name="Ui_Declinaison_E" xml:space="preserve"><value>Déclinaison (°E +)</value></data>
   <data name="Ui_Depart_OACI" xml:space="preserve"><value>Départ (code ou ville)</value></data>
@@ -878,8 +878,8 @@
   <data name="Ui_Enregistrer_mettre_a_jour_les_2" xml:space="preserve"><value>Enregistrer / mettre à jour les routes ATS hors de France (MSFS)</value></data>
   <data name="Ui_Enregistrer_pln" xml:space="preserve"><value>Enregistrer .pln</value></data>
   <data name="Ui_Export_AIXM_4_5_gratuit" xml:space="preserve"><value>Export AIXM 4.5 gratuit de la boutique du SIA : export_xml_bd_SIA_aaaa-mm-jj.zip. Il contient les routes ATS mais pas les SID/STAR.</value></data>
-  <data name="Ui_FILTRES_ESPACES_AERIENS" xml:space="preserve"><value>FILTRES ESPACES AÉRIENS</value></data>
-  <data name="Ui_FILTRES_TERRAINS" xml:space="preserve"><value>FILTRES TERRAINS</value></data>
+  <data name="Ui_FILTRES_ESPACES_AERIENS" xml:space="preserve"><value>ESPACES AÉRIENS</value></data>
+  <data name="Ui_FILTRES_TERRAINS" xml:space="preserve"><value>AÉROPORTS</value></data>
   <data name="Ui_FIR_secteurs_FIS_autres_gris" xml:space="preserve"><value>FIR / secteurs FIS / autres (gris)</value></data>
   <data name="Ui_FOND_DE_CARTE" xml:space="preserve"><value>FOND DE CARTE</value></data>
   <data name="Ui_Facultatif_ecarte_les_routes_ATS" xml:space="preserve"><value>Facultatif : écarte les routes ATS qui ne couvrent pas ce niveau. À partir du FL195, la route libre (tronçons directs) est autorisée.</value></data>
@@ -896,7 +896,7 @@
   <data name="Ui_Les_terrains_se_repartissent_selon" xml:space="preserve"><value>Les terrains se répartissent selon le zoom : les plus importants d'abord, jusqu'à 800 à l'écran. Zoomez pour voir les autres.</value></data>
   <data name="Ui_Log_de_nav" xml:space="preserve"><value>Log de nav</value></data>
   <data name="Ui_METAR_TAF" xml:space="preserve"><value>METAR / TAF</value></data>
-  <data name="Ui_METEO_SUR_LA_CARTE" xml:space="preserve"><value>MÉTÉO SUR LA CARTE</value></data>
+  <data name="Ui_METEO_SUR_LA_CARTE" xml:space="preserve"><value>MÉTÉO</value></data>
   <data name="Ui_MSFS_Rhumb" xml:space="preserve"><value>MSFS Rhumb</value></data>
   <data name="Ui_MSFS_lance_explore_les_routes" xml:space="preserve"><value>MSFS lancé : explore les routes ATS du monde de proche en proche, à partir des points des SID/STAR enregistrées, et les enregistre dans les données de MSFS Rhumb. La France reste celle du SIA. Long (jusqu'à une heure). Un second clic arrête la lecture sans rien enregistrer.</value></data>
   <data name="Ui_MSFS_lance_lit_les_SID" xml:space="preserve"><value>MSFS lancé : lit les SID et STAR de tous les terrains du simulateur et les enregistre dans les données de MSFS Rhumb (quelques minutes). Ensuite le calcul de route n'a plus besoin du simulateur. À refaire à la main quand MSFS met à jour ses données : seuls les terrains qui ont changé sont réécrits. Un second clic arrête la lecture.</value></data>

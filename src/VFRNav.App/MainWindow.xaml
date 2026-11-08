@@ -16,6 +16,11 @@
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Margin" Value="0,14,0,4"/>
         </Style>
+        <Style TargetType="Expander" x:Key="Group">
+            <Setter Property="Foreground" Value="#E8EEFC"/>
+            <Setter Property="Margin" Value="0,8,0,0"/>
+            <Setter Property="IsExpanded" Value="True"/>
+        </Style>
         <Style TargetType="Button">
             <Setter Property="Padding" Value="8,4"/>
             <Setter Property="Margin" Value="0,0,6,6"/>
@@ -214,11 +219,15 @@
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel Margin="4,2,0,0">
-                <TextBlock Style="{StaticResource Header}" Text="LANGUE / LANGUAGE"/>
+                <Expander x:Name="G_Language" Style="{StaticResource Group}" Header="LANGUE / LANGUAGE">
+                <StackPanel Margin="4,2,0,4">
                 <ComboBox x:Name="LanguageBox" SelectionChanged="Language_Changed"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="Pris en compte au redémarrage. / Applied after restart."/>
 
-                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_CONDITIONS}"/>
+                </StackPanel>
+                </Expander>
+                <Expander x:Name="G_Conditions" Style="{StaticResource Group}" Header="{local:Tr Ui_CONDITIONS}">
+                <StackPanel Margin="4,2,0,4">
                 <UniformGrid Columns="2">
                     <StackPanel Margin="0,0,6,0"><TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Declinaison_E}"/><TextBox x:Name="VarBox" TextChanged="Param_Changed"/>
                         <CheckBox x:Name="AutoVarCheck" Content="{local:Tr Ui_auto_depart}" Foreground="#A9C4EE" FontSize="10" Margin="0,2,0,0" IsChecked="True" Click="AutoVar_Click"/></StackPanel>
@@ -229,7 +238,10 @@
                           ToolTip="{local:Tr Ui_Deux_cercles_autour_du_depart}"/>
                 <TextBlock x:Name="RangeInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_FOND_DE_CARTE}"/>
+                </StackPanel>
+                </Expander>
+                <Expander x:Name="G_BaseMap" Style="{StaticResource Group}" Header="{local:Tr Ui_FOND_DE_CARTE}">
+                <StackPanel Margin="4,2,0,4">
                 <ComboBox x:Name="BaseMapBox" SelectionChanged="BaseMap_Changed">
                     <ComboBoxItem Content="{local:Tr Ui_Clair_Esri_sans_cle}"/>
                     <ComboBoxItem Content="{local:Tr Ui_CARTO_Positron_cle_CARTO}"/>
@@ -238,7 +250,10 @@
                     <ComboBoxItem Content="{local:Tr Ui_Rues_OpenStreetMap}"/>
                 </ComboBox>
 
-                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_METEO_SUR_LA_CARTE}"/>
+                </StackPanel>
+                </Expander>
+                <Expander x:Name="G_Weather" Style="{StaticResource Group}" Header="{local:Tr Ui_METEO_SUR_LA_CARTE}">
+                <StackPanel Margin="4,2,0,4">
                 <CheckBox x:Name="RadarCheck" Content="{local:Tr Ui_Radar_de_precipitations_temps_reel}" Foreground="#E8EEFC" Click="WeatherLayer_Click"
                           ToolTip="{local:Tr Ui_Pluie_averses_et_neige_mesurees}"/>
                 <DockPanel Margin="18,2,0,4">
@@ -283,19 +298,15 @@
                     <Run Text="{local:Tr Ui_Weather_data_by}"/><Hyperlink NavigateUri="https://www.rainviewer.com" RequestNavigate="WeatherLink_Navigate">RainViewer</Hyperlink><Run Text="{local:Tr Ui_nuages}"/><Hyperlink NavigateUri="https://view.eumetsat.int" RequestNavigate="WeatherLink_Navigate">EUMETSAT</Hyperlink><Run Text="{local:Tr Ui_Meteo_reelle_elle_peut_differer}"/>
                 </TextBlock>
 
-                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_BALISES}"/>
-                <CheckBox x:Name="NavVorCheck" Content="{local:Tr Ui_VOR_losange_violet}" Foreground="#E8EEFC" Click="NavFilter_Click"/>
-                <CheckBox x:Name="NavNdbCheck" Content="{local:Tr Ui_NDB_ADF_rond_orange}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="NavFilter_Click"/>
-                <CheckBox x:Name="ReportCheck" Content="{local:Tr Ui_Points_de_report_VFR_triangle}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="ReportFilter_Click"
-                          ToolTip="{local:Tr Ui_Points_de_report_des_aerodromes}"/>
-                <TextBlock x:Name="NavCount" Style="{StaticResource Label}"/>
-                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="{local:Tr Ui_Un_clic_sur_une_balise}"/>
-
+                </StackPanel>
+                </Expander>
+                <Expander x:Name="G_Airports" Style="{StaticResource Group}" Header="{local:Tr Ui_FILTRES_TERRAINS}">
+                <StackPanel Margin="4,2,0,4">
                 <CheckBox x:Name="WxDotsCheck" Content="{local:Tr Ui_Pastilles_meteo_couleur_categorie_de}" Foreground="#E8EEFC" Margin="0,8,0,0" Click="WxDots_Click"/>
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
                            Text="{local:Tr Ui_Vert_VFR_bleu_MVFR_rouge}"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_FILTRES_TERRAINS}"/>
+
                 <CheckBox x:Name="FWithCode" Content="{local:Tr Ui_Avec_code_LFPL_LF3126}" Foreground="#E8EEFC" Click="Filter_Click"/>
                 <CheckBox x:Name="FWithoutCode" Content="{local:Tr Ui_Sans_code_FR_xxxx}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
                 <CheckBox x:Name="FVacOnly" Content="{local:Tr Ui_Seulement_avec_carte_VAC}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="Filter_Click"/>
@@ -321,9 +332,15 @@
                 <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap"
                            Text="{local:Tr Ui_Les_terrains_se_repartissent_selon}"/>
 
+                </StackPanel>
+                </Expander>
+                <Expander x:Name="G_Airspaces" Style="{StaticResource Group}" Header="{local:Tr Ui_FILTRES_ESPACES_AERIENS}">
+                <StackPanel Margin="4,2,0,4">
+                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Pays_des_balises_et_espaces}"/>
+                <TextBox x:Name="CountryBox" TextChanged="CountryText_Changed" ToolTip="{local:Tr Ui_Pays_tooltip}"/>
                 <CheckBox x:Name="ZoneHelpCheck" Content="{local:Tr Ui_Aide_des_zones_en_bas}" Foreground="#E8EEFC" Margin="0,8,0,0" Click="ZoneHelp_Click"/>
 
-                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_FILTRES_ESPACES_AERIENS}"/>
+
                 <CheckBox x:Name="ARestricted" Content="{local:Tr Ui_Zones_R_D_P_TSA}" Foreground="#E8EEFC" Click="AirspaceFilter_Click"/>
                 <CheckBox x:Name="AControlled" Content="{local:Tr Ui_CTR_TMA_CTA_bleu}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
                 <CheckBox x:Name="ARadio" Content="{local:Tr Ui_RMZ_TMZ_ATZ_violet}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="AirspaceFilter_Click"/>
@@ -334,9 +351,21 @@
                     <CheckBox x:Name="AFloorCheck" Content="{local:Tr Ui_Masquer_si_plancher_ft}" Foreground="#E8EEFC" VerticalAlignment="Center" Click="AirspaceFloor_Changed"/>
                 </DockPanel>
                 <TextBlock x:Name="AirspaceCount" Style="{StaticResource Label}"/>
-                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_DONNEES}"/>
-                <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Pays_des_balises_et_espaces}"/>
-                <TextBox x:Name="CountryBox" TextChanged="CountryText_Changed" ToolTip="{local:Tr Ui_Pays_tooltip}"/>
+                </StackPanel>
+                </Expander>
+                <Expander x:Name="G_Navaids" Style="{StaticResource Group}" Header="{local:Tr Ui_BALISES}">
+                <StackPanel Margin="4,2,0,4">
+                <CheckBox x:Name="NavVorCheck" Content="{local:Tr Ui_VOR_losange_violet}" Foreground="#E8EEFC" Click="NavFilter_Click"/>
+                <CheckBox x:Name="NavNdbCheck" Content="{local:Tr Ui_NDB_ADF_rond_orange}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="NavFilter_Click"/>
+                <CheckBox x:Name="ReportCheck" Content="{local:Tr Ui_Points_de_report_VFR_triangle}" Foreground="#E8EEFC" Margin="0,3,0,0" Click="ReportFilter_Click"
+                          ToolTip="{local:Tr Ui_Points_de_report_des_aerodromes}"/>
+                <TextBlock x:Name="NavCount" Style="{StaticResource Label}"/>
+                <TextBlock Style="{StaticResource Label}" TextWrapping="Wrap" Text="{local:Tr Ui_Un_clic_sur_une_balise}"/>
+
+                </StackPanel>
+                </Expander>
+                <Expander x:Name="G_Data" Style="{StaticResource Group}" Header="{local:Tr Ui_DONNEES}">
+                <StackPanel Margin="4,2,0,4">
                 <Button Content="{local:Tr Ui_Actualiser_les_terrains_du_monde}" Margin="0,4,0,0" Click="RefreshWorldAirports_Click"/>
                 <TextBlock x:Name="WorldAirportsInfo" Style="{StaticResource Label}" TextWrapping="Wrap"/>
                 <TextBlock Style="{StaticResource Label}" Text="{local:Tr Ui_Cle_API_OpenAIP_espaces_aeriens}"/>
@@ -363,7 +392,10 @@
                 <Button x:Name="VacUpdateButton" Content="{local:Tr Ui_Mettre_a_jour_les_cartes}" Click="VacUpdate_Click" Margin="0,6,0,0"
                         ToolTip="{local:Tr Ui_Telecharge_depuis_le_site_du}"/>
                 <TextBlock x:Name="StatusText" Style="{StaticResource Label}" TextWrapping="Wrap"/>
-                                <TextBlock Style="{StaticResource Header}" Text="{local:Tr Ui_DONNEES_DE_NAVIGATION_IFR}"/>
+                </StackPanel>
+                </Expander>
+                <Expander x:Name="G_IfrData" Style="{StaticResource Group}" Header="{local:Tr Ui_DONNEES_DE_NAVIGATION_IFR}">
+                <StackPanel Margin="4,2,0,4">
                 <Button Content="{local:Tr Ui_Charger_les_donnees_AIRAC_SIA}" Click="IfrLoad_Click" Margin="0,0,0,0"
                         ToolTip="{local:Tr Ui_Export_AIXM_4_5_gratuit}"/>
                 <Button x:Name="IfrSimButton" Content="{local:Tr Ui_Relire_ces_deux_terrains_dans}" Click="IfrSim_Click" Margin="0,0,0,0"
@@ -372,6 +404,8 @@
                         ToolTip="{local:Tr Ui_MSFS_lance_lit_les_SID}"/>
                 <Button x:Name="IfrNetworkButton" Content="{local:Tr Ui_Enregistrer_mettre_a_jour_les_2}" Click="IfrNetwork_Click" Margin="0,0,0,0"
                         ToolTip="{local:Tr Ui_MSFS_lance_explore_les_routes}"/>
+                </StackPanel>
+                </Expander>
                 </StackPanel>
             </Expander>
             </StackPanel>
