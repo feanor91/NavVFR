@@ -51,15 +51,20 @@ public partial class MainWindow
             if (key.Length == 0) { _loadedCountries = wanted; return; }
 
             var service = new OpenAipService(_http);
-            foreach (string country in wanted.Where(c => !_airspacesByCountry.ContainsKey(c)))
+            var failed = new List<string>();
+            var missing = wanted.Where(c => !_airspacesByCountry.ContainsKey(c)).ToList();
+            for (int i = 0; i < missing.Count; i++)
             {
-                StatusText.Text = Loc.F("Countries_Chargement_des_espaces_aeriens", country);
-                _airspacesByCountry[country] = await service.LoadCachedAsync(country, key, AirspaceCacheFolder, AirspaceCacheAge, refresh);
+                string country = missing[i];
+                StatusText.Text = Loc.F("Countries_Chargement_des_espaces_aeriens_n", country, i + 1, missing.Count);
+                try { _airspacesByCountry[country] = await service.LoadCachedAsync(country, key, AirspaceCacheFolder, AirspaceCacheAge, refresh); }
+                catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException or IOException) { failed.Add(country); }
             }
             _loadedCountries = wanted;
             _airspaces = [.. wanted.SelectMany(c => _airspacesByCountry.TryGetValue(c, out var zones) ? zones : [])];
             ApplyAirspaceFilter();
-            StatusText.Text = Loc.F("xaml_terrains_espaces_aeriens", _airports.Count, _airspaces.Count, string.Join(" ", wanted)) + AerodromeSummary();
+            StatusText.Text = Loc.F("xaml_terrains_espaces_aeriens", _airports.Count, _airspaces.Count, string.Join(" ", wanted.Count > 12 ? [.. wanted.Take(12), "…"] : wanted)) + AerodromeSummary()
+                + (failed.Count > 0 ? " " + Loc.F("Countries_Echec", failed.Count, string.Join(" ", failed)) : "");
         }
         catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException or IOException)
         {

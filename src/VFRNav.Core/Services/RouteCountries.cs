@@ -5,12 +5,31 @@ namespace VFRNav.Core.Services;
 /// <summary>Pays saisis et pays traversés par une route : de quoi savoir pour quels pays charger espaces aériens et balises.</summary>
 public static class RouteCountries
 {
-    /// <summary>Codes pays ISO de deux lettres d'une saisie (« FR, gb  BE »), en majuscules, sans doublon, dans l'ordre. Le reste est ignoré.</summary>
-    public static IReadOnlyList<string> Parse(string? text) =>
-        [.. (text ?? "").Split([' ', ',', ';', '/', '\t'], StringSplitOptions.RemoveEmptyEntries)
-            .Select(t => t.Trim().ToUpperInvariant())
-            .Where(t => t.Length == 2 && t.All(char.IsLetter))
-            .Distinct()];
+    /// <summary>
+    /// Pays d'Europe (Union européenne, Royaume-Uni, Suisse, Norvège, Islande, Balkans, Moldavie, Ukraine) : ce que désigne « EUROPE » dans la saisie.
+    /// La Russie, la Biélorussie et la Turquie n'y sont pas : leurs données aéronautiques sont rarement utiles ici et très lourdes.
+    /// </summary>
+    public static readonly IReadOnlyList<string> Europe =
+    [
+        "AL", "AD", "AT", "BA", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GR", "HR", "HU", "IE", "IS", "IT",
+        "LI", "LT", "LU", "LV", "MC", "MD", "ME", "MK", "MT", "NL", "NO", "PL", "PT", "RO", "RS", "SE", "SI", "SK", "SM", "UA",
+    ];
+
+    /// <summary>
+    /// Codes pays ISO de deux lettres d'une saisie (« FR, gb  BE »), en majuscules, sans doublon, dans l'ordre. « EUROPE » (ou « EUROPA ») est remplacé
+    /// par la liste des pays d'Europe. Le reste est ignoré.
+    /// </summary>
+    public static IReadOnlyList<string> Parse(string? text)
+    {
+        var codes = new List<string>();
+        foreach (var raw in (text ?? "").Split([' ', ',', ';', '/', '\t'], StringSplitOptions.RemoveEmptyEntries))
+        {
+            string token = raw.Trim().ToUpperInvariant();
+            if (token is "EUROPE" or "EUROPA") codes.AddRange(Europe);
+            else if (token.Length == 2 && token.All(char.IsLetter)) codes.Add(token);
+        }
+        return [.. codes.Distinct()];
+    }
 
     /// <summary>
     /// Pays traversés par la route : on la parcourt tous les <paramref name="stepNm"/> milles et on prend le pays du terrain le plus proche

@@ -1344,6 +1344,8 @@
   <data name="Ui_Afficher_les_SID_STAR_tooltip" xml:space="preserve"><value>Draws the departure SIDs (teal) and the arrival STARs (orange), for the chosen runway or all of them if "Auto". The procedure chosen in the list is bold, the others pale.</value></data>
   <data name="Ui_Ouvrir_la_feuille_de_route" xml:space="preserve"><value>Open the flight sheet after the calculation</value></data>
   <data name="Ui_Ouvrir_la_feuille_de_route_tooltip" xml:space="preserve"><value>After "Calculate the IFR route", opens the flight sheet (preview, print, PDF). It takes a few seconds: terrain, obstacles, weather.</value></data>
-  <data name="Ui_Pays_tooltip" xml:space="preserve"><value>One or more countries, for example "FR GB BE". The countries the route crosses are added automatically. Airspaces come from OpenAIP (free key) and are kept for seven days on this disk.</value></data>
+  <data name="Ui_Pays_tooltip" xml:space="preserve"><value>One or more countries, for example "FR GB BE", or "EUROPE" for every European country (the first load is long). The countries the route crosses are added automatically. Airspaces come from OpenAIP (free key) and are kept for seven days on this disk. Note: the "Europe" choice in the airport filters only sets which airports are shown.</value></data>
   <data name="Countries_Chargement_des_espaces_aeriens" xml:space="preserve"><value>Loading airspaces ({0})…</value></data>
+  <data name="Countries_Chargement_des_espaces_aeriens_n" xml:space="preserve"><value>Loading airspaces: {0} ({1}/{2})…</value></data>
+  <data name="Countries_Echec" xml:space="preserve"><value>{0} countr(y/ies) not loaded: {1} (try "Reload").</value></data>
 </root>

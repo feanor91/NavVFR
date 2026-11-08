@@ -1344,6 +1344,8 @@
   <data name="Ui_Afficher_les_SID_STAR_tooltip" xml:space="preserve"><value>Dessine les SID du départ (turquoise) et les STAR de l'arrivée (orange), celles de la piste choisie ou toutes si « Auto ». La procédure choisie dans la liste est en gras, les autres en pâle.</value></data>
   <data name="Ui_Ouvrir_la_feuille_de_route" xml:space="preserve"><value>Ouvrir la feuille de route après le calcul</value></data>
   <data name="Ui_Ouvrir_la_feuille_de_route_tooltip" xml:space="preserve"><value>Après « Calculer la route IFR », ouvre la feuille de route (aperçu, impression, PDF). Elle prend quelques secondes : relief, obstacles, météo.</value></data>
-  <data name="Ui_Pays_tooltip" xml:space="preserve"><value>Un ou plusieurs pays, par exemple « FR GB BE ». Les pays que traverse la route sont ajoutés automatiquement. Les espaces aériens viennent d'OpenAIP (clé gratuite) et sont gardés sept jours sur ce disque.</value></data>
+  <data name="Ui_Pays_tooltip" xml:space="preserve"><value>Un ou plusieurs pays, par exemple « FR GB BE », ou « EUROPE » pour tous les pays d'Europe (le premier chargement est long). Les pays que traverse la route sont ajoutés automatiquement. Les espaces aériens viennent d'OpenAIP (clé gratuite) et sont gardés sept jours sur ce disque. Attention : le choix « Europe » des filtres de terrains ne règle que les terrains affichés.</value></data>
   <data name="Countries_Chargement_des_espaces_aeriens" xml:space="preserve"><value>Chargement des espaces aériens ({0})…</value></data>
+  <data name="Countries_Chargement_des_espaces_aeriens_n" xml:space="preserve"><value>Chargement des espaces aériens : {0} ({1}/{2})…</value></data>
+  <data name="Countries_Echec" xml:space="preserve"><value>{0} pays non chargé(s) : {1} (réessaie avec « Recharger »).</value></data>
 </root>

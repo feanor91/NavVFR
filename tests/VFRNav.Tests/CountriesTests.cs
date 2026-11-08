@@ -22,6 +22,20 @@ public class CountriesTests : IDisposable
         Assert.Equal(["FR", "GB", "DE"], RouteCountries.Wanted(["FR", "GB"], ["gb", "DE"]));
     }
 
+    [Fact]
+    public void Europe_expands_to_the_european_countries_without_duplicates()
+    {
+        var all = RouteCountries.Parse("fr europe GB");
+        Assert.Equal("FR", all[0]);
+        Assert.Contains("DE", all);
+        Assert.Contains("GB", all);
+        Assert.Contains("NO", all);
+        Assert.DoesNotContain("RU", all);
+        Assert.Equal(all.Count, all.Distinct().Count());
+        Assert.Equal(RouteCountries.Europe.Count, RouteCountries.Parse("EUROPE").Count);
+        Assert.True(RouteCountries.Europe.All(c => c.Length == 2));
+    }
+
     private static Airport Apt(string ident, double lat, double lon, string country) =>
         new(ident, ident, "small_airport", lat, lon, 0, Country: country);
 
