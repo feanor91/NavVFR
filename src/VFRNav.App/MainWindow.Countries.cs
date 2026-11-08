@@ -18,7 +18,7 @@ public partial class MainWindow
     private static string AirspaceCacheFolder => Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "VFRNav", "cache", "airspaces");
 
-    private static readonly TimeSpan AirspaceCacheAge = TimeSpan.FromDays(7);
+    private static readonly TimeSpan AirspaceCacheAge = TimeSpan.FromDays(28);
 
     /// <summary>Pays saisis dans le champ « Pays » (plusieurs possibles : « FR GB »).</summary>
     private IReadOnlyList<string> TypedCountries() => RouteCountries.Parse(CountryBox.Text);
@@ -45,7 +45,7 @@ public partial class MainWindow
 
     /// <summary>
     /// Charge les balises et les espaces aériens des pays voulus. Un pays déjà vu n'est pas redemandé (sauf <paramref name="refresh"/>) ;
-    /// les zones viennent du cache sur disque tant qu'il a moins de sept jours. Sans clé OpenAIP, seules les balises sont chargées.
+    /// les zones viennent du cache sur disque tant qu'il a moins de 28 jours. Sans clé OpenAIP, seules les balises sont chargées.
     /// </summary>
     private async Task LoadCountryDataAsync(bool refresh)
     {

@@ -19,18 +19,18 @@ public sealed class OpenAipService(HttpClient http)
     public async Task<IReadOnlyList<Airspace>> LoadCachedAsync(string country, string apiKey, string cacheDirectory, TimeSpan maxAge, bool refresh = false, CancellationToken ct = default)
     {
         string file = Path.Combine(cacheDirectory, country.ToUpperInvariant() + ".json.gz");
-        if (!refresh && File.Exists(file) && DateTime.UtcNow - File.GetLastWriteTimeUtc(file) < maxAge)
-        {
-            try
-            {
-                await using var gz = new System.IO.Compression.GZipStream(File.OpenRead(file), System.IO.Compression.CompressionMode.Decompress);
-                using var reader = new StreamReader(gz);
-                return Parse(await reader.ReadToEndAsync(ct));
-            }
-            catch (Exception ex) when (ex is IOException or InvalidDataException or JsonException) { /* cache abîmé : on retélécharge */ }
-        }
+        bool exists = File.Exists(file);
+        if (!refresh && exists && DateTime.UtcNow - File.GetLastWriteTimeUtc(file) < maxAge)
+            if (await ReadCacheAsync(file, ct) is { } cached) return cached;
 
-        string json = await FetchItemsAsync(country, apiKey, ct);
+        string json;
+        try { json = await FetchItemsAsync(country, apiKey, ct); }
+        catch (Exception ex) when (exists && !ct.IsCancellationRequested && ex is HttpRequestException or TaskCanceledException or JsonException)
+        {
+            // Hors ligne ou OpenAIP en panne : les zones changent rarement, un cache périmé vaut mieux que rien.
+            if (await ReadCacheAsync(file, ct) is { } stale) return stale;
+            throw;
+        }
         try
         {
             Directory.CreateDirectory(cacheDirectory);
@@ -41,6 +41,17 @@ public sealed class OpenAipService(HttpClient http)
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { /* le cache est facultatif */ }
         return Parse(json);
+    }
+
+    private static async Task<IReadOnlyList<Airspace>?> ReadCacheAsync(string file, CancellationToken ct)
+    {
+        try
+        {
+            await using var gz = new System.IO.Compression.GZipStream(File.OpenRead(file), System.IO.Compression.CompressionMode.Decompress);
+            using var reader = new StreamReader(gz);
+            return Parse(await reader.ReadToEndAsync(ct));
+        }
+        catch (Exception ex) when (ex is IOException or InvalidDataException or JsonException) { return null; }   // cache abîmé
     }
 
     /// <summary>Toutes les zones d'un pays, telles que les donne OpenAIP, en un tableau JSON.</summary>

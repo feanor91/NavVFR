@@ -121,6 +121,24 @@ public class CountriesTests : IDisposable
         Assert.Equal(3, handler.Requests);                    // cache trop vieux
     }
 
+    private sealed class Offline : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken ct) => throw new HttpRequestException("hors ligne");
+    }
+
+    [Fact]
+    public async Task An_expired_cache_is_used_when_the_download_fails_and_without_cache_the_error_stays()
+    {
+        var online = new OpenAipService(new HttpClient(new FakeOpenAip()));
+        await online.LoadCachedAsync("FR", "clé", _dir, TimeSpan.FromDays(28));
+        File.SetLastWriteTimeUtc(Path.Combine(_dir, "FR.json.gz"), DateTime.UtcNow.AddDays(-60));
+
+        var offline = new OpenAipService(new HttpClient(new Offline()));
+        Assert.Single(await offline.LoadCachedAsync("FR", "clé", _dir, TimeSpan.FromDays(28)));
+        Assert.Single(await offline.LoadCachedAsync("FR", "clé", _dir, TimeSpan.FromDays(28), refresh: true));
+        await Assert.ThrowsAsync<HttpRequestException>(() => offline.LoadCachedAsync("GB", "clé", _dir, TimeSpan.FromDays(28)));
+    }
+
     [Fact]
     public async Task A_damaged_cache_file_is_replaced_by_a_fresh_download()
     {
