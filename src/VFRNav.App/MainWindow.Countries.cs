@@ -25,12 +25,12 @@ public partial class MainWindow
 
     /// <summary>Pays à charger : ceux saisis, puis ceux que traverse la route.</summary>
     private IReadOnlyList<string> WantedCountries() =>
-        RouteCountries.Wanted(TypedCountries().Concat(AirportFilter.ParseCountries(FCountries.Text)), RouteCountries.Along(_route.ToList(), _airports));
+        RouteCountries.Wanted(TypedCountries(), RouteCountries.Along(_route.ToList(), _airports));
 
     private readonly System.Windows.Threading.DispatcherTimer _countryTimer = new() { Interval = TimeSpan.FromMilliseconds(1200) };
     private bool _countryTimerHooked;
 
-    /// <summary>Un pays saisi (champ Pays ou filtre « Pays affichés ») : on recharge zones et balises peu après la dernière frappe.</summary>
+    /// <summary>Un pays saisi dans le champ « Pays » des Données : on recharge zones et balises peu après la dernière frappe.</summary>
     private void CountryText_Changed(object sender, System.Windows.Controls.TextChangedEventArgs e)
     {
         if (!IsLoaded || _airports.Count == 0) return;
@@ -68,14 +68,17 @@ public partial class MainWindow
 
             var service = new OpenAipService(_http);
             var failed = new List<string>();
+            bool stale = false;
             var missing = wanted.Where(c => !_airspacesByCountry.ContainsKey(c)).ToList();
             for (int i = 0; i < missing.Count; i++)
             {
                 string country = missing[i];
+                if (!WantedCountries().SequenceEqual(wanted)) { stale = true; break; }   // saisie modifiée pendant le chargement : on repart
                 StatusText.Text = Loc.F("Countries_Chargement_des_espaces_aeriens_n", country, i + 1, missing.Count);
                 try { _airspacesByCountry[country] = await service.LoadCachedAsync(country, key, AirspaceCacheFolder, AirspaceCacheAge, refresh); }
                 catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException or IOException) { failed.Add(country); }
             }
+            if (stale) { _countryTimer.Stop(); _countryTimer.Start(); return; }
             _loadedCountries = wanted;
             _airspaces = [.. wanted.SelectMany(c => _airspacesByCountry.TryGetValue(c, out var zones) ? zones : [])];
             ApplyAirspaceFilter();
